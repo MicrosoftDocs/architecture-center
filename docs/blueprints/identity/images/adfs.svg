@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="320"
+   height="144"
+   viewBox="0 0 320.00001 144"
+   id="svg8983"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="adfs.svg">
+  <defs
+     id="defs8985">
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker4789"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4466"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#3c3c3c;stroke-opacity:1;fill:#3c3c3c;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker4693"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4695"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#3c3c3c;stroke-opacity:1;fill:#3c3c3c;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4313"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path4316"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker8745"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6,-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#3c3c3c;fill-opacity:1;fill-rule:evenodd;stroke:#3c3c3c;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path8747" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4693-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4695-7"
+         style="fill:#3c3c3c;fill-opacity:1;fill-rule:evenodd;stroke:#3c3c3c;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6,0.6)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="103.94123"
+     inkscape:cy="65.517967"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata8988">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-908.36218)">
+    <g
+       transform="matrix(0.66238217,0,0,0.66238217,24.342106,902.82989)"
+       id="Layer_1-0" />
+    <g
+       id="File_x2C__general"
+       transform="translate(163.84112,826.95309)">
+      <title
+         id="title6">Sheet.1071</title>
+    </g>
+    <g
+       id="Message"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Monitor"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Monitor_running_apps"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Mouse"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Network_card"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Not_allowed"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Performance"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Phone"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Plug_and_play"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Powershell_script_file"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Protocol_stack"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="Queue_x2C__general"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       id="RMS_connector"
+       transform="translate(163.84112,826.95309)" />
+    <g
+       transform="translate(163.84112,826.95309)"
+       id="paths">
+      <g
+         id="Access_control" />
+      <g
+         id="Azure_active_directory" />
+      <g
+         id="Generic_code" />
+      <g
+         id="Laptop" />
+      <g
+         id="Load_balancer" />
+      <g
+         id="Lock_x2C__protected" />
+    </g>
+    <g
+       transform="translate(163.84112,826.95309)"
+       id="symbols" />
+    <g
+       transform="translate(163.84112,826.95309)"
+       id="slices" />
+    <g
+       transform="matrix(0.66238217,0,0,0.66238217,16.221906,901.92549)"
+       id="Layer_1-0-8" />
+    <g
+       id="File_x2C__general-9"
+       transform="translate(155.72093,826.0487)">
+      <title
+         id="title6-5">Sheet.1071</title>
+    </g>
+    <g
+       id="Message-5"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Monitor-9"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Monitor_running_apps-8"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Mouse-2"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Network_card-4"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Not_allowed-1"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Performance-1"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Phone-2"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Plug_and_play-4"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Powershell_script_file-4"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Protocol_stack-4"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="Queue_x2C__general-4"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       id="RMS_connector-7"
+       transform="translate(155.72093,826.0487)" />
+    <g
+       transform="translate(155.72093,826.0487)"
+       id="paths-6">
+      <g
+         id="Access_control-4" />
+      <g
+         id="Azure_active_directory-3" />
+      <g
+         id="Generic_code-8" />
+      <g
+         id="Laptop-7" />
+      <g
+         id="Load_balancer-8" />
+      <g
+         id="Lock_x2C__protected-4" />
+    </g>
+    <g
+       transform="translate(155.72093,826.0487)"
+       id="symbols-8" />
+    <g
+       transform="translate(155.72093,826.0487)"
+       id="slices-2" />
+    <g
+       transform="matrix(0.06125617,0,0,0.06125617,168.92057,919.18779)"
+       id="Layer_1_1_">
+      <g
+         id="File_x2C__general-6">
+        <title
+           id="title5">Sheet.1071</title>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.06125617,0,0,0.06125617,168.92057,919.18779)"
+       id="Access_control-2" />
+    <g
+       transform="matrix(0.06125617,0,0,0.06125617,168.92057,919.18779)"
+       id="Azure_active_directory-8" />
+    <g
+       transform="matrix(0.06125617,0,0,0.06125617,168.92057,919.18779)"
+       id="symbols-6" />
+    <g
+       transform="translate(143.36851,787.92535)"
+       id="Layer_1_1_-0" />
+    <g
+       transform="translate(143.36851,787.92535)"
+       id="Access_control-7" />
+    <g
+       transform="translate(143.36851,787.92535)"
+       id="Azure_active_directory-9" />
+    <g
+       transform="translate(143.36851,787.92535)"
+       id="symbols-7" />
+    <rect
+       style="fill:#000000;fill-opacity:0.07692309;stroke:#4c4c4c;stroke-width:0.3167446;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect11496"
+       width="71.383652"
+       height="36.243687"
+       x="20.559626"
+       y="984.87262" />
+    <text
+       sodipodi:linespacing="125%"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#0090c6"
+       id="text5728"
+       v:langID="1033"
+       class="st13"
+       y="1031.4446"
+       x="56.029285">
+      <v:paragraph />
+      <v:tabList />
+      <tspan
+         sodipodi:role="line"
+         id="tspan4314"
+         x="56.029285"
+         y="1031.4446">Partner network</tspan>
+    </text>
+    <text
+       x="245.66187"
+       y="1049.0032"
+       class="st13"
+       v:langID="1033"
+       id="text5812"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#0090c6"
+       sodipodi:linespacing="125%">Azure VNet<v:paragraph />
+<v:tabList />
+</text>
+    <rect
+       style="fill:#e4faff;stroke:#3a99c6;stroke-width:0.56498891;stroke-linecap:butt"
+       id="rect11512"
+       class="st1"
+       height="124.9828"
+       width="129.65709"
+       y="913.72815"
+       x="180.79181" />
+    <rect
+       y="984.87262"
+       x="20.559626"
+       height="36.243687"
+       width="71.383652"
+       id="rect4360"
+       style="fill:#000000;fill-opacity:0.07692309;stroke:#4c4c4c;stroke-width:0.3167446;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="922.28381"
+       x="22.579929"
+       height="36.243687"
+       width="71.383652"
+       id="rect4362"
+       style="fill:#000000;fill-opacity:0.07692309;stroke:#4c4c4c;stroke-width:0.3167446;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       x="58.049591"
+       y="968.85577"
+       class="st13"
+       v:langID="1033"
+       id="text4364"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#0090c6"
+       sodipodi:linespacing="125%">
+      <v:paragraph />
+      <v:tabList />
+      <tspan
+         sodipodi:role="line"
+         id="tspan4374"
+         x="58.049591"
+         y="968.85577">On-premises network</tspan>
+    </text>
+    <rect
+       style="fill:#000000;fill-opacity:0.07692309;stroke:#4c4c4c;stroke-width:0.3167446;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4368"
+       width="71.383652"
+       height="36.243687"
+       x="22.579929"
+       y="922.28381" />
+    <text
+       x="136.84148"
+       y="1014.7372"
+       class="st13"
+       v:langID="1033"
+       id="text10277"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#389114;fill-opacity:1"
+       sodipodi:linespacing="125%">
+      <v:paragraph />
+      <v:tabList />
+      <tspan
+         sodipodi:role="line"
+         id="tspan4840"
+         x="136.84148"
+         y="1014.7372">Trust relationship</tspan>
+    </text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#3c3c3c;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3, 3;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#marker4789)"
+       d="m 94.738971,1001.2486 110.537359,0"
+       id="path8633"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Forests" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="VMs">
+    <path
+       style="fill:#000000;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 52.024344,84.832927 -21.030838,0 c -0.698909,0 -1.270739,0.6353 -1.270739,1.3342 l 0,14.677233 c 0,0.6989 0.57183,1.3342 1.270739,1.3342 l 7.179711,0 c 0.762451,2.73209 -0.254148,3.11339 -4.828831,3.11339 l 0,1.4613 5.781895,0 4.257001,0 5.464204,0 0,-1.4613 c -4.574691,0 -5.019452,-0.3813 -4.257001,-3.11339 l 7.433859,0 c 0.698917,0 1.461368,-0.6353 1.461368,-1.3342 l 0,-14.677233 c 0,-0.6989 -0.762451,-1.3342 -1.461368,-1.3342 z m -0.381217,1.779 0,13.724033 -20.141318,0 0,-13.724033 20.141318,0 0,0 z"
+       id="path11493" />
+    <g
+       id="g11458"
+       transform="translate(-2.2728512,-6)">
+      <g
+         transform="translate(52.890873,-1124.3841)"
+         id="g10133">
+        <path
+           id="path10026"
+           d="m 230.06871,1147.8024 -26.43067,0 c -0.87836,0 -1.59702,0.7985 -1.59702,1.6769 l 0,18.4456 c 0,0.8783 0.71866,1.6768 1.59702,1.6768 l 9.02316,0 c 0.95821,3.4336 -0.3194,3.9127 -6.06867,3.9127 l 0,1.8366 7.26644,0 5.35001,0 6.86718,0 0,-1.8366 c -5.74927,0 -6.30822,-0.4791 -5.35001,-3.9127 l 9.34256,0 c 0.87836,0 1.83658,-0.7985 1.83658,-1.6768 l 0,-18.4456 c 0,-0.8784 -0.95822,-1.6769 -1.83658,-1.6769 z m -0.4791,2.2358 0,17.2479 -25.31276,0 0,-17.2479 25.31276,0 0,0 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+        <g
+           transform="matrix(0.79850972,0,0,0.79850972,1064.9186,-1115.4376)"
+           id="g10028">
+          <title
+             id="title10030">Sheet.975</title>
+          <g
+             transform="translate(0.8685,-17.652)"
+             id="g10032">
+            <title
+               id="title10034">Sheet.976</title>
+            <path
+               id="path10036"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             transform="translate(15.8925,0)"
+             id="g10038">
+            <title
+               id="title10040">Sheet.977</title>
+            <path
+               id="path10042"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             id="g10044">
+            <title
+               id="title10046">Sheet.978</title>
+            <path
+               id="path10048"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g10050"
+         transform="matrix(0.79850972,0,0,0.79850972,134.41318,-33.8348)">
+        <g
+           id="g10052">
+          <path
+             id="path10054"
+             d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+             inkscape:connector-curvature="0"
+             style="fill:#0078d7" />
+          <g
+             transform="translate(1176.51,-2762.63)"
+             id="g10056">
+            <title
+               id="title10058">Sheet.975</title>
+            <g
+               transform="translate(0.8685,-17.652)"
+               id="g10060">
+              <title
+                 id="title10062">Sheet.976</title>
+              <path
+                 id="path10064"
+                 d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               transform="translate(15.8925,0)"
+               id="g10066">
+              <title
+                 id="title10068">Sheet.977</title>
+              <path
+                 id="path10070"
+                 d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               id="g10072">
+              <title
+                 id="title10074">Sheet.978</title>
+              <path
+                 id="path10076"
+                 d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text10101"
+       y="60.474403"
+       x="245.3396"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan10105"
+         y="60.474403"
+         x="245.3396"
+         sodipodi:role="line">Domain Controllers</tspan></text>
+    <g
+       id="g11487"
+       transform="translate(-2.2728512,0)">
+      <g
+         id="g10147"
+         transform="translate(52.890873,-1066.8663)">
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 230.06871,1147.8024 -26.43067,0 c -0.87836,0 -1.59702,0.7985 -1.59702,1.6769 l 0,18.4456 c 0,0.8783 0.71866,1.6768 1.59702,1.6768 l 9.02316,0 c 0.95821,3.4336 -0.3194,3.9127 -6.06867,3.9127 l 0,1.8366 7.26644,0 5.35001,0 6.86718,0 0,-1.8366 c -5.74927,0 -6.30822,-0.4791 -5.35001,-3.9127 l 9.34256,0 c 0.87836,0 1.83658,-0.7985 1.83658,-1.6768 l 0,-18.4456 c 0,-0.8784 -0.95822,-1.6769 -1.83658,-1.6769 z m -0.4791,2.2358 0,17.2479 -25.31276,0 0,-17.2479 25.31276,0 0,0 z"
+           id="path10149" />
+        <g
+           id="g10151"
+           transform="matrix(0.79850972,0,0,0.79850972,1064.9186,-1115.4376)">
+          <title
+             id="title10153">Sheet.975</title>
+          <g
+             id="g10155"
+             transform="translate(0.8685,-17.652)">
+            <title
+               id="title10157">Sheet.976</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               id="path10159" />
+          </g>
+          <g
+             id="g10161"
+             transform="translate(15.8925,0)">
+            <title
+               id="title10163">Sheet.977</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               id="path10165" />
+          </g>
+          <g
+             id="g10167">
+            <title
+               id="title10169">Sheet.978</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               id="path10171" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(0.79850972,0,0,0.79850972,134.41318,23.68293)"
+         id="g10173">
+        <g
+           id="g10175">
+          <path
+             style="fill:#0078d7"
+             inkscape:connector-curvature="0"
+             d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+             id="path10177" />
+          <g
+             id="g10179"
+             transform="translate(1176.51,-2762.63)">
+            <title
+               id="title10181">Sheet.975</title>
+            <g
+               id="g10183"
+               transform="translate(0.8685,-17.652)">
+              <title
+                 id="title10185">Sheet.976</title>
+              <path
+                 style="fill:#0078d7"
+                 inkscape:connector-curvature="0"
+                 d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+                 id="path10187" />
+            </g>
+            <g
+               id="g10189"
+               transform="translate(15.8925,0)">
+              <title
+                 id="title10191">Sheet.977</title>
+              <path
+                 style="fill:#0078d7"
+                 inkscape:connector-curvature="0"
+                 d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+                 id="path10193" />
+            </g>
+            <g
+               id="g10195">
+              <title
+                 id="title10197">Sheet.978</title>
+              <path
+                 style="fill:#0078d7"
+                 inkscape:connector-curvature="0"
+                 d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+                 id="path10199" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       transform="translate(0,-908.36218)"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="245.98901"
+       y="1032.3544"
+       id="text10201"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4310">AD FS Servers</tspan></text>
+    <path
+       id="path4312"
+       d="m 80.813691,84.832927 -21.030838,0 c -0.698909,0 -1.270739,0.6353 -1.270739,1.3342 l 0,14.677233 c 0,0.6989 0.57183,1.3342 1.270739,1.3342 l 7.179711,0 c 0.762451,2.73209 -0.254148,3.11339 -4.828831,3.11339 l 0,1.4613 5.781895,0 4.257001,0 5.464204,0 0,-1.4613 c -4.574691,0 -5.019452,-0.3813 -4.257001,-3.11339 l 7.433859,0 c 0.698917,0 1.461368,-0.6353 1.461368,-1.3342 l 0,-14.677233 c 0,-0.6989 -0.762451,-1.3342 -1.461368,-1.3342 z m -0.381217,1.779 0,13.724033 -20.141318,0 0,-13.724033 20.141318,0 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#000000;fill-opacity:1" />
+    <path
+       id="path4370"
+       d="m 54.044649,22.24408 -21.030838,0 c -0.698909,0 -1.270739,0.6353 -1.270739,1.3342 l 0,14.67723 c 0,0.6989 0.57183,1.3342 1.270739,1.3342 l 7.179711,0 c 0.762451,2.73209 -0.254148,3.11339 -4.828831,3.11339 l 0,1.4613 5.781895,0 4.257001,0 5.464204,0 0,-1.4613 c -4.574691,0 -5.019452,-0.3813 -4.257001,-3.11339 l 7.433859,0 c 0.698917,0 1.461368,-0.6353 1.461368,-1.3342 l 0,-14.67723 c 0,-0.6989 -0.762451,-1.3342 -1.461368,-1.3342 z m -0.381217,1.779 0,13.72403 -20.141318,0 0,-13.72403 20.141318,0 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#000000;fill-opacity:1" />
+    <path
+       style="fill:#000000;fill-opacity:1"
+       inkscape:connector-curvature="0"
+       d="m 82.833996,22.24408 -21.030838,0 c -0.698909,0 -1.270739,0.6353 -1.270739,1.3342 l 0,14.67723 c 0,0.6989 0.57183,1.3342 1.270739,1.3342 l 7.179711,0 c 0.762451,2.73209 -0.254148,3.11339 -4.828831,3.11339 l 0,1.4613 5.781895,0 4.257001,0 5.464204,0 0,-1.4613 c -4.574691,0 -5.019452,-0.3813 -4.257001,-3.11339 l 7.433859,0 c 0.698917,0 1.461368,-0.6353 1.461368,-1.3342 l 0,-14.67723 c 0,-0.6989 -0.762451,-1.3342 -1.461368,-1.3342 z m -0.381217,1.779 0,13.72403 -20.141318,0 0,-13.72403 20.141318,0 0,0 z"
+       id="path4372" />
+  </g>
+</svg>

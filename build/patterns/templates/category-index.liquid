@@ -1,0 +1,21 @@
+---
+title: {{ title }} patterns
+description: {{ description }}
+keywords: design pattern
+author: dragon119
+manager: bennage
+
+pnp.series.title: Cloud Design Patterns
+---
+
+# {{ title }} patterns
+
+[!INCLUDE [header](../../_includes/header.md)]
+
+{{ description }}
+
+| Pattern | Summary |
+| ------- | ------- |
+{%- for pattern in patterns %}
+| [{{ pattern.title }}](../{{ pattern.file }}) | {{ pattern.description }} |
+{%- endfor %}

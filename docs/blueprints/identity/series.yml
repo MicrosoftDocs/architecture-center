@@ -1,0 +1,5 @@
+---
+columns: 2
+summary: Explains and compares the different methods available for managing identity in hybrid systems that span the on-premises/cloud boundary with Azure.
+description: Most enterprise systems based on Windows use Active Directory (AD) for identity management. When you extend your network infrastructure to the cloud, there are several options for managing identity. 
+---

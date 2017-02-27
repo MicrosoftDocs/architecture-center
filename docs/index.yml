@@ -1,0 +1,59 @@
+---
+title: Azure Architecture Center
+description: Azure Guidance from AzureCAT and patterns & practices
+fontmatter: The Azure Architecture Center is a collection of best practices, reference implementations, and scenario-based guidance to help you build highly scalable and resilient solutions on Microsoft Azure. These resources are designed for an engineering audience, including developers, solution architects, and IT pro.
+
+featured:
+
+- title: Architectural Blueprints
+  description: A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and deployable solution.
+  url: /azure/architecture/blueprints
+  thumbnail: azure-arch-1.svg
+
+- title: Cloud Design Patterns
+  description: Design patterns for developers and solution architects. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.
+  url: /azure/architecture/patterns/
+  thumbnail: azure-arch-3.svg
+
+- title: Best Practices for Cloud Applications
+  description: Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning, API design, and others.
+  url: /azure/architecture/best-practices/
+  thumbnail: azure-arch-4.svg
+
+series:
+
+- title: Design Review Checklists
+  description: Checklists to assist developers and solution architects during the design process.
+  url: /azure/architecture/checklist/
+  thumbnail: checklist.svg
+
+- title: Designing for Resiliency
+  description: Learn how to design resiliency applications for Azure.
+  url: /azure/architecture/resiliency
+  thumbnail: resiliency.svg
+
+- title: Run Elasticsearch on Azure
+  description: Learn how to deploy, manage, and tune an Elasticsearch cluster on Azure.
+  url: /azure/architecture/elasticsearch
+  thumbnail: elasticsearch.svg
+
+- title: Azure for AWS Professionals
+  description: Leverage your AWS experiences in Microsoft Azure.
+  url: /azure/architecture/aws-professional
+  thumbnail: aws-professional.svg
+
+- title: Identity Management for Multitenant Applications
+  description: Understand the best practices for multitenancy, when using Azure AD for identity management.
+  url: /azure/architecture/multitenant-identity
+  thumbnail: multitenant-identity.svg
+
+- title: Azure Customer Advisory Team
+  description: The AzureCAT team's blog
+  url: https://blogs.msdn.microsoft.com/azurecat/
+  thumbnail: azurecat.svg
+
+- title: SQL Server Customer Advisory Team
+  description: The SQLCAT team's blog
+  url: https://blogs.msdn.microsoft.com/sqlcat/
+  thumbnail: sqlcat.svg
+---

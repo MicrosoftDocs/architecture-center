@@ -1,0 +1,10 @@
+# Elasticsearch on Azure
+## [Get started](./index.md)
+## [Tune data ingestion performance](./data-ingestion-performance.md)
+## [Tune data aggregation and query performance](./data-aggregation-and-query-performance.md)
+## [Configure resilience and recovery](./resilience-and-recovery.md)
+## [Create a performance testing environment](./performance-testing-environment.md)
+## [Implement a JMeter test plan](./jmeter-test-plan.md)
+## [Deploy a JMeter JUnit sampler for testing](./jmeter-junit-sampler.md)
+## [Run the resiliency tests](./automated-resilience-tests.md)
+## [Run the performance tests](./automated-performance-tests.md)

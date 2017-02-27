@@ -1,0 +1,5 @@
+---
+columns: 2
+summary: Explains some common architectures for deploying VMs that host enterprise-scale applications in Azure.
+description: Running a virtual machine (VM) in Azure involves more moving parts than just the VM itself. Other considerations include networking, load balancers, network security groups (NSGs), and redundancy within a region or across multiple regions.
+---

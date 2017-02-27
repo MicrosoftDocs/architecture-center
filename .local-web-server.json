@@ -1,0 +1,15 @@
+{
+  "port": 8000,
+  "directory": "_site",
+  "forbid": [],
+  "rewrite": [
+      {
+          "from": "/azure/architecture/*",
+          "to": "/$1"
+      },
+      {
+          "from": "/azure/architecture",
+          "to": "/azure/architecture/"
+      }
+  ]
+}

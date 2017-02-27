@@ -1,0 +1,12 @@
+{ 
+  "redirections": [ 
+    {   
+        "source_path": "docs/guidance.md", 
+        "redirect_url": "/azure/architecture" 
+    }, 
+    { 
+        "source_path": "docs/guidance-architecture.md",
+        "redirect_url": "/azure/architecture"
+    } 
+  ] 
+}

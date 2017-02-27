@@ -1,0 +1,32 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure
+  items:
+  - name: Architecture
+    tocHref: /azure/architecture/
+    topicHref: /azure/architecture
+    items:
+    - name: Best Practices
+      tocHref: /azure/architecture/best-practices
+      topicHref: /azure/architecture/best-practices
+    - name: Azure for AWS Professionals
+      tocHref: /azure/architecture/aws-professional
+      topicHref: /azure/architecture/aws-professional
+    - name: Design for Resiliency
+      tocHref: /azure/architecture/resiliency
+      topicHref: /azure/architecture/resiliency
+    - name: Design Review Checklists
+      tocHref: /azure/architecture/checklist
+      topicHref: /azure/architecture/checklist
+    - name: Elasticsearch
+      tocHref: /azure/architecture/elasticsearch
+      topicHref: /azure/architecture/elasticsearch
+    - name: Manage Identity in Multitenant Applications
+      tocHref: /azure/architecture/multitenant-identity
+      tocHref: /azure/architecture/multitenant-identity
+    - name: Blueprints
+      tocHref: /azure/architecture/blueprints
+      topicHref: /azure/architecture/blueprints
+    - name: Cloud Design Patterns
+      tocHref: /azure/architecture/patterns
+      topicHref: /azure/architecture/patterns

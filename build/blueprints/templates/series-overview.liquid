@@ -1,0 +1,17 @@
+---
+title: {{ series.title }} | Architectural Blueprints
+description: {{ series.summary }}
+layout: LandingPage
+pnp.series.title: {{ series.title }}
+pnp.series.next: {{ series.next }}
+---
+<link href="/azure/architecture/_css/hubCards.css" type="text/css" rel="stylesheet" />
+
+# Series overview
+[!INCLUDE [header](../../_includes/header.md)]
+
+{{ series.description }}
+
+{% include 'series' %}
+
+{{ series.considerations }}

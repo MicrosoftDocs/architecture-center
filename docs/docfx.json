@@ -1,0 +1,64 @@
+{
+  "build": {
+    "content": [
+      {
+        "src": ".",
+        "dest": ".",
+        "files": [
+          "**/*.md"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/*.liquid.md",
+          "**/_css/**",
+          "**/_includes/**",
+          "**/_bread/**",
+          "**/_themes/**"
+        ]
+      },
+      {
+        "src": "_bread",
+        "dest": "bread",
+        "files": [
+          "**/*.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "src": ".",
+        "dest": ".",
+        "files": [
+          "**/*.css",
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.jpeg",
+          "**/*.gif",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/_themes/**"
+        ]
+      }
+    ],
+    "overwrite": [],
+    "externalReference": [],
+    "globalMetadata": {
+      "breadcrumb_path": "/azure/architecture/bread/toc.json",
+      "brand": "azure",
+      "searchScope": [
+        "Azure"
+      ]
+    },
+    "fileMetadata": {
+      "tocRel":{
+        "blueprints/**.md":"../toc.json"
+      }
+    },
+    "template": [
+      "docs.html"
+    ],
+    "dest": "azure"
+  }
+}

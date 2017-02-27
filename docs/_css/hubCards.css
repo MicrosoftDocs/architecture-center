@@ -1,0 +1,487 @@
+.card {
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #dbdbdb;
+	padding: 6px 12px 6px 12px;
+	box-shadow: 0px 2px 5px #e8e8e8;
+}
+
+html.theme_night .card {
+    border: 1px solid #666;
+	box-shadow: 0px 2px 5px #444;
+}
+
+.card:hover, .card:active {
+	border: 1px solid #5493d1;
+}
+
+.card a {
+	text-decoration: none;	
+}
+
+.card h3 {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.125;
+    color: $text;
+}
+
+html.theme_night .card h3{
+    color:#ccc;
+}
+
+a .card:hover h3, a .card:active h3, html.theme_night .card:hover h3, html.theme_night .card:active h3 {
+	color: $blue;
+}
+
+a .card:hover h3:hover, a .card:active h3:active, .card h3 a:hover, .card h3 a:active {
+	text-decoration:underline;
+}
+
+.card p {
+    font-size: 0.9375rem;
+    line-height: 1.33;
+    color: $text-subtle;
+    margin: 6px 0 0 0;
+    padding: 0;
+}
+
+html.theme_night .card p{
+    color:#ccc;
+}
+
+.cardPadding {
+    padding: 0 12px 22px 12px;
+}
+
+.cardSize {
+	width: 100%;
+    overflow: hidden;
+}
+
+.cardScaleImage {	
+	background-repeat:no-repeat;
+	background-size: contain;
+	background-position: center center;
+	height:100%;
+	width:100%;
+}
+
+.cardText a,
+.cardText a:visited {
+	color: $text-subtle;
+	text-decoration: none;
+}
+
+.cardText h3 a,
+.cardText h3 a:visited {
+	color: $text;
+	text-decoration: none;
+}
+
+html.theme_night .cardText h3 a,
+html.theme_night .cardText h3 a:visited {
+	color: #ccc;
+	text-decoration: none;
+}
+
+a .card:hover .cardText,
+a .card:active .cardText,
+.cardText a:hover,
+.cardText a:active, 
+html.theme_night .cardText h3 a:hover,
+html.theme_night .cardText h3 a:active {
+	color: $blue;
+}
+
+/* styleA */
+.cardsA .cardSize {	
+	min-width: 260px;
+}
+
+.cardsA .card {
+	min-height: 176px;
+}
+
+.cardsA .cardImageOuter {
+	width:100%;
+}
+.cardsA .cardImage {
+	width:68px;
+	height:68px;
+	margin:0 auto 8px auto;
+}
+
+/* styleB */
+.cardsB .cardSize {
+	min-width: 260px;
+}
+
+.cardsB .card {
+	height: 176px;	
+}
+
+.cardsB .cardImageOuter {
+	float:left;
+}
+
+.cardsB .cardImage {
+	width:68px;
+	height:68px;
+	margin:0 auto 8px auto;
+}
+
+.cardsB .cardText {
+	padding-left: 80px;
+	padding-top:12px;
+}
+
+/* styleC */
+.cardsC .cardSize {
+    min-width: 260px;    
+}
+
+.cardsC .card {    
+	padding: 0 0 6px 0;
+    min-height: 250px;
+}
+
+.cardsC .cardImageOuter {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+}
+
+.cardsC .cardImage img {
+    width: 100%;
+	max-width: 400px;
+}
+
+.cardsC .cardText {
+    padding: 6px 12px 0 12px;
+}
+
+/* styleD */
+.cardsD .cardSize {
+	min-width: 260px;
+}
+
+.cardsD .card {
+	padding: 0 0 6px 0;
+	box-shadow: none;
+	border: 0;
+}
+
+html.theme_night .cardsD .card {
+	box-shadow: none;
+	border: 0;
+}
+
+.cardsD .cardImageOuter {
+	width: 100%;
+	height: 180px;
+}
+
+.cardsD .cardText {
+	padding: 12px;
+}
+
+/* style E */
+.cardsE .cardSize {
+	min-width: 260px;
+}
+
+.cardsE .card {
+	height: 180px;
+	padding: 0 0 0 12px;
+	box-shadow: none;
+	border: 0;
+	border-left: 2px solid #dbdbdb;
+}
+
+html.theme_night .cardsE .card {
+	box-shadow: none;
+	border: 0;
+	border-left: 2px solid #333;
+}
+
+html[dir='rtl'] .cardsE .card {
+	border: 0;
+	border-right: 2px solid #dbdbdb;
+	padding: 0 12px 0 0;
+}
+
+html[dir='rtl'].theme_night .cardsE .card {
+	border-right: 2px solid #333;
+}
+
+.cardsE .cardImageOuter {
+	width:100%;
+}
+
+.cardsE .cardImage {
+	width:68px;
+	height:68px;
+	margin:0 0 8px 0;
+}
+
+/* style F */
+.cardsF .cardSize {
+	min-width: 260px;
+}
+
+.cardsF .card {
+	padding: 0 0 6px 0;
+	box-shadow: none;
+	border: 0;
+}
+
+html.theme_night .cardsF .card {
+	box-shadow: none;
+	border: 0;
+}
+
+.cardsF .cardImageOuter {
+	float:left;
+}
+
+.cardsF .cardImage {
+	width:80px;
+	height:80px;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.cardsF .cardText {
+	padding-left: 98px;
+}
+
+/* style F Title */
+.cardsFTitle .cardSize {
+	min-width: 260px;
+}
+
+.cardsFTitle .card {
+	padding: 0 0 6px 0;
+	box-shadow: none;
+	border: 0;
+}
+
+html.theme_night .cardsFTitle .card {
+	box-shadow: none;
+	border: 0;
+}
+
+.cardsFTitle .cardImageOuter {
+	float:left;
+}
+
+.cardsFTitle .cardImage {
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+.cardsFTitle .cardText {
+	padding-left: 62px;
+}
+
+.cardsFTitle .cardText h3 {
+	font-family: segoe-ui_normal, 'Segoe UI', Segoe, 'Segoe WP', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+.cardsFTitle .cardText p{
+	display:none;
+}
+
+/* style G */
+.cardsG .cardSize {
+	min-width: 260px;
+}
+
+.cardsG .card {
+	padding: 0 0 6px 0;
+	box-shadow: none;
+	border: 0;
+}
+
+html.theme_night .cardsG .card {
+	box-shadow: none;
+	border: 0;
+}
+
+.cardsG .cardImageOuter {
+	float:left;
+}
+
+.cardsG .cardImage {
+	width:150px;
+	height:105px;
+	overflow:hidden;
+	margin:0 auto 8px auto;
+}
+
+.cardsG .cardImage img {
+	width: 100%;
+}
+
+.cardsG .cardText {
+	padding-left: 162px;
+}
+
+@media only screen and (min-width: $desktop) {
+    .cardsG > li {    
+		-webkit-flex: 0 1 50%;
+		-ms-flex: 0 1 50%;
+		flex: 0 1 50%;	
+    }
+}
+
+/* landing pages */
+.cardsW .card {
+	box-shadow: none;
+	border: 0;
+	padding:0;
+}
+
+html.theme_night .cardsW .card {
+	box-shadow: none;
+	border: 0;
+}
+
+.cardsW .card h3 {
+	font-size:1.188rem;
+}
+
+.cardsW .card p {
+	font-size:1rem;
+	margin: 10px 0 0;
+}
+
+/* site home */
+.cardsX .cardSize {
+	position: relative;
+}
+
+.cardsX .card {
+	min-height: 92px;
+	padding:0;
+}
+
+.noTouch .cardsX .card:hover, .noTouch .cardsX .card:active {
+	border-color: transparent;
+}
+
+.cardsX .cardImageOuter {
+	margin:0;
+}
+
+.cardsX .cardImage {
+	width:300px;
+	height:92px;
+	margin:auto;
+}
+
+.cardsX .cardText {
+	display:none;
+}
+
+.cardsX .card h3 {
+	display:none;
+}
+
+@media only screen and (min-width: $tablet) {
+    .cardsX li {
+		margin-bottom: 32px;
+	}
+}
+
+/* featured */
+.cardsY .card {
+	padding: 6px;
+}
+
+.cardsY .cardImageOuter {
+	float:left;
+	margin:6px 0 6px 4px;
+}
+
+.cardsY .cardImage {
+	width:50px;
+	height:50px;
+}
+
+.cardsY .cardText {
+	padding-left: 64px;
+	margin-top:12px;
+}
+
+.cardsY .card h3 {
+	font-size: 1rem;
+	font-family: segoe-ui_normal, 'Segoe UI', Segoe, 'Segoe WP', 'Helvetica Neue', Helvetica, sans-serif;
+	line-height:1.28;
+}
+
+.cardsY .card p {
+	font-size: 0.875rem;
+	margin:0;
+}
+
+/* no image */
+.cardsZ .cardImageOuter {
+	display:none;
+}
+
+.cardsZ .card {
+	min-height: 116px;
+	padding-top: 24px;
+}
+
+.directory > li {
+	float:left;
+	width: 50%;
+}
+
+.directory > li > .group {
+	float:left;
+	min-width: 240px;
+	width: 50%;
+}
+
+.directory h3 {
+	margin-top:4px;
+}
+
+.directory > li ul {
+	list-style-type:none;
+	margin-bottom:32px;
+}
+
+.directory > li ul img {
+	float:left;
+	height:24px;
+	width:24px;
+}
+
+@media only screen and (min-width: $desktop) {
+    .panelItem > .directory > li {    
+        flex: 0 1 50%;
+    }
+}
+
+.directory > li ul a {
+	color: $text-subtle;
+}
+
+.group li p {
+	margin-left:36px;
+	color: $text-subtle;
+}
+
+.group li:hover p, .group li:active p {
+	color: $blue;
+	text-decoration:underline
+}

@@ -1,0 +1,5 @@
+---
+columns: 3
+summary: Recommended architectures for secure, robust network connections between on-premises networks and Azure.
+description: Many organizations wish to integrate an existing on-premises infrastructure with Azure. A key part of this scenario is to establish a secure and robust network connection between the on-premises network and Azure.
+---
