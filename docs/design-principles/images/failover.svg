@@ -1,0 +1,1229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="320"
+   height="320"
+   viewBox="0 0 320 320.00001"
+   id="svg6264"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="failover.svg">
+  <defs
+     id="defs6266">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker12791"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path12793"
+         style="fill:#8c8c8c;fill-opacity:1;fill-rule:evenodd;stroke:#8c8c8c;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker11174"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path11176"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker11074"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path11076"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10980"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10982"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10892"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path10894"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10710"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10712"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10532"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10534"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10204"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path10206" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8699"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8701"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker8267"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path8269"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7715"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7717"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7689"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path7691"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4452"
+         style="fill:#5d5d5d;fill-opacity:1;fill-rule:evenodd;stroke:#5d5d5d;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker5877"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path5879" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5917"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5919"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="8.9305097"
+     inkscape:cy="130.17342"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer7"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6269">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="background">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#5a5a5a;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect12745"
+       width="329.28571"
+       height="330"
+       x="-5"
+       y="-3.5714314" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-732.36216)">
+    <g
+       transform="translate(55.979754,723.38173)"
+       id="Layer_1" />
+    <g
+       transform="translate(53.959453,775.90967)"
+       id="Layer_1-7" />
+    <g
+       transform="translate(53.959454,829.44776)"
+       id="Layer_1-9" />
+    <g
+       transform="translate(314.20916,609.53484)"
+       id="paths">
+      <g
+         id="Access_control" />
+      <g
+         id="Azure_active_directory" />
+      <g
+         id="API_Management" />
+      <g
+         id="Azure_automation" />
+      <g
+         id="Azure_SQL_database" />
+      <g
+         id="Azure_subscription" />
+      <g
+         id="Backup_service" />
+      <g
+         id="Bitbucket_code_source" />
+      <g
+         id="Azure_cache" />
+      <g
+         id="Content_delivery_network__x28_CDN_x29_" />
+      <g
+         id="Cloud_service" />
+      <g
+         id="CodePlex" />
+      <g
+         id="Dropbox_code_source" />
+      <g
+         id="Express_route" />
+      <g
+         id="Git_repository" />
+      <g
+         id="GitHub_code" />
+      <g
+         id="HD_Insight" />
+      <g
+         id="Health_monitoring" />
+      <g
+         id="Healthy" />
+      <g
+         id="BizTalk_hybrid_connection" />
+      <g
+         id="Hybrid_connection_manager_for_BizTalk_hybrid_connection" />
+      <g
+         id="Hyper-V_recovery_manager" />
+    </g>
+    <g
+       transform="matrix(0.66544356,0,0,0.66544356,139.49125,725.94086)"
+       id="Ibiza_Symbols">
+      <g
+         id="g6">
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           id="path8" />
+        <g
+           id="group975-1984_1_"
+           transform="translate(1176.51,-2762.63)">
+          <title
+             id="title11">Sheet.975</title>
+          <g
+             id="shape976-1985_2_"
+             transform="translate(0.8685,-17.652)">
+            <title
+               id="title14">Sheet.976</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               id="path16" />
+          </g>
+          <g
+             id="shape977-1987_1_"
+             transform="translate(15.8925,0)">
+            <title
+               id="title19">Sheet.977</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               id="path21" />
+          </g>
+          <g
+             id="shape978-1989_1_">
+            <title
+               id="title24">Sheet.978</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               id="path26" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.66544356,0,0,0.66544356,139.49125,761.23134)"
+       id="Ibiza_Symbols-2">
+      <g
+         id="g6-1">
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           id="path8-3" />
+        <g
+           id="group975-1984_1_-7"
+           transform="translate(1176.51,-2762.63)">
+          <title
+             id="title11-2">Sheet.975</title>
+          <g
+             id="shape976-1985_2_-9"
+             transform="translate(0.8685,-17.652)">
+            <title
+               id="title14-5">Sheet.976</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               id="path16-6" />
+          </g>
+          <g
+             id="shape977-1987_1_-6"
+             transform="translate(15.8925,0)">
+            <title
+               id="title19-4">Sheet.977</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               id="path21-5" />
+          </g>
+          <g
+             id="shape978-1989_1_-7">
+            <title
+               id="title24-6">Sheet.978</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               id="path26-9" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.66544356,0,0,0.66544356,139.49125,796.52181)"
+       id="Ibiza_Symbols-6">
+      <g
+         id="g6-5">
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           id="path8-8" />
+        <g
+           id="group975-1984_1_-0"
+           transform="translate(1176.51,-2762.63)">
+          <title
+             id="title11-5">Sheet.975</title>
+          <g
+             id="shape976-1985_2_-1"
+             transform="translate(0.8685,-17.652)">
+            <title
+               id="title14-8">Sheet.976</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               id="path16-5" />
+          </g>
+          <g
+             id="shape977-1987_1_-66"
+             transform="translate(15.8925,0)">
+            <title
+               id="title19-2">Sheet.977</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               id="path21-0" />
+          </g>
+          <g
+             id="shape978-1989_1_-0">
+            <title
+               id="title24-2">Sheet.978</title>
+            <path
+               style="fill:#0078d7"
+               inkscape:connector-curvature="0"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               id="path26-1" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4415"
+       transform="matrix(0.66544356,0,0,0.66544356,140.17571,623.94558)">
+      <path
+         style="fill:#0078d7;fill-opacity:1"
+         id="path5"
+         d="m 25,320 c -1.2,0 -2.4,-0.5 -3.3,-1.4 L 1.3,298.2 c -0.9,-0.9 -1.4,-2 -1.4,-3.3 0,-1.2 0.5,-2.4 1.4,-3.3 l 20.4,-20.4 c 0.9,-0.9 2,-1.4 3.3,-1.4 1.2,0 2.4,0.5 3.3,1.4 l 20.4,20.4 c 0.9,0.9 1.4,2 1.4,3.3 0,1.3 -0.5,2.4 -1.4,3.3 l -20.4,20.4 c -0.9,0.9 -2.1,1.4 -3.3,1.4"
+         class="st0"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ffffff;fill-opacity:1"
+         id="path7"
+         d="m 45.6,294.7 -6.6,-6.6 0,4.7 -7,0 c -0.7,-2.4 -2.6,-4.3 -5,-5 l 0,-6.8 4.6,0 -6.6,-6.6 -6.6,6.6 4.6,0 0,6.7 c -2.4,0.7 -4.3,2.6 -5,5 l -7,0 0,-4.6 -6.6,6.6 6.6,6.6 0,-4.7 7,0 c 0.7,2.4 2.6,4.3 5,5 l 0,4.6 c -1,0.7 -2.5,2.3 -2.5,4 0,2.5 2,4.5 4.5,4.5 2.5,0 4.5,-2 4.5,-4.5 0,-1.8 -1.5,-3.3 -2.5,-4 l 0,-4.7 c 2.4,-0.7 4.3,-2.6 5,-5 l 7,0 0,4.6 6.6,-6.4 z"
+         class="st1"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#0078d7;fill-opacity:1"
+         id="path9"
+         d="m 25,289.4 c -2.9,0 -5.3,2.4 -5.3,5.3 0,2.9 2.4,5.3 5.3,5.3 2.9,0 5.3,-2.4 5.3,-5.3 0,-2.9 -2.4,-5.3 -5.3,-5.3 z"
+         class="st0"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#5a5a5a;stroke-width:1.00874865;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect9561"
+       width="168.43074"
+       height="114.76149"
+       x="140.32204"
+       y="761.75226" />
+    <g
+       id="g9621"
+       transform="matrix(0.62740186,0,0,0.66551909,138.40614,881.6534)">
+      <g
+         id="g9623">
+        <path
+           id="path9625"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+        <g
+           transform="translate(1176.51,-2762.63)"
+           id="g9627">
+          <title
+             id="title9629">Sheet.975</title>
+          <g
+             transform="translate(0.8685,-17.652)"
+             id="g9631">
+            <title
+               id="title9633">Sheet.976</title>
+            <path
+               id="path9635"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             transform="translate(15.8925,0)"
+             id="g9637">
+            <title
+               id="title9639">Sheet.977</title>
+            <path
+               id="path9641"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             id="g9643">
+            <title
+               id="title9645">Sheet.978</title>
+            <path
+               id="path9647"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g9649"
+       transform="matrix(0.62740186,0,0,0.66551909,138.40614,916.94788)">
+      <g
+         id="g9651">
+        <path
+           id="path9653"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+        <g
+           transform="translate(1176.51,-2762.63)"
+           id="g9655">
+          <title
+             id="title9657">Sheet.975</title>
+          <g
+             transform="translate(0.8685,-17.652)"
+             id="g9659">
+            <title
+               id="title9661">Sheet.976</title>
+            <path
+               id="path9663"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             transform="translate(15.8925,0)"
+             id="g9665">
+            <title
+               id="title9667">Sheet.977</title>
+            <path
+               id="path9669"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             id="g9671">
+            <title
+               id="title9673">Sheet.978</title>
+            <path
+               id="path9675"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g9677"
+       transform="matrix(0.62740186,0,0,0.66551909,138.40614,952.24236)">
+      <g
+         id="g9679">
+        <path
+           id="path9681"
+           d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+        <g
+           transform="translate(1176.51,-2762.63)"
+           id="g9683">
+          <title
+             id="title9685">Sheet.975</title>
+          <g
+             transform="translate(0.8685,-17.652)"
+             id="g9687">
+            <title
+               id="title9689">Sheet.976</title>
+            <path
+               id="path9691"
+               d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             transform="translate(15.8925,0)"
+             id="g9693">
+            <title
+               id="title9695">Sheet.977</title>
+            <path
+               id="path9697"
+               d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+          <g
+             id="g9699">
+            <title
+               id="title9701">Sheet.978</title>
+            <path
+               id="path9703"
+               d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+               inkscape:connector-curvature="0"
+               style="fill:#0078d7" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path9705"
+       d="m 170.76417,976.31387 26.30152,-0.16807"
+       style="fill:none;fill-rule:evenodd;stroke:#5d5d5d;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5877)"
+       d="m 170.76417,976.31387 26.30152,-0.16807"
+       id="path9707"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9709"
+       d="m 170.60573,974.96932 26.77684,-34.62221"
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5917)" />
+    <g
+       transform="matrix(0.62740186,0,0,0.66551909,139.05147,779.64654)"
+       id="g9711">
+      <path
+         inkscape:connector-curvature="0"
+         class="st0"
+         d="m 25,320 c -1.2,0 -2.4,-0.5 -3.3,-1.4 L 1.3,298.2 c -0.9,-0.9 -1.4,-2 -1.4,-3.3 0,-1.2 0.5,-2.4 1.4,-3.3 l 20.4,-20.4 c 0.9,-0.9 2,-1.4 3.3,-1.4 1.2,0 2.4,0.5 3.3,1.4 l 20.4,20.4 c 0.9,0.9 1.4,2 1.4,3.3 0,1.3 -0.5,2.4 -1.4,3.3 l -20.4,20.4 c -0.9,0.9 -2.1,1.4 -3.3,1.4"
+         id="path9713"
+         style="fill:#0078d7;fill-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         class="st1"
+         d="m 45.6,294.7 -6.6,-6.6 0,4.7 -7,0 c -0.7,-2.4 -2.6,-4.3 -5,-5 l 0,-6.8 4.6,0 -6.6,-6.6 -6.6,6.6 4.6,0 0,6.7 c -2.4,0.7 -4.3,2.6 -5,5 l -7,0 0,-4.6 -6.6,6.6 6.6,6.6 0,-4.7 7,0 c 0.7,2.4 2.6,4.3 5,5 l 0,4.6 c -1,0.7 -2.5,2.3 -2.5,4 0,2.5 2,4.5 4.5,4.5 2.5,0 4.5,-2 4.5,-4.5 0,-1.8 -1.5,-3.3 -2.5,-4 l 0,-4.7 c 2.4,-0.7 4.3,-2.6 5,-5 l 7,0 0,4.6 6.6,-6.4 z"
+         id="path9715"
+         style="fill:#ffffff;fill-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         class="st0"
+         d="m 25,289.4 c -2.9,0 -5.3,2.4 -5.3,5.3 0,2.9 2.4,5.3 5.3,5.3 2.9,0 5.3,-2.4 5.3,-5.3 0,-2.9 -2.4,-5.3 -5.3,-5.3 z"
+         id="path9717"
+         style="fill:#0078d7;fill-opacity:1" />
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker7689)"
+       d="m 170.60573,974.96932 26.77684,-34.62221"
+       id="path9719"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9721"
+       d="m 170.60573,974.96932 26.77684,-34.62221"
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker7715)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker8267)"
+       d="m 170.60573,974.96932 26.77684,-34.62221"
+       id="path9723"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9725"
+       d="m 170.41602,976.40884 24.59672,36.39666"
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.64617944px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker8699)" />
+    <rect
+       y="917.49628"
+       x="139.6758"
+       height="114.76149"
+       width="168.43073"
+       id="rect9727"
+       style="fill:none;fill-opacity:1;stroke:#5a5a5a;stroke-width:1.00874865;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       transform="translate(150.28375,760.85676)"
+       id="Layer_1-75">
+      <g
+         id="Azure-3" />
+      <g
+         id="BizTalk_Services-3"
+         transform="translate(37.3575,-2500.2)" />
+      <g
+         id="Key_Vault-6" />
+      <g
+         id="Mobile_Engagement-9" />
+      <g
+         id="Office_subscription-5">
+        <g
+           id="Office_subscription_1_-6" />
+      </g>
+    </g>
+    <g
+       transform="translate(196.28375,760.85676)"
+       id="paths-0">
+      <g
+         id="Access_control-0" />
+      <g
+         id="Azure_active_directory-3" />
+      <g
+         id="API_Management-7" />
+      <g
+         id="Azure_automation-6" />
+      <g
+         id="Azure_SQL_database-3" />
+      <g
+         id="Azure_subscription-9" />
+      <g
+         id="Backup_service-0" />
+      <g
+         id="Bitbucket_code_source-0" />
+      <g
+         id="Azure_cache-1" />
+      <g
+         id="Content_delivery_network__x28_CDN_x29_-4" />
+      <g
+         id="Cloud_service-0" />
+      <g
+         id="CodePlex-9" />
+      <g
+         id="Dropbox_code_source-41" />
+      <g
+         id="Express_route-8" />
+      <g
+         id="Git_repository-2" />
+      <g
+         id="GitHub_code-53" />
+      <g
+         id="HD_Insight-44" />
+      <g
+         id="Health_monitoring-9" />
+      <g
+         id="Healthy-0" />
+      <g
+         id="BizTalk_hybrid_connection-66" />
+      <g
+         id="Hybrid_connection_manager_for_BizTalk_hybrid_connection-5" />
+      <g
+         id="Hyper-V_recovery_manager-6" />
+      <g
+         id="Machine_learning-0" />
+      <g
+         id="Media_services-5" />
+      <g
+         id="Microsoft_account-8" />
+      <g
+         id="Mobile_services-2" />
+      <g
+         id="Multi-factor_authentication-6" />
+      <g
+         id="MySQL_database-5" />
+      <g
+         id="Notification_hub-0" />
+      <g
+         id="Notification_topic-5" />
+      <g
+         id="Cloud_Office_365-6" />
+      <g
+         id="Office_365-2" />
+      <g
+         id="OS_image-0" />
+      <g
+         id="Remote_app-2" />
+      <g
+         id="Task_scheduler-8" />
+      <g
+         id="Azure_SDK-8" />
+      <g
+         id="Service_bus-0" />
+      <g
+         id="Service_bus_queue-2" />
+      <g
+         id="Service_bus_relay-7" />
+      <g
+         id="Service_bus_topic-7" />
+      <g
+         id="Service_endpoint-1" />
+      <g
+         id="Custom_create-0" />
+      <g
+         id="SQL_data_sync-9" />
+      <g
+         id="g55">
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 78.3,57 c -0.1,-0.2 -0.3,-0.3 -0.4,-0.5 -0.2,-0.1 -0.4,-0.2 -0.6,-0.2 -0.3,0 -0.5,0.1 -0.7,0.2 -0.2,0.1 -0.3,0.3 -0.5,0.4 -0.1,0.2 -0.2,0.4 -0.3,0.6 -0.1,0.2 -0.1,0.5 -0.1,0.8 0,0.4 0,0.7 0.1,0.9 0.1,0.3 0.2,0.5 0.3,0.6 0.1,0.2 0.3,0.3 0.5,0.3 0.2,0.1 0.4,0.1 0.6,0.1 0.2,0 0.4,0 0.5,-0.1 0.2,-0.1 0.3,-0.2 0.5,-0.4 0.1,-0.2 0.2,-0.4 0.3,-0.6 0.1,-0.2 0.1,-0.5 0.1,-0.9 0,-0.3 0,-0.5 -0.1,-0.8 0,0 -0.1,-0.2 -0.2,-0.4 z"
+           id="path57" />
+        <path
+           style="fill:#0078d7"
+           inkscape:connector-curvature="0"
+           d="m 77,37.9 c -8,0 -14.4,2.7 -14.4,5.7 l 0,27 c 0,3 6.5,5.8 14.4,5.8 8,0 14.4,-2.7 14.4,-5.7 l 0,-27 C 91.5,40.7 85,37.9 77,37.9 Z m -4.3,22.6 c 0,0.2 -0.1,0.4 -0.2,0.6 -0.1,0.2 -0.2,0.4 -0.4,0.5 -0.2,0.2 -0.4,0.3 -0.6,0.4 -0.2,0.1 -0.5,0.2 -0.9,0.3 -0.3,0.1 -0.7,0.1 -1.2,0.1 -0.2,0 -0.5,0 -0.7,0 -0.2,0 -0.4,0 -0.6,-0.1 -0.2,0 -0.4,-0.1 -0.5,-0.1 -0.2,0 -0.3,-0.1 -0.4,-0.2 l 0,-2.1 c 0.1,0.1 0.3,0.2 0.5,0.3 0.2,0.1 0.3,0.2 0.5,0.3 0.2,0.1 0.4,0.1 0.6,0.2 0.2,0.1 0.4,0.1 0.6,0.1 0.2,0 0.3,0 0.4,-0.1 0.1,0 0.2,-0.1 0.2,-0.1 0.1,0 0.1,-0.1 0.1,-0.2 0,-0.1 0,-0.1 0,-0.2 0,-0.1 0,-0.2 -0.1,-0.3 C 69.9,59.8 69.9,59.7 69.8,59.7 69.7,59.6 69.6,59.6 69.4,59.5 69.2,59.4 69.1,59.4 68.9,59.3 68.6,59.2 68.3,59 68,58.8 67.8,58.6 67.6,58.5 67.4,58.3 67.2,58.1 67.1,57.9 67.1,57.7 67,57.5 67,57.2 67,57 c 0,-0.4 0.1,-0.7 0.2,-1 0.2,-0.3 0.4,-0.6 0.6,-0.8 0.3,-0.2 0.6,-0.4 1,-0.5 0.4,-0.1 0.8,-0.2 1.3,-0.2 0.3,0 0.5,0 0.7,0 0.2,0 0.4,0 0.6,0.1 0.2,0 0.3,0.1 0.5,0.1 0.2,0 0.3,0.1 0.4,0.1 l 0,2 c -0.1,-0.1 -0.2,-0.1 -0.4,-0.2 -0.1,-0.1 -0.3,-0.1 -0.5,-0.2 -0.2,-0.1 -0.3,-0.1 -0.5,-0.1 -0.2,0 -0.4,0 -0.6,0 -0.3,0 -0.5,0 -0.6,0.1 -0.2,0.1 -0.2,0.2 -0.2,0.4 0,0.1 0,0.2 0.1,0.2 0,0.1 0.1,0.1 0.2,0.2 0.1,0.1 0.2,0.1 0.3,0.2 0.1,0.1 0.3,0.1 0.5,0.2 0.3,0.1 0.6,0.3 0.9,0.4 0.3,0.2 0.5,0.3 0.7,0.5 0.2,0.2 0.3,0.4 0.5,0.6 0.1,0.2 0.2,0.5 0.2,0.9 -0.1,0.1 -0.2,0.3 -0.2,0.5 z m 5.9,3.8 -1.7,-1.8 c -0.5,0 -1,-0.2 -1.4,-0.3 -0.4,-0.2 -0.8,-0.5 -1.1,-0.8 -0.3,-0.3 -0.6,-0.7 -0.8,-1.2 -0.2,-0.5 -0.3,-1 -0.3,-1.6 0,-0.6 0.1,-1.2 0.3,-1.7 0.2,-0.5 0.5,-0.9 0.8,-1.3 0.3,-0.4 0.8,-0.6 1.2,-0.8 0.5,-0.2 1,-0.3 1.6,-0.3 0.6,0 1.1,0.1 1.5,0.3 0.5,0.2 0.9,0.5 1.2,0.8 0.3,0.3 0.6,0.8 0.8,1.2 0.2,0.5 0.3,1 0.3,1.7 0,0.4 0,0.9 -0.2,1.2 -0.1,0.4 -0.3,0.7 -0.5,1 -0.2,0.3 -0.4,0.6 -0.7,0.8 -0.3,0.2 -0.5,0.4 -0.9,0.6 l 2.6,2.2 -2.7,0 z m 8.6,-2 -5,0 0,-7.7 2.3,0 0,5.9 2.7,0 0,1.8 z M 77,46.3 c -5.7,0 -10.3,-1.4 -10.3,-3.1 0,-1.7 4.6,-3.1 10.3,-3.1 5.7,0 10.3,1.4 10.3,3.1 0,1.7 -4.6,3.1 -10.3,3.1 z"
+           id="path59" />
+      </g>
+    </g>
+    <g
+       transform="translate(150.28375,760.85676)"
+       id="Layer_57-3" />
+    <g
+       id="g9974"
+       transform="translate(145.23299,919.45071)">
+      <g
+         id="g9976" />
+      <g
+         transform="translate(37.3575,-2500.2)"
+         id="g9978" />
+      <g
+         id="g9980" />
+      <g
+         id="g9982" />
+      <g
+         id="g9984">
+        <g
+           id="g9986" />
+      </g>
+    </g>
+    <g
+       id="g9988"
+       transform="translate(196.28375,919.45071)">
+      <g
+         id="g9990" />
+      <g
+         id="g9992" />
+      <g
+         id="g9994" />
+      <g
+         id="g9996" />
+      <g
+         id="g9998" />
+      <g
+         id="g10000" />
+      <g
+         id="g10002" />
+      <g
+         id="g10004" />
+      <g
+         id="g10006" />
+      <g
+         id="g10008" />
+      <g
+         id="g10010" />
+      <g
+         id="g10012" />
+      <g
+         id="g10014" />
+      <g
+         id="g10016" />
+      <g
+         id="g10018" />
+      <g
+         id="g10020" />
+      <g
+         id="g10022" />
+      <g
+         id="g10024" />
+      <g
+         id="g10026" />
+      <g
+         id="g10028" />
+      <g
+         id="g10030" />
+      <g
+         id="g10032" />
+      <g
+         id="g10034" />
+      <g
+         id="g10036" />
+      <g
+         id="g10038" />
+      <g
+         id="g10040" />
+      <g
+         id="g10042" />
+      <g
+         id="g10044" />
+      <g
+         id="g10046" />
+      <g
+         id="g10048" />
+      <g
+         id="g10050" />
+      <g
+         id="g10052" />
+      <g
+         id="g10054" />
+      <g
+         id="g10056" />
+      <g
+         id="g10058" />
+      <g
+         id="g10060" />
+      <g
+         id="g10062" />
+      <g
+         id="g10064" />
+      <g
+         id="g10066" />
+      <g
+         id="g10068" />
+      <g
+         id="g10070" />
+      <g
+         id="g10072" />
+      <g
+         id="g10074" />
+      <g
+         id="g10076">
+        <path
+           id="path10078"
+           d="m 78.3,57 c -0.1,-0.2 -0.3,-0.3 -0.4,-0.5 -0.2,-0.1 -0.4,-0.2 -0.6,-0.2 -0.3,0 -0.5,0.1 -0.7,0.2 -0.2,0.1 -0.3,0.3 -0.5,0.4 -0.1,0.2 -0.2,0.4 -0.3,0.6 -0.1,0.2 -0.1,0.5 -0.1,0.8 0,0.4 0,0.7 0.1,0.9 0.1,0.3 0.2,0.5 0.3,0.6 0.1,0.2 0.3,0.3 0.5,0.3 0.2,0.1 0.4,0.1 0.6,0.1 0.2,0 0.4,0 0.5,-0.1 0.2,-0.1 0.3,-0.2 0.5,-0.4 0.1,-0.2 0.2,-0.4 0.3,-0.6 0.1,-0.2 0.1,-0.5 0.1,-0.9 0,-0.3 0,-0.5 -0.1,-0.8 0,0 -0.1,-0.2 -0.2,-0.4 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+        <path
+           id="path10080"
+           d="m 77,37.9 c -8,0 -14.4,2.7 -14.4,5.7 l 0,27 c 0,3 6.5,5.8 14.4,5.8 8,0 14.4,-2.7 14.4,-5.7 l 0,-27 C 91.5,40.7 85,37.9 77,37.9 Z m -4.3,22.6 c 0,0.2 -0.1,0.4 -0.2,0.6 -0.1,0.2 -0.2,0.4 -0.4,0.5 -0.2,0.2 -0.4,0.3 -0.6,0.4 -0.2,0.1 -0.5,0.2 -0.9,0.3 -0.3,0.1 -0.7,0.1 -1.2,0.1 -0.2,0 -0.5,0 -0.7,0 -0.2,0 -0.4,0 -0.6,-0.1 -0.2,0 -0.4,-0.1 -0.5,-0.1 -0.2,0 -0.3,-0.1 -0.4,-0.2 l 0,-2.1 c 0.1,0.1 0.3,0.2 0.5,0.3 0.2,0.1 0.3,0.2 0.5,0.3 0.2,0.1 0.4,0.1 0.6,0.2 0.2,0.1 0.4,0.1 0.6,0.1 0.2,0 0.3,0 0.4,-0.1 0.1,0 0.2,-0.1 0.2,-0.1 0.1,0 0.1,-0.1 0.1,-0.2 0,-0.1 0,-0.1 0,-0.2 0,-0.1 0,-0.2 -0.1,-0.3 C 69.9,59.8 69.9,59.7 69.8,59.7 69.7,59.6 69.6,59.6 69.4,59.5 69.2,59.4 69.1,59.4 68.9,59.3 68.6,59.2 68.3,59 68,58.8 67.8,58.6 67.6,58.5 67.4,58.3 67.2,58.1 67.1,57.9 67.1,57.7 67,57.5 67,57.2 67,57 c 0,-0.4 0.1,-0.7 0.2,-1 0.2,-0.3 0.4,-0.6 0.6,-0.8 0.3,-0.2 0.6,-0.4 1,-0.5 0.4,-0.1 0.8,-0.2 1.3,-0.2 0.3,0 0.5,0 0.7,0 0.2,0 0.4,0 0.6,0.1 0.2,0 0.3,0.1 0.5,0.1 0.2,0 0.3,0.1 0.4,0.1 l 0,2 c -0.1,-0.1 -0.2,-0.1 -0.4,-0.2 -0.1,-0.1 -0.3,-0.1 -0.5,-0.2 -0.2,-0.1 -0.3,-0.1 -0.5,-0.1 -0.2,0 -0.4,0 -0.6,0 -0.3,0 -0.5,0 -0.6,0.1 -0.2,0.1 -0.2,0.2 -0.2,0.4 0,0.1 0,0.2 0.1,0.2 0,0.1 0.1,0.1 0.2,0.2 0.1,0.1 0.2,0.1 0.3,0.2 0.1,0.1 0.3,0.1 0.5,0.2 0.3,0.1 0.6,0.3 0.9,0.4 0.3,0.2 0.5,0.3 0.7,0.5 0.2,0.2 0.3,0.4 0.5,0.6 0.1,0.2 0.2,0.5 0.2,0.9 -0.1,0.1 -0.2,0.3 -0.2,0.5 z m 5.9,3.8 -1.7,-1.8 c -0.5,0 -1,-0.2 -1.4,-0.3 -0.4,-0.2 -0.8,-0.5 -1.1,-0.8 -0.3,-0.3 -0.6,-0.7 -0.8,-1.2 -0.2,-0.5 -0.3,-1 -0.3,-1.6 0,-0.6 0.1,-1.2 0.3,-1.7 0.2,-0.5 0.5,-0.9 0.8,-1.3 0.3,-0.4 0.8,-0.6 1.2,-0.8 0.5,-0.2 1,-0.3 1.6,-0.3 0.6,0 1.1,0.1 1.5,0.3 0.5,0.2 0.9,0.5 1.2,0.8 0.3,0.3 0.6,0.8 0.8,1.2 0.2,0.5 0.3,1 0.3,1.7 0,0.4 0,0.9 -0.2,1.2 -0.1,0.4 -0.3,0.7 -0.5,1 -0.2,0.3 -0.4,0.6 -0.7,0.8 -0.3,0.2 -0.5,0.4 -0.9,0.6 l 2.6,2.2 -2.7,0 z m 8.6,-2 -5,0 0,-7.7 2.3,0 0,5.9 2.7,0 0,1.8 z M 77,46.3 c -5.7,0 -10.3,-1.4 -10.3,-3.1 0,-1.7 4.6,-3.1 10.3,-3.1 5.7,0 10.3,1.4 10.3,3.1 0,1.7 -4.6,3.1 -10.3,3.1 z"
+           inkscape:connector-curvature="0"
+           style="fill:#0078d7" />
+      </g>
+    </g>
+    <g
+       id="g10082"
+       transform="translate(145.23299,919.45071)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker10532)"
+       d="m 274.23502,840.93359 -1.07143,111.07143"
+       id="path10524"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="197.15704"
+       y="757.36218"
+       id="text12479"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12481"
+         x="197.15704"
+         y="757.36218">Region 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="196.89764"
+       y="911.93359"
+       id="text12487"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12489"
+         x="196.89764"
+         y="911.93359">Region 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="60.714287"
+       y="940.2193"
+       id="text12647"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12649"
+         x="60.714287"
+         y="940.2193"></tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text12751"
+       y="929.79077"
+       x="46.951744"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="929.79077"
+         x="46.951744"
+         id="tspan12753"
+         sodipodi:role="line">Azure Traffic</tspan><tspan
+         y="945.41577"
+         x="46.951744"
+         sodipodi:role="line"
+         id="tspan12755">Manager</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 3">
+    <g
+       id="g7079"
+       transform="matrix(1.9245667,0,0,1.9779725,-194.15097,-1720.9309)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4421"
+         d="m 167.04422,895.16425 56.06347,39.90102"
+         style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:4.9000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:4.9000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 168.5501,936.01761 53.05171,-43.826"
+         id="path4423"
+         inkscape:connector-curvature="0" />
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker11174)"
+       d="m 68.185297,162.92128 32.324883,0 0,79.80205 33.84011,0"
+       id="path12763"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#8c8c8c;stroke-width:1.027;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1.027,1.027;marker-end:url(#marker12791);stroke-dashoffset:0"
+       d="m 100.51687,163.9588 0,-76.758033 36.85701,0"
+       id="path12783"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Layer 2">
+    <g
+       transform="translate(-26.000005,102.67857)"
+       id="Layer_1-6">
+      <g
+         id="Azure" />
+      <g
+         id="BizTalk_Services"
+         transform="translate(37.3575,-2500.2)" />
+      <g
+         id="Key_Vault" />
+      <g
+         id="Mobile_Engagement" />
+      <g
+         id="Office_subscription">
+        <g
+           id="Office_subscription_1_" />
+      </g>
+    </g>
+    <g
+       transform="translate(-29.142862,102.67857)"
+       id="paths-4">
+      <g
+         id="Access_control-1" />
+      <g
+         id="Azure_active_directory-7" />
+      <g
+         id="API_Management-9" />
+      <g
+         id="Azure_automation-3" />
+      <g
+         id="Azure_SQL_database-8" />
+      <g
+         id="Azure_subscription-8" />
+      <g
+         id="Backup_service-2" />
+      <g
+         id="Bitbucket_code_source-7" />
+      <g
+         id="Azure_cache-9" />
+      <g
+         id="Content_delivery_network__x28_CDN_x29_-6" />
+      <g
+         id="Cloud_service-9" />
+      <g
+         id="CodePlex-4" />
+      <g
+         id="Dropbox_code_source-4" />
+      <g
+         id="Express_route-1" />
+      <g
+         id="Git_repository-5" />
+      <g
+         id="GitHub_code-5" />
+      <g
+         id="HD_Insight-4" />
+      <g
+         id="Health_monitoring-3" />
+      <g
+         id="Healthy-1" />
+      <g
+         id="BizTalk_hybrid_connection-6" />
+      <g
+         id="Hybrid_connection_manager_for_BizTalk_hybrid_connection-9" />
+      <g
+         id="Hyper-V_recovery_manager-0" />
+      <g
+         id="Machine_learning" />
+      <g
+         id="Media_services" />
+      <g
+         id="Microsoft_account" />
+      <g
+         id="Mobile_services" />
+      <g
+         id="Multi-factor_authentication" />
+      <g
+         id="MySQL_database" />
+      <g
+         id="Notification_hub" />
+      <g
+         id="Notification_topic" />
+      <g
+         id="Cloud_Office_365" />
+      <g
+         id="Office_365" />
+      <g
+         id="OS_image" />
+      <g
+         id="Remote_app" />
+      <g
+         id="Task_scheduler" />
+      <g
+         id="Azure_SDK" />
+      <g
+         id="Service_bus" />
+      <g
+         id="Service_bus_queue" />
+      <g
+         id="Service_bus_relay" />
+      <g
+         id="Service_bus_topic" />
+      <g
+         id="Service_endpoint" />
+      <g
+         id="Custom_create" />
+      <g
+         id="SQL_data_sync" />
+      <g
+         id="SQL_reporting" />
+      <g
+         id="Startup_task" />
+      <g
+         id="Windows_Azure_storage" />
+      <g
+         id="Storage_blob" />
+      <g
+         id="Storage_table" />
+      <g
+         id="Storage_queue" />
+      <g
+         id="StorSimple" />
+      <g
+         id="Traffic_manager">
+        <polygon
+           style="fill:#0078d7"
+           points="71.3,67.6 69.3,69.9 69.3,63.3 75.5,63.3 73.7,65.4 85,77.2 91.9,70.1 84.4,61.9 81.6,64.8 81.6,56.4 90.1,56.4 87,59.3 94.9,66.9 94.9,50.6 83.8,39.2 68.2,39.2 65.4,42.1 74.3,51.5 78.2,47.4 78.2,59.9 66.1,59.9 69.9,55.8 61.1,46.8 57.1,50.9 57.1,66.9 68.2,78.3 81.9,78.3 "
+           id="polygon63" />
+      </g>
+    </g>
+    <g
+       transform="translate(-26.000005,102.67857)"
+       id="Layer_57" />
+    <g
+       transform="translate(-26.000005,102.67857)"
+       id="Ibiza_Symbols-9">
+      <g
+         id="SQL_Database_Premium" />
+    </g>
+  </g>
+</svg>
