@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="340"
-   height="200"
-   viewBox="0 0 340 200.00001"
+   width="354.28568"
+   height="217.85712"
+   viewBox="0 0 354.28568 217.85713"
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -58,8 +58,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="-3.2946377"
-     inkscape:cy="27.01451"
+     inkscape:cx="67.857141"
+     inkscape:cy="44.15732"
      inkscape:document-units="px"
      inkscape:current-layer="g8060"
      showgrid="false"
@@ -69,7 +69,7 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:window-width="1536"
-     inkscape:window-height="897"
+     inkscape:window-height="801"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -89,7 +89,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-48.997478,-630.12355)"
+     transform="translate(-41.854622,-629.40924)"
      style="display:inline">
     <g
        transform="matrix(1.57723,0,0,1.57723,126.27098,652.10663)"
@@ -124,7 +124,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="VMs"
-     transform="translate(-48.997478,-57.761394)"
+     transform="translate(-41.854622,-57.047085)"
      style="display:inline">
     <g
        transform="translate(-25.706573,19.313864)"
