@@ -24,9 +24,9 @@
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity
       tocHref: /azure/architecture/multitenant-identity
-    - name: Blueprints
-      tocHref: /azure/architecture/blueprints
-      topicHref: /azure/architecture/blueprints
+    - name: Reference Architectures
+      tocHref: /azure/architecture/reference-architectures
+      topicHref: /azure/architecture/reference-architectures
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns
       topicHref: /azure/architecture/patterns

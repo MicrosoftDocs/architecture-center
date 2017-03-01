@@ -101,4 +101,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Scheduler-Agent-Supervisor Pattern](scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
 
-- [Retry Pattern](transient-faults.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.
+- [Retry Pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.

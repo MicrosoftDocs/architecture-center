@@ -1,10 +1,10 @@
-# [Reference Architectures](./blueprints/index.md)
-## [Identity management](./blueprints/identity/index.md)
-## [Hybrid network](./blueprints/hybrid-networking/index.md)
-## [Network DMZ](./blueprints/dmz/index.md)
-## [VM workloads (Linux)](./blueprints/virtual-machines-linux/index.md)
-## [VM workloads (Windows)](./blueprints/virtual-machines-windows/index.md)
-## [Web application with managed services](./blueprints/managed-web-app/index.md)
+# [Reference Architectures](./reference-architectures/index.md)
+## [Identity management](./reference-architectures/identity/index.md)
+## [Hybrid network](./reference-architectures/hybrid-networking/index.md)
+## [Network DMZ](./reference-architectures/dmz/index.md)
+## [VM workloads (Linux)](./reference-architectures/virtual-machines-linux/index.md)
+## [VM workloads (Windows)](./reference-architectures/virtual-machines-windows/index.md)
+## [Web application with managed services](./reference-architectures/managed-web-app/index.md)
 
 # [Cloud Design Patterns](./patterns/index.md)
 

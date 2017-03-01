@@ -9,11 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 256 256"
+   viewBox="0 0 64 64"
    id="svg5576"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="performance-scalability.svg">
+   sodipodi:docname="performance-scalability.svg"
+   width="64"
+   height="64">
   <title
      id="title5586">Performance and scalabilities</title>
   <defs
@@ -25,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="65.679558"
-     inkscape:cy="120.54557"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="-2.6928564"
+     inkscape:cy="184.33946"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="937"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -59,21 +61,25 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-796.36216)">
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#666666;stroke-width:20;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect3335"
-       width="230"
-       height="160"
-       x="13"
-       y="844.36218"
-       rx="3"
-       ry="3" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#779f1b;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 18,945.36216 30.5,21.5 15.5,-23.5 23,8.5 17,-44.5 12,26.5 9.5,-17.5 21.5,35 37.5,-65.5 9.5,11 47.5,-27"
-       id="path4137"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccccccc" />
+     transform="translate(0,-988.36216)">
+    <g
+       id="g4136"
+       transform="translate(0.87362814,-8.5952947)">
+      <rect
+         ry="0.69200349"
+         rx="0.69200349"
+         y="1010.504"
+         x="4.5995717"
+         height="36.906853"
+         width="53.0536"
+         id="rect3335"
+         style="fill:#ffffff;fill-opacity:1;stroke:#666666;stroke-width:4.61335659;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path4137"
+         d="m 5.7529106,1033.8014 7.0353684,4.9594 3.575351,-5.4207 5.30536,1.9607 3.921353,-10.2647 2.768013,6.1127 2.191345,-4.0367 4.959358,8.0733 8.650043,-15.1087 2.191345,2.5374 10.956721,-6.2281"
+         style="fill:none;fill-rule:evenodd;stroke:#779f1b;stroke-width:3.69068503;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>

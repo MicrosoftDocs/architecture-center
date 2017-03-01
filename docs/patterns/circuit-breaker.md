@@ -18,13 +18,11 @@ ms.date: 12/14/2016
 
 # Circuit Breaker
 
-[!INCLUDE [header](../_includes/header.md)]
-
 Handle faults that might take a variable amount of time to recover from, when connecting to a remote service or resource. This can improve the stability and resiliency of an application.
 
 ## Context and problem
 
-In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable. These faults typically correct themselves after a short period of time, and a robust cloud application should be prepared to handle them by using a strategy such as the [Retry pattern](transient-faults.md).
+In a distributed environment, calls to remote resources and services can fail due to transient faults, such as slow network connections, timeouts, or the resources being overcommitted or temporarily unavailable. These faults typically correct themselves after a short period of time, and a robust cloud application should be prepared to handle them by using a strategy such as the [Retry pattern][retry-pattern].
 
 However, there can also be situations where faults are due to unanticipated events, and that might take much longer to fix. These faults can range in severity from a partial loss of connectivity to the complete failure of a service. In these situations it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly.
 
@@ -288,6 +286,9 @@ catch (Exception ex)
 
 The following patterns might also be useful when implementing this pattern:
 
-- [Retry Pattern](transient-faults.md). Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
+- [Retry Pattern][retry-pattern]. Describes how an application can handle anticipated temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that has previously failed.
 
 - [Health Endpoint Monitoring Pattern](health-endpoint-monitoring.md). A circuit breaker might be able to test the health of a service by sending a request to an endpoint exposed by the service. The service should return information indicating its status.
+
+
+[retry-pattern]: ./retry.md

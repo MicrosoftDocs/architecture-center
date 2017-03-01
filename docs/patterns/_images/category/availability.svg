@@ -9,11 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 256 256"
+   viewBox="0 0 64 64"
    id="svg5576"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="availability.svg">
+   sodipodi:docname="availability.svg"
+   width="64"
+   height="64">
   <title
      id="title6774">Availability</title>
   <defs
@@ -25,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8828125"
-     inkscape:cx="128"
-     inkscape:cy="128"
+     inkscape:zoom="1.4414063"
+     inkscape:cx="34.314033"
+     inkscape:cy="93.381816"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="937"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -59,10 +61,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-796.36216)">
+     transform="translate(0,-988.36216)">
     <g
        id="g6853"
-       transform="matrix(1.2622871,0,0,1.2622871,-24.047221,-242.48351)">
+       transform="matrix(0.29726672,0,0,0.29726672,-5.2198836,745.57175)">
       <path
          inkscape:connector-curvature="0"
          id="path6787"

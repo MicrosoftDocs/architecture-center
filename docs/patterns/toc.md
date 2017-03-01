@@ -27,7 +27,7 @@
 ## [Pipes and Filters](./pipes-and-filters.md)
 ## [Priority Queue](./priority-queue.md)
 ## [Queue-Based Load Leveling](./queue-based-load-leveling.md)
-## [Retry](./transient-faults.md)
+## [Retry](./retry.md)
 ## [Runtime Reconfiguration](./runtime-reconfiguration.md)
 ## [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md)
 ## [Sharding](./sharding.md)

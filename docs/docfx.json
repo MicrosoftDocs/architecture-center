@@ -53,7 +53,7 @@
     },
     "fileMetadata": {
       "tocRel":{
-        "blueprints/**.md":"../toc.json"
+        "reference-architectures/**.md":"../toc.json"
       }
     },
     "template": [

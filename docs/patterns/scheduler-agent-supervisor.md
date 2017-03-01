@@ -26,7 +26,7 @@ Coordinate a set of distributed actions as a single operation. If any of the act
 
 An application performs tasks that include a number of steps, some of which might invoke remote services or access remote resources. The individual steps might be independent of each other, but they are orchestrated by the application logic that implements the task.
 
-Whenever possible, the application should ensure that the task runs to completion and resolve any failures that might occur when accessing remote services or resources. Failures can occur for many reasons. For example, the network might be down, communications could be interrupted, a remote service might be unresponsive or in an unstable state, or a remote resource might be temporarily inaccessible, perhaps due to resource constraints. In many cases the failures will be transient and can be handled by using the [Retry pattern](transient-faults.md).
+Whenever possible, the application should ensure that the task runs to completion and resolve any failures that might occur when accessing remote services or resources. Failures can occur for many reasons. For example, the network might be down, communications could be interrupted, a remote service might be unresponsive or in an unstable state, or a remote resource might be temporarily inaccessible, perhaps due to resource constraints. In many cases the failures will be transient and can be handled by using the [Retry pattern][retry-pattern].
 
 If the application detects a more permanent fault it can't easily recover from, it must be able to restore the system to a consistent state and ensure integrity of the entire operation.
 
@@ -137,7 +137,7 @@ To allow the order status to be reported, the application could use its own priv
 ## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
-- [Retry pattern](transient-faults.md). An Agent can use this pattern to transparently retry an operation that accesses a remote service or resource that has previously failed. Use when the expectation is that the cause of the failure is transient and can be corrected.
+- [Retry pattern][retry-pattern]. An Agent can use this pattern to transparently retry an operation that accesses a remote service or resource that has previously failed. Use when the expectation is that the cause of the failure is transient and can be corrected.
 - [Circuit Breaker pattern](circuit-breaker.md). An Agent can use this pattern to handle faults that take a variable amount of time to correct when connecting to a remote service or resource.
 - [Compensating Transaction pattern](compensating-transaction.md). If the workflow being performed by a Scheduler can't be completed successfully, it might be necessary to undo any work it's previously performed. The Compensating Transaction pattern describes how this can be achieved for operations that follow the eventual consistency model. These types of operations are commonly implemented by a Scheduler that performs complex business processes and workflows.
 - [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). The components in the Scheduler Agent Supervisor pattern typically run decoupled from each other and communicate asynchronously. Describes some of the approaches that can be used to implement asynchronous communication based on message queues.
@@ -146,3 +146,5 @@ The following patterns and guidance might also be relevant when implementing thi
 - [Process Manager pattern](http://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 - [Reference 6: A Saga on Sagas](https://msdn.microsoft.com/library/jj591569.aspx). An example showing how the CQRS pattern uses a process manager (part of the CQRS Journey guidance).
 - [Microsoft Azure Scheduler](https://azure.microsoft.com/services/scheduler/)
+
+[retry-pattern]: ./retry.md

@@ -9,11 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="0 0 256 256"
+   viewBox="0 0 64 64"
    id="svg5576"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="messaging.svg">
+   sodipodi:docname="messaging.svg"
+   width="64"
+   height="64">
   <title
      id="title7278">Messaging</title>
   <defs
@@ -26,14 +28,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.9846711"
-     inkscape:cx="138.12469"
+     inkscape:cx="21.98454"
      inkscape:cy="79.609756"
      inkscape:document-units="px"
      inkscape:current-layer="envelope"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="937"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -59,13 +61,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-796.36216)">
+     transform="translate(0,-988.36216)">
     <g
        id="envelope"
        transform="matrix(1.0707071,0,0,1,-3.7599561,0)">
       <g
          id="g3377"
-         transform="matrix(1.0978955,0,0,1.0978955,-3.2857331,-61.905163)">
+         transform="matrix(0.28563927,0,0,0.28563927,-1.4926539,766.22712)">
         <g
            id="g3352-5"
            transform="matrix(0.81815148,0.39113509,-0.34118146,0.81815148,354.63586,60.179586)">
