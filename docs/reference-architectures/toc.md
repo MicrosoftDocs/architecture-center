@@ -29,7 +29,7 @@
 ### [N-tier application](./virtual-machines-windows/n-tier.md)  
 ### [Multi-region application](./virtual-machines-windows/multi-region-application.md)
 
-## [Web application with managed services](./managed-web-app/index.md)
+## [Managed web application](./managed-web-app/index.md)
 ### [Basic web application](./managed-web-app/basic-web-app.md)
 ### [Improved scalability](./managed-web-app/scalable-web-app.md)
 ### [Multi-region deployment](./managed-web-app/multi-region-web-app.md)
