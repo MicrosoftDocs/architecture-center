@@ -7,6 +7,14 @@
 ## [Web application with managed services](./reference-architectures/managed-web-app/index.md)
 
 # [Cloud Design Patterns](./patterns/index.md)
+## [Availability patterns](./patterns/category/availability.md)
+## [Data management patterns](./patterns/category/data-management.md)
+## [Design and Implementation patterns](./patterns/category/design-implementation.md)
+## [Management and Monitoring patterns](./patterns/category/management-monitoring.md)
+## [Messaging patterns](./patterns/category/messaging.md)
+## [Performance and scalability patterns](./patterns/category/performance-scalability.md)
+## [Resiliency patterns](./patterns/category/resiliency.md)
+## [Security patterns](./patterns/category/security.md)
 
 # Best Practices
 ## [API design](./best-practices/api-design.md)
