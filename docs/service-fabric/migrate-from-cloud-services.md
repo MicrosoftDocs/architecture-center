@@ -47,7 +47,7 @@ An in-depth discussion of microservices is beyond scope of this article, but her
       
 Service Fabric is a good fit for a microservices architecture, because most of the features needed in a distributed system are built into Service Fabric, including:
 
-- **Cluster management**. Service Fabric automatically handles node failover, health monitoring, and other cluster management function.
+- **Cluster management**. Service Fabric automatically handles node failover, health monitoring, and other cluster management functions.
 - **Horizontal scaling**. When you add nodes to a Service Fabric cluster, the application automatically scales, as services are distributed across the new nodes.
 - **Service discovery**. Service Fabric provides a discovery service that can resolve the endpoint for a named service.
 - **Stateless and stateful services**. Stateful services use [reliable collections][sf-reliable-collections], which can take the place of a cache or queue, and can be partitioned.
