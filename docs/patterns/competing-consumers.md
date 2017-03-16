@@ -32,7 +32,7 @@ The number of requests can vary significantly over time for many reasons. A sudd
 
 Use a message queue to implement the communication channel between the application and the instances of the consumer service. The application posts requests in the form of messages to the queue, and the consumer service instances receive messages from the queue and process them. This approach enables the same pool of consumer service instances to handle messages from any instance of the application. The figure illustrates using a message queue to distribute work to instances of a service.
 
-![Using a message queue to distribute work to instances of a service](./_images/compensating-transaction-diagram.png)
+![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
 This solution has the following benefits:
 
