@@ -1,28 +1,7 @@
-# patterns & practices
+# Azure Architecture Center
+Microsoft patterns & practices
 
-Some of the content is generated using a build script.
-* `index.md` is completely generated. You should not edit it directly. Instead, edit `index.yml` and `index.liquid.md`, then run the build script.
-* The metadata for series is generated and copied into the relevant docs. The metadata is derived from the corresponding toc.md. You should not directly editing any of the yml that starts with `pnp.series.`.
-
-In order to run the build script, first install the supporting packages:
-
-```bash
-npm install
-```
-
-To generate the files, you can run the `start` task:
-```bash
-npm start
-```
-Or run the script directly:
-```bash
-node .\build\build.js
-```
-
-For convenience, you can build, commit, and push with a single command:
-```bash
-npm run build
-```
+http://aka.ms/architecture
 
 ## Legal Notices
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
