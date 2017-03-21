@@ -38,10 +38,10 @@ The tests are run using JMeter. A JMeter master server loads a test plan and pas
 
 The following test plans are provided:
 
-* [elasticsearchautotestplan3nodes.jmx](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan3nodes.jmx). Runs the ingestion test over a 3-node cluster.
-* [elasticsearchautotestplan6nodes.jmx](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6nodes.jmx). Runs the ingestion test over a 6-node cluster.
-* [elasticsearchautotestplan6qnodes.jmx](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6qnodes.jmx). Runs the ingestion and query test over a 6-node cluster.
-* [elasticsearchautotestplan6nodesqueryonly.jmx](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6nodesqueryonly.jmx). Runs the query-only test over a 6-node cluster.
+* [elasticsearchautotestplan3nodes.jmx](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan3nodes.jmx). Runs the ingestion test over a 3-node cluster.
+* [elasticsearchautotestplan6nodes.jmx](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6nodes.jmx). Runs the ingestion test over a 6-node cluster.
+* [elasticsearchautotestplan6qnodes.jmx](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6qnodes.jmx). Runs the ingestion and query test over a 6-node cluster.
+* [elasticsearchautotestplan6nodesqueryonly.jmx](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/templates/elasticsearchautotestplan6nodesqueryonly.jmx). Runs the query-only test over a 6-node cluster.
 
 You can use these test plans as a basis for your own scenarios if you need fewer or more nodes.
 
@@ -52,8 +52,8 @@ Before running the performance tests you should download, compile, and deploy th
 
 There are two versions of the JUnit tests: 
 
-* [Elasticsearch1.73](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch1.73). Use this code for performing the ingestion tests. These tests use Elasticsearch 1.73.
-* [Elasticsearch2](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch2). Use this code for performing the query tests. These tests use Elasticsearch 2.1 and later.
+* [Elasticsearch1.73](https://github.com/mspnp/elasticsearch/tree/master/ingestion-and-query-tests/junitcode/elasticsearch1.73). Use this code for performing the ingestion tests. These tests use Elasticsearch 1.73.
+* [Elasticsearch2](https://github.com/mspnp/elasticsearch/tree/master/ingestion-and-query-tests/junitcode/elasticsearch2). Use this code for performing the query tests. These tests use Elasticsearch 2.1 and later.
 
 Copy the appropriate Java archive (JAR) file along with the rest of the dependencies to your JMeter machines. The process is described in [Deploying a JMeter JUnit sampler for testing Elasticsearch performance][Deploying a JMeter JUnit sampler for testing Elasticsearch performance]. 
 
@@ -71,7 +71,7 @@ Each test performs ingestion and/or queries against a single index specified whe
 ## Configuring the test script parameters
 Copy the following test script parameter files to the JMeter server machine:
 
-* [run.properties](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/run.properties). This file specifies the number of JMeter test threads to use, the duration of the test (in seconds), the IP address of a node (or a load balancer) in the Elasticsearch cluster, and the name of the cluster:
+* [run.properties](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/run.properties). This file specifies the number of JMeter test threads to use, the duration of the test (in seconds), the IP address of a node (or a load balancer) in the Elasticsearch cluster, and the name of the cluster:
   
   ```ini
   nthreads=3
@@ -81,7 +81,7 @@ Copy the following test script parameter files to the JMeter server machine:
   ```
   
   Edit this file and specify the appropriate values for your test and cluster.
-* [query-config-win.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-win.ini) and [query-config-nix.ini](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-config-nix.ini). These two files contain the same information; the *win* file is formatted for Windows filenames and paths, and the *nix* file is formatted for Linux filenames and paths:
+* [query-config-win.ini](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/query-config-win.ini) and [query-config-nix.ini](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/query-config-nix.ini). These two files contain the same information; the *win* file is formatted for Windows filenames and paths, and the *nix* file is formatted for Linux filenames and paths:
   
   ```ini
   [DEFAULT]
@@ -99,7 +99,7 @@ Copy the following test script parameter files to the JMeter server machine:
   Edit this file to specify the locations of the test results, the name of the JMeter test plan to run, the IP addresses of the Elasticsearch data nodes you are collecting performance metrics from, the reports containing the raw performance data that will be generated, and the name (or names comma delimited) of the index(es) under test, if more than one, tests will run one after another. If the run.properties file is located in a different folder or directory, specify the full path to this file.
 
 ## Running the tests
-* Copy the file [query-test.py](https://github.com/mspnp/azure-guidance/blob/master/ingestion-and-query-tests/query-test.py) to the JMeter server machine, in the same folder as the run.properties and query-config-win.ini (query-config-nix.ini) files.
+* Copy the file [query-test.py](https://github.com/mspnp/elasticsearch/blob/master/ingestion-and-query-tests/query-test.py) to the JMeter server machine, in the same folder as the run.properties and query-config-win.ini (query-config-nix.ini) files.
 * Ensure that jmeter.bat (Windows) or jmeter.sh (Linux) are on the executable path for your environment.
 * Run the query-test.py script from the command line to perform the tests:
   

@@ -108,7 +108,7 @@ On the JMeter master machine where you will run the tests, open a Git desktop wi
 and clone the repository that contains the scripts, as follows:
 
 ```Shell
-git clone https://github.com/mspnp/azure-guidance.git
+git clone https://github.com/mspnp/elasticsearch.git
 ```
 
 Move to the resiliency-tests folder and run the following command to install the dependencies required
