@@ -84,7 +84,7 @@ The internal load balancer distributes network traffic from the web tier to the 
 
 We recommend [DataStax Enterprise][datastax] for production use, but these recommendations apply to any Cassandra edition. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure]. 
 
-Put the VMs for a Cassandra cluster in an availability set to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][availability-sets-manage]. 
+Put the VMs for a Cassandra cluster in an availability set to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][azure-availability-sets]. 
 
 Configure three fault domains (the maximum) per availability set and 18 upgrade domains per availability set. This provides the maximum number of upgrade domains that can still be distributed evenly across the fault domains.   
 
@@ -147,8 +147,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 
 [azure-administration]: /azure/automation/automation-intro
-[azure-availability-sets]: /azure/virtual-machines/virtual-machines-windows-manage-availability#configure-each-application-tier-into-separate-availability-sets
-[availability-sets-manage]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[azure-availability-sets]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-consistency-usage]: http://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2

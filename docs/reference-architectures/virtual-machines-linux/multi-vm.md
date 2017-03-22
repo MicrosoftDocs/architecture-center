@@ -119,7 +119,7 @@ The availability set makes your application more resilient to both planned and u
 * *Planned maintenance* occurs when Microsoft updates the underlying platform, sometimes causing VMs to be restarted. Azure makes sure the VMs in an availability set are not all restarted at the same time. At least one is kept running while others are restarting.
 * *Unplanned maintenance* happens if there is a hardware failure. Azure makes sure that VMs in an availability set are provisioned across more than one server rack. This helps to reduce the impact of hardware failures, network outages, power interruptions, and so on.
 
-For more information, see [Manage the availability of virtual machines][availability set]. The following video also has a good overview of availability sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]. 
+For more information, see [Manage the availability of Linux virtual machines][availability set]. The following video also has a good overview of availability sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]. 
 
 > [!WARNING]
 > Make sure to configure the availability set when you provision the VM. Currently, there is no way to add a Resource Manager VM to an availability set after the VM is provisioned.
@@ -171,7 +171,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 
-[availability set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[availability set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [azure-automation]: https://azure.microsoft.com/documentation/services/automation/
 [azure-cli]: /azure/virtual-machines-command-line-tools
@@ -194,5 +194,4 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss-quickstart]: https://azure.microsoft.com/documentation/templates/?term=scale+set
-[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [0]: ./images/multi-vm-diagram.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"

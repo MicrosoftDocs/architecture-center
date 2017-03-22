@@ -53,7 +53,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Recommendations
 
-This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+This architecture shows the baseline recommendations for running a Linux VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ### VM recommendations
 
@@ -188,10 +188,10 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 
 
 <!-- links -->
-[multi-vm]: ../virtual-machines-windows/multi-vm.md?toc=%2fazure%2farchitecture%24virtual-machines-linux%2f/toc.json
+[multi-vm]: ../virtual-machines-linux/multi-vm.md
 [naming conventions]: ../../best-practices/naming-conventions.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
+[availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
@@ -230,7 +230,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
+[vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
