@@ -13,7 +13,7 @@ pnp.series.title: Windows VM workloads
 pnp.series.next: multi-region-application
 pnp.series.prev: multi-vm
 pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier-sql
+  https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier-sql
 ms.assetid: 79046c65-b024-4a24-ad56-66ed8b1b7800
 ms.service: guidance
 ms.devlang: na
@@ -145,30 +145,27 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this architecture is available on [GitHub][github-folder]. The architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
-   [!["Deploy To Azure"][1]][2]
+1. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Right click the button below and select "open in new tab" or "open in new window" to begin the second stage of the deployment.  
-   [!["Deploy To Azure"][1]][3]
+4. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Right click the button below and select "open in new tab" or "open in new window" to begin the third stage of the deployment.  
-   [!["Deploy To Azure"][1]][4]
+7. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 8. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-network-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -196,7 +193,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier-sql
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier-sql
 [lb-external-create]: /azure/load-balancer/load-balancer-get-started-internet-portal
 [lb-internal-create]: /azure/load-balancer/load-balancer-get-started-ilb-arm-portal
 [load-balancer-external]: /azure/load-balancer/load-balancer-internet-overview
@@ -223,22 +220,19 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/deploy-reference-architecture.sh
-[vnet-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json
-[vnet-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json
-[nsg-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json
-[webtier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json
-[webtier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json
-[businesstier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json
-[businesstier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/businessTier.parameters.json
-[datatier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/dataTier.parameters.json
-[datatier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/dataTier.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/deploy-reference-architecture.sh
+[vnet-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json
+[vnet-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/linux/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json
+[nsg-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json
+[webtier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/windows/webTier.parameters.json
+[webtier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/linux/webTier.parameters.json
+[businesstier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json
+[businesstier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/linux/businessTier.parameters.json
+[datatier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/windows/dataTier.parameters.json
+[datatier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier/parameters/linux/dataTier.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
-[1]: ../_images/blueprints/deploybutton.png 
-[2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json
-[3]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json
-[4]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json
+[1]: ../_images/blueprints/deploybutton.png
