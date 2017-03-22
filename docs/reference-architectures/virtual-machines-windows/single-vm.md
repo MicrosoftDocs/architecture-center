@@ -12,7 +12,7 @@ tags: ''
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-vm
 pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-single-vm
+  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 ms.assetid: 111649ea-4417-4a8e-8054-5bbe1902da87
 ms.service: guidance
 ms.devlang: na
@@ -163,7 +163,7 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -193,7 +193,7 @@ If you need to change the deployment to match your needs, follow the instruction
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[github-folder]: http://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-single-vm
+[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
@@ -227,6 +227,6 @@ If you need to change the deployment to match your needs, follow the instruction
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
-[readme]: https://github.com/mspnp/reference-architectures/blob/v1.0.0/guidance-compute-single-vm
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
 

@@ -175,7 +175,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
-[GitHub]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-ra-identity-adds
+[GitHub]: https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview

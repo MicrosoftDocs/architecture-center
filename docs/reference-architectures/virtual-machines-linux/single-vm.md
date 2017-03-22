@@ -174,7 +174,7 @@ Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
 1. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -202,7 +202,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-single-vm/
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [nsg]: /azure/virtual-network/virtual-networks-nsg
@@ -231,7 +231,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[readme]: https://github.com/mspnp/reference-architectures/blob/v1.0.0/guidance-compute-single-vm
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
 [blocks]: https://github.com/mspnp/template-building-blocks
 [0]: ./images/single-vm-diagram.png "Single Linux VM architecture in Azure"
 

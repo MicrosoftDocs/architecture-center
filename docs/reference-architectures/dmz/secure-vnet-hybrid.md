@@ -187,7 +187,7 @@ Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed by following the directions below:
 
 1. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-secure-vnet%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2secure-vnet-hybrid%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -218,7 +218,7 @@ A deployment for a reference architecture that implements these recommendations 
 [denyall]: https://azure.microsoft.com/marketplace/partners/denyall/denyall-web-application-firewall/
 [fortinet]: https://azure.microsoft.com/marketplace/partners/fortinet/fortinet-fortigate-singlevmfortigate-singlevm/
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-secure-vnet
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-secure-vnet
 [guidance-expressroute]: ../hybrid-networking/expressroute.md
 [guidance-expressroute-availability]: ../hybrid-networking/expressroute.md#availability-considerations
 [guidance-expressroute-manageability]: ../hybrid-networking/expressroute.md#manageability-considerations

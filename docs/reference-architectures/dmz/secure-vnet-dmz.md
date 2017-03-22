@@ -102,7 +102,7 @@ You should log all incoming requests on all ports. Regularly audit the logs, pay
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed either with Windows or Linux VMs by following the directions below:
 
 1. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-secure-vnet-dmz%2FvirtualNetwork.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2secure-vnet-dmz%2FvirtualNetwork.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-network-rg` in the text box.
@@ -113,7 +113,7 @@ A deployment for a reference architecture that implements these recommendations 
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
 4. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-secure-vnet-dmz%2Fworkload.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2secure-vnet-dmz%2Fworkload.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-public-dmz-wl-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -122,7 +122,7 @@ A deployment for a reference architecture that implements these recommendations 
    * Click the **Purchase** button.
 6. Wait for the deployment to complete.
 7. Click the button below:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-secure-vnet-dmz%2Fsecurity.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2secure-vnet-dmz%2Fsecurity.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 8. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-public-dmz-network-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -134,7 +134,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-secure-vnet-dmz
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-secure-vnet-dmz
 
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture]: ./secure-vnet-hybrid.md
