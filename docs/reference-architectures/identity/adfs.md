@@ -334,6 +334,6 @@ A solution is available on [Github][github] to deploy this reference architectur
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/active-directory-aadconnect-azure-adfs
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[github]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
+[github]: https://raw.githubusercontent.com/mspnp/reference-architectures/v1.0.0/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [0]: ../_images/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"

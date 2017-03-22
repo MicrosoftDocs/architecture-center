@@ -12,7 +12,7 @@ pnp.series.title: Windows VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
 pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
+  https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-multi-vm
 ms.assetid: 6fa4764e-4d97-4b96-ac25-8adf602baf27
 ms.service: guidance
 ms.devlang: na
@@ -151,10 +151,9 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, load balancer, and two VMs. It can be deployed with either Windows or Linux VMs. To deploy the architecture, follow these steps: 
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
+1. Click the button below:  
+<br/><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-multi-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create new** and enter `ra-multi-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -179,7 +178,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-automation]: /azure/automation/automation-intro
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-multi-vm
 [health probe log]: /azure/load-balancer/load-balancer-monitor-log
 [health probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
 [health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
