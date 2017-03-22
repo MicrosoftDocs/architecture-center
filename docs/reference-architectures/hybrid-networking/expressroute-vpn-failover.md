@@ -131,7 +131,7 @@ To deploy the solution, perform the following steps.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
-4. Click the button below:  
+4. Click the button below:
 <br/><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Wait for the link to open in the Azure portal, then enter then follow these steps:
    
