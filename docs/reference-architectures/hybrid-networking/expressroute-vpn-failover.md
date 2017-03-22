@@ -121,8 +121,8 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 To deploy the solution, perform the following steps.
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy.json)
+1. Click the button below:
+<br/><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>  
 2. Wait for the link to open in the Azure portal, then follow these steps:
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
@@ -131,8 +131,8 @@ To deploy the solution, perform the following steps.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
-4. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json)
+4. Click the button below:  
+<br/><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Wait for the link to open in the Azure portal, then enter then follow these steps:
    
    * Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
@@ -155,12 +155,12 @@ To deploy the solution, perform the following steps.
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json
-[virtualnetworkgateway-vpn-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json
-[virtualnetworkgateway-expressroute-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json
-[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json
+[virtualnetworkgateway-vpn-parameters]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json
+[virtualnetworkgateway-expressroute-parameters]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json
+[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/

@@ -128,8 +128,8 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this architecture is available on [GitHub][github-folder]. The architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window."  
-   [!["Deploy To Azure"][1]][2]
+1. Click the button below:
+<br/><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fv1.0.0%2Fguidance-compute-n-tier%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>  
 2. Once the link has opened in the Azure portal, enter the follow values: 
    
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
@@ -156,7 +156,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
 [datastax]: http://www.datastax.com/products/datastax-enterprise
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/v1.0.0/guidance-compute-n-tier
 [lb-external-create]: /azure/load-balancer/load-balancer-get-started-internet-portal
 [lb-internal-create]: /azure/load-balancer/load-balancer-get-started-ilb-arm-portal
 [load-balancer-external]: /azure/load-balancer/load-balancer-internet-overview
@@ -176,7 +176,4 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
-[1]: ../_images/blueprints/deploybutton.png 
-[2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier%2Fazuredeploy.json
-
 
