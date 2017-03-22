@@ -145,30 +145,27 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this architecture is available on [GitHub][github-folder]. The architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
-   [!["Deploy To Azure"][1]][2]
+1. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Right click the button below and select "open in new tab" or "open in new window" to begin the second stage of the deployment.  
-   [!["Deploy To Azure"][1]][3]
+4. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click on the **Purchase** button.
 6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Right click the button below and select "open in new tab" or "open in new window" to begin the third stage of the deployment.  
-   [!["Deploy To Azure"][1]][4]
+7. Click the button below:
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 8. Once the link has opened in the Azure portal, enter the follow values: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-network-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -238,7 +235,4 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
-[1]: ../_images/blueprints/deploybutton.png 
-[2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2FvirtualNetwork.azuredeploy.json
-[3]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fworkload.azuredeploy.json
-[4]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier-sql%2Fsecurity.azuredeploy.json
+[1]: ../_images/blueprints/deploybutton.png
