@@ -1,0 +1,80 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+    refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+  </defs>
+<defs>
+    <marker id="arrowhead-green" fill="#10b55b" markerWidth="10" markerHeight="7" 
+    refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+  </defs>
+<line x1="230" y1="310" x2="380" y2="310" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+<line x1="230" y1="220" x2="380" y2="220" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+<line x1="390" y1="640" x2="240" y2="640" stroke="#000" stroke-width="1" marker-end="url(#arrowhead)" />
+
+<rect x="110" y="185" width="120" height="500" fill="#002060" />
+  <rect x="250" y="185" width="120" height="106" fill="#002060" />
+  <rect x="390" y="185" width="120" height="390" fill="#002060" />
+  <rect x="390" y="595" width="120" height="90" fill="#002060" />
+<text x="110" y="110" font-family="Calibri" font-size="60">
+    Web-Queue-Worker architecture
+  </text>
+<text x="170" y="400" font-family="Calibri" font-size="24" fill="white" text-anchor="middle" alignment-baseline="central">
+    SPA
+  </text>
+<text x="170" y="430" font-family="Calibri" font-size="24" fill="white" text-anchor="middle" alignment-baseline="central">
+    &amp;
+  </text>
+<text x="170" y="460" font-family="Calibri" font-size="24" fill="white" text-anchor="middle" alignment-baseline="central">
+    Mobile
+  </text>
+<g id="groupExpose" style="display:none;">
+<text x="370" y="140" font-family="Calibri" font-size="20"  >
+    Expose
+  </text>
+<text x="370" y="162" font-family="Calibri" font-size="20"  >
+    consumer friendly API
+  </text>
+  <circle cx="405" cy="230" r="15" fill="#e0e90b" />
+<line stroke-dasharray="5, 5" x1="405" y1="170" x2="405" y2="220" stroke="#10b55b" stroke-width="1" marker-end="url(#arrowhead-green)" />
+
+</g>
+
+<text id="txtA" x="110" y="760" font-family="Calibri" font-size="60">
+    Click to turn on
+  </text>
+<text id="txtB" x="110" y="760" font-family="Calibri" font-size="60" style="display:none;">
+    Click to turn off
+  </text>
+
+  <script type="text/javascript"><![CDATA[
+    var KEY = { w:87, a:65, s:83, d:68 };
+    var moveSpeed = 5;
+    var circle = document.getElementsByTagName("circle")[0];
+    var txtA = document.getElementById("txtA");
+    var txtB = document.getElementById("txtB");
+    var groupExpose = document.getElementById("groupExpose");
+    var x = circle.getAttribute('cx')*1,
+        y = circle.getAttribute('cy')*1;
+    document.documentElement.addEventListener('mousedown',function(evt){
+	if(evt.target.id == "txtA")
+	{
+		txtA.style.display = "none";
+		txtB.style.display = "";													
+		groupExpose.style.display = "";
+	}
+	if(evt.target.id == "txtB")
+	{
+		txtA.style.display = "";
+		txtB.style.display = "none";
+		groupExpose.style.display = "none";
+	}
+    },false);
+  ]]></script>
+</svg>
