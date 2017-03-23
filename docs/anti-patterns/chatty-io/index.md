@@ -15,10 +15,10 @@ Each I/O request typically incorporates significant overhead, and the cumulative
 of a large number of requests can have a significant impact on the performance and
 responsiveness of the system.
 
-Common examples of chatty I/O operations include:
+Common examples of chatty I/O operations include: <<RBC: The other patterns tend to use this language: "This antipattern typically occurs because:" Is that not applicable here? Should we use consistent terminology?>>
 
 - Reading and writing individual records to a database as distinct requests. The
-following code snippet shows part of a controller in a service implemented by using Web
+following code snippet shows part of a controller in a service implemented using Web
 API. The example is based on the AdventureWorks2012 database. In this database, products
 are grouped into subcategories and are held in the `Product` and `ProductSubcategory`
 tables respectively. Pricing information for each product is held in a separate table
@@ -27,13 +27,13 @@ retrieves the details for all products (including price information) for a speci
 subcategory. The method achieves this by using the Entity Framework to perform the
 following operations:
 
-	- Fetch the details of the specified subcategory from the `ProductSubcategory` table,
+	- Fetch the details of the specified subcategory from the `ProductSubcategory` table.
 
-	- Find all products in the subcategory by querying the `Product` table,
+	- Find all products in the subcategory by querying the `Product` table.
 
 	- For each product, retrieve the price data from the `ProductPriceListHistory` table.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 public class ChattyProductController : ApiController
@@ -78,22 +78,22 @@ public class ChattyProductController : ApiController
 
 ----------
 
-**Note:** This code forms part of the [ChattyIO sample application][fullDemonstrationOfProblem].
+**Note:** This code forms part of the [ChattyIO sample application][fullDemonstrationOfProblem]. 
 
 ----------
 
 - Sending a series of requests that constitute a single logical operation to a web
 service. This often occurs when a system attempts to follow an object-oriented paradigm
 and handle remote objects as though they were local items held in application memory.
-This approach can result in an excessive number of network round-trips. For example, the
-following web API exposes the individual properties of `User` objects through a REST
+This approach can result in an excessive number of network round trips. For example, the
+following Web API exposes the individual properties of `User` objects through a REST
 interface. Each method in the REST interface takes a parameter that identifies a user.
 While this approach is efficient if an application only needs to obtain one selected
 piece of information, in many cases it is likely that the application will actually
 require more than one property of a `User` object, resulting in multiple requests as
 shown in the C# client code snippet.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 public class User
@@ -155,15 +155,15 @@ var dob = await response.Content.ReadAsStringAsync();
 ```
 - Reading and writing to a file on disk. Performing file I/O involves opening a file and
 moving to the appropriate point before reading or writing data. When the operation is
-complete the file might be closed to save operating system resources. An application that
+complete, the file might be closed to save operating system resources. An application that
 continually reads and writes small amounts of information to a file will generate
 significant I/O overhead. Note that repeated small write requests can also lead to file
 fragmentation, slowing subsequent I/O operations still further. The following example
 shows part of an application that creates new *Customer* objects and writes customer
-information to a file. The details of each customer are stored by using the
+information to a file. The details of each customer are stored using the
 *SaveCustomerToFileAsync* method immediately after it is created. Note that the
 *FileStream* object utilized for writing to the file is created and destroyed
-automatically by virtue of being managed by a *using* block. Each time the *FileStream*
+automatically as a result of being managed by a *using* block. Each time the *FileStream*
 object is created the specified file is opened, and when the *FileStream* object is
 destroyed the file is closed. If this method is invoked repeatedly as new customers are
 added, the I/O overhead can quickly accumulate.
@@ -203,7 +203,7 @@ private async Task SaveCustomerToFileAsync(Customer cust)
 
 ## How to detect the problem
 
-Symptoms of chatty I/O include high latency and low throughput. End-users are likely to
+Symptoms of chatty I/O include high latency and low throughput. End users are likely to
 report extended response times and possible failures caused by services timing out due to
 increased contention for I/O resources.
 
@@ -235,21 +235,21 @@ you to examine applications and services systematically.
 
 ----------
 
-### Load-testing the application
+### Load testing the application
 
 The key task in determining the possible causes of poor performance is to examine
-operations that are running slowly. With this in mind, performing load-testing in a
+operations that are running slowly. With this in mind, performing load testing in a
 controlled environment against suspect areas of functionality can help to establish a
-baseline, and monitoring how the application runs while executing the load-tests can
+baseline, and monitoring how the application runs while executing the load tests can
 provide useful insights into how the system might be optimized.
 
-Running load-tests against the `GetProductsInSubCategoryAsync` operation in the
-`ChattyProduct` controller in sample application yields the following results:
+Running load tests against the `GetProductsInSubCategoryAsync` operation in the
+`ChattyProduct` controller in sample application yields the following results.
 
-![Key indicators load-test results for the Chatty I/O sample application][key-indicators-chatty-io]
+![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
-This load test was performed by using a simulated step workload of up to 1000 concurrent
-users. The graph shows a high degree of latency; the median response time is measured in
+This load test was performed using a simulated step workload of up to 1000 concurrent
+users. The graph shows a high degree of latency, the median response time is measured in
 10s of seconds per request. If each test represents a user querying the product catalog
 to find the details of products in a specified subcategory then with a loading of 1000
 users, a customer might have to wait for nearly a minute to see the results under this
@@ -268,16 +268,16 @@ deployment.
 
 ### Monitoring the application
 
-You can use an Application Performance Monitoring (APM) package to capture and analyze
-the key metrics that identify potentially chatty I/O. The exact metrics to will depend on
+You can use an application performance monitoring (APM) package to capture and analyze
+the key metrics that identify potentially chatty I/O. The exact metrics will depend on
 the nature of the source or destination of the I/O requests. In the case of the sample
 application, the interesting I/O requests are those directed at the instance of Azure
-SQLDatabase holding the AdventureWorks2012 database. In other applications, you may need
+SQL Database holding the AdventureWorks2012 database. In other applications, you may need
 to examine the volume and I/O rates to other data sources, files, or external web
 services.
 
-The following image shows the results generated by using New Relic as the APM while
-running the load-test for the sample application. The `GetProductsInSubCategoryAsync`
+The following image shows the results generated using New Relic <<RBC: Do we want to link to them, or at least indicate that it's a third-party tool?>> as the APM while
+running the load test for the sample application. The `GetProductsInSubCategoryAsync`
 operation causes a significant volume of database traffic, with the average amount of
 time peaking at approximately 5.6 seconds per request during the maximum workload used by
 the test. The system was able to support 410 requests per minute, on average throughout
@@ -291,10 +291,10 @@ Examining data access statistics and other information provided by the data stor
 as the repository can yield detailed information about the frequency with which specific
 data is requested. Using the Databases tab in the New Relic APM reveals that the sample
 application executes three SQL SELECT statements. These SELECT statements correspond to
-the requests generated by the Entity Framework; they fetch data from the
+the requests generated by the Entity Framework. They fetch data from the
 `ProductListPriceHistory`, `Product`, and `ProductSubcategory` tables in the database.
 Furthermore, the query that retrieves data from the `ProductListPriceHistory` table is by
-far the most frequently executed SELECT statement:
+far the most frequently executed SELECT statement.
 
 ![Queries performed by the sample application under test][queries]
 
@@ -308,7 +308,7 @@ connection:
 ----------
 
 **Note:** The trace information shown is for the slowest instance of the
-`GetProductsInSubCategoryAsync` operation performed by the load-test. In a production
+`GetProductsInSubCategoryAsync` operation performed by the load test. In a production
 environment, you should examine the traces of as many slow-running operations as possible
 to determine whether there is a pattern in the behavior of these operations that suggests
 why they might be running slowly.
@@ -317,14 +317,14 @@ why they might be running slowly.
 
 The Trace details tab provides a complete list of the tasks performed by the operation
 under scrutiny. You can clearly see the repeated requests to open a new database
-connection and retrieve data from the `ProductListPriceHistory` table:
+connection and retrieve data from the `ProductListPriceHistory` table.
 
 ![Transaction trace details for the sample application under test][transactiontrace1]
 
 You can click the SQL statements tab in the Transaction trace pane if you wish to examine
 the SQL code for each statement in more detail. This information can provide an insight
 into how an object-relational mapping system such as the Entity Framework interacts with
-a database, and can help to indicate areas where data access might be optimized:
+a database, and can help to indicate areas where data access might be optimized.
 
 ![Query details for the sample application under test][queries3]
 
@@ -337,10 +337,10 @@ increased considerably.
 
 ----------
 
-**Note:** When considering how you might reduced the overhead of a chatty interface, you
+**Note:** When considering how you might reduce the overhead of a chatty interface, you
 must consider the effects of retrieving larger volumes of data with each request. If this
 data is required by the client, then fewer, larger requests will be more optimal than
-making many small requests. This issue is described in more detail in the [How to correct the problem](#HowToCorrectTheProblem) section.
+making many small requests. This issue is described in more detail in the [How to correct the problem](#HowToCorrectTheProblem) section. <<RBC: One of the things I like about this doc set is the lack of internal linking. I find excessive internal linking annoying, especially in such a short doc. Isn't it obvious that the issue is discussed in the how to solve the problem section? Is this sentence needed?>>
 
 ----------
 
@@ -365,11 +365,11 @@ store.
 Reduce the number of I/O requests by packaging the data that your application reads or
 writes into larger, fewer requests, as illustrated by the following examples:
 
-- In the ChattyIO example, rather than retrieving data by using separate queries, fetch
+- In the chatty I/O <<RBC: Should this be ChattyIO (the name of the sample) or chatty I/O a generic reference to the example? I picked the latter because other refs in the doc used this and it's easier to read when you're not pointing them at the actual code file.>> example, rather than retrieving data using separate queries, fetch
 the information required in a single query as shown in the `ChunkyProduct` controller
 below:
 
-**C# web API**
+**C# Web API**
 
 ```C#
 public class ChunkyProductController : ApiController
@@ -396,15 +396,15 @@ public class ChunkyProductController : ApiController
 ```
 ----------
 
-**Note:** This code is available in the [ChattyIO sample application][fullDemonstrationOfSolution] provided with this anti-pattern.
+**Note:** This code is available in the [ChattyIO sample application][fullDemonstrationOfSolution] provided with this antipattern.
 
 ----------
 
 - In the `UserController` example shown earlier, rather than exposing individual
 properties of `User` objects through the REST interface, provide a method that retrieves
-an entire User object within a single request.
+an entire `User` object within a single request.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 public class User
@@ -492,14 +492,14 @@ private async Task SaveCustomerListToFileAsync(List<Customer> customers)
 ```
 
 As well as buffering data for output, you should also consider caching data retrieved
-from a service; this can help to reduce the volume of I/O being performed by avoiding
+from a service. This can help to reduce the volume of I/O being performed by avoiding
 repeated requests for the same data. For more information, see the [Caching Guidance][caching-guidance].
 
 You should consider the following points:
 
 - When reading data, do not make your I/O requests too large. An application should only
 retrieve the information that it is likely to use. It may be necessary to partition the
-information for an object into two chunks; *frequently accessed data* that accounts for
+information for an object into two chunks, *frequently accessed data* that accounts for
 90% of the requests and *less frequently accessed data* that is used only 10% of the
 time. When an application requests data, it should be retrieve  the *90%* chunk. The
 *10%* chunk should only be fetched if necessary. If the *10%* chunk constitutes a large
@@ -511,7 +511,7 @@ data stores, files, or services then adopt an eventually consistent approach (se
 [Data Consistency guidance][data-consistency-guidance] for details).
 
 - Data buffered in memory to optimize write requests is vulnerable if the application
-crashes and may be lost.  If the data rate is bursty or relatively sparse, buffering the data in an external durable queue (such as [Event Hubs](http://azure.microsoft.com/en-us/services/event-hubs/)) may be more appropriate to protect against losing a significant amount of in-memory buffered data.
+crashes and may be lost.  If the data rate is bursty <<RBC: Is there another word we can use here? This isn't a common term (on 24 hits on MSDN library) it seems fairly clear, but I wonder if ESL readers will understand it?>> or relatively sparse, buffering the data in an external durable queue (such as [Event Hubs](http://azure.microsoft.com/en-us/services/event-hubs/)) may be more appropriate to protect against losing a significant amount of in-memory buffered data.
 
 ## <a name="Consequences"></a>Consequences of the solution
 
@@ -519,43 +519,43 @@ The system should spend less time performing I/O, and contention for I/O resourc
 be decreased. This should manifest itself as an improvement in response time and
 throughput in an application. However, you should ensure that each request only fetches
 the data that is likely to be required. Making requests that are far too big can be as
-damaging for performance as making lots of small requests; avoid retrieving data
+damaging for performance as making lots of small requests, avoid retrieving data
 speculatively. For more information, see the [Extraneous Fetching][extraneous-fetching]
-anti-pattern.
+antipattern.
 
-Performing load-testing against the Chatty I/O sample application by using the `chunky`
+Performing load testing against the chatty I/O sample application using the `chunky`
 API generated the following results:
 
-![Key indicators load-test results for the Chunky API in the Chatty I/O sample application][key-indicators-chunky-io]
+![Key indicators load test results for the chunky API in the chatty I/O sample application][key-indicators-chunky-io]
 
-This load-test was performed on the same deployment and using the same simulated step
+This load test was performed on the same deployment and using the same simulated step
 workload of up to 1000 concurrent users as before. This time the graph shows much lower
-latency; the average request time at 1000 users is between 5 and 6 seconds. A user
+latency. The average request time at 1000 users is between 5 and 6 seconds. A user
 querying the product catalog to find the details of products in a specified subcategory
 will now wait for significantly less than 10 seconds to see the results compared to
 nearly a minute in the earlier tests.
 
 For comparison purposes, the following image shows the transaction overview for the
 chunky API. Notice that this time the system supported and average of 3970 requests per
-minute compared to 410 for the earlier test:
+minute compared to 410 for the earlier test.
 
-![Transaction overview for the Chunky API][databasetraffic2]
+![Transaction overview for the chunky API][databasetraffic2]
 
-The web trace details for the slowest instance of an operation performed by using the
+The web trace details for the slowest instance of an operation performed using the
 chunky API shows that this time there are no repeated *open connection* and *fetch list
-price history* cycles. Instead, the trace shows a single SELECT statement being run:
+price history* cycles. Instead, the trace shows a single SELECT statement being run.
 
-![Transaction trace details for the Chunky API][transactiontrace2]
+![Transaction trace details for the chunky API][transactiontrace2]
 
-The SQL tab shows that the application now performs the following query which fetches all
-the data required for the operation as a single SELECT statement:
+The SQL tab shows that the application now performs the following query that fetches all
+the data required for the operation as a single SELECT statement.
 
-![Query details for the Chunky API][queries4]
+![Query details for the chunky API][queries4]
 
 Although this query is considerably more complex than that used by the chatty API, this
 complexity is offset by virtue of the fact that it is performed only once. Additionally,
 there is no wasted effort in retrieving unnecessary data as the information returned by
-the Chunky API is the same as that retrieved by the Chatty API.
+the chunky API is the same as that retrieved by the chatty API.
 
 ## Related resources
 

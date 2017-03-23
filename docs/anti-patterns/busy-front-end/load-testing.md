@@ -10,7 +10,7 @@ pnp.series.title: Optimize Performance
 # Load Testing Busy Front End
 [!INCLUDE [header](../../_includes/header.md)]
 
-This document summarizes the configuration we used to perform load-testing for the BusyFrontEnd anti-pattern. You should also read about our [general approach][general approach] to deployment and load testing.
+This document summarizes the configuration we used to perform load testing for the Busy Front End antipattern. You should also read about our [general approach][general approach] to deployment and load testing.
 
 ## Deployment
 
@@ -22,7 +22,7 @@ Instance Count      | 1
 
 ## Test Configuration
 
-The load test project included three webtests, invoking HTTP `POST` operations over the `workinfrontend` and `workinbackground` controllers, and an HTTP `GET` operation for the `userprofile` controller.
+The load test project included three web tests, invoking HTTP `POST` operations over the `workinfrontend` and `workinbackground` controllers, and an HTTP `GET` operation for the `userprofile` controller.
 
 The URLs used for the HTTP `POST` operations were:
 
@@ -36,7 +36,7 @@ The URL used for the HTTP `GET` operation was:
 In all cases, replace *yourservice* with the name of your cloud service.
 
 The project also included two load tests, one for each of the two `POST` web tests.
-Each load test comprised two concurrent scenarios configured as follows:
+Each load test contained two concurrent scenarios configured as follows:
 
 - Scenario 1 (`UserProfile` - constant load pattern)
 

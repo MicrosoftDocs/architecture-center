@@ -16,27 +16,27 @@ resources constructing the same items when they are required by multiple request
 a cloud service that has to handle many concurrent requests, the overhead associated
 with repeated operations can impact the performance and scalability of the system.
 
-Caching can also help to reduce costs by reducing traffic into and out of resources
+Caching can also help reduce costs by reducing traffic into and out of resources
 such as data stores that make a charge for each request. In some cases, resource
 access might be metered and limited depending on the level of service provided by the
 resource host. Exceeding the resource access limit during a specified period of time
 might make the resource inaccessible or result in increased charges. Examples of such
 resources include Azure SQL Database where the rate of work and the number of
-transactions that can be performed each month are governed by the number of Database
-Throughput Units (DTUs) provided by the service tier and performance level selected
-for the service; a higher service tier and performance level grants more DTUs but at
+transactions that can be performed each month are governed by the number of database
+throughput units (DTUs) provided by the service tier and performance level selected
+for the service. A higher service tier and performance level grants more DTUs, but at
 a higher monthly fee.
 
 The following code snippet shows an example method that uses Entity Framework to
 connect to the [AdventureWorks2012][AdventureWorks2012] sample database implemented
-by using Azure SQL Database. The method then fetches the details of a customer
+using Azure SQL Database. The method then fetches the details of a customer
 (returned as a `Person` object) specified by the `id` parameter. Each time this
 method runs, it incurs the expense of communicating with the database. In a system
 designed to support multiple concurrent users, separate requests might retrieve the
 same information from the database. The costs associated with repeated requests (in
 terms of I/O overhead and data access charges) can accumulate quickly. Additionally,
 if the system is unable to connect to the database for some reason then requests will
-fail:
+fail.
 
 
 **C#**
@@ -59,25 +59,25 @@ public class PersonRepository : IPersonRepository
 
 This code forms part of the [CachingDemo sample application][fullDemonstrationOfProblem].
 
-This anti-pattern typically occurs because:
+This antipattern typically occurs because:
 
-- It is easier to write code that reads and writes data directly to a data store.
+- It is easier to write code that reads and writes data directly to a data store. <<RBC: This seems like an odd thing to include, or an odd way to word it. But maybe it's very important and I'm just not the audience...>>
 
 - There is a perception that users always demand to see the most recent data, and
 caching  may lead to them being presented with out-of-date information.
 
-- There is a concern over the overhead of maintaining the accuracy and freshness of
-cached data and the coding complications that this might entail.
+- There is concern about the overhead of maintaining the accuracy and freshness of
+cached data and the coding complications that this might cause.
 
 - Direct access to data might form part of an on-premises system where network
-latency is not an issue, the system runs on expensive high-performance hardware, and
-caching is not considered. If this system is migrated to the cloud network latency is
+latency is not an issue, the system runs on expensive high performance hardware, and
+caching is not considered. If this system is migrated to the cloud, network latency is
 increased, and it is typically hosted on commodity hardware in a remote datacenter.
 An explicit decision needs to be made to explore the possible performance benefits of
 caching.
 
 - A lack of awareness that caching is a possibility in a given scenario. A common
-example concerns the use of ETags when implementing a web API.
+example concerns the use of ETags when implementing a Web API.
 
 - The benefits (and sometimes the drawbacks) of using a cache are misunderstood.
 
@@ -91,21 +91,21 @@ store.
 You can perform the following steps to help identify whether lack of caching is
 causing performance problems in an application:
 
-1. Review the application with the designers and developers.
+1. Review the application with the designers and developers. <<RBC: Again, this seems odd. To what end? What would they be looking for? Is this step necessary? Okay, below it talks about whether caching was included in the design. So, maybe it doesn't need to be added here and it's a given that's what you'd be reviewing since this is the no caching antipattern.>>
 
 2. Instrument the application and monitor the live system to assess how frequently
 the application retrieves data or calculates information, and the sources of this
-data.
+data. <<RBC: The final clause seems awkward. Maybe a second sentence would be better? Are you really instrumenting and monitoring the sources of the data? Would saying "...how frequently the application retrieves data (and from which sources) or calculates information." work?>>
 
-3. Profiling the application in a test environment to capture low-level metrics about
-the overheads associated with repeated data access operations or other frequently
+3. Profiling the application in a test environment to capture low level metrics about
+the overhead associated with repeated data access operations or other frequently
 performed calculations.
 
 4. Perform load testing of each possible operation to identify how the system
 responds under a normal workload and under duress.
 
 5. If appropriate, examine the data access statistics for the underlying data stores
-and review how frequently data requests are repeated.
+and review how frequently data requests are repeated. <<RBC: This seems very similar to #2, why would you instrument if you didn't look at the stats?>>
 
 The following sections apply these steps to the sample application described earlier.
 
@@ -126,79 +126,79 @@ and you are aware that the application does not use caching, then this is often 
 indication that adding a cache might be useful. To identify the information to cache,
 you need to determine exactly which resources are likely to be accessed most
 frequently. Slow changing or static reference data that is read frequently are good
-initial candidates; this could be data retrieved from storage or returned from a web
+initial candidates. This could be data retrieved from storage or returned from a web
 application or remote service. However, all resource access should be verified to
-ascertain which resources are most suitable; depending on the nature of the
+determine which resources are most suitable. Depending on the nature of the
 application, fast-moving data that is written frequently may also benefit from
-caching (see the considerations in the [How to correct the problem](#HowToCorrectTheProblem) section for more information.)
+caching (see the considerations in the [How to correct the problem](#HowToCorrectTheProblem) section for more information.) <<RBC: One of the things I like about this doc set is the lack of internal linking. I find excessive internal linking annoying, especially in such a short doc. Isn't it obvious that the issue is discussed in the how to solve the problem section? Is this sentence needed?>>
 
 ----------
 
 **Note:** Remember that a cached resource does not have to be a piece of data
-retrieved from a data store; it could also be the results of an often-repeated
+retrieved from a data store. t could also be the results of an often repeated
 computation.
 
 ----------
 
 ### Instrumenting the application and monitoring the live system
 
-You should instrument the system and monitor it in productions to provide more
+You should instrument the system and monitor it to provide more
 information about the specific requests that users make while the application is in
-production. You can then analyze the results to group them by operation. You can use
+production. <<RBC: I removed one of the "in production" instances becaue it seemed redundant.>> You can then analyze the results to group them by operation. You can use
 lightweight logging  frameworks such as [NLog][NLog] or [Log4Net][Log4Net] to gather
 this information. You can also deploy more powerful tools such as [Microsoft Application Insights][AppInsights], [New Relic][NewRelic], or
 [AppDynamics][AppDynamics] to collect and analyze instrumentation information.
 
 ----------
 
-**Note:** Remember that instrumentation imposes a varying degree of overhead in a
-system, depending on the instrumentation strategy used and the tools adopted.
+**Note:** Remember that instrumentation imposes overhead in a
+system, how much depends on the instrumentation strategy used and the tools adopted.
 
 ----------
 
-As an example, if you configure the CachingDemo to capture monitoring data by using
+As an example, if you configure the CachingDemo to capture monitoring data using
 [New Relic][NewRelic], the analytics generated can quickly show you the frequency
 with which each server request occurs, as shown by the image below. In this case, the
-only HTTP GET operation performed is `Person/GetAsync` (the load-test simply repeats
-this same request each time), but in a live environment knowing the relative
+only HTTP GET operation performed is `Person/GetAsync`, the load test simply repeats
+this same request each time. But in a live environment knowing the relative
 frequency with which each request is performed gives you an insight into which
-resources might best be cached:
+resources might best be cached.
 
 ![New Relic showing server requests for the CachingDemo application][NewRelic-server-requests]
 
 ### Profiling the application
 
 If you require a deeper analysis of the application you can use a profiler to capture
-and examine low-level performance information in a controlled environment (not the
+and examine low level performance information in a controlled environment (not the
 production system). You should examine metrics such as I/O request rates, memory
 usage, and CPU utilization. Performing a detailed profiling of the system may reveal
 a large number of requests to a data store or service, or repeated processing that
 performs the same calculation. You can sort the profile data by the number of
 requests to help identify candidate information for caching.
 
-Note that there may be some restrictions on the environment in which you can perform
-profiling. For example, you may not be able to profile an application running as an
-Azure Web site. In these situations, you will need to profile the application running
+Note that there may be some restrictions on the environment you can perform
+profiling in. For example, you may not be able to profile an application running as an
+Azure Website. In these situations, you will need to profile the application running
 locally. Furthermore, profiling might not provide the same data under the same load
 as a production system, and the results can be skewed as a result of the additional
 profiling overhead. However, you may be able to adjust the results to take this
 overhead into account.
 
-### Load-testing the application
+### Load testing the application
 
-Performing load-testing in a test environment can help to highlight any problems.
-Load-testing should simulate the pattern of data access observed in the production
+Performing load testing in a test environment can help to highlight any problems.
+Load testing should simulate the pattern of data access observed in the production
 environment using realistic workloads. You can use a tool such as [Visual Studio Online][VisualStudioOnline] to run load tests and examine the results.
 
-The following graph was generated from load-testing the CachingDemo sample
-application without using caching. The load-test simulates a step load of up to 800
+The following graph was generated from load testing the CachingDemo sample
+application without using caching. The load test simulates a step load of up to 800
 users performing a typical series of operations against the system. Notice that the
-capacity of the system as measured by the number of successful tests performed each
-seconds reaches a plateau, and additional requests are slowed as a result - the
-average test time steadily increases with the work-load (the response time levels off
-once the user load remains constant towards the end of the test):
+capacity of the system&mdash;as measured by the number of successful tests performed each
+second&mdash;reaches a plateau and additional requests are slowed as a result. The
+average test time steadily increases with the workload. The response time levels off
+once the user load remains constant towards the end of the test.
 
-![Performance load-test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
+![Performance load test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
 
 ----------
 
@@ -223,7 +223,7 @@ being repeated most frequently. For example, Microsoft SQL Server provides the
 recently executed queries. The text for each query is available in the
 `sys.dm_exec-query_plan` view. You can use a tool such as SQL Server Management
 Studio to run the following SQL query and determine the frequency with which queries
-are performed:
+are performed.
 
 **SQL**
 ```SQL
@@ -234,8 +234,8 @@ CROSS APPLY sys.dm_exec_query_plan(plan_handle)
 ```
 
 The `UseCount` column in the results indicates how frequently each query is run. In
-the following image, the third query has been run 256049 times; this is significantly
-more than any other query:
+the following image, the third query has been run 256049 times. This is significantly
+more than any other query.
 
 ![Results of querying the dynamic management views in SQL Server Management Server][Dynamic-Management-Views]
 
@@ -258,7 +258,7 @@ passed in to this method replaces the `p__linq__0` parameter in the SQL query.
 
 ----------
 
-**Note:** In the case of the CachingDemo sample application, performing load testing
+**Note:** In the CachingDemo sample application, performing load testing
 in conjunction with examining the data access statistics of SQL Server arguably
 provides sufficient information to enable you to determine which information should
 be cached. In other situations, the repository might not provide the same level of
@@ -276,14 +276,14 @@ found next time. To prevent the data from becoming stale, many caching solutions
 support configurable timeouts, allowing data to automatically expire and be removed
 from the cache after a specified interval. If the application modifies data, it
 should write the change directly to the data store and remove the old value from the
-cache; it will be retrieved and added to the cache the next time it is required.
+cache. It will be retrieved and added to the cache the next time it is required.
 
 This approach is suitable for data that changes regularly, although there may be a
-window of opportunity during which an application might be served with out-of-date
+period during which an application might be served out-of-date
 information. The following code snippet shows a version of the `GetAsync` method
 presented earlier that uses caching. The `CachedPersonRepository` class makes use of
 the generic `CacheService` class to retrieve data. The `GetAsync` method in this
-class implements the Cache-Aside pattern; it examines the cache to see whether an
+class implements the Cache-Aside pattern. It examines the cache to see whether an
 item with a matching key is available in the cache, and if so the method returns this
 item. If no such item is cached, it is retrieved from the database and added to the
 cache.
@@ -291,7 +291,7 @@ cache.
 ----------
 
 **Note:** This snippet is taken from the [sample code][fullDemonstrationOfSolution]
-available with this anti-pattern. The sample code uses [Azure Redis Cache][Azure-cache] to store data and the [StackExchange.Redis][StackExchange] client
+available with this antipattern. The sample code uses [Azure Redis Cache][Azure-cache] to store data and the [StackExchange.Redis][StackExchange] client
 library to communicate with the cache.
 
 ----------
@@ -353,7 +353,7 @@ retrieve only the dynamic pieces from the data source. This approach can help to
 reduce the volume of I/O being performed against the data source.
 
 - The possible differences between cached data and data held in the underlying data
-source mean that applications that use caching for non-static data should be designed
+source mean that applications that use caching for nonstatic data should be designed
 to support [eventual consistency][data-consistency-guidance].
 
 - In some cases caching volatile information can prove to be helpful if this
@@ -361,20 +361,19 @@ information is temporary in nature. For example, consider a device that continua
 reports status information or some other measurement. If an application chooses not
 to cache this data on the basis that the cached information will nearly always be
 outdated, then the same consideration could be true when storing and retrieving this
-information from a data store; in the time taken to save and fetch this data it may
-have changed. In a situation such as this, consider the benefits of storing the
+information from a data store, in the time taken to save and fetch this data it may
+have changed. In this situation, consider the benefits of storing the
 dynamic information directly in the cache instead of a persistent data store. If the
-data is non-critical and does not require to be audited, then it does not matter if
+data is noncritical and auditing is not required, then it does not matter if
 the occasional change is lost.
 
 - If you are building REST web services, include support for client-side caching by
-providing a cache-header in request and response messages, and identify versions of
-objects by using ETags.
+providing a cache header <<RBC: In a brief MSDN search I could find no reason for this to be hyphenated other than the overall excessive hyphenation (seriously were they on sale?) in these docs. Please reject the deletion if this will affect tech meaning.>> in request and response messages, and identify versions of
+objects using ETags.
 
 - Caching doesn't just apply to data held in a remote data source. You can use
 caching to save the results of complex computations that are performed regularly. In
-this way, rather than expending processing resources (and time) repeating such a
-calculation, an application might be able to retrieve results computed earlier.
+this way, rather than expending processing resources (and time) repeating calculations, an application might be able to retrieve results computed earlier.
 
 - Falling back to the original data store if the cache is temporarily unavailable may
 have a scalability impact on the system. While the cache is being recovered, the
@@ -388,39 +387,36 @@ with the data that is most likely to be used.
 information can be used to tune caching policies (for example, what to cache, and how
 long to hold it in the cache before it expires).
 
-[Link to the related sample][fullDemonstrationOfSolution]
 
 ## Consequences of the solution
-Implementing caching may lead to a lack of immediate consistency; applications may
+Implementing caching may lead to a lack of immediate consistency, applications may
 not always read the most recent version of a data item. Applications should be
 designed around the principle of eventual consistency and tolerate being presented
-with old data. Applying time-based eviction policies to the cache can help to prevent
+with old data. Applying time-based eviction policies to the cache can help prevent
 cached data from becoming too stale, but any such policy must be balanced against the
-expected volatility of the data; data that is highly static and read often can reside
+expected stability <<RBC: Volatility isn't used much on MSDN, I thought of replacing with instability, but stability seems to work. Is it okay technically?>> of the data. Data that is highly static and read often can reside
 in the cache for longer periods than dynamic information that may become stale
 quickly and which should be evicted more frequently.
 
-To determine the efficacy of any caching strategy, you should repeat load-testing
+To determine the effectiveness of any caching strategy, you should repeat load testing
 after incorporating a cache and compare the results to those generated before the
 cache was added. The following results show the graph generated by load testing the
 CachingDemo sample solution with caching enabled. The volume of successful tests
 still reaches a plateau, but at a higher user load. The request rate at this load is
 significantly higher than that of the uncached solution. Similarly, although the
 average test time still increases with load, the maximum response time is
-approximately 1/20th that of the previous tests (0.05 ms against 1ms):
+approximately 1/20th that of the previous tests (0.05 ms against 1ms).
 
-![Performance load-test results for the cached scenario][Performance-Load-Test-Results-Cached]
+![Performance load test results for the cached scenario][Performance-Load-Test-Results-Cached]
 
 ----------
 
 **Note:** Lack of caching sometimes acts as a natural regulator of throughput, and
-once this restriction is relaxed the increasing volume of traffic that a web site can
-support by using caching might result in the system being overwhelmed. This is
-typified by the system returning a large number of HTTP 503 (Service Unavailable)
-messages, indicating that the web site hosting the service is temporarily unavailable
-due to the volume of work being processed. This is a common concern; increasing the
-potential throughput of the application can require that the infrastructure on which
-the application runs be scaled to handle the additional load.
+once this restriction is relaxed the increasing volume of traffic that a website can
+support by using caching might result in the system being overwhelmed. The system may return a large number of HTTP 503 (Service Unavailable)
+messages, indicating that the website hosting the service is temporarily unavailable
+due to the volume of work being processed. This is a common concern, increasing the
+potential throughput of the application can require that the infrastructure the application runs on be scaled to handle the additional load.
 
 ----------
 

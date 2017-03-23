@@ -7,7 +7,7 @@ manager: christb
 
 pnp.series.title: Optimize Performance
 ---
-# Extraneous Fetching anitpattern
+# Extraneous Fetching antipattern
 [!INCLUDE [header](../../_includes/header.md)]
 
 Applications fetch data for query purposes, or to perform some application-specific
@@ -18,40 +18,40 @@ environment supporting multiple concurrent instances of an application, this ove
 can accumulate to have a significant impact on the performance and scalability of the
 system.
 
-This anti-pattern typically occurs because:
+This antipattern typically occurs because:
 
 - The application attempts to minimize the number of I/O requests by retrieving all of
 the data that it *might* need. This is often a result of overcompensating for the
-[Chatty I/O][chatty-io] anti-pattern. For example, the [sample
-code][fullDemonstrationOfProblem] provided with this anti-pattern contains part of a
+[Chatty I/O][chatty-io] antipattern. For example, the [sample
+code][fullDemonstrationOfProblem] provided with this antipattern contains part of a
 web application enables a customer to browse products that an organization sells. This
 information is held in the `Products` table in the AdventureWorks2012 database shown
 in the image below. A simple form of the application fetches the complete details for
 every product. This is wasteful on at least three counts:
 
-	1. The customer might not be interested in every detail; they would typically need
+	- The customer might not be interested in every detail. They would typically need
 	to see the product name, description, price, dimensions, and possibly a thumbnail
 	image. Other related information such as product ratings, reviews, and detailed
 	images might be useful but could be expensive and wasteful to retrieve unless the
 	customer specifically requests it.
 
-	2. Not all of the product details might be relevant to the customer; there could be
+	- Not all of the product details might be relevant to the customer. There could be
 	some properties that are only meaningful to the organization or that should remain
 	hidden from customers.
 
-	3. The customer is unlikely to want to view every product that the organization
+	- The customer is unlikely to want to view every product that the organization
 	sells.
 
 ![Entity Framework data model based on the Product table in the AdventureWorks2012 database][full-product-table]
 
-- The application was developed by following poor programming or design practice. For
+- The application was developed following poor programming or design practices. For
 example, the following code (taken from the sample application) retrieves product
 information by using the Entity Framework to fetch the complete details for every
 product. The code then filters this information to return only the information that
 the user has requested. The remaining data is discarded. This is clearly wasteful, but
-commonplace:
+commonplace.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 [HttpGet]
@@ -74,11 +74,11 @@ public async Task<IHttpActionResult> GetAllFieldsAsync()
 - Similarly, the application might retrieve data to perform aggregations or other
 forms of operations. The following sample code (also taken from the sample
 application) calculated the total sales for the company. The application retrieves
-every record for all orders sold, and then calculates the total sales value from these records:
+every record for all orders sold, and then calculates the total sales value from these records.
 
 ![Entity Framework data model showing the SalesOrderHeader table][product-sales-table]
 
-**C# web API**
+**C# Web API**
 
 ```C#
 [HttpGet]
@@ -98,17 +98,17 @@ public async Task<IHttpActionResult> AggregateOnClientAsync()
 }
 ```
 
-- The application retrieves data from a data source by using the `IEnumerable`
+- The application retrieves data from a data source using the `IEnumerable`
 interface. This interface supports filtering and enumeration of data, but the
-filtering is performed on the client-side after it has been retrieved from the data
+filtering is performed on the client side after it has been retrieved from the data
 source. Technologies such as LINQ to Entities (used by the Entity Framework) default
 to retrieving data through the `IQueryable` interface, which passes the responsibility
 for filtering to the data source. However, in some situations an application might
-reference an operation which is only available to the client and not available in the
+reference an operation that is only available to the client and not available in the
 data source, requiring that the data be returned through the `IEnumerable` interface
 (by applying the `AsEnumerable` method to an entity collection). The following example
 shows a LINQ to Entities query that retrieves all products where the `SellStartDate`
-column lies somewhere in the previous week. LINQ to Entities cannot map the `AddDays`
+column occurs somewhere in the previous week. LINQ to Entities cannot map the `AddDays`
 function to an operation in the database, so the query returns every row from the
 product table to the application where it is filtered. If there are only a small
 number of rows that match this criterion, this is a waste of bandwidth.
@@ -128,18 +128,18 @@ List<Product> products = query.ToList();
 
 Symptoms of extraneous fetching in an application include high latency and low
 throughput. If the data is retrieved from a data store, then increased contention is
-also probable. End-users are likely to report extended response times and possible
+also probable. End users are likely to report extended response times and possible
 failures caused by services timing out due to increased network traffic and resource
-conflicts in the data store. These failures could manifest themselves as HTTP 500
+conflicts in the data store. These failures could return <<RBC: Does this work from a technical perspective? "Manifest themselves as" seemed awkward, and I was concerned that it could be confusing to ESL readers.>> HTTP 500
 (Internal Server) errors or HTTP 503 (Service Unavailable) errors. In these cases, you
-should examine the event logs for the web server which are likely to contain more
+should examine the event logs for the web server, which are likely to contain more
 detailed information about the causes and circumstances of the errors.
 
 ----------
 
-**Note:** The symptoms of this anti-pattern and some of the telemetry obtained might
+**Note:** The symptoms of this antipattern and some of the telemetry obtained might
 be very similar to those of the [Monolithic Persistence
-anti-pattern][MonolithicPersistence]. The causes however are somewhat different, as
+antipattern][MonolithicPersistence]. The causes however are somewhat different, as
 are the possible solutions.
 
 ----------
@@ -158,7 +158,7 @@ specific limit in terms of transactions per second or volume of users?
 4. Identify the source of the data and the data stores being used.
 
 5. For each data source, run lower level telemetry to observe the behavior of
-operations end-to-end by using process monitoring, instrumentation, or application
+operations end-to-end using process monitoring, instrumentation, or application
 profiling.
 
 6. Identify any slow-running queries that reference these data sources.
@@ -187,21 +187,21 @@ example, the following performance results were obtained by using a load test th
 simulated up to 400 concurrent users running the `GetAllFieldsAsync` operation in the
 [sample code][fullDemonstrationOfProblem].
 
-![Load-test results for the GetAllFieldsAsync method][Load-Test-Results-Client-Side1]
+![Load test results for the GetAllFieldsAsync method][Load-Test-Results-Client-Side1]
 
 Throughput diminished slowly as the load increased, but the average response time
-mirrored the work-load (in the graph, the average response time has been magnified by
+mirrored the workload (in the graph, the average response time has been magnified by
 100 to make the correlation clear).
 
-Performing a load-test for the `AggregateOnClientAsync` operation shows a similar
+Performing a load test for the `AggregateOnClientAsync` operation shows a similar
 pattern. The volume of requests per seconds is reasonably stable (although higher),
-and the average response time increases more slowly with the work-load:
+and the average response time increases more slowly with the workload.
 
-![Load-test results for the AggregateOnClientAsync method][Load-Test-Results-Client-Side2]
+![Load test results for the AggregateOnClientAsync method][Load-Test-Results-Client-Side2]
 
 Profiling an application in a test environment can help to identify the following
 symptoms that characterize operations that retrieve large amounts of data. The exact
-symptoms will depend on the nature of the resources being accessed but may include:
+symptoms will depend on the nature of the resources being accessed, but may include:
 
 - Frequent, large I/O requests made to the same resource or data store.
 
@@ -217,14 +217,14 @@ Determining whether behavior is influenced by time is a matter of monitoring the
 performance of the production system over an appropriate period and examining the
 usage statistics. Any correlation between regular periods of high usage and slowing
 performance can indicate areas of concern. The performance profile of functionality
-that is suspected to be slow-running should be closely examined to ascertain whether
-it matches that of the load-testing performed earlier.
+that is suspected to be slow running should be closely examined to determine whether
+it matches that of the load testing performed earlier.
 
-Load-testing to destruction (in a test environment) over the same functionality using
-step-based user loads can help to highlight the point at which the performance drops
-significantly or fails completely. If load at which the system fails or performance
+Load testing to destruction (in a test environment) over the same functionality using
+step-based user loads can help highlight the point at which the performance drops
+significantly or fails completely. If the load at which the system fails or performance
 drops to unacceptable levels is within the bounds of that expected at periods of peak
-activity, then the way in which the functionality is implemented should be examined
+activity, then the way the functionality is implemented should be examined
 further.
 
 ### Correlating instances of slow workloads with behavioral patterns
@@ -241,10 +241,10 @@ performance varies during periods of high usage.
 
 ### Identifying data sources in slow workloads
 
-If you suspect that a service is performing poorly because of the way in which data is
+If you suspect that a service is performing poorly because of the way data is
 being retrieved, you should investigate how the application is interacting with the
 repositories it utilizes. Monitoring the live system, together with a review of the
-source code (if possible) should help to reveal the data sources being accessed during
+source code (if possible) should help reveal the data sources being accessed during
 periods of poor performance.
 
 In the case of the sample application, all the information is held in a single
@@ -252,14 +252,14 @@ instance of Azure SQL Database.
 
 ### Observing the end-to-end behavior of operations that access each data source
 
-In a typical Azure cloud scenario, a client (a browser, desktop application, or mobile
+In a typical Azure scenario, a client (a browser, desktop application, or mobile
 device) sends a request to a web application or cloud service. The web application or
 cloud service in turn submits a request to a data store. The data is then returned,
 possibly after performing some processing, to the client for processing.
 
 For each data source, you should instrument the system to capture the frequency with
 which each data store is accessed, the volume of data entering and exiting the data
-store, the timings of these operations (in particular, the latency of requests), and
+store, the timing of these operations (in particular, the latency of requests), and
 the nature and rate of any errors observed while accessing each data store under loads
 that are typical of the system. You can compare this information against the volumes
 of data being returned by the web application or cloud service to the client. The
@@ -277,16 +277,16 @@ of each user request, or you can model a series of synthetic workloads and run t
 against a test system if you need to observe behavior in a more controlled
 environment.
 
-The following graphs show the results of telemetry captured by using New Relic during
-the load-test of the `GetAllFieldsAsync` method. It is important to note the
+The following graphs show the results of telemetry captured using New Relic <<RBC: Should we link or at least mention it's a third party tool?>>during
+the load test of the `GetAllFieldsAsync` method. It is important to note the
 differences between the volumes of data received from the database and the
 corresponding HTTP responses.
 
 ![Telemetry for the `GetAllFieldsAsync` method][TelemetryAllFields]
 
-In the load-tests, the size of the data returned from the database by each request was
-80503 bytes. The size data returned to the client can vary depending on the format
-requested by the client. During the load-tests the data was returned to the clients in
+In the load tests, the size of the data returned from the database by each request was
+80503 bytes. The size of the data returned to the client can vary depending on the format
+requested by the client. During the load tests the data was returned to the clients in
 JSON format and each response contains 19855 bytes (25% of the size of the database
 response). Separate testing (results not shown), for clients requesting data in XML
 format shows that the response size is 35655 bytes (44% of the size of the database
@@ -296,11 +296,11 @@ response.)
 
 **Note:** It is interesting to observe the correlation between the throughput of the
 web application (requests per minute) against the number of bytes received from the
-database. This tailing off was also apparent in the load-test. The actual cause of
-this diminuendo is not apparent from the graphs; further investigation of the system
+database. This tailing off was also apparent in the load test. The actual cause of
+this gradual reduction <<RBC: Seriously, diminuendo?>> is not apparent from the graphs. Further investigation of the system
 would be required to determine whether the reduction in the volume of requests sent to
 the web application has caused a corresponding reduction in the number of requests
-passed to the database (and hence the volume of data returned) or whether a gentle
+passed to the database (hence the volume of data returned). Or whether a gentle
 throttling of the database is causing a reduction in the number of concurrent requests
 that the web application can support. This investigation would involve capturing the
 telemetry for the database server and for the web server hosting the web application
@@ -308,11 +308,11 @@ to determine which one is most likely to be acting as the brake on the system.
 
 ----------
 
-Examining the telemetry captured during the load-test for the `AggregateOnClientAsync`
+Examining the telemetry captured during the load test for the `AggregateOnClientAsync`
 method shows more extreme results. In this case, each test performed a query that
 retrieved over 280Kb of data from the database, but the JSON response contained a mere
 14 bytes. This wide disparity is due to the nature of the processing being performed
-by the web application; it is calculating an aggregated result (the total value of all
+by the web application. It is calculating an aggregated result (the total value of all
 orders) from a large volume of data.
 
 ![Telemetry for the `AggregateOnClientAsync` method][TelemetryAggregateOnClient]
@@ -327,7 +327,7 @@ for many database operations enabling you to work out the duration. However, man
 stores also provide in-depth information on the way in which queries are performed and
 optimized. For example, the Query Performance pane in the Azure SQL Database
 management portal enables you to select a query and drill into the detailed runtime
-performance information for that query. The figure below shows the query generated by the `GetAllFieldsAsync` operation:
+performance information for that query. The figure below shows the query generated by the `GetAllFieldsAsync` operation.
 
 ![The Query Details pane in the Windows Azure SQL Database management portal][QueryDetails]
 
@@ -336,7 +336,7 @@ The statistics summarize the resources used by this query.
 ----------
 
 **Note:** The statistics shown in this image were not generated by running the
-load-tests, but were obtained by monitoring the system in production. However, the
+load tests, but were obtained by monitoring the system in production. However, the
 statistics are still valid as they give an indication of how the query uses resources
 and this is not dependent on whether the system is under test at the time.
 
@@ -344,12 +344,11 @@ and this is not dependent on whether the system is under test at the time.
 
 ### Performing a resource-specific analysis of the slow-running queries
 
-Examining the queries frequently performed against a data source, and the way in which
-an application uses this information, can provide an insight into how key operations
+Examining the queries frequently performed against a data source, and the way an application uses this information, can provide insight into how key operations
 might be speeded up. In some cases, it may be advisable to partition resources
 horizontally if different attributes of the data (columns in a relational table, or
-fields in a NoSQL store) are accessed separately by different functions; this can help
-to reduce contention; often 90% of operations are run against 10% of the data held in
+fields in a NoSQL store) are accessed separately by different functions,this can help
+to reduce contention. Often 90% of operations are run against 10% of the data held in
 the various data sources, so spreading this load may improve performance.
 
 Depending on the nature of the data store, you may be able to exploit the features
@@ -359,14 +358,14 @@ or max operation), SQL databases typically provide aggregate functions that can
 perform these operations without requiring that an application fetches all of the data
 and implement the calculation itself. In other types of data store, it may be possible
 to maintain this information separately within the store as records are added,
-updated, or removed, again eliminating the requirement of an application to fetch a
+updated, or removed, eliminating the requirement of an application to fetch a
 potentially large amount of data and perform the calculation itself.
 
 If you observe requests that retrieve a large number of fields, examine the underlying
 source code to determine whether all of these fields are actually necessary. Sometimes
-these requests are the results of injudicious `SELECT *` operations, or misplaced
+these requests are the result of ill-advised `SELECT *` operations, or misplaced
 `.Include` operations in LINQ queries. Similarly, requests that retrieve a large
-number of entities (rows in a SQL Server database) may be indicative of an application
+number of entities (rows in a SQL Server database) may indicate an application
 that is not filtering data correctly. Verify that all of these entities are actually
 necessary, and implement database-side filtering if possible (for example, using a
 `WHERE` clause in an SQL statement.) For operations that have to support unbounded
@@ -383,15 +382,15 @@ elsewhere.
 
 ## How to correct the problem
 
-Only fetch the data that is required; avoid transmitting large volumes of data that
+Only fetch the required data, avoid transmitting large volumes of data that
 may quickly become outdated or might be discarded, and only fetch the data appropriate
 to the operation being performed. The following examples describe possible solutions
 to many of the scenarios listed earlier:
 
 - In the example that retrieves product information, perform the projection at the
-database rather than fetching and filtering data in the application code:
+database rather than fetching and filtering data in the application code.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 [HttpGet]
@@ -413,14 +412,14 @@ public async Task<IHttpActionResult> GetRequiredFieldsAsync()
 ----------
 
 **Note:** This code is available in the [sample solution][fullDemonstrationOfSolution]
-provided with this anti-pattern.
+provided with this antipattern.
 
 ----------
 
 - In the example that aggregates information held in a database, perform the
-aggregation in the database rather than in the client application code:
+aggregation in the database rather than in the client application code.
 
-**C# web API**
+**C# Web API**
 
 ```C#
 [HttpGet]
@@ -443,7 +442,7 @@ only the features and functions that can be mapped by LINQ to features available
 the underlying data source, or adding user-defined functions to the data source that
 can perform the required operations on the data before returning it. In the example
 shown earlier, the code can be refactored to remove the problematic `AddDays` function
-from the query, allowing filtering to be performed by the database:
+from the query, allowing filtering to be performed by the database.
 
 
 **C# Entity Framework**
@@ -463,32 +462,32 @@ List<Product> products = query.ToList();
 
 The system should spend less time waiting for I/O, network traffic should be
 diminished, and contention for shared data resources should be decreased. This should
-manifest itself as an improvement in response time and throughput in an application.
-Performing load-testing against the `GetRequiredFieldsAsync` method in the [sample solution][fullDemonstrationOfSolution] shows the following results:
+show an improvement in response time and throughput in an application.
+Performing load testing against the `GetRequiredFieldsAsync` method in the [sample solution][fullDemonstrationOfSolution] shows the following results:
 
-![Load-test results for the GetRequiredFieldsAsync method][Load-Test-Results-Database-Side1]
+![Load test results for the GetRequiredFieldsAsync method][Load-Test-Results-Database-Side1]
 
-This load-test was performed on the same deployment and using the same simulated
-workload of 400 concurrent users as before. The graph shows much lower latency; the
+This load test was performed on the same deployment and using the same simulated
+workload of 400 concurrent users as before. The graph shows much lower latency, the
 response time rises with load to approximately 1.3 seconds compared to 4 seconds in
 the previous case. The throughput is also higher at 350 requests per second compared
 to 100 earlier. These changes are apparent from the telemetry gathered while the test
-was running:
+was running.
 
 ![Telemetry for the `GetRequiredFieldsAsync` method][TelemetryRequiredFields]
 
 The volume of data retrieved from the database now closely matches the size of the
 HTTP response messages sent back to the client applications.
 
-Load-testing using the `AggregateOnDatabaseAsync` method generates the following results:
+Load testing using the `AggregateOnDatabaseAsync` method generates the following results:
 
-![Load-test results for the AggregateOnDatabaseAsync method][Load-Test-Results-Database-Side2]
+![Load test results for the AggregateOnDatabaseAsync method][Load-Test-Results-Database-Side2]
 
 The average response time is now minimal. This is an order of magnitude improvement
 in performance, caused primarily by the vast reduction in I/O from the database.
 
 The image below shows the corresponding telemetry for the `AggregateOnDatabaseAsync`
-method:
+method.
 
 ![Telemetry for the `AggregateOnDatabaseAsync` method][TelemetryAggregateInDatabaseAsync]
 
@@ -498,13 +497,13 @@ minute was raised from around 2,000 to over 25,000.
 
 ----------
 
-**Note:** The solution to this anti-pattern does not imply that you should always
+**Note:** The solution to this antipattern does not imply that you should always
 offload processing to the database. You should only perform this strategy where the
 database is designed or optimized to do so. Databases are intended to manipulate the
 data that they contain very efficiently, but in many cases they are not designed to
-act as fully-fledged application engines. Using the processing power of a database
+act as complete <<RBC: Normally you'd say fullfledged, but even that seems like the easiest to parse for ESL readers. Does this work?>> application engines. Using the processing power of a database
 server inappropriately can cause contention and slow down database operations. For
-more information, see the [Busy Database anti-pattern][BusyDatabase]
+more information, see the [Busy Database antipattern][BusyDatabase]
 
 ----------
 

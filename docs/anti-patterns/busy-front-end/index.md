@@ -11,7 +11,7 @@ pnp.series.title: Optimize Performance
 [!INCLUDE [header](../../_includes/header.md)]
 
 Resource-intensive tasks can impact the response times of user requests and cause high
-latency in operations performed by an application. One often-considered technique to
+latency in operations performed by an application. One technique to
 improve response times is to offload a resource-intensive task onto a separate thread.
 This strategy enables the application to remain responsive while the processing is
 performed in the background. However, tasks still consume resources regardless of
@@ -30,15 +30,15 @@ This problem typically occurs when an application is developed as single monolit
 piece of code, with the entire business processing combined into a single tier shared
 with the user interface.
 
-As an example, the following conceptual sample code shows part of a web application
-built by using Web API. The web application contains two controllers:
+As an example, the following sample code shows part of a web application
+built using Web API. The web application contains two controllers:
 
-1. `WorkInFrontEnd` which exposes an HTTP POST operation. This operation simulates a
+- `WorkInFrontEnd` that exposes an HTTP POST operation. This operation simulates a
 long-running, CPU-intensive piece of processing. The work is performed on a separate
 thread in an attempt to enable the POST operation to complete quickly and ensure that
 the caller remains responsive.
 
-2. `UserProfile` which exposes an HTTP GET operation to retrieve user profile
+-  `UserProfile` that exposes an HTTP GET operation to retrieve user profile
 information. This time the processing is much less CPU intensive.
 
 **C# Web API**
@@ -73,18 +73,18 @@ public class UserProfileController : ApiController
 
 The primary concern with this web application is the resource requirements of the
 `Post` method in the `WorkInFrontEnd` controller. Although the processing runs on a
-background thread, alleviating the user of the need to wait for the result before
+background thread, alleviating the need to wait for the result before
 continuing with further work, it can still consume considerable CPU resources. These
 resources are shared with the other operations being performed by other concurrent
 users. If a moderate number of users issue this request at the same time, then the
 overall performance of the system is likely to suffer, causing a slowdown in all
-operations; users might experience a significant slowing of the `Get` method in the
+operations. Users might experience a significant slowing of the `Get` method in the
 `UserProfile` controller for example.
 
 ----------
 
 **Note:** The `WorkInFrontEnd` and `UserProfile` controllers are included in the
-[sample code][fullDemonstrationOfProblem] available with this anti-pattern.
+[sample code][fullDemonstrationOfProblem] available with this antipattern.
 
 ----------
 
@@ -93,25 +93,23 @@ operations; users might experience a significant slowing of the `Get` method in 
 Symptoms of a busy front end in an application include high latency during periods
 when resource-intensive tasks are being performed. These tasks can starve other
 requests of the processing power they require, causing them to run more slowly.
-End-users are likely to report extended response times and possible failures caused by
+End users are likely to report extended response times and possible failures caused by
 services timing out due to lack of processing resources in the web server. These
-failures could also manifest themselves as HTTP 500 (Internal Server) errors or HTTP
+failures could also return HTTP 500 (Internal Server) errors or HTTP
 503 (Service Unavailable) errors. In these cases, you should examine the event logs
-for the web server which are likely to contain more detailed information about the
+for the web server, which are likely to contain more detailed information about the
 causes and circumstances of the errors.
 
-You can perform the following steps to help identify this problem:
+You can perform the following steps to help identify this problem: 
 
-1. Identify points at which response times slow down by performing process monitoring
+1. Identify points when response times slow down by performing process monitoring
 of the production system.
 
 2. Examine the telemetry data captured at these points to determine the mix of
-operations being performed and the resources being utilized by these operations and
-find any correlations between repeated occurrences of poor response times and the
+operations being performed and the resources being utilized. Find any correlations between repeated occurrences of poor response times and the
 volumes/combinations of each operation that are running at that point.
 
-3. Perform load testing of each possible operation to identify the *bad actors*
-(operations that are consuming resources and starving other operations).
+3. Perform load testing of each possible operation to identify the *bad actors* (operations that are consuming resources and starving other operations). <<RBC: I removed the reference to bad actors because it's slang/jargon but then I see it used extensively later in the doc, so I put it back.It seems like there should be a better term for this, but it's possible it's well understood by the audience. The low # of hits on MSDN would say no though.>>
 
 4. Review the source code for the possible bad actors to identify the reasons for
 excessive resource consumption.
@@ -128,44 +126,44 @@ help you examine applications and services systematically.
 
 ----------
 
-### Identifying points of slow-down
+### Identifying points of slow down
 
 Instrumenting each method to track the duration and resources consumed by each
-requests and then monitoring the live system can help to provide an overall view of
+request, and then monitoring the live system can help to provide an overall view of
 how the requests compete with each other. During periods of stress, slow-running
-resource hungry requests will likely impact other operations, and this behavior can be
-observed by monitoring the system and noting the drop-off in performance.
+resource-hungry requests will likely impact other operations, and this behavior can be
+observed by monitoring the system and noting the drop off in performance.
 
 The following image shows the Business Transactions pane in AppDyanamics monitoring
 the sample application. Initially the system is lightly loaded but then users start
 requesting the `UserProfile` GET operation. The performance is reasonably quick until
 other users start issuing requests to the `WorkInFrontEnd` controller, when the
-response time suddenly increases dramatically (see the graphic in the *Response Time
+response time suddenly increases dramatically (see the graph <<RBC: While it is a graphic, I think graph is a better word choice here. Thoughts?>>in the *Response Time
 (ms)* column in the image). The response time only improves once the volume of
-requests to the `WorkInFrontEnd` controller diminishes (see the graphic in the
+requests to the `WorkInFrontEnd` controller diminishes (see the graph in the
 *Calls/min* column.)
 
 ![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInFrontEnd controller is used][AppDynamics-Transactions-Front-End-Requests]
 
 ### Examining telemetry data and finding correlations
 
-The next image shows some of the metrics gathered by using AppDynamics monitoring the
+The next image shows some of the metrics gathered by using AppDynamics to monitor the
 resource utilization of the web role hosting the sample application during the same
 interval as the previous graph. Initially, few users are accessing the system, but as
 more users connect the CPU utilization becomes very high (100%) for much of the time,
 so the system is clearly under duress. Additionally, the network I/O rate peaks while
 the CPU utilization rises, and then retreats when the CPU is running at capacity. This
 is because the system is unable to handle more than a relatively small number of
-requests once the CPU is at capacity. As users disconnect, the CPU load tails off:
+requests once the CPU is at capacity. As users disconnect, the CPU load tails off.
 
 ![AppDynamics metrics showing the CPU and network utilization][AppDynamics-Metrics-Front-End-Requests]
 
 From the information provided by identifying the points of slow down and the telemetry
 at these points, it would appear that the `WorkInFrontEnd` controller is a prime
-candidate for further examination, but further work in a controlled environment is
+candidate for closer examination, but further work in a controlled environment is
 necessary to confirm this hypothesis.
 
-### Performing load-testing to identify *bad actors*
+### Performing load testing to identify bad actors
 
 Having identified the possible source of disruptive requests in the system, you should
 perform tests in a controlled environment to demonstrate any correlations between
@@ -173,17 +171,17 @@ these requests and the overall performance of the system. As an example, you can
 perform a series of load tests that include and then omit each request in turn to see
 the effects.
 
-The graph below shows the results of a load-test performed against an identical
+The graph below shows the results of a load test performed against an identical
 deployment of the cloud service used for the previous tests. The load test used a
 constant load of 500 users performing the `Get` operation in the `UserProfile`
-controller alongside a step-load of users performing requests against the
-`WorkInFrontEnd` controller. Initially, the step-load was 0, so the only active users
+controller alongside a step load of users performing requests against the
+`WorkInFrontEnd` controller. Initially, the step load was 0, so the only active users
 were performing the `UserProfile` requests and the system was capable of responding to
 approximately 500 requests per second. After 60 seconds, a load of 100 additional
 users was started, and these users sent POST requests to the `WorkInFrontEnd`
 controller. Almost immediately, the workload sent to the `UserProfile` controller
-dropped to about 150 requests per second. This is due to the way in which the
-load-test runner functions; it waits for a response before sending the next request,
+dropped to about 150 requests per second. This is due to the way the
+load-test runner functions. It waits for a response before sending the next request,
 so the longer it takes to receive a response the lower the subsequent request rate.
 
 As more users were added (in steps of 100) performing POST requests against the
@@ -192,16 +190,16 @@ gradually diminished further. The volume of requests serviced by the `WorkInFron
 controller remained relatively constant. The saturation of the system becomes apparent
 as the overall rate of both requests tends towards a steady but low limit.
 
-![Initial load-test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
+![Initial load test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
 
 ### Reviewing the source code
 
-The final stage is to examine the source code for each of the `bad actors` previously
+The final stage is to examine the source code for each of the `bad actors`<<RBC: Should this really be formatted as code? It doesn't seem like it needs special formatting. It's not a method name or other code element that I can see, and it doesn't need italics because it's clearly been defined as a special term.>> previously
 identified. In the case of the `Post` method in the `WorkInFrontEnd` controller, the
 development team was aware that this request could take a considerable amount of time
 which is why the processing is performed on a different thread running asynchronously.
 In this way a user issuing the request does not have to wait for processing to
-complete before being able to continue with the next task:
+complete before being able to continue with the next task.
 
 **C#**
 ```C#
@@ -217,7 +215,7 @@ public void Post()
 }
 ```
 
-However, although this approach notionally improves response time for the user, it
+However, although this approach theoretically improves response time for the user, it
 introduces a small overhead associated with creating and managing a new thread.
 Additionally, the work performed by this method still consumes CPU, memory, and other
 resources. Enabling this process to run asynchronously might actually be damaging to
@@ -232,20 +230,20 @@ when they attempt to start a new thread.
 ## How to correct the problem
 
 You should move processes that might consume significant resources to a separate tier,
-and control the way in which these processes run to prevent competition from causing
+and control the way these processes run to prevent competition from causing
 resource starvation. For more information, see the [Compute Partitioning
-Guidance][ComputePartitioning] available on the Microsoft website.
+Guidance][ComputePartitioning].
 
 With Azure, you can offload the image processing work to a set of worker roles. The
 POST request in the `WorkInBackground` controller shown below submits the details of
 the request to a queue, and instances of the worker role can pick up these requests and
 perform the necessary tasks. The web role is then free to focus on user-facing tasks.
-Furthermore, the queue acts as a natural load-leveller, buffering requests until a
+Furthermore, the queue acts as a natural load leveler, buffering requests until a
 worker role instance is available. If the queue length becomes too long, you can
-configure auto-scaling to start additional worker role instances, and shut these
-instances down when the workload eases:
+configure autoscaling to start additional worker role instances, and shut these
+instances down when the workload eases.
 
-**C# web API**
+**C# Web API**
 ```C#
 public class WorkInBackgroundController : ApiController
 {
@@ -274,7 +272,7 @@ public class WorkInBackgroundController : ApiController
 }
 ```
 
-The worker role listens for incoming messages on the queue and performs the image processing:
+The worker role listens for incoming messages on the queue and performs the image processing.
 
 **C#**
 ```C#
@@ -286,7 +284,7 @@ public class WorkerRole : RoleEntryPoint
 
     public async Task RunAsync(CancellationToken cancellationToken)
     {
-        // Initiates the message pump and callback is invoked for each message that is received, calling close on the client will stop the pump.
+        // Initiates the message pump, and callback is invoked for each message that is received, calling close on the client will stop the pump. <<RBC: I added a comma, but I'm not sure that it's technically correct. It jsut read awkwardly as written. Or maybe it's fine and I'm just not the audience.>>
         this._queueClient.OnMessageAsync(
             async (receivedMessage) =>
             {
@@ -309,7 +307,7 @@ public class WorkerRole : RoleEntryPoint
 ```
 ----------
 
-**Note:** The `WorkInBackgroundController` controller and the worker role are included in the [sample code][fullDemonstrationOfSolution] available with this anti-pattern.
+**Note:** The `WorkInBackgroundController` controller and the worker role are included in the [sample code][fullDemonstrationOfSolution] available with this antipattern.
 
 ----------
 
@@ -326,7 +324,7 @@ workload and meet the required throughput targets.
 use other options such as [WebJobs][WebJobs].
 
 
-## Consequences of the solution
+## Consequences of the solution <<RBC: Is solution the correct word here? We've given advice and an example to show them how to troubleshoot/correct, but it doesn't feel like a solution. They'd still need to adapt it to their own situation.>>
 
 Running the [sample solution][fullDemonstrationOfSolution] in a production environment
 and using AppDynamics to monitor performance generated the following results. The load
@@ -337,7 +335,7 @@ volume of requests was made to the `WorkInBackground` controller compared to the
 earlier tests due to the increased efficiency of these requests. However, you should
 not compare the throughput and response time for these requests to those shown earlier
 as the work being performed is very different (queuing a request rather than
-performing a time-consuming calculation):
+performing a time consuming calculation).
 
 ![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used][AppDynamics-Transactions-Background-Requests]
 
@@ -347,9 +345,9 @@ greater than earlier and did not tail off until the workload dropped.
 
 ![AppDynamics metrics showing the CPU and network utilization for the WorkInBackground controller][AppDynamics-Metrics-Background-Requests]
 
-Repeating the controlled load-test over 5 minutes for users submitting a mixture of
+Repeating the controlled load test over 5 minutes for users submitting a mixture of
 all requests against the `UserProfile` and `WorkInBackground` controllers gives the
-following results:
+following results.
 
 ![Load-test results for the BackgroundImageProcessing controller][Load-Test-Results-Background]
 
@@ -357,10 +355,10 @@ This graph confirms the improvement in performance of the system as a result of
 offloading the intensive processing to the worker role. The overall volume of requests
 serviced is greatly improved compared to the earlier tests.
 
-Relocating resource-hungry processing to a separate set of processes should improve
-responsiveness for most requests, but the resource-hungry processing itself may take
+Relocating the resource-hungry workload to a separate set of processes should improve
+responsiveness for most requests, but the resource-hungry tasks may take
 longer (this duration is not illustrated in the two graphs above, and requires
-instrumenting and monitoring the worker role.) If there are insufficient worker role
+instrumenting and monitoring the worker role.) <<RBC: Is there a simpler way to state the previous sentence? Does my rewrite work? It felt like there were a lot of process/processing so I changed some.>> If there are insufficient worker role
 instances available to perform the resource-hungry workload, jobs might be queued or
 otherwise held pending for an indeterminate period. However, it might be possible to
 expedite critical jobs that must be performed quickly by using a priority queuing

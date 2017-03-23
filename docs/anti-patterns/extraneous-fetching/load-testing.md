@@ -10,7 +10,7 @@ pnp.series.title: Optimize Performance
 # Load Testing Extraneous Fetching
 [!INCLUDE [header](../../_includes/header.md)]
 
-This document summarizes the configuration we used to perform load-testing for the ExtraneousFetching anti-pattern. You should also read about our [general approach][general approach] to deployment and load testing.
+This document summarizes the configuration we used to perform load testing for the Extraneous Fetching antipattern. You should also read about our [general approach][general approach] to deployment and load testing.
 
 ## Deployment
 
@@ -24,7 +24,7 @@ Max Pool Size       | 1000
 
 ## Test Configuration
 
-The load test project included four webtests, each invoking an HTTP `GET` operation.
+The load test project included four web tests, each invoking an HTTP `GET` operation.
 
 The URLs used were:
 

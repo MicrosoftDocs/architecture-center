@@ -10,7 +10,7 @@ pnp.series.title: Optimize Performance
 # Load Testing Monolithic Persistence
 [!INCLUDE [header](../../_includes/header.md)]
 
-This document summarizes the configuration we used to perform load-testing for the MonolithicPersistence anti-pattern. You should also read about our [general approach][general approach] to deployment and load testing.
+This document summarizes the configuration we used to perform loadtesting for the Monolithic Persistence antipattern. You should also read about our [general approach][general approach] to deployment and load testing.
 
 ## Deployment
 
@@ -24,7 +24,7 @@ Max Pool Size       | 4000
 
 ## Test Configuration
 
-The load test project included two webtests, each invoking an HTTP `POST` operation.
+The load test project included two web tests, each invoking an HTTP `POST` operation.
 
 The URLs used were:
 

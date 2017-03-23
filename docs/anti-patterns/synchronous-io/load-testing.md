@@ -10,7 +10,7 @@ pnp.series.title: Optimize Performance
 # Load Testing Synchronous I/O
 [!INCLUDE [header](../../_includes/header.md)]
 
-This document summarizes the configuration we used to perform load-testing for the SynchronousIO anti-pattern. You should also read about our [general approach][general approach] to deployment and load testing.
+This document summarizes the configuration we used to perform load testing for the Synchronous IO antipattern. You should also read about our [general approach][general approach] to deployment and load testing.
 
 ## Deployment
 
@@ -22,7 +22,7 @@ Instance Count      | 2
 
 ## Test Configuration
 
-The load test project included two webtests, each invoking an HTTP `GET` operation.
+The load test project included two web tests, each invoking an HTTP `GET` operation.
 
 The URLs used were:
 

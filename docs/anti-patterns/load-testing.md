@@ -7,25 +7,25 @@ manager: christb
 
 pnp.series.title: Optimize Performance
 ---
-# Run Load Tests
+# Run Load Tests <<RBC: Depending on how this is published in relation to the other docs a different title might be better.
 [!INCLUDE [header](../_includes/header.md)]
 
 We used [Visual Studio Online][VsoLoadTesting] to perform our load tests.
 The specifics of each load test differed depending on the particular
-anti-pattern that we were analyzing.
+antipattern that we were analyzing.
 
 In most cases we used a [step load pattern][LoadPattern] because we are interested
-in understanding how these particular anti-patterns affect characteristics such
+in understanding how these particular antipatterns affect characteristics such
 as elasticity, throughput, and latency.
 
 We are not publishing the load tests themselves because they are tied to
 the specific deployments that we used. However, the load tests should be easy to
-reconstruct based on the general information included here and with each the details
-documented with each anti-pattern.
+reconstruct based on the general information included here and with the details
+documented with each antipattern.
 
 ## Deploying to Azure
 
-The current set of anti-patterns utilizes the following Azure services:
+The current set of antipatterns utilizes the following Azure services:
 
 - [Cloud Services][]
 - [Web Apps][]
@@ -43,7 +43,7 @@ Unless specified otherwise, for each deployment we used:
 - [Adventure Works for Azure SQL Database][AW2012] database.
 - [Premium P3 instances][SQL Tiers]
 
-You can deploy and test against different tiers, but your results might be significantly different from those described in the anti-patterns documents.
+You can deploy and test against different tiers, but your results might be significantly different from those described in the antipatterns documents.
 
 The `Max Pool Size` in our connection strings was set to an arbitrarily high
 value (4000) to prevent the connection pool from being a constraining
@@ -53,7 +53,7 @@ resource. However, this is not a default best practice.
 
 Samples that are deployed as _Cloud Services_ include an `AzureCloudService`
 project. The [VM size][Cloud Services Sizes] of the deployment varied with
-each anti-pattern.
+each antipattern.
 
 If no `AzureCloudService` project is present in the sample, it is intended to
 be deployed as a _Web App_.
