@@ -1,26 +1,16 @@
 ---
 title: Retry general guidance
 description: Guidance on retry for transient fault handling.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: 5115cbf2-ecdd-42a4-8191-886de7bbadef
-ms.service: best-practice
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
 ---
 # Transient fault handling
+
 [!INCLUDE [header](../_includes/header.md)]
 
 All applications that communicate with remote services and resources must be sensitive to transient faults. This is especially the case for applications that run in the cloud, where the nature of the environment and connectivity over the Internet means these types of faults are likely to be encountered more often. Transient faults include the momentary loss of network connectivity to components and services, the temporary unavailability of a service, or timeouts that arise when a service is busy. These faults are often self-correcting, and if the action is repeated after a suitable delay it is likely succeed.

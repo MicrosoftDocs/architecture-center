@@ -3,17 +3,13 @@ title: Priority Queue
 description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 12/14/2016
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, performance-scalability]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Priority Queue

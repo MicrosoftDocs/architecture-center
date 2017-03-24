@@ -3,22 +3,22 @@ title: Run Linux VMs in multiple Azure regions for high availability
 description: >-
   How to deploy VMs in multiple regions on Azure for high availability and
   resiliency.
-services: ''
-documentationcenter: na
+
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
+
+
+
 pnp.series.title: Linux VM workloads
 pnp.series.prev: n-tier
-ms.assetid: 11b968f7-3a7f-4b43-bffe-8549d7a772cb
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/22/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: Multi-region application
 ---
 # Run Linux VMs in multiple regions for high availability

@@ -1,21 +1,13 @@
 ---
 title: Use Key Vault to protect application secrets
 description: How a use the Key Vault service to store application secrets
-services: ''
-documentationcenter: na
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-pnp.series.title: Manage Identity in Multitenant Applications
-ms.assetid: 4d03980d-d9ff-4e69-bd44-f2a4af33b63d
 ms.service: guidance
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2016
-ms.author: mwasson
+ms.author: pnp
+
+pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: client-assertion
 ---
 # Use Azure Key Vault to protect application secrets

@@ -3,25 +3,25 @@ title: Running Windows VMs for an N-tier architecture
 description: >-
   How to implement a multi-tier architecture on Azure, paying particular
   attention to availability, security, scalability, and manageability security.
-services: ''
-documentationcenter: na
+
+
 author: MikeWasson
-manager: christb
-editor: ''
-tags: ''
+
+
+
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-region-application
 pnp.series.prev: multi-vm
 pnp.series.github: >-
   https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier-sql
-ms.assetid: 79046c65-b024-4a24-ad56-66ed8b1b7800
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/22/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: N-tier application
 ---
 # Run Windows VMs for an N-tier application

@@ -1,5 +1,8 @@
 ---
-ms.author: mwasson
+title: Choose a solution for connecting an on-premises network to Azure
+description: How to choose a solution for connecting an on-premises network to Azure.
+author: telmosampaio
+ms.author: pnp
 ms.date: 02/21/2017
 ms.topic: article
 ms.service: guidance

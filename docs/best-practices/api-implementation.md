@@ -1,24 +1,13 @@
 ---
 title: API implementation guidance
 description: Guidance upon how to implement an API.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: 93d6a18b-de51-4b3c-9cb1-35eefb6c1747
-ms.service: best-practice
-ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
 ---
 # API implementation
 [!INCLUDE [header](../_includes/header.md)]

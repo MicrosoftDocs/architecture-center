@@ -2,25 +2,25 @@
 title: Run load-balanced VMs on Azure for scalability and availability
 description: >-
   How to run multiple Windows VMs on Azure for scalability and availability.
-services: ''
-documentationcenter: na
+
+
 author: MikeWasson
-manager: christb
-editor: ''
-tags: ''
+
+
+
 pnp.series.title: Windows VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
 pnp.series.github: >-
   https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
-ms.assetid: 6fa4764e-4d97-4b96-ac25-8adf602baf27
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/22/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: Load balanced VMs
 ---
 # Run load-balanced VMs for scalability and availability

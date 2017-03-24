@@ -1,22 +1,22 @@
 ---
 title: Create an AD DS resource forest in Azure
 description: How to create a trusted Active Directory domain in Azure.
-services: >-
+
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-documentationcenter: na
+
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+
+
+
 pnp.series.title: Identity management
-ms.assetid: 67d86788-c22d-4394-beaf-b4acdf4e2e56
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/28/2016
-ms.author: telmos
+ms.author: pnp
 pnp.series.prev: adds-extend-domain
 pnp.series.next: adfs
 cardTitle: Create an AD DS forest in Azure

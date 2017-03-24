@@ -1,23 +1,14 @@
 ---
 title: Azure and AWS services compared - multicloud
 description: See how Microsoft Azure cloud services compare to Amazon Web Services (AWS) for multicloud solutions or migration to Azure. Learn the IT capabilities of each.  
-services: ''
-documentationcenter: ''
 keywords: cloud services comparison, cloud services compared, multicloud, compare azure aws, compare azure and aws, compare aws and azure, IT capabilities
 author: lbrader
-manager: christb
-
-pnp.series.title: Azure for AWS Professionals
-
-ms.assetid: 02488dea-711a-4618-8c51-667286008989
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: lbrader
+ms.author: pnp
 
+pnp.series.title: Azure for AWS Professionals
 ---
 # AWS to Azure services comparison
 [!INCLUDE [header](../_includes/header.md)]

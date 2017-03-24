@@ -1,23 +1,15 @@
 ---
 title: Implement a JMeter test plan for Elasticsearch
 description: How to run performance tests for Elasticsearch with JMeter.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: performance-testing-environment
 pnp.series.next: deploy-jmeter-junit-sampler
-ms.assetid: 6901e64f-267d-473d-8478-d8c8b94ea106
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Implement a JMeter test plan 
 [!INCLUDE [header](../_includes/header.md)]

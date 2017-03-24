@@ -3,22 +3,14 @@ title: Implementing a DMZ between Azure and the Internet
 description: >-
   How to implement a secure hybrid network architecture with Internet access in
   Azure.
-services: 'guidance,vpn-gateway,expressroute,load-balancer,virtual-network'
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+ms.service: guidance
+ms.topic: article
+ms.date: 11/23/2016
+ms.author: pnp
+
 pnp.series.title: Network DMZ
 pnp.series.next: nva-ha
-ms.assetid: 6fbc8d25-815d-4e98-9ade-d423ddf19dc9
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/23/2016
-ms.author: telmos
 pnp.series.prev: secure-vnet-hybrid
 cardTitle: DMZ between Azure and the Internet
 ---

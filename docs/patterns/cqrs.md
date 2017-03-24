@@ -2,22 +2,14 @@
 title: CQRS
 description: Segregate operations that read data from operations that update data by using separate interfaces.
 keywords: design pattern
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 12/14/2016
+ms.author: pnp
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
-
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/14/2016
-ms.author: mwasson
 ---
 
 # Command and Query Responsibility Segregation (CQRS)

@@ -3,23 +3,15 @@ title: Create a performance testing environment for Elasticsearch
 description: >-
   How to set up an environment for testing the performance of an Elasticsearch
   cluster.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: resilience-and-recovery
 pnp.series.next: implement-jmeter-test-plan
-ms.assetid: fc696fdd-f50f-49b4-8263-f0ef077febd7
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Create a performance testing environment
 [!INCLUDE [header](../_includes/header.md)]

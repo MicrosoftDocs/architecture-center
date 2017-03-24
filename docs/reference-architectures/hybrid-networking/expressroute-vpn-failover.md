@@ -4,22 +4,14 @@ description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using ExpressRoute
   with VPN gateway failover.
-services: 'guidance,virtual-network,vpn-gateway,expressroute'
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+ms.service: guidance
+ms.topic: article
+ms.date: 11/28/2016
+ms.author: pnp
+
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.prev: expressroute
-ms.assetid: c0a6f115-ec55-4f98-8cca-606d5a98a3cd
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/28/2016
-ms.author: telmos
 cardTitle: Improving availability
 ---
 # Connect an on-premises network to Azure using ExpressRoute with VPN failover

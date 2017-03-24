@@ -3,17 +3,13 @@ title: Runtime Reconfiguration
 description: Design an application so that it can be reconfigured without requiring redeployment or restarting the application.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 12/14/2016
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, management-monitoring]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Runtime Reconfiguration

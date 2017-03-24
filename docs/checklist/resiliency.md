@@ -1,22 +1,11 @@
 ---
 title: Resiliency checklist
 description: Checklist that provides guidance for resiliency concerns during design.
-services: ''
-documentationcenter: na
 author: petertaylor9999
-manager: christb
-editor: ''
-tags: ''
-
-ms.assetid: 1b24134e-2279-4bf6-9e24-cd05aa0de89f
-ms.service: best-practice
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2016
-ms.author: petertay
-
+ms.author: pnp
 ---
 # Resiliency checklist
 [!INCLUDE [header](../_includes/header.md)]

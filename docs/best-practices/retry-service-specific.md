@@ -1,24 +1,13 @@
 ---
 title: Retry service specific guidance
 description: Service specific guidance for setting the retry mechanism.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: 159d6a0b-b929-4e7f-b297-f89b4af8a940
-ms.service: best-practice
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
 ---
 # Retry guidance for specific services
 [!INCLUDE [header](../_includes/header.md)]

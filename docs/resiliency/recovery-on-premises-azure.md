@@ -1,21 +1,11 @@
 ---
 title: 'Technical guidance: Recovery from on-premises to Azure'
 description: Article on understanding and designing recovery systems from on-premises infrastructure to Azure
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: 114c29c9-453f-4a54-8d0f-d77c5ad47d60
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Azure resiliency technical guidance: Recovery from on-premises to Azure

@@ -2,6 +2,8 @@
 title: Windows VM workloads 
 description: Explains some common architectures for deploying VMs that host enterprise-scale applications in Azure.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Running Windows VM workloads

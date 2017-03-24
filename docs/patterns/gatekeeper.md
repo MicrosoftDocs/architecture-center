@@ -3,17 +3,14 @@ title: Gatekeeper
 description: Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them.
 keywords: design pattern
 author: dragon119
-manager: bennage
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [security]
 
 ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
+ms.author: pnp
 ms.date: 12/14/2016
+
+pnp.series.title: Cloud Design Patterns
+pnp.pattern.categories: [security]
 ---
 
 # Gatekeeper

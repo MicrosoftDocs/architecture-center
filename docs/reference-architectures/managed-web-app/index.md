@@ -2,6 +2,8 @@
 title: Managed web application
 description: Recommended architectures for a web applications running in Microsoft Azure.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Managed web application
