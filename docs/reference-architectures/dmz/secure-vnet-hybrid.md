@@ -1,5 +1,5 @@
 ---
-title: Implementing a secure hybrid network architecture in Azure | Azure Reference Architectures | Azure Architecture Center
+title: Implementing a secure hybrid network architecture in Azure
 description: How to implement a secure hybrid network architecture in Azure.
 author: telmosampaio
 ms.service: guidance

@@ -1,5 +1,5 @@
 ---
-title: Network DMZ | Azure Reference Architectures | Azure Architecture Center
+title: Network DMZ
 description: Explains and compares the different methods available for protecting applications and components running in Azure as part of a hybrid system from unauthorized intrusion.
 layout: LandingPage
 ms.service: guidance

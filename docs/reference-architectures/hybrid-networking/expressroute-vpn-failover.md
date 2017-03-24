@@ -1,5 +1,5 @@
 ---
-title: Implementing a highly available hybrid network architecture | Azure Reference Architectures | Azure Architecture Center
+title: Implementing a highly available hybrid network architecture
 description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using ExpressRoute

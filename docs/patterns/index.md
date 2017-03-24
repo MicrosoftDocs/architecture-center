@@ -1,5 +1,5 @@
 ---
-title: Cloud Design Patterns | Azure Architecture Center
+title: Cloud Design Patterns
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
 ms.service: guidance

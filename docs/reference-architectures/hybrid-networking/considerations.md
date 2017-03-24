@@ -1,5 +1,5 @@
 ---
-title: Choose a solution for connecting an on-premises network to Azure | Azure Reference Architectures | Azure Architecture Center
+title: Choose a solution for connecting an on-premises network to Azure
 description: How to choose a solution for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.author: pnp

@@ -1,5 +1,5 @@
 ---
-title: Implementing a DMZ between Azure and the Internet | Azure Reference Architectures | Azure Architecture Center
+title: Implementing a DMZ between Azure and the Internet
 description: >-
   How to implement a secure hybrid network architecture with Internet access in
   Azure.

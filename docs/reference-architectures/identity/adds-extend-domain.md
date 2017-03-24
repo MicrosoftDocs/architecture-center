@@ -1,5 +1,5 @@
 ---
-title: Extending Active Directory Domain Services (AD DS) to Azure | Azure Reference Architectures | Azure Architecture Center
+title: Extending Active Directory Domain Services (AD DS) to Azure
 description: >-
   How to implement a secure hybrid network architecture with Active Directory
   authorization in Azure.
