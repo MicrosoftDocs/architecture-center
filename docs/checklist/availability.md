@@ -1,22 +1,11 @@
 ---
 title: Availability checklist
 description: Checklist that provides guidance for availability concerns during design.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: masimms
-editor: ''
-tags: ''
-
-ms.assetid: bc6be15e-b454-4f53-8761-71f0810ce549
 ms.service: guidance
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/13/2016
-ms.author: masashin
-
+ms.author: pnp
 ---
 # Availability checklist
 [!INCLUDE [header](../_includes/header.md)]

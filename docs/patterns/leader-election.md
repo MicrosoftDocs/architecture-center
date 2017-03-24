@@ -3,17 +3,14 @@ title: Leader Election
 description: Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 12/14/2016
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, resiliency]
 
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Leader Election

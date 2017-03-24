@@ -1,7 +1,9 @@
 ---
-title: Azure Reference Architectures
-description: Azure Reference Architectures
+title: Azure Reference Architectures | Azure Architecture Center
+description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Azure Reference Architectures

@@ -2,6 +2,8 @@
 title: Cloud Design Patterns
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
+ms.service: guidance
+ms.author: pnp
 ---
 # Cloud Design Patterns
 

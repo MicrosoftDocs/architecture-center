@@ -1,21 +1,11 @@
 ---
 title: High availability checklist
 description: A quick checklist of settings and actions that you can take to ensure you are improving your applications availability with Azure.
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: 7e19ab40-2b63-4037-8546-e62342e6fd7f
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # High availability checklist

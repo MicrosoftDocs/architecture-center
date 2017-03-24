@@ -3,21 +3,21 @@ title: Multi-region web application
 description: >-
   Recommended architecture for web application with high availability, running
   in Microsoft Azure.
-services: 'app-service,app-service\web,sql-database'
-documentationcenter: na
-author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
 
-ms.assetid: 7b7e3cd7-ecc6-4ca4-a4e9-468b0fa8ad9e
+
+author: MikeWasson
+
+
+
+
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/23/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: Run in multiple regions
 ---
 # Run a web application in multiple regions

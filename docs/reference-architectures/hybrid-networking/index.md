@@ -1,7 +1,9 @@
 ---
-title: Connect an on-premises network to Azure 
+title: Connect an on-premises network to Azure  | Azure Reference Architectures | Azure Architecture Center
 description: Recommended architectures for secure, robust network connections between on-premises networks and Azure.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Connect an on-premises network to Azure

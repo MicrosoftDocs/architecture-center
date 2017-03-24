@@ -1,21 +1,11 @@
 ---
 title: Disaster Recovery and High Availability for Azure Applications
 description: Technical overviews and depth information on designing applications for high availability and disaster recovery of applications built on Microsoft Azure.
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: e13d5f49-2b91-44ba-829a-1e0f1fceaae8
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Disaster recovery and high availability for applications built on Microsoft Azure

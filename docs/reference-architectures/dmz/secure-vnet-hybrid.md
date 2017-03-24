@@ -1,22 +1,14 @@
 ---
-title: Implementing a secure hybrid network architecture in Azure
+title: Implementing a secure hybrid network architecture in Azure | Azure Reference Architectures | Azure Architecture Center
 description: How to implement a secure hybrid network architecture in Azure.
-services: 'guidance,vpn-gateway,expressroute,load-balancer,virtual-network'
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+ms.service: guidance
+ms.topic: article
+ms.date: 11/23/2016
+ms.author: pnp
+
 pnp.series.title: Network DMZ
 pnp.series.prev: ./index
-ms.assetid: 4a299a51-5925-4875-9164-c89a82dff035
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/23/2016
-ms.author: telmos
 pnp.series.next: secure-vnet-dmz
 cardTitle: DMZ between Azure and on-premises
 ---

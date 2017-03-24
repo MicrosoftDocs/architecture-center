@@ -1,24 +1,13 @@
 ---
 title: Caching guidance
 description: Guidance on caching to improve performance and scalability.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: c86e2d49-066b-43b0-b0b6-f70ff4f87cdd
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/14/2016
-ms.author: masashin
-
 ---
 # Caching
 [!INCLUDE [header](../_includes/header.md)]

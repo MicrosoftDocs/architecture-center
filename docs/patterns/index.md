@@ -1,10 +1,11 @@
 ---
-title: Cloud Design Patterns
+title: Cloud Design Patterns | Azure Architecture Center
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
+ms.service: guidance
+ms.author: pnp
 ---
 # Cloud Design Patterns
-
 
 These design patterns are useful for building reliable, scalable, secure applications in the cloud.
 

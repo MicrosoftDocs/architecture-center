@@ -1,24 +1,24 @@
 ---
-title: Connect an on-premises network to Azure using VPN
+title: Connect an on-premises network to Azure using VPN | Azure Reference Architectures | Azure Architecture Center
 description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using a VPN.
-services: ''
-documentationcenter: na
+
+
 author: RohitSharma-pnp
-manager: christb
-editor: ''
-tags: ''
+
+
+
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute
-ms.assetid: b6e3c36b-c9c1-4427-9b85-7b9f7f69141e
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/28/2016
-ms.author: roshar
+ms.author: pnp
 pnp.series.prev: ./index
 cardTitle: VPN
 ---

@@ -2,6 +2,8 @@
 title: Identity management 
 description: Explains and compares the different methods available for managing identity in hybrid systems that span the on-premises/cloud boundary with Azure.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Identity management

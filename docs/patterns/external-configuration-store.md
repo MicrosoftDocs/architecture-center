@@ -3,17 +3,13 @@ title: External Configuration Store
 description: Move configuration information out of the application deployment package to a centralized location.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 12/14/2016
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, management-monitoring]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # External Configuration Store
@@ -259,7 +255,7 @@ public class ExternalConfigurationManager : IDisposable
   private void OnTimerElapsed(object sender, EventArgs e)
   {
     Trace.TraceInformation(
-          "Configuration Manager: checking for configuration changes.");
+          "Configuration 
 
     try
     {

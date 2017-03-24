@@ -1,23 +1,15 @@
 ---
 title: Configure resilience and recovery on Elasticsearch on Azure
 description: Considerations related to resiliency and recovery for Elasticsearch.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: data-aggregation-and-query-performance
 pnp.series.next: performance-testing-environment
-ms.assetid: 2da4d716-5bba-4ae8-bedf-d40c49f4c2c7
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Configure resilience and recovery
 [!INCLUDE [header](../_includes/header.md)]

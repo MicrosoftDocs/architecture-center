@@ -1,24 +1,13 @@
 ---
 title: Monitoring and diagnostics guidance
 description: Best practices for monitoring distributed applications in the cloud.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
 ---
 # Monitoring and diagnostics
 [!INCLUDE [header](../_includes/header.md)]

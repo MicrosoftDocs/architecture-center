@@ -1,24 +1,15 @@
 ---
 title: 'Technical guidance: Recovery from local failures in Azure'
 description: Article on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery focused on local failures within Azure.
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Azure resiliency technical guidance: Recovery from local failures in Azure
+
 There are two primary threats to application availability:
 
 * The failure of devices, such as drives and servers

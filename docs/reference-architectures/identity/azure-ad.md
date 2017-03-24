@@ -3,21 +3,21 @@ title: Integrate on-premises AD domains with Azure Active Directory
 description: >-
   How to implement a secure hybrid network architecture using Azure Active
   Directory.
-services: 'guidance,virtual-network,active-directory'
-documentationcenter: na
+
+
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+
+
+
 pnp.series.title: Identity management
-ms.assetid: f42fa2c2-2dea-46a2-a916-6dd60082a8da
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/28/2016
-ms.author: telmos
+ms.author: pnp
 pnp.series.next: adds-extend-domain
 pnp.series.prev: ./index
 cardTitle: Integrate on-premises AD with Azure AD

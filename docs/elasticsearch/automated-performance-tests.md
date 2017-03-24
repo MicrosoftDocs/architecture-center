@@ -1,23 +1,15 @@
 ---
 title: Run the automated Elasticsearch performance tests
 description: Description of how you can run the performance tests in your own environment.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
-pnp.series.title: Elasticsearch on Azure
-pnp.series.prev: automated-resilience-tests
-ms.assetid: a83b6752-130e-4a3b-a67a-46b03d57ce74
 ms.service: guidance
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/22/2016
-ms.author: masashin
+ms.author: pnp
+
+pnp.series.title: Elasticsearch on Azure
 pnp.series.next: automated-resilience-tests
+pnp.series.prev: automated-resilience-tests
 ---
 # Run automated performance tests
 [!INCLUDE [header](../_includes/header.md)]

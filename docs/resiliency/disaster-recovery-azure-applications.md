@@ -1,21 +1,11 @@
 ---
 title: Disaster recovery for Azure applications
 description: Technical overview and in-depth information about designing applications for disaster recovery on Microsoft Azure.
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: f9e0cbdc-ec82-46dc-bee6-558b35518252
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Disaster recovery for applications built on Microsoft Azure

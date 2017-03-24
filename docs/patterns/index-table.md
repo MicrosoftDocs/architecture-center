@@ -3,17 +3,13 @@ title: Index Table
 description: Create indexes over the fields in data stores that are frequently referenced by queries.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 12/14/2016
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Index Table

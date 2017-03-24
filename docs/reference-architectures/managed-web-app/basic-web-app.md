@@ -3,20 +3,20 @@ title: Basic web application
 description: >-
   Recommended architecture for a basic web application running in Microsoft
   Azure.
-services: 'app-service,app-service\web,sql-database'
-documentationcenter: na
+
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-ms.assetid: 12c8df2b-5693-4795-966f-533b54849799
+
+
+
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/23/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: Basic web application
 ---
 # Basic web application

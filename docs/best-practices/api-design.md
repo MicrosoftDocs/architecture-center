@@ -1,24 +1,13 @@
 ---
 title: API design guidance
 description: Guidance upon how to create a well designed API.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: 19514a32-923a-488c-85f5-b5beec2576de
-ms.service: guidance
-ms.devlang: rest-api
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
 ---
 # API design
 [!INCLUDE [header](../_includes/header.md)]

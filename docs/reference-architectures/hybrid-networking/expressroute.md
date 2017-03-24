@@ -1,26 +1,18 @@
 ---
-title: Connect an on-premises network to Azure using ExpressRoute
+title: Connect an on-premises network to Azure using ExpressRoute | Azure Reference Architectures | Azure Architecture Center
 description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using Azure
   ExpressRoute.
-services: ''
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 11/28/2016
+ms.author: pnp
+
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute-vpn-failover
 pnp.series.prev: vpn
-ms.assetid: 3ae3311f-04e8-4f7e-bdad-2d995dcccd6c
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/28/2016
-ms.author: telmos
 cardTitle: ExpressRoute
 ---
 # Connect an on-premises network to Azure using ExpressRoute
