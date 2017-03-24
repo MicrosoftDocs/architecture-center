@@ -10,7 +10,7 @@ manager: christb
 pnp.series.title: Azure for AWS Professionals
 
 ms.assetid: 02488dea-711a-4618-8c51-667286008989
-ms.service: multiple
+ms.service: guidance
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

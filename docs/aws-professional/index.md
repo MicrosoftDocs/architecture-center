@@ -8,7 +8,7 @@ author: lbrader
 manager: christb
 
 ms.assetid:
-ms.service: multiple
+ms.service: guidance
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -11,7 +11,7 @@ tags: ''
 pnp.series.title: Best Practices
 
 ms.assetid: 25bba4f9-9ca5-48d1-ac8b-08a3441ba696
-ms.service: best-practice
+ms.service: guidance
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -9,7 +9,7 @@ editor: ''
 tags: ''
 
 ms.assetid: 1b24134e-2279-4bf6-9e24-cd05aa0de89f
-ms.service: best-practice
+ms.service: guidance
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
