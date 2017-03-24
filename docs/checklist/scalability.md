@@ -4,7 +4,7 @@ description: Scalability checklist guidance for design concerns for Azure Autosc
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 03/24/2017
 ms.author: pnp
 ---
 # Scalability checklist

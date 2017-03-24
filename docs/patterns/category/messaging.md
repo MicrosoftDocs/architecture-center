@@ -4,7 +4,7 @@ description: The distributed nature of cloud applications requires a messaging i
 keywords: design pattern
 author: dragon119
 ms.author: pnp
-ms.date: 02/21/2017
+ms.date: 03/24/2017
 ms.topic: article
 ms.service: guidance
 

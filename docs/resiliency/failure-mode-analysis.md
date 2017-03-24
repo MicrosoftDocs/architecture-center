@@ -4,7 +4,7 @@ description: Guidelines for performing failure mode analysis for cloud solutions
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 03/24/2017
 ms.author: pnp
 
 pnp.series.title: Design for Resiliency
