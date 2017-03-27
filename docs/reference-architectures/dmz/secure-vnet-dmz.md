@@ -130,7 +130,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-secure-vnet-dmz
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-dmz
 
 [implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture]: ./secure-vnet-hybrid.md
