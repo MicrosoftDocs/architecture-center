@@ -6,7 +6,7 @@ author: dragon119
 ms.service: guidance
 ms.topic: article
 ms.author: pnp
-ms.date: 12/14/2016
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, performance-scalability]

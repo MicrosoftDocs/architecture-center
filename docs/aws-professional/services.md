@@ -5,7 +5,7 @@ keywords: cloud services comparison, cloud services compared, multicloud, compar
 author: lbrader
 ms.service: guidance
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 03/24/2017
 ms.author: pnp
 
 pnp.series.title: Azure for AWS Professionals

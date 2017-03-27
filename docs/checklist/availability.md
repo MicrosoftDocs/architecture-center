@@ -4,7 +4,7 @@ description: Checklist that provides guidance for availability concerns during d
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 03/24/2017
 ms.author: pnp
 ---
 # Availability checklist

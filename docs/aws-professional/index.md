@@ -5,7 +5,7 @@ keywords: AWS experts, Azure comparison, AWS comparison, difference between azur
 author: lbrader
 ms.service: guidance
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 03/24/2017
 ms.author: pnp
 
 pnp.series.title: Azure for AWS Professionals

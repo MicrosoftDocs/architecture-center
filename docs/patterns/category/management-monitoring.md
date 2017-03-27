@@ -4,7 +4,7 @@ description: Cloud applications run in in a remote datacenter where you do not h
 keywords: design pattern
 author: dragon119
 ms.author: pnp
-ms.date: 02/21/2017
+ms.date: 03/24/2017
 ms.topic: article
 ms.service: guidance
 
