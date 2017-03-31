@@ -166,6 +166,25 @@ ms.author: pnp
 </div>
 </a>
     </li>
+        <li>
+    <a href="http://aka.ms/azureconnectioncenter">
+<div class="cardSize">
+<div class="cardPadding">
+    <div class="card">
+        <div class="cardImageOuter">
+            <div class="cardImage">
+                <img src="_images/global-connection-center.svg" alt="Identity Management for Multitenant Applications" />
+            </div>
+        </div>
+        <div class="cardText">
+            <h3>Azure Global Connection Center</h3>
+            <p>Help for customers moving applications from Global Azure regions to one of the isolated Azure regions ( Azure China or Azure Germany).</p>
+        </div>
+    </div>
+</div>
+</div>
+</a>
+    </li>
     <li>
     <a href="https://blogs.msdn.microsoft.com/azurecat/">
 <div class="cardSize">
