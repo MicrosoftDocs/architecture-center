@@ -45,6 +45,11 @@
 ## [Migrate from Cloud Services to Service Fabric](./service-fabric/migrate-from-cloud-services.md)
 ## [Run Elasticsearch on Azure](./elasticsearch/index.md)
 
-# Blogs
-## [AzureCAT](https://blogs.msdn.microsoft.com/azurecat/)
-## [SQLCAT](https://blogs.msdn.microsoft.com/sqlcat/)
+# Resources
+## [Microsoft Trust Center for Azure](https://www.microsoft.com/en-us/trustcenter/cloudservices/azure)
+## [Icons and diagrams](./resources/diagrams.md)
+## [Calendar of Azure updates](https://azure.microsoft.com/updates/)
+## [Training](https://azure.microsoft.com/community/training/)
+## [SQLCAT blog](https://blogs.msdn.microsoft.com/sqlcat/)
+## [AzureCAT blog](https://blogs.msdn.microsoft.com/azurecat/)
+## [White papers](https://azure.microsoft.com/resources/whitepapers/)
