@@ -14,7 +14,7 @@ pnp.series.next: nva-ha
 pnp.series.prev: secure-vnet-hybrid
 cardTitle: DMZ between Azure and the Internet
 ---
-# Between Azure and the Internet
+# DMZ between Azure and the Internet
 [!INCLUDE [header](../../_includes/header.md)]
 
 This article describes best practices for implementing a secure hybrid network that extends your on-premises network and also accepts Internet traffic to Azure. 

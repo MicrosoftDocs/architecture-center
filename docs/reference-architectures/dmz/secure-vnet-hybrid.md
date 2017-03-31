@@ -12,7 +12,7 @@ pnp.series.prev: ./index
 pnp.series.next: secure-vnet-dmz
 cardTitle: DMZ between Azure and on-premises
 ---
-# Between Azure and your on-premises datacenter
+# DMZ between Azure and your on-premises datacenter
 [!INCLUDE [header](../../_includes/header.md)]
 
 This article describes best practices for implementing a secure hybrid network that extends an on-premises network to Azure. This reference architecture implements a DMZ (also called a perimeter network) between an on-premises network and an Azure virtual network. The DMZ includes highly available network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited.
