@@ -178,7 +178,7 @@ ms.author: pnp
         </div>
         <div class="cardText">
             <h3>Azure Global Connection Center</h3>
-            <p>Help for customers moving applications from Global Azure regions to one of the isolated Azure regions ( Azure China or Azure Germany).</p>
+            <p>Understand the national clouds, make use of their services, and extend the reach of your applications.</p>
         </div>
     </div>
 </div>
