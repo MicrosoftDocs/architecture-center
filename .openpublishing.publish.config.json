@@ -7,7 +7,8 @@
       "build_source_folder": "docs",
       "build_output_subfolder": "azure-architecture-center",
       "locale": "en-us",
-      "open_to_public_contributors": false,
+      "monikers": [],
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
