@@ -4,23 +4,17 @@ description: >-
   How to deploy VMs in multiple regions on Azure for high availability and
   resiliency.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Windows VM workloads
 pnp.series.prev: n-tier
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
-cardTitle: Multi-region application
 ---
+
 # Run Windows VMs in multiple regions for high availability
 
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure. 
@@ -40,9 +34,15 @@ This architecture builds on the one shown in [Run Windows VMs for an N-tier appl
     > [!NOTE]
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.  
     > 
-    > 
 
 * **VPN Gateways**. Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On Availability Group.
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
+
+> [!NOTE]
+> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
+> 
+
 
 ## Recommendations
 
@@ -181,6 +181,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/library/ms162843.aspx

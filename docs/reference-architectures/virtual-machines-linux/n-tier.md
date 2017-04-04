@@ -2,24 +2,18 @@
 title: Run Linux VMs for an N-tier application on Azure
 description: How to run Linux VMs for an N-tier architecture in Microsoft Azure.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-region-application
 pnp.series.prev: multi-vm
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
-cardTitle: N-tier application
 ---
+
 # Run Linux VMs for an N-tier application
 
 This reference architecture shows a set of proven practices for running Linux virtual machines (VMs) for an N-tier application. [**Deploy this solution**.](#deploy-the-solution)  
@@ -38,7 +32,7 @@ There are many ways to implement an N-tier architecture. The diagram shows a typ
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
-
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.

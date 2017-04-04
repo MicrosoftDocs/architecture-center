@@ -4,37 +4,27 @@ description: >-
   How to run a VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-vm
-pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
 pnp.series.prev: ./index
-cardTitle: Single VM
 ---
+
 # Run a Windows VM on Azure
 
 This reference architecture shows a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution**.](#deploy-the-solution)
-
 
 ![[0]][0]
 
 ## Architecture
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.
-
 
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 * **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
@@ -47,9 +37,10 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
+
 > [!NOTE]
 > Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
 > 
 
 ## Recommendations

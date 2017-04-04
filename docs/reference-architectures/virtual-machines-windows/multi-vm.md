@@ -3,26 +3,18 @@ title: Run load-balanced VMs on Azure for scalability and availability
 description: >-
   How to run multiple Windows VMs on Azure for scalability and availability.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Windows VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
-pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
-cardTitle: Load balanced VMs
 ---
+
 # Run load-balanced VMs for scalability and availability
 
 This reference architecture shows a set of proven practices for running several Windows virtual machines (VMs) behind a load balancer, to improve availability and scalability. This architecture can be used for any stateless workload, such as a web server, and is a building block for deploying N-tier applications. [**Deploy this solution**.](#deploy-the-solution)  
@@ -48,6 +40,7 @@ The architecture has the following components:
 * **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 * **Storage**. Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.

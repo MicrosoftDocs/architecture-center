@@ -4,23 +4,17 @@ description: >-
   How to deploy VMs in multiple regions on Azure for high availability and
   resiliency.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Linux VM workloads
 pnp.series.prev: n-tier
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
-cardTitle: Multi-region application
 ---
+
 # Run Linux VMs in multiple regions for high availability
 
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure. 
@@ -36,6 +30,8 @@ This architecture builds on the one shown in [Run Linux VMs for an N-tier applic
 * **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
 * **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap.
 * **Apache Cassandra**. Deploy Cassandra in data centers across Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 ## Recommendations
 

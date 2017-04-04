@@ -129,8 +129,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="156.96892"
-     inkscape:cy="78.986049"
+     inkscape:cx="177.8476"
+     inkscape:cy="39.068971"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -787,7 +787,7 @@
        id="path6862"
        inkscape:connector-curvature="0" />
     <g
-       transform="matrix(0.67123581,0,0,0.67123581,7.9966816,838.4816)"
+       transform="matrix(0.67123581,0,0,0.67123581,7.7441435,838.87124)"
        id="g7129">
       <path
          inkscape:connector-curvature="0"
@@ -812,12 +812,13 @@
     </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00687945px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 252.41829,970.65868 20.08776,-34.0729 0,0"
+       d="m 251.66068,972.67899 20.84537,-32.0526"
        id="path7141"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <g
        id="g7367"
-       transform="matrix(1.0068794,0,0,1.0068794,-241.92654,-178.34275)">
+       transform="matrix(1.0068794,0,0,1.0068794,-242.17908,-174.30214)">
       <path
          style="fill:#7a7a7a;fill-opacity:1;fill-rule:nonzero;stroke:none"
          d="m 529.65404,1117.856 -0.6779,0 -6.65194,0 -0.33895,0 c 0.93206,3.2625 -0.29659,3.7285 -5.76222,3.7285 l 0,1.6948 6.90614,0 5.04195,0 6.52483,0 0,-1.6948 c -5.42323,0 -5.93167,-0.466 -5.04191,-3.7285 z"
@@ -873,7 +874,7 @@
     </g>
     <g
        id="g7380"
-       transform="matrix(1.0068794,0,0,1.0068794,-241.92654,-119.87183)">
+       transform="matrix(1.0068794,0,0,1.0068794,-242.17908,-115.83122)">
       <path
          inkscape:connector-curvature="0"
          id="path7382"
@@ -945,5 +946,11 @@
        id="path7792"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4369"
+       d="m 251.7392,973.63037 20.43578,25.3911"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00687945px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>
