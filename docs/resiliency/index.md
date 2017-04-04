@@ -6,6 +6,7 @@ ms.service: guidance
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pnp
+ms.custom: resiliency
 
 pnp.series.title: Design for Resiliency
 ---

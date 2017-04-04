@@ -6,6 +6,7 @@ ms.service: guidance
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pnp
+ms.custom: checklist
 ---
 # Scalability checklist
 [!INCLUDE [header](../_includes/header.md)]
