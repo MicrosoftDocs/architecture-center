@@ -8,7 +8,7 @@ ms.author: pnp
 
 # Identity management
 
-These reference architectures show options for integrating your on-premises Active Directory (AD) environment with an Azure network.
+These reference architectures show options for integrating your on-premises Active Directory (AD) environment with an Azure network. [Which should I choose?](./considerations.md)
 
 <ul class="panelContent cardsH">
     <li>
