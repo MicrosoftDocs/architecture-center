@@ -8,7 +8,7 @@ ms.author: pnp
 
 # Connect an on-premises network to Azure
 
-These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure.
+These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
 
 <ul class="panelContent cardsH">
     <li>

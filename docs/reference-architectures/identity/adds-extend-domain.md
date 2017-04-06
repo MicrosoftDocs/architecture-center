@@ -7,24 +7,16 @@ description: >-
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-
-
-
-pnp.series.title: Identity management
-
 ms.service: guidance
-
 ms.topic: article
-
-
 ms.date: 11/28/2016
 ms.author: pnp
+
+pnp.series.title: Identity management
 pnp.series.prev: azure-ad
 pnp.series.next: adds-forest
-cardTitle: Extend AD DS to Azure
 ---
-# Active Directory Domain Services (AD DS)
-[!INCLUDE [header](../../_includes/header.md)]
+# Extend Active Directory Domain Services (AD DS) to Azure
 
 This article describes best practices for extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends the architectures described in  [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
