@@ -3,23 +3,16 @@ title: Run load-balanced VMs on Azure for scalability and availability
 description: >-
   How to run multiple Linux VMs on Azure for scalability and availability.
 
-
 author: MikeWasson
 
-
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/22/2016
-ms.author: pnp
-cardTitle: Load balanced VMs
 ---
 # Run load-balanced VMs for scalability and availability
 
@@ -46,12 +39,11 @@ The architecture has the following components:
 * **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 * **Storage**. Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 >
->
-
 
 ## Recommendations
 
@@ -124,7 +116,7 @@ For more information, see [Manage the availability of Linux virtual machines][av
 > [!WARNING]
 > Make sure to configure the availability set when you provision the VM. Currently, there is no way to add a Resource Manager VM to an availability set after the VM is provisioned.
 > 
-> 
+ 
 
 The load balancer uses [health probes] to monitor the availability of VM instances. If a probe cannot reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 

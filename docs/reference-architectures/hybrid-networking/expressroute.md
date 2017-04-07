@@ -36,14 +36,11 @@ The architecture consists of the following components.
 
 * **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the Internet, but accessing them using an ExpressRoute circuit provides low latency and more predictable performance, because traffic does not go through the Internet. Connections are performed using [public peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider.
 
-* **Office 365 services**. The publicly available Office 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. 
-
-    > [!NOTE]
-    > You can also connect directly to Microsoft CRM Online through Microsoft peering.
-    > 
-    >
+* **Office 365 services**. The publicly available Office 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
 
 * **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
