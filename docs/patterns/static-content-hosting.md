@@ -91,7 +91,7 @@ The links in the pages delivered to the client must specify the full URL of the 
 
 > If the resources are protected by using a valet key, such as an Azure shared access signature, this signature must be included in the URLs in the links.
 
-A solution named StaticContentHosting that demonstrates using external storage for static resources is available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/static-content-hosting). The StaticContentHosting.Cloud project contains configuration files that specify the storage account and container that holds the static content.
+A solution named StaticContentHosting that demonstrates using external storage for static resources is available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting). The StaticContentHosting.Cloud project contains configuration files that specify the storage account and container that holds the static content.
 
 ```xml
 <Setting name="StaticContent.StorageConnectionString"
@@ -163,7 +163,7 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 
 ## Related patterns and guidance
 
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/static-content-hosting).
+- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting).
 - [Valet Key pattern](valet-key.md). If the target resources aren't supposed to be available to anonymous users it's necessary to implement security over the store that holds the static content. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service such as a cloud-hosted storage service.
 - [An efficient way of deploying a static web site on Azure](http://www.infosysblogs.com/microsoft/2010/06/an_efficient_way_of_deploying.html) on the Infosys blog.
 - [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx)
