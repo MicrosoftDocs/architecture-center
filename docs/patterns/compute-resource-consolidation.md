@@ -106,7 +106,7 @@ The tasks are started by the `Run` method that waits for the tasks to complete. 
 
 The _WorkerRole.cs_ file in the _ComputeResourceConsolidation.Worker_ project shows an example of how you might implement this pattern in a Azure cloud service.
 
-> The _ComputeResourceConsolidation.Worker_ project is part of the _ComputeResourceConsolidation_ solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/compute-resource-consolidation).
+> The _ComputeResourceConsolidation.Worker_ project is part of the _ComputeResourceConsolidation_ solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).
 
 In the worker role, code that runs when the role is initialized creates the required cancellation token and a list of tasks to run.
 
@@ -250,4 +250,4 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx). Describes how to allocate the services and components in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 
-- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/compute-resource-consolidation).
+- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).

@@ -86,7 +86,7 @@ Azure provides storage queues and Service Bus queues that can act as a mechanism
 > For detailed information on using Azure Service Bus queues, see [Service Bus queues, topics, and subscriptions](https://msdn.microsoft.com/library/windowsazure/hh367516.aspx).
 For information on using Azure storage queues, see [Get started with Azure Queue storage using .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/).
 
-The following code from the `QueueManager` class in CompetingConsumers solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/competing-consumers) shows how you can create a queue by using a `QueueClient` instance in the `Start` event handler in a web or worker role.
+The following code from the `QueueManager` class in CompetingConsumers solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/competing-consumers) shows how you can create a queue by using a `QueueClient` instance in the `Start` event handler in a web or worker role.
 
 ```csharp
 private string queueName = ...;
@@ -186,4 +186,4 @@ The following patterns and guidance might be relevant when implementing this pat
 
 - [Queue-based Load Leveling Pattern](queue-based-load-leveling.md). Introducing a message queue can add resiliency to the system, enabling service instances to handle widely varying volumes of requests from application instances. The message queue acts as a buffer, which levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
 
-- This pattern has a [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/competing-consumers) associated with it.
+- This pattern has a [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/competing-consumers) associated with it.

@@ -79,7 +79,7 @@ In a Microsoft Azure hosted application, a typical choice for storing configurat
 
 The following example shows how a configuration store can be implemented over Blob storage to store and expose configuration information. The `BlobSettingsStore` class abstracts Blob storage for holding configuration information, and implements the `ISettingsStore` interface shown in the following code.
 
-> This code is provided in the _ExternalConfigurationStore.Cloud_ project in the _ExternalConfigurationStore_ solution, available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/external-configuration-store).
+> This code is provided in the _ExternalConfigurationStore.Cloud_ project in the _ExternalConfigurationStore_ solution, available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).
 
 ```csharp
 public interface IsettingsStore
@@ -333,4 +333,4 @@ The following information might also be relevant when implementing this pattern:
 
 - [Runtime Reconfiguration pattern](runtime-reconfiguration.md). In addition to storing configuration settings externally, it's useful to be able to update them and have the changes applied without restarting the application. Describes how to design an application so that it can be reconfigured without requiring redeployment or restarting.
 
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/external-configuration-store).
+- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).

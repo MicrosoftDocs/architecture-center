@@ -86,7 +86,7 @@ When you cancel a change in the `RoleEnvironment.Changing` event you're indicati
 
 > For more information, see [RoleEnvironment.Changing Event](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx).
 
-To handle the `RoleEnvironment.Changing` and `RoleEnvironment.Changed` events you typically add a custom handler to the event. For example, the following code from the `Global.asax.cs` class (in the Runtime Reconfiguration solution available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/runtime-reconfiguration)) shows how to add a custom function named `RoleEnvironment_Changed` to the event handler chain. This is from the Global.asax.cs file of the example.
+To handle the `RoleEnvironment.Changing` and `RoleEnvironment.Changed` events you typically add a custom handler to the event. For example, the following code from the `Global.asax.cs` class (in the Runtime Reconfiguration solution available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/runtime-reconfiguration)) shows how to add a custom function named `RoleEnvironment_Changed` to the event handler chain. This is from the Global.asax.cs file of the example.
 
 > The examples for this pattern are in the RuntimeReconfiguration.Web project of the RuntimeReconfiguration solution.
 
@@ -191,5 +191,5 @@ Note that if you fail to cancel a configuration change, but don't apply the new 
 
 ## Related patterns and guidance
 
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/runtime-reconfiguration).
+- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/runtime-reconfiguration).
 - Moving configuration information out of the application deployment package to a centralized location can provide easier management and control of configuration data, and allows sharing of configuration data across applications and application instances. For more information, see [External Configuration Store pattern](external-configuration-store.md).
