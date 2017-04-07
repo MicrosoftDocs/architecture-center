@@ -28,7 +28,7 @@ This architecture is suitable for hybrid applications where the traffic between 
 - Although Microsoft guarantees 99.9% availability for each VPN Gateway, this SLA only covers the VPN gateway, and not your network connection to the gateway.
 - A VPN connection over Azure VPN Gateway currently supports a maximum of 200 Mbps bandwidth. You may need to partition your Azure virtual network across multiple VPN connections if you expect to exceed this throughput.
 
- **[Read more...][vpn]**
+**[Read more...][vpn]**
 
 ## Azure ExpressRoute connection
 

@@ -62,7 +62,7 @@ Typical uses for this architecture include maintaining security separation for o
 * Authentication within Azure for on-premises identities requires extra network hops to the on-premises AD servers.
 * You must deploy your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
 
- **[Read more...][ad-ds-forest]**
+**[Read more...][ad-ds-forest]**
 
 ## Extend AD FS to Azure
 
