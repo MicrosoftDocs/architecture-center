@@ -222,9 +222,9 @@ Additionally, it uses a lock to prevent the circuit breaker from trying to perfo
             action();
 
             // If this action succeeds, reset the state and allow other operations.
-            // In reality, instead of immediately returning to the Open state, a counter
+            // In reality, instead of immediately returning to the Closed state, a counter
             // here would record the number of successful operations and return the
-            // circuit breaker to the Open state only after a specified number succeed.
+            // circuit breaker to the Closed state only after a specified number succeed.
             this.stateStore.Reset();
             return;
           }
