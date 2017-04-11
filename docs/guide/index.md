@@ -30,13 +30,13 @@ As you move from design to implementation, the descisions become more granular a
 
 For each step of the process, we point to related guidance on the Azure Architecture Center. This guide serves as a roadmap, while the supporting content goes deeper into each area.
 
-![](./images/guide-steps.png)
+<object data="./images/guide-steps.svg" type="image/svg+xml"></object>
 
 ## Analyze the business domain
 
 The first step, before making any decisions about architecture or technology, is to analyze the business domain to derive functional and non-functional requirements.
 
-![](./images/software-design-process.png)
+![](./images/software-design-process.svg)
 
 **Functional requirements**. Use domain driven design (DDD) to identity bounded contexts. A *bounded context* is an explicit boundary around a domain model. It defines which parts of the domain the model applies to. Ideally, a bounded context maps directly to a subdomain of the business domain. (That might not always be the case. If the application integrates with legacy systems, for example, the bounded contexts may be messier than ideal.) 
 
@@ -44,7 +44,7 @@ Bounded contexts are the starting point when decomposing an application into ser
 
 > Does every application require a DDD approach? Not necessarily. If you're building a simple web application that mostly does CRUD operations on a data set, you may feel that DDD is superfluous. That said, DDD is compatible with agile development. There's no reason that DDD needs be a heavyweight process.
 
-**Non-function requirements**. Non-functional requirements will influence many of the technical decisions that you make along the way. 
+**Non-functional requirements**. Non-functional requirements will influence many of the technical decisions that you make along the way. 
 
 | Requirement | Leads to... |
 |-------------|------------|
@@ -95,6 +95,34 @@ Some of the challenges to consider include:
 - Inter-service communication. As you decompose an application into separate services, there is a risk that network traffic between services will cause unacceptable latency or create bottlenecks. 
 
 The choice of architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices. 
+
+## Design principles
+
+The ten principles listed here encapsulate a broad set of best practices and recommendations for cloud applications. You can read more about each principle, with supporting examples for each. 
+
+1. **[Use managed services.](./design-principles/managed-services.md)** When possible, use Platform as a Service (PaaS) over Infrastructure as a Service (IaaS).
+
+2. **[Minimize coordination.](./design-principles/minimize-coordination.md)** Minimize coordination between application services to achieve scalability.
+ 
+3. **[Partition around limits.](./design-principles/partition.md)** Use partitioning to work around database, network, and compute limits.
+
+4. **[Design for scale out.](./design-principles/scale-out.md)** Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
+
+5. **[Design for self-healing.](./design-principles/self-healing.md)** In a distributed system, failures happen. Design your application to be self-healing when failures occur.
+
+6. **[Make all things redundant.](./design-principles/redundancy.md)** Build redundancy into your application, to avoid having single points of failure.
+ 
+7. **[Use the best data store for the job.](./design-principles/use-the-best-data-store.md)** Pick the storage technology that is the best fit for your data and how it will be used. 
+ 
+8. **[Design for change.](./design-principles/design-for-change.md)** All successful applications change over time. An evolutionary design is key for continuous innovation.
+
+9. **[Design for operations.](./design-principles/design-for-operations.md)** Design your application so that the operations team has the tools they need.
+
+10. **[Build for the needs of business.](./design-principles/build-for-business.md)** Every design decision must be justified by a business requirement.
+
+## Choose compute technologies 
+
+## Choose storage technologies
 
 
 

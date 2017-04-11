@@ -1,6 +1,6 @@
-# Application Archictecture Guide
+# Archictecture Guide
 
-## [Overview](./index.md)
+## [The Azure Application Architecture Guide](./index.md)
 
 ## [Design principles](./design-principles/index.md)
 ### [Use managed services](./design-principles/managed-services.md)
