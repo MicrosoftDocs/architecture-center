@@ -2,6 +2,7 @@
 title: Make all things redundant
 description: Avoid single points of failure by building redundancy into your application.
 pnp.series.title: Cloud design principles
+layout: LandingPage
 ---
 
 # Make all things redundant

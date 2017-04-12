@@ -2,6 +2,7 @@
 title: Design for self-healing
 description: Resilient applications can recover from failures without manual intervention.
 pnp.series.title: Cloud design principles
+layout: LandingPage
 ---
 
 # Design for self-healing

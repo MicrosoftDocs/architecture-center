@@ -2,6 +2,7 @@
 title: Design to scale out
 description: Cloud applications should be designed for horizontal scaling.
 pnp.series.title: Cloud design principles
+layout: LandingPage
 ---
 
 # Design to scale out
