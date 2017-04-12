@@ -11,9 +11,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="2.233073in"
-   height="1.3216146in"
-   viewBox="0 0 160.78126 95.156386"
+   width="200"
+   height="120"
+   viewBox="0 0 160.00001 96.000137"
    xml:space="preserve"
    class="st12"
    id="svg2"
@@ -37,7 +37,7 @@
      id="namedview69"
      showgrid="false"
      inkscape:zoom="1.8285714"
-     inkscape:cx="-25.566408"
+     inkscape:cx="-72.187493"
      inkscape:cy="59.462156"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
@@ -46,7 +46,8 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" /><v:documentProperties
+     fit-margin-bottom="0"
+     units="px" /><v:documentProperties
      v:langID="1033"
      v:viewMarkup="false" /><style
      type="text/css"
@@ -88,7 +89,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Background"
-     transform="translate(17.390648,10.844943)"><rect
+     transform="translate(17.390648,11.688697)"><rect
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.60000217;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect4246"
        width="160.78146"
@@ -100,7 +101,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      inkscape:label="Layer 1"
-     transform="translate(17.390648,10.844943)"><g
+     transform="translate(17.390648,11.688697)"><g
        v:mID="0"
        v:index="1"
        v:groupContext="foregroundPage"
