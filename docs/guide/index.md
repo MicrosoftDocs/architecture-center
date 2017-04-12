@@ -86,19 +86,19 @@ It's also important to be pragmatic. Sometimes it's better to relax a constraint
 
 Constraints also create challenges, so it's important to understand the trade-offs when adopting any of these styles. Do the benefits of the architecture style outweigh the challenges, *for this application domain and bounded context*. 
 
-Some of the challenges to consider include:
+Here are some of the types of challenges to consider when selecting an architecture style:
 
 - Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud", because the architecture does not help you to manage dependencies cleanly.
 
-- Data consistency, messaging. 
+- Eventual consistency. 
 
-- Inter-service communication. As you decompose an application into separate services, there is a risk that network traffic between services will cause unacceptable latency or create bottlenecks. 
+- Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
 
 The choice of architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices. 
 
 ## Design principles
 
-The ten principles listed here encapsulate a broad set of best practices and recommendations for cloud applications. You can read more about each principle, with supporting examples for each. 
+The ten principles listed here encapsulate a broad set of best practices and recommendations for cloud applications. Keep these high-level principles in mind throughout the design process. You can read more about each principle, with supporting examples for each. 
 
 1. **[Use managed services.](./design-principles/managed-services.md)** When possible, use Platform as a Service (PaaS) over Infrastructure as a Service (IaaS).
 

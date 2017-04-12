@@ -13,8 +13,6 @@ For example, suppose your application needs a message queue. You could set up yo
 
 Of course, your application may have specific requirements that make an IaaS approach more suitable. However, even if your application is based on IaaS, look for places where it may be natural to incorporate managed services. These include cache, queues, and data storage.
 
-## Examples
-
 | Instead of running... | Consider using... |
 |-----------------------|-------------|
 | Active Directory | Azure Active Directory Domain Services |

@@ -24,7 +24,7 @@ A database can be partitioned *horizontally*, *vertically*, or *functionally*.
 
 For more detailed guidance, see [Data partitioning][data-partitioning-guidance].
 
-## Examples
+## Considerations
 
 **Partition different parts of the application.** Databases are one obvious candidate for partitioning, but also consider storage, cache, queues, and compute instances.
 

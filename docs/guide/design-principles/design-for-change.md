@@ -1,6 +1,12 @@
+---
+title: Design for change
+description: An evolutionary design is key for continuous innovation.
+layout: LandingPage
+---
+
 # Design for change
 
-**An evolutionary design is key for continuous innovation.**
+## An evolutionary design is key for continuous innovation
 
 All successful applications change over time, whether to fix bugs, add new features, bring in new technologies, or make existing systems more scalable and resilient. If all the parts of an application are tightly coupled, it becomes very hard to introduce changes into the system. A change in one part of the application may break another part, or cause changes to ripple through the entire codebase.
 
@@ -8,7 +14,7 @@ This problem is not limited to monolithic applications. An application can be de
 
 Microservices are becoming a popular way to achieve an evolutonary design, because they address many of the considerations listed here.
 
-## Examples
+## Considerations
 
 **Enforce high cohesion and loose coupling.** A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identity those boundaries
 
