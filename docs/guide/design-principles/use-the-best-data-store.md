@@ -1,6 +1,12 @@
+---
+title: Use the best data store for the job
+description: Pick the storage technology that is the best fit for your data and how it will be used
+layout: LandingPage
+---
+
 # Use the best data store for the job
 
-**Pick the storage technology that is the best fit for your data and how it will be used.**
+## Pick the storage technology that is the best fit for your data and how it will be used
 
 Gone are the days when you would just stick all of your data into a big relational SQL database. Relational databases are very good at what they do &mdash; providing ACID guarantees for transactions over relational data. But they come with some costs:
 

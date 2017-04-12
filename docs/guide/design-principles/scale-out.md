@@ -6,7 +6,7 @@ pnp.series.title: Cloud design principles
 
 # Design to scale out
 
-**Design your application so that it can scale horizontally, adding or removing new instances as demand requires.**
+## Design your application so that it can scale horizontally
 
 A primary advantage of the cloud is elastic scaling &mdash; the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
 

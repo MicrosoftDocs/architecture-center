@@ -6,7 +6,7 @@ pnp.series.title: Cloud design principles
 
 # Design for self-healing
 
-**Design your application to be self-healing when failures occur.**
+## Design your application to be self-healing when failures occur
 
 In a distributed system, failures happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
 

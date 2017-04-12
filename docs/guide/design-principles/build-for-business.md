@@ -6,7 +6,7 @@ layout: LandingPage
 
 # Build for the needs of the business
 
-**Principle: Every design decision must be justified by a business requirement.**
+## Every design decision must be justified by a business requirement
 
 This design principle may seem obvious, but it's crucial to keep in mind when designing a solution. Do you anticipate millions of users, or a few thousand? Is a one-hour application outage acceptable? Do you expect large bursts in traffic, or a very predictable workload? Ultimately, every design decision must be justified by a business requirement. 
 

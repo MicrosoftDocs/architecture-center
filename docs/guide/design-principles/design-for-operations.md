@@ -1,6 +1,12 @@
+---
+title: Design for operations
+description: Design an application so that the operations team has the tools they need
+layout: LandingPage
+---
+
 # Design for operations
 
-**Design an application so that the operations team has the tools they need.**
+## Design an application so that the operations team has the tools they need
 
 The cloud has dramatically changed the role of the operations team. They are no longer responsible for managing the hardware and infrastructure that hosts the application.  That said, operations is still a critical part of running a successful cloud application. Some of the important functions of the operations team include:
 
@@ -10,7 +16,7 @@ The cloud has dramatically changed the role of the operations team. They are no 
 - Incident response
 - Security auditing
 
-Robust logging and tracing are particularly important in cloud applications. Involve the operations team in design and planning, to ensure the application gives them the data and insight thay need to be successful. 
+Robust logging and tracing are particularly important in cloud applications. Involve the operations team in design and planning, to ensure the application gives them the data and insight thay need to be successful.  <!-- to do: Link to DevOps checklist -->
 
 ## Considerations
 

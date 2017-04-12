@@ -90,7 +90,7 @@ Here are some of the types of challenges to consider when selecting an architect
 
 - Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud", because the architecture does not help you to manage dependencies cleanly.
 
-- Eventual consistency. 
+- Asynchronous messaging and eventual consistency. 
 
 - Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
 

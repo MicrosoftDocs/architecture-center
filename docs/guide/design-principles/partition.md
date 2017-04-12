@@ -1,6 +1,12 @@
+---
+title: Partition around limits
+description: Use partitioning to work around database, network, and compute limits
+layout: LandingPage
+---
+
 # Partition around limits
 
-**Use partitioning to work around database, network, and compute limits.**
+## Use partitioning to work around database, network, and compute limits
 
 In the cloud, all services have limits in their ability to scale up. Azure service limits are documented in [Azure subscription and service limits, quotas, and constraints][azure-limits]. Limits include number of cores, database size, query throughput, and network throughput. If your system grows sufficiently large, you may hit one or more of these limits. Use partitioning to work around these limits.
 

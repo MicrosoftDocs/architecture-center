@@ -1,6 +1,6 @@
-# Archictecture Guide
+# Azure Application Architecture Guide
 
-## [The Azure Application Architecture Guide](./index.md)
+## [Overview](./index.md)
 
 ## [Design principles](./design-principles/index.md)
 ### [Use managed services](./design-principles/managed-services.md)
@@ -15,11 +15,11 @@
 ### [Build for the needs of business](./design-principles/build-for-business.md)
 
 ## [Architecture styles](./architecture-styles/index.md)
-### [Big Compute](./architecture-styles/big-compute.md)
-### [Big Data](./architecture-styles/big-data.md)
-### [CQRS](./architecture-styles/cqrs.md)
-### [Event-driven architecture](./architecture-styles/event-driven.md)
-### [Microservices](./architecture-styles/microservices.md)
 ### [N-tier application](./architecture-styles/n-tier.md)
 ### [Web-queue-worker](./architecture-styles/web-queue-worker.md)
+### [Microservices](./architecture-styles/microservices.md)
+### [CQRS](./architecture-styles/cqrs.md)
+### [Event-driven architecture](./architecture-styles/event-driven.md)
+### [Big Compute](./architecture-styles/big-compute.md)
+### [Big Data](./architecture-styles/big-data.md)
 
