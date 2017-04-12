@@ -1,6 +1,6 @@
 # [Application Architecture Guide](./index.md)
 
-## Domain analysis
+## [Domain analysis](./domain-analysis.md)
 
 ## [Architecture styles](./architecture-styles/index.md)
 ### [N-tier application](./architecture-styles/n-tier.md)
