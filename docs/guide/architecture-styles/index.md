@@ -21,45 +21,44 @@ This section gives a quick tour of the architecture styles that we've identified
 
 N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in IaaS solutions, or application that use a mix of IaaS and managed services. 
 
+### Web-Queue-Worker
+
+<img src="./images/web-queue-worker-sketch.svg" style="float:left; margin-top:6px;"/>
+
 For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests, and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue. 
 
 Web-queue-worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with a complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components, which are hard to maintain and update. As with N-tier, this can reduce the frequency of updates and limit innovation.
 
-![](./images/web-queue-worker-sketch.svg)
+### Microservices
+
+<img src="./images/microservices-sketch.svg" style="float:left; margin-top:6px;"/>
 
 If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture. 
 
-![](./images/microservices-sketch.svg)
+### CQRS
+
+<img src="./images/cqrs-sketch.svg" style="float:left; margin-top:6px;"/>
 
 The **[CQRS](./cqrs.md)** (Command and Query Responsibility Segregation) style separates read and write operations into separate models. This isolates the parts of the system that update data from the parts that read the data. Moreover, reads can be executed against a materialized view that is physically separate from the write database. That lets you scale the read and write workloads independently, and optimize the materialized view for queries.
 
 CQRS makes the most sense when it's applied to a subsystem of a larger architecture. Generally, you shouldn't impose it across the entire application, as that will just create unneeded complexity. Consider it for collaborative domains where many users access the same data.
 
-![](./images/cqrs-sketch.svg)
+### Event-driven architecture 
 
-**[Event-Driven Architecture](./event-driven.md)** uses a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other. 
+<img src="./images/event-driven-sketch.svg" style="float:left; margin-top:6px;"/>
+
+**[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other. 
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with very low latency, such as IoT solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
 
-![](./images/event-driven-sketch.svg)
+
+### Big Data, Big Compute
 
 Finally, **[Big Data](./big-data.md)** and **[Big Compute](./big-compute.md)** are specialized architectural styles for workloads that fit certain specific profiles. Big data divides a very large dataset into chunks, performing paralleling processing across the entire set, for analysis and reporting. Big compute, also called high-performance computing (HPC), makes parallel computations across a large number (thousands) of cores. Domains include simulations, modeling, and 3-D rendering.
 
-The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
-
-| Architecture style |	Dependency management | Domain type |
-|--------------------|------------------------|-------------|
-| N-Tier | Horizontal layers | Traditional business domain. Frequency of updates is low. |
-| Web-Queue-Worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
-| Microservices	| Vertical (functional) decoupling. | Complicated domain. Frequent updates. |
-| CQRS | Read/write segregation. Schema and scale are optimized separately. | Collaborative domain where lots of users access the same data. |
-| Event-driven architecture. | Producer/consumer. Independent view per sub-system. | IoT |
-| Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
-| Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
-
-### Architecture styles as constraints
+## Architecture styles as constraints
 
 An architecture style places constraints on the design, including the set of elements that can appear and the allowed relationships between those elements. Constraints guide the "shape" of an architecture by restricting the universe of choices. When an architecture conforms to the constraints of a particular style, certain desirable properties emerge. 
 
@@ -73,7 +72,21 @@ By adhering to these constraints, what emerges is a system where services can be
 
 Before choosing an architecture style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
 
-### Challenges and benefits
+
+The following table summarizes how each style manages dependencies, and the types of domain that are best suited for each.
+
+| Architecture style |	Dependency management | Domain type |
+|--------------------|------------------------|-------------|
+| N-Tier | Horizontal layers | Traditional business domain. Frequency of updates is low. |
+| Web-Queue-Worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
+| Microservices	| Vertical (functional) decoupling. | Complicated domain. Frequent updates. |
+| CQRS | Read/write segregation. Schema and scale are optimized separately. | Collaborative domain where lots of users access the same data. |
+| Event-driven architecture. | Producer/consumer. Independent view per sub-system. | IoT |
+| Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
+| Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
+
+
+## Consider challenges and benefits
 
 Constraints also create challenges, so it's important to understand the trade-offs when adopting any of these styles. Do the benefits of the architecture style outweigh the challenges, *for this subdomain and bounded context*. 
 
@@ -87,7 +100,6 @@ Here are some of the types of challenges to consider when selecting an architect
 
 - Manageability. How hard is it to manage the application, monitor, deploy updates, and so on?
 
-The choice of architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices. 
 
 [microservices]: ./microservices.md
 [n-tier]: ./n-tier.md
