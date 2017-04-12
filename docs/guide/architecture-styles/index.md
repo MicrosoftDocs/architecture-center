@@ -1,18 +1,25 @@
 # Architecture styles
 
-We use the term *architecture style* to mean a family of architectures that share certain characteristics. *N-tier* and *microservices* are examples of architecture styles. Architecture styles are not design patterns, but they are analogous. A design pattern is an abstraction that identifies a set of common elements found in concrete implementations, to solve a particular class of problems. Similarly, an architecture style identifies the common elements in a class of architectures, abstracting away details such as technology choice or platform.
+An *architecture style* is a family of architectures that share certain characteristics. For example, [N-tier][n-tier] is a common architecture style. More recently, [microservice architectures][microservices] have started to gain favor. 
 
-An architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices.  
+Architecture styles don't require the use of particular technologies, but some technologies well-suited for certain architectures. For example, containers are a natural fit for microservices.  
 
 ## A quick tour of the styles	
 
-This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. Later sections go into more detail about each style.
+This section gives a quick tour of the architecture styles that we've identified, along with some high-level considerations for their use. For each style, you can follow the link to get more detail about each style, including:
 
-**[N-tier](./n-tier.md)** is a traditional architecture for enterprise applications. Dependencies are managed by dividing the application into *layers* that perform logical functions, such as presentation, business logic, and data access. A layer can only call into layers that sit below it. However, this horizontal layering can be a liability. It can be hard to introduce changes in one part of the application without touching the rest of the application. That makes frequent updates a challenge, limiting how quickly new features can be added.
+- A logical diagram.
+- Recommendations for when to choose the style.
+- Benefits and challenges.
+- A diagram showing a recommended deployment, with the relevant Azure services.
+
+### N-tier
+
+<img src="./images/n-tier-sketch.svg" style="float:left; margin-top:6px;"/>
+
+**[N-tier][n-tier]** is a traditional architecture for enterprise applications. Dependencies are managed by dividing the application into *layers* that perform logical functions, such as presentation, business logic, and data access. A layer can only call into layers that sit below it. However, this horizontal layering can be a liability. It can be hard to introduce changes in one part of the application without touching the rest of the application. That makes frequent updates a challenge, limiting how quickly new features can be added.
 
 N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in IaaS solutions, or application that use a mix of IaaS and managed services. 
-
-![](./images/n-tier-sketch.svg)
 
 For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests, and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue. 
 
@@ -20,7 +27,7 @@ Web-queue-worker is suitable for relatively simple domains with some resource-in
 
 ![](./images/web-queue-worker-sketch.svg)
 
-If your application has a more complex domain, consider moving to a **[Microservices](./microservices.md)** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
+If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture. 
 
@@ -52,11 +59,35 @@ The following table summarizes how each style manages dependencies, and the type
 | Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
 | Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
 
+### Architecture styles as constraints
 
-The next sections go into more detail about each style, including:
+An architecture style places constraints on the design, including the set of elements that can appear and the allowed relationships between those elements. Constraints guide the "shape" of an architecture by restricting the universe of choices. When an architecture conforms to the constraints of a particular style, certain desirable properties emerge. 
 
-- A logical diagram showing the important parts of the architecture.
-- Recommendations for when to choose this architecture style.
-- Benefits and challenges.
-- A diagram showing a recommended deployment, including the relevant Azure services and resources.
+For example, the constraints in microservices include: 
 
+- A service represents a single responsibility. 
+- Every service is independent of the others. 
+- Data is private to the service that owns it; services do not share data.
+
+By adhering to these constraints, what emerges is a system where services can be deployed independently, faults are isolated, frequent updates are possible, and it's easy to introduce new technologies into the application.
+
+Before choosing an architecture style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
+
+### Challenges and benefits
+
+Constraints also create challenges, so it's important to understand the trade-offs when adopting any of these styles. Do the benefits of the architecture style outweigh the challenges, *for this subdomain and bounded context*. 
+
+Here are some of the types of challenges to consider when selecting an architecture style:
+
+- Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud", because the architecture does not help you to manage dependencies cleanly.
+
+- Asynchronous messaging and eventual consistency. Asynchronous messaging can be used to decouple services, and increase reliability (because messages can be retried) and scalability. However, this also creates challenges such as always-once semantics, eventual consistency, 
+
+- Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
+
+- Manageability. How hard is it to manage the application, monitor, deploy updates, and so on?
+
+The choice of architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices. 
+
+[microservices]: ./microservices.md
+[n-tier]: ./n-tier.md

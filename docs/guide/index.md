@@ -66,35 +66,9 @@ What are the goals of choosing an architecture style?
 - Data access patterns. For example, a subdomain of an application might be characterized by frequent reads from many independent clients, and relatively few writes. 
 - Data ingestion patterns. For example, an application might require high velocity event ingestion (IoT).
      
-### Architecture styles as constraints
 
-An architecture style places constraints on the design, including the set of elements that can appear and the allowed relationships between those elements. Constraints guide the "shape" of an architecture by restricting the universe of choices. When an architecture conforms to the constraints of a particular style, certain desirable properties emerge. 
 
-For example, the constraints in microservices include: 
-
-- A service represents a single responsibility. 
-- Every service is independent of the others. 
-- Data is private to the service that owns it; services do not share data.
-
-By adhering to these constraints, what emerges is a system where services can be deployed independently, faults are isolated, frequent updates are possible, and it's easy to introduce new technologies into the application.
-
-Before choosing an architecture style, make sure that you understand the underlying principles and constraints of that style. Otherwise, you can end up with a design that conforms to the style at a superficial level, but does not achieve the full potential of that style. 
-
-It's also important to be pragmatic. Sometimes it's better to relax a constraint, rather than insist on architectural purity.
-
-### Challenges and benefits
-
-Constraints also create challenges, so it's important to understand the trade-offs when adopting any of these styles. Do the benefits of the architecture style outweigh the challenges, *for this application domain and bounded context*. 
-
-Here are some of the types of challenges to consider when selecting an architecture style:
-
-- Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud", because the architecture does not help you to manage dependencies cleanly.
-
-- Asynchronous messaging and eventual consistency. Asynchronous messaging 
-
-- Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
-
-The choice of architecture style does not dictate a particular technology. However, some technologies are more naturally suited for some architectures. For example, containers are a natural fit for microservices. 
+> **Related guidance: [Architecture Styles][arch-styles]**
 
 ## Design principles
 
@@ -120,13 +94,50 @@ The ten principles listed here encapsulate a broad set of best practices and rec
 
 10. **[Build for the needs of business.](./design-principles/build-for-business.md)** Every design decision must be justified by a business requirement.
 
-## Choose compute technologies 
+## Choose technologies 
 
-## Choose storage technologies
+Two technology choices should be decided early on, because they will affect the entire architecture. These are the choice of **compute** and **storage** technologies.
+
+### Compute
+
+The term *compute* refers to the hosting model for the computing resources that your applications runs on. At one end of the spectrum is **intrastructure-as-a-service (IaaS)**. You provision the VMs that you need, along with associated network and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure for you.
+
+**Platform-as-a-service (PaaS)** provides a managed hosting environment. You deploy your application, without needing to manage VMs or networking resources. For example, instead of creating individual VMs, you would simply set the instance count, and the service will provision, configure, and manage the necessary resources. Azure App Service is an examlple of a PaaS service.
+
+**Functions-as-a-service (FaaS)** goes even further in removing the need to worry about the hosting environment. Instead of creating compute instances and deploying code to those instances, you simply deploy your code, and the managed service automatically runs it. You don't need to administer the compute resources. These services use a serverless architecture, and seamlessly scale up or down to whatever level necessary to handle the traffic. Azure Functions are a FaaS service.
+
+IaaS gives the most control, flexibility, and portability. FaaS provides simplicity, ease of management, and potential cost savings, because you pay only for the time your code is running. PaaS falls somewhere between the two.
+
+### Storage
+
+Data services can be broken up into these major types:
+
+Relational database management system (RDBMS). Relational databases store data in tables that consist of rows and columns.  
+
+base their structure on two-dimensional tables comprising rows and columns. Most provide some form of SQL for performing query and data manipulation tasks. 
+
+Key/Value Stores. A key/value store is essentially a large hash table, where each piece of data is a BLOB associated with a unique key. These stores can handle very flexible types of data and are easily scalable.
+
+Document Databases. Document databases also use a key/value lookup mechanism, but store documents instead of BLOB data. Documents in this context consist of structured data, which the datastore makes accessible to the data consumer.
+
+Column-Family Databases. Column-family databases organize data into rows and columns in similar manner to relational databases. However, column-family databases provide additional structure by grouping columns into logical families, which can be manipulated independently of the rest of the row.
+
+Graph Databases. A graph database stores two types of information: nodes that you can think of entities, and edges which specify the relationships between nodes. The purpose of a graph database is to enable an application to efficiently perform queries that traverse the network of nodes and edges, and to analyze the relationships between entities.
+
+Parallel Data Warehouses. A parallel data warehouse (PDW) provides a massively parallel solution for ingesting, storing, and analyzing data. PDWs are optimized for processing very large amounts of data in various formats.
+
+Search Engine Databases. Search engine databases rapidly index large amounts of data from external data stores, enabling fast searching through the result set. 
+
+Time Series Databases. Time series databases are optimized for dealing with data organized from time, such as telemetry data. These databases are designed to support large numbers of write operations, as the individual data points stored are small, but the overall amount of data sent to these databases can be quite large.
+
+Shared Files. A shared file data store is simply a location where flat files can be stored and used by consuming applications and services. 
+
+Some technologies may span multiple types. The technologies are changing quickly and the lines will continue to blur even more.
 
 
 
 <!-- links -->
 
+[arch-styles]: ./architecture-styles/overview.md
 [n-tier]: ./architecture-styles/n-tier.md
 [microservices]: ./architecture-styles/microservices.md
