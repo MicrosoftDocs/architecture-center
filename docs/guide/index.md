@@ -1,5 +1,4 @@
 ---
-layout: LandingPage
 ms.topic: article
 ---
 
@@ -38,13 +37,11 @@ Immutable infrastructure<br/>
 </table>
 
 
-## How this guide is structured
-
-This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is intended for architects and engineers who are designing solutions for Azure. 
+**How this guide is structured**. This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is intended for architects and engineers who are designing solutions for Azure. 
 
 <object data="./images/guide-steps.svg" type="image/svg+xml"></object>
 
-The guide is organized as a series of steps from the architecture design to the implementation. Each step involves decisions, starting with the most fundamental: What **architecture style** are you building? A microservices architecture? A more traditional N-tier application? Or perhaps a Big Data solution. [Learn about architecture styles...][arch-styles] 
+The guide is organized as a series of steps from the architecture design to the implementation. Each step involves decisions, starting with the most fundamental: What **architecture style** are you building? A microservices architecture? A more traditional N-tier application? Or perhaps a Big Data solution. [Learn about architecture styles...][arch-styles].  
 
 Two technology choices should be decided early on, because they will affect the entire architecture. These are the choice of **compute** and **storage** technologies. The term "compute" refers to the hosting model for the computing resources that your applications runs on. Storage includes databases but also storage for message queues, caches, IoT data, unstructured log data, and anything else that an application might persist to storage. 
 
@@ -52,7 +49,10 @@ Learn about compute options...
 
 Learn about storage options...
 
-Ten **design principles** for cloud applications. Keep these high-level principles in mind throughout the design process. [Read the design principles...][design-principles] 
+Next, we have identified ten **design principles** for building cloud applications. Keep these high-level principles in mind throughout the design process. [Read the design principles...][design-principles] 
+
+Pillars of software quality: Scalability, availability, resiliency, and manageability. Learn more about the pillars...
+
 
 [arch-styles]: ./architecture-styles/index.md
 [design-principles]: ./design-principes/index.md
