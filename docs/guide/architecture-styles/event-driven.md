@@ -10,7 +10,7 @@ An event driven architecture can use a publish/subscribe ("pub/sub") model, or a
 
 - **Pub/sub**: The messaging infrastructure keeps track of subscriptions. When an event is published, it sends the event to each subscriber. After an event is received, it cannot be replayed, and new subscribers do not see the event. 
 
-- **Event streaming**: Events are written to a log. Events are strictly ordered (within a partition) and durable. Clients don't "subscribe" to the stream, instead a client can read from any part of the stream. The client is responsible for advancing it's position in the stream. That means a client can join at any time, and can replay events.
+- **Event streaming**: Events are written to a log. Events are strictly ordered (within a partition) and durable. Clients don't "subscribe" to the stream, instead a client can read from any part of the stream. The client is responsible for advancing its position in the stream. That means a client can join at any time, and can replay events.
 
 On the consumer side, there are some common variations:
 
@@ -56,7 +56,7 @@ The **cloud gateway** ingests device events at the cloud boundary, using a relia
 
 Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually co-located with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also pre-process the raw device events, performing functions such as filtering, aggregation, or protocol transformation.
 
-After ingestion, events go through one ore more **stream processors** that can route the data (for example, to storage) or perform analytics and other processing.
+After ingestion, events go through one or more **stream processors** that can route the data (for example, to storage) or perform analytics and other processing.
 
 The following are some common types of processing. (This list is certainly not exhaustive.)
 

@@ -51,7 +51,7 @@ Consider this architectural style for:
 
 - **Small, focused teams.** Teams can focus on one service. The smaller scope of each service makes the code base easier to understand and reason about. It's easier to ramp up.
 
-- **Independent deployments**. You can update a service without re-deploying the entire application, and roll back an update if something goes wrong. Bug fixes and feature releases are more manageable and less risky.
+- **Independent deployments**. You can update a service without re-deploying the entire application, and roll back or roll forward an update if something goes wrong. Bug fixes and feature releases are more manageable and less risky.
 
 - **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. 
 
@@ -65,15 +65,15 @@ Consider this architectural style for:
 
 - **Complexity**. A microservices application has more moving parts than the equivalent monolithic application. Each service is simpler, but the entire system as a whole is more complex.
 
+- **Development and test**. Developing against service dependencies requires a different approach. Existing tools are not necessarily designed to work with service dependencies. Refactoring across service boundaries can be difficult. It is also challenging to test service dependencies, especially when the application is evolving quickly.
+
 - **Lack of governance.** The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the applications becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
 - **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns.
 
-- **Data consistency**. With each microservice responsible for its own data persistence, the application does not have a single data schema. As a result, data consistency can be a challenge. Embrace eventual consistency where possible.
+- **Data integity**. With each microservice responsible for its own data persistence, the application does not have a single data schema. As a result, data consistency can be a challenge. Embrace eventual consistency where possible.
 
-- **Management**. To be successful with microservices requires a mature DevOps culture.
-
-- **Logging**. Correlated logging across services can be challenging. Typically, logging must correlate multiple service calls for a single user operation.
+- **Management**. To be successful with microservices requires a mature DevOps culture. Correlated logging across services can be challenging. Typically, logging must correlate multiple service calls for a single user operation.
 
 - **Versioning**. Updates to a service must not break services that depend on it. Multiple services could be updated at any given time, so without careful design, you might have problems with backward or forward compatibility.
 
