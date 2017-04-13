@@ -11,7 +11,7 @@ layout: LandingPage
 
 A resilient application routes around failure. Identify the critical paths in your application. Is there redundancy at each point in the path? If a subsystem fails, will the application fail over to something else?
 
-## Considerations 
+## Recommendations 
 
 **Consider business requirements.** The amount of redundancy built into a system can affect both cost and complexity. Your architecture should be informed by your business requirements, such as recovery time objective (RTO). For example, a multi-region deployment is more expensive than a single-region deployment, and is more complicated to manage. You will need operational procedures to handle failover and failback. The additional cost and complexity might be justified for some business scenarios and not others.
 
@@ -19,7 +19,7 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 ![](./images/load-balancing.svg)
 
-**Replicate databases.** Use a database solution that supports replication and failover, such as [SQL Server Always On Availability Groups][sql-always-on]. Managed services such as Azure SQL Database and DocumentDB automatically replicate the data within a region, and provide opt-in replication across regions.
+**Replicate databases.** Azure SQL Database and DocumentDB automatically replicate the data within a region, and you can enable geo-replication across regions. If you are using an IaaS database solution, choose one supports replication and failover, such as [SQL Server Always On Availability Groups][sql-always-on]. 
 
 **Enable geo-replication** for [Azure SQL Database][sql-geo-replication] and [DocumentDB][docdb-geo-replication] databases. Geo-replication creates secondary readable replicas of your data in one ore more secondary regions. In the event of an outage, the database can fail over to the secondary region for writes.
 

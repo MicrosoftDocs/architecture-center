@@ -10,13 +10,13 @@ layout: LandingPage
 
 This design principle may seem obvious, but it's crucial to keep in mind when designing a solution. Do you anticipate millions of users, or a few thousand? Is a one-hour application outage acceptable? Do you expect large bursts in traffic, or a very predictable workload? Ultimately, every design decision must be justified by a business requirement. 
 
-## Considerations
+## Recommendations
 
 **Define business objectives,** including the recovery time objective (RTO), recovery point objective (RPO), and maximum tolerable outage (MTO). These numbers should inform decisions about the architecture. For example, to achieve a low RTO, you might implement automated failover to a secondary region. But if your solution can tolerate a higher RTO, that degree of redundancy might be unnecessary.
 
 **Document service level agreements (SLA) and service level objectives (SLO)**, including availability and performance metrics. You might build a solution that delivers 99.95% availability. Is that enough? The answer is a business decision. 
 
-**Model the application around the business domain.** Create a [ubiquitous language][ubiquitous-language] and a set of [domain models][domain-model] that reflect the business processes and use cases. 
+**Model the application around the business domain.** Start by analyzing the business requirements. Use these requirements to model the application. Consider using a domain-driven design (DDD) approach to create [domain models][domain-model] that reflect the business processes and use cases. 
 
 **Capture both functional and non-functional requirements.** Functional requirements let you judge whether the application does the right thing. Non-functional requirements let you judge whether the application does those things *well*. In particular, make sure that you understand your requirements for scalability, availability, and latency. These requirements will influence design decisions and choice of technology.
 
@@ -28,4 +28,3 @@ This design principle may seem obvious, but it's crucial to keep in mind when de
 
 [domain-model]: https://martinfowler.com/eaaCatalog/domainModel.html
 [pricing]: https://azure.microsoft.com/pricing/
-[ubiquitous-language]: https://martinfowler.com/bliki/UbiquitousLanguage.html

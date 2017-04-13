@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="440"
@@ -19,10 +20,9 @@
   <style
      type="text/css"
      id="style3"><![CDATA[
-      .more_info { fill:#bddcf4; }
-      .more_info:hover  { fill: #0078d7; }
       g.more_info text { fill: #000000; }
-      g.more_info:hover text { fill: #ffffff; }
+      g.more_info circle { fill:#ffffff; stroke:#585858; }
+      g.more_info:hover circle  { fill: #008cd7; }
       ]]></style>
   <defs
      id="defs6226">
@@ -65,13 +65,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="175.13055"
+     inkscape:cx="-57.709612"
      inkscape:cy="287.00674"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1536"
-     inkscape:window-height="801"
+     inkscape:window-height="897"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -89,7 +89,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -121,25 +121,34 @@
        d="m 296.59062,115.99837 0,329.30973"
        id="path4351"
        inkscape:connector-curvature="0" />
-    <text
-       inkscape:transform-center-y="0.71428572"
-       inkscape:transform-center-x="-48.571429"
-       sodipodi:linespacing="125%"
-       id="text4471"
-       y="98.781464"
-       x="216.98312"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         sodipodi:role="line"
-         id="tspan4227"
-         x="216.98312"
-         y="98.781464">Domain analysis</tspan></text>
-    <circle
-       style="fill:#ffffff;fill-opacity:1;stroke:#585858;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="path4221"
-       cx="296.59064"
-       cy="95.290237"
-       r="18.68782" />
+    <a
+       id="a4198"
+       xlink:href="https://review.docs.microsoft.com/en-us/azure/architecture/guide/domain-analysis?branch=a3g">
+      <g
+         class="more_info"
+         inkscape:label="#g4552"
+         id="analysis-group">
+        <text
+           inkscape:transform-center-y="0.71428572"
+           inkscape:transform-center-x="-48.571429"
+           sodipodi:linespacing="125%"
+           id="text4471"
+           y="98.781464"
+           x="216.98312"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           xml:space="preserve"><tspan
+             sodipodi:role="line"
+             id="tspan4227"
+             x="216.98312"
+             y="98.781464">Domain analysis</tspan></text>
+        <circle
+           style="fill-opacity:1;stroke-width:6;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="path4221"
+           cx="296.59064"
+           cy="95.290237"
+           r="18.68782" />
+      </g>
+    </a>
     <circle
        r="18.68782"
        cy="166.0009"

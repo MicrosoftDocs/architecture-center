@@ -14,7 +14,7 @@ This problem is not limited to monolithic applications. An application can be de
 
 Microservices are becoming a popular way to achieve an evolutonary design, because they address many of the considerations listed here.
 
-## Considerations
+## Recommendations
 
 **Enforce high cohesion and loose coupling.** A service is *cohesive* if it provides functionality that logically belongs together. Services are *loosely coupled* if you can change one service without changing the other. High cohesion generally means that changes in one function will require changes in other related functions. If you find that updating a service requires coordinated updates to other services, it may be a sign that your services are not cohesive. One of the goals of domain-driven design (DDD) is to identity those boundaries
 

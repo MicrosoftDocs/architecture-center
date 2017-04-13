@@ -21,7 +21,7 @@ How you respond to a particular type of failure may depend on your application's
 
 Also, don't just consider "big events" like regional outages, which are generally rare. You should focus as much, if not more, on handling local, short-lived failures, such as network connectivity failures or failed database connections.
 
-## Considerations
+## Recommendations
 
 **Retry failed operations**. Transient failures may occur due to momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Build retry logic into your application to handle transient failures. For many Azure services, the client SDK implements automatic retries. For more information, see [Transient fault handling][transient-fault-handling] and [Retry Pattern][retry].
 

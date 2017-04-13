@@ -20,7 +20,7 @@ For example, you might store a product catalog in a document database, such as D
 
 Remember that data includes more than just the persisted application data. It also includes application logs, events, messages, and caches.
 
-## Considerations
+## Recommendations
 
 **Don't use a relational database for everything**. Consider other data stores when appropriate. 
 

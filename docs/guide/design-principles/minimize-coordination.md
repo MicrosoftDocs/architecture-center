@@ -23,7 +23,7 @@ crashes, the order isn't dropped.
 
 You can use a pattern such as [Scheduler Agent Supervisor][sas-pattern] to coordinate between the workers, but in this case a better approach might be to partition the work. Each worker is assigned a certain range of orders (say, by billing region). If a worker crashes, a new instance picks up where the previous instance left off, but multiple instances aren't contending.
 
-## Considerations
+## Recommendations
 
 **Embrace eventual consistency.** When data is distributed, it takes coordination to enforce strong consistency guarantees. For example, suppose an operation updates two databases. Instead of putting it into a single transaction scope, it's better if the system can accommodate eventual consistency, perhaps by using the [Compensating Transaction][compensating-transaction] pattern to logically roll back after a failure.
 
@@ -43,14 +43,14 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 **Use asynchronous parallel processing**. If an operation requires multiple steps that are performed asynchronously (such as remote service calls), you might be able to call them in parallel, and then aggregate the results. This approach assumes that each step does not depend on the results of the previous step.	
 
-**Use optimistic concurrency control.** Pessimistic concurrency causes excessive locking.
+**Use optimistic concurrency** when possible. Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency. 
 
-**Use multiversion concurrency control (MVCC)** when the database engine supports it. MVCC isolates reads from write transactions without locking. 
+Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [DocumentDB][docdb-faq] and [Azure Storage][storage-concurrency].
 
 **Consider MapReduce or other parallel, distributed algorithms.** Depending on the data and type of work to be performed, you may be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big Compute architecture style][big-compute].
 
 **Use leader election** for operations that do require coordination. In cases where you need to coordinate operations, make sure the coordinator does not become a single point of failure in the application. Using the [Leader Election pattern][leader-election], one instance is the leader at any time, and acts as the coordinator. If the leader fails, a new instance is elected to be the leader. 
-
+ 
 
 <!-- links -->
 
@@ -58,7 +58,10 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 [compensating-transaction]: ../../patterns/compensating-transaction.md
 [cqrs-style]: ../architecture-styles/cqrs.md
 [cqrs-pattern]: ../../patterns/cqrs.md
+[docdb-faq]: /azure/documentdb/documentdb-faq
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
 [event-sourcing]: ../../patterns/event-sourcing.md
 [leader-election]: ../../patterns/leader-election.md
 [sas-pattern]: ../../patterns/scheduler-agent-supervisor.md
+[sql-snapshot-isolation]: https://docs.microsoft.com/sql/t-sql/statements/set-transaction-isolation-level-transact-sql
+[storage-concurrency]: https://azure.microsoft.com/en-us/blog/managing-concurrency-in-microsoft-azure-storage-2/
