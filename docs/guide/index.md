@@ -1,6 +1,13 @@
+---
+layout: LandingPage
+ms.topic: article
+---
+
 # Azure Application Architecture Guide
 
-The cloud is changing the way applications are designed. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires. These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. The system as a whole must be resilient when failures occur. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system.
+The cloud is changing the way applications are designed. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires. 
+
+These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. The system as a whole must be resilient when failures occur. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system.
 
 <table>
 <thead>
@@ -37,11 +44,15 @@ This guide presents a structured approach for designing applications on Azure th
 
 <object data="./images/guide-steps.svg" type="image/svg+xml"></object>
 
-It describes a series of steps on the path from design to implementation. Each step involves decisions about the architecture, starting with the most fundamental: What kind of architecture are you building? A Microservices architecture? A more traditional N-tier application? A Big Data solution?
+The guide is organized as a series of steps from the architecture design to the implementation. Each step involves decisions, starting with the most fundamental: What **architecture style** are you building? A microservices architecture? A more traditional N-tier application? Or perhaps a Big Data solution. [Learn about architecture styles...][arch-styles] 
 
-(something about compute, storage, other steps... )
+Two technology choices should be decided early on, because they will affect the entire architecture. These are the choice of **compute** and **storage** technologies. The term "compute" refers to the hosting model for the computing resources that your applications runs on. Storage includes databases but also storage for message queues, caches, IoT data, unstructured log data, and anything else that an application might persist to storage. 
 
-For each step of the process, we point to related guidance on the Azure Architecture Center. This guide serves as a roadmap, while the supporting content goes deeper into each area.
+Learn about compute options...
 
-Next: [Choose an architecture style](./architecture-styles/index.md)
+Learn about storage options...
 
+Ten **design principles** for cloud applications. Keep these high-level principles in mind throughout the design process. [Read the design principles...][design-principles] 
+
+[arch-styles]: ./architecture-styles/index.md
+[design-principles]: ./design-principes/index.md

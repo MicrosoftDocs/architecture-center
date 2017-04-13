@@ -11,6 +11,10 @@
 ### [Big Compute](./architecture-styles/big-compute.md)
 ### [Big Data](./architecture-styles/big-data.md)
 
+## Compute options
+
+## Storage options
+
 ## [Design principles](./design-principles/index.md)
 ### [Use managed services](./design-principles/managed-services.md)
 ### [Minimize coordination](./design-principles/minimize-coordination.md)
@@ -23,6 +27,3 @@
 ### [Design for operations](./design-principles/design-for-operations.md)
 ### [Build for the needs of business](./design-principles/build-for-business.md)
 
-## Compute options
-
-## Storage options
