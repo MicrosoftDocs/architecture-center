@@ -65,13 +65,36 @@ This pattern might not be suitable:
 
 ## Example
 
-In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Redis Cache. This method retrieves an object from the cache using the read-though approach.
+In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. 
 
-An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method generates a string value based on this key (the Azure Redis Cache API uses strings for key values) and tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually retrieves the data from the data store has been omitted because it is data store dependent. Note that the cached item is configured to expire in order to prevent it from becoming stale if it's updated elsewhere.
+To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
-// We will default to a five minute expiration
+
+// Redis Connection string info
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+    return ConnectionMultiplexer.Connect(cacheConnection);
+});
+
+public static ConnectionMultiplexer Connection
+{
+    get
+    {
+        return lazyConnection.Value;
+    }
+}
+```
+
+The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Redis Cache. This method retrieves an object from the cache using the read-though approach.
+
+An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method generates a string value based on this key (the Azure Redis Cache API uses strings for key values) and tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually retrieves the data from the data store has been omitted because it is data store dependent. Note that the cached item is configured to expire in order to prevent it from becoming stale if it's updated elsewhere.
+
+
+```csharp
+// Set five minute expiration as a default
 private const double DefaultExpirationTimeInMinutes = 5.0;
 
 public async Task<MyEntity> GetMyEntityAsync(int id)
@@ -108,21 +131,21 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 
 >  The examples use the Azure Redis Cache API to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-web-app-howto)
 
-The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. This is an example of a write-through approach. The code updates the original data store and then removes the cached item from the cache by calling the `KeyDeleteAsync` method, specifying the key (the code has been omitted because it is data store dependent).
+The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. This is an example of a write-through approach. The code updates the original data store and then removes the cached item from the cache by calling the `KeyDeleteAsync` method, specifying the key.
 
 >  The order of the steps in this sequence is important. If the item is removed before the cache is updated, the client application has a short period of time to fetch the data (because it isn't found in the cache) before the item in the data store has been changed, resulting in the cache containing stale data.
 
 ```csharp
 public async Task UpdateEntityAsync(MyEntity entity)
 {
-    // Update the object in the original data store
-    // Code has been omitted because it's data store dependent.  
-
-    // Then, invalidate the current cache object
+    // Invalidate the current cache object
     var cache = Connection.GetDatabase();
     var id = entity.Id;
     var key = $"MyEntity:{id}"; // Get the correct key for the cached object.
     await cache.KeyDeleteAsync(key).ConfigureAwait(false);
+
+    // Update the object in the original data store
+    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false); 
 }
 ```
 
