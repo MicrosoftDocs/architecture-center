@@ -684,7 +684,7 @@ The following table shows the default settings for the built-in retry policy.
 | ConfigurationOptions |ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout |3<br /><br />Maximum 5000 ms plus SyncTimeout<br />1000 |The number of times to repeat connect attempts during the initial connection operation.<br />Timeout (ms) for connect operations. Not a delay between retry attempts.<br />Time (ms) to allow for synchronous operations. |
 
 > [!NOTE]
-> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts (see [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]). In general, avoid using synchronous operations, and use asynchronous operations instead. For more information see [Pipelines and Multiplexers](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information see [Pipelines and Multiplexers](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 >
 >
 
