@@ -128,7 +128,7 @@ namespace ReadModel
 
   public class ProductDisplay
   {
-    public int ID { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public decimal UnitPrice { get; set; }
@@ -138,7 +138,7 @@ namespace ReadModel
 
   public class ProductInventory
   {
-    public int ID { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
     public int CurrentStock { get; set; }
   }
@@ -148,12 +148,12 @@ namespace ReadModel
 The system allows users to rate products. The application code does this using the `RateProduct` command shown in the following code.
 
 ```csharp
-public interface Icommand
+public interface ICommand
 {
   Guid Id { get; }
 }
 
-public class RateProduct : Icommand
+public class RateProduct : ICommand
 {
   public RateProduct()
   {
@@ -161,7 +161,7 @@ public class RateProduct : Icommand
   }
   public Guid Id { get; set; }
   public int ProductId { get; set; }
-  public int rating { get; set; }
+  public int Rating { get; set; }
   public int UserId {get; set; }
 }
 ```
@@ -193,7 +193,7 @@ public class ProductsCommandHandler :
     var product = repository.Find(command.ProductId);
     if (product != null)
     {
-      product.RateProuct(command.UserId, command.rating);
+      product.RateProuct(command.UserId, command.Rating);
       repository.Save(product);
     }
   }
@@ -221,7 +221,7 @@ The following code shows the `IProductsDomain` interface from the write model.
 public interface IProductsDomain
 {
   void AddNewProduct(int id, string name, string description, decimal price);
-  void RateProduct(int userId int rating);
+  void RateProduct(int userId, int rating);
   void AddToInventory(int productId, int quantity);
   void ConfirmItemsShipped(int productId, int quantity);
   void UpdateStockFromInventoryRecount(int productId, int updatedQuantity);
