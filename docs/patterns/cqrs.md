@@ -121,9 +121,9 @@ namespace ReadModel
   public interface ProductsDao
   {
     ProductDisplay FindById(int productId);
-    IEnumerable<ProductDisplay> FindByName(string name);
-    IEnumerable<ProductInventory> FindOutOfStockProducts();
-    IEnumerable<ProductDisplay> FindRelatedProducts(int productId);
+    ICollection<ProductDisplay> FindByName(string name);
+    ICollection<ProductInventory> FindOutOfStockProducts();
+    ICollection<ProductDisplay> FindRelatedProducts(int productId);
   }
 
   public class ProductDisplay
