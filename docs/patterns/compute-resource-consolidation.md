@@ -148,13 +148,23 @@ private static async Task MyWorkerTask1(CancellationToken ct)
 After the worker role has initialized the resources it uses, the `Run` method starts the two tasks concurrently, as shown here.
 
 ```csharp
+/// <summary>
+/// The cancellation token source use to cooperatively cancel running tasks
+/// </summary>
+private readonly CancellationTokenSource cts = new CancellationTokenSource();
+
+/// <summary>
+/// List of running tasks on the role instance
+/// </summary>
+private readonly List<Task> tasks = new List<Task>();
+
 // RoleEntry Run() is called after OnStart().
 // Returning from Run() will cause a role instance to recycle.
 public override void Run()
 {
-  // Start worker tasks and add them to the task list.
-  workerTasks.Add(MyWorkerTask1(cts.Token));
-  workerTasks.Add(MyWorkerTask2(cts.Token));
+  // Start worker tasks and add to the task list
+  tasks.Add(MyWorkerTask1(cts.Token));
+  tasks.Add(MyWorkerTask2(cts.Token));
 
   foreach (var worker in this.workerTasks)
   {
