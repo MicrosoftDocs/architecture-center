@@ -1,8 +1,8 @@
-# Big Compute architecture style
+# Big compute architecture style
 
-The term Big Compute describes large scale workloads that require a large number of cores, often numbering in the hundreds or thousands. Scenarios include media transcoding, image rendering, fluid dynamics, financial risk modeling, and engineering stress analysis, among others.
+The term big compute describes large scale workloads that require a large number of cores, often numbering in the hundreds or thousands. Scenarios include media transcoding, image rendering, fluid dynamics, financial risk modeling, and engineering stress analysis, among others.
 
-Here are some typical characteristics of Big Compute applications:
+Here are some typical characteristics of big compute applications:
 
 - They consist of individual tasks that run many times. 
 - Each task is finite. It takes some input, does some processing, and produces output. The entire application runs for a finite amount of time (minutes to hours). A common pattern is to provision a large number of cores in a burst, and then spin down to zero once the application completes. 
@@ -12,28 +12,28 @@ Here are some typical characteristics of Big Compute applications:
 
 ## When to use this architecture
 
-- Compute intensive operations such as simulation and number crunching.
+Compute intensive operations such as simulation and number crunching. <<RBC: Can we lose the bullet here? When there's only one item you don't really need it. In fact the style guide says to use bullets for two or more things.>>
 
 ## Benefits
 
-- High performance with "[embarrassingly parallel][embarrassingly-parallel]" processing.
+- High performance with [embarrassingly parallel][embarrassingly-parallel] processing.
 - You can provision VMs as needed to do work, and then tear them down. 
 
 ## Challenges
 
-- Managing cost
-- Provisioning thousands of cores in a timely manner
+- Managing cost.
+- Provisioning thousands of cores in a timely manner.
 
-## Big Compute using Azure Batch
+## Big compute using Azure Batch
 
 Azure Batch is a managed service for running large-scale high-performance computing (HPC) applications.
 Using Azure Batch, you configure a VM pool, and upload the applications and data files. Then the Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling.
 
 ![](./images/big-compute-batch.png) 
 
-## Big Compute running on IaaS
+## Big compute running on IaaS <<RBC: Do we need to define IaaS for this audience? I hate to do so in a heading, or to add a throw away sentence below just to define it.>>
 
-You can use [Microsoft HPC Pack][hpc-pack] to administer a cluster of VMs, and schedule and monitor HPC jobs. With this approach, you must provision and manage the VMs and network infrastructure. Consider this approach if you have existing HPC workloads and want to move some or all it to Azure. You can move the entire HPC cluster to Azure, or keep your HPC cluster on-premises but use Azure for burst capacity. For more information, see [Batch and HPC solutions for large-scale computing workloads][batch-hpc-solutions].
+You can use [Microsoft HPC Pack][hpc-pack] to administer a cluster of VMs, and schedule and monitor HPC jobs. With this approach, you must provision and manage the VMs and network infrastructure. Consider this approach if you have existing HPC workloads and want to move some or all to Azure. You can move the entire HPC cluster to Azure, or keep your HPC cluster on-premises but use Azure for burst capacity. For more information, see [Batch and HPC solutions for large-scale computing workloads][batch-hpc-solutions].
 
 ### HPC Pack deployed to Azure
 
@@ -41,11 +41,11 @@ In this scenario, the HPC cluster is created entirely within Azure.
 
 ![](./images/big-compute-iaas.png) 
  
-The head node provides management and job scheduling services to the cluster.  For tightly coupled tasks, use an RDMA network which provides very high bandwidth, low latency communication between VMs. For more information see Deploy an HPC Pack 2016 cluster in Azure.
+The head node provides management and job scheduling services to the cluster.  For tightly coupled tasks, use an RDMA network that provides very high bandwidth, low latency communication between VMs. For more information see Deploy an HPC Pack 2016 cluster in Azure.<<RBC: Link?>>
 
 ### Burst an HPC cluster to Azure
 
-In this scenario, an organization is running HPC Pack on-premises, and uses Azure VMs for burst capacity. The cluster head node is on-premises. ExpressRoute or VPN Gateway connects the on-premises network to the Azure VNet.
+In this scenario, an organization is running HPC Pack on-premises, and uses Azure VMs for burst capacity. The cluster head node is on-premises. ExpressRoute or VPN Gateway connects the on-premises network to the Azure VNet. <<RBC: The image should probably say "on-premises" since that's how it's consistently referred to.
 
 ![](./images/big-compute-hybrid.png) 
 

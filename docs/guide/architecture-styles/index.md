@@ -2,7 +2,7 @@
 
 An *architecture style* is a family of architectures that share certain characteristics. For example, [N-tier][n-tier] is a common architecture style. More recently, [microservice architectures][microservices] have started to gain favor. 
 
-Architecture styles don't require the use of particular technologies, but some technologies well-suited for certain architectures. For example, containers are a natural fit for microservices.  
+Architecture styles don't require the use of particular technologies, but some technologies are well-suited for certain architectures. For example, containers are a natural fit for microservices.  
 
 ## A quick tour of the styles	
 
@@ -21,19 +21,19 @@ This section gives a quick tour of the architecture styles that we've identified
 
 N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in IaaS solutions, or application that use a mix of IaaS and managed services. 
 
-### Web-Queue-Worker
+### Web-queue-worker <<RBC: We need to settle on a consistent capitalization strategy for this. I looked at web-queue-worker.md and it's not capped consistently there either. I decided to follow the Azure guidelines about not capitalizing things unless it's a specific named feature. That includes headings, although I concede this looks a little weird.>>
 
-<img src="./images/web-queue-worker-sketch.svg" style="float:left; margin-top:6px;"/>
+<img src="./images/web-queue-worker-sketch.svg" style="float:left; margin-top:6px;"/> <<RBC: Web should probalby just be lowercase in the image.>>
 
-For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests, and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue. 
+For a purely platform as a service (PaaS) <<RBC: I defined this because the style guide says to, but I question whether the audience needs it. Also, I commented on IaaS in the big-compute.md file because there's not great way to define there with how the content is written (only appears in the heading).>> solution, consider a **[web-queue-worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests, and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue. 
 
-Web-queue-worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with a complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components, which are hard to maintain and update. As with N-tier, this can reduce the frequency of updates and limit innovation.
+Web-queue-worker is suitable for relatively simple domains with some resource-intensive tasks. Like N-tier, the architecture is easy to understand. The use of managed services simplifies deployment and operations. But with a complex domains, it can be hard to manage dependencies. The front end and the worker can easily become large, monolithic components that are hard to maintain and update. As with N-tier, this can reduce the frequency of updates and limit innovation.
 
 ### Microservices
 
 <img src="./images/microservices-sketch.svg" style="float:left; margin-top:6px;"/>
 
-If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
+If your application has a more complex domain, consider moving to a **[microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture. 
 
@@ -49,24 +49,24 @@ CQRS makes the most sense when it's applied to a subsystem of a larger architect
 
 <img src="./images/event-driven-sketch.svg" style="float:left; margin-top:6px;"/>
 
-**[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other. 
+**[Event-driven architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other. 
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with very low latency, such as IoT solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
 
 
-### Big Data, Big Compute
+### Big data, big compute <<RBC: After much searching I decided to settle on lowercase for these. There's really no reason for them to be capped, and "big data" is specifically only lowercase in the style guide. There are only a few references to this concept in the Azure docs online and they're not consistent.>>
 
-**[Big Data](./big-data.md)** and **[Big Compute](./big-compute.md)** are specialized architectural styles for workloads that fit certain specific profiles. Big data divides a very large dataset into chunks, performing paralleling processing across the entire set, for analysis and reporting. Big compute, also called high-performance computing (HPC), makes parallel computations across a large number (thousands) of cores. Domains include simulations, modeling, and 3-D rendering.
+**[Big data](./big-data.md)** and **[big compute](./big-compute.md)** are specialized architectural styles for workloads that fit certain specific profiles. Big data divides a very large dataset into chunks, performing paralleling processing across the entire set, for analysis and reporting. Big compute, also called high-performance computing (HPC), makes parallel computations across a large number (thousands) of cores. Domains include simulations, modeling, and 3-D rendering.
 
 ## Architecture styles as constraints
 
-An architecture style places constraints on the design, including the set of elements that can appear and the allowed relationships between those elements. Constraints guide the "shape" of an architecture by restricting the universe of choices. When an architecture conforms to the constraints of a particular style, certain desirable properties emerge. 
+An architecture style places constraints on the design, including the set of elements that can appear and the allowed relationships between those elements. Constraints guide the shape of an architecture by restricting the universe of choices. When an architecture conforms to the constraints of a particular style, certain desirable properties emerge. 
 
 For example, the constraints in microservices include: 
 
 - A service represents a single responsibility. 
 - Every service is independent of the others. 
-- Data is private to the service that owns it; services do not share data.
+- Data is private to the service that owns it. Services do not share data.
 
 By adhering to these constraints, what emerges is a system where services can be deployed independently, faults are isolated, frequent updates are possible, and it's easy to introduce new technologies into the application.
 
@@ -77,12 +77,12 @@ The following table summarizes how each style manages dependencies, and the type
 
 | Architecture style |	Dependency management | Domain type |
 |--------------------|------------------------|-------------|
-| N-Tier | Horizontal layers | Traditional business domain. Frequency of updates is low. |
-| Web-Queue-Worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
+| N-tier | Horizontal layers. | Traditional business domain. Frequency of updates is low. |
+| Web-queue-worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
 | Microservices	| Vertical (functional) decoupling. | Complicated domain. Frequent updates. |
 | CQRS | Read/write segregation. Schema and scale are optimized separately. | Collaborative domain where lots of users access the same data. |
-| Event-driven architecture. | Producer/consumer. Independent view per sub-system. | IoT |
-| Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
+| Event-driven architecture | Producer/consumer. Independent view per subsystem. | IoT |
+| Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML <<RBC: Do we need to define ML?>>. |
 | Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
 
 
@@ -92,9 +92,9 @@ Constraints also create challenges, so it's important to understand the trade-of
 
 Here are some of the types of challenges to consider when selecting an architecture style:
 
-- Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud", because the architecture does not help you to manage dependencies cleanly.
+- Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "ball of mud," <<RBC: So, I didn't know what this meant, and i was concerned for ESL readers so I searched and found this: https://en.wikipedia.org/wiki/Big_ball_of_mud. Should we link to it? Or would it be better to use something else. This phrase doesn't appear on MSDN, so I don't know how common it is.>> because the architecture does not help you to manage dependencies cleanly.
 
-- Asynchronous messaging and eventual consistency. Asynchronous messaging can be used to decouple services, and increase reliability (because messages can be retried) and scalability. However, this also creates challenges such as always-once semantics, eventual consistency, 
+- Asynchronous messaging and eventual consistency. Asynchronous messaging can be used to decouple services, and increase reliability (because messages can be retried) and scalability. However, this also creates challenges such as always-once semantics, eventual consistency, <<RBC: looks like your list is missing some items.>>
 
 - Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
 

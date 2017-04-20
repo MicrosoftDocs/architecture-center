@@ -10,7 +10,7 @@ In some ways, microservices are the natural evolution of service oriented archit
 
 - Each service is a separate codebase, which can be managed by a small development team.
 
-- Services can be deployed independently. A team can update an existing service without re-building and redeploying the entire application.
+- Services can be deployed independently. A team can update an existing service without rebuilding and redeploying the entire application.
 
 - Services are responsible for persisting their own data or external state. This differs from the traditional model, where a separate data layer handles data persistence.
 
@@ -18,7 +18,7 @@ In some ways, microservices are the natural evolution of service oriented archit
 
 - Services don't need to share the same technology stack, libraries, or frameworks.
 
-Besides for the services themselves, some other components appear in a typical microservices architecture:
+Besides for the services themselves, some other components appear in a typical microservices architecture: <<RBC: Is there a reason these listy looking things aren't bulleted?>>
 
 **Management**. The management component is responsible for placing services on nodes, identifying failures, rebalancing services across nodes, and so forth.  
 
@@ -30,7 +30,7 @@ The advantages of using an API gateway include:
 
 - It decouples clients from services. Services can be versioned or refactored without needing to update all of the clients.
 
--  Services can use messaging protocols that are not web-friendly, such as AMQP.
+-  Services can use messaging protocols that are not web friendly, such as AMQP.
 
 - The API Gateway can perform other cross-cutting functions such as authentication, logging, SSL termination, and load balancing.
 
@@ -49,9 +49,9 @@ Consider this architectural style for:
 
 ## Benefits 
 
-- **Small, focused teams.** Teams can focus on one service. The smaller scope of each service makes the code base easier to understand and reason about. It's easier to ramp up.
+- **Small, focused teams**. Teams can focus on one service. The smaller scope of each service makes the code base easier to understand and work with. It's easier to ramp up.
 
-- **Independent deployments**. You can update a service without re-deploying the entire application, and roll back or roll forward an update if something goes wrong. Bug fixes and feature releases are more manageable and less risky.
+- **Independent deployments**. You can update a service without redeploying the entire application, and roll back or roll forward an update if something goes wrong. Bug fixes and feature releases are more manageable and less risky.
 
 - **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. 
 
@@ -59,7 +59,7 @@ Consider this architectural style for:
 
 - **Mixed technology stacks**. Teams can pick the technology that best fits their service. 
 
-- **Granular scaling**. Services can be scaled independently. At the same time, the higher density of services per VM means that VM resources are fully utilized. Using placement constraints, a services can be matched to a VM profile (high CPU, high memory, etc).
+- **Granular scaling**. Services can be scaled independently. At the same time, the higher density of services per VM means that VM resources are fully utilized. Using placement constraints, a services can be matched to a VM profile (high CPU, high memory, and so on).
 
 ## Challenges
 
@@ -67,7 +67,7 @@ Consider this architectural style for:
 
 - **Development and test**. Developing against service dependencies requires a different approach. Existing tools are not necessarily designed to work with service dependencies. Refactoring across service boundaries can be difficult. It is also challenging to test service dependencies, especially when the application is evolving quickly.
 
-- **Lack of governance.** The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the applications becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
+- **Lack of governance**. The decentralized approach to building microservices has advantages, but it can also lead to problems. You may end up with so many different languages and frameworks that the application becomes hard to maintain. It may be useful to put some project-wide standards in place, without overly restricting teams' flexibility. This especially applies to cross-cutting functionality such as logging.
 
 - **Network congestion and latency**. The use of many small, granular services can result in more interservice communication. Also, if the chain of service dependencies gets too long (service A calls B, which calls C...), the additional latency can become a problem. You will need to design APIs carefully. Avoid overly chatty APIs, think about serialization formats, and look for places to use asynchronous communication patterns.
 
@@ -79,7 +79,7 @@ Consider this architectural style for:
 
 - **Skillset**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.
 
-## Principles
+## Principles <<RBC: Mike, I got to here on this one.>>
 
 - Use domain-driven design to find natural service boundaries. 
 
