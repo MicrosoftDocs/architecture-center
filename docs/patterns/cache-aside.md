@@ -79,13 +79,7 @@ private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionM
     return ConnectionMultiplexer.Connect(cacheConnection);
 });
 
-public static ConnectionMultiplexer Connection
-{
-    get
-    {
-        return lazyConnection.Value;
-    }
-}
+public static ConnectionMultiplexer Connection => lazyConnection.Value;
 ```
 
 The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Redis Cache. This method retrieves an object from the cache using the read-though approach.
