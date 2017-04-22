@@ -18,7 +18,7 @@ module.exports = function () {
 
     ['index'].forEach(x => {
         console.log(`templated page: ${x}`);
-        var templatePath = path.resolve(__dirname, `../../docs/${x}.liquid.md`);
+        var templatePath = path.resolve(__dirname, `../../docs/${x}.md.liquid`);
         var outputhPath = path.resolve(__dirname, `../../docs/${x}.md`);
         var template = engine.parse(fs.readFileSync(templatePath, 'utf8'));
 
