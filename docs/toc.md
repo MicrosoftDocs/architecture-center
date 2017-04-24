@@ -31,12 +31,13 @@
 
 # Design Review Checklists
 ## [Availability](./checklist/availability.md)
+## [DevOps](./checklist/dev-ops.md)
 ## [Resiliency](./checklist/resiliency.md)
 ## [Scalability](./checklist/scalability.md)
 
 # Design for Resiliency
 ## [Designing resilient applications](./resiliency/index.md)
-## [Resiliency checklist](./checklist/resiliency.md)
+## [Resiliency checklist](./checklist/resiliency.md?toc=/azure/architecture/resiliency/toc.json)
 ## [Failure mode analysis](./resiliency/failure-mode-analysis.md)
 
 # Scenario guides
