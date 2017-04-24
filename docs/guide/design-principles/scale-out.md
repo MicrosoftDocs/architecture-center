@@ -9,7 +9,7 @@ layout: LandingPage
 
 ## Design your application so that it can scale horizontally
 
-A primary advantage of the cloud is elastic scaling &mdash; the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
+A primary advantage of the cloud is elastic scaling&mdash;the ability to use as much capacity as you need, scaling out as load increases, and scaling in when the extra capacity is not needed. Design your application so that it can scale horizontally, adding or removing new instances as demand requires.
 
 ## Recommendations
 
@@ -17,11 +17,11 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Use built-in autoscaling features**. [Azure App Service][app-service-autoscale], [VM Scale Sets][vmss-autoscale], and [Cloud Services][cloud-service-autoscale] all support autoscaling as a built-in feature of the service. If the application has a predictable, regular workload, scale out on a schedule. For example, scale out during business hours. Otherwise, if the workload is not predictable, use performance metrics such as CPU or request queue length to trigger autoscaling. For autoscaling best practices, see [Autoscaling][autoscaling].
 
-**Identify bottlenecks**. Scaling out isn't a magic fix for every performance issue. For example, if your backend database is the bottleneck, it won't help to add more web servers. Identity and resolve the bottlenecks in the system first, before throwing more instances at the problem. Stateful parts of the system are the mostly likely cause of bottlenecks. 
+**Identify bottlenecks**. Scaling out isn't a magic fix for every performance issue. For example, if your backend database is the bottleneck, it won't help to add more web servers. Identify and resolve the bottlenecks in the system first, before throwing more instances at the problem. Stateful parts of the system are the most likely cause of bottlenecks. 
 
-**Consider aggressive auto-scaling for critical workloads**. For critical workloads, you want to keep ahead of demand. It's better to add new instances quickly under heavy load to handle the additional traffic, and then gradually scale back.
+**Consider aggressive autoscaling for critical workloads**. For critical workloads, you want to keep ahead of demand. It's better to add new instances quickly under heavy load to handle the additional traffic, and then gradually scale back.
 
-**Design for scale-in**.  Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scale-in:
+**Design for scale in**.  Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scale in:
 
 - Listen for shutdown events (when available) and shut down cleanly. 
 
@@ -29,7 +29,7 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 - For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern. 
 
-- Put work items on a queue so that another instance can pick up the work, if an instance is removed mid-processing. 
+- Put work items on a queue so that another instance can pick up the work, if an instance is removed midprocessing. 
 
 
 <!-- links -->
