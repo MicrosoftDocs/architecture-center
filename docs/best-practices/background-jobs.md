@@ -73,6 +73,7 @@ You can host background tasks by using a range of different Azure platform servi
 * [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 * [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
+* [**Azure Container Service**](#azure-container-service). Infrastructure to run your containerized workloads on the cloud. Coordinate your containers either through Swarm, Kubernetes or DC/OS.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -185,6 +186,26 @@ An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a 
 * [Run intrinsically parallel workloads with Batch](/azure/batch/batch-technical-overview) 
 * [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics) 
 * [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
+
+## Azure Container Service 
+
+ACS (for short), provides a rich environment to run containerized workloads including microservices, apps and services, as well as Jobs. ACS allows for different orchestration engines, each bringing its own capabilities. 
+
+Orchestration and technologies 
+
+ACS, provides the environment for your workloads to run, more like an IaaS cacoon. Then, you have to choose among several container orchestration technologies like: DC/OS (Apache Mesosphere), Kubernetes (Google), Swarm (Docker), all, on top of Linux. Proximately, also on Windows with the upcoming support for Windows Server Containers. 
+
+Considerations 
+
+* Linux workloads fit well into ACS, so they're by now, an option to run Containerized Background Jobs on top of it. Windows development support will come with Windows Server Containers. 
+* There's a visible IaaS for ACS to build on top. Understaning it is not a must, but a plus. 
+* Containers have their ups and downs. A mitigation plan is suggested on a case by case basis, to enjoy their ups, while taking care of their downs. 
+* Azure Container Registry allows you to register your Containers inside Azure boundaries. This comes with security, privacy and proximity benefits. It's usefull for consuption, as well as for enhancing Continuous Delivery processes. 
+
+### More information 
+
+* [Azure Container Service introduction](https://docs.microsoft.com/en-us/azure/container-service/container-service-intro) 
+* [What is Azure Container Registry?](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) 
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
