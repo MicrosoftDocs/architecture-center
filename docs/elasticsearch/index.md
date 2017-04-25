@@ -1,22 +1,15 @@
 ---
 title: Get started with Elasticsearch on Azure
 description: 'How to install, configure, and run Elasticsearch on Azure.'
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+ms.custom: elasticsearch
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.next: data-ingestion-performance
-ms.assetid: 1d539b39-3c85-4e4b-98ae-ab06aed72fca
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Run Elasticsearch on Azure
 
@@ -857,7 +850,7 @@ guidance. [Creating a performance testing environment for Elasticsearch on Azure
 [Node Discovery]: #node-discovery
 [Query Tuning]: #query-tuning
 
-[elasticsearch-scripts]: https://github.com/mspnp/azure-guidance/tree/master/scripts/ps
+[elasticsearch-scripts]: https://github.com/mspnp/elasticsearch/tree/master/scripts/ps
 [A Highly Available Cloud Storage Service with Strong Consistency]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx
 [Azure Cloud Plugin]: https://www.elastic.co/blog/azure-cloud-plugin-for-elasticsearch
 [Azure Diagnostics with the Azure Portal]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/

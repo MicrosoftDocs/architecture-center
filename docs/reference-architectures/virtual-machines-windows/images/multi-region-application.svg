@@ -72,8 +72,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="141.36963"
-     inkscape:cy="65.559324"
+     inkscape:cx="71.286906"
+     inkscape:cy="52.283196"
      inkscape:document-units="px"
      inkscape:current-layer="layer8"
      showgrid="false"
@@ -1388,5 +1388,17 @@
        id="path17506"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4418"
+       d="m 204.65525,31.00323 10.72598,16.433604"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4418-4"
+       d="m 204.27986,110.24748 10.72598,16.43361"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
 </svg>

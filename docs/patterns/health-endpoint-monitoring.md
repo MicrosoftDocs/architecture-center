@@ -3,17 +3,13 @@ title: Health Endpoint Monitoring
 description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, management-monitoring, resiliency]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Health Endpoint Monitoring
@@ -103,7 +99,7 @@ This pattern is useful for:
 
 ## Example
 
-The following code examples, taken from the `HealthCheckController` class (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/health-endpoint-monitoring)), demonstrates exposing an endpoint for performing a range of health checks.
+The following code examples, taken from the `HealthCheckController` class (a sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring)), demonstrates exposing an endpoint for performing a range of health checks.
 
 The `CoreServices` method, shown below in C#, performs a series of checks on services used in the application. If all of the tests run without error, the method returns a 200 (OK) status code. If any of the tests raises an exception, the method returns a 500 (Internal Error) status code. The method could optionally return additional information when an error occurs, if the monitoring tool or framework is able to make use of it.
 
@@ -205,6 +201,6 @@ However, Traffic Manager will only wait ten seconds to receive a response from t
 The following guidance can be useful when implementing this pattern:
 - [Instrumentation and Telemetry Guidance](https://msdn.microsoft.com/library/dn589775.aspx). Checking the health of services and components is typically done by probing, but it's also useful to have information in place to monitor application performance and detect events that occur at runtime. This data can be transmitted back to monitoring tools as additional information for health monitoring. Instrumentation and Telemetry Guidance explores gathering remote diagnostics information that's collected by instrumentation in applications.
 - [Receiving alert notifications][portal-alerts].
-- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/health-endpoint-monitoring).
+- This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring).
 
 [portal-alerts]: https://azure.microsoft.com/documentation/articles/insights-receive-alert-notifications/

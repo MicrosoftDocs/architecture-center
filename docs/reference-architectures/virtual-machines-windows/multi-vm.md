@@ -2,27 +2,19 @@
 title: Run load-balanced VMs on Azure for scalability and availability
 description: >-
   How to run multiple Windows VMs on Azure for scalability and availability.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: christb
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Windows VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
-pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
-ms.assetid: 6fa4764e-4d97-4b96-ac25-8adf602baf27
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
-cardTitle: Load balanced VMs
 ---
+
 # Run load-balanced VMs for scalability and availability
 
 This reference architecture shows a set of proven practices for running several Windows virtual machines (VMs) behind a load balancer, to improve availability and scalability. This architecture can be used for any stateless workload, such as a web server, and is a building block for deploying N-tier applications. [**Deploy this solution**.](#deploy-the-solution)  
@@ -48,6 +40,7 @@ The architecture has the following components:
 * **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 * **Storage**. Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
@@ -151,10 +144,8 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, load balancer, and two VMs. It can be deployed with either Windows or Linux VMs. To deploy the architecture, follow these steps: 
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fmulti-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create new** and enter `ra-multi-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -179,7 +170,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-automation]: /azure/automation/automation-intro
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [health probe log]: /azure/load-balancer/load-balancer-monitor-log
 [health probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
 [health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules

@@ -3,23 +3,16 @@ title: Deploy a JMeter JUnit sampler to test Elasticsearch performance
 description: >-
   How to use a JUnit sampler to generate and upload data to an Elasticsearch
   cluster.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+ms.custom: elasticsearch
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: implement-jmeter-test-plan
 pnp.series.next: automated-resilience-tests
-ms.assetid: 6824878e-ee95-4763-b3ef-58af9a7220d5
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Deploy a JMeter JUnit sampler for testing performance
 [!INCLUDE [header](../_includes/header.md)]

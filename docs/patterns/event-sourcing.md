@@ -3,17 +3,13 @@ title: Event Sourcing
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Event Sourcing

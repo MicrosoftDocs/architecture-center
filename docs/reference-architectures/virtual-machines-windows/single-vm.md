@@ -3,38 +3,28 @@ title: Run a Windows VM on Azure
 description: >-
   How to run a VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-vm
-pnp.series.github: >-
-  https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
-ms.assetid: 111649ea-4417-4a8e-8054-5bbe1902da87
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
 pnp.series.prev: ./index
-cardTitle: Single VM
 ---
+
 # Run a Windows VM on Azure
 
 This reference architecture shows a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution**.](#deploy-the-solution)
-
 
 ![[0]][0]
 
 ## Architecture
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.
-
 
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
 * **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
@@ -47,9 +37,10 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
+
 > [!NOTE]
 > Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
 > 
 
 ## Recommendations
@@ -162,10 +153,8 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select either "Open link in new tab" or "Open link in new window."  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -175,7 +164,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 3. Wait for the deployment to complete.
 4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-For information on additional ways to deploy this architecture, see the readme file in the [guidance-single-vm][github-folder]] Github folder. 
+For information on additional ways to deploy this architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder. 
 
 If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder]. 
 
@@ -194,7 +183,7 @@ If you need to change the deployment to match your needs, follow the instruction
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm
+[github-folder]: http://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
@@ -228,6 +217,4 @@ If you need to change the deployment to match your needs, follow the instruction
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
-[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[blocks]: https://github.com/mspnp/template-building-blocks
-
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md

@@ -3,28 +3,20 @@ title: Extending Active Directory Domain Services (AD DS) to Azure
 description: >-
   How to implement a secure hybrid network architecture with Active Directory
   authorization in Azure.
-services: >-
+
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-documentationcenter: na
+
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
-pnp.series.title: Identity management
-ms.assetid: 4821d1de-1473-4748-a599-ada73323fdb2
 ms.service: guidance
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/28/2016
-ms.author: telmos
+ms.author: pnp
+
+pnp.series.title: Identity management
 pnp.series.prev: azure-ad
 pnp.series.next: adds-forest
-cardTitle: Extend AD DS to Azure
 ---
-# Active Directory Domain Services (AD DS)
-[!INCLUDE [header](../../_includes/header.md)]
+# Extend Active Directory Domain Services (AD DS) to Azure
 
 This article describes best practices for extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends the architectures described in  [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
@@ -92,7 +84,7 @@ The Active Directory subnet NSG requires rules to permit incoming traffic from o
 
 In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high speed network. AD DS includes logic to select the best strategy for replacating the AD DS database between sites.
 
-We recommend that you create an AD DS site including the subnets defined for your application in Azure. Then, configure a site link between your on-premises AD DS sites, and AD DS will automatically perform the most efficent database replication possible. Note that this database replication requires little beyond the initial configuration.
+We recommend that you create an AD DS site including the subnets defined for your application in Azure. Then, configure a site link between your on-premises AD DS sites, and AD DS will automatically perform the most efficient database replication possible. Note that this database replication requires little beyond the initial configuration.
 
 ### Active Directory operations masters
 
@@ -175,7 +167,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
-[GitHub]: https://github.com/mspnp/reference-architectures/tree/master/guidance-ra-identity-adds
+[GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview

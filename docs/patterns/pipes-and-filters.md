@@ -3,17 +3,13 @@ title: Pipes and Filters
 description: Break down a task that performs complex processing into a series of separate elements that can be reused.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, messaging]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Pipes and Filters
@@ -97,7 +93,7 @@ You can use a sequence of message queues to provide the infrastructure required 
 
 If you're building a solution on Azure you can use Service Bus queues to provide a reliable and scalable queuing mechanism. The `ServiceBusPipeFilter` class shown below in C# demonstrates how you can implement a filter that receives input messages from a queue, processes these messages, and posts the results to another queue.
 
->  The `ServiceBusPipeFilter` class is defined in the PipesAndFilters.Shared project available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/pipes-and-filters).
+>  The `ServiceBusPipeFilter` class is defined in the PipesAndFilters.Shared project available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
 
 ```csharp
 public class ServiceBusPipeFilter
@@ -279,7 +275,7 @@ public class FinalReceiverRoleEntry : RoleEntryPoint
 ##Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/pipes-and-filters).
+- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
 - [Competing Consumers pattern](competing-consumers.md). A pipeline can contain multiple instances of one or more filters. This approach is useful for running parallel instances of slow filters, enabling the system to spread the load and improve throughput. Each instance of a filter will compete for input with the other instances, two instances of a filter shouldn't be able to process the same data. Provides an explanation of this approach.
 - [Compute Resource Consolidation pattern](compute-resource-consolidation.md). It might be possible to group filters that should scale together into the same process. Provides more information about the benefits and tradeoffs of this strategy.
 - [Compensating Transaction pattern](compensating-transaction.md). A filter can be implemented as an operation that can be reversed, or that has a compensating operation that restores the state to a previous version in the event of a failure. Explains how this can be implemented to maintain or achieve eventual consistency.

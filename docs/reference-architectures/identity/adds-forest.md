@@ -1,22 +1,22 @@
 ---
 title: Create an AD DS resource forest in Azure
 description: How to create a trusted Active Directory domain in Azure.
-services: >-
+
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-documentationcenter: na
+
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+
+
+
 pnp.series.title: Identity management
-ms.assetid: 67d86788-c22d-4394-beaf-b4acdf4e2e56
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/28/2016
-ms.author: telmos
+ms.author: pnp
 pnp.series.prev: adds-extend-domain
 pnp.series.next: adfs
 cardTitle: Create an AD DS forest in Azure
@@ -170,14 +170,14 @@ A solution is available on [Github][github] to deploy this reference architectur
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
-[github]: https://github.com/mspnp/reference-architectures/tree/master/guidance-identity-adds-trust
-[incoming-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adds-trust/extensions/incoming-trust.ps1
+[github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-forest
+[incoming-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/extensions/incoming-trust.ps1
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adds-trust/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/Deploy-ReferenceArchitecture.ps1
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adds-trust/extensions/outgoing-trust.ps1
+[outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/extensions/outgoing-trust.ps1
 [verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
 [0]: ../_images/guidance-identity-aad-resource-forest/figure1.png "Secure hybrid network architecture with separate Active Directory domains"

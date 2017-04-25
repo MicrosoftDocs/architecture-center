@@ -1,21 +1,13 @@
 ---
 title: About the Tailspin Surveys application
 description: Tailspin Surveys application overview
-services: ''
-documentationcenter: na
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-pnp.series.title: Manage Identity in Multitenant Applications
-ms.assetid: 5f8280c1-1670-46e9-a1ba-a2de2560970e
 ms.service: guidance
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/23/2016
-ms.author: mwasson
+
+ms.author: pnp
+pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: index
 pnp.series.next: authenticate
 ---

@@ -1,6 +1,7 @@
 # [Reference Architectures](./index.md)
 
 ## [Identity management](./identity/index.md)
+### [Which should I choose?](./identity/considerations.md)
 ### [Integrate on-premises AD with Azure AD](./identity/azure-ad.md)
 ### [Extend AD DS to Azure](./identity/adds-extend-domain.md)
 ### [Create an AD DS forest in Azure](./identity/adds-forest.md)

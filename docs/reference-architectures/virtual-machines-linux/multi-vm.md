@@ -2,24 +2,17 @@
 title: Run load-balanced VMs on Azure for scalability and availability
 description: >-
   How to run multiple Linux VMs on Azure for scalability and availability.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: christb
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Linux VM workloads
 pnp.series.next: n-tier
 pnp.series.prev: single-vm
-ms.assetid: 6fa4764e-4d97-4b96-ac25-8adf602baf27
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
-cardTitle: Load balanced VMs
 ---
 # Run load-balanced VMs for scalability and availability
 
@@ -46,12 +39,11 @@ The architecture has the following components:
 * **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 * **Storage**. Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 >
->
-
 
 ## Recommendations
 
@@ -119,12 +111,12 @@ The availability set makes your application more resilient to both planned and u
 * *Planned maintenance* occurs when Microsoft updates the underlying platform, sometimes causing VMs to be restarted. Azure makes sure the VMs in an availability set are not all restarted at the same time. At least one is kept running while others are restarting.
 * *Unplanned maintenance* happens if there is a hardware failure. Azure makes sure that VMs in an availability set are provisioned across more than one server rack. This helps to reduce the impact of hardware failures, network outages, power interruptions, and so on.
 
-For more information, see [Manage the availability of virtual machines][availability set]. The following video also has a good overview of availability sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]. 
+For more information, see [Manage the availability of Linux virtual machines][availability set]. The following video also has a good overview of availability sets: [How Do I Configure an Availability Set to Scale VMs][availability set ch9]. 
 
 > [!WARNING]
 > Make sure to configure the availability set when you provision the VM. Currently, there is no way to add a Resource Manager VM to an availability set after the VM is provisioned.
 > 
-> 
+ 
 
 The load balancer uses [health probes] to monitor the availability of VM instances. If a probe cannot reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 
@@ -149,10 +141,8 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, load balancer, and two VMs. It can be deployed with either Windows or Linux VMs. To deploy the architecture, follow these steps: 
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-multi-vm%2Fazuredeploy.json)
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fmulti-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create new** and enter `ra-multi-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -171,13 +161,13 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 
-[availability set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[availability set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [availability set ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [azure-automation]: https://azure.microsoft.com/documentation/services/automation/
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-automation]: /azure/automation/automation-intro
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [health probe log]: /azure/load-balancer/load-balancer-monitor-log
 [health probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
 [health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
@@ -194,5 +184,4 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [vmss-quickstart]: https://azure.microsoft.com/documentation/templates/?term=scale+set
-[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [0]: ./images/multi-vm-diagram.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"

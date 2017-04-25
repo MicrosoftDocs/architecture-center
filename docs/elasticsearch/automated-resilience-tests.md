@@ -1,23 +1,15 @@
 ---
 title: Run the automated Elasticsearch resiliency tests
 description: Description of how you can run the resiliency tests in your own environment.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: deploy-jmeter-junit-sampler
 pnp.series.next: automated-performance-tests
-ms.assetid: 5ee97393-0680-4b60-9674-d3708014f4f8
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Run automated resiliency tests
 [!INCLUDE [header](../_includes/header.md)]
@@ -108,7 +100,7 @@ On the JMeter master machine where you will run the tests, open a Git desktop wi
 and clone the repository that contains the scripts, as follows:
 
 ```Shell
-git clone https://github.com/mspnp/azure-guidance.git
+git clone https://github.com/mspnp/elasticsearch.git
 ```
 
 Move to the resiliency-tests folder and run the following command to install the dependencies required

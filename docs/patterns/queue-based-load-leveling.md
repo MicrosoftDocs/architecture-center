@@ -3,17 +3,13 @@ title: Queue-Based Load Leveling
 description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, availability, performance-scalability, resiliency]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Queue-Based Load Leveling

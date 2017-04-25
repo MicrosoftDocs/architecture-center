@@ -31,12 +31,13 @@
 
 # Design Review Checklists
 ## [Availability](./checklist/availability.md)
+## [DevOps](./checklist/dev-ops.md)
 ## [Resiliency](./checklist/resiliency.md)
 ## [Scalability](./checklist/scalability.md)
 
 # Design for Resiliency
 ## [Designing resilient applications](./resiliency/index.md)
-## [Resiliency checklist](./checklist/resiliency.md)
+## [Resiliency checklist](./checklist/resiliency.md?toc=/azure/architecture/resiliency/toc.json)
 ## [Failure mode analysis](./resiliency/failure-mode-analysis.md)
 
 # Scenario guides
@@ -45,6 +46,11 @@
 ## [Migrate from Cloud Services to Service Fabric](./service-fabric/migrate-from-cloud-services.md)
 ## [Run Elasticsearch on Azure](./elasticsearch/index.md)
 
-# Blogs
-## [AzureCAT](https://blogs.msdn.microsoft.com/azurecat/)
-## [SQLCAT](https://blogs.msdn.microsoft.com/sqlcat/)
+# Resources
+## [Microsoft Trust Center for Azure](https://www.microsoft.com/en-us/trustcenter/cloudservices/azure)
+## [Icons and diagrams](./resources/diagrams.md)
+## [Calendar of Azure updates](https://azure.microsoft.com/updates/)
+## [Training](https://azure.microsoft.com/community/training/)
+## [SQLCAT blog](https://blogs.msdn.microsoft.com/sqlcat/)
+## [AzureCAT blog](https://blogs.msdn.microsoft.com/azurecat/)
+## [White papers](https://azure.microsoft.com/resources/whitepapers/)

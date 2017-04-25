@@ -1,24 +1,13 @@
 ---
 title: Background jobs guidance
 description: Guidance on background tasks that run independently of the user interface.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: pnp
 
 pnp.series.title: Best Practices
-
-ms.assetid: f6040f8c-4cbb-4c21-a886-8d54a5868421
-ms.service: best-practice
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/21/2016
-ms.author: masashin
-
 ---
 # Background jobs
 [!INCLUDE [header](../_includes/header.md)]
@@ -172,7 +161,7 @@ See the earlier section [Triggers](#triggers) for more information about how you
 Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
 
 * Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](http://technet.microsoft.com/library/gg276383.aspx).
+* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/en-us/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/en-us/download/details.aspx?id=50013).
 * You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
 
 ### More information

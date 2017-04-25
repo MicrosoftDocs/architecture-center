@@ -1,25 +1,19 @@
 ---
 title: Run Linux VMs for an N-tier application on Azure
 description: How to run Linux VMs for an N-tier architecture in Microsoft Azure.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-region-application
 pnp.series.prev: multi-vm
-ms.assetid: d9d8a7bc-763a-4f07-a34a-c3cf91b4d16e
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
-cardTitle: N-tier application
 ---
+
 # Run Linux VMs for an N-tier application
 
 This reference architecture shows a set of proven practices for running Linux virtual machines (VMs) for an N-tier application. [**Deploy this solution**.](#deploy-the-solution)  
@@ -38,7 +32,7 @@ There are many ways to implement an N-tier architecture. The diagram shows a typ
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
-
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
@@ -84,7 +78,7 @@ The internal load balancer distributes network traffic from the web tier to the 
 
 We recommend [DataStax Enterprise][datastax] for production use, but these recommendations apply to any Cassandra edition. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure]. 
 
-Put the VMs for a Cassandra cluster in an availability set to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][availability-sets-manage]. 
+Put the VMs for a Cassandra cluster in an availability set to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][azure-availability-sets]. 
 
 Configure three fault domains (the maximum) per availability set and 18 upgrade domains per availability set. This provides the maximum number of upgrade domains that can still be distributed evenly across the fault domains.   
 
@@ -128,11 +122,9 @@ Simplify management of the entire system by using centralized administration too
 
 A deployment for this architecture is available on [GitHub][github-folder]. The architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select "open in new tab" or "open in new window."  
-   [!["Deploy To Azure"][1]][2]
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fn-tier-linux%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, enter the follow values: 
-   
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-cassandra-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
@@ -147,8 +139,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 
 [azure-administration]: /azure/automation/automation-intro
-[azure-availability-sets]: /azure/virtual-machines/virtual-machines-windows-manage-availability#configure-each-application-tier-into-separate-availability-sets
-[availability-sets-manage]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[azure-availability-sets]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-consistency-usage]: http://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
@@ -157,7 +148,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
 [datastax]: http://www.datastax.com/products/datastax-enterprise
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
 [lb-external-create]: /azure/load-balancer/load-balancer-get-started-internet-portal
 [lb-internal-create]: /azure/load-balancer/load-balancer-get-started-ilb-arm-portal
 [load-balancer-external]: /azure/load-balancer/load-balancer-internet-overview
@@ -177,7 +168,4 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
-[1]: ../_images/blueprints/deploybutton.png 
-[2]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-n-tier%2Fazuredeploy.json
-
 

@@ -3,24 +3,18 @@ title: Run Windows VMs in multiple Azure regions for high availability
 description: >-
   How to deploy VMs in multiple regions on Azure for high availability and
   resiliency.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Windows VM workloads
 pnp.series.prev: n-tier
-ms.assetid: e711c233-81eb-4813-8c61-ff685bd9e5c7
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
-cardTitle: Multi-region application
 ---
+
 # Run Windows VMs in multiple regions for high availability
 
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure. 
@@ -40,9 +34,15 @@ This architecture builds on the one shown in [Run Windows VMs for an N-tier appl
     > [!NOTE]
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.  
     > 
-    > 
 
 * **VPN Gateways**. Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On Availability Group.
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
+
+> [!NOTE]
+> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
+> 
+
 
 ## Recommendations
 
@@ -104,7 +104,7 @@ Depending on the cause of a failover, you might need to redeploy the resources w
 * Application subsystems are healthy. 
 * Functional testing. (For example, the database tier is reachable from the web tier.)
 
-### SQL Server Always On configuration
+### Configure SQL Server Always On Availability Groups
 
 Prior to Windows Server 2016, SQL Server Always On Availability Groups require a domain controller, and all nodes in the availability group must be in the same Active Directory (AD) domain. 
 
@@ -124,7 +124,7 @@ To configure the availability group:
 
     * Put the primary replica in the primary region.
     * Put one or more secondary replicas in the primary region. Configure these to use synchronous commit with automatic failover.
-    * Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all SQL transactions have to wait on a round trip over the network to the secondary region.)
+    * Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all T-SQL transactions have to wait on a round trip over the network to the secondary region.)
 
     > [!NOTE]
     > Asynchronous commit replicas do not support automatic failover.
@@ -141,16 +141,16 @@ Traffic Manager is a possible failure point in the system. If the Traffic Manage
 
 For the SQL Server cluster, there are two failover scenarios to consider:
 
-- All of the SQL replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the SQL availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016.
+- All of the SQL Server database replicas in the primary region fail. For example, this could happen during a regional outage. In that case, you must manually fail over the availability group, even though Traffic Manager automatically fails over on the front end. Follow the steps in [Perform a Forced Manual Failover of a SQL Server Availability Group](https://msdn.microsoft.com/library/ff877957.aspx), which describes how to perform a forced failover by using SQL Server Management Studio, Transact-SQL, or PowerShell in SQL Server 2016.
 
    > [!WARNING]
    > With forced failover, there is a risk of data loss. Once the primary region is back online, take a snapshot of the database and use [tablediff] to find the differences.
    >
    >
-- Traffic Manager fails over to the secondary region, but the primary SQL replica is still available. For example, the front-end tier might fail, without affecting the SQL VMs. In that case, Internet traffic is routed to the secondary region, and that region can still connect to the primary SQL replica. However, there will be increased latency, because the SQL connections are going across regions. In this situation, you should perform a manual failover as follows:
+- Traffic Manager fails over to the secondary region, but the primary SQL Server database replica is still available. For example, the front-end tier might fail, without affecting the SQL Server VMs. In that case, Internet traffic is routed to the secondary region, and that region can still connect to the primary replica. However, there will be increased latency, because the SQL Server connections are going across regions. In this situation, you should perform a manual failover as follows:
 
-   1. Temporarily switch a SQL replica in the secondary region to *synchronous* commit. This ensures there won't be data loss during the failover.
-   2. Fail over to that SQL replica.
+   1. Temporarily switch a SQL Server database replica in the secondary region to *synchronous* commit. This ensures there won't be data loss during the failover.
+   2. Fail over to that replica.
    3. When you fail back to the primary region, restore the asynchronous commit setting.
 
 ## Manageability considerations
@@ -181,6 +181,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/library/ms162843.aspx

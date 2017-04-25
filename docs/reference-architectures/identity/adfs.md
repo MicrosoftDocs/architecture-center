@@ -3,22 +3,22 @@ title: Implementing Active Directory Federation Services (AD FS) in Azure
 description: >-
   How to implement a secure hybrid network architecture with Active Directory
   Federation Service authorization in Azure.
-services: >-
+
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-documentationcenter: na
+
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+
+
+
 pnp.series.title: Identity management
-ms.assetid: 18525321-1926-4447-9db2-cadbdd4c1ab9
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/28/2016
-ms.author: telmos
+ms.author: pnp
 pnp.series.prev: adds-forest
 cardTitle: Extend AD FS to Azure
 ---
@@ -334,6 +334,6 @@ A solution is available on [Github][github] to deploy this reference architectur
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/active-directory-aadconnect-azure-adfs
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[github]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-adfs/Deploy-ReferenceArchitecture.ps1
+[github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [0]: ../_images/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"

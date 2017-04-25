@@ -30,3 +30,6 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns
       topicHref: /azure/architecture/patterns
+    - name: Resources
+      tocHref: /azure/architecture/resources
+      topicHref: /azure/architecture/resources

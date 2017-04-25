@@ -1,23 +1,16 @@
 ---
 title: Configure resilience and recovery on Elasticsearch on Azure
 description: Considerations related to resiliency and recovery for Elasticsearch.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+ms.custom: elasticsearch
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: data-aggregation-and-query-performance
 pnp.series.next: performance-testing-environment
-ms.assetid: 2da4d716-5bba-4ae8-bedf-d40c49f4c2c7
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Configure resilience and recovery
 [!INCLUDE [header](../_includes/header.md)]
@@ -256,7 +249,7 @@ The following sections summarize the results of these tests, noting any degradat
 ## Node failure and restart with no data loss: results
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
+The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/elasticsearch/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
 
 Note the following points:
 
@@ -269,7 +262,7 @@ Note the following points:
 ## Node failure with catastrophic data loss: results
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
+The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/elasticsearch/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
 
 Note the following points:
 
@@ -283,7 +276,7 @@ Note the following points:
 ## Node failure and restart with shard reallocation: results
 <!-- TODO; reformat this pdf for display inline -->
 
-The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
+The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/elasticsearch/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
 
 Note the following points:
 
@@ -295,7 +288,7 @@ Note the following points:
 ## Rolling updates: results
 <!-- TODO; reformat this pdf for display inline -->
 
-The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
+The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/elasticsearch/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
 
 Note the following points:
 

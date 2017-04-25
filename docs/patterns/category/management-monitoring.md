@@ -3,9 +3,8 @@ title: Management and Monitoring patterns
 description: Cloud applications run in in a remote datacenter where you do not have full control of the infrastructure or, in some cases, the operating system. This can make management and monitoring more difficult than an on-premises deployment. Applications must expose runtime information that administrators and operators can use to manage and monitor the system, as well as supporting changing business requirements and customization without requiring the application to be stopped or redeployed.
 keywords: design pattern
 author: dragon119
-manager: bennage
-ms.author: mwasson
-ms.date: 02/21/2017
+ms.author: pnp
+ms.date: 03/24/2017
 ms.topic: article
 ms.service: guidance
 

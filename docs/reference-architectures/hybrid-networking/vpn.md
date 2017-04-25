@@ -3,22 +3,18 @@ title: Connect an on-premises network to Azure using VPN
 description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using a VPN.
-services: ''
-documentationcenter: na
+
 author: RohitSharma-pnp
-manager: christb
-editor: ''
-tags: ''
+
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute
-ms.assetid: b6e3c36b-c9c1-4427-9b85-7b9f7f69141e
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
 ms.date: 11/28/2016
-ms.author: roshar
+ms.author: pnp
 pnp.series.prev: ./index
 cardTitle: VPN
 ---
@@ -34,12 +30,7 @@ The architecture consists of the following components.
 
 * **On-premises network**. A private local-area network running within an organization.
 
-* **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012.
-
-    > [!NOTE]
-    > For a list of supported VPN appliances and information on configuring them to connect to an Azure VPN gateway, see the instructions for the selected device in the article [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
-    > 
-    > 
+* **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring them to connect to an Azure VPN gateway, see the instructions for the selected device in the article [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 * **Virtual network (VNet)**. The cloud application and the components for the Azure VPN gateway reside in the same [VNet][azure-virtual-network].
 
@@ -50,21 +41,15 @@ The architecture consists of the following components.
   * **Connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
   * **Gateway subnet**. The virtual network gateway is held in its own subnet, which is subject to various requirements, described in the Recommendations section below.
 
-* **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined by using [Network Security Groups (NSGs)][azure-network-security-group]. For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
-
-    > [!NOTE]
-    > This article does not focus on the application infrastructure. See [Running an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure] for detailed information.
-    > 
-    > 
+* **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
 * **Internal load balancer**. Network traffic from the VPN gateway is routed to the cloud application through an internal load balancer. The load balancer is located in the front-end subnet of the application.
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 > 
-> 
-
-
 
 ## Recommendations
 
@@ -461,10 +446,8 @@ The following recommendations are useful for determining if there is an issue wi
 
 To deploy the solution, perform the following steps.
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn%2Fazuredeploy.json)
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fvpn%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the link to open in the Azure portal, then follow these steps: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -476,9 +459,10 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
-[implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [expressroute]: ../hybrid-networking/expressroute.md
+[windows-vm-ra]: ../virtual-machines-windows/index.md
+[linux-vm-ra]: ../virtual-machines-linux/index.md
 
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 
@@ -491,7 +475,6 @@ To deploy the solution, perform the following steps.
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[azure-network-security-group]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
@@ -514,7 +497,6 @@ To deploy the solution, perform the following steps.
 [azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
 [application-insights]: /azure/application-insights/app-insights-overview-usage
 [forced-tunneling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
-[getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [installing-ad]: /azure/active-directory/active-directory-install-replica-active-directory-domain-controller
 [deploying-ad]: https://msdn.microsoft.com/library/azure/jj156090.aspx
@@ -522,11 +504,11 @@ To deploy the solution, perform the following steps.
 [configuring-dns]: /azure/virtual-network/virtual-networks-manage-dns-in-vnet
 [stormshield]: https://azure.microsoft.com/marketplace/partners/stormshield/stormshield-network-security-for-cloud/
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh
+<!--[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1-->
+<!--[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh-->
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json
-[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json
+<!--[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json-->
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

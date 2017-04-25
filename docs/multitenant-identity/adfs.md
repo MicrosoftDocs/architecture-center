@@ -1,21 +1,13 @@
 ---
 title: Federate with a customer's AD FS
 description: How to federate with a customer's AD FS in a multitenant application
-services: ''
-documentationcenter: na
-author: JohnPWSharp
-manager: roshar
-editor: ''
-tags: ''
-pnp.series.title: Manage Identity in Multitenant Applications
-ms.assetid: be7470d8-b511-4757-93c9-2dee701a0bdc
+author: MikeWasson
 ms.service: guidance
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2016
-ms.author: v-josha
+ms.author: pnp
+
+pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
 ---

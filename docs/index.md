@@ -1,7 +1,9 @@
 ---
 title: Azure Architecture Center
-description: Azure Guidance from AzureCAT and patterns & practices
+description: The Azure Architecture Center is the official center for guidance, blueprints, patterns, and best practices for building solutions with Microsoft Azure. It is curated by the Microsoft patterns & practices team.
 layout: LandingPage
+ms.service: guidance
+ms.author: pnp
 ---
 
 # Azure Architecture Center
@@ -19,7 +21,7 @@ layout: LandingPage
                     </div>
                 <div class="cardText">
                     <h3>Reference Architectures</h3>
-                    <p>A set of recommended architectures for the cloud. Each architecture includes best practices, prescriptive steps, and deployable solution.</p>
+                    <p>A set of recommended architectures for Azure. Each architecture includes best practices, prescriptive steps, and deployable solution.</p>
                 </div>
             </div>
         </div>

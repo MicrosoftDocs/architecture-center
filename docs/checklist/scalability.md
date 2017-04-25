@@ -1,22 +1,12 @@
 ---
 title: Scalability checklist
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: christb
-editor: ''
-tags: ''
-
-ms.assetid: e505c665-a095-4013-a4b6-ccd79bcb2e1e
-ms.service: best-practice
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/13/2016
-ms.author: masashin
-
+ms.date: 03/24/2017
+ms.author: pnp
+ms.custom: checklist
 ---
 # Scalability checklist
 [!INCLUDE [header](../_includes/header.md)]

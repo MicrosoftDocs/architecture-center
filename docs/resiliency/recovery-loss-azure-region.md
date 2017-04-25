@@ -1,21 +1,11 @@
 ---
 title: Recover from loss of an Azure region
 description: Article on understanding and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery
-services: ''
-documentationcenter: na
 author: adamglick
-manager: saladki
-editor: ''
-
-ms.assetid: f2f750aa-9305-487e-8c3f-1f8fbc06dc47
-ms.service: resiliency
-ms.devlang: na
+ms.service: guidance
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2016
-ms.author: aglick
-
+ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Azure resiliency technical guidance: recovery from a region-wide service disruption

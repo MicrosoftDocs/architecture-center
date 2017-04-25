@@ -3,21 +3,13 @@ title: Identity Management for Multitenant Applications
 description: >-
   Best practices for authentication, authorization, and identity management in
   multitenant apps.
-services: ''
-documentationcenter: na
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-pnp.series.title: Manage Identity in Multitenant Applications
-ms.assetid: 629a954b-8f05-4f6e-8109-36f77ef179b7
 ms.service: guidance
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/02/2016
-ms.author: mwasson
+
+ms.author: pnp
+pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.next: tailspin
 ---
 # Manage Identity in Multitenant Applications

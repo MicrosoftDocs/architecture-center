@@ -4,22 +4,14 @@ description: >-
   How to implement a secure site-to-site network architecture that spans an
   Azure virtual network and an on-premises network connected using ExpressRoute
   with VPN gateway failover.
-services: 'guidance,virtual-network,vpn-gateway,expressroute'
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: azure-resource-manager
+ms.service: guidance
+ms.topic: article
+ms.date: 11/28/2016
+ms.author: pnp
+
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.prev: expressroute
-ms.assetid: c0a6f115-ec55-4f98-8cca-606d5a98a3cd
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/28/2016
-ms.author: telmos
 cardTitle: Improving availability
 ---
 # Connect an on-premises network to Azure using ExpressRoute with VPN failover
@@ -27,7 +19,6 @@ cardTitle: Improving availability
 This reference architecture shows how to connect an on-premises network to an Azure virtual network (VNet) using ExpressRoute, with a site-to-site virtual private network (VPN) as a failover connection. Traffic flows between the on-premises network and the Azure VNet through an ExpressRoute connection. If there is a loss of connectivity in the ExpressRoute circuit, traffic is routed through an IPSec VPN tunnel. [**Deploy this solution**.](#deploy-the-solution)
 
 Note that if the ExpressRoute circuit is unavailable, the VPN route will only handle private peering connections. Public peering and Microsoft peering connections will pass over the Internet. 
-
 
 ![[0]][0]
 
@@ -37,12 +28,7 @@ The architecture consists of the following components.
 
 * **On-premises network**. A private local-area network running within an organization.
 
-* **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012.
-
-    > [!NOTE]
-    > For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
-    > 
-    > 
+* **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 * **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
@@ -56,7 +42,9 @@ The architecture consists of the following components.
 
 * **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-* **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. The traffic in each subnet may be subject to rules defined using [network security groups][azure-network-security-group](NSGs). For more information, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].
+* **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
+
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
@@ -121,20 +109,16 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 To deploy the solution, perform the following steps.
 
-1. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy.json)
-2. Wait for the link to open in the Azure portal, then follow these steps:
-   
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Wait for the link to open in the Azure portal, then follow these steps:   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
-4. Right-click the button below and select either "Open link in new tab" or "Open link in new window":  
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json)
+4. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 5. Wait for the link to open in the Azure portal, then enter then follow these steps:
-   
    * Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -143,24 +127,21 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
+[windows-vm-ra]: ../virtual-machines-windows/index.md
+[linux-vm-ra]: ../virtual-machines-linux/index.md
+
+
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[azure-network-security-group]: /azure/virtual-network/virtual-networks-nsg
-[getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [expressroute-prereq]: /azure/expressroute/expressroute-prerequisites
 [implementing-expressroute]: ./expressroute.md
 [implementing-vpn]: ./vpn.md
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json
-[virtualnetworkgateway-vpn-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json
-[virtualnetworkgateway-expressroute-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json
-[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute-vpn-failover/Deploy-ReferenceArchitecture.ps1
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/

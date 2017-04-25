@@ -1,23 +1,15 @@
 ---
 title: Tune data ingestion performance for Elasticsearch on Azure
 description: How to maximize data ingestion performance with Elasticsearch on Azure.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: index
 pnp.series.next: data-aggregation-and-query-performance
-ms.assetid: 1fe28243-bb73-4d76-a534-0e312f866d77
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Tune data ingestion performance
 [!INCLUDE [header](../_includes/header.md)]

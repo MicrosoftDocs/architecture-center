@@ -3,17 +3,13 @@ title: Competing Consumers
 description: Enable multiple concurrent consumers to process messages received on the same messaging channel.
 keywords: design pattern
 author: dragon119
-manager: bennage
+ms.service: guidance
+ms.topic: article
+ms.author: pnp
+ms.date: 03/24/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging]
-
-ms.service: guidance
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.author: mwasson
-ms.date: 12/14/2016
 ---
 
 # Competing Consumers
@@ -32,7 +28,7 @@ The number of requests can vary significantly over time for many reasons. A sudd
 
 Use a message queue to implement the communication channel between the application and the instances of the consumer service. The application posts requests in the form of messages to the queue, and the consumer service instances receive messages from the queue and process them. This approach enables the same pool of consumer service instances to handle messages from any instance of the application. The figure illustrates using a message queue to distribute work to instances of a service.
 
-![Using a message queue to distribute work to instances of a service](./_images/compensating-transaction-diagram.png)
+![Using a message queue to distribute work to instances of a service](./_images/competing-consumers-diagram.png)
 
 This solution has the following benefits:
 
@@ -90,7 +86,7 @@ Azure provides storage queues and Service Bus queues that can act as a mechanism
 > For detailed information on using Azure Service Bus queues, see [Service Bus queues, topics, and subscriptions](https://msdn.microsoft.com/library/windowsazure/hh367516.aspx).
 For information on using Azure storage queues, see [Get started with Azure Queue storage using .NET](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/).
 
-The following code from the `QueueManager` class in CompetingConsumers solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/competing-consumers) shows how you can create a queue by using a `QueueClient` instance in the `Start` event handler in a web or worker role.
+The following code from the `QueueManager` class in CompetingConsumers solution available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/competing-consumers) shows how you can create a queue by using a `QueueClient` instance in the `Start` event handler in a web or worker role.
 
 ```csharp
 private string queueName = ...;
@@ -190,4 +186,4 @@ The following patterns and guidance might be relevant when implementing this pat
 
 - [Queue-based Load Leveling Pattern](queue-based-load-leveling.md). Introducing a message queue can add resiliency to the system, enabling service instances to handle widely varying volumes of requests from application instances. The message queue acts as a buffer, which levels the load. The Queue-based Load Leveling pattern describes this scenario in more detail.
 
-- This pattern has a [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/samples/competing-consumers) associated with it.
+- This pattern has a [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/competing-consumers) associated with it.

@@ -3,25 +3,19 @@ title: Run a Linux VM on Azure
 description: >-
   How to run a Linux VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
-services: ''
-documentationcenter: na
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
+
+ms.service: guidance
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: pnp
+
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-vm
-ms.assetid: 9a77b10a-c364-46d7-b28a-1852cd2016f0
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2016
-ms.author: mwasson
 pnp.series.prev: ./index
-cardTitle: Single VM
 ---
+
 # Run a Linux VM on Azure
 
 This reference architecture shows a set of proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution**.](#deploy-the-solution)
@@ -29,7 +23,6 @@ This reference architecture shows a set of proven practices for running a Linux 
 ![[0]][0]
 
 ## Architecture
-
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
 
@@ -44,16 +37,16 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
-
+You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 > 
-> 
+
 
 ## Recommendations
 
-This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+This architecture shows the baseline recommendations for running a Linux VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ### VM recommendations
 
@@ -173,10 +166,8 @@ Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS 
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
 
-1. Right click the button below and select either "Open link in new tab" or "Open link in new window."
-   [![Deploy to Azure](../_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -188,10 +179,10 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 
 
 <!-- links -->
-[multi-vm]: ../virtual-machines-windows/multi-vm.md?toc=%2fazure%2farchitecture%24virtual-machines-linux%2f/toc.json
+[multi-vm]: ../virtual-machines-linux/multi-vm.md
 [naming conventions]: ../../best-practices/naming-conventions.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
+[availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
@@ -203,7 +194,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/
+[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [nsg]: /azure/virtual-network/virtual-networks-nsg
@@ -230,9 +221,8 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
+[vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[readme]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm
-[blocks]: https://github.com/mspnp/template-building-blocks
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md
 [0]: ./images/single-vm-diagram.png "Single Linux VM architecture in Azure"
 

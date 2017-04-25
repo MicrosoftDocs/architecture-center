@@ -3,23 +3,15 @@ title: Tune data aggregation and query performance with Elasticsearch
 description: >-
   A summary of considerations when optimizing query and search performance for
   Elasticsearch.
-services: ''
-documentationcenter: na
 author: dragon119
-manager: bennage
-editor: ''
-tags: ''
+ms.service: guidance
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: pnp
+
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: data-ingestion-performance
 pnp.series.next: resilience-and-recovery
-ms.assetid: da54e75e-0b08-45b5-a171-f67d88b77c5b
-ms.service: guidance
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/22/2016
-ms.author: masashin
 ---
 # Tune data aggregation and query performance
 [!INCLUDE [header](../_includes/header.md)]

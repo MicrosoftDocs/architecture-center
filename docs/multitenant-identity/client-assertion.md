@@ -1,21 +1,13 @@
 ---
 title: Use client assertion to get access tokens from Azure AD
 description: How to use client assertion to get access tokens from Azure AD.
-services: ''
-documentationcenter: na
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-pnp.series.title: Manage Identity in Multitenant Applications
-ms.assetid: 63b83cca-20ff-4f0f-8eed-3ac9cf4f9935
 ms.service: guidance
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/23/2016
-ms.author: mwasson
+ms.author: pnp
+
+pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: adfs
 pnp.series.next: key-vault
 ---

@@ -1,88 +1,96 @@
 ---
-title: Managing identity in Azure
-description: Explains and compares the different methods available for managing identity in hybrid systems that span the on-premises/cloud boundary with Azure.
+title: Choose a solution for integrating on-premises Active Directory with Azure.
+description: Compares reference architectures for integrating on-premises Active Directory with Azure.
+ms.date: 04/06/2017
 ---
 
-# Considerations
-[!INCLUDE [header](../../_includes/header.md)]
+# Choose a solution for integrating on-premises Active Directory with Azure
 
-### Azure AD
+This article compares options for integrating your on-premises Active Directory (AD) environment with an Azure network. We provide a reference architecture and a deployable solution for each option.
 
-Azure AD is a straightforward way to implement a security domain in Azure. It is used by many Microsoft applications, such as Microsoft Office 365. 
+## Integrate your on-premises domains with Azure AD
 
-You can use Azure AD to create a domain in Azure and link it to an on-premises AD domain. Azure AD enables you to configure single sign-on for users running applications accessed through the cloud.
+Use Azure Active Directory (Azure AD) to create a domain in Azure and link it to an on-premises AD domain. 
 
-Benefits:
+**Benefits**
 
-* You don't need to maintain an Active Directory infrastructure in the cloud. Azure AD is entirely managed and maintained by Microsoft.
+* You don't need to maintain an AD infrastructure in the cloud. Azure AD is entirely managed and maintained by Microsoft.
 * Azure AD provides the same identity information that is available on-premises.
 * Authentication can happen in Azure, reducing the need for external applications and users to contact the on-premises domain.
 
-Considerations:
+**Challenges**
 
 * Identity services are limited to users and groups. There is no ability to authenticate service and computer accounts.
 * You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized. 
-* You are responsible for publishing applications that users can access in the cloud through Azure AD.
+* Applications may need to be rewritten to enable authentication through Azure AD.
 
+**[Read more...][aad]**
 
-### AD DS in Azure joined to an on-premises forest
+## AD DS in Azure joined to an on-premises forest
 
-An organization might need to use features that are provided by AD Domain Services (AD DS) but are not currently implemented by Azure AD. You can host AD DS on-premises, but in a hybrid scenario where elements of an application are located in Azure, it can be more efficient to replicate this functionality and the AD repository to the cloud. This approach can help reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
+Deploy AD Domain Services (AD DS) servers to Azure. Create a domain in Azure and join it to your on-premises AD forest. 
 
-This approach requires that you create your own domain in the cloud and join it to the on-premises forest. You create VMs to host the AD DS services.
+Consider this option if you need to use AD DS features that are not currently implemented by Azure AD. 
 
-Benefits:
+**Benefits**
 
-* Provides the ability to authenticate user, service, and computer accounts on-premises and in the cloud.
 * Provides access to the same identity information that is available on-premises.
-* There is no need to manage a separate AD forest; the domain in the cloud can belong to the on-premises forest.
-* You can apply group policy defined by on-premises Group Policy Objects to the domain in the cloud.
+* You can authenticate user, service, and computer accounts on-premises and in Azure.
+* You don't need to manage a separate AD forest. The domain in Azure can belong to the on-premises forest.
+* You can apply group policy defined by on-premises Group Policy Objects to the domain in Azure.
 
-Considerations:
+**Challenges**
 
 * You must deploy and manage your own AD DS servers and domain in the cloud.
 * There may be some synchronization latency between the domain servers in the cloud and the servers running on-premises.
 
+**[Read more...][ad-ds]**
 
-### AD DS in Azure with a separate forest
+## AD DS in Azure with a separate forest
 
-An organization that runs Active Directory (AD) on-premises might have a forest comprising many different domains. You can use domains to provide isolation between functional areas that must be kept separate, possibly for security reasons, but you can share information between domains by establishing trust relationships.
+Deploy AD Domain Services (AD DS) servers to Azure, but create a separate Active Directory [forest][ad-forest-defn] that is separate from the on-premises forest. This forest is trusted by domains in your on-premises forest.
 
-An organization that utilizes separate domains can take advantage of Azure by relocating one or more of these domains into a separate forest in the cloud. Alternatively, an organization might wish to keep all cloud resources logically distinct from those held on-premises, and store information about cloud resources in their own directory, as part of a forest also held in the cloud.
+Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud.
 
-Benefits:
+**Benefits**
 
 * You can implement on-premises identities and separate Azure-only identities.
-* There is no need to replicate from the on-premises AD forest to Azure.
+* You don't need to replicate from the on-premises AD forest to Azure.
 
-Considerations:
+**Challenges**
 
-* Authentication for on-premises identities in the cloud performs extra network hops to the on-premises AD servers.
+* Authentication within Azure for on-premises identities requires extra network hops to the on-premises AD servers.
 * You must deploy your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
 
+**[Read more...][ad-ds-forest]**
 
-### AD FS in Azure
+## Extend AD FS to Azure
 
-AD FS can run on-premises, but in a hybrid scenario where applications are located in Azure, it can be more efficient to implement this functionality in the cloud.
+Replicate an Active Directory Federation Services (AD FS) deployment to Azure, to perform federated authentication and authorization for components running in Azure. 
 
-This architecture is especially useful for:
+Typical uses for this architecture:
 
-* Solutions that utilize federated authorization to expose web applications to partner organizations.
-* Systems that support access from web browsers running outside of the organizational firewall.
-* Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
+* Authenticate and authorize users from partner organizations.
+* Allow users to authenticate from web browsers running outside of the organizational firewall.
+* Allow users to connect from authorized external devices such as mobile devices. 
 
-Benefits:
+**Benefits**
 
 * You can leverage claims-aware applications.
-* It provides the ability to trust external partners for authentication.
-* It provides compatibility with large set of authentication protocols.
+* Provides the ability to trust external partners for authentication.
+* Compatibility with large set of authentication protocols.
 
-Considerations:
+**Challenges**
 
-* You must deploy your own AD DS, AD FS, and AD FS Web Application Proxy servers in the cloud.
+* You must deploy your own AD DS, AD FS, and AD FS Web Application Proxy servers in Azure.
 * This architecture can be complex to configure.
 
+**[Read more...][adfs]**
 
-<!-- Links -->
+<!-- links -->
 
-[aad]: https://azure.microsoft.com/services/active-directory/
+[aad]: ./azure-ad.md
+[ad-ds]: ./adds-extend-domain.md
+[ad-ds-forest]: ./adds-forest.md
+[ad-forest-defn]: https://msdn.microsoft.com/library/ms676906.aspx
+[adfs]: /adfs.md

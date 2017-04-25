@@ -1,22 +1,14 @@
 ---
 title: Deploy a high availability network virtual appliances
 description: How to deploy network virtual appliances in high availability.
-services: ''
-documentationcenter: na
 author: telmosampaio
-manager: christb
-editor: ''
-tags: ''
-ms.assetid: d78ea9a8-a8f2-457b-a918-16341a377f5c
 ms.service: guidance
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/06/2016
-ms.author: telmos
-pnp.series.prev: secure-vnet-dmz
+ms.author: pnp
+
 pnp.series.title: Network DMZ
+pnp.series.prev: secure-vnet-dmz
 cardTitle: Deploy highly available network virtual appliances
 ---
 # Deploy highly availabile network virtual appliances

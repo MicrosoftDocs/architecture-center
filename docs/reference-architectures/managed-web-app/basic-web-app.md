@@ -3,20 +3,20 @@ title: Basic web application
 description: >-
   Recommended architecture for a basic web application running in Microsoft
   Azure.
-services: 'app-service,app-service\web,sql-database'
-documentationcenter: na
+
+
 author: MikeWasson
-manager: roshar
-editor: ''
-tags: ''
-ms.assetid: 12c8df2b-5693-4795-966f-533b54849799
+
+
+
+
 ms.service: guidance
-ms.devlang: na
+
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+
 ms.date: 11/23/2016
-ms.author: mwasson
+ms.author: pnp
 cardTitle: Basic web application
 ---
 # Basic web application
@@ -231,7 +231,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [kudu]: https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/
 [monitoring-guidance]: ../../best-practices/monitoring.md
 [new-relic]: http://newrelic.com/
-[paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/guidance-web-apps-basic/Paas-Basic/Templates
+[paas-basic-arm-template]: https://github.com/mspnp/reference-architectures/tree/master/managed-web-app/basic-web-app/Paas-Basic/Templates
 [perf-analysis]: https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [resource-group]: /azure/azure-resource-manager/resource-group-overview

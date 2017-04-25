@@ -47,6 +47,9 @@
     "globalMetadata": {
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
+      "ms.author": "pnp",
+      "ms.service": "guidance",
+      "ms.topic": "article",
       "searchScope": [
         "Azure"
       ]
