@@ -204,8 +204,8 @@ Considerations
 
 ### More information 
 
-* [Azure Container Service introduction](https://docs.microsoft.com/en-us/azure/container-service/container-service-intro) 
-* [What is Azure Container Registry?](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro) 
+* [Azure Container Service introduction](/azure/container-service/container-service-intro) 
+* [What is Azure Container Registry?](/azure/container-registry/container-registry-intro) 
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
