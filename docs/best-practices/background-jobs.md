@@ -111,7 +111,7 @@ Azure Functions have the following characteristics:
  
 ### More information 
 
-* [Azure Functions recommended resources](https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices) extends over best practices for Azure Functions. 
+* [Azure Functions recommended resources](/azure/azure-functions/functions-best-practices) extends over best practices for Azure Functions. 
 
 ## Azure Web Apps and WebJobs
 You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
