@@ -30,7 +30,7 @@ Robust logging and tracing are particularly important in cloud applications. Inv
 
 **Standardize logs and metrics**. The operations team will need to aggregate logs from across the various services in your solution. If every service uses its own logging format, it becomes difficult or impossible to get useful information from them. Define a common schema that includes fields such as correlation ID, event name, IP address of the sender, and so forth. Individual services can derive custom schemas that inherit the base schema, and contain additional fields.
 
-**Automate management tasks**. Include provisioning, deployment, and monitoring. Automating a task makes it repeatable and less prone to human errors. 
+**Automate management tasks**, including provisioning, deployment, and monitoring. Automating a task makes it repeatable and less prone to human errors. 
 
 **Treat configuration as code**. Check configuration files into a version control system, so that you can track and version your changes, and roll back if needed. 
 
