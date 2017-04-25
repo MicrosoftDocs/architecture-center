@@ -183,9 +183,9 @@ Considerations
 
 ### More information 
 
-* [Basics of Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-technical-overview) 
-* [Batch feature overview for developers](https://docs.microsoft.com/en-us/azure/batch/batch-api-basics) 
-* [Batch and HPC solutions in the Azure cloud](https://docs.microsoft.com/en-us/azure/batch/batch-hpc-solutions)
+* [Basics of Azure Batch](/azure/batch/batch-technical-overview) 
+* [Batch feature overview for developers](/azure/batch/batch-api-basics) 
+* [Batch and HPC solutions in the Azure cloud](/azure/batch/batch-hpc-solutions)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
