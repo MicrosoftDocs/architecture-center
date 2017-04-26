@@ -85,17 +85,9 @@ On-premises traffic passes to the VNet through a virtual network gateway. We rec
 
 ### NVA recommendations
 
-NVAs provide different services for managing and monitoring network traffic. The Azure Marketplace offers several third-party vendor NVAs, including:
+NVAs provide different services for managing and monitoring network traffic. The [Azure Marketplace][azure-marketplace-nva] offers several third-party vendor NVAs that you can use. If none of these third-party NVAs meet your requirements, you can create a custom NVA using VMs. 
 
-* [Barracuda Web Application Firewall][barracuda-waf] and [Barracuda NextGen Firewall][barracuda-nf]
-* [Cohesive Networks VNS3 Firewall/Router/VPN][vns3]
-* [Fortinet FortiGate-VM][fortinet]
-* [SecureSphere Web Application Firewall][securesphere]
-* [DenyAll Web Application Firewall][denyall]
-* [Check Point vSEC][checkpoint]
-* [Kemp LoadMaster Load Balancer ADC Content Switch][kemp-loadmaster]
-
-If none of these third-party NVAs meet your requirements, you can create a custom NVA using VMs. As an example of creating custom NVAs, the solution deployment for this reference architecture implements the following functionality:
+For example, the solution deployment for this reference architecture implements an NVA with the following functionality on a VM:
 
 * Traffic is routed using [IP forwarding][ip-forwarding] on the NVA network interfaces (NICs).
 * Traffic is permitted to pass through the NVA only if it is appropriate to do so. Each NVA VM in the reference architecture is a simple Linux router. Inbound traffic arrives on network interface *eth0*, and outbound traffic matches rules defined by custom scripts dispatched through network interface *eth1*.
@@ -202,12 +194,8 @@ A deployment for a reference architecture that implements these recommendations 
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [azure-forced-tunneling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
-[barracuda-nf]: https://azure.microsoft.com/marketplace/partners/barracudanetworks/barracuda-ng-firewall/
-[barracuda-waf]: https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf/
-[checkpoint]: https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/
+[azure-marketplace-nva]: https://azuremarketplace.microsoft.com/marketplace/apps/category/networking
 [cloud-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
-[denyall]: https://azure.microsoft.com/marketplace/partners/denyall/denyall-web-application-firewall/
-[fortinet]: https://azure.microsoft.com/marketplace/partners/fortinet/fortinet-fortigate-singlevmfortigate-singlevm/
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute]: ../hybrid-networking/expressroute.md
@@ -221,7 +209,6 @@ A deployment for a reference architecture that implements these recommendations 
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
 [ip-forwarding]: /azure/virtual-network/virtual-networks-udr-overview#ip-forwarding
-[kemp-loadmaster]: https://azure.microsoft.com/marketplace/partners/kemptech/vlm-azure/
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-n-tier]: ../virtual-machines-windows/n-tier.md
 [ra-vpn]: ../hybrid-networking/vpn.md
@@ -230,10 +217,8 @@ A deployment for a reference architecture that implements these recommendations 
 [rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
-[securesphere]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/imperva.securesphere-waf
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vns3]: https://azure.microsoft.com/marketplace/partners/cohesive/cohesiveft-vns3-for-azure/
 [wireshark]: https://www.wireshark.org/
 [0]: ../_images/blueprints/hybrid-network-secure-vnet.png "Secure hybrid network architecture"
