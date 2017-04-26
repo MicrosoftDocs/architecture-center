@@ -1,4 +1,4 @@
-# Web-Queue-Worker architecture style
+# Web-queue-worker architecture style <<RBC: See my note in the index about capitalization.>>
 
 The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.  
 
@@ -8,13 +8,13 @@ Other components that are commonly incorporated into this architecture include:
 
 - One or more databases. 
 - A cache to store values from the database for quick reads.
-- CDN to serve static content
+- A content delivery network (CDN) to serve static content.
 - Remote services, such as email or SMS service. Often these are provided by third parties.
 - Identity provider for authentication.
 
 The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. The worker is an optional component. If there are no long-running operations, the worker can be omitted.  
 
-The front end might consist of a web API. On the client side, the web API can be consumed by a single page application (SPA) that makes AJAX calls, or by a native client application.
+The front end might consist of a web API. On the client side, the web API can be consumed by a single page application (SPA) <<RBC: This acronym isn't used again. Is it necessary?>> that makes AJAX calls, or by a native client application.
 
 ## When to use this architecture
 
@@ -22,9 +22,9 @@ The web-queue-worker architecture is typically implemented using managed compute
 
 Consider this architectural style for:
 
-- Applications with a relatively simple domain 
+- Applications with a relatively simple domain. 
 - Applications with some long-running workflows or batch operations.
-- When you want to use managed services, rather than IaaS.
+- When you want to use managed services, rather than infrastructure as a service (IaaS).
 
 
 ## Benefits:
@@ -46,13 +46,13 @@ This section describes a recommended web-queue-worker architecture that uses Azu
 
 ![](./images/web-queue-worker-physical.png)
 
-The front end is implemented as an Azure App Service web app, and the worker is implemented as a WebJob. The web app and the WebJob are both associated with an App Service plan, which provides the VM instances. 
+The front end is implemented as an Azure App Service web app, and the worker is implemented as a WebJob. The web app and the WebJob are both associated with an App Service plan that provides the VM instances. 
 
 You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
 
 Azure Redis Cache stores session state and other data that needs low latency access.
 
-Azure CDN is used to cache static content such as images, CSS, HTML.
+Azure CDN is used to cache static content such as images, CSS, or HTML.
 
 For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and DocumentDB.  
 
@@ -65,5 +65,5 @@ For storage, choose the storage technologies that best fit the needs of the appl
 
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 
-- Use deployment slots to manage deployments. This gives you the ability to deploy an upgrade and then swap over to the upgraded version. It also lets you swap back to, if there was a problem 
+- Use deployment slots to manage deployments. This gives you the ability to deploy an upgrade and then swap over to the upgraded version. It also lets you swap back to  <<RBC: Something missing after "to" maybe "previous version" or should we just remove that word and leave it as "swap back">> if there was a problem.
 

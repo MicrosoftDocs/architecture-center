@@ -19,7 +19,7 @@ This section gives a quick tour of the architecture styles that we've identified
 
 **[N-tier][n-tier]** is a traditional architecture for enterprise applications. Dependencies are managed by dividing the application into *layers* that perform logical functions, such as presentation, business logic, and data access. A layer can only call into layers that sit below it. However, this horizontal layering can be a liability. It can be hard to introduce changes in one part of the application without touching the rest of the application. That makes frequent updates a challenge, limiting how quickly new features can be added.
 
-N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in IaaS solutions, or application that use a mix of IaaS and managed services. 
+N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in IaaS solutions, or application that use a mix of infrastructure as a service (IaaS) <<RBC:  I decided to go ahead and define here and you can decide later if you don't think it's necessary for the audience.>> and managed services. 
 
 ### Web-queue-worker <<RBC: We need to settle on a consistent capitalization strategy for this. I looked at web-queue-worker.md and it's not capped consistently there either. I decided to follow the Azure guidelines about not capitalizing things unless it's a specific named feature. That includes headings, although I concede this looks a little weird.>>
 

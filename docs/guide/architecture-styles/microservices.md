@@ -79,7 +79,7 @@ Consider this architectural style for:
 
 - **Skillset**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.
 
-## Principles <<RBC: Mike, I got to here on this one.>>
+## Principles
 
 - Use domain-driven design to find natural service boundaries. 
 
@@ -105,9 +105,9 @@ You can use Azure Container Service to configure and provision a Docker cluster.
 
 **Management VMs** run the master nodes for the container orchestrator. 
 
-**Networking**. The public nodes, backend nodes, and management VMs are placed in separate subnets within the same virtual network (VNet). 
+**Networking**. The public nodes, backend nodes, and management VMs are placed in separate subnets within the same virtual network (VNet). <<RBC: This and the next one aren't parallel with the rest of the list.>>
 
-**Load balancers**.  An externally facing load balancer sits in front of the public nodes. It distributes internet requests to the public nodes. Another load balancer is placed in front of the management VMs, to allow ssh traffic to the management VMs, using NAT rules. 
+**Load balancers**.  An externally facing load balancer sits in front of the public nodes. It distributes internet requests to the public nodes. Another load balancer is placed in front of the management VMs, to allow secure shell (SSH)  traffic to the management VMs, using NAT rules. 
 
 For reliability and scalability, each service is replicated across multiple VMs. However, because services are also relatively lightweight (compared with a monolithic application), multiple services are usually packed into a single VM. Higher density allows better resource utilization. If a particular service doesn't use a lot of resources, you don't need to dedicate an entire VM to running that service.
 
