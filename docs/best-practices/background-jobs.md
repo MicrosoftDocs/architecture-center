@@ -91,7 +91,7 @@ Azure WebJobs have the following characteristics:
 
 * **Security**: WebJobs are protected by the deployment credentials of the web app.
 * **Supported file types**: You can define WebJobs by using command scripts (.cmd), batch files (.bat), PowerShell scripts (.ps1), bash shell scripts (.sh), PHP scripts (.php), Python scripts (.py), JavaScript code (.js), and executable programs (.exe, .jar, and more).
-* **Deployment**: You can deploy scripts and executables by using the Azure portal, by using the [WebJobsVs](https://marketplace.visualstudio.com/items?itemName=Sayed-Ibrahim-Hashimi.WebJobsVs) add-in for Visual Studio or the [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs) (you can create and deploy with this option), by using the [Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/), or by copying them directly to the following locations:
+* **Deployment**: You can deploy scripts and executables by using the [Azure portal](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-create-web-jobs), by using [Visual Studio](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs), by using the [Azure WebJobs SDK](/azure/azure-webjobs-sdk), or by copying them directly to the following locations:
   * For triggered execution: site/wwwroot/app_data/jobs/triggered/{job name}
   * For continuous execution: site/wwwroot/app_data/jobs/continuous/{job name}
 * **Logging**: Console.Out is treated (marked) as INFO. Console.Error is treated as ERROR. You can access monitoring and diagnostics information by using the Azure portal. You can download log files directly from the site. They are saved in the following locations:
@@ -106,7 +106,7 @@ Azure WebJobs have the following characteristics:
 * To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host WebJobs that may be long running or resource intensive.
 
 ### More information
-* [Azure WebJobs recommended resources](/azure/app-service-web/websites-webjobs-resources/) lists the many useful resources, downloads, and samples for WebJobs.
+* [Azure WebJobs recommended resources](https://docs.microsoft.com/en-us/azure/app-service-web/websites-webjobs-resources) lists the many useful resources, downloads, and samples for WebJobs.
 
 ## Azure Cloud Services web and worker roles
 You can execute background tasks within a web role or in a separate worker role. When you are deciding whether to use a worker role, consider scalability and elasticity requirements, task lifetime, release cadence, security, fault tolerance, contention, complexity, and the logical architecture. For more information, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -114,9 +114,9 @@ You can execute background tasks within a web role or in a separate worker role.
 There are several ways to implement background tasks within a Cloud Services role:
 
 * Create an implementation of the **RoleEntryPoint** class in the role and use its methods to execute background tasks. The tasks run in the context of WaIISHost.exe. They can use the **GetSetting** method of the **CloudConfigurationManager** class to load configuration settings. For more information, see [Lifecycle (Cloud Services)](#lifecycle-cloud-services).
-* Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background, set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks/).
-* Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Get started with the Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/).
-* Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks/).
+* Use startup tasks to execute background tasks when the application starts. To force the tasks to continue to run in the background, set the **taskType** property to **background** (if you do not do this, the application startup process will halt and wait for the task to finish). For more information, see [Run startup tasks in Azure](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks).
+* Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started).
+* Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run startup tasks in Azure](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks).
 
 ### Running background tasks in the web role
 The main advantage of running background tasks in the web role is the saving in hosting costs because there is no requirement to deploy additional roles.
@@ -142,12 +142,13 @@ Consider the following points when choosing how and where to deploy background t
 
 ### More information
 * [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
-* [Get started with the Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/)
+* [What is the Azure WebJobs SDK](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk)
+* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
 
 ## Azure Virtual Machines
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm/). For information about the options for Virtual Machines, see [Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
 
 To initiate the background task in a separate virtual machine, you have a range of options:
 
@@ -166,7 +167,7 @@ Consider the following points when you are deciding whether to deploy background
 
 ### More information
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
-* [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Azure Virtual Machines FAQ](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/classic/faq)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
@@ -223,7 +224,7 @@ Consider the following points when you are planning how you will run background 
 * If a background task throws an unhandled exception, that task should be recycled while allowing any other background tasks in the role to continue running. However, if the exception is caused by corruption of objects outside the task, such as shared storage, the exception should be handled by your **RoleEntryPoint** class, all tasks should be cancelled, and the **Run** method should be allowed to end. Azure will then restart the role.
 * Use the **OnStop** method to pause or kill background tasks and clean up resources. This might involve stopping long-running or multistep tasks. It is vital to consider how this can be done to avoid data inconsistencies. If a role instance stops for any reason other than a user-initiated shutdown, the code running in the **OnStop** method must be completed within five minutes before it is forcibly terminated. Ensure that your code can be completed in that time or can tolerate not running to completion.  
 * The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns the value **true**. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
-* You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings that you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks/).
+* You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings that you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run startup tasks in Azure](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks).
 * If there is an error in a startup task, it might force the role to continually restart. This can prevent you from performing a virtual IP (VIP) address swap back to a previously staged version because the swap requires exclusive access to the role. This cannot be obtained while the role is restarting. To resolve this:
   
   * Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
@@ -244,7 +245,7 @@ Consider the following points when you are planning how you will run background 
 ## Resiliency considerations
 Background tasks must be resilient in order to provide reliable services to the application. When you are planning and designing background tasks, consider the following points:
 
-* Background tasks must be able to gracefully handle role or service restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *check pointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint--instead of restarting from the beginning. When using Azure Service Bus queues, you can use message sessions to enable the same scenario. Sessions allow you to save and retrieve the application processing state by using the [SetState](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) and [GetState](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx) methods. For more information about designing reliable multistep processes and workflows, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
+* Background tasks must be able to gracefully handle role or service restarts without corrupting data or introducing inconsistency into the application. For long-running or multistep tasks, consider using *check pointing* by saving the state of jobs in persistent storage, or as messages in a queue if this is appropriate. For example, you can persist state information in a message in a queue and incrementally update this state information with the task progress so that the task can be processed from the last known good checkpoint--instead of restarting from the beginning. When using Azure Service Bus queues, you can use message sessions to enable the same scenario. Sessions allow you to save and retrieve the application processing state by using the [SetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate?view=azureservicebus-4.0.0) and [GetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate?view=azureservicebus-4.0.0) methods. For more information about designing reliable multistep processes and workflows, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
 * When you use web or worker roles to host multiple background tasks, design your override of the **Run** method to monitor for failed or stalled tasks, and restart them. Where this is not practical, and you are using a worker role, force the worker role to restart by exiting from the **Run** method.
 * When you use queues to communicate with background tasks, the queues can act as a buffer to store requests that are sent to the tasks while the application is under higher than usual load. This allows the tasks to catch up with the UI during less busy periods. It also means that recycling the role will not block the UI. For more information, see [Queue-Based Load Leveling Pattern](http://msdn.microsoft.com/library/dn589783.aspx). If some tasks are more important than others, consider implementing the [Priority Queue Pattern](http://msdn.microsoft.com/library/dn589794.aspx) to ensure that these tasks run before less important ones.
 * Background tasks that are initiated by messages or process messages must be designed to handle inconsistencies, such as messages arriving out of order, messages that repeatedly cause an error (often referred to as *poison messages*), and messages that are delivered more than once. Consider the following:
@@ -281,7 +282,9 @@ Background tasks must offer sufficient performance to ensure they do not block t
 * [Executing Background Tasks](http://msdn.microsoft.com/library/ff803365.aspx)
 * [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 * [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
-* [Get Started with the Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/)
-* [Azure Queues and Service Bus Queues - Compared and Contrasted](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted/)
-* [How to Enable Diagnostics in a Cloud Service](/azure/cloud-services/cloud-services-dotnet-diagnostics/)
+* [What is the Azure WebJobs SDK](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk)
+* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
+* [Run Background tasks with WebJobs](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-create-web-jobs)
+* [Azure Queues and Service Bus Queues - Compared and Contrasted](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+* [How to Enable Diagnostics in a Cloud Service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics)
 
