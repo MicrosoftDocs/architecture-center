@@ -30,7 +30,7 @@ This reference architecture shows a set of proven practices for a web applicatio
 ## Architecture 
 
 > [!NOTE]
-> This architecture doe not focus on application development, and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
+> This architecture does not focus on application development, and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
 >
 >
 
