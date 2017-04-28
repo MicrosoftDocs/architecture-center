@@ -1200,6 +1200,27 @@ redisHostConnection.PreserveAsyncOrder = false;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ```
 
+###Serialization Considerations
+
+Which serialization to choose should consider several aspects such as: performance, interoperability, versioning, compatibility, compression, time/memory overheads among others.
+When assessing performance you should take into account that benchmarks are context dependent and may not consider newer libraries or versions. There is no "fastest" serializer, the option that better suits your needs depends on your context and requirements.
+
+Some of the option when considering serialization are:
+
+- [Protocol Buffers](https://github.com/google/protobuf) (a.k.a., protobuf) are Google's extensible mechanism for serializing structured data. It uses IDL ([Interface Description Language](https://en.wikipedia.org/wiki/Interface_description_language)), strong typing and requires a compilation step to output language specific code to de/serialize messages. It supports several different programming languages and was designed to be layered over an existing RPC mechanism.
+
+- [Thrift](https://thrift.apache.org/) also uses IDL, strong typing, requires a compilation step and it also targets many languages. It is different from Protocol Buffers in that it provides a variety of transport options such as network, file and memory. 
+
+- [Avro](https://avro.apache.org/) provides functionality similar to systems such as Protocol Buffers and Thrift but unlike these does not require that code be generated. Data is always accompanied by a schema that permits full processing of that data without code generation, static datatypes, etc. This facilitates construction of generic data-processing systems and languages. Since the schema is present when data is read, considerably less type information need be encoded with data, resulting in smaller serialization size. More info on [Serializing data with the Microsoft .NET Library for Avro](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-dotnet-avro-serialization).
+
+- JSON is not very efficient when put on the wire but is most flexible in terms of changing data structures.
+
+- BSON is designed to be efficient in space, but in some cases is not much more efficient than JSON. In some cases it uses even more space than JSON because it adds some "extra" information to documents, like length of strings and subobjects. The purpose of this is to make traversal faster. In addition to compactness, BSON has additional data types unavailable in JSON, notably the BinData and Date data types.
+
+- [MessagePack](http://msgpack.org/) is an object serialization specification like JSON but with efficient binary encoding. There's no type checking or schemas, depending on your requirements may be an advantage or not. It is supported by many programming languages and environments.
+
+- [Bond](https://github.com/Microsoft/bond): is a cross-platform framework for working with schematized data. It supports cross-language de/serialization and powerful generic mechanisms for efficiently manipulating data.
+
 ## Related patterns and guidance
 The following pattern might also be relevant to your scenario when you implement caching in your applications:
 
