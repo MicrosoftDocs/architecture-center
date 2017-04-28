@@ -181,6 +181,47 @@ Bundling and minification can be handled by ASP.NET. In an MVC project, you defi
 
 By default, Azure CDN instances have the *Query String Status* setting disabled. In order for updated script bundles to be handled properly by the CDN, you must enable the *Query String Status* setting for the CDN instance. Note that it may take an hour or more before the setting takes effect.
 
+## Features:
+
+There are three Azure CDN products: Azure CDN Standard from Akamai, Azure CDN Standard from Verizon, and Azure CDN Premium from Verizon. The following table lists the features available with each product.
+
+Feature | Standard Akamai	| Standard Verizon | Premium Verizon
+--- | --- | --- | --- 
+Easy integration with Azure services such as Storage, Cloud Services, Web Apps, and Media Services |	✓  | 	✓  | 	✓
+Management via REST API, .NET, Node.js, or PowerShell. | 	✓ | 	✓ | 	✓
+HTTPS support with CDN endpoint | 	✓ | 	✓ | 	✓
+Custom domain HTTPS | 		 | ✓ | 	✓
+Load balancing | 	✓ | 	✓ | 	✓
+DDOS protection | 	✓ | 	✓ | 	✓
+IPv4/IPv6 dual-stack | 	✓ | 	✓ | 	✓
+Custom domain name support | 	✓ | 	✓ | 	✓
+Query string caching | 	✓ | 	✓ | 	✓
+Geo-filtering | 	✓ | 	✓ | 	✓
+Fast purge | 	✓ | 	✓ | 	✓
+Asset pre-loading | 	 | 	✓ | 	✓
+Core analytics | 	 | 	✓ | 	✓
+HTTP/2 support | 	✓ | 	✓ | 	✓
+Advanced HTTP reports | 	 | 	 | 	✓
+Real-time stats | 	 | 	 | 	✓
+Real-time alerts | 	 | 	 | 	✓
+Customizable, rule-based content delivery engine | 	 | 	 | 	✓
+Cache/header settings (using rules engine) | 	 | 	 | 	✓
+URL redirect/rewrite (using rules engine) | 	 | 	 | 	✓
+Mobile device rules (using rules engine) | 	 | 	 | 	✓
+Token authentication | 	 | 	 | 	✓
+
+### Rules engine
+The rules engine allows one to define the criteria that a request must take before one or more actions can take effect. A rule can be triggered by a large set of criteria that includes properties in the client request or URL, country that request came from, or even details such as manufacturer or screen resolution for requests from mobile devices. A very extensive set of actions can be defined for each rule and includes modifying request/response headers, redirecting requests, allowing or denying access to content, or modifying cache control headers.
+For more info see [Override HTTP behavior using the Azure CDN rules engine](https://docs.microsoft.com/en-us/azure/cdn/cdn-rules-engine)
+
+### Advanced and real time stats
+The advanced and real time analytic modules provide a very extensive set of rich and granular analytics. A small sampling of the analytics available includes the following: user requests across countries and cities, top files requested, top browsers making requests, and client requests broken out by user agents, referrers, client IPs, and URLs.
+For more info see [Analyze usage statistics with Azure CDN advanced HTTP reports](https://docs.microsoft.com/en-us/azure/cdn/cdn-advanced-http-reports) and [Real-time stats in Microsoft Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-real-time-stats)
+
+### Streaming with Azure Content Delivery Network
+Azure Media Services has a new option called a standard streaming endpoint. It eliminates the complexity of streaming endpoints by giving you the scale and robustness you need without making you worry about streaming units. Behind the scenes, we monitor the bandwidth requirements on your streaming endpoint and scale out as needed. This means you can use a standard streaming endpoint to deliver your streams to a large range of audience sizes, from very small audiences to thousands of concurrent viewers, by using the integration of Azure Content Delivery Network services.
+See [Standard streaming endpoints and Azure Content Delivery Network integration](https://azure.microsoft.com/es-es/updates/new-auto-scaling-standard-streaming-endpoint-and-enhanced-azure-cdn-integration/)
+
 ## Example code
 This section contains some examples of code and techniques for working with the CDN.  
 
