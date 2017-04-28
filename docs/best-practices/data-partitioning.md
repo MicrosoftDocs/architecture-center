@@ -481,6 +481,20 @@ Consider the following points when deciding how to partition data with Azure Red
   >
 * Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
+## Partitioning Strategies for Azure Service Fabric
+Azure Service Fabric provides a microservices framework and execution environment for these to run on. It takes care of plumbing to ensure your microservices are highly available and provides means for reliability.
+
+### Azure Service Fabric service types and partitioning needs
+Azure Service Fabric reliable services are either stateless or stateful.
+
+Stateless reliable services, if they do need some sort of data partitioning, it's done over an external storage where data is saved/retrieved (ie. Document DB, Azure SQL Database, Azure Storage Table, etc.).
+
+Stateful reliable service, on the other hand, hold their state right into them, and can scale up by leveraging on data partitioning among the many nodes that the Azure Service Fabric cluster provides.
+
+## More information
+* [Overview of Azure Service Fabric] provides an introduction on what Azure Service Fabric is and why it would be useful on some scenarios.
+* [Partition Service Fabric reliable services] document contains tons of specifics on how partitioning strategies can be applied to its services.
+
 ## Rebalancing partitions
 As a system matures and you understand the usage patterns better, you might have to adjust the partitioning scheme. For example, individual partitions might start attracting a disproportionate volume of traffic and become hot, leading to excessive contention. Additionally, you might have underestimated the volume of data in some partitions, causing you to approach the limits of the storage capacity in these partitions. Whatever the cause, it is sometimes necessary to rebalance partitions to spread the load more evenly.
 
@@ -558,6 +572,8 @@ When considering strategies for implementing data consistency, the following pat
 [Manage DocumentDB capacity needs]: /azure/documentdb/documentdb-manage
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
+[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
+[Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
 [Performance levels in DocumentDB]: /azure/documentdb/documentdb-performance-levels
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
