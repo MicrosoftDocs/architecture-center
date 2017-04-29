@@ -73,7 +73,7 @@ The type of information to collect in the service in response to monitoring requ
 
 How much information to collect. Performing excessive processing during the check can overload the application and impact other users. The time it takes might exceed the timeout of the monitoring system so it marks the application as unavailable. Most applications include instrumentation such as error handlers and performance counters that log performance and detailed error information, this might be sufficient instead of returning additional information from a health verification check.
 
-Caching the endpoint status. Running the health check can be expensive. If the helth status is reported through a dashboard, for example, you don't want every request from the dashboard to trigger a health check. Instead, periodically check the health of system and cache the status. Expose an endpoint that returns the cached status.
+Caching the endpoint status. It could be expensive to run the health check too frequently. If the health status is reported through a dashboard, for example, you don't want every request from the dashboard to trigger a health check. Instead, periodically check the health of system and cache the status. Expose an endpoint that returns the cached status.
 
 How to configure security for the monitoring endpoints to protect them from public access, which might expose the application to malicious attacks, risk the exposure of sensitive information, or attract denial of service (DoS) attacks. Typically this should be done in the application configuration so that it can be updated easily without restarting the application. Consider using one or more of the following techniques:
 
