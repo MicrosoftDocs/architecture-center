@@ -75,7 +75,7 @@ This pattern is useful for:
 
 This pattern might not be useful when:
 
-- Using immutable infraestructure, components are designed not to change and instead be replaced with a new instance for every deployment.
+- Your deployment process uses an immutable infrastructure approach. With this approach, infrastructure is never modified after it’s deployed to production. Instead, components are replaced with each deployment.
 
 - The effort of updating components can't be justified in comparison to restarting the application and enduring a short downtime.
 
