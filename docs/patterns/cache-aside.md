@@ -67,7 +67,7 @@ This pattern might not be suitable:
 
 In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. 
 
-To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
+To connect to an Azure Redis Cache instance, call the static `Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
@@ -84,7 +84,7 @@ public static ConnectionMultiplexer Connection => lazyConnection.Value;
 
 The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Redis Cache. This method retrieves an object from the cache using the read-though approach.
 
-An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method generates a string value based on this key (the Azure Redis Cache API uses strings for key values) and tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually retrieves the data from the data store has been omitted because it is data store dependent. Note that the cached item is configured to expire in order to prevent it from becoming stale if it's updated elsewhere.
+An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually reads the data from the data store is not shown here, because it depends on the data store. Note that the cached item is configured to expire to prevent it from becoming stale if it's updated elsewhere.
 
 
 ```csharp
