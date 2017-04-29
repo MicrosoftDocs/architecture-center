@@ -82,13 +82,11 @@ The following example shows how a configuration store can be implemented over Bl
 > This code is provided in the _ExternalConfigurationStore.Cloud_ project in the _ExternalConfigurationStore_ solution, available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).
 
 ```csharp
-public interface IsettingsStore
+public interface ISettingsStore
 {
-  string Version { get; }
+    Task<string> GetVersionAsync();
 
-  Dictionary<string, string> FindAll();
-
-  void Update(string key, string value);
+    Task<Dictionary<string, string>> FindAllAsync();
 }
 ```
 
@@ -98,11 +96,11 @@ This interface defines methods for retrieving and updating configuration setting
 
 The `ExternalConfigurationManager` class provides a wrapper around a `BlobSettingsStore` object. An application can use this class to store and retrieve configuration information. This class uses the Microsoft [Reactive Extensions](https://msdn.microsoft.com/library/hh242985.aspx) library to expose any changes made to the configuration through an implementation of the `IObservable` interface. If a setting is modified by calling the `SetAppSetting` method, the `Changed` event is raised and all subscribers to this event will be notified.
 
-Note that all settings are also cached in a `Dictionary` object inside the `ExternalConfigurationManager` class for fast access. The `SetAppSetting` method updates this cache, and the `GetSetting` method used to retrieve a configuration setting reads the data from the cache. If the setting isn't found in the cache, it's retrieved from the `BlobSettingsStore` object instead.
+Note that all settings are also cached in a `Dictionary` object inside the `ExternalConfigurationManager` class for fast access. The `GetSetting` method used to retrieve a configuration setting reads the data from the cache. If the setting isn't found in the cache, it's retrieved from the `BlobSettingsStore` object instead.
 
 The `GetSettings` method invokes the `CheckForConfigurationChanges` method to detect whether the configuration information in blob storage has changed. It does this by examining the version number and comparing it with the current version number held by the `ExternalConfigurationManager` object. If one or more changes have occurred, the `Changed` event is raised and the configuration settings cached in the `Dictionary` object are refreshed. This is an application of the [Cache-Aside pattern](cache-aside.md).
 
-The following code sample shows how the `Changed` event, the `SetAppSettings` method, the `GetSettings` method, and the `CheckForConfigurationChanges` method are implemented:
+The following code sample shows how the `Changed` event, the `GetSettings` method, and the `CheckForConfigurationChanges` method are implemented:
 
 ```csharp
 public class ExternalConfigurationManager : IDisposable
@@ -110,6 +108,9 @@ public class ExternalConfigurationManager : IDisposable
   // An abstraction of the configuration store.
   private readonly ISettingsStore settings;
   private readonly ISubject<KeyValuePair<string, string>> changed;
+  ...
+  private readonly ReaderWriterLockSlim settingsCacheLock = new ReaderWriterLockSlim();
+  private readonly SemaphoreSlim syncCacheSemaphore = new SemaphoreSlim(1);  
   ...
   private Dictionary<string, string> settingsCache;
   private string currentVersion;
@@ -120,72 +121,73 @@ public class ExternalConfigurationManager : IDisposable
     ...
   }
   ...
-  public IObservable<KeyValuePair<string, string>> Changed
-  {
-    get { return this.changed.AsObservable(); }
-  }
+  public IObservable<KeyValuePair<string, string>> Changed => this.changed.AsObservable();
   ...
-  public void SetAppSetting(string key, string value)
-  {
-    ...
-    // Update the setting in the store.
-    this.settings.Update(key, value);
-
-    // Publish the event.
-    this.Changed.OnNext(
-         new KeyValuePair<string, string>(key, value));
-
-    // Refresh the settings cache.
-    this.CheckForConfigurationChanges();
-  }
 
   public string GetAppSetting(string key)
   {
     ...
-    // Try to get the value from the settings cache.
-    // If there's a miss, get the setting from the settings store.
+    // Try to get the value from the settings cache. 
+    // If there's a cache miss, get the setting from the settings store and refresh the settings cache.
+
     string value;
-    if (this.settingsCache.TryGetValue(key, out value))
+    try
     {
-      return value;
+        this.settingsCacheLock.EnterReadLock();
+
+        this.settingsCache.TryGetValue(key, out value);
+    }
+    finally
+    {
+        this.settingsCacheLock.ExitReadLock();
     }
 
-    // Check for changes and refresh the cache.
-    this.CheckForConfigurationChanges();
-
-    return this.settingsCache[key];
+    return value;
   }
   ...
   private void CheckForConfigurationChanges()
   {
     try
     {
+        // It is assumed that updates are infrequent.
+        // To avoid race conditions in refreshing the cache, synchronize access to the in-memory cache.
+        await this.syncCacheSemaphore.WaitAsync();
 
-      // Assume that updates are infrequent. Lock to avoid
-      // race conditions when refreshing the cache.
-      lock (this.settingsSyncObject)
-      {          {
-        var latestVersion = this.settings.Version;
+        var latestVersion = await this.settings.GetVersionAsync();
 
-        // If the versions differ, the configuration has changed.
-        if (this.currentVersion != latestVersion)
+        // If the versions are the same, nothing has changed in the configuration.
+        if (this.currentVersion == latestVersion) return;
+
+        // Get the latest settings from the settings store and publish changes.
+        var latestSettings = await this.settings.FindAllAsync();
+
+        // Refresh the settings cache.
+        try
         {
-          // Get the latest settings from the settings store and publish the changes.
-          var latestSettings = this.settings.FindAll();
-          latestSettings.Except(this.settingsCache).ToList().ForEach(
-                                kv => this.changed.OnNext(kv));
+            this.settingsCacheLock.EnterWriteLock();
 
-          // Update the current version.
-          this.currentVersion = latestVersion;
-
-          // Refresh settings cache.
-          this.settingsCache = latestSettings;
+            if (this.settingsCache != null)
+            {
+                //Notify settings changed
+                latestSettings.Except(this.settingsCache).ToList().ForEach(kv => this.changed.OnNext(kv));
+            }
+            this.settingsCache = latestSettings;
         }
-      }
+        finally
+        {
+            this.settingsCacheLock.ExitWriteLock();
+        }
+
+        // Update the current version.
+        this.currentVersion = latestVersion;
     }
     catch (Exception ex)
     {
-      this.changed.OnError(ex);
+        this.changed.OnError(ex);
+    }
+    finally
+    {
+        this.syncCacheSemaphore.Release();
     }
   }
 }
@@ -193,81 +195,102 @@ public class ExternalConfigurationManager : IDisposable
 
 > The `ExternalConfigurationManager` class also provides a property named `Environment`. This property supports varying configurations for an application running in different environments, such as staging and production.
 
-An `ExternalConfigurationManager` object can also query the `BlobSettingsStore` object periodically for any changes (using a timer). The `StartMonitor` and `StopMonitor` methods illustrated in the code sample below start and stop the timer. The `OnTimerElapsed` method runs when the timer expires and invokes the `CheckForConfigurationChanges` method to detect any changes and raise the `Changed` event, as described earlier.
+An `ExternalConfigurationManager` object can also query the `BlobSettingsStore` object periodically for any changes. In the following code, the `StartMonitor` method calls `CheckForConfigurationChanges` at an interval to detect any changes and raise the `Changed` event, as described earlier.
 
 ```csharp
 public class ExternalConfigurationManager : IDisposable
 {
   ...
   private readonly ISubject<KeyValuePair<string, string>> changed;
-  private readonly Timer timer;
-  private ISettingsStore settings;
+  private Dictionary<string, string> settingsCache;
+  private readonly CancellationTokenSource cts = new CancellationTokenSource();
+  private Task monitoringTask;
+  private readonly TimeSpan interval;
+
+  private readonly SemaphoreSlim timerSemaphore = new SemaphoreSlim(1);
   ...
-  public ExternalConfigurationManager(ISettingsStore settings,
-                                      TimeSpan interval, ...)
+  public ExternalConfigurationManager(string environment) : this(new BlobSettingsStore(environment), TimeSpan.FromSeconds(15), environment)
   {
-    ...
-
-    // Set up the timer.
-    this.timer = new Timer(interval.TotalMilliseconds)
-    {
-      AutoReset = false;
-    };
-    this.timer.Elapsed += this.OnTimerElapsed;
-
-    this.changed = new Subject<KeyValuePair<string, string>>();
-    ...
   }
-
+  
+  public ExternalConfigurationManager(ISettingsStore settings, TimeSpan interval, string environment)
+  {
+      this.settings = settings;
+      this.interval = interval;
+      this.CheckForConfigurationChangesAsync().Wait();
+      this.changed = new Subject<KeyValuePair<string, string>>();
+      this.Environment = environment;
+  }
   ...
+  /// <summary>
+  /// Check to see if the current instance is monitoring for changes
+  /// </summary>
+  public bool IsMonitoring => this.monitoringTask != null && !this.monitoringTask.IsCompleted;
 
+  /// <summary>
+  /// Start the background monitoring for configuration changes in the central store
+  /// </summary>
   public void StartMonitor()
   {
-    if (this.timer.Enabled)
-    {
-      return;
-    }
+      if (this.IsMonitoring)
+          return;
 
-    lock (this.timerSyncObject)
-    {
-      if (this.timer.Enabled)
+      try
       {
-        return;
+          this.timerSemaphore.Wait();
+
+          // Check again to make sure we are not already running.
+          if (this.IsMonitoring)
+              return;
+
+          // Start running our task loop.
+          this.monitoringTask = ConfigChangeMonitor();
       }
-      this.keepMonitoring = true;
-
-      // Load the local settings cache.
-      this.CheckForConfigurationChanges();
-
-      this.timer.Start();
-    }
+      finally
+      {
+          this.timerSemaphore.Release();
+      }
   }
 
+  /// <summary>
+  /// Loop that monitors for configuration changes
+  /// </summary>
+  /// <returns></returns>
+  public async Task ConfigChangeMonitor()
+  {
+      while (!cts.Token.IsCancellationRequested)
+      {
+          await this.CheckForConfigurationChangesAsync();
+          await Task.Delay(this.interval, cts.Token);
+      }
+  }
+
+  /// <summary>
+  /// Stop monitoring for configuration changes
+  /// </summary>
   public void StopMonitor()
   {
-    lock (this.timerSyncObject)
-    {
-      this.keepMonitoring = false;
-      this.timer.Stop();
-    }
+      try
+      {
+          this.timerSemaphore.Wait();
+
+          // Signal the task to stop.
+          this.cts.Cancel();
+
+          // Wait for the loop to stop.
+          this.monitoringTask.Wait();
+
+          this.monitoringTask = null;
+      }
+      finally
+      {
+          this.timerSemaphore.Release();
+      }
   }
 
-  private void OnTimerElapsed(object sender, EventArgs e)
+  public void Dispose()
   {
-    Trace.TraceInformation(
-          "Configuration Manager: checking for configuration changes.");
-
-    try
-    {
-      this.CheckForConfigurationChanges();
-    }
-    finally
-    {
-      ...
-      // Restart the timer after each interval.
-      this.timer.Start();
-      ...
-    }
+      this.cts.Cancel();
   }
   ...
 }
@@ -278,43 +301,36 @@ The `ExternalConfigurationManager` class is instantiated as a singleton instance
 ```csharp
 public static class ExternalConfiguration
 {
-  private static readonly Lazy<ExternalConfigurationManager> configuredInstance
-                            = new Lazy<ExternalConfigurationManager>(
-    () =>
-    {
-      var environment = CloudConfigurationManager.GetSetting("environment");
-      return new ExternalConfigurationManager(environment);
-    });
+    private static readonly Lazy<ExternalConfigurationManager> configuredInstance = new Lazy<ExternalConfigurationManager>(
+        () =>
+        {
+            var environment = CloudConfigurationManager.GetSetting("environment");
+            return new ExternalConfigurationManager(environment);
+        });
 
-  public static ExternalConfigurationManager Instance
-  {
-    get { return configuredInstance.Value; }
-  }
+    public static ExternalConfigurationManager Instance => configuredInstance.Value;
 }
 ```
 
-The following code is taken from the `WorkerRole` class in the _ExternalConfigurationStore.Cloud_ project. It shows how the application uses the `ExternalConfiguration` class to read and update a setting.
+The following code is taken from the `WorkerRole` class in the _ExternalConfigurationStore.Cloud_ project. It shows how the application uses the `ExternalConfiguration` class to read a setting.
 
 ```csharp
 public override void Run()
 {
-  // Start monitoring for configuration changes.
+  // Start monitoring configuration changes.
   ExternalConfiguration.Instance.StartMonitor();
 
   // Get a setting.
   var setting = ExternalConfiguration.Instance.GetAppSetting("setting1");
   Trace.TraceInformation("Worker Role: Get setting1, value: " + setting);
 
-  Thread.Sleep(TimeSpan.FromSeconds(10));
-
-  // Update a setting.
-  Trace.TraceInformation("Worker Role: Updating configuration");
-  ExternalConfiguration.Instance.SetAppSetting("setting1", "new value");
-
   this.completeEvent.WaitOne();
 }
+```
+
 The following code, also from the `WorkerRole` class, shows how the application subscribes to configuration events.
-C#
+
+```csharp
 public override bool OnStart()
 {
   ...
