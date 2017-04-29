@@ -127,7 +127,8 @@ public class ExternalConfigurationManager : IDisposable
   public string GetAppSetting(string key)
   {
     ...
-    // Try and get the value from the settings cache.  If there's a miss, get the setting from the settings store and refresh the settings cache.
+    // Try to get the value from the settings cache. 
+    // If there's a cache miss, get the setting from the settings store and refresh the settings cache.
 
     string value;
     try
@@ -149,7 +150,7 @@ public class ExternalConfigurationManager : IDisposable
     try
     {
         // It is assumed that updates are infrequent.
-        // To avoid race conditions in refreshing the cache synchronize access to the in memory cache
+        // To avoid race conditions in refreshing the cache, synchronize access to the in-memory cache.
         await this.syncCacheSemaphore.WaitAsync();
 
         var latestVersion = await this.settings.GetVersionAsync();
@@ -194,7 +195,7 @@ public class ExternalConfigurationManager : IDisposable
 
 > The `ExternalConfigurationManager` class also provides a property named `Environment`. This property supports varying configurations for an application running in different environments, such as staging and production.
 
-An `ExternalConfigurationManager` object can also query the `BlobSettingsStore` object periodically for any changes. The `StartMonitor` and `StopMonitor` methods illustrated in the code sample below invokes the `CheckForConfigurationChanges` method every `interval` to detect any changes and raise the `Changed` event, as described earlier.
+An `ExternalConfigurationManager` object can also query the `BlobSettingsStore` object periodically for any changes. In the following code, the `StartMonitor` method calls `CheckForConfigurationChanges` at an interval to detect any changes and raise the `Changed` event, as described earlier.
 
 ```csharp
 public class ExternalConfigurationManager : IDisposable
@@ -238,11 +239,11 @@ public class ExternalConfigurationManager : IDisposable
       {
           this.timerSemaphore.Wait();
 
-          //Check again to make sure we are not already running.
+          // Check again to make sure we are not already running.
           if (this.IsMonitoring)
               return;
 
-          //Start runnin our task loop.
+          // Start running our task loop.
           this.monitoringTask = ConfigChangeMonitor();
       }
       finally
@@ -265,7 +266,7 @@ public class ExternalConfigurationManager : IDisposable
   }
 
   /// <summary>
-  /// Stop Monitoring for Configuration Changes
+  /// Stop monitoring for configuration changes
   /// </summary>
   public void StopMonitor()
   {
@@ -273,10 +274,10 @@ public class ExternalConfigurationManager : IDisposable
       {
           this.timerSemaphore.Wait();
 
-          //Signal the task to stop
+          // Signal the task to stop.
           this.cts.Cancel();
 
-          //Wait for the loop to stop
+          // Wait for the loop to stop.
           this.monitoringTask.Wait();
 
           this.monitoringTask = null;
@@ -316,7 +317,7 @@ The following code is taken from the `WorkerRole` class in the _ExternalConfigur
 ```csharp
 public override void Run()
 {
-  // Start the monitoring configuration changes.
+  // Start monitoring configuration changes.
   ExternalConfiguration.Instance.StartMonitor();
 
   // Get a setting.
