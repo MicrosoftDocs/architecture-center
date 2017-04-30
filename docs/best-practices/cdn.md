@@ -183,7 +183,7 @@ By default, Azure CDN instances have the *Query String Status* setting disabled.
 
 ### Features
 
-Azure has several CDN products. When selecting a CDN, consider the features that each product supports. See [Azure CDN Features][cdn-features]. Premium features that you may wish to consider include:
+Azure has several CDN products. When selecting a CDN, consider the features that each product supports. See [Azure CDN Features][cdn-features] for details. Premium features that you may wish to consider include:
 
 - **[Rules engine](/azure/cdn/cdn-rules-engine)**. The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. 
 
