@@ -16,7 +16,7 @@ ms.author: pnp
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="_images/azure-reference-architectures.svg" alt="" />
+                            <img src="_images/reference-architectures.svg" alt="" />
                         </div>
                     </div>
                 <div class="cardText">
@@ -35,7 +35,7 @@ ms.author: pnp
             <div class="card">
                 <div class="cardImageOuter">
                     <div class="cardImage bgdAccent1">
-                        <img src="_images/azure-design-patterns.svg" alt="" />
+                        <img src="_images/cloud-design-patterns.svg" alt="" />
                     </div>
                 </div>
                 <div class="cardText">
@@ -54,7 +54,7 @@ ms.author: pnp
             <div class="card">
                 <div class="cardImageOuter">
                     <div class="cardImage bgdAccent1">
-                        <img src="_images/azure-best-practices.svg" alt="" />
+                        <img src="_images/best-practices.svg" alt="" />
                     </div>
                 </div>
                 <div class="cardText">
