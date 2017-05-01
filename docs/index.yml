@@ -7,17 +7,17 @@ featured:
 - title: Reference Architectures
   description: A set of recommended architectures for Azure. Each architecture includes best practices, prescriptive steps, and deployable solution.
   url: /azure/architecture/reference-architectures
-  thumbnail: azure-arch-1.svg
+  thumbnail: reference-architectures.svg
 
 - title: Cloud Design Patterns
   description: Design patterns for developers and solution architects. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.
   url: /azure/architecture/patterns/
-  thumbnail: azure-arch-3.svg
+  thumbnail: cloud-design-patterns.svg
 
 - title: Best Practices for Cloud Applications
   description: Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning, API design, and others.
   url: /azure/architecture/best-practices/
-  thumbnail: azure-arch-4.svg
+  thumbnail: best-practices.svg
 
 series:
 
