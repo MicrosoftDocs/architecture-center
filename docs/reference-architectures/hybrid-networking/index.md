@@ -41,8 +41,8 @@ These reference architectures show proven practices for creating a robust networ
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Expressroute</h3>
-                            <p>Extend an on-premises network to Azure using Azure Expressroute</p>
+                            <h3>ExpressRoute</h3>
+                            <p>Extend an on-premises network to Azure using Azure ExpressRoute</p>
                         </div>
                     </div>
                 </div>
@@ -60,8 +60,8 @@ These reference architectures show proven practices for creating a robust networ
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Expressroute with VPN failover</h3>
-                            <p>Extend an on-premises network to Azure using Azure Expressroute, with a VPN as a failover connection.</p>
+                            <h3>ExpressRoute with VPN failover</h3>
+                            <p>Extend an on-premises network to Azure using Azure ExpressRoute, with a VPN as a failover connection.</p>
                         </div>
                     </div>
                 </div>

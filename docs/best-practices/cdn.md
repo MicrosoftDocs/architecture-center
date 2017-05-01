@@ -28,7 +28,7 @@ Typical uses for a CDN include:
 * Delivering static resources for client applications, often from a website. These resources can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request. The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.
 * Delivering public static and shared content to devices such as mobile phones and tablet computers. The application itself is a web service that offers an API to clients running on the various devices. The CDN can also deliver static datasets (via the web service) for the clients to use, perhaps to generate the client UI. For example, the CDN could be used to distribute JSON or XML documents.
 * Serving entire websites that consist of only public static content to clients, without requiring any dedicated compute resources.
-* Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections.
+* Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections. Microsoft Azure Media Services (AMS) integrates with Azure CDN to deliver content directly to the CDN for further distribution. For more information, see [Streaming endpoints overview](/azure/media-services/media-services-streaming-endpoints-overview).
 * Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers.
 * Handling the growing load on applications that support IoT (Internet of Things) solutions. The huge numbers of such devices and appliances involved could easily overwhelm an application if it was required to process broadcast messages and manage firmware update distribution directly to each device.
 * Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
@@ -181,6 +181,15 @@ Bundling and minification can be handled by ASP.NET. In an MVC project, you defi
 
 By default, Azure CDN instances have the *Query String Status* setting disabled. In order for updated script bundles to be handled properly by the CDN, you must enable the *Query String Status* setting for the CDN instance. Note that it may take an hour or more before the setting takes effect.
 
+### Features
+
+Azure has several CDN products. When selecting a CDN, consider the features that each product supports. See [Azure CDN Features][cdn-features] for details. Premium features that you may wish to consider include:
+
+- **[Rules engine](/azure/cdn/cdn-rules-engine)**. The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. 
+
+- **[Real-time statistics](/azure/cdn/cdn-real-time-stats)**. Monitor real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile, and receive [real-time alerts](/azure/cdn/cdn-real-time-alerts). 
+
+
 ## Example code
 This section contains some examples of code and techniques for working with the CDN.  
 
@@ -231,3 +240,8 @@ Note that using URL rewriting requires you to make some changes to the bundling 
 * [Using Azure CDN](/azure/cdn/cdn-create-new-endpoint/)
 * [Integrate a cloud service with Azure CDN](/azure/cdn/cdn-cloud-service-with-cdn/)
 * [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
+
+
+<!-- links -->
+
+[cdn-features]: /azure/cdn/cdn-overview#azure-cdn-features

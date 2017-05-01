@@ -77,7 +77,7 @@ Consider the following points when implementing this pattern:
 
 Use this pattern for tasks that are not cost effective if they run in their own computational units. If a task spends much of its time idle, running this task in a dedicated unit can be expensive.
 
-This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly-sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
+This pattern might not be suitable for tasks that perform critical fault-tolerant operations, or tasks that process highly sensitive or private data and require their own security context. These tasks should run in their own isolated environment, in a separate computational unit.
 
 ## Example
 
@@ -99,37 +99,14 @@ When a role shuts down or is recycled, the fabric controller prevents any more i
 
 > Any actions performed in the `OnStop` method must be completed within five minutes (or 30 seconds if you are using the Azure emulator on a local computer). Otherwise the Azure fabric controller assumes that the role has stalled and will force it to stop.
 
-The tasks are started by the `Run` method that waits for the tasks to complete. The tasks implement the business logic of the cloud service, and can respond to messages posted to the role through the Azure load balancer. The figure shows the lifecycle of tasks and resources in a role in a Azure cloud service.
+The tasks are started by the `Run` method that waits for the tasks to complete. The tasks implement the business logic of the cloud service, and can respond to messages posted to the role through the Azure load balancer. The figure shows the lifecycle of tasks and resources in a role in an Azure cloud service.
 
-![The lifecycle of tasks and resources in a role in a Azure cloud service](./_images/compute-resource-consolidation-lifecycle.png)
+![The lifecycle of tasks and resources in a role in an Azure cloud service](./_images/compute-resource-consolidation-lifecycle.png)
 
 
-The _WorkerRole.cs_ file in the _ComputeResourceConsolidation.Worker_ project shows an example of how you might implement this pattern in a Azure cloud service.
+The _WorkerRole.cs_ file in the _ComputeResourceConsolidation.Worker_ project shows an example of how you might implement this pattern in an Azure cloud service.
 
 > The _ComputeResourceConsolidation.Worker_ project is part of the _ComputeResourceConsolidation_ solution available for download from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/compute-resource-consolidation).
-
-In the worker role, code that runs when the role is initialized creates the required cancellation token and a list of tasks to run.
-
-```csharp
-public class WorkerRole: RoleEntryPoint
-{
-  // The cancellation token source used to cooperatively cancel running tasks.
-  private readonly CancellationTokenSource cts = new CancellationTokenSource ();
-
-  // List of tasks running on the role instance.
-  private readonly List<Task> tasks = new List<Task>();
-
-  // List of worker tasks to run on this role.
-  private readonly List<Func<CancellationToken, Task>> workerTasks
-                        = new List<Func<CancellationToken, Task>>
-    {
-      MyWorkerTask1,
-      MyWorkerTask2
-    };
-
-  ...
-}
-```
 
 The `MyWorkerTask1` and the `MyWorkerTask2` methods illustrate how to perform different tasks within the same worker role. The following code shows `MyWorkerTask1`. This is a simple task that sleeps for 30 seconds and then outputs a trace message. It repeats this process until the task is canceled. The code in `MyWorkerTask2` is similar.
 
@@ -171,20 +148,35 @@ private static async Task MyWorkerTask1(CancellationToken ct)
 After the worker role has initialized the resources it uses, the `Run` method starts the two tasks concurrently, as shown here.
 
 ```csharp
+/// <summary>
+/// The cancellation token source use to cooperatively cancel running tasks
+/// </summary>
+private readonly CancellationTokenSource cts = new CancellationTokenSource();
+
+/// <summary>
+/// List of running tasks on the role instance
+/// </summary>
+private readonly List<Task> tasks = new List<Task>();
+
 // RoleEntry Run() is called after OnStart().
 // Returning from Run() will cause a role instance to recycle.
 public override void Run()
 {
-  // Start worker tasks and add them to the task list.
-  foreach (var worker in workerTasks)
-    tasks.Add(worker(cts.Token));
+  // Start worker tasks and add to the task list
+  tasks.Add(MyWorkerTask1(cts.Token));
+  tasks.Add(MyWorkerTask2(cts.Token));
+
+  foreach (var worker in this.workerTasks)
+  {
+      this.tasks.Add(worker);
+  }
 
   Trace.TraceInformation("Worker host tasks started");
   // The assumption is that all tasks should remain running and not return,
   // similar to role entry Run() behavior.
   try
   {
-    Task.WaitAny(tasks.ToArray());
+    Task.WaitAll(tasks.ToArray());
   }
   catch (AggregateException ex)
   {
