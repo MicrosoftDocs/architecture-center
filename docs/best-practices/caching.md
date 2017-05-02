@@ -1205,7 +1205,7 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 Which serialization to choose should consider several aspects such as: performance, interoperability, versioning, compatibility, compression, time/memory overheads among others.
 When assessing performance you should take into account that benchmarks are context dependent and may not consider newer libraries or versions. There is no "fastest" serializer, the option that better suits your needs depends on your context and requirements.
 
-Some of the option when considering serialization are:
+Some of the options when considering serialization are:
 
 - [Protocol Buffers](https://github.com/google/protobuf) (a.k.a., protobuf) are Google's extensible mechanism for serializing structured data. It uses IDL ([Interface Description Language](https://en.wikipedia.org/wiki/Interface_description_language)), strong typing and requires a compilation step to output language specific code to de/serialize messages. It supports several different programming languages and was designed to be layered over an existing RPC mechanism.
 
@@ -1220,6 +1220,8 @@ Some of the option when considering serialization are:
 - [MessagePack](http://msgpack.org/) is an object serialization specification like JSON but with efficient binary encoding. There's no type checking or schemas, depending on your requirements may be an advantage or not. It is supported by many programming languages and environments.
 
 - [Bond](https://github.com/Microsoft/bond): is a cross-platform framework for working with schematized data. It supports cross-language de/serialization and powerful generic mechanisms for efficiently manipulating data.
+
+- [gRPC](http://www.grpc.io/) as in many RPC systems, it is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. By default it uses protocol buffers as both its IDL and as its underlying message interchange format.
 
 ## Related patterns and guidance
 The following pattern might also be relevant to your scenario when you implement caching in your applications:
