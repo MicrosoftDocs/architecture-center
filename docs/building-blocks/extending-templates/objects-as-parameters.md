@@ -11,7 +11,7 @@ ms.author: pnp
 
 # Azure Resource Manager templates - objects as parameters
 
-Azure Resource Manager templates support parameters to specify values to customize a resource deployment. While this feature is useful and allows you to create complex deployments, a single template is limited to 255 parameters. If you use a parameter for each property in a resource and you have a large deployment, you might run out of parameters.
+Azure Resource Manager templates support parameters that can be assigned to resource properties during deployment. While this feature is useful and allows you to create complex deployments, a single template is limited to 255 parameters. If you use a parameter for each property in a resource and you have a large deployment, you might run out of parameters.
 
 ## Create object as parameter
 

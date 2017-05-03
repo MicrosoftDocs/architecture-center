@@ -153,5 +153,5 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 You can use this in your templates to respecify the original properties of the resource you want to update. Specify the update resource either in a linked or nested template using the `Microsoft.Resources/deployments` resource type.
 
-* For an introduction to the `reference()` function, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+* For an introduction to the `reference()` function, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
 * This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
