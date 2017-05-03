@@ -169,7 +169,7 @@ However, if you include all the properties a single object, it is much easier to
 
 ## Use with sequential copy
 
-This becomes even more useful when combined with the [sequential copy loop](./resource-manager-sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
+This becomes even more useful when combined with the [sequential copy loop](./sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
 
 ```json
 {
@@ -318,5 +318,5 @@ If you would like to experiment with these templates, follow these steps:
 
 If you require more than the maximum 255 parameters allowed per deployment, use this to specify fewer parameters in your template. You can also use this to manage the properties for your resources more easily, then deploy them without conflicts using a sequential loop.
 
-* For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](./azure/azure-resource-manager/resource-group-template-functions.md).
+* For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
 * This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
