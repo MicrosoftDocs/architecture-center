@@ -10,7 +10,7 @@ ms.author: pnp
 
 ---
 
-# Extending Azure Resource Manager template functionality - updating a resource
+# Azure Resource Manager templates - updating a resource
 
 There are some scenarios in which you need to update a resource during a deployment. You might encounter this scenario when you cannot specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. Resource Manager supports updating resources during deployment, but you must design your template correctly to avoid errors and to ensure the deployment is handled as an update.
 

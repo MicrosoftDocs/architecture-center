@@ -8,7 +8,7 @@ ms.date: 05/03/2017
 ms.author: pnp
 
 ---
-# Extending Azure Resource Manager template functionality - Conditional Template Linking
+# Azure Resource Manager templates - conditional template linking
 
 Azure Resource Manager templates support linking from one template file to another using the `Microsoft.Resources/deployments` resource type. You can specify resources in a seperate template and link to them using the `templateLink` property. This is great for managing templates and making deployment more easily configurable.
 
