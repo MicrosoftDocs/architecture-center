@@ -19,7 +19,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./virtual-machines-windows/images/n-tier.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./virtual-machines-windows/images/n-tier.svg"/>
                             </div>
                         </div>
                         <div class="cardText">
