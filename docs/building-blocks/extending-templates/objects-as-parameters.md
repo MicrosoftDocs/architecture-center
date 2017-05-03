@@ -318,5 +318,5 @@ If you would like to experiment with these templates, follow these steps:
 
 If you require more than the maximum 255 parameters allowed per deployment, use this to specify fewer parameters in your template. You can also use this to manage the properties for your resources more easily, then deploy them without conflicts using a sequential loop.
 
-* For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](resource-group-template-functions.md).
+* For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](./azure/azure-resource-manager/resource-group-template-functions.md).
 * This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
