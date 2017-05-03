@@ -39,7 +39,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./virtual-machines-linux/images/n-tier.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./virtual-machines-linux/images/n-tier.svg"/>
                             </div>
                         </div>
                         <div class="cardText">
@@ -58,7 +59,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./hybrid-networking/images/vpn.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./hybrid-networking/images/vpn.svg"/>
                             </div>
                         </div>
                         <div class="cardText">
@@ -77,7 +79,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./dmz/images/secure-vnet-dmz.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./dmz/images/secure-vnet-dmz.svg"/>
                             </div>
                         </div>
                         <div class="cardText">
@@ -96,7 +99,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./identity/images/adds-extend-domain.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./identity/images/adds-extend-domain.svg">
                             </div>
                         </div>
                         <div class="cardText">
@@ -115,7 +119,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./managed-web-app/images/scalable-web-app.svg');">
+                            <div class="cardImage bgdAccent1">
+                                <img src="./managed-web-app/images/scalable-web-app.svg"/>
                             </div>
                         </div>
                         <div class="cardText">
