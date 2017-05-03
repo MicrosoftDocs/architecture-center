@@ -400,7 +400,7 @@ ping 10.1.2.37
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 [vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
-[hybrid-ha]: ./expressroute-vpn-failover
+[hybrid-ha]: /expressroute-vpn-failover.md
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
