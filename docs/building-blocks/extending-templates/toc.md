@@ -1,4 +1,4 @@
-# Patterns for extending the functionality of Azure Resource Manager Templates
+# Extending Azure Resource Manager template functionality
 ## [Introduction](./index.md)
 ## [Sequential copy loop](./sequential-loop.md)
 ## [Conditional template linking](./conditional-linking.md)

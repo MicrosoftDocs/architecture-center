@@ -1,5 +1,5 @@
 ---
-title: Patterns for extending Azure Resource Manager template functionality - updating a resource
+title: Extending Azure Resource Manager template functionality - updating a resource
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
 author: petertay
 ms.service: guidance
@@ -7,15 +7,12 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: pnp
 
-pnp.series.title: Patterns for extending Azure Resource Manager template functionality
 
 ---
 
-# Patterns for extending Azure Resource Manager template functionality - updating a resource
+# Extending Azure Resource Manager template functionality - updating a resource
 
 There are some scenarios in which you need to update a resource during a deployment. You might encounter this scenario when you cannot specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. Resource Manager supports updating resources during deployment, but you must design your template correctly to avoid errors and to ensure the deployment is handled as an update.
-
-## Understand the pattern
 
 First, you must reference the resource once in the template to create it, but then you must reference the resource by the same name to update it later. However, if two resources have the same name in a template, Resource Manager throws an exception. To avoid this error, specify the updated resource in a second template that's either linked or included as a subtemplate using the `Microsoft.Resources/deployments` resource type.
 
@@ -29,7 +26,7 @@ Finally, you must make the resource dependent on all related resources that you 
 
 ## Example template
 
-The following example template demonstrates this pattern. It deploys a virtual network (VNet) named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with the subnet. Then, a deployment resource named `updateVNet` includes a nested template that references the name of the `firstVNet` resource. 
+The following example template demonstrates this. It deploys a virtual network (VNet) named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with the subnet. Then, a deployment resource named `updateVNet` includes a nested template that references the name of the `firstVNet` resource. 
 
 Look at the `addressSpace` property and the `subnets` property on this resource. Notice that the `addressSpace` value is set to the same property value on the `firstVNet` resource deployment object. In the `subnets` array, the value for `firstSubnet` is set similarly. Because all the original `firstVNet` properties have been specified,  Resource Manager updates the resource in Azure. In this case, the update is the addition of a new subnet named `secondSubnet`.
 
@@ -154,7 +151,7 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 ## Next steps
 
-You can use this pattern in your templates to respecify the original properties of the resource you want to update. Specify the update resource either in a linked or nested template using the `Microsoft.Resources/deployments` resource type.
+You can use this in your templates to respecify the original properties of the resource you want to update. Specify the update resource either in a linked or nested template using the `Microsoft.Resources/deployments` resource type.
 
 * For an introduction to the `reference()` function, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-* This pattern is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
+* This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).

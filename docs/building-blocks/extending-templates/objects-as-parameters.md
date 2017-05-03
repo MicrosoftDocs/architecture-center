@@ -1,5 +1,5 @@
 ---
-title: Patterns for extending Azure Resource Manager template functionality - objects as parameters
+title: Extending Azure Resource Manager template functionality - objects as parameters
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters
 author: petertay
 ms.service: guidance
@@ -7,17 +7,15 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: pnp
 
-pnp.series.title: Patterns for extending Azure Resource Manager template functionality
-
 ---
 
-# Patterns for extending Azure Resource Manager template functionality - objects as parameters
+# Extending Azure Resource Manager template functionality - objects as parameters
 
 Azure Resource Manager templates support parameters to specify values to customize a resource deployment. While this feature is useful and allows you to create complex deployments, a single template is limited to 255 parameters. If you use a parameter for each property in a resource and you have a large deployment, you might run out of parameters.
 
 ## Create object as parameter
 
-One way to solve this problem is to use an object as a parameter. The pattern is to specify a parameter as an object in your template, then provide the object as a value or an array of values. You refer to its subproperties using the `parameter()` function and dot operator. For example:
+One way to solve this problem is to use an object as a parameter. Specify a parameter as an object in your template, then provide the object as a value or an array of values. You refer to its subproperties using the `parameter()` function and dot operator. For example:
 
 ```json
 {
@@ -93,11 +91,11 @@ The corresponding parameter file looks like:
 }
 ```
 
-In this example all the values specified for the VNet come from a single parameter, `VNetSettings`. This pattern is useful for property value management because you to keep all the values for a particular resource in single object. And while this example uses an object as a parameter, you can also use an array of objects as a parameter. You refer to the objects using an index into the array.
+In this example all the values specified for the VNet come from a single parameter, `VNetSettings`. This is useful for property value management because you to keep all the values for a particular resource in single object. And while this example uses an object as a parameter, you can also use an array of objects as a parameter. You refer to the objects using an index into the array.
 
 ## Use object instead of multiple arrays
 
-You may have used a similar pattern to create multiple instances of a resource by creating multiple arrays of property values and iterating through each array to select the value. This pattern works well when creating multiple resources of the same type, but it can be troublesome when used to create child resources. 
+You may be familiar with using a copy loop to create multiple resources. Typically you provide an JSON array of resource properties and the copy loop iterates through it and selects values. This works well when creating multiple resources of the same type, but it can be troublesome when used to create child resources. 
 
 There's two reasons for this issue. First, Resource Manager attempts to deploy child resources in parallel, but your deployment fails when two child resources update the parent simultaneously. 
 
@@ -125,7 +123,7 @@ Second, each property value array is iterated in parallel and if the shape of ea
 }
 ```
 
-The typical pattern to assign these values to properties inside a copy loop is to access the property using the `variables()` function and use `copyIndex()` as an index into the array. For example:
+The typical implementation assigns these values to properties inside a copy loop. The property value is selected from the array using the `variables()` function indexed by the result of the `copyIndex()` function. For example:
 
 ```json
 {
@@ -171,7 +169,7 @@ However, if you include all the properties a single object, it is much easier to
 
 ## Use with sequential copy
 
-This pattern becomes even more useful when combined with the [sequential copy pattern](./resource-manager-sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
+This becomes even more useful when combined with the [sequential copy loop](./resource-manager-sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
 
 ```json
 {
@@ -318,7 +316,7 @@ If you would like to experiment with these templates, follow these steps:
 
 ## Next steps
 
-If you require more than the maximum 255 parameters allowed per deployment, use this pattern to specify fewer parameters in your template. You can also use this pattern to manage the properties for your resources more easily, then deploy them without conflicts using the sequential loop pattern.
+If you require more than the maximum 255 parameters allowed per deployment, use this to specify fewer parameters in your template. You can also use this to manage the properties for your resources more easily, then deploy them without conflicts using a sequential loop.
 
 * For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](resource-group-template-functions.md).
-* This pattern is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
+* This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).

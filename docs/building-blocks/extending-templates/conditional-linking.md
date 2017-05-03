@@ -1,5 +1,5 @@
 ---
-title: Patterns for extending Azure Resource Manager Template functionality - Conditional Template Linking
+title: Extending Azure Resource Manager Template functionality - Conditional Template Linking
 description: Describes how to extend the functionality of Azure Resource Manager templates to implement conditional template linking
 author: petertay
 ms.service: guidance
@@ -7,10 +7,8 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: pnp
 
-pnp.series.title: Patterns for extending Azure Resource Manager template functionality
-
 ---
-# Patterns for extending Azure Resource Manager template functionality - Conditional Template Linking
+# Extending Azure Resource Manager template functionality - Conditional Template Linking
 
 Azure Resource Manager templates support linking from one template file to another using the `Microsoft.Resources/deployments` resource type. You can specify resources in a seperate template and link to them using the `templateLink` property. This is great for managing templates and making deployment more easily configurable.
 
@@ -20,7 +18,7 @@ For example, for some deployments you may require a VNet with an external domain
 
 The problem is that resource manager does not include functionality to conditionally link templates using parameters. But there is a way to implement this using existing resource manager functions.
 
-The pattern is as follows: in the main template, a variable includes an object with two or more properties. The two or more properties specify the `uri` of a template. Then, a `Microsoft.Resources/deployments` resource type is specified with a `templateLink` property whose `uri` is the variable object indexed by a parameter value. Another template specifies a value for the parameter, and during deployment this parameter value changes the index and this in turn changes the `uri`. The following template demonstrates this pattern.
+In the following template, a variable includes an object with two or more properties. The two or more properties specify the `uri` of a template. Then, a `Microsoft.Resources/deployments` resource type is specified with a `templateLink` property whose `uri` is the variable object indexed by a parameter value. Another template specifies a value for the parameter, and during deployment this parameter value changes the index and this in turn changes the `uri`. 
 
 ```json
 {
@@ -67,9 +65,9 @@ During deployment, the `condition` parameter is typically specified in a paramet
 ```
 If `condition` is set to `yes`, the template named `deploy.parameters.json` is linked. If `condition` is set to `no`, the template named `noDeploy.parameters.json` is linked. Note that while there two conditions here, you can include as many values as you require and can link to any number of templates. You can use conditions `1`, `2`, and `3` to link to three different templates, or you can use conditions `AzureDNS`, `externalDNS`, or `internalDNS` to link to templates that specify the appropriate deployment.
 
-It's also possible to implement `optional` linking using some creative math. The modulo operation represents the remainder after dividing a dividend by a divisor. One of the properties of the modulo operation is that for any given `n`, `(n+2) mod (n+1)` equals `1` for every value of `n` greater than `0`. By substituting the length of an array or a string for `n` in the pattern above, the result is a boolean operator for the presence of either. If the result is `0`, you can link to a template that doesn't deploy anything and if it's `1` you can link to a template that deploys the intended resource. 
+It's also possible to implement `optional` linking using some creative math. The modulo operation represents the remainder after dividing a dividend by a divisor. One of the properties of the modulo operation is that for any given `n`, `(n+2) mod (n+1)` equals `1` for every value of `n` greater than `0`. By substituting the length of an array or a string for `n` the result is a boolean operator for the presence of either. If the result is `0`, you can link to a template that doesn't deploy anything and if it's `1` you can link to a template that deploys the intended resource. 
 
-This pattern is demonstrated in the template below:
+This is demonstrated in the template below:
 
 ```json
 {
@@ -117,9 +115,9 @@ During deployment, the `optionalArray` parameter can be specified in parameter f
 }
 ```
 
-As with the previous pattern, a variable object includes one or more `uri` strings. There's also a `templateToInvoke` variable that implements the modulo operation. If the `optionalArray` is empty, the `length()` function evaluates to `0`, and the first `uri` of the `optionalParameterArray` is selected. If the `optionalArray` includes any number of values, the `length()` function evalates to greater than `0`, the modulo operation evaluates to `1`, and the second `uri` of the `optionalParameterArray` is selected. 
+As with the previous template, a variable object includes one or more `uri` strings. There's also a `templateToInvoke` variable that implements the modulo operation. If the `optionalArray` is empty, the `length()` function evaluates to `0`, and the first `uri` of the `optionalParameterArray` is selected. If the `optionalArray` includes any number of values, the `length()` function evalates to greater than `0`, the modulo operation evaluates to `1`, and the second `uri` of the `optionalParameterArray` is selected. 
 
-The pattern is simliar for an "optional" string parameter:
+The is simliar for an "optional" string parameter:
 
 ```json
 {
@@ -166,7 +164,7 @@ During deployment, the `optionalArray` parameter can be specified in parameter f
 }
 ```
 
-In this pattern, the `templateToInvoke` modulo operation evaluates the length of the string. If there is no string, the modulo operation evaluates to `0`, while a string of any length evaluates to `1`. As before, this becomes the index into the `optionalParameter` object and selects either the first or second `uri` for the resource's `templateLink` property. In this case, the value of `optionalString` is `deploy`, so the `deploy.parameters.json` template will be linked during deployment.
+In this example, the `templateToInvoke` modulo operation evaluates the length of the string. If there is no string, the modulo operation evaluates to `0`, while a string of any length evaluates to `1`. As before, this becomes the index into the `optionalParameter` object and selects either the first or second `uri` for the resource's `templateLink` property. In this case, the value of `optionalString` is `deploy`, so the `deploy.parameters.json` template will be linked during deployment.
 
 # Next Steps
 
