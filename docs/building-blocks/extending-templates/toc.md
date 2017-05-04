@@ -1,6 +1,6 @@
-# Extending Azure Resource Manager template functionality
+# Extending Azure Resource Manager templates
 ## [Introduction](./index.md)
 ## [Sequential copy loop](./sequential-loop.md)
 ## [Conditional template linking](./conditional-linking.md)
-## [Updating a deployed resource](./update-resource.md)
-## [Using objects as parameters](./objects-as-parameters.md)
+## [Updating a resource](./update-resource.md)
+## [Objects as parameters](./objects-as-parameters.md)
