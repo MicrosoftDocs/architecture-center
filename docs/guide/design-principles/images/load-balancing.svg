@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="145.56071"
+   height="142.82472"
+   viewBox="0 0 145.56071 142.82473"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="load-balancing.svg">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5917"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path5919"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker5877"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#5a5a5a;fill-opacity:1;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path5879"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path4452"
+         style="fill:#5d5d5d;fill-opacity:1;fill-rule:evenodd;stroke:#5d5d5d;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-62.663862"
+     inkscape:cy="23.078341"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer6"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1536"
+     inkscape:window-height="897"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="background">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.9000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect12656"
+       width="151.42857"
+       height="151.42857"
+       x="-1.4285791"
+       y="-1.4609921" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-86.434586,-820.9498)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3"
+     transform="translate(-86.434586,-88.587638)" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2"
+     transform="translate(-86.434586,-88.587638)">
+    <g
+       id="g6001"
+       transform="translate(41.676135,5.0407477)">
+      <g
+         id="Layer_1"
+         transform="translate(21.770589,11.84689)" />
+      <g
+         id="Ibiza_Symbols"
+         transform="translate(45.4,11.84689)">
+        <g
+           id="g6">
+          <path
+             id="path8"
+             d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+             inkscape:connector-curvature="0"
+             style="fill:#0078d7" />
+          <g
+             transform="translate(1176.51,-2762.63)"
+             id="group975-1984_1_">
+            <title
+               id="title11">Sheet.975</title>
+            <g
+               transform="translate(0.8685,-17.652)"
+               id="shape976-1985_2_">
+              <title
+                 id="title14">Sheet.976</title>
+              <path
+                 id="path16"
+                 d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               transform="translate(15.8925,0)"
+               id="shape977-1987_1_">
+              <title
+                 id="title19">Sheet.977</title>
+              <path
+                 id="path21"
+                 d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               id="shape978-1989_1_">
+              <title
+                 id="title24">Sheet.978</title>
+              <path
+                 id="path26"
+                 d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         id="Layer_1-7"
+         transform="translate(19.750288,64.37483)" />
+      <g
+         id="Ibiza_Symbols-2"
+         transform="translate(45.4,64.87991)">
+        <g
+           id="g6-1">
+          <path
+             id="path8-3"
+             d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+             inkscape:connector-curvature="0"
+             style="fill:#0078d7" />
+          <g
+             transform="translate(1176.51,-2762.63)"
+             id="group975-1984_1_-7">
+            <title
+               id="title11-2">Sheet.975</title>
+            <g
+               transform="translate(0.8685,-17.652)"
+               id="shape976-1985_2_-9">
+              <title
+                 id="title14-5">Sheet.976</title>
+              <path
+                 id="path16-6"
+                 d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               transform="translate(15.8925,0)"
+               id="shape977-1987_1_-6">
+              <title
+                 id="title19-4">Sheet.977</title>
+              <path
+                 id="path21-5"
+                 d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               id="shape978-1989_1_-7">
+              <title
+                 id="title24-6">Sheet.978</title>
+              <path
+                 id="path26-9"
+                 d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         id="Layer_1-9"
+         transform="translate(19.750289,117.91292)" />
+      <g
+         id="Ibiza_Symbols-6"
+         transform="translate(45.4,117.91292)">
+        <g
+           id="g6-5">
+          <path
+             id="path8-8"
+             d="m 131,71.7 -33.1,0 c -1.1,0 -2,1 -2,2.1 l 0,23.1 c 0,1.1 0.9,2.1 2,2.1 l 11.3,0 c 1.2,4.3 -0.4,4.9 -7.6,4.9 l 0,2.3 9.1,0 6.7,0 8.6,0 0,-2.3 c -7.2,0 -7.9,-0.6 -6.7,-4.9 l 11.7,0 c 1.1,0 2.3,-1 2.3,-2.1 l 0,-23.1 c 0,-1.1 -1.2,-2.1 -2.3,-2.1 z m -0.6,2.8 0,21.6 -31.7,0 0,-21.6 31.7,0 0,0 z"
+             inkscape:connector-curvature="0"
+             style="fill:#0078d7" />
+          <g
+             transform="translate(1176.51,-2762.63)"
+             id="group975-1984_1_-0">
+            <title
+               id="title11-5">Sheet.975</title>
+            <g
+               transform="translate(0.8685,-17.652)"
+               id="shape976-1985_2_-1">
+              <title
+                 id="title14-8">Sheet.976</title>
+              <path
+                 id="path16-5"
+                 d="m -1057.4,2861.6 -5.8,-3.3 -5.8,3.3 0,0.1 5.8,3.3 5.8,-3.4 0,0 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               transform="translate(15.8925,0)"
+               id="shape977-1987_1_-66">
+              <title
+                 id="title19-2">Sheet.977</title>
+              <path
+                 id="path21-0"
+                 d="m -1077.6,2848.3 0,6.6 5.8,-3.3 0,-6.6 -5.8,3.3 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+            <g
+               id="shape978-1989_1_-0">
+              <title
+                 id="title24-2">Sheet.978</title>
+              <path
+                 id="path26-1"
+                 d="m -1062.9,2848.3 -5.8,-3.3 0,6.6 5.8,3.3 0,-6.6 z"
+                 inkscape:connector-curvature="0"
+                 style="fill:#0078d7" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         id="path4421"
+         d="m 132.83506,183.62941 56.06347,39.90102"
+         style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:4.9000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:4.9000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 134.34094,224.48277 53.05171,-43.826"
+         id="path4423"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4425"
+         d="m 96.974644,154.08244 41.921336,-0.25253"
+         style="fill:none;fill-rule:evenodd;stroke:#5d5d5d;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5877)"
+         d="m 96.974644,154.08244 41.921336,-0.25253"
+         id="path5073"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path5897"
+         d="M 96.722106,152.06214 139.40105,100.03928"
+         style="fill:none;fill-rule:evenodd;stroke:#5a5a5a;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5917)" />
+      <g
+         transform="translate(46.428571,-141.42723)"
+         id="g4415">
+        <path
+           inkscape:connector-curvature="0"
+           class="st0"
+           d="m 25,320 c -1.2,0 -2.4,-0.5 -3.3,-1.4 L 1.3,298.2 c -0.9,-0.9 -1.4,-2 -1.4,-3.3 0,-1.2 0.5,-2.4 1.4,-3.3 l 20.4,-20.4 c 0.9,-0.9 2,-1.4 3.3,-1.4 1.2,0 2.4,0.5 3.3,1.4 l 20.4,20.4 c 0.9,0.9 1.4,2 1.4,3.3 0,1.3 -0.5,2.4 -1.4,3.3 l -20.4,20.4 c -0.9,0.9 -2.1,1.4 -3.3,1.4"
+           id="path5"
+           style="fill:#0078d7;fill-opacity:1" />
+        <path
+           inkscape:connector-curvature="0"
+           class="st1"
+           d="m 45.6,294.7 -6.6,-6.6 0,4.7 -7,0 c -0.7,-2.4 -2.6,-4.3 -5,-5 l 0,-6.8 4.6,0 -6.6,-6.6 -6.6,6.6 4.6,0 0,6.7 c -2.4,0.7 -4.3,2.6 -5,5 l -7,0 0,-4.6 -6.6,6.6 6.6,6.6 0,-4.7 7,0 c 0.7,2.4 2.6,4.3 5,5 l 0,4.6 c -1,0.7 -2.5,2.3 -2.5,4 0,2.5 2,4.5 4.5,4.5 2.5,0 4.5,-2 4.5,-4.5 0,-1.8 -1.5,-3.3 -2.5,-4 l 0,-4.7 c 2.4,-0.7 4.3,-2.6 5,-5 l 7,0 0,4.6 6.6,-6.4 z"
+           id="path7"
+           style="fill:#ffffff;fill-opacity:1" />
+        <path
+           inkscape:connector-curvature="0"
+           class="st0"
+           d="m 25,289.4 c -2.9,0 -5.3,2.4 -5.3,5.3 0,2.9 2.4,5.3 5.3,5.3 2.9,0 5.3,-2.4 5.3,-5.3 0,-2.9 -2.4,-5.3 -5.3,-5.3 z"
+           id="path9"
+           style="fill:#0078d7;fill-opacity:1" />
+      </g>
+      <g
+         id="paths"
+         transform="translate(280,-102)">
+        <g
+           id="Access_control" />
+        <g
+           id="Azure_active_directory" />
+        <g
+           id="API_Management" />
+        <g
+           id="Azure_automation" />
+        <g
+           id="Azure_SQL_database" />
+        <g
+           id="Azure_subscription" />
+        <g
+           id="Backup_service" />
+        <g
+           id="Bitbucket_code_source" />
+        <g
+           id="Azure_cache" />
+        <g
+           id="Content_delivery_network__x28_CDN_x29_" />
+        <g
+           id="Cloud_service" />
+        <g
+           id="CodePlex" />
+        <g
+           id="Dropbox_code_source" />
+        <g
+           id="Express_route" />
+        <g
+           id="Git_repository" />
+        <g
+           id="GitHub_code" />
+        <g
+           id="HD_Insight" />
+        <g
+           id="Health_monitoring" />
+        <g
+           id="Healthy" />
+        <g
+           id="BizTalk_hybrid_connection" />
+        <g
+           id="Hybrid_connection_manager_for_BizTalk_hybrid_connection" />
+        <g
+           id="Hyper-V_recovery_manager" />
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="112.3257"
+       y="201"
+       id="text12473"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan12475"
+         x="112.3257"
+         y="201">Load</tspan><tspan
+         sodipodi:role="line"
+         x="112.3257"
+         y="216.625"
+         id="tspan12477">Balancer</tspan></text>
+  </g>
+</svg>
