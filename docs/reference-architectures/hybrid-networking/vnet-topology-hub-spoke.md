@@ -16,13 +16,26 @@ cardTitle: Improving availability
 
 This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
 
-Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub VNet in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**.](#deploy-the-solution)
+Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub VNet in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**](#deploy-the-solution).
+
+> [!NOTE]
+> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
+
+Typical uses for this architecture include:
+
+* Workloads deployed in different environments (development, testing, production) that require the specific services that can be shared (in the hub VNet) while maintaining isolation (deployed to spokes).
+* Workloads that do not require connectivity among themselves, but require access to shared services, such as DNS, AD DS, firewall, among others.
+* Enterprises that require a central control over security aspects (firewall in the hub as a DMZ), and segregated management for each workload (individual spokes).
+
+## Architecture
+
+The following diagram highlights the important components in this architecture:
+
+> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Hub Spoke" page.
 
 ![[0]][0]
 
 The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
-
-## Architecture
 
 The architecture consists of the following components.
 
@@ -47,11 +60,6 @@ The architecture consists of the following components.
 * **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual netowrking peering][vnet-peering] connections are non-transitive, low latency connections between VNets.
 
 * **Spoke VNet**. Azure VNet used as a spoke in a hub-spoke topology. Spokes can be used to isolate wrokloads in their VNets, that can be managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Recommendations
 
@@ -335,7 +343,7 @@ ping 10.1.1.37
 
 ### Add connectivity between spokes
 
-If you want to allow spokes to connect to each other, you must deploy DRs to each spoke that forward traffic destined to other spokes to the gateway in the hub VNet. Execute the following steps to verify that currently you are not able to connect from a spoke to another, then deploy the UDRs and test connectivity again.
+If you want to allow spokes to connect to each other, you must deploy UDRs to each spoke that forward traffic destined to other spokes to the gateway in the hub VNet. Execute the following steps to verify that currently you are not able to connect from a spoke to another, then deploy the UDRs and test connectivity again.
 
 1. Repeat steps 1 to 4 above, if you are not connected to the jumpbox VM any longer.
 
