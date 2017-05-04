@@ -1057,17 +1057,6 @@ The following are the typical types of retry strategy intervals:
 ### More information
 * [Circuit breaker strategies](http://msdn.microsoft.com/library/dn589784.aspx)
 
-## Transient Fault Handling Application Block (Topaz) strategies
-The Transient Fault Handling Application Block has the following default strategies.
-
-| **Strategy** | **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- | --- |
-| **Exponential** |retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 second<br /><br />30 seconds<br /><br />10 seconds<br /><br />true |The number of retry attempts.<br />The minimum back-off time. The higher of this value or the computed back-off will be used as the retry delay.<br />The minimum back-off time. The lower of this value or the computed back-off will be used as the retry delay.<br />The value used to calculate a random delta for the exponential delay between retries.<br />Whether the first retry attempt will be made immediately. |
-| **Incremental** |retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br /> |10<br />1 second<br />1 second<br /><br />true |The number of retry attempts.<br />The initial interval that will apply for the first retry.<br />The incremental time value that will be used to calculate the progressive delay between retries.<br />Whether the first retry attempt will be made immediately. |
-| **Linear (fixed interval)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 second<br />true |The number of retry attempts.<br />The delay between retries.<br />Whether first retry attempt will be made immediately. |
-
-For examples of using the Transient Fault Handling Application Block, see the Examples sections earlier in this guidance for Azure SQL Database using ADO.NET and Azure Active Directory.
-
 <!-- links -->
 
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
