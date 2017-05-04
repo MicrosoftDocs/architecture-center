@@ -1,5 +1,5 @@
 {
-  "need_generate_pdf": false,
+  "need_generate_pdf": true,
   "need_generate_intellisense": false,
   "docsets_to_publish": [
     {
@@ -41,12 +41,9 @@
     }
   ],
   "branch_target_mapping": {
-    "docs": [
-      "Publish",
-      "PDF"
-    ]
+    "pdf-test": [ "Publish", "PDF" ]
   },
-  "need_generate_pdf_url_template": false,
+  "need_generate_pdf_url_template": true,
   "Targets": {
     "Pdf": {
       "template_folder": "_themes.pdf"
