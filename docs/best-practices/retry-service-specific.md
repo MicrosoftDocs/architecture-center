@@ -22,6 +22,7 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Storage](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client and individual operations |TraceSource |
 | **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-7-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[SQL Database with ADO.NET](#azure-storage-retry-guidelines)** |Topaz* |Declarative and programmatic |Single statements or blocks of code |Custom |
 | **[Service Bus](#service-bus-retry-guidelines)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Native in client |Programmatic |Client |TextWriter |
@@ -206,7 +207,7 @@ namespace RetryCodeSamples
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
 
 ### Retry mechanism
-Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). A full specification is available in the [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) on Codeplex. The main features of the retry mechanism are:
+Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher (see Entity Framework 7 below for details on this newer stack) through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). A full specification is available in the [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) on Codeplex. The main features of the retry mechanism are:
 
 * The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
   * Defines synchronous and asynchronous **Execute*** methods.
@@ -341,6 +342,28 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 
 ### More information
 * [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
+
+## SQL Database using Entity Framework 7 retry guidelines
+EF Core (or 7) is an object-relational mapper that enables .NET Core developers to work with data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. The Core version (7), has been written from the ground up, by learning from the past, extending its coverage, and leveraging .NET Core.
+
+### Retry mechanism
+Retry support is provided when accessing SQL Database using Entity Framework Core 1.1 and higher, through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). The main features of the retry mechanism are:
+
+* The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
+  * Defines synchronous and asynchronous **Execute*** methods.
+  * Defines classes that can be used directly or can be configured on a database context as a default strategy, mapped to provider name, or mapped to a provider name and server name. When configured on a context, retries occur at the level of individual database operations, of which there might be several for a given context operation.
+  * Defines when to retry a failed connection, and how.
+* It includes several built-in implementations of the **IDbExecutionStrategy** interface:
+  * Default - no retrying.
+  * Default for SQL Database (automatic) - no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
+  * Default for SQL Database - exponential (inherited from base class) plus SQL Database detection logic.
+* It implements an exponential back-off strategy that includes randomization.
+* The built-in retry classes are stateful and are not thread safe. However, they can be reused after the current operation is completed.
+* If the specified retry count is exceeded, the results are wrapped in a new exception. It does not bubble up the current exception.
+
+### More information
+* [Specific error codes that trigger a retry -dev branch-](https://github.com/aspnet/EntityFramework/blob/dev/src/EFCore.SqlServer/Storage/Internal/SqlServerTransientExceptionDetector.cs)
+* [Data Points - EF Core 1.1](https://msdn.microsoft.com/en-us/magazine/mt745093.aspx)
 
 ## SQL Database using ADO.NET retry guidelines
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service.
