@@ -127,7 +127,7 @@ public async Task OperationWithBasicRetryAsync()
     // Wait to retry the operation.
     // Consider calculating an exponential delay here and
     // using a strategy best suited for the operation and fault.
-    Await.Task.Delay();
+    await Task.Delay();
   }
 }
 
