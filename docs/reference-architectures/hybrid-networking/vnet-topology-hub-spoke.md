@@ -35,7 +35,7 @@ The following diagram highlights the important components in this architecture:
 
 ![[0]][0]
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
+The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet. However, if you have several spokes that need to connect to the same hub, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit].
 
 The architecture consists of the following components.
 
@@ -47,9 +47,14 @@ The architecture consists of the following components.
 
 * **ExpressRoute virtual network gateway**. The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
-* **VPN virtual network gateway**. The VPN virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+* **Virtual network gateway**. The  virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network, or routers used for an ExpressRoute circuit. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 * **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
+
+* **ExpressRoute circuit**.  A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
+
+> [!NOTE]
+> Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
 
 * **Hub virtual network (VNet)**. Azure VNet used as a hub in a hub-spoke topology. The hub is used as a central point of connectivity to your on-premises network, and a place to host services that can be consumed by different workloads hosted in spoke VNets.
 
