@@ -1057,6 +1057,9 @@ The following are the typical types of retry strategy intervals:
 ### More information
 * [Circuit breaker strategies](http://msdn.microsoft.com/library/dn589784.aspx)
 
+## Transient Fault Handling with Polly
+[Polly](http://www.thepollyproject.org), a .NET Foundation member, is a library to programatically handle retries and circuit-breaker strategies without the hassle. For those services where no native client support for retry is offered, Polly is a valid alternative and avoids custom infrastructure code writing.
+
 <!-- links -->
 
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
