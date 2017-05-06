@@ -17,9 +17,7 @@ In many large-scale solutions, data is divided into separate partitions that can
 ## Why partition data?
 Most cloud applications and services store and retrieve data as part of their operations. The design of the data stores that an application uses can have a significant bearing on the performance, throughput, and scalability of a system. One technique that is commonly applied in large-scale systems is to divide the data into separate partitions.
 
-> The term *partitioning* that's used in this guidance refers to the process of physically dividing data into separate data stores. This is not the same as SQL Server table partitioning, which is a different concept.
->
->
+> In this article, the term *partitioning* means the process of physically dividing data into separate data stores. It is not the same as SQL Server table partitioning.
 
 Partitioning data can offer a number of benefits. For example, it can be applied in order to:
 
@@ -481,6 +479,18 @@ Consider the following points when deciding how to partition data with Azure Red
   >
 * Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
+## Partitioning strategies for Azure Event Hubs
+
+[Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream. 
+
+The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. (It's also possible send events directly to a given partition, but generally that's not recommended.)  
+
+Consider long-term scale when you select the partition count. After an event hub is created, you can't change the number of partitions. 
+
+For more information about using partitions in Event Hubs, see [What is Event Hubs?].
+
+For considerations about trade-offs between availability and consistency, see [Availability and consistency in Event Hubs].
+
 ## Rebalancing partitions
 As a system matures and you understand the usage patterns better, you might have to adjust the partitioning scheme. For example, individual partitions might start attracting a disproportionate volume of traffic and become hot, leading to excessive contention. Additionally, you might have underestimated the volume of data in some partitions, causing you to approach the limits of the storage capacity in these partitions. Whatever the cause, it is sometimes necessary to rebalance partitions to spread the load more evenly.
 
@@ -543,6 +553,7 @@ When considering strategies for implementing data consistency, the following pat
 * The page [Running Redis on a CentOS Linux VM in Azure] on the Microsoft website walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
 * The [Data types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
+[Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
 [Azure Redis Cache]: http://azure.microsoft.com/services/cache/
 [Azure Storage Scalability and Performance Targets]: /azure/storage/storage-scalability-targets
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
@@ -553,6 +564,7 @@ When considering strategies for implementing data consistency, the following pat
 [Data Types]: http://redis.io/topics/data-types
 [DocumentDB limits and quotas]: /azure/documentdb/documentdb-limits
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
+[event-hubs]: /azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [Manage DocumentDB capacity needs]: /azure/documentdb/documentdb-manage
@@ -570,5 +582,6 @@ When considering strategies for implementing data consistency, the following pat
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
 [Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions
+[What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is Azure Search?]: /azure/search/search-what-is-azure-search
 [What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview
