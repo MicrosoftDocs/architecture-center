@@ -10,7 +10,6 @@ ms.author: pnp
 pnp.series.title: Best Practices
 ---
 # Caching
-[!INCLUDE [header](../_includes/header.md)]
 
 Caching is a common technique that aims to improve the performance and
 scalability of a system. It does this by temporarily copying frequently accessed data
@@ -1200,30 +1199,30 @@ redisHostConnection.PreserveAsyncOrder = false;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ```
 
-###Serialization Considerations
+### Serialization considerations
 
-Which serialization to choose should consider several aspects such as: performance, interoperability, versioning, compatibility, compression, time/memory overheads among others.
-When assessing performance you should take into account that benchmarks are context dependent and may not consider newer libraries or versions. There is no "fastest" serializer, the option that better suits your needs depends on your context and requirements.
+When you choose a serialization format, consider tradeoffs between performance, interoperability, versioning, compatibility with existing systems, data compression, and memory overhead. When you are evaluating performance, remember that benchmarks are highly dependent on context. They may not reflect your actual workload, and may not consider newer libraries or versions. There is no single "fastest" serializer for all scenarios. 
 
-Some of the options when considering serialization are:
+Some options to consider include:
 
-- [Protocol Buffers](https://github.com/google/protobuf) (a.k.a., protobuf) are Google's extensible mechanism for serializing structured data. It uses IDL ([Interface Description Language](https://en.wikipedia.org/wiki/Interface_description_language)), strong typing and requires a compilation step to output language specific code to de/serialize messages. It supports several different programming languages and was designed to be layered over an existing RPC mechanism.
+- [Protocol Buffers](https://github.com/google/protobuf) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly-typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
 
-- [Thrift](https://thrift.apache.org/) also uses IDL, strong typing, requires a compilation step and it also targets many languages. It is different from Protocol Buffers in that it provides a variety of transport options such as network, file and memory. 
+- [Apache Thrift](https://thrift.apache.org/) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.  
 
-- [Avro](https://avro.apache.org/) provides functionality similar to systems such as Protocol Buffers and Thrift but unlike these does not require that code be generated. Data is always accompanied by a schema that permits full processing of that data without code generation, static datatypes, etc. This facilitates construction of generic data-processing systems and languages. Since the schema is present when data is read, considerably less type information need be encoded with data, resulting in smaller serialization size. More info on [Serializing data with the Microsoft .NET Library for Avro](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-dotnet-avro-serialization).
+- [Apache Avro](https://avro.apache.org/) provides similar functionality to Protocol Buffers and Thrift, but there is no compilation step. Instead, serialized data always includes a schema that describes the structure. 
 
-- JSON is not very efficient when put on the wire but is most flexible in terms of changing data structures.
+- [JSON](http://json.org/) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON does not use message schemas. Being a text-based format, it is not very efficient over the wire. In some cases, however, you may be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
 
-- BSON is designed to be efficient in space, but in some cases is not much more efficient than JSON. In some cases it uses even more space than JSON because it adds some "extra" information to documents, like length of strings and subobjects. The purpose of this is to make traversal faster. In addition to compactness, BSON has additional data types unavailable in JSON, notably the BinData and Date data types.
+- [BSON](http://bsonspec.org/) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that are not available in JSON, notably BinData (for byte arrays) and Date.
 
-- [MessagePack](http://msgpack.org/) is an object serialization specification like JSON but with efficient binary encoding. There's no type checking or schemas, depending on your requirements may be an advantage or not. It is supported by many programming languages and environments.
+- [MessagePack](http://msgpack.org/) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
 
-- [Bond](https://github.com/Microsoft/bond): is a cross-platform framework for working with schematized data. It supports cross-language de/serialization and powerful generic mechanisms for efficiently manipulating data.
+- [Bond](https://microsoft.github.io/bond/) is a cross-platform framework for working with schematized data. It supports cross-language serialization and deserialization. Notable differences from other systems listed here are support for inheritance, type aliases, and generics. 
 
-- [gRPC](http://www.grpc.io/) as in many RPC systems, it is based around the idea of defining a service, specifying the methods that can be called remotely with their parameters and return types. By default it uses protocol buffers as both its IDL and as its underlying message interchange format.
+- [gRPC](http://www.grpc.io/) is an open source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
 
 ## Related patterns and guidance
+
 The following pattern might also be relevant to your scenario when you implement caching in your applications:
 
 * [Cache-aside pattern](http://msdn.microsoft.com/library/dn589799.aspx): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
