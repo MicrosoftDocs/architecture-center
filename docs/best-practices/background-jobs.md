@@ -170,15 +170,15 @@ Consider the following points when you are deciding whether to deploy background
 
 ## Azure Batch 
 
-Consider Azure batch if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs. Azure Batch supports both Linux and Windows VMs. 
+Consider [Azure Batch](/azure/batch/) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.  
 
-The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling.
+The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
 
 ### Considerations 
 
 Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes. 
 
-An Azure Batch job runs on a pool of nodes (VMs). You can allocate a pool only when it's needed and then delete it after the job completes. This maximizes utilization, because the nodes are only allocated when needed, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That minimize the wait time when a job is started, but can result in having nodes that sit idle. See [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
 
 ### More information 
 
