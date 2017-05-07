@@ -11,7 +11,7 @@ Contributors: Neil Hodgkinson, Bob Fox, Joe Davies, Paul Stork, Larry Brader
 
 This reference architecture shows a set of proven practices for setting up a high availability SharePoint Server 2016 farm using MinRole topology and SQL Server Always On availability groups on Azure. The SharePoint farm is deployed in a secured intranet with no Internet-facing endpoint or presence. 
 
-![0][0]
+![[0]][0]
 Figure 1. Highly available SharePoint Server 2016 farm in Azure.
 
 > [!NOTE]
@@ -245,4 +245,4 @@ An [Azure Resource Manager][arm] deployment template for this architecture is av
 [storage-volumes]: https://technet.microsoft.com/en-us/library/cc263445.aspx
 [vm-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [windows-vm-workload]: /azure/architecture/reference-architectures/virtual-machines-windows/
-[0]: ../images/Sharepoint-2016-RA-diagram.png "Highly available SharePoint Server 2016 farm in Azure."
+[0]: ./images/Sharepoint-2016-RA-diagram.png "Highly available SharePoint Server 2016 farm in Azure."
