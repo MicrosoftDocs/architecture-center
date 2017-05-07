@@ -10,7 +10,7 @@ ms.date: 05/02/17
 
 This reference architecture shows a set of proven practices for running SAP HANA in a high availability environment on Azure. 
 
-![0][0]
+![[0]][0]
 Figure 1. SAP HANA architecture using Microsoft Azure.
 
 > [!NOTE]
@@ -201,4 +201,4 @@ After deploying the SAP infrastructure as described above, you need to install a
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [stack-overflow]: http://stackoverflow.com/tags/sap/info
 [white-papers]: https://azure.microsoft.com/en-us/blog/azure-compliance-white-paper-o-rama/
-[0]: ../images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
+[0]: ./images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
