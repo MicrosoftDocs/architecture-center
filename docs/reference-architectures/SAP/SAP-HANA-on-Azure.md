@@ -201,4 +201,4 @@ After deploying the SAP infrastructure as described above, you need to install a
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [stack-overflow]: http://stackoverflow.com/tags/sap/info
 [white-papers]: https://azure.microsoft.com/en-us/blog/azure-compliance-white-paper-o-rama/
-[0]: ../_images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
+[0]: ../images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
