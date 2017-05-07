@@ -245,4 +245,4 @@ An [Azure Resource Manager][arm] deployment template for this architecture is av
 [storage-volumes]: https://technet.microsoft.com/en-us/library/cc263445.aspx
 [vm-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [windows-vm-workload]: /azure/architecture/reference-architectures/virtual-machines-windows/
-[0]: ../_images/Sharepoint-2016-RA-diagram.png "Highly available SharePoint Server 2016 farm in Azure."
+[0]: ../images/Sharepoint-2016-RA-diagram.png "Highly available SharePoint Server 2016 farm in Azure."
