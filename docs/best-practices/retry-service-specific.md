@@ -362,7 +362,7 @@ Retry support is provided when accessing SQL Database using Entity Framework Cor
 * If the specified retry count is exceeded, the results are wrapped in a new exception. It does not bubble up the current exception.
 
 ### Examples
-The following snippets, are extracted from the [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency) document, which describes different scopes and scenarios on retry for SQL Server and other custom scenarios.
+The following snippets, are extracted from the [Connection Resiliency](https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency) document, which describes different scopes and scenarios on retry for SQL Server and other custom scenarios.
 
 1. SQL Server strategy
 ```csharp
