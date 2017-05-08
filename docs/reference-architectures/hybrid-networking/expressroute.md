@@ -17,7 +17,7 @@ cardTitle: ExpressRoute
 ---
 # Connect an on-premises network to Azure using ExpressRoute
 
-This referernce architure shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution**.](#deploy-the-solution)
+This reference architure shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution**.](#deploy-the-solution)
 
 ![[0]][0]
 
