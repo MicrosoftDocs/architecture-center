@@ -16,7 +16,7 @@ cardTitle: Improving availability
 
 This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
 
-Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub VNet in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**](#deploy-the-solution).
+Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub virtual network (VNet) in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**](#deploy-the-solution).
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
@@ -45,24 +45,22 @@ The architecture consists of the following components.
 
 * **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
+> [!NOTE]
+> Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
+
 * **ExpressRoute virtual network gateway**. The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
 
 * **Virtual network gateway**. The  virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network, or routers used for an ExpressRoute circuit. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 * **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
-* **ExpressRoute circuit**.  A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
-
-> [!NOTE]
-> Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
-
 * **Hub virtual network (VNet)**. Azure VNet used as a hub in a hub-spoke topology. The hub is used as a central point of connectivity to your on-premises network, and a place to host services that can be consumed by different workloads hosted in spoke VNets.
 
     * **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-    * **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS, AD DS, among otehers.
+    * **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS, AD DS, among others.
 
-* **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual netowrking peering][vnet-peering] connections are non-transitive, low latency connections between VNets.
+* **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets.
 
 * **Spoke VNet**. Azure VNet used as a spoke in a hub-spoke topology. Spokes can be used to isolate wrokloads in their VNets, that can be managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
@@ -74,7 +72,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named *GatewaySubnet*.
 
-If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space, so that you can add both an ExpressRote gateway, and a VPN gateway, for [higher availability][hybrid-ha].
+If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space, so that you can add both an ExpressRoute gateway, and a VPN gateway, for [higher availability][hybrid-ha].
 
 ### VNet peering
 
@@ -101,7 +99,7 @@ If you require connectivity between spokes, and you do **NOT** have a gateway in
 
 ![[2]][2]
 
-In this senario, you need to configure the peering connections to **allow forwarded traffic**.
+In this scenario, you need to configure the peering connections to **allow forwarded traffic**.
 
 ### Overcoming VNet peering limits
 
@@ -127,7 +125,7 @@ Before you can deploy the reference architecture to your own subscription, execu
 
 2. If you prefer to use the Azure CLI, make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
 
-3. If you prefer to use PowerShell, make sure you have the latest PowerShell module for Azure installed on you computer. To install the latest Azure PowerShell module, follow the instrauctions in [][azure-powershell].
+3. If you prefer to use PowerShell, make sure you have the latest PowerShell module for Azure installed on you computer. To install the latest Azure PowerShell module, follow the instructions in [Install PowerShell for Azure][azure-powershell].
 
 4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
 
