@@ -1,5 +1,5 @@
 ---
-title: Design resilient applications for Azure
+title: Designing resilient applications for Azure
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 author: MikeWasson
 ms.service: guidance
@@ -14,28 +14,28 @@ pnp.series.title: Design for Resiliency
 
 In a distributed system, failures will happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for. 
 
-Building a reliable application in the cloud is different than building a reliable application in an enterprise setting.  While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of scaling up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of focusing on preventing failures and optimizing "mean time between failures," in this new environment the focus shifts to "mean time to restore." The goal is to minimize the effect of a failure.
+Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of scaling up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of focusing on preventing failures and optimizing "mean time between failures," in this new environment the focus shifts to "mean time to restore." The goal is to minimize the effect of a failure.
 
-This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the life of an application, from design and implementation to deployment and operations.
+This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
 ## What is resiliency?
 **Resiliency** is the ability to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
 
 Two important aspects of resiliency are high availability and disaster recovery.
 
-* **High availability** (HA) is the ability of the application to keep running in a healthy state, without significant downtime. By "healthy state," we mean the application is responsive, and users can connect to the application and interact with it.  
-* **Disaster recovery** (DR) is the ability to recover from rare but major incidents: Non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and may include manual interventions, such as restoring a database from backup. 
+* **High availability** (HA) is the ability of the application to continue running in a healthy state, without significant downtime. This means the application is responsive, and users can connect to the application and interact with it.  
+* **Disaster recovery** (DR) is the ability to recover from rare but major incidents: non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and may include manual intervention, such as restoring a database from backup. 
 
 One way to think about HA versus DR is that DR starts when the impact of a fault exceeds the ability of the HA design to handle it. For example, putting several VMs behind a load balancer will provide availability if one VM fails, but not if they all fail at the same time. 
 
-When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it in the normal timeframe?
+When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it within the normal timeframe?
 
-Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after a disaster. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. In this article, we are just focused on cloud applications, but resilience planning must be done in the context of overall BC requirements. 
+Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after a disaster. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. This article focuses on cloud applications, but resilience planning must be done in the context of overall BC requirements. 
 
 ## Process to achieve resiliency
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
-1. **Define** your availability requirements, based on business needs
+1. **Define** your availability requirements, based on business needs.
 2. **Design** the application for resiliency. Start with an architecture that follows proven practices, and then identify the possible failure points in that architecture.
 3. **Implement** strategies to detect and recover from failures. 
 4. **Test** the implementation by simulating faults and triggering forced failovers. 
@@ -57,10 +57,10 @@ Many cloud solutions consist of multiple application workloads. The term "worklo
 
 These workloads might have different requirements for availability, scalability, data consistency, disaster recovery, and so forth. Again, these are business decisions.
 
-Also think about usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline; a video streaming service must stay up during a big sports event; and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is more expensive, so during less critical times, you might run the application in a single region.  
+Also consider usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline; a video streaming service must stay up during a big sports event; and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is more expensive, so during less critical times, you might run the application in a single region.  
 
 ### RTO and RPO
-Two important metrics to consider are the recovery time objective and recovery point objective:
+Two important metrics to consider are the recovery time objective and recovery point objective.
 
 * **Recovery time objective** (RTO) is the maximum acceptable time that an application can be unavailable after an incident. If your RTO is 90 minutes, you must be able to restore the application to a running state within 90 minutes from the start of a disaster. If you have a very low RTO, you might keep a second deployment continually running on standby, to protect against a regional outage.
 * **Recovery point objective** (RPO) is the maximum duration of data loss that is acceptable during a disaster. For example, if you store data in a single database, with no replication to other databases, and perform hourly backups, you could lose up to an hour of data. 
@@ -75,7 +75,7 @@ In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commi
 > 
 > 
 
-You should define your own target SLAs for each workload in your solution. An SLA makes it possible to reason about the architecture, and whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service. 
+You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service. 
 
 The following table shows the potential cumulative downtime for various SLA levels. 
 
@@ -103,13 +103,13 @@ Consider an App Service web app that writes to Azure SQL Database. At the time o
 
 ![Composite SLA](./images/sla1.png)
 
-What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. In general, the probability of each service failing is independent, so the composite SLA for this application is 99.95% x 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising, because an application that relies on multiple services has more potential failure points. 
+What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. In general, the probability of each service failing is independent, so the composite SLA for this application is 99.95% &times; 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising, because an application that relies on multiple services has more potential failure points. 
 
 On the other hand, you can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue, to be processed later.
 
 ![Composite SLA](./images/sla2.png)
 
-With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is  
+With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 &times; 0.001, so the composite SLA for this combined path is  
 
 * Database OR queue = 1.0 &minus; (0.0001 &times; 0.001) = 99.99999%
 
@@ -125,11 +125,11 @@ Let *N* be the composite SLA for the application deployed in one region. The exp
 
 * Combined SLA for both regions = 1 &minus; (1 &minus; N)(1 &minus; N) = N + (1 &minus; N)N
 
-Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. As of when this article was written, the SLA for Traffic Manager SLA is 99.99%.
+Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. At the time of this writing, the SLA for Traffic Manager SLA is 99.99%.
 
 * Composite SLA = 99.99% &times; (combined SLA for both regions)
 
-A further detail is that failing over is not instantaneous, which can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
+Also, failing over is not instantaneous and can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
 
 The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
@@ -153,12 +153,12 @@ For more information about the FMA process, with specific recommendations for Az
 | Slow response |Request times out |
 
 ## Resiliency strategies
-This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section are meant to summarize the general idea behind each technique, with links to further reading.
+This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section summarize the general idea behind each technique, with links to further reading.
 
 ### Retry transient failures
 Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
 
-Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt, and limit the total number of failed requests.
+Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt and limit the total number of failed requests.
 
 ![Composite SLA](./images/retry.png)
 
