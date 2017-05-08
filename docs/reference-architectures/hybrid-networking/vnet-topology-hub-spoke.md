@@ -3,68 +3,64 @@ title: Implementing a hub-spoke topology in Azure
 description: >-
   How to implement a hub-spoke network topoly in Azure.
 author: telmosampaio
-ms.service: guidance
-ms.topic: article
 ms.date: 05/05/2017
-ms.author: pnp
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
-cardTitle: Improving availability
 ---
 # Implement a hub-spoke network topology in Azure
 
 This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
 
-Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub virtual network (VNet) in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**](#deploy-the-solution).
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
+The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.  [**Deploy this solution**](#deploy-the-solution).
 
 Typical uses for this architecture include:
 
-* Workloads deployed in different environments (development, testing, production) that require services that can be shared in the hub VNet (such as DNS, IDS, NTP, AD DS, etc) while maintaining isolation (deployed to spokes).
-* Workloads that do not require connectivity among themselves, but require access to shared services, such as DNS, AD DS, firewall, among others.
-* Enterprises that require a central control over security aspects (firewall in the hub as a DMZ), and segregated management for each workload (individual spokes).
-
-## Architecture
-
-The following diagram highlights the important components in this architecture:
-
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Hub Spoke" page.
+* Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
+* Workloads that do not require connectivity among themselves, but require access to shared services, such as DNS, AD DS, or firewall.
+* Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
 ![[0]][0]
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
+## Architecture
 
 The architecture consists of the following components.
 
 * **On-premises network**. A private local-area network running within an organization.
 
-* **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
+* **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 * **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
-> [!NOTE]
-> Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
+  > [!NOTE]
+  > Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
 
-* **ExpressRoute/VPN virtual network gateway**. The virtual network gateway enables the VNet to connect to the ExpressRoute circuit, or VPN device, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+* **ExpressRoute or VPN virtual network gateway**. The virtual network gateway enables the VNet to connect to the ExpressRoute circuit, or VPN device, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 * **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
-* **Hub virtual network (VNet)**. Azure VNet used as a hub in a hub-spoke topology. The hub is used as a central point of connectivity to your on-premises network, and a place to host services that can be consumed by different workloads hosted in spoke VNets.
+* **Hub VNet**. Azure VNet used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke VNets.
 
-    * **Gateway subnet**. The virtual network gateways are held in the same subnet.
+* **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-    * **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS, AD DS, among others.
+* **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS or AD DS.
+
+* **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
 * **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
 
-* **Spoke VNet**. Azure VNet used as a spoke in a hub-spoke topology. Spokes can be used to isolate wrokloads in their VNets, that can be managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
+You can download a Visio file of this architecture from the [Microsoft download center][visio-download]. This diagram is on the "Hub Spoke" page.
+
+> [!NOTE]
+> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+
+### Resource groups
+
+The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
 
 ### VNet and GatewaySubnet
 
