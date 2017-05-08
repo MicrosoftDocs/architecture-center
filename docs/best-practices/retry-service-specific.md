@@ -358,7 +358,6 @@ Consider the following guidelines when accessing SQL Database using ADO.NET:
 * Close the connection after a certain number of retries, even when using an exponential back off retry logic, and retry the operation on a new connection. Retrying the same operation multiple times on the same connection can be a factor that contributes to connection problems. For an example of this technique, see [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
 * When connection pooling is in use (the default) there is a chance that the same connection will be chosen from the pool, even after closing and reopening a connection. If this is the case, a technique to resolve it is to call the **ClearPool** method of the **SqlConnection** class to mark the connection as not reusable. However, you should do this only after several connection attempts have failed, and only when encountering the specific class of transient failures such as SQL timeouts (error code -2) related to faulty connections.
 * If the data access code uses transactions initiated as **TransactionScope** instances, the retry logic should reopen the connection and initiate a new transaction scope. For this reason, the retryable code block should encompass the entire scope of the transaction.
-* The Transient Fault Handling Application Block supports retry configurations entirely defined in configuration files. However, for maximum flexibility on Azure you should consider creating the configuration programmatically within the application. The specific parameters for the retry policies, such as the number of retries and the retry intervals, can be stored in the service configuration file and used at runtime to create the appropriate policies. This allows the settings to be changed within requiring the application to be restarted.
 
 Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
 
@@ -373,77 +372,35 @@ Consider starting with following settings for retrying operations. These are gen
 >
 
 ### Examples
-This section describes how you can use the Transient Fault Handling Application Block to access Azure SQL Database using a set of retry policies you have configured in the **RetryManager** (as shown in the previous section [Policy configuration](#policy-configuration). The simplest approach to using the block is through the **ReliableSqlConnection** class, or by calling the extension methods such as **OpenWithRetry** on a connection (see [The Transient Fault Handling Application Block](http://msdn.microsoft.com/library/hh680934.aspx) for more information).
+This section describes how you can use the Polly to access Azure SQL Database using a set of retry policies you have configured in the **Policy** itself.
 
-However, in the current version of the Transient Fault Handling Application Block these approaches do not indigenously support asynchronous operations against SQL Database. Good practice demands that you use only asynchronous techniques to access Azure services such as SQL Database, and so you should consider the following techniques to use the Transient Fault Handling Application Block with SQL Database.
-
-You can use the simplified asynchronous support in version 5 of the C# language to create asynchronous versions of the methods provided by the block. For example, the following code shows how you might create an asynchronous version of the **ExecuteReaderWithRetry** extension method. The changes and additions to the original code are highlighted. The source code for Topaz is available on Codeplex at [Transient Fault Handling Application Block ("Topaz")](http://topaz.codeplex.com/SourceControl/latest).
+You can use the asynchronous support in version 5 of the C# language.
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command)
 {
     GuardConnectionIsNotNull(command);
 
-    int eventualSuccesses = 0;
-    int retries = 0;
-    int eventualFailures = 0;
-
-    // Define our policy:
     var policy = Policy.Handle<Exception>().WaitAndRetryAsync(
         retryCount: 3, // Retry 3 times
-        sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200), // Wait 200ms between each try.
-        onRetry: (exception, calculatedWaitDuration) => // Capture some info for logging!
+        sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt - 1)), // Exponential backoff based on an initial 200ms delay.
+        onRetry: (exception, attempt) => 
         {
-            // This is your new exception handler! 
-            // Tell the user what they've won!
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Policy logging: {exception.Message}");
-            retries++;
+            // Capture some info for logging/telemetry.  
+            logger.LogWarn($"ExecuteReaderWithRetryAsync: Retry {attempt} due to {exception}.");
         });
 
-    int i = 0;
-
-    // Do the following until a key is pressed
-    while (!Console.KeyAvailable && !cancellationToken.IsCancellationRequested)
+    // Retry the following call according to the policy.
+    await policy.ExecuteAsync<SqlDataReader>(async token =>
     {
-        i++;
+        // This code is executed within the Policy 
 
-        try
-        {
-            // Retry the following call according to the policy - 3 times.
-            await policy.ExecuteAsync<SqlDataReader>(async token =>
-            {
-                // This code is executed within the Policy 
+        if (conn.State != System.Data.ConnectionState.Open) await conn.OpenAsync(token);
+        return await command.ExecuteReaderAsync(System.Data.CommandBehavior.Default, token);
 
-                // Make a request and get a response
-                if (conn.State != System.Data.ConnectionState.Open) await conn.OpenAsync();
-                var command = new SqlCommand("SELECT COUNT(*) FROM SomeTable", conn);
-
-                var reader = command.ExecuteReader(System.Data.CommandBehavior.Default);
-
-                eventualSuccesses++;
-
-                return reader;
-
-            }, cancellationToken);
-        }
-        catch (Exception e)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Request {i} eventually failed with: {e.Message}");
-            eventualFailures++;
-        }
-
-        // Wait half second
-        await Task.Delay(TimeSpan.FromSeconds(0.5), cancellationToken);
-    }
-
-    Console.WriteLine("");
-    Console.WriteLine($"Total requests made                 : {i}" + i);
-    Console.WriteLine($"Requests which eventually succeeded : {eventualSuccesses}");
-    Console.WriteLine($"Retries made to help achieve success: {retries}");
-    Console.WriteLine($"Requests which eventually failed    : {eventualFailures}");
+    }, cancellationToken);
 }
+
 ```
 
 > [!NOTE]
