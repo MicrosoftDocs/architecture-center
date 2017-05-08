@@ -35,7 +35,7 @@ Another common term is **business continuity** (BC), which is the ability to per
 ## Process to achieve resiliency
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
-1. **Define** your availability requirements, based on business needs
+1. **Define** your availability requirements, based on business needs.
 2. **Design** the application for resiliency. Start with an architecture that follows proven practices, and then identify the possible failure points in that architecture.
 3. **Implement** strategies to detect and recover from failures. 
 4. **Test** the implementation by simulating faults and triggering forced failovers. 
