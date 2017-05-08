@@ -207,7 +207,7 @@ namespace RetryCodeSamples
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
 
 ### Retry mechanism
-Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher (see Entity Framework 7 below for details on this newer stack) through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). A full specification is available in the [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) on Codeplex. The main features of the retry mechanism are:
+Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher (see Entity Framework 7 below for details on this newer stack) through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). The main features of the retry mechanism are:
 
 * The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
   * Defines synchronous and asynchronous **Execute*** methods.
