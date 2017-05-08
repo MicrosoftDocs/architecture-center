@@ -89,7 +89,7 @@ To allow traffic to flow through the hub from one spoke to another, you need to:
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, and you do **NOT** have a gateway in the hub VNet, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub, as seen below.
+If you require connectivity between spokes, and you don't have a gateway in the hub VNet, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub, as seen below.
 
 ![[2]][2]
 
@@ -97,7 +97,7 @@ In this scenario, you need to configure the peering connections to **allow forwa
 
 ### Overcoming VNet peering limits
 
-Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spokehub-spoke topology, where the first level of spokes act as hubs, as shown below.
+Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs, as shown below.
 
 ![[3]][3]
 
@@ -111,7 +111,7 @@ For site-to-site VPN considerations, see the [Implementing a Hybrid Network Arch
 
 The reference architecture deployed below uses simple Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
 
-### Pre-requisites
+### Prerequisites
 
 Before you can deploy the reference architecture to your own subscription, execute the steps below.
 
@@ -420,5 +420,5 @@ ping 10.1.2.37
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
 [1]: ./images/hub-spoke-gateway-routing.png "Hub-spoke topology in Azure with transitive routing"
 [2]: ./images/hub-spoke-no-gateway-routing.png "Hub-spoke topology in Azure with transitive routing using an NVA"
-[3]: ./images/hub-spokehub-spoke.png "Hub-spokehub-spoke topology in Azure"
+[3]: ./images/hub-spokehub-spoke.png "Hub-spoke-hub-spoke topology in Azure"
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
