@@ -12,7 +12,7 @@ pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
 cardTitle: Improving availability
 ---
-# Implement a hub-spoke topology in Azure
+# Implement a hub-spoke network topology in Azure
 
 This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
 
@@ -23,7 +23,7 @@ Traffic flows between the on-premises datacenter and Azure through an ExpressRou
 
 Typical uses for this architecture include:
 
-* Workloads deployed in different environments (development, testing, production) that require the specific services that can be shared (in the hub VNet) while maintaining isolation (deployed to spokes).
+* Workloads deployed in different environments (development, testing, production) that require services that can be shared in the hub VNet (such as DNS, IDS, NTP, AD DS, etc) while maintaining isolation (deployed to spokes).
 * Workloads that do not require connectivity among themselves, but require access to shared services, such as DNS, AD DS, firewall, among others.
 * Enterprises that require a central control over security aspects (firewall in the hub as a DMZ), and segregated management for each workload (individual spokes).
 
@@ -35,7 +35,7 @@ The following diagram highlights the important components in this architecture:
 
 ![[0]][0]
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet. However, if you have several spokes that need to connect to the same hub, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit].
+The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
 
 The architecture consists of the following components.
 
@@ -48,9 +48,7 @@ The architecture consists of the following components.
 > [!NOTE]
 > Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
 
-* **ExpressRoute virtual network gateway**. The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
-
-* **Virtual network gateway**. The  virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network, or routers used for an ExpressRoute circuit. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+* **ExpressRoute/VPN virtual network gateway**. The virtual network gateway enables the VNet to connect to the ExpressRoute circuit, or VPN device, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 * **VPN connection**. The connection has properties that specify the connection type (IPSec) and the key shared with the on-premises VPN appliance to encrypt traffic.
 
@@ -60,7 +58,7 @@ The architecture consists of the following components.
 
     * **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS, AD DS, among others.
 
-* **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets.
+* **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
 
 * **Spoke VNet**. Azure VNet used as a spoke in a hub-spoke topology. Spokes can be used to isolate wrokloads in their VNets, that can be managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
@@ -83,7 +81,7 @@ However, if you have several spokes that need to connect with each other, you wi
 ![[1]][1]
 
 > [!NOTE]
-> You can use the sample deployment provided in this document to add these UDRs and make the peering connections transitive.
+> You can use the sample deployment provided in this document to add these UDRs and make the peering connections transitive. Keep in ind that the bandwidth limitation for your virtual network gateway will be in effect for traffic rotued through the gateway.
 
 To allow traffic to flow through the hub from one spoke to another, you need to:
 
