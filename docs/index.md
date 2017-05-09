@@ -14,11 +14,7 @@ ms.author: pnp
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/a3g-logo.svg" alt=""/>
-                            </div>
-                        </div>
+                            <img src="_images/a3g-logo.svg" alt=""/>
                         <div class="cardText">
                             <h3>Azure Application Architecture Guide</h3>
                             <p> A guide to designing scalable, resilient, and highly available applications, based on proven practices that we have learned from customer engagements.</p>
@@ -33,11 +29,7 @@ ms.author: pnp
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="_images/reference-architectures.svg" alt=""/>
-                        </div>
-                    </div>
+                    <img src="_images/reference-architectures.svg" alt=""/>
                 <div class="cardText">
                     <h3>Reference Architectures</h3>
                     <p>A set of recommended architectures for Azure. Each architecture includes best practices, prescriptive steps, and a deployable solution.</p>
@@ -52,11 +44,7 @@ ms.author: pnp
     <div class="cardSize">
         <div class="cardPadding"> 
             <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="_images/cloud-design-patterns.svg" alt=""/>
-                    </div>
-                </div>
+                    <img src="_images/cloud-design-patterns.svg" alt=""/>
                 <div class="cardText">
                     <h3>Cloud Design Patterns</h3>
                     <p>Design patterns for developers and solution architects. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
