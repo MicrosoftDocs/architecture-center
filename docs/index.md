@@ -8,23 +8,23 @@ ms.author: pnp
 
 # Azure Architecture Center
 
-<ul class="panelContent cardsH">
+<ul class="panelContent cardsC">
     <li>
         <a href="/azure/architecture/guide">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
-                                <img src="_images/a3g-logo.svg" alt="" style="height: 140px;"/>
+                            <div class="cardImage">
+                                <img src="_images/a3g-logo.svg" alt=""/>
                             </div>
                         </div>
                         <div class="cardText">
                             <h3>Azure Application Architecture Guide</h3>
-                            <p> A structured approach to designing applications that are scalable, resilient, and highly available, based on proven practices that we have learned from customer engagements.</p>
+                            <p> A guide to designing scalable, resilient, and highly available applications, based on proven practices that we have learned from customer engagements.</p>
                         </div>
-                    </div> <!-- card -->
-                </div> <!-- cardPadding -->
+                    </div>
+                </div>
             </div>
         </a>
     </li>
@@ -34,8 +34,8 @@ ms.author: pnp
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="_images/reference-architectures.svg" alt="" style="height: 140px;"/>
+                        <div class="cardImage">
+                            <img src="_images/reference-architectures.svg" alt=""/>
                         </div>
                     </div>
                 <div class="cardText">
@@ -53,8 +53,8 @@ ms.author: pnp
         <div class="cardPadding"> 
             <div class="card">
                 <div class="cardImageOuter">
-                    <div class="cardImage bgdAccent1">
-                        <img src="_images/cloud-design-patterns.svg" alt=""  style="height: 140px;"/>
+                    <div class="cardImage">
+                        <img src="_images/cloud-design-patterns.svg" alt=""/>
                     </div>
                 </div>
                 <div class="cardText">
@@ -66,51 +66,51 @@ ms.author: pnp
     </div>
     </a>
 </li>
-        <li>
-            <a href="/azure/architecture/reference-architectures">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
-                                <img src="_images/best-practices.svg" alt="" style="height: 140px;"/>
-                            </div>
-                        </div>
-                    <div class="cardText">
-                        <h3>Best Practices</h3>
-                        <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning, API design, and others.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
 </ul>
 
 <hr />
 
 <ul class="panelContent cardsI">
-    <li>
-    <a href="/azure/architecture/checklist/">
-<div class="cardSize">
-<div class="cardPadding">
-    <div class="card">
-        <div class="cardImageOuter">
-            <div class="cardImage">
-                <img src="_images/checklist.svg" alt="Design Review Checklists" />
+<li>
+    <a href="/azure/architecture/best-practices/">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="_images/best-practices.svg" alt="Best Practices" />
+                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Best Practices for Cloud Applications</h3>
+                    <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning, API design, and others.</p>
+                </div>
             </div>
         </div>
-        <div class="cardText">
-            <h3>Design Review Checklists</h3>
-            <p>Checklists to assist developers and solution architects during the design process.</p>
-        </div>
     </div>
-</div>
+    </a>
+</li>
+<li>
+    <a href="/azure/architecture/checklist/">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="_images/checklist.svg" alt="Design Review Checklists" />
+                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Design Review Checklists</h3>
+                    <p>Checklists to assist developers and solution architects during the design process.</p>
+                </div>
+            </div>
+        </div>
 </div>
 </a>
-    </li>
-    <li>
+</li>
+
+<li>
     <a href="/azure/architecture/resiliency">
 <div class="cardSize">
 <div class="cardPadding">

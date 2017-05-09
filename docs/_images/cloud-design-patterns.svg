@@ -1,1 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><style>.cls-1{isolation:isolate;}.cls-2{fill:#fff;}.cls-3{mix-blend-mode:multiply;}.cls-4,.cls-5,.cls-6,.cls-7,.cls-8,.cls-9{fill:red;}.cls-4{opacity:0.05;}.cls-5{opacity:0.07;}.cls-6{opacity:0.1;}.cls-7{opacity:0.2;}.cls-8{opacity:0.15;}.cls-9{opacity:0.12;}</style></defs><title>Artboard 1 copy 5</title><g class="cls-1"><g id="Layer_1" data-name="Layer 1"><polygon class="cls-2" points="46 10.24 14 0 5.74 30.68 0 52 52 64 64 38 64 16 46 10.24"/><g class="cls-3"><polygon class="cls-4" points="14 0 0 52 18 26 14 0"/><polygon class="cls-5" points="54 30 14 0 18 26 54 30"/><polygon class="cls-6" points="18 26 0 52 54 30 18 26"/><polygon class="cls-4" points="46 10.24 14 0 54 30 46 10.24"/><polygon class="cls-5" points="64 16 46 10.24 54 30 64 16"/><polygon class="cls-7" points="0 52 52 64 36 54 0 52"/><polygon class="cls-8" points="54 30 64 38 64 16 54 30"/><polygon class="cls-4" points="54 30 0 52 36 54 54 30"/><polygon class="cls-5" points="52 64 64 38 54 30 52 64"/><polygon class="cls-9" points="36 54 52 64 54 30 36 54"/></g><g class="cls-3"><polygon class="cls-7" points="64 16 46 10.24 14 0 33.26 14.64 64 16"/><polygon class="cls-4" points="33.26 14.64 14 0 22 34 33.26 14.64"/><polygon class="cls-9" points="33.26 14.64 22 34 45.49 23.93 64 16 33.26 14.64"/><polygon class="cls-8" points="59.38 34.49 52 64 64 38 64 16 59.38 34.49"/><polygon class="cls-7" points="0 52 52 64 24.3 53.47 0 52"/><polygon class="cls-5" points="23.93 53.33 22.89 42.95 22 34 0 52 24.3 53.47 23.93 53.33"/><polygon class="cls-5" points="45.49 23.93 22 34 28.58 40.58 38.57 50.57 52 64 59.38 34.49 64 16 45.49 23.93"/><polygon class="cls-6" points="38.57 50.57 28.58 40.58 22 34 22.89 42.95 23.93 53.33 24.3 53.47 52 64 38.57 50.57"/><polygon class="cls-4" points="22 34 5.74 30.68 0 52 22 34"/><polygon class="cls-6" points="5.75 30.64 22 34 14 0 5.74 30.68 22 34 5.75 30.64"/></g></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 400 140" style="enable-background:new 0 0 400 140;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{opacity:5.000000e-02;fill:#FF0000;enable-background:new    ;}
+	.st2{opacity:7.000000e-02;fill:#FF0000;enable-background:new    ;}
+	.st3{opacity:0.1;fill:#FF0000;enable-background:new    ;}
+	.st4{opacity:0.2;fill:#FF0000;enable-background:new    ;}
+	.st5{opacity:0.15;fill:#FF0000;enable-background:new    ;}
+	.st6{opacity:0.12;fill:#FF0000;enable-background:new    ;}
+</style>
+<title>Artboard 1 copy 5</title>
+<g>
+	<g id="Layer_1_1_">
+		<polygon class="st0" points="226.8,28.3 165.5,8.7 149.7,67.5 138.7,108.3 238.3,131.3 261.3,81.5 261.3,39.3 		"/>
+		<g>
+			<polygon class="st1" points="165.5,8.7 138.7,108.3 173.2,58.5 			"/>
+			<polygon class="st2" points="242.1,66.2 165.5,8.7 173.2,58.5 			"/>
+			<polygon class="st3" points="173.2,58.5 138.7,108.3 242.1,66.2 			"/>
+			<polygon class="st1" points="226.8,28.3 165.5,8.7 242.1,66.2 			"/>
+			<polygon class="st2" points="261.3,39.3 226.8,28.3 242.1,66.2 			"/>
+			<polygon class="st4" points="138.7,108.3 238.3,131.3 207.7,112.1 			"/>
+			<polygon class="st5" points="242.1,66.2 261.3,81.5 261.3,39.3 			"/>
+			<polygon class="st1" points="242.1,66.2 138.7,108.3 207.7,112.1 			"/>
+			<polygon class="st2" points="238.3,131.3 261.3,81.5 242.1,66.2 			"/>
+			<polygon class="st6" points="207.7,112.1 238.3,131.3 242.1,66.2 			"/>
+		</g>
+		<g>
+			<polygon class="st4" points="261.3,39.3 226.8,28.3 165.5,8.7 202.4,36.7 			"/>
+			<polygon class="st1" points="202.4,36.7 165.5,8.7 180.8,73.8 			"/>
+			<polygon class="st6" points="202.4,36.7 180.8,73.8 225.8,54.5 261.3,39.3 			"/>
+			<polygon class="st5" points="252.5,74.8 238.3,131.3 261.3,81.5 261.3,39.3 			"/>
+			<polygon class="st4" points="138.7,108.3 238.3,131.3 185.2,111.1 			"/>
+			<polygon class="st2" points="184.5,110.9 182.5,91 180.8,73.8 138.7,108.3 185.2,111.1 			"/>
+			<polygon class="st2" points="225.8,54.5 180.8,73.8 193.4,86.4 212.6,105.6 238.3,131.3 252.5,74.8 261.3,39.3 			"/>
+			<polygon class="st3" points="212.6,105.6 193.4,86.4 180.8,73.8 182.5,91 184.5,110.9 185.2,111.1 238.3,131.3 			"/>
+			<polygon class="st1" points="180.8,73.8 149.7,67.5 138.7,108.3 			"/>
+			<polygon class="st3" points="149.7,67.4 180.8,73.8 165.5,8.7 149.7,67.5 180.8,73.8 			"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 320 240)" style="font-family:'MyriadPro-Regular'; font-size:12px;">C:\Users\mwasson\pnp\architecture-center\docs\_images</text>
+</svg>
