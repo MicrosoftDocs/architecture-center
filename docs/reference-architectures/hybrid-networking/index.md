@@ -68,5 +68,24 @@ These reference architectures show proven practices for creating a robust networ
             </div>
         </a>
     </li>
+    <li>
+        <a href="./hub-spoke.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage bgdAccent1">
+                            <img src="./images/hub-spoke.svg">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Hope-spoke topology</h3>
+                            <p>The hub is a VNet that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
 </ul>
 
