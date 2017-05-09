@@ -33,3 +33,6 @@
     - name: Resources
       tocHref: /azure/architecture/resources
       topicHref: /azure/architecture/resources
+    - name: Guide
+      tocHref: /azure/architecture/guide
+      topicHref: /azure/architecture/guide
