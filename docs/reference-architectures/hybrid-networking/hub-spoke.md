@@ -10,14 +10,12 @@ pnp.series.prev: expressroute
 ---
 # Implement a hub-spoke network topology in Azure
 
-This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
-
-The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.  [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.  [**Deploy this solution**](#deploy-the-solution).
 
 Typical uses for this architecture include:
 
 * Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
-* Workloads that do not require connectivity among themselves, but require access to shared services, such as DNS, AD DS, or firewall.
+* Workloads that do not require connectivity among themselves, but require access to shared services.
 * Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
 ![[0]][0]
@@ -64,9 +62,14 @@ The hub VNet, and each spoke VNet, can be implemented in different resource grou
 
 ### VNet and GatewaySubnet
 
-Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named *GatewaySubnet*.
+Create a subnet named *GatewaySubnet*, with an address range of /27. This subnet is required by the virtual network gateway. Allocating 32 addresses to this subnet will help to prevent reaching gateway size limitations in the future.
 
-If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space, so that you can add both an ExpressRoute gateway, and a VPN gateway, for [higher availability][hybrid-ha].
+For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
+
+- [Connect an on-premises network to Azure using ExpressRoute][guidance-expressroute] guidance.
+- [Connect an on-premises network to Azure using a VPN gateway][guidance-vpn] guidance.
+
+For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][hybrid-ha].
 
 ### VNet peering
 
@@ -101,11 +104,6 @@ Make sure you consider the [limitation on number of VNets peerings per VNet][vne
 
 ![[3]][3]
 
-### Connection to your on-premises datacenter
-
-For ExpressRoute considerations, see the [Implementing a Hybrid Network Architecture with Azure ExpressRoute][guidance-expressroute] guidance.
-
-For site-to-site VPN considerations, see the [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn] guidance.
 
 ## Deploy the solution
 
@@ -402,20 +400,23 @@ ping 10.1.2.37
 
 <!-- links -->
 
-[windows-vm-ra]: ../virtual-machines-windows/index.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
-[hybrid-ha]: /expressroute-vpn-failover.md
-[vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
-[best-practices-security]: /azure/best-practices-network-securit
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [azure-cli-2]: /azure/install-azure-cli
 [azure-powershell]: /powershell/azure/install-azure-ps?view=azuresmps-3.7.0
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[best-practices-security]: /azure/best-practices-network-securit
+[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[guidance-expressroute]: ./expressroute.md
+[guidance-vpn]: ./vpn.md
+[linux-vm-ra]: ../virtual-machines-linux/index.md
+[hybrid-ha]: ./expressroute-vpn-failover.md
+[naming conventions]: /azure/guidance/guidance-naming-conventions
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
+[vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[windows-vm-ra]: ../virtual-machines-windows/index.md
+
+[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
 [1]: ./images/hub-spoke-gateway-routing.png "Hub-spoke topology in Azure with transitive routing"
