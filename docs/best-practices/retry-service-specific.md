@@ -496,11 +496,6 @@ Retry policies are set programmatically, and can be set as a default policy for 
                                                                  maxBackoff: TimeSpan.FromSeconds(30),
                                                                  maxRetryCount: 3);
 
-Note that this code uses named parameters for clarity. Alternatively you can omit the names because none of the parameters are optional.
-
-    namespaceManager.Settings.RetryPolicy = new RetryExponential(TimeSpan.FromSeconds(0.1),
-                     TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5), 3);
-
 To set the default retry policy for all clients created from a messaging factory, you set the **RetryPolicy** of the **MessagingFactory**.
 
     messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
