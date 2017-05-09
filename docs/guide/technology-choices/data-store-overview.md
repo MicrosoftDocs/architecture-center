@@ -44,7 +44,6 @@ A single key/value store can be extremely scalable, as the data store can easily
 Relevant Azure services:
 
 - [Azure Redis Cache][redis-cache]
-- [Azure Table Storage][table-storage]
 
 ## Document databases
 
@@ -141,5 +140,4 @@ Relevant Azure service: [File Storage][file-storage]
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
 [sql-graph]: /sql/relational-databases/graphs/sql-graph-overview
-[table-storage]: https://azure.microsoft.com/services/storage/tables/
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
