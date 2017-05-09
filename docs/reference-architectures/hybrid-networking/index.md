@@ -10,14 +10,14 @@ ms.author: pnp
 
 These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
 
-<ul class="panelContent cardsH">
+<ul class="panelContent">
     <li>
         <a href="./vpn.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/vpn.svg">
                             </div>
                         </div>
@@ -36,7 +36,7 @@ These reference architectures show proven practices for creating a robust networ
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/expressroute.svg">
                             </div>
                         </div>
@@ -55,7 +55,7 @@ These reference architectures show proven practices for creating a robust networ
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/expressroute-vpn-failover.svg">
                             </div>
                         </div>
@@ -74,7 +74,7 @@ These reference architectures show proven practices for creating a robust networ
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/hub-spoke.svg">
                             </div>
                         </div>
