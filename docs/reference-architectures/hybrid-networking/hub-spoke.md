@@ -1,7 +1,7 @@
 ---
-title: Implementing a hub-spoke topology in Azure
+title: Implementing a hub-spoke network topology in Azure
 description: >-
-  How to implement a hub-spoke network topoly in Azure.
+  How to implement a hub-spoke network topology in Azure.
 author: telmosampaio
 ms.date: 05/05/2017
 
@@ -198,7 +198,7 @@ sh ./hub.deploy.sh --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 
 5. Wait for the deployment to finish. This deployment create a virtual network, a virtual machine running Ubuntu, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
 
-### Connection from on-prem to Azure hub
+### Connection from on-premises to the hub
 
 To connect from the simulated on-premises datacenter to the hub VNet, execute the following steps.
 
