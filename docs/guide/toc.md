@@ -31,4 +31,4 @@
 
 ## [Pillars of software quality](./pillars.md)
 
-## [Cloud design patterns](../patterns/index.md?toc=/azure/architecture/guide/toc.json)
+## [Design patterns](../patterns/index.md?toc=/azure/architecture/guide/toc.json)

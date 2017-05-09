@@ -3,7 +3,7 @@
 ## [Technology choices](./guide/technology-choices/index.md)
 ## [Design principles](./guide/design-principles/index.md)
 ## [Pillars of software quality](./guide/pillars.md)
-## [Cloud design patterns](./patterns/index.md?toc=/azure/architecture/guide/toc.json)
+## [Design patterns](./patterns/index.md?toc=/azure/architecture/guide/toc.json)
 
 # [Reference Architectures](./reference-architectures/index.md)
 ## [Identity management](./reference-architectures/identity/index.md)
