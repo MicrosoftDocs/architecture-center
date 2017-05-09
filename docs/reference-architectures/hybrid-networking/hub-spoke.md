@@ -31,7 +31,7 @@ The architecture consists of the following components.
 * **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
   > [!NOTE]
-  > Our sample reference architecture uses a VPN connection, instead of an ExpressRoute circuit.
+  > Our sample deployment uses a VPN connection, instead of an ExpressRoute circuit.
 
 * **ExpressRoute or VPN virtual network gateway**. The virtual network gateway enables the VNet to connect to the ExpressRoute circuit, or VPN device, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
@@ -71,6 +71,8 @@ For more information about setting up the gateway, see the following reference a
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][hybrid-ha].
 
+A hub-spoke topology can also be used without a gateway, if you don't need connectivity with your on-premises network. 
+
 ### VNet peering
 
 VNet peering is a non-transitive relationship between two VNets. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
@@ -92,7 +94,7 @@ To allow traffic to flow through the hub from one spoke to another, you need to:
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, and you don't have a gateway in the hub VNet, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub, as seen below.
+If there is no gateway in the hub VNet, and you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
 
 ![[2]][2]
 
@@ -100,14 +102,13 @@ In this scenario, you need to configure the peering connections to **allow forwa
 
 ### Overcoming VNet peering limits
 
-Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs, as shown below.
+Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs. The following diagram shows this approach.
 
 ![[3]][3]
 
-
 ## Deploy the solution
 
-The reference architecture deployed below uses simple Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
+A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
 
 ### Prerequisites
 
