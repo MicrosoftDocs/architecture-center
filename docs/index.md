@@ -108,26 +108,7 @@ ms.author: pnp
         </div>
         <div class="cardText">
             <h3>Designing for Resiliency</h3>
-            <p>Learn how to design resiliency applications for Azure.</p>
-        </div>
-    </div>
-</div>
-</div>
-</a>
-    </li>
-    <li>
-    <a href="/azure/architecture/elasticsearch">
-<div class="cardSize">
-<div class="cardPadding">
-    <div class="card">
-        <div class="cardImageOuter">
-            <div class="cardImage">
-                <img src="_images/elasticsearch.svg" alt="Run Elasticsearch on Azure" />
-            </div>
-        </div>
-        <div class="cardText">
-            <h3>Run Elasticsearch on Azure</h3>
-            <p>Learn how to deploy, manage, and tune an Elasticsearch cluster on Azure.</p>
+            <p>Learn how to design resilient applications for Azure.</p>
         </div>
     </div>
 </div>
@@ -166,6 +147,25 @@ ms.author: pnp
         <div class="cardText">
             <h3>Identity Management for Multitenant Applications</h3>
             <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
+        </div>
+    </div>
+</div>
+</div>
+</a>
+    </li>
+    <li>
+    <a href="/azure/architecture/elasticsearch">
+<div class="cardSize">
+<div class="cardPadding">
+    <div class="card">
+        <div class="cardImageOuter">
+            <div class="cardImage">
+                <img src="_images/elasticsearch.svg" alt="Run Elasticsearch on Azure" />
+            </div>
+        </div>
+        <div class="cardText">
+            <h3>Run Elasticsearch on Azure</h3>
+            <p>Learn how to deploy, manage, and tune an Elasticsearch cluster on Azure.</p>
         </div>
     </div>
 </div>
