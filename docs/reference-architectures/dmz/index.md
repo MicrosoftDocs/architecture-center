@@ -9,14 +9,14 @@ ms.author: pnp
 
 These reference architectures show proven practices for creating a network DMZ that protects the boundary between an Azure virtual network and an on-premises network or the Internet.
 
-<ul class="panelContent cardsH">
+<ul class="panelContent">
     <li>
         <a href="./secure-vnet-hybrid.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/secure-vnet-hybrid.svg">
                             </div>
                         </div>
@@ -35,7 +35,7 @@ These reference architectures show proven practices for creating a network DMZ t
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/secure-vnet-dmz.svg">
                             </div>
                         </div>
