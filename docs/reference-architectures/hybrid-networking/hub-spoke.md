@@ -14,7 +14,7 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 Typical uses for this architecture include:
 
-* Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
+* Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
 * Workloads that do not require connectivity among themselves, but require access to shared services.
 * Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
