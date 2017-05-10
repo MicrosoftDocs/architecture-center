@@ -25,7 +25,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[SQL Database with ADO.NET](#azure-storage-retry-guidelines)** |Topaz* |Declarative and programmatic |Single statements or blocks of code |Custom |
 | **[Service Bus](#service-bus-retry-guidelines)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Native in client |Programmatic |Client |TextWriter |
-| **[DocumentDB](#documentdb-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
+| **[DocumentDB API](#documentdb-api-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (with custom detection strategy) |Declarative and programmatic |Blocks of code |Custom |
 
@@ -809,20 +809,21 @@ For more examples, see [Configuration](http://github.com/StackExchange/StackExch
 ### More information
 * [Redis website](http://redis.io/)
 
-## DocumentDB retry guidelines
-DocumentDB is a fully-managed document database-as-a-service with rich query and indexing capabilities over a schema-free JSON data model. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
+## DocumentDB API retry guidelines
+
+Cosmos DB is a fully-managed multi-model database that supports schema-less JSON data by using the [DocumentDB API][documentdb-api]. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
 
 ### Retry mechanism
 The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 
-If DocumentDB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
+If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
 
 ### Policy configuration
 The following table shows the default settings for the `RetryOptions` class.
 
 | Setting | Default value | Description |
 | --- | --- | --- |
-| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because DocumentDB applied rate limiting on the client. |
+| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
 | MaxRetryWaitTimeInSeconds |30 |The maximum retry time in seconds. |
 
 ### Example
@@ -1028,7 +1029,7 @@ Consider the following when accessing Azure or third party services:
   * WebExceptionStatus.ConnectFailure
   * WebExceptionStatus.Timeout
   * WebExceptionStatus.RequestCanceled
-* In the case of a service unavailable status, the service might indicate the appropriate delay before retrying in the **Retry-After** response header or a different custom header (as in the DocumentDB service). Services might also send additional information as custom headers, or embedded in the content of the response. The Transient Fault Handling Application Block cannot use the standard or any custom “retry-after” headers.
+* In the case of a service unavailable status, the service might indicate the appropriate delay before retrying in the **Retry-After** response header or a different custom header. Services might also send additional information as custom headers, or embedded in the content of the response. The Transient Fault Handling Application Block cannot use the standard or any custom “retry-after” headers.
 * Do not retry for status codes representing client errors (errors in the 4xx range) except for a 408 Request Timeout.
 * Thoroughly test your retry strategies and mechanisms under a range of conditions, such as different network states and varying system loadings.
 
@@ -1071,6 +1072,7 @@ For examples of using the Transient Fault Handling Application Block, see the Ex
 
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
+[documentdb-api]: /azure/documentdb/documentdb-introduction
 [entlib]: http://msdn.microsoft.com/library/dn440719.aspx
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx

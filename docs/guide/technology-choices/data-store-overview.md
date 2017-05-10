@@ -59,7 +59,7 @@ The application can retrieve documents by using the document key. This is a uniq
 
 Many document databases support in-place updates, enabling an application to modify the values of specific fields in a document without rewriting the entire document. Read and write operations over multiple fields in a single document are usually atomic.
 
-Relevant Azure service: [DocumentDB][docdb]
+Relevant Azure service: [DocumentDB API][docdb]
 
 ## Graph databases
 
@@ -132,7 +132,7 @@ Relevant Azure service: [File Storage][file-storage]
 
 [blob]: https://azure.microsoft.com/services/storage/blobs/
 [data-lake]: https://azure.microsoft.com/solutions/data-lake/
-[docdb]: https://azure.microsoft.com/services/documentdb/
+[docdb]: /azure/documentdb/documentdb-introduction
 [file-storage]: https://azure.microsoft.com/services/storage/files/
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
 [redis-cache]: https://azure.microsoft.com/services/cache/

@@ -480,7 +480,7 @@ and throughput levels.
 -   [Configure geo-replication for Azure SQL Database with the Azure
     portal](https://azure.microsoft.com/documentation/articles/sql-database-geo-replication-portal/)
 
--   [Introduction to DocumentDB: A NoSQL JSON
+-   [Introduction to Cosmos DB: A NoSQL JSON
     Database](https://azure.microsoft.com/documentation/articles/documentdb-introduction/)
 
 -   [How to use Azure Table storage from

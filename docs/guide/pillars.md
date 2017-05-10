@@ -85,7 +85,7 @@ In traditional application development, there has been a focus on reducing mean 
 
 All of these factors mean that cloud applications must be designed to expect occasional failures and recover from them. Azure has many resiliency features already built into the platform. For example, 
 
-- Azure Storage, SQL Database, and DocumentDB all provide built-in data replication, both within a region and across regions.
+- Azure Storage, SQL Database, and Cosmos DB all provide built-in data replication, both within a region and across regions.
 - Azure Managed Disks are automatically placed in different storage scale units, to limit the effects of hardware failures.
 - VMs in an availability set are spread across several fault domains. A fault domain is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
 
@@ -150,7 +150,7 @@ Cloud applications often use managed services that have access keys. Never check
 
 Make sure that your data remains in the correct geopolitical zone when using Azure's highly available. Azure's geo-replicated storage uses the concept of a [paired region][paired-region] in the same geopolitical region. 
 
-Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including [Azure Storage][storage-encryption], [Azure SQL Database][sql-db-encryption], [Azure SQL Data Warehouse][data-warehouse-encryption], and [DocumentDB][documentdb-encryption].
+Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including [Azure Storage][storage-encryption], [Azure SQL Database][sql-db-encryption], [Azure SQL Data Warehouse][data-warehouse-encryption], and [Cosmos DB][documentdb-encryption].
 
 ### Security resources
 
