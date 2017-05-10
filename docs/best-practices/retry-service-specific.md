@@ -974,6 +974,23 @@ Internally, Azure Service Fabric manages this kind of transient faults. Programa
 
 Most times, this should not be nessessary.
 
+```csharp
+    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
+    {
+        OperationTimeout = TimeSpan.FromSeconds(30)
+    };
+
+    var retrySettings = new OperationRetrySettings(TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(1), 5);
+
+    var clientFactory = new FabricTransportServiceRemotingClientFactory(transportSettings);
+
+    var serviceProxyFactory = new ServiceProxyFactory((c) => clientFactory, retrySettings);
+
+    var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
+        new Uri("fabric:/SomeApp/SomeStatefulReliableService"),
+        new ServicePartitionKey(0));
+```
+
 ## More information
 * [Remote Exception Handling on Service Remoting with Reliable Services](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
 * [Stack Overflow](http://stackoverflow.com/questions/38562320/do-i-need-a-retry-policy-to-handle-transient-faults-for-service-fabric-internal)
