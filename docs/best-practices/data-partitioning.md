@@ -370,15 +370,15 @@ Document collections provide a natural mechanism for partitioning data within a 
 >
 >
 
-All databases are created in the context of a Cosmos DB database account account. A single account can contain several databases, and it specifies in which regions the databases are created. Each account also enforces its own access control. You can use Cosmos DB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
+All databases are created in the context of a Cosmos DB database account. A single account can contain several databases, and it specifies in which regions the databases are created. Each account also enforces its own access control. You can use Cosmos DB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
 
 Each Cosmos DB account has a quota that limits the number of databases and collections that it can contain and the amount of document storage that's available. For more information, see [Azure subscription and service limits, quotas, and constraints][azure-limits]. It is theoretically possible that if you implement a system where all shards belong to the same database, you might reach the storage capacity limit of the account.
 
 In this case, you might need to create additional accounts and databases, and distribute the shards across these databases. However, even if you are unlikely to reach the storage capacity of a database, it's a good practice to use multiple databases. That's because each database has its own set of users and permissions, and you can use this mechanism to isolate access to collections on a per-database basis.
 
-Figure 8 illustrates the high-level structure of the Azure Cosmos DB DocumentDB API.
+Figure 8 illustrates the high-level structure of the DocumentDB API.
 
-![The structure of DocumentDB API](./images/data-partitioning/DocumentDBStructure.png)
+![The structure of the DocumentDB API](./images/data-partitioning/DocumentDBStructure.png)
 
 *Figure 8.  The structure of the DocumentDB API architecture*
 
