@@ -69,7 +69,7 @@ Azure Redis Cache stores session state and other data that needs low latency acc
 
 Azure CDN is used to cache static content such as images, CSS, or HTML.
 
-For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and DocumentDB.  
+For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.  
 
 For more details, see [Managed web application reference architecture][scalable-web-app].
 

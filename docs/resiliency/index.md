@@ -174,7 +174,7 @@ For example:
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
 
 ### Replicate data
-Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, DocumentDB, and Apache Cassandra.  
+Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
 
 It's important consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
 
@@ -283,7 +283,7 @@ Whatever approach you take, make sure that you can roll back to the last-known g
 ## Monitoring and diagnostics
 Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure. 
 
-Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs -- it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, DocumentDB, Redis cache), and a single user action may span multiple subsystems. 
+Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs -- it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
 
 You can think of the monitoring and diagnostics process as a pipeline with several distinct stages:
 
@@ -309,7 +309,7 @@ For more information about monitoring and diagnostics, see [Monitoring and diagn
 ## Manual failure responses
 Previous sections have focused on automated recovery strategies, which are critical for high availability. However, sometimes manual intervention is needed.
 
-* **Alerts**. Monitor your application for warning signs that may require pro-active intervention. For example, if you see that SQL Database or DocumentDB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert, so that you can follow up.  
+* **Alerts**. Monitor your application for warning signs that may require pro-active intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert, so that you can follow up.  
 * **Manual failover**. Some systems cannot fail over automatically, and require a manual failover. 
 * **Operational readiness testing**. If your application fails over to a secondary region, you should perform an operational readiness test before you fail back to the primary region. The test should verify that the primary region is healthy and ready to receive traffic again.
 * **Data consistency check**. If a failure happens in a data store, there may be data inconsistencies when the store becomes available again, especially if the data was replicated. 
