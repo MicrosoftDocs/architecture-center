@@ -66,8 +66,8 @@ Create a subnet named *GatewaySubnet*, with an address range of /27. This subnet
 
 For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
 
-- [Connect an on-premises network to Azure using ExpressRoute][guidance-expressroute] guidance.
-- [Connect an on-premises network to Azure using a VPN gateway][guidance-vpn] guidance.
+- [Hybrid network using ExpressRoute][guidance-expressroute]
+- [Hybrid network using a VPN gateway][guidance-vpn]
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][hybrid-ha].
 
