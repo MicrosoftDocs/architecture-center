@@ -10,14 +10,14 @@ ms.author: pnp
 
 These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
 
-<ul class="panelContent cardsH">
+<ul class="panelContent">
     <li>
         <a href="./vpn.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/vpn.svg">
                             </div>
                         </div>
@@ -36,7 +36,7 @@ These reference architectures show proven practices for creating a robust networ
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/expressroute.svg">
                             </div>
                         </div>
@@ -55,13 +55,32 @@ These reference architectures show proven practices for creating a robust networ
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/expressroute-vpn-failover.svg">
                             </div>
                         </div>
                         <div class="cardText">
                             <h3>ExpressRoute with VPN failover</h3>
                             <p>Extend an on-premises network to Azure using Azure ExpressRoute, with a VPN as a failover connection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="./hub-spoke.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                            <img src="./images/hub-spoke.svg">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Hub-spoke topology</h3>
+                            <p>The hub is a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads. </p>
                         </div>
                     </div>
                 </div>
