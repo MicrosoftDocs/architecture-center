@@ -386,7 +386,7 @@ It is the task of the client application to direct requests to the appropriate s
 
 ![Implementing sharding using the DocumentDB API](./images/data-partitioning/DocumentDBPartitions.png)
 
-*Figure 9. Implementing sharding using a DocumentDB API database*
+*Figure 9. Implementing sharding using the DocumentDB API*
 
 Consider the following points when deciding how to partition data with the DocumentDB API:
 
