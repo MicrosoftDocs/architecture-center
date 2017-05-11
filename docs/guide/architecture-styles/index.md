@@ -99,13 +99,13 @@ Constraints also create challenges, so it's important to understand the trade-of
 
 Here are some of the types of challenges to consider when selecting an architecture style:
 
-- Complexity. Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "[ball of mud][ball-of-mud]", because the architecture does not help you to manage dependencies cleanly.
+- **Complexity.** Is the complexity of the architecture justified for your domain? Conversely, is the style too simplistic for your domain? In that case, you risk ending up with a "[ball of mud][ball-of-mud]", because the architecture does not help you to manage dependencies cleanly.
 
-- Asynchronous messaging and eventual consistency. Asynchronous messaging can be used to decouple services, and increase reliability (because messages can be retried) and scalability. However, this also creates challenges such as always-once semantics and eventual consistency.
+- **Asynchronous messaging and eventual consistency.** Asynchronous messaging can be used to decouple services, and increase reliability (because messages can be retried) and scalability. However, this also creates challenges such as always-once semantics and eventual consistency.
 
-- Inter-service communication. As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
+- **Inter-service communication.** As you decompose an application into separate services, there is a risk that communication between services will cause unacceptable latency or create network congestion (for example, in a microservices architecture). 
 
-- Manageability. How hard is it to manage the application, monitor, deploy updates, and so on?
+- **Manageability.** How hard is it to manage the application, monitor, deploy updates, and so on?
 
 
 [ball-of-mud]: https://en.wikipedia.org/wiki/Big_ball_of_mud
