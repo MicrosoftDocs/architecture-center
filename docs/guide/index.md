@@ -35,7 +35,7 @@ Design for elastic scale<br/>
 Polyglot persistence (mix of storage technologies)<br/>
 Eventual consistency<br/>
 Parallel and asynchronous processing<br/>
-Design for failure. (MTTR)<br/>
+Design for failure (MTTR)<br/>
 Frequent small updates<br/>
 Automated self-management<br/>
 Immutable infrastructure<br/>
