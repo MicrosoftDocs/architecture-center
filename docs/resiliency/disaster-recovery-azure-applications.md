@@ -28,7 +28,7 @@ When you're configuring Traffic Manager, you provide a new Traffic Manager DNS p
 
 Within Traffic Manager, you specify the priority of the deployments that users will be routed to when failure occurs. Traffic Manager monitors the endpoints of the deployments and notes when the primary deployment fails. At failure, Traffic Manager analyzes the prioritized list of deployments and routes users to the next one on the list.
 
-Although Traffic Manager decides where to go in a failover, you can decide whether your failover domain is dormant or active while you're not in failover mode. That functionality has nothing to do with Azure Traffic Manager. Traffic Manager detects a failure in the primary site and rolls over to thhe failover site. Traffic Manager rolls over regardless of whether that site is currently serving users or not.
+Although Traffic Manager decides where to go in a failover, you can decide whether your failover domain is dormant or active while you're not in failover mode. That functionality has nothing to do with Azure Traffic Manager. Traffic Manager detects a failure in the primary site and rolls over to the failover site. Traffic Manager rolls over regardless of whether that site is currently serving users or not.
 
 For more information on how Azure Traffic Manager works, refer to:
 
