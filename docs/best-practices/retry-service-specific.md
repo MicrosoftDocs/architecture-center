@@ -372,9 +372,9 @@ Consider starting with following settings for retrying operations. These are gen
 >
 
 ### Examples
-This section describes how you can use the Polly to access Azure SQL Database using a set of retry policies you have configured in the **Policy** itself.
+This section shows how you can use Polly to access Azure SQL Database using a set of retry policies configured in the `Policy` class.
 
-You can use the asynchronous support in version 5 of the C# language.
+The following code shows an extension method on the `SqlCommand` class that calls `ExecuteAsync` with exponential backoff.
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command)
@@ -404,11 +404,11 @@ public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlComm
 ```
 
 > [!NOTE]
-> Slight variation of a sample located at [Polly GitHub repo](https://github.com/App-vNext/Polly-Samples/blob/master/PollyTestClient/Samples/AsyncDemo02_WaitAndRetryNTimes.cs).
+> This code is slightly modified from a sample located at the [Polly GitHub repo](https://github.com/App-vNext/Polly-Samples/blob/master/PollyTestClient/Samples/AsyncDemo02_WaitAndRetryNTimes.cs).
 >
 >
 
-This new asynchronous extension method can be used in the same way as the synchronous versions included in the block.
+This asynchronous extension method can be used as follows.
 
 ```csharp
 var sqlCommand = sqlConnection.CreateCommand();
@@ -1019,7 +1019,6 @@ The following are the typical types of retry strategy intervals:
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
 [documentdb-api]: /azure/documentdb/documentdb-introduction
 [dotnet-foundation]: https://dotnetfoundation.org/
-[entlib]: http://msdn.microsoft.com/library/dn440719.aspx
 [polly]: http://www.thepollyproject.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
