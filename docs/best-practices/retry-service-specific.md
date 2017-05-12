@@ -871,15 +871,15 @@ Retry behavior in the Azure Search SDK is controlled by the `SetRetryPolicy` met
 Trace with ETW or by registering a custom trace provider. For more information, see the [AutoRest documentation][autorest].
 
 ## Azure Active Directory retry guidelines
-Azure Active Directory (AD) is a comprehensive identity and access management cloud solution that combines core directory services, advanced identity governance, security, and application access management. Azure AD also offers developers an identity management platform to deliver access control to their applications, based on centralized policy and rules.
+Azure Active Directory (Azure AD) is a comprehensive identity and access management cloud solution that combines core directory services, advanced identity governance, security, and application access management. Azure AD also offers developers an identity management platform to deliver access control to their applications, based on centralized policy and rules.
 
 ### Retry mechanism
-There is built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL).
+There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL).
 
-To avoid unexpected lockouts, we don't suggest to retry failed connections externally by third party libraries nor custom code.
+To avoid unexpected lockouts, we recommend that third party libraries and application code do *not* retry failed connections, but allow ADAL to handle retries. 
 
 ### More information
-[ADAL library repo](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)
+[Azure Active Directory Authentication Libraries][adal]
 
 ### Retry usage guidance
 Consider the following guidelines when using Azure Active Directory:
@@ -1079,6 +1079,7 @@ The following are the typical types of retry strategy intervals:
 
 <!-- links -->
 
+[adal]: /azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [circuit-breaker]: ../patterns/circuit-breaker.md
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
