@@ -1058,13 +1058,15 @@ The following are the typical types of retry strategy intervals:
 * [Circuit breaker strategies](http://msdn.microsoft.com/library/dn589784.aspx)
 
 ## Transient Fault Handling with Polly
-[Polly](http://www.thepollyproject.org), a .NET Foundation member, is a library to programatically handle retries and circuit-breaker strategies without the hassle. For those services where no native client support for retry is offered, Polly is a valid alternative and avoids custom infrastructure code writing.
+[Polly](http://www.thepollyproject.org) is a library to programatically handle retries and [circuit breaker][circuit-breaker] strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly.
 
 <!-- links -->
 
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
+[circuit-breaker]: ../patterns/circuit-breaker.md
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
 [documentdb-api]: /azure/documentdb/documentdb-introduction
+[dotnet-foundation]: https://dotnetfoundation.org/
 [entlib]: http://msdn.microsoft.com/library/dn440719.aspx
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
