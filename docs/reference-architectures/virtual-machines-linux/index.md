@@ -10,14 +10,14 @@ ms.author: pnp
 
 These reference architectures show proven practices for running Linux VMs in Azure. 
 
-<ul class="panelContent cardsH">
+<ul class="panelContent">
     <li>
         <a href="./single-vm.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                                 <img src="./images/single-vm.svg"/>
                             </div>
                         </div>
@@ -36,7 +36,7 @@ These reference architectures show proven practices for running Linux VMs in Azu
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/multi-vm.svg">
                             </div>
                         </div>
@@ -55,7 +55,7 @@ These reference architectures show proven practices for running Linux VMs in Azu
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/n-tier.svg">
                             </div>
                         </div>
@@ -74,7 +74,7 @@ These reference architectures show proven practices for running Linux VMs in Azu
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/multi-region-application.svg">
                             </div>
                         </div>
