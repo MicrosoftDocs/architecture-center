@@ -24,7 +24,11 @@ An RDBMS typically supports a schema-on-write model, where the data structure is
 
 An RDBMS is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, the underlying structures do not lend themselves to scaling out by distributing storage and processing across machines. Also, information stored in an RDBMS, must be put into a relational structure by following the normalization process. While this process is well understood, it can lead to inefficiencies, because of the need to disassemble logical entities into rows in separate tables, and then reassemble the data when running queries. 
 
-Relevant Azure service: [SQL Database][sql-db]
+Relevant Azure service: 
+
+- [Azure SQL Database][sql-db]
+- [Azure Database for MySQL][mysql]
+- [Azure Database for PostgreSQL][postgres]
 
 ## Key/value stores
 
@@ -41,8 +45,9 @@ Key/value stores are also not optimized for scenarios where querying by value is
 
 A single key/value store can be extremely scalable, as the data store can easily distribute data across multiple nodes on separate machines. 
 
-Relevant Azure services:
+Relevant Azure services: 
 
+- [Cosmos DB][cosmosdb]
 - [Azure Redis Cache][redis-cache]
 
 ## Document databases
@@ -59,7 +64,7 @@ The application can retrieve documents by using the document key. This is a uniq
 
 Many document databases support in-place updates, enabling an application to modify the values of specific fields in a document without rewriting the entire document. Read and write operations over multiple fields in a single document are usually atomic.
 
-Relevant Azure service: [DocumentDB API][docdb]
+Relevant Azure service: [Cosmos DB][cosmosdb]
 
 ## Graph databases
 
@@ -71,7 +76,7 @@ The purpose of a graph database is to allow an application to efficiently perfor
 
 This structure makes it straightforward to perform queries such as "Find all employees who report directly or indirectly to Sarah" or "Who works in the same department as John?" For large graphs with lots of entities and relationships, you can perform very complex analyses very quickly. Many graph databases provide a query language that you can use to traverse a network of relationships efficiently. 
 
-Relevant Azure service: [SQL Server 2017 graph extensions][sql-graph] (IaaS)
+Relevant Azure service: [Cosmos DB][cosmosdb]
 
 ## Column-family databases
 
@@ -114,7 +119,7 @@ Time series data is a set of values organized by time, and a time series databas
 
 Time series databases are good for storing telemetry data. Scenarios include IoT sensors or application/system counters.
 
-Relevant Azure service:	[Time Series Insights][time-series] (preview)
+Relevant Azure service:	[Time Series Insights][time-series]
 
 ## Object storage  
 
@@ -131,13 +136,14 @@ Relevant Azure service: [File Storage][file-storage]
 <!-- links -->
 
 [blob]: https://azure.microsoft.com/services/storage/blobs/
+[cosmosdb]: https://azure.microsoft.com/services/cosmos-db/
 [data-lake]: https://azure.microsoft.com/solutions/data-lake/
-[docdb]: /azure/documentdb/documentdb-introduction
 [file-storage]: https://azure.microsoft.com/services/storage/files/
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
+[mysql]: https://azure.microsoft.com/services/mysql/
+[postgres]: https://azure.microsoft.com/services/postgresql/
 [redis-cache]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
-[sql-graph]: /sql/relational-databases/graphs/sql-graph-overview
 [time-series]: https://azure.microsoft.com/services/time-series-insights/
