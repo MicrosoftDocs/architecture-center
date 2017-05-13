@@ -966,13 +966,10 @@ For information about retrying Active Directory Graph API operations and the err
 * [Token Issuance and Retry Guidelines](http://msdn.microsoft.com/library/azure/dn168916.aspx)
 
 ## Azure Service Fabric retry guidelines
-Distributing reliable services in an Azure Service Fabric cluster, defends inter-process communications against most of the potential transient faults we've been discussing in this document.
 
-There's still room for some transient faults. For example, the internal Naming service might be in the middle of a routing change when getting a request, and throwing an exception. If that same request comes 100 milliseconds later, it'll probably succeed.
+Distributing reliable services in a Service Fabric cluster guards against most of the potential transient faults discussed in this article. Some transient faults are still possible, however. For example, the naming service might be in the middle of a routing change when it gets a request, causing it to throw an exception. If the same request comes 100 milliseconds later, it will probably succeed.
 
-Internally, Azure Service Fabric manages this kind of transient faults. Programatically, you're allowed to do some customizations on the defaults, by using the **OperationRetrySettings** class while setting up your services.
-
-Most times, this should not be nessessary.
+Internally, Azure Service Fabric manages this kind of transient faults. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
 
 ```csharp
     FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
@@ -992,8 +989,9 @@ Most times, this should not be nessessary.
 ```
 
 ## More information
-* [Remote Exception Handling on Service Remoting with Reliable Services](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
-* [Stack Overflow](http://stackoverflow.com/questions/38562320/do-i-need-a-retry-policy-to-handle-transient-faults-for-service-fabric-internal)
+
+* [Remote Exception Handling](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
+
 
 ## General REST and retry guidelines
 Consider the following when accessing Azure or third party services:
