@@ -28,6 +28,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[DocumentDB API](#documentdb-api-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (with custom detection strategy) |Declarative and programmatic |Blocks of code |Custom |
+| **[Service Fabric](#service-fabric-retry-guidelines)** |Native in client |Programmatic |Client |None | 
 
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception beyond the functionality include in the retry policy. Therefore, the best guidance available at the time of writing is to configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring. For example, if the majority of errors are related to network connectivity issues, you might attempt an immediate retry rather than wait a long time for the first retry.
@@ -963,6 +964,34 @@ For information about retrying Active Directory Graph API operations and the err
 * [Implementing a Custom Detection Strategy](http://msdn.microsoft.com/library/hh680940.aspx) (Topaz)
 * [Implementing a Custom Retry Strategy](http://msdn.microsoft.com/library/hh680943.aspx) (Topaz)
 * [Token Issuance and Retry Guidelines](http://msdn.microsoft.com/library/azure/dn168916.aspx)
+
+## Service Fabric retry guidelines
+
+Distributing reliable services in a Service Fabric cluster guards against most of the potential transient faults discussed in this article. Some transient faults are still possible, however. For example, the naming service might be in the middle of a routing change when it gets a request, causing it to throw an exception. If the same request comes 100 milliseconds later, it will probably succeed.
+
+Internally, Service Fabric manages this kind of transient fault. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
+
+```csharp
+    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
+    {
+        OperationTimeout = TimeSpan.FromSeconds(30)
+    };
+
+    var retrySettings = new OperationRetrySettings(TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(1), 5);
+
+    var clientFactory = new FabricTransportServiceRemotingClientFactory(transportSettings);
+
+    var serviceProxyFactory = new ServiceProxyFactory((c) => clientFactory, retrySettings);
+
+    var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
+        new Uri("fabric:/SomeApp/SomeStatefulReliableService"),
+        new ServicePartitionKey(0));
+```
+
+## More information
+
+* [Remote Exception Handling](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
+
 
 ## General REST and retry guidelines
 Consider the following when accessing Azure or third party services:
