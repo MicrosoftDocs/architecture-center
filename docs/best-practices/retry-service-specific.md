@@ -22,6 +22,7 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Storage](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client and individual operations |TraceSource |
 | **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-core-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[SQL Database with ADO.NET](#sql-database-using-adonet-retry-guidelines)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
 | **[Service Bus](#service-bus-retry-guidelines)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Native in client |Programmatic |Client |TextWriter |
@@ -341,13 +342,62 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 ### More information
 * [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
+## SQL Database using Entity Framework Core retry guidelines
+[Entity Framework Core](/ef/core/) is an object-relational mapper that enables .NET Core developers to work with data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. This version of Entity Framework was written from the ground up, and doesn't automatically inherit all the features from EF6.x.
+
+### Retry mechanism
+Retry support is provided when accessing SQL Database using Entity Framework Core through a mechanism called [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency). Connection resiliency was introduced in EF Core 1.1.0.
+
+The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including SQL Azure, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
+
+### Examples
+
+The following code enables automatic retries when configuring the DbContext object, which represents a session with the database. 
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder
+        .UseSqlServer(
+            @"Server=(localdb)\mssqllocaldb;Database=EFMiscellanous.ConnectionResiliency;Trusted_Connection=True;",
+            options => options.EnableRetryOnFailure());
+}
+```
+
+The following code shows how to execute a transaction with automatic retries, by using an execution strategy. The transaction is defined in a delegate. If a transient failure occurs, the execution strategy will invoke the delegate again.
+
+```csharp
+using (var db = new BloggingContext())
+{
+    var strategy = db.Database.CreateExecutionStrategy();
+
+    strategy.Execute(() =>
+    {
+        using (var transaction = db.Database.BeginTransaction())
+        {
+            db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/dotnet" });
+            db.SaveChanges();
+
+            db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/visualstudio" });
+            db.SaveChanges();
+
+            transaction.Commit();
+        }
+    });
+}
+```
+
+### More information
+* [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency)
+* [Data Points - EF Core 1.1](https://msdn.microsoft.com/en-us/magazine/mt745093.aspx)
+
 ## SQL Database using ADO.NET retry guidelines
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service.
 
 ### Retry mechanism
 SQL Database has no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. For more information about SQL Database throttling, see [Azure SQL Database resource limits](/azure/sql-database/sql-database-resource-limits). For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
 
-You can use the Polly .NET library to implement retries for SQL Database. See [Transient fault handling with Polly](#transient-fault-handling-with-polly).
+You can use the Polly library to implement retries for SQL Database. See [Transient fault handling with Polly](#transient-fault-handling-with-polly).
 
 ### Retry usage guidance
 Consider the following guidelines when accessing SQL Database using ADO.NET:
