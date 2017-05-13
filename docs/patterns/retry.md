@@ -86,21 +86,21 @@ This pattern might not be useful:
 
 ## Example
 
-This example in C# illustrates an implementation of the Retry pattern. The `OperationWithBasicRetryAsync` method, shown below, invokes an external service asynchronously through the `TransientOperationAsync` method (the details of this method will be specific to the service and are omitted from the sample code).
+This example in C# illustrates an implementation of the Retry pattern. The `OperationWithBasicRetryAsync` method, shown below, invokes an external service asynchronously through the `TransientOperationAsync` method. The details of the `TransientOperationAsync` method will be specific to the service and are omitted from the sample code.
 
 ```csharp
 private int retryCount = 3;
-...
+private readonly TimeSpan delay = TimeSpan.FromSeconds(5);
 
 public async Task OperationWithBasicRetryAsync()
 {
   int currentRetry = 0;
 
-  for (; ;)
+  for (;;)
   {
     try
     {
-      // Calling external service.
+      // Call external service.
       await TransientOperationAsync();
 
       // Return or break.
@@ -118,8 +118,8 @@ public async Task OperationWithBasicRetryAsync()
       // long to wait, based on the retry strategy.
       if (currentRetry > this.retryCount || !IsTransient(ex))
       {
-        // If this isn't a transient error
-        // or we shouldn't retry, rethrow the exception.
+        // If this isn't a transient error or we shouldn't retry, 
+        // rethrow the exception.
         throw;
       }
     }
@@ -127,7 +127,7 @@ public async Task OperationWithBasicRetryAsync()
     // Wait to retry the operation.
     // Consider calculating an exponential delay here and
     // using a strategy best suited for the operation and fault.
-    Await.Task.Delay();
+    await Task.Delay(delay);
   }
 }
 
