@@ -882,8 +882,8 @@ There is a built-in retry mechanism for Azure Active Directory in the Active Dir
 ### Retry usage guidance
 Consider the following guidelines when using Azure Active Directory:
 
+* When possible, use the ADAL library and the built-in support for retries.
 * If you are using the REST API for Azure Active Directory, you should retry the operation only if the result is an error in the 5xx range (such as 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, and 504 Gateway Timeout). Do not retry for any other errors.
-* If you are using the Active Directory Authentication Library (ADAL), HTTP codes are not readily accessible. You will need to create a custom detection strategy that includes logic to check the properties of the ADAL-specific exceptions. See the [Examples](#examples) section below.
 * An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
 
 Consider starting with the following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
@@ -893,111 +893,8 @@ Consider starting with the following settings for retrying operations. These are
 | Interactive, UI,<br />or foreground |2 sec |FixedInterval |Retry count<br />Retry interval<br />First fast retry |3<br />500 ms<br />true |Attempt 1 - delay 0 sec<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms |
 | Background or<br />batch |60 sec |ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
 
-### Examples
-The following code example shows how you can use the Transient Fault Handling Application Block (Topaz) to define a custom transient error detection strategy suitable for use with the ADAL client. The code creates a new **RetryPolicy** instance based on a custom detection strategy of type **AdalDetectionStrategy**, as defined in the code listing below. Custom detection strategies for Topaz implement the **ITransientErrorDetectionStrategy** interface and return true if a retry should be attempted, or **false** if the failure appears to be non-transient and a retry should not be attempted.
-
-    using System;
-    using System.Linq;
-    using System.Net;
-    using System.Threading.Tasks;
-    using Microsoft.Practices.TransientFaultHandling;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-    namespace RetryCodeSamples
-    {
-        class ActiveDirectoryCodeSamples
-        {
-            public async static Task Samples()
-            {
-                var authority = "[some authority]";
-                var resourceId = “[some resource id]”;
-                var clientId = “[some client id]”;
-
-                var authContext = new AuthenticationContext(authority);
-
-                var uc = new UserCredential(“[user]", "[password]");
-
-                // Use Topaz with a custom detection strategy to manage retries.
-                var policy =
-                    new RetryPolicy<AdalDetectionStrategy>(
-                        new ExponentialBackoff(
-                            retryCount: 5,
-                            minBackoff: TimeSpan.FromSeconds(0),
-                            maxBackoff: TimeSpan.FromSeconds(60),
-                            deltaBackoff: TimeSpan.FromSeconds(2)));
-
-                var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resourceId, clientId, uc));
-
-                // Get the access token
-                var accessToken = result.AccessToken;
-
-                // Use the result, probably to authorize an API call.
-            }
-        }
-
-        // TODO: This is sample code that needs validation from the WAAD team!
-        // based on existing detection strategies
-        public class AdalDetectionStrategy : ITransientErrorDetectionStrategy
-        {
-            private static readonly WebExceptionStatus[] webExceptionStatus =
-                new[]
-                {
-                    WebExceptionStatus.ConnectionClosed,
-                    WebExceptionStatus.Timeout,
-                    WebExceptionStatus.RequestCanceled
-                };
-
-            private static readonly HttpStatusCode[] httpStatusCodes =
-                new[]
-                {
-                    HttpStatusCode.InternalServerError,
-                    HttpStatusCode.GatewayTimeout,
-                    HttpStatusCode.ServiceUnavailable,
-                    HttpStatusCode.RequestTimeout
-                };
-
-            public bool IsTransient(Exception ex)
-            {
-                var adalException = ex as AdalException;
-                if (adalException == null)
-                {
-                    return false;
-                }
-
-                if (adalException.ErrorCode == AdalError.ServiceUnavailable)
-                {
-                    return true;
-                }
-
-                var innerWebException = adalException.InnerException as WebException;
-                if (innerWebException != null)
-                {
-                    if (webExceptionStatus.Contains(innerWebException.Status))
-                    {
-                        return true;
-                    }
-
-                    if (innerWebException.Status == WebExceptionStatus.ProtocolError)
-                    {
-                        var response = innerWebException.Response as HttpWebResponse;
-                        return response != null && httpStatusCodes.Contains(response.StatusCode);
-                    }
-                }
-
-                return false;
-            }
-        }
-    }
-
-For information about retrying Active Directory Graph API operations and the error codes returned see:
-
-* [Code Sample: Retry Logic](http://msdn.microsoft.com/library/azure/dn448547.aspx)
-* [Azure AD Graph Error Codes](http://msdn.microsoft.com/library/azure/hh974480.aspx)
-
 ### More information
-* [Implementing a Custom Detection Strategy](http://msdn.microsoft.com/library/hh680940.aspx) (Topaz)
-* [Implementing a Custom Retry Strategy](http://msdn.microsoft.com/library/hh680943.aspx) (Topaz)
-* [Token Issuance and Retry Guidelines](http://msdn.microsoft.com/library/azure/dn168916.aspx)
+* [Azure Active Directory Authentication Libraries][adal]
 
 ## Service Fabric retry guidelines
 
