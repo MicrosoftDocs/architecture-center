@@ -876,9 +876,6 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 ### Retry mechanism
 There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third party libraries and application code do *not* retry failed connections, but allow ADAL to handle retries. 
 
-### More information
-[Azure Active Directory Authentication Libraries][adal]
-
 ### Retry usage guidance
 Consider the following guidelines when using Azure Active Directory:
 
