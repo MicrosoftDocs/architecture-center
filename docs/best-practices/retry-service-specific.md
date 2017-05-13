@@ -874,9 +874,7 @@ Trace with ETW or by registering a custom trace provider. For more information, 
 Azure Active Directory (Azure AD) is a comprehensive identity and access management cloud solution that combines core directory services, advanced identity governance, security, and application access management. Azure AD also offers developers an identity management platform to deliver access control to their applications, based on centralized policy and rules.
 
 ### Retry mechanism
-There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL).
-
-To avoid unexpected lockouts, we recommend that third party libraries and application code do *not* retry failed connections, but allow ADAL to handle retries. 
+There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third party libraries and application code do *not* retry failed connections, but allow ADAL to handle retries. 
 
 ### More information
 [Azure Active Directory Authentication Libraries][adal]
