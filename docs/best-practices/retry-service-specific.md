@@ -969,7 +969,7 @@ For information about retrying Active Directory Graph API operations and the err
 
 Distributing reliable services in a Service Fabric cluster guards against most of the potential transient faults discussed in this article. Some transient faults are still possible, however. For example, the naming service might be in the middle of a routing change when it gets a request, causing it to throw an exception. If the same request comes 100 milliseconds later, it will probably succeed.
 
-Internally, Service Fabric manages this kind of transient faults. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
+Internally, Service Fabric manages this kind of transient fault. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
 
 ```csharp
     FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
