@@ -348,7 +348,7 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 ### Retry mechanism
 Retry support is provided when accessing SQL Database using Entity Framework Core through a mechanism called [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency). Connection resiliency was introduced in EF Core 1.1.0.
 
-* The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including SQL Azure, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
+The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including SQL Azure, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
 
 ### Examples
 
@@ -397,7 +397,7 @@ SQL Database is a hosted SQL database available in a range of sizes and as both 
 ### Retry mechanism
 SQL Database has no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. For more information about SQL Database throttling, see [Azure SQL Database resource limits](/azure/sql-database/sql-database-resource-limits). For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
 
-You can use the Polly .NET library to implement retries for SQL Database. See [Transient fault handling with Polly](#transient-fault-handling-with-polly).
+You can use the Polly library to implement retries for SQL Database. See [Transient fault handling with Polly](#transient-fault-handling-with-polly).
 
 ### Retry usage guidance
 Consider the following guidelines when accessing SQL Database using ADO.NET:
