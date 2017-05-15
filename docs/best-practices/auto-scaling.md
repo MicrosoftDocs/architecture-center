@@ -74,7 +74,7 @@ Consider the following points when using Autoscale:
   * Scale out operations always take precedence over scale in operations.
   * When scale out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
   * When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
-* In an App Service Environment any worker pool or front-end metrics can be used to define autoscale rules. For more info, see [Autoscaling and App Service Environment].
+* In an App Service Environment any worker pool or front-end metrics can be used to define autoscale rules. For more info, see [Autoscaling and App Service Environment](/azure/app-service/app-service-environment-auto-scale).
 
 <a name="the-azure-monitoring-services-management-library"></a>
 
