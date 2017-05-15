@@ -46,7 +46,6 @@ An in-depth discussion of microservices is beyond scope of this article, but her
 - **Agile development**. Individual services have less code than a monolithic application, making the code base easier to understand, reason about, and test.
 - **Small, focused teams**. Because the application is broken down into many small services, each service can be built by a small focused team.
 
-
 ## Why Service Fabric?
       
 Service Fabric is a good fit for a microservices architecture, because most of the features needed in a distributed system are built into Service Fabric, including:
@@ -59,7 +58,7 @@ Service Fabric is a good fit for a microservices architecture, because most of t
 - **Service orchestration** across a cluster of machines.
 - **Higher density** for optimizing resource consumption. A single node can host multiple services.
 
-Service Fabric is used by various Microsoft services, including Azure SQL Database, DocumentDB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications. 
+Service Fabric is used by various Microsoft services, including Azure SQL Database, Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications. 
 
 ## Comparing Cloud Services with Service Fabric
 

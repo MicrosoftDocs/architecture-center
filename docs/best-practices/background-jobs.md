@@ -72,7 +72,7 @@ You can host background tasks by using a range of different Azure platform servi
 * [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
 * [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
-* [**Azure Batch**](/azure/batch/batch-technical-overview/). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+* [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -167,6 +167,24 @@ Consider the following points when you are deciding whether to deploy background
 ### More information
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
 * [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
+## Azure Batch 
+
+Consider [Azure Batch](/azure/batch/) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.  
+
+The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
+
+### Considerations 
+
+Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes. 
+
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
+
+### More information 
+
+* [Run intrinsically parallel workloads with Batch](/azure/batch/batch-technical-overview) 
+* [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics) 
+* [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.

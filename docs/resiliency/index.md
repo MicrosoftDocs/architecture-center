@@ -1,5 +1,5 @@
 ---
-title: Design resilient applications
+title: Designing resilient applications for Azure
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 author: MikeWasson
 ms.service: guidance
@@ -14,28 +14,28 @@ pnp.series.title: Design for Resiliency
 
 In a distributed system, failures will happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for. 
 
-Building a reliable application in the cloud is different than building a reliable application in an enterprise setting.  While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of focusing on preventing failures and optimizing "mean time between failures," in this new environment the focus shifts to "mean time to restore." The goal is to minimize the impact from a failure.
+Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of scaling up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of focusing on preventing failures and optimizing "mean time between failures," in this new environment the focus shifts to "mean time to restore." The goal is to minimize the effect of a failure.
 
-This article gives an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the life of an application, from design and implementation, to deployment and operations.
+This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
 ## What is resiliency?
-**Resiliency** is the ability to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state after a failure.
+**Resiliency** is the ability to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
 
 Two important aspects of resiliency are high availability and disaster recovery.
 
-* **High availability** (HA) is the ability of the application to keep running in a healthy state, without significant downtime. By "healthy state," we mean the application is responsive, and users can connect to the application and interact with it.  
-* **Disaster recovery** (DR) is the ability to recover from rare but major incidents: Non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and may include manual interventions, such as restoring a database from backup. 
+* **High availability** (HA) is the ability of the application to continue running in a healthy state, without significant downtime. By "healthy state," we mean the application is responsive, and users can connect to the application and interact with it.  
+* **Disaster recovery** (DR) is the ability to recover from rare but major incidents: non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and may include manual intervention, such as restoring a database from backup. 
 
 One way to think about HA versus DR is that DR starts when the impact of a fault exceeds the ability of the HA design to handle it. For example, putting several VMs behind a load balancer will provide availability if one VM fails, but not if they all fail at the same time. 
 
-When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it in the normal timeframe?
+When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it within the normal timeframe?
 
-Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after a disaster. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. In this article, we are just focused on cloud applications, but resilience planning must be done in the context of overall BC requirements. 
+Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after a disaster. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. This article focuses on cloud applications, but resilience planning must be done in the context of overall BC requirements. 
 
 ## Process to achieve resiliency
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
-1. **Define** your availability requirements, based on business needs
+1. **Define** your availability requirements, based on business needs.
 2. **Design** the application for resiliency. Start with an architecture that follows proven practices, and then identify the possible failure points in that architecture.
 3. **Implement** strategies to detect and recover from failures. 
 4. **Test** the implementation by simulating faults and triggering forced failovers. 
@@ -174,7 +174,7 @@ For example:
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
 
 ### Replicate data
-Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, DocumentDB, and Apache Cassandra.  
+Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
 
 It's important consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
 
@@ -283,7 +283,7 @@ Whatever approach you take, make sure that you can roll back to the last-known g
 ## Monitoring and diagnostics
 Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure. 
 
-Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs -- it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, DocumentDB, Redis cache), and a single user action may span multiple subsystems. 
+Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs -- it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
 
 You can think of the monitoring and diagnostics process as a pipeline with several distinct stages:
 
@@ -309,7 +309,7 @@ For more information about monitoring and diagnostics, see [Monitoring and diagn
 ## Manual failure responses
 Previous sections have focused on automated recovery strategies, which are critical for high availability. However, sometimes manual intervention is needed.
 
-* **Alerts**. Monitor your application for warning signs that may require pro-active intervention. For example, if you see that SQL Database or DocumentDB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert, so that you can follow up.  
+* **Alerts**. Monitor your application for warning signs that may require pro-active intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert, so that you can follow up.  
 * **Manual failover**. Some systems cannot fail over automatically, and require a manual failover. 
 * **Operational readiness testing**. If your application fails over to a secondary region, you should perform an operational readiness test before you fail back to the primary region. The test should verify that the primary region is healthy and ready to receive traffic again.
 * **Data consistency check**. If a failure happens in a data store, there may be data inconsistencies when the store becomes available again, especially if the data was replicated. 

@@ -33,7 +33,7 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 * **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region. 
 * **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to the primary region. If the application running that region becomes unavailable, Traffic Manager fails over to the secondary region.
-* **Geo-replication** of SQL Database and DocumentDB. 
+* **Geo-replication** of SQL Database and Cosmos DB. 
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
@@ -75,10 +75,10 @@ On the other hand, don't use the health probe to check lower priority services. 
 ### SQL Database
 Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
-### DocumentDB
-DocumentDB supports geo-replication across regions. One region is designated as writable and the others are read-only replicas.
+### Cosmos DB
+Cosmos DB supports geo-replication across regions. One region is designated as writable and the others are read-only replicas.
 
-If there is a regional outage, you can fail over by selecting another region to be the write region. The DocumentDB client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Distribute data globally with DocumentDB][docdb-geo].
+If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [How to distribute data globally with Azure Cosmos DB?][docdb-geo]
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.

@@ -22,14 +22,15 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Storage](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client and individual operations |TraceSource |
 | **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
-| **[SQL Database with ADO.NET](#azure-storage-retry-guidelines)** |Topaz* |Declarative and programmatic |Single statements or blocks of code |Custom |
+| **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-core-retry-guidelines)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[SQL Database with ADO.NET](#sql-database-using-adonet-retry-guidelines)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
 | **[Service Bus](#service-bus-retry-guidelines)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Native in client |Programmatic |Client |TextWriter |
-| **[DocumentDB](#documentdb-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
+| **[DocumentDB API](#documentdb-api-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
-| **[Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (with custom detection strategy) |Declarative and programmatic |Blocks of code |Custom |
+| **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
+| **[Service Fabric](#service-fabric-retry-guidelines)** |Native in client |Programmatic |Client |None | 
 
-*Topaz is the friendly name for the Transient Fault Handling Application Block that is included in [Enterprise Library 6.0][entlib]. You can use a custom detection strategy with Topaz for most types of services, as described in this guidance. Default strategies for Topaz are shown in the section [Transient Fault Handling Application Block (Topaz) strategies](#transient-fault-handling-application-block-topaz-strategies) at the end of this guidance. Note that the block is now an open-sourced framework and is not directly supported by Microsoft.
 
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception beyond the functionality include in the retry policy. Therefore, the best guidance available at the time of writing is to configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring. For example, if the majority of errors are related to network connectivity issues, you might attempt an immediate retry rather than wait a long time for the first retry.
@@ -98,7 +99,7 @@ The following table shows the default settings for the built-in retry policies.
 | **Context** | **Setting** | **Default value** | **Meaning** |
 | --- | --- | --- | --- |
 | Table / Blob / File<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120 seconds<br /><br />None<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |Maximum execution time for the request, including all potential retry attempts.<br />Server timeout interval for the request (value is rounded to seconds). If not specified, it will use the default value for all requests to the server. Usually, the best option is to omit this setting so that the server default is used.<br />If the storage account is created with the Read access geo-redundant storage (RA-GRS) replication option, you can use the location mode to indicate which location should receive the request. For example, if **PrimaryThenSecondary** is specified, requests are always sent to the primary location first. If a request fails, it is sent to the secondary location.<br />See below for details of each option. |
-| Exponential policy |maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff |3<br />4 seconds<br /><br /><br />3 seconds<br /><br />30 seconds |Number of retry attempts.<br />Back-off interval between retries. Multiples of this timespan, including a random element, will be used for subsequent retry attempts.<br />Added to all retry intervals computed from deltaBackoff. This value cannot be changed.<br />MaxBackoff is used if the computed retry interval is greater than MaxBackoff. This value cannot be changed. |
+| Exponential policy |maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff |3<br />4 seconds<br /><br /><br />3 seconds<br /><br />120 seconds |Number of retry attempts.<br />Back-off interval between retries. Multiples of this timespan, including a random element, will be used for subsequent retry attempts.<br />Added to all retry intervals computed from deltaBackoff. This value cannot be changed.<br />MaxBackoff is used if the computed retry interval is greater than MaxBackoff. This value cannot be changed. |
 | Linear policy |maxAttempt<br />deltaBackoff |3<br />30 seconds |Number of retry attempts.<br />Back-off interval between retries. |
 
 ### Retry usage guidance
@@ -206,7 +207,7 @@ namespace RetryCodeSamples
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service. Entity Framework is an object-relational mapper that enables .NET developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write.
 
 ### Retry mechanism
-Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). A full specification is available in the [.NET Entity Framework wiki](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) on Codeplex. The main features of the retry mechanism are:
+Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher through a mechanism called [Connection Resiliency / Retry Logic](http://msdn.microsoft.com/data/dn456835.aspx). The main features of the retry mechanism are:
 
 * The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
   * Defines synchronous and asynchronous **Execute*** methods.
@@ -342,54 +343,62 @@ More examples of using the Entity Framework retry mechanism can be found in [Con
 ### More information
 * [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
+## SQL Database using Entity Framework Core retry guidelines
+[Entity Framework Core](/ef/core/) is an object-relational mapper that enables .NET Core developers to work with data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. This version of Entity Framework was written from the ground up, and doesn't automatically inherit all the features from EF6.x.
+
+### Retry mechanism
+Retry support is provided when accessing SQL Database using Entity Framework Core through a mechanism called [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency). Connection resiliency was introduced in EF Core 1.1.0.
+
+The primary abstraction is the `IExecutionStrategy` interface. The execution strategy for SQL Server, including SQL Azure, is aware of the exception types that can be retried and has sensible defaults for maximum retries, delay between retries, and so on.
+
+### Examples
+
+The following code enables automatic retries when configuring the DbContext object, which represents a session with the database. 
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+    optionsBuilder
+        .UseSqlServer(
+            @"Server=(localdb)\mssqllocaldb;Database=EFMiscellanous.ConnectionResiliency;Trusted_Connection=True;",
+            options => options.EnableRetryOnFailure());
+}
+```
+
+The following code shows how to execute a transaction with automatic retries, by using an execution strategy. The transaction is defined in a delegate. If a transient failure occurs, the execution strategy will invoke the delegate again.
+
+```csharp
+using (var db = new BloggingContext())
+{
+    var strategy = db.Database.CreateExecutionStrategy();
+
+    strategy.Execute(() =>
+    {
+        using (var transaction = db.Database.BeginTransaction())
+        {
+            db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/dotnet" });
+            db.SaveChanges();
+
+            db.Blogs.Add(new Blog { Url = "http://blogs.msdn.com/visualstudio" });
+            db.SaveChanges();
+
+            transaction.Commit();
+        }
+    });
+}
+```
+
+### More information
+* [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency)
+* [Data Points - EF Core 1.1](https://msdn.microsoft.com/en-us/magazine/mt745093.aspx)
+
 ## SQL Database using ADO.NET retry guidelines
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service.
 
 ### Retry mechanism
-SQL Database has no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. The page [Azure SQL Database Throttling](http://msdn.microsoft.com/library/dn338079.aspx) explains how throttling can prevent connections, the return codes for specific situations, and how you can handle these and retry operations.
+SQL Database has no built-in support for retries when accessed using ADO.NET. However, the return codes from requests can be used to determine why a request failed. For more information about SQL Database throttling, see [Azure SQL Database resource limits](/azure/sql-database/sql-database-resource-limits). For a list of relevant error codes, see [SQL error codes for SQL Database client applications](/azure/sql-database/sql-database-develop-error-messages).
 
-You can use the Transient Fault Handling Application Block (Topaz) with the Nuget package EnterpriseLibrary.TransientFaultHandling.Data (class **SqlAzureTransientErrorDetectionStrategy**) to implement a retry mechanism for SQL Database.
-
-The block also provides the **ReliableSqlConnection** class, which implements the old ADO.NET 1.0 API (**IDbConnection** instead of **DbConnection**) and performs retries and connection management internally. While convenient, this requires you to use a different set of methods for invoking operations with retries, and so is not a simple direct replacement. It does not support asynchronous execution, which is recommended when implementing and using Azure services. In addition, because this class uses ADO.NET 1.0, it does not benefit from the recent improvements and updates to ADO.NET.
-
-### Policy configuration (SQL Database using ADO.NET)
-The Transient Fault Handling Application Block supports both file-based and programmatic configuration. In general, you should use programmatic configuration for maximum flexibility (see the notes in the following section for more information). The following code, which would be executed once at application startup, creates and populates a **RetryManager** with a list of four retry strategies suitable for use with Azure SQL Database. It also sets the default strategies for the **RetryManager**. These are the strategies that will be used for connections and commands if an alternative is not specified when creating a connection or command.
-
-```csharp
-RetryManager.SetDefault(new RetryManager(
-    new List<RetryStrategy> { new ExponentialBackoff(name: "default", retryCount: 3,
-                                                    minBackoff:     TimeSpan.FromMilliseconds(100),
-                                                    maxBackoff:     TimeSpan.FromSeconds(30),
-                                                    deltaBackoff:     TimeSpan.FromSeconds(1),
-                                                    firstFastRetry: true),
-                            new ExponentialBackoff(name: "default sql connection", retryCount: 3,
-                                                    minBackoff:     TimeSpan.FromMilliseconds(100),
-                                                    maxBackoff:     TimeSpan.FromSeconds(30),
-                                                    deltaBackoff:     TimeSpan.FromSeconds(1),
-                                                    firstFastRetry: true),
-                            new ExponentialBackoff(name: "default sql command", retryCount: 3,
-                                                    minBackoff:     TimeSpan.FromMilliseconds(100),
-                                                    maxBackoff:     TimeSpan.FromSeconds(30),
-                                                    deltaBackoff:     TimeSpan.FromSeconds(1),
-                                                    firstFastRetry: true),
-                            new ExponentialBackoff(name: "alt sql", retryCount: 5,
-                                                    minBackoff:     TimeSpan.FromMilliseconds(100),
-                                                    maxBackoff:     TimeSpan.FromSeconds(30),
-                                                    deltaBackoff:     TimeSpan.FromSeconds(1),
-                                                    firstFastRetry: true), },
-    "default",
-    new Dictionary<string, string> {
-        {
-        RetryManagerSqlExtensions.DefaultStrategyConnectionTechnologyName, "default sql connection"
-        },
-        {
-        RetryManagerSqlExtensions.DefaultStrategyCommandTechnologyName, "default sql command"}
-        }));
-```
-
-For information about how you can use the retry policies you have configured when you access Azure SQL Database, see the [Examples](#examples) section below.
-
-Default strategies for the Transient Fault Handling Application Block are shown in the section [Transient Fault Handling Application Block (Topaz) strategies](#transient-fault-handling-application-block-topaz-strategies) at the end of this guidance.
+You can use the Polly library to implement retries for SQL Database. See [Transient fault handling with Polly](#transient-fault-handling-with-polly).
 
 ### Retry usage guidance
 Consider the following guidelines when accessing SQL Database using ADO.NET:
@@ -401,7 +410,6 @@ Consider the following guidelines when accessing SQL Database using ADO.NET:
 * Close the connection after a certain number of retries, even when using an exponential back off retry logic, and retry the operation on a new connection. Retrying the same operation multiple times on the same connection can be a factor that contributes to connection problems. For an example of this technique, see [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
 * When connection pooling is in use (the default) there is a chance that the same connection will be chosen from the pool, even after closing and reopening a connection. If this is the case, a technique to resolve it is to call the **ClearPool** method of the **SqlConnection** class to mark the connection as not reusable. However, you should do this only after several connection attempts have failed, and only when encountering the specific class of transient failures such as SQL timeouts (error code -2) related to faulty connections.
 * If the data access code uses transactions initiated as **TransactionScope** instances, the retry logic should reopen the connection and initiate a new transaction scope. For this reason, the retryable code block should encompass the entire scope of the transaction.
-* The Transient Fault Handling Application Block supports retry configurations entirely defined in configuration files. However, for maximum flexibility on Azure you should consider creating the configuration programmatically within the application. The specific parameters for the retry policies, such as the number of retries and the retry intervals, can be stored in the service configuration file and used at runtime to create the appropriate policies. This allows the settings to be changed within requiring the application to be restarted.
 
 Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
 
@@ -416,41 +424,43 @@ Consider starting with following settings for retrying operations. These are gen
 >
 
 ### Examples
-This section describes how you can use the Transient Fault Handling Application Block to access Azure SQL Database using a set of retry policies you have configured in the **RetryManager** (as shown in the previous section [Policy configuration](#policy-configuration). The simplest approach to using the block is through the **ReliableSqlConnection** class, or by calling the extension methods such as **OpenWithRetry** on a connection (see [The Transient Fault Handling Application Block](http://msdn.microsoft.com/library/hh680934.aspx) for more information).
+This section shows how you can use Polly to access Azure SQL Database using a set of retry policies configured in the `Policy` class.
 
-However, in the current version of the Transient Fault Handling Application Block these approaches do not indigenously support asynchronous operations against SQL Database. Good practice demands that you use only asynchronous techniques to access Azure services such as SQL Database, and so you should consider the following techniques to use the Transient Fault Handling Application Block with SQL Database.
-
-You can use the simplified asynchronous support in version 5 of the C# language to create asynchronous versions of the methods provided by the block. For example, the following code shows how you might create an asynchronous version of the **ExecuteReaderWithRetry** extension method. The changes and additions to the original code are highlighted. The source code for Topaz is available on Codeplex at [Transient Fault Handling Application Block ("Topaz")](http://topaz.codeplex.com/SourceControl/latest).
+The following code shows an extension method on the `SqlCommand` class that calls `ExecuteAsync` with exponential backoff.
 
 ```csharp
-public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
-RetryPolicy conRetryPolicy)
+public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command)
 {
     GuardConnectionIsNotNull(command);
 
-    // Check if retry policy was specified, if not, use the default retry policy.
-    return await (cmdRetryPolicy ?? RetryPolicy.NoRetry).ExecuteAsync(async () =>
+    var policy = Policy.Handle<Exception>().WaitAndRetryAsync(
+        retryCount: 3, // Retry 3 times
+        sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt - 1)), // Exponential backoff based on an initial 200ms delay.
+        onRetry: (exception, attempt) => 
+        {
+            // Capture some info for logging/telemetry.  
+            logger.LogWarn($"ExecuteReaderWithRetryAsync: Retry {attempt} due to {exception}.");
+        });
+
+    // Retry the following call according to the policy.
+    await policy.ExecuteAsync<SqlDataReader>(async token =>
     {
-        var hasOpenConnection = await EnsureValidConnectionAsync(command, conRetryPolicy).ConfigureAwait(false);
+        // This code is executed within the Policy 
 
-        try
-        {
-            return await command.ExecuteReaderAsync().ConfigureAwait(false);
-        }
-        catch (Exception)
-        {
-            if (hasOpenConnection && command.Connection != null && command.Connection.State == ConnectionState.Open)
-            {
-                command.Connection.Close();
-            }
+        if (conn.State != System.Data.ConnectionState.Open) await conn.OpenAsync(token);
+        return await command.ExecuteReaderAsync(System.Data.CommandBehavior.Default, token);
 
-            throw;
-        }
-    }).ConfigureAwait(false);
+    }, cancellationToken);
 }
+
 ```
 
-This new asynchronous extension method can be used in the same way as the synchronous versions included in the block.
+> [!NOTE]
+> This code is slightly modified from a sample located at the [Polly GitHub repo](https://github.com/App-vNext/Polly-Samples/blob/master/PollyTestClient/Samples/AsyncDemo02_WaitAndRetryNTimes.cs).
+>
+>
+
+This asynchronous extension method can be used as follows.
 
 ```csharp
 var sqlCommand = sqlConnection.CreateCommand();
@@ -464,13 +474,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
 }
 ```
 
-However, this approach deals only with individual operations or commands, and not with blocks of statements where there can be properly defined transactional boundaries. In addition, it does not address the situation of removing faulty connections from the connection pool so that they are not selected for subsequent attempts. A synchronous example of resolving these issues can be found in [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx#Timeouts_amp_Connection_Management). In addition to retrying arbitrary sequences of database instructions, it clears the connection pool to remove invalid connections, and instruments the entire process. While the code shown in this example is synchronous, it is relatively easy to convert it to asynchronous code.
-
 ### More information
-For detailed information about using the Transient Fault Handling Application Block, see:
-
-* [Using the Transient Fault Handling Application Block with SQL Azure](http://msdn.microsoft.com/library/hh680899.aspx)
-* [Perseverance, Secret of All Triumphs: Using the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719.aspx)
 * [Cloud Service Fundamentals Data Access Layer – Transient Fault Handling](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx)
 
 For general guidance on getting the most from SQL Database, see [Azure SQL Database Performance and Elasticity Guide](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx).
@@ -495,11 +499,6 @@ Retry policies are set programmatically, and can be set as a default policy for 
     namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
                                                                  maxBackoff: TimeSpan.FromSeconds(30),
                                                                  maxRetryCount: 3);
-
-Note that this code uses named parameters for clarity. Alternatively you can omit the names because none of the parameters are optional.
-
-    namespaceManager.Settings.RetryPolicy = new RetryExponential(TimeSpan.FromSeconds(0.1),
-                     TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5), 3);
 
 To set the default retry policy for all clients created from a messaging factory, you set the **RetryPolicy** of the **MessagingFactory**.
 
@@ -814,20 +813,21 @@ For more examples, see [Configuration](http://github.com/StackExchange/StackExch
 ### More information
 * [Redis website](http://redis.io/)
 
-## DocumentDB retry guidelines
-DocumentDB is a fully-managed document database-as-a-service with rich query and indexing capabilities over a schema-free JSON data model. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
+## DocumentDB API retry guidelines
+
+Cosmos DB is a fully-managed multi-model database that supports schema-less JSON data by using the [DocumentDB API][documentdb-api]. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
 
 ### Retry mechanism
 The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 
-If DocumentDB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
+If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`.
 
 ### Policy configuration
 The following table shows the default settings for the `RetryOptions` class.
 
 | Setting | Default value | Description |
 | --- | --- | --- |
-| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because DocumentDB applied rate limiting on the client. |
+| MaxRetryAttemptsOnThrottledRequests |9 |The maximum number of retries if the request fails because Cosmos DB applied rate limiting on the client. |
 | MaxRetryWaitTimeInSeconds |30 |The maximum retry time in seconds. |
 
 ### Example
@@ -871,36 +871,16 @@ Retry behavior in the Azure Search SDK is controlled by the `SetRetryPolicy` met
 Trace with ETW or by registering a custom trace provider. For more information, see the [AutoRest documentation][autorest].
 
 ## Azure Active Directory retry guidelines
-Azure Active Directory (AD) is a comprehensive identity and access management cloud solution that combines core directory services, advanced identity governance, security, and application access management. Azure AD also offers developers an identity management platform to deliver access control to their applications, based on centralized policy and rules.
+Azure Active Directory (Azure AD) is a comprehensive identity and access management cloud solution that combines core directory services, advanced identity governance, security, and application access management. Azure AD also offers developers an identity management platform to deliver access control to their applications, based on centralized policy and rules.
 
 ### Retry mechanism
-There is no built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). You can use the Transient Fault Handling Application Block to implement a retry strategy that contains a custom detection mechanism for the exceptions returned by Active Directory.
-
-### Policy configuration (Azure Active Directory)
-When using the Transient Fault Handling Application Block with Azure Active Directory you create a **RetryPolicy** instance based on a class that defines the detection strategy you want to use.
-
-```csharp
-var policy = new RetryPolicy<AdalDetectionStrategy>(new ExponentialBackoff(retryCount: 5,
-                                                                     minBackoff: TimeSpan.FromSeconds(0),
-                                                                     maxBackoff: TimeSpan.FromSeconds(60),
-                                                                     deltaBackoff: TimeSpan.FromSeconds(2)));
-```
-
-You then call the **ExecuteAction** or **ExecuteAsync** method of the retry policy, passing in the operation you want to execute.
-
-```csharp
-var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resourceId, clientId, uc));
-```
-
-The detection strategy class receives exceptions when a failure occurs, and must detect whether this is likely to be a transient fault or a more permanent failure. Typically it will do this by examining the exception type and status code. For example, a Service Unavailable response indicates that a retry attempt should be made. The Transient Fault Handling Application Block does not include a detection strategy class that is suitable for use with the ADAL client, but an example of a custom detection strategy is provided in the [Examples](#examples) section below. Using a custom detection strategy is no different from using one supplied with the block.
-
-Default strategies for the Transient Fault Handling Application Block are shown in the section [Transient Fault Handling Application Block (Topaz) strategies](#transient-fault-handling-application-block-topaz-strategies) at the end of this guidance.
+There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third party libraries and application code do *not* retry failed connections, but allow ADAL to handle retries. 
 
 ### Retry usage guidance
 Consider the following guidelines when using Azure Active Directory:
 
+* When possible, use the ADAL library and the built-in support for retries.
 * If you are using the REST API for Azure Active Directory, you should retry the operation only if the result is an error in the 5xx range (such as 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable, and 504 Gateway Timeout). Do not retry for any other errors.
-* If you are using the Active Directory Authentication Library (ADAL), HTTP codes are not readily accessible. You will need to create a custom detection strategy that includes logic to check the properties of the ADAL-specific exceptions. See the [Examples](#examples) section below.
 * An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
 
 Consider starting with the following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
@@ -910,111 +890,36 @@ Consider starting with the following settings for retrying operations. These are
 | Interactive, UI,<br />or foreground |2 sec |FixedInterval |Retry count<br />Retry interval<br />First fast retry |3<br />500 ms<br />true |Attempt 1 - delay 0 sec<br />Attempt 2 - delay 500 ms<br />Attempt 3 - delay 500 ms |
 | Background or<br />batch |60 sec |ExponentialBackoff |Retry count<br />Min back-off<br />Max back-off<br />Delta back-off<br />First fast retry |5<br />0 sec<br />60 sec<br />2 sec<br />false |Attempt 1 - delay 0 sec<br />Attempt 2 - delay ~2 sec<br />Attempt 3 - delay ~6 sec<br />Attempt 4 - delay ~14 sec<br />Attempt 5 - delay ~30 sec |
 
-### Examples
-The following code example shows how you can use the Transient Fault Handling Application Block (Topaz) to define a custom transient error detection strategy suitable for use with the ADAL client. The code creates a new **RetryPolicy** instance based on a custom detection strategy of type **AdalDetectionStrategy**, as defined in the code listing below. Custom detection strategies for Topaz implement the **ITransientErrorDetectionStrategy** interface and return true if a retry should be attempted, or **false** if the failure appears to be non-transient and a retry should not be attempted.
-
-    using System;
-    using System.Linq;
-    using System.Net;
-    using System.Threading.Tasks;
-    using Microsoft.Practices.TransientFaultHandling;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-    namespace RetryCodeSamples
-    {
-        class ActiveDirectoryCodeSamples
-        {
-            public async static Task Samples()
-            {
-                var authority = "[some authority]";
-                var resourceId = “[some resource id]”;
-                var clientId = “[some client id]”;
-
-                var authContext = new AuthenticationContext(authority);
-
-                var uc = new UserCredential(“[user]", "[password]");
-
-                // Use Topaz with a custom detection strategy to manage retries.
-                var policy =
-                    new RetryPolicy<AdalDetectionStrategy>(
-                        new ExponentialBackoff(
-                            retryCount: 5,
-                            minBackoff: TimeSpan.FromSeconds(0),
-                            maxBackoff: TimeSpan.FromSeconds(60),
-                            deltaBackoff: TimeSpan.FromSeconds(2)));
-
-                var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resourceId, clientId, uc));
-
-                // Get the access token
-                var accessToken = result.AccessToken;
-
-                // Use the result, probably to authorize an API call.
-            }
-        }
-
-        // TODO: This is sample code that needs validation from the WAAD team!
-        // based on existing detection strategies
-        public class AdalDetectionStrategy : ITransientErrorDetectionStrategy
-        {
-            private static readonly WebExceptionStatus[] webExceptionStatus =
-                new[]
-                {
-                    WebExceptionStatus.ConnectionClosed,
-                    WebExceptionStatus.Timeout,
-                    WebExceptionStatus.RequestCanceled
-                };
-
-            private static readonly HttpStatusCode[] httpStatusCodes =
-                new[]
-                {
-                    HttpStatusCode.InternalServerError,
-                    HttpStatusCode.GatewayTimeout,
-                    HttpStatusCode.ServiceUnavailable,
-                    HttpStatusCode.RequestTimeout
-                };
-
-            public bool IsTransient(Exception ex)
-            {
-                var adalException = ex as AdalException;
-                if (adalException == null)
-                {
-                    return false;
-                }
-
-                if (adalException.ErrorCode == AdalError.ServiceUnavailable)
-                {
-                    return true;
-                }
-
-                var innerWebException = adalException.InnerException as WebException;
-                if (innerWebException != null)
-                {
-                    if (webExceptionStatus.Contains(innerWebException.Status))
-                    {
-                        return true;
-                    }
-
-                    if (innerWebException.Status == WebExceptionStatus.ProtocolError)
-                    {
-                        var response = innerWebException.Response as HttpWebResponse;
-                        return response != null && httpStatusCodes.Contains(response.StatusCode);
-                    }
-                }
-
-                return false;
-            }
-        }
-    }
-
-For information about retrying Active Directory Graph API operations and the error codes returned see:
-
-* [Code Sample: Retry Logic](http://msdn.microsoft.com/library/azure/dn448547.aspx)
-* [Azure AD Graph Error Codes](http://msdn.microsoft.com/library/azure/hh974480.aspx)
-
 ### More information
-* [Implementing a Custom Detection Strategy](http://msdn.microsoft.com/library/hh680940.aspx) (Topaz)
-* [Implementing a Custom Retry Strategy](http://msdn.microsoft.com/library/hh680943.aspx) (Topaz)
-* [Token Issuance and Retry Guidelines](http://msdn.microsoft.com/library/azure/dn168916.aspx)
+* [Azure Active Directory Authentication Libraries][adal]
+
+## Service Fabric retry guidelines
+
+Distributing reliable services in a Service Fabric cluster guards against most of the potential transient faults discussed in this article. Some transient faults are still possible, however. For example, the naming service might be in the middle of a routing change when it gets a request, causing it to throw an exception. If the same request comes 100 milliseconds later, it will probably succeed.
+
+Internally, Service Fabric manages this kind of transient fault. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
+
+```csharp
+    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
+    {
+        OperationTimeout = TimeSpan.FromSeconds(30)
+    };
+
+    var retrySettings = new OperationRetrySettings(TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(1), 5);
+
+    var clientFactory = new FabricTransportServiceRemotingClientFactory(transportSettings);
+
+    var serviceProxyFactory = new ServiceProxyFactory((c) => clientFactory, retrySettings);
+
+    var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
+        new Uri("fabric:/SomeApp/SomeStatefulReliableService"),
+        new ServicePartitionKey(0));
+```
+
+## More information
+
+* [Remote Exception Handling](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
+
 
 ## General REST and retry guidelines
 Consider the following when accessing Azure or third party services:
@@ -1033,7 +938,7 @@ Consider the following when accessing Azure or third party services:
   * WebExceptionStatus.ConnectFailure
   * WebExceptionStatus.Timeout
   * WebExceptionStatus.RequestCanceled
-* In the case of a service unavailable status, the service might indicate the appropriate delay before retrying in the **Retry-After** response header or a different custom header (as in the DocumentDB service). Services might also send additional information as custom headers, or embedded in the content of the response. The Transient Fault Handling Application Block cannot use the standard or any custom “retry-after” headers.
+* In the case of a service unavailable status, the service might indicate the appropriate delay before retrying in the **Retry-After** response header or a different custom header. Services might also send additional information as custom headers, or embedded in the content of the response. The Transient Fault Handling Application Block cannot use the standard or any custom “retry-after” headers.
 * Do not retry for status codes representing client errors (errors in the 4xx range) except for a 408 Request Timeout.
 * Thoroughly test your retry strategies and mechanisms under a range of conditions, such as different network states and varying system loadings.
 
@@ -1061,22 +966,18 @@ The following are the typical types of retry strategy intervals:
 ### More information
 * [Circuit breaker strategies](http://msdn.microsoft.com/library/dn589784.aspx)
 
-## Transient Fault Handling Application Block (Topaz) strategies
-The Transient Fault Handling Application Block has the following default strategies.
-
-| **Strategy** | **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- | --- |
-| **Exponential** |retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 second<br /><br />30 seconds<br /><br />10 seconds<br /><br />true |The number of retry attempts.<br />The minimum back-off time. The higher of this value or the computed back-off will be used as the retry delay.<br />The minimum back-off time. The lower of this value or the computed back-off will be used as the retry delay.<br />The value used to calculate a random delta for the exponential delay between retries.<br />Whether the first retry attempt will be made immediately. |
-| **Incremental** |retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br /> |10<br />1 second<br />1 second<br /><br />true |The number of retry attempts.<br />The initial interval that will apply for the first retry.<br />The incremental time value that will be used to calculate the progressive delay between retries.<br />Whether the first retry attempt will be made immediately. |
-| **Linear (fixed interval)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 second<br />true |The number of retry attempts.<br />The delay between retries.<br />Whether first retry attempt will be made immediately. |
-
-For examples of using the Transient Fault Handling Application Block, see the Examples sections earlier in this guidance for Azure SQL Database using ADO.NET and Azure Active Directory.
+## Transient fault handling with Polly
+[Polly](http://www.thepollyproject.org) is a library to programatically handle retries and [circuit breaker][circuit-breaker] strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
 
 <!-- links -->
 
+[adal]: /azure/active-directory/develop/active-directory-authentication-libraries
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
+[circuit-breaker]: ../patterns/circuit-breaker.md
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
-[entlib]: http://msdn.microsoft.com/library/dn440719.aspx
+[documentdb-api]: /azure/documentdb/documentdb-introduction
+[dotnet-foundation]: https://dotnetfoundation.org/
+[polly]: http://www.thepollyproject.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
 [SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx
