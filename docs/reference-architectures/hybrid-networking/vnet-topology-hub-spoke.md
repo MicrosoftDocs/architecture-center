@@ -14,7 +14,11 @@ cardTitle: Improving availability
 ---
 # Implement a hub-spoke network topology in Azure
 
-This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter.
+This reference architecture shows how to implement a hub-spoke topology in Azure, using the hub as a gateway between Azure and your on-premises datacenter. The use of hub for connectivity into Azure provides the following advantages:
+
+* **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual applinaces (NVAs) and DNS servers, in a single location.
+* **Overcome subscriptions limits** by peering virtual networks (VNets) from different ubscriptions to the central hub.
+* **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 Traffic flows between the on-premises datacenter and Azure through an ExpressRoute or VPN gateway connection. This connection is made to a hub virtual network (VNet) in Azure, which in turn is peered to other VNets in the same Azure region, as seen in the piture below.[**Deploy this solution**](#deploy-the-solution).
 
@@ -35,7 +39,7 @@ The following diagram highlights the important components in this architecture:
 
 ![[0]][0]
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
+The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure Active Directory (AAD) tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
 
 The architecture consists of the following components.
 
@@ -60,6 +64,9 @@ The architecture consists of the following components.
 
 * **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
 
+> [!NOTE]
+> Although this document covers only Resource Manager (ARM) deployments, you can connect a classic VNet to a Resource Manager VNet in the same subscription. This way, your spokes can host classic deployments and still benefit from servies shared in the hub.
+
 * **Spoke VNet**. Azure VNet used as a spoke in a hub-spoke topology. Spokes can be used to isolate wrokloads in their VNets, that can be managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
 ## Recommendations
@@ -76,7 +83,7 @@ If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has 
 
 VNet peering is a non-transitive relationship between two VNets. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to the gateway at the hub VNet. This will allow the spokes to connect to each other, as shown below.
+However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to the gateway at the hub VNet. This will allow the spokes to connect to each other, as shown below. Be aware that the bandwidth limits of your gateway will apply to all traffic going through the gateway, including traffic between spokes.
 
 ![[1]][1]
 
@@ -102,6 +109,8 @@ In this scenario, you need to configure the peering connections to **allow forwa
 ### Overcoming VNet peering limits
 
 Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spokehub-spoke topology, where the first level of spokes act as hubs, as shown below.
+
+You should also consider what services are share in the hub, to ensure it scales for larger number of spokes. For instance, if your hub is used to provide firewall services, you will need to consider the bandwidth limits of your firewall solution when adding multiple spokes. In this case, you might want to move some of these shared services to a second level of hubs.
 
 ![[3]][3]
 
