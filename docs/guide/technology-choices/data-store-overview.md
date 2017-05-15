@@ -110,7 +110,7 @@ Relevant Azure service:	[Azure Search][search]
 
 ## Time Series Databases
 
-Time series data is a set of values organized by time, and a time series database is a database that is optimized for this type of data. Time series databases must support a very high number of writes, as they typically collecting large amounts of data in real time form a large number of sources. Updates are rare, and deletes are often done as bulk operations. Although the records written to a time-series database are generally small,  there are often a large number of records, and total data size can grow rapidly.
+Time series data is a set of values organized by time, and a time series database is a database that is optimized for this type of data. Time series databases must support a very high number of writes, as they typically collect large amounts of data in real time from a large number of sources. Updates are rare, and deletes are often done as bulk operations. Although the records written to a time-series database are generally small,  there are often a large number of records, and total data size can grow rapidly.
 
 Time series databases are good for storing telemetry data. Scenarios include IoT sensors or application/system counters.
 
