@@ -76,8 +76,6 @@ Consider the following points when using Autoscale:
   * When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
 * In an App Service Environment any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](/azure/app-service/app-service-environment-auto-scale).
 
-<a name="the-azure-monitoring-services-management-library"></a>
-
 ## Application design considerations for implementing autoscaling
 Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system will improve. Consider the following points when designing an autoscaling strategy:
 
