@@ -19,7 +19,7 @@ To start your comparison, gather as much of the following information as you can
 - **Scale and structure**. What is the overall amount of storage capacity you need? Do you anticipate partitioning your data? 
 - **Data relationships**. Will your data need to support one-to-many or many-to-many relationships? Are relationships themselves an important part of the data? Will you need to join or otherwise combine data from within the same dataset, or from external datasets? 
 - **Consistency model**. How important is it for updates made in one node to appear in other nodes, before further changes can be made? Can you accept eventual consistency? Do you need ACID guarantees for transactions?
-- **Schema flexibility**. What kind of schemas will you apply to your data? Will you use a fixed schema, a schema-on-write mechanism, or a schema-on-read approach?
+- **Schema flexibility**. What kind of schemas will you apply to your data? Will you use a fixed schema, a schema-on-write approach, or a schema-on-read approach?
 - **Concurrency**. What kind of concurrency mechanism do you want to use when updating and synchronizing data? Will the application perform many updates that could potentially conflict. If so, you may requiring record locking and pessimistic concurrency control. Alternatively, can you support optimistic concurrency controls? If so, is simple timestamp-based concurrency control enough, or do you need the added functionality of multi-version concurrency control?
 - **Data movement**. Will your solution need to perform ETL tasks to move data to other stores or data warehouses?
 - **Data lifecycle**. Is the data write-once, read-many? Can it be moved into cool or cold storage?
@@ -43,7 +43,7 @@ To start your comparison, gather as much of the following information as you can
 
 ### Security
 
-- **Security**. What type of encryption do you require? What authentication mechanism do you want to use to connect to your data?
+- **Security**. What type of encryption do you require? Do you need encryption at rest? What authentication mechanism do you want to use to connect to your data?
 - **Auditing**. What kind of audit log do you need to generate?
 - **Networking requirements**. Do you need to restrict or otherwise manage access to your data from other network resources? Does data need to be accessible only from inside the Azure environment? Does the data need to be accessible from specific IP addresses or subnets? Does it need to be accessible from applications or services hosted on-premises or in other external datacenters?
 
