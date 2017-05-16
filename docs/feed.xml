@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+<channel>
+	<title>Azure Architecture Center</title>
+	<atom:link href="https://docs.microsoft.com/azure/architecture/feed.xml" rel="self" type="application/rss+xml" />
+	<link>https://docs.microsoft.com/azure/architecture</link>
+	<description>The Azure Architecture Center is the official center for guidance, blueprints, patterns, and best practices for building solutions with Microsoft Azure. It is curated by the Microsoft patterns &amp; practices team.</description>
+	<lastBuildDate>Fri, 12 May 2017 17:59:06 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>daily</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	
+	<item>
+		<title>Azure Application Architecture Guide</title>
+		<link>https://docs.microsoft.com/azure/architecture/guide/</link>
+		<pubDate>Thu, 11 May 2017 19:52:09 +0000</pubDate>
+		<description><![CDATA[This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.]]></description>
+		<content:encoded><![CDATA[lipsum]]></content:encoded>
+	</item>
+</channel>
+</rss>
