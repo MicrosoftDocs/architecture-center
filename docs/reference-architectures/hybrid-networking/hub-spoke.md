@@ -43,7 +43,7 @@ The architecture consists of the following components.
 
 * **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS or AD DS.
 
-* **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separatly from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
+* **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
 * **VNet peering**. You can connect two VNets in the same Azure region using a peering connection. Once peered, paired VNets exchange traffic by using the Azure backbone, without the need of a router. [Virtual networking peering][vnet-peering] connections are non-transitive, low latency connections between VNets. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
 
@@ -82,7 +82,7 @@ However, if you have several spokes that need to connect with each other, you wi
 ![[1]][1]
 
 > [!NOTE]
-> You can use the sample deployment provided in this document to add these UDRs and make the peering connections transitive. Keep in ind that the bandwidth limitation for your virtual network gateway will be in effect for traffic rotued through the gateway.
+> You can use the sample deployment provided in this document to add these UDRs and make the peering connections transitive. Keep in mind that the bandwidth limitation for your virtual network gateway applies to traffic routed through the gateway.
 
 To allow traffic to flow through the hub from one spoke to another, you need to:
 
@@ -393,7 +393,7 @@ sh ./spoke.udr.deploy.sh --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 
 8. Switch back to the ssh terminal.
 
-3. Test the connectivity between spoke 1 and spoke 2. It should suceed.
+3. Test the connectivity between spoke 1 and spoke 2. It should succeed.
 
 ```bash
 ping 10.1.2.37
@@ -420,7 +420,7 @@ ping 10.1.2.37
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
-[1]: ./images/hub-spoke-gateway-routing.png "Hub-spoke topology in Azure with transitive routing"
-[2]: ./images/hub-spoke-no-gateway-routing.png "Hub-spoke topology in Azure with transitive routing using an NVA"
-[3]: ./images/hub-spokehub-spoke.png "Hub-spoke-hub-spoke topology in Azure"
+[1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
+[2]: ./images/hub-spoke-no-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing using an NVA"
+[3]: ./images/hub-spokehub-spoke.svg "Hub-spoke-hub-spoke topology in Azure"
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
