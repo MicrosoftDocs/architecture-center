@@ -22,20 +22,22 @@ Autoscaling takes advantage of the elasticity of cloud-hosted environments while
 >
 
 ## Types of scaling
-Scaling typically takes one of the following two forms:
 
-* **Vertical** (often referred to as *scaling up and down*). This form requires that you modify the hardware (expand or reduce its capacity and performance), or redeploy the solution using alternative hardware that has the appropriate capacity and performance. In a cloud environment, the hardware platform is typically a virtualized environment. Unless the original hardware was substantially overprovisioned, with the consequent upfront capital expense, vertically scaling up in this environment involves provisioning more powerful resources, and then moving the system onto these new resources. Vertical scaling is often a disruptive process that requires making the system temporarily unavailable while it is being redeployed. It may be possible to keep the original system running while the new hardware is provisioned and brought online, but there will likely be some interruption while the processing transitions from the old environment to the new one. It is uncommon to use autoscaling to implement a vertical scaling strategy.
-* **Horizontal** (often referred to as *scaling out and in*). This form requires deploying the solution on additional or fewer resources, which are typically commodity resources rather than high-powered systems. The solution can continue running without interruption while these resources are provisioned. When the provisioning process is complete, copies of the elements that comprise the solution can be deployed on these additional resources and made available. If demand drops, the additional resources can be reclaimed after the elements using them have been shut down cleanly. Many cloud-based systems, including Microsoft Azure, support automation of this form of scaling.
+ There are two main ways that an application can scale, vertically and horizontally.
+
+* **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource, or redeploying the solution to a new resource with different capacity. For example, you could move an application to a larger VM size. Vertical scaling is often a disruptive process that requires making the system temporarily unavailable while it is being redeployed. It may be possible to keep the original system running while the new hardware is provisioned and brought online, but there will likely be some interruption while the processing transitions from the old environment to the new one. Therefore, it's uncommon to use autoscaling with vertical scaling.
+* **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource. For example, you can put several VMs behind a load balancer, and add or remove VM instances. The solution can continue running without interruption while these resources are provisioned. When the provisioning process is complete, the solution can be deployed on these additional resources and made available. If demand drops, the additional resources can be shut down cleanly and deallocated. Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 ## Implement an autoscaling strategy
-Implementing an autoscaling strategy typically involves the following components and processes:
+
+An autoscaling strategy typically involves the following pieces:
 
 * Instrumentation and monitoring systems at the application, service, and infrastructure levels. These systems capture key metrics, such as response times, queue lengths, CPU utilization, and memory usage.
-* Decision-making logic that can evaluate the monitored scaling factors against predefined system thresholds or schedules, and make decisions regarding whether to scale or not.
-* Components that are responsible for carrying out tasks associated with scaling the system, such as provisioning or de-provisioning resources.
+* Decision-making logic that evaluates these metrics against predefined thresholds or schedules, and decides whether to scale.
+* Components that scale the system.
 * Testing, monitoring, and tuning of the autoscaling strategy to ensure that it functions as expected.
 
-Most cloud-based environments, such as Azure, provide built-in autoscaling mechanisms that address common scenarios. If the environment or service you use doesn't provide the necessary automated scaling functionality, or if you have extreme autoscaling requirements beyond its capabilities, a custom implementation may be necessary. Use this customized implementation to collect operational and system metrics, analyze them to identify relevant data, and then scale resources accordingly.
+Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology does not provide autoscaling functionality, or if you have extreme autoscaling requirements beyond its capabilities, a custom implementation may be necessary. Use this customized implementation to collect operational and system metrics, analyze them to identify relevant data, and then scale resources accordingly.
 
 ## Configure autoscaling for an Azure solution
 There are several options for configuring autoscaling for your Azure solutions:
