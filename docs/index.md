@@ -97,7 +97,7 @@ ms.author: pnp
 </li>
 
 <li>
-    <a href="/azure/architecture/resiliency">
+    <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
     <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
