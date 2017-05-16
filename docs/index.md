@@ -77,6 +77,25 @@ ms.author: pnp
     </a>
 </li>
 <li>
+    <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="_images/new-with-chevron.svg" alt="Implement a hub-spoke network topology" />
+                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Implement a Hub-Spoke Network Topology</h3>
+                    <p>This reference architecture connects several virtual networks (VNets). One VNet acts as a hub, and the others act as spokes on the hub.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+</li>
+<li>
     <a href="/azure/architecture/checklist/">
     <div class="cardSize">
         <div class="cardPadding">
@@ -114,25 +133,6 @@ ms.author: pnp
 </div>
 </a>
     </li>
-<li>
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="_images/new-with-chevron.svg" alt="Implement a hub-spoke network topology" />
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>Implement a hub-spoke network topology</h3>
-                    <p>This reference architecture shows how to implement a hub-spoke topology in Azure.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </a>
-</li>
 <li>
     <a href="/azure/architecture/resiliency">
     <div class="cardSize">
