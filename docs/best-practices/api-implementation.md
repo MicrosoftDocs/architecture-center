@@ -12,7 +12,7 @@ pnp.series.title: Best Practices
 # API implementation
 [!INCLUDE [header](../_includes/header.md)]
 
-A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. You can find detailed information about web API design in [API Design][api-design].
+A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. You can find detailed information about web API design in the [API Design Guidance]. (/azure/architecture/best-practices/api-design) document. For security concerns see [Security, Authentication, and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security).
 
 ## Considerations for processing requests
 
@@ -25,7 +25,6 @@ The code that implements these requests should not impose any side-effects. The 
 > [!NOTE]
 > The article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
 >
-
 
 ### POST actions that create new resources should not have unrelated side-effects
 
@@ -296,7 +295,7 @@ public class OrdersController : ApiController
         ...
 
         var hashedOrder = order.GetHashCode();
-        string hashedOrderEtag = String.Format("\"{0}\"", hashedOrder);
+        string hashedOrderEtag = $"\"{hashedOrder}\"";
         var eTag = new EntityTagHeaderValue(hashedOrderEtag);
 
         // Return a response message containing the order and the cache control header
@@ -353,7 +352,7 @@ public class OrdersController : ApiController
 {
     [Route("api/orders/{id:int:min(0)}")]
     [HttpGet]
-    public IHttpActionResult FindOrderById(int id)
+    public IHttpActionResult FindOrderByID(int id)
     {
         try
         {
@@ -368,10 +367,10 @@ public class OrdersController : ApiController
 
             // Generate the ETag for the order
             var hashedOrder = order.GetHashCode();
-            string hashedOrderEtag = String.Format("\"{0}\"", hashedOrder);
+            string hashedOrderEtag = $"\"{hashedOrder}\"";
 
             // Create the Cache-Control and ETag headers for the response
-            IHttpActionResult response = null;
+            IHttpActionResult response;
             var cacheControlHeader = new CacheControlHeaderValue();
             cacheControlHeader.Public = true;
             cacheControlHeader.MaxAge = new TimeSpan(0, 10, 0);
@@ -384,7 +383,7 @@ public class OrdersController : ApiController
             // this ETag matches that of the order just retrieved,
             // then create a Not Modified response message
             if (nonMatchEtags.Count > 0 &&
-                String.Compare(nonMatchEtags.First().Tag, hashedOrderEtag) == 0)
+                String.CompareOrdinal(nonMatchEtags.First().Tag, hashedOrderEtag) == 0)
             {
                 response = new EmptyResultWithCaching()
                 {
@@ -477,7 +476,7 @@ public class OrdersController : ApiController
             }
 
             var hashedOrder = orderToUpdate.GetHashCode();
-            string hashedOrderEtag = String.Format("\"{0}\"", hashedOrder);
+            string hashedOrderEtag = $"\"{hashedOrder}\"";
 
             // Retrieve the If-Match header from the request (if it exists)
             var matchEtags = Request.Headers.IfMatch;
@@ -486,7 +485,7 @@ public class OrdersController : ApiController
             // this etag matches that of the order just retrieved,
             // or if there is no etag, then update the Order
             if (((matchEtags.Count > 0 &&
-                String.Compare(matchEtags.First().Tag, hashedOrderEtag) == 0)) ||
+                String.CompareOrdinal(matchEtags.First().Tag, hashedOrderEtag) == 0)) ||
                 matchEtags.Count == 0)
             {
                 // Modify the order
@@ -503,10 +502,10 @@ public class OrdersController : ApiController
                 cacheControlHeader.MaxAge = new TimeSpan(0, 10, 0);
 
                 hashedOrder = order.GetHashCode();
-                hashedOrderEtag = String.Format("\"{0}\"", hashedOrder);
+                hashedOrderEtag = $"\"{hashedOrder}\"";
                 var eTag = new EntityTagHeaderValue(hashedOrderEtag);
 
-                var location = new Uri(string.Format("{0}/{1}/{2}", baseUri, Constants.ORDERS, id));
+                var location = new Uri($"{baseUri}/{Constants.ORDERS}/{id}");
                 var response = new EmptyResultWithCaching()
                 {
                     StatusCode = HttpStatusCode.NoContent,
@@ -663,8 +662,7 @@ It is useful to be able to decouple these issues from the technical issues conce
 * Caching requests and responses to reduce load on the server hosting the web API.
 
 ## Considerations for testing a web API
-A web API should be tested as thoroughly as any other piece of software. You should consider creating unit tests to validate the functionality of each operation, as you would with any other type of application. 
-
+A web API should be tested as thoroughly as any other piece of software. You should consider creating unit tests to validate the functionality of 
 The nature of a web API brings its own additional requirements to verify that it operates correctly. You should pay particular attention to the following aspects:
 
 * Test all routes to verify that they invoke the correct operations. Be especially aware of HTTP status code 405 (Method Not Allowed) being returned unexpectedly as this can indicate a mismatch between a route and the HTTP methods (GET, POST, PUT, DELETE) that can be dispatched to that route.
