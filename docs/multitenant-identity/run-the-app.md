@@ -1,3 +1,10 @@
+---
+title: Run the Surveys application
+description: How to run the Surveys sample application locally
+author: MikeWasson
+ms.date: 05/17/2017
+---
+
 # Run the Surveys application
 This topic describes how to run the [Tailspin Surveys](./tailspin.md) application locally, from Visual Studio. In these steps, you won't deploy the application to Azure. However, you will need to create some Azure resources (an Azure AD tenant and a Redis cache).
 

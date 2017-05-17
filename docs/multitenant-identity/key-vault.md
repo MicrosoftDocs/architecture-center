@@ -1,6 +1,6 @@
 ---
 title: Use Key Vault to protect application secrets
-description: How a use the Key Vault service to store application secrets
+description: How to use the Key Vault service to store application secrets
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
