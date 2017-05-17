@@ -29,7 +29,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Service Fabric](#service-fabric-retry-guidelines)** |Native in client |Programmatic |Client |None | 
-| **[Azure Event Hubs](#azure-event-hub-retry-guidelines)** |Native in client |Programmatic |Client |None |
+| **[Azure Event Hubs](#azure-event-hubs-retry-guidelines)** |Native in client |Programmatic |Client |None |
 
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception beyond the functionality include in the retry policy. Therefore, the best guidance available at the time of writing is to configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring. For example, if the majority of errors are related to network connectivity issues, you might attempt an immediate retry rather than wait a long time for the first retry.
