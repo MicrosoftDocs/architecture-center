@@ -120,6 +120,6 @@ For more information, see [Role-based and resource-based authorization in multit
 [issuer]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 [Authentication events]: authenticate.md#authentication-events
 [signup]: signup.md
-[Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
+[Claims-Based Authorization]: /aspnet/core/security/authorization/claims
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [authorization]: authorize.md

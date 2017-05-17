@@ -63,7 +63,7 @@ app.UseOpenIdConnectAuthentication(
     });
 ```
 
-For more information about the startup class, see [Application Startup](https://docs.asp.net/en/latest/fundamentals/startup.html) in the ASP.NET Core documentation.
+For more information about the startup class, see [Application Startup in ASP.NET Core](/aspnet/core/fundamentals/startup).
 
 Set the following middleware options:
 
@@ -233,6 +233,6 @@ app.UseOpenIdConnectAuthentication(options =>
 [**Next**][claims]
 
 [claims]: claims.md
-[cookie-options]: https://docs.asp.net/en/latest/security/authentication/cookie.html#controlling-cookie-options
+[cookie-options]: /aspnet/core/security/authentication/cookie#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -66,5 +66,5 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 [authentication]: authenticate.md
 
 [Run the Surveys application]: ./run-the-app.md
-[ASP.NET Core]: /en-us/aspnet/core/
+[ASP.NET Core]: /aspnet/core
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

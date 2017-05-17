@@ -93,8 +93,8 @@ This guidance does not consider other aspects of multitenancy such as data parti
 
 
 <!-- Links -->
-[ADConnect]: /azure/active-directory/active-directory-aadconnect/
-[AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
+[ADConnect]: /azure/active-directory/active-directory-aadconnect
+[AzureAD]: /azure/active-directory
 
 [Federating with a customer's AD FS]: adfs.md
 [tailpin]: tailspin.md

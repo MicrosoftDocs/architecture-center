@@ -3,7 +3,7 @@ This topic describes how to run the [Tailspin Surveys](./tailspin.md) applicatio
 
 ## Prerequisites:
 -	[Visual Studio 2015][VS2015]
--	[ASP.NET Core and Microsoft Web Developer Tools](https://docs.asp.net/en/latest/getting-started/installing-on-windows.html#install-asp-net-with-visual-studio)
+-	[ASP.NET Core and Microsoft Web Developer Tools](/aspnet/core/getting-started#install-asp-net-with-visual-studio)
 -	[Microsoft Azure](https://azure.microsoft.com) account
 
 ## Set up your Azure AD directory
@@ -155,7 +155,7 @@ The Surveys application uses Redis to cache OAuth 2 access tokens. To create the
 2.	Fill in the required information (DNS name, subscription, etc) and click **Create**.
 3.	When the cache is created, click **Show access keys** and copy the primary key.
 
-For more information about creating a Redis cache, see [How to Use Azure Redis Cache](https://azure.microsoft.com/en-us/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/).
+For more information about creating a Redis cache, see [How to Use Azure Redis Cache](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache).
 
 ![Creating a Redis cache](./images/running-the-app/redis-cache.png)
 

@@ -33,7 +33,7 @@ Roles apply to *users* of the application. In the Surveys application, a user is
 
 For a discussion of how to define and manage roles, see [Application roles].
 
-Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core introduces an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
+Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 
 ### Create policies
 To define a policy, first create a class that implements `IAuthorizationRequirement`. It's easiest to derive from `AuthorizationHandler`. In the `Handle` method, examine the relevant claim(s).
@@ -240,8 +240,7 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 [Tailspin]: tailspin.md
 
 [Application roles]: app-roles.md
-[policies]: https://docs.asp.net/en/latest/security/authorization/policies.html
-[rbac]: https://docs.asp.net/en/latest/security/authorization/resourcebased.html
+[policies]: /aspnet/core/security/authorization/policies
 [reference implementation]: tailspin.md
 [Configuring the authentication middleware]: authenticate.md#configure-the-auth-middleware
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

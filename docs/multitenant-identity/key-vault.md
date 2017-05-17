@@ -48,7 +48,7 @@ Each of these overrides the previous one, so any settings stored in Key Vault ta
 > 
 > 
 
-At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. (For more information, see [Using Options and configuration objects][options].)
+At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. For more information, see [Using Options and configuration objects][options].
 
 ## Implementation
 The `KeyVaultConfigurationProvider` class is a configuration provider that plugs into the ASP.NET Core [configuration system][configuration].
@@ -380,11 +380,11 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-rm-cmdlets]: https://msdn.microsoft.com/library/mt125356.aspx
 [client-assertion]: client-assertion.md
-[configuration]: https://docs.asp.net/en/latest/fundamentals/configuration.html
+[configuration]: /aspnet/core/fundamentals/configuration
 [KeyVault]: https://azure.microsoft.com/services/key-vault/
 [key-tags]: https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_Keytags
 [Microsoft.Azure.KeyVault]: https://www.nuget.org/packages/Microsoft.Azure.KeyVault/
-[options]: https://docs.asp.net/en/latest/fundamentals/configuration.html#using-options-and-configuration-objects
+[options]: /aspnet/core/fundamentals/configuration#using-options-and-configuration-objects
 [readme]: ./run-the-app.md
 [Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md
