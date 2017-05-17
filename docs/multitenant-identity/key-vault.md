@@ -30,7 +30,7 @@ In the [Tailspin Surveys][Surveys] application, the following settings are secre
 * The Redis connection string.
 * The client secret for the web application.
 
-To store configuration secrets in Key Vault, the Surveys application implements a custom configuration provider, which hooks into the ASP.NET Core 1.0 [configuration system][configuration]. The custom provider reads configuration settings from Key Vault on startup.
+To store configuration secrets in Key Vault, the Surveys application implements a custom configuration provider, which hooks into the ASP.NET Core [configuration system][configuration]. The custom provider reads configuration settings from Key Vault on startup.
 
 The Surveys application loads configuration settings from the following places:
 
@@ -51,7 +51,7 @@ Each of these overrides the previous one, so any settings stored in Key Vault ta
 At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. (For more information, see [Using Options and configuration objects][options].)
 
 ## Implementation
-The [KeyVaultConfigurationProvider][KeyVaultConfigurationProvider] class is a configuration provider that plugs into the ASP.NET Core 1.0 [configuration system][configuration].
+The [KeyVaultConfigurationProvider][KeyVaultConfigurationProvider] class is a configuration provider that plugs into the ASP.NET Core [configuration system][configuration].
 
 To use the `KeyVaultConfigurationProvider`, call the `AddKeyVaultSecrets` extension method in the startup class:
 
@@ -392,7 +392,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [key-tags]: https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_Keytags
 [Microsoft.Azure.KeyVault]: https://www.nuget.org/packages/Microsoft.Azure.KeyVault/
 [options]: https://docs.asp.net/en/latest/fundamentals/configuration.html#using-options-and-configuration-objects
-[readme]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
+[readme]: ./running-the-app.md
 [Setup-KeyVault]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md
 [user-secrets]: http://go.microsoft.com/fwlink/?LinkID=532709

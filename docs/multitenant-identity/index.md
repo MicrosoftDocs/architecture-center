@@ -99,5 +99,5 @@ This guidance does not consider other aspects of multitenancy such as data parti
 [Federating with a customer's AD FS]: adfs.md
 [tailpin]: tailspin.md
 
-[running-the-app]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
+[running-the-app]: ./running-the-app.md
 [sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps

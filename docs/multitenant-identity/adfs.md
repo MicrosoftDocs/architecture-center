@@ -39,7 +39,7 @@ There are three main roles in the trust relation:
 > 
 > For OpenID Connect, the SaaS provider must use AD FS 4.0 running in Windows Server 2016, which is currently in Technical Preview. AD FS 3.0 does not support OpenID Connect.
 > 
-> ASP.NET Core 1.0 does not include out-of-the-box support for WS-Federation.
+> ASP.NET Core does not include out-of-the-box support for WS-Federation.
 > 
 > 
 
