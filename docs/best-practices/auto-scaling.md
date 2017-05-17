@@ -4,7 +4,7 @@ description: Guidance on how to autoscale to dynamically allocate resources requ
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 05/17/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
