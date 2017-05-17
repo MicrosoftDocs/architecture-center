@@ -23,10 +23,12 @@ Autoscaling takes advantage of the elasticity of cloud-hosted environments while
 
 ## Types of scaling
 
- There are two main ways that an application can scale, vertically and horizontally.
+ There are two main ways that an application can scale: vertically and horizontally.
 
-* **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource, or redeploying the solution to a new resource with different capacity. For example, you could move an application to a larger VM size. Vertical scaling is often a disruptive process that requires making the system temporarily unavailable while it is being redeployed. It may be possible to keep the original system running while the new hardware is provisioned and brought online, but there will likely be some interruption while the processing transitions from the old environment to the new one. Therefore, it's uncommon to use autoscaling with vertical scaling.
-* **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource. For example, you can put several VMs behind a load balancer, and add or remove VM instances. The solution can continue running without interruption while these resources are provisioned. When the provisioning process is complete, the solution can be deployed on these additional resources and made available. If demand drops, the additional resources can be shut down cleanly and deallocated. Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling. The rest of this article focuses on horizontal scaling.
+* **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's uncommon to automate vertical scaling.
+* **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource, such as VM instances. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
+
+Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling.   The rest of this article focuses on horizontal scaling.
 
 ## Implement an autoscaling strategy
 
@@ -40,13 +42,33 @@ An autoscaling strategy typically involves the following pieces:
 Azure provides built-in autoscaling mechanisms that address common scenarios. If a particular service or technology does not have built-in autoscaling functionality, or if you have specific autoscaling requirements beyond its capabilities, you might consider a custom implementation. A custom implementation would collect operational and system metrics, analyze the metrics, and then scale resources accordingly.
 
 ## Configure autoscaling for an Azure solution
-There are several options for configuring autoscaling for your Azure solutions:
 
-* **Azure Autoscale** supports the most common scaling scenarios based on a schedule and, optionally, triggered scaling operations based on runtime metrics (such as processor utilization, queue length, or built-in and custom counters). You can configure simple autoscaling policies for a solution quickly and easily by using the Azure portal. For more detailed control, you can make use of the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
-* **Virtual Machine Scale Sets** are a way to manage Azure virtual machines as a group, providing integration with Azure autoscale. You can set up autoscaling on a VM scale set by using an Azure Resource Manager template, Azure PowerShell, Azure CLI, or the Azure portal. For more information, see [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
-* **Service Fabric** supports auto-scaling through VM Scale Sets. Every node type in a Service Fabric cluster is set up as a separate VM scale set. Each node type can then be scaled in or out independently. For more info, see [Scale a Service Fabric cluster in or out using auto-scale rules][service-fabric-autoscale].
-* **Azure App Service** supports autoscaling as a built-in feature. Autoscale settings apply to all of the apps within an [App Service plan][app-service-plan]. You can configure an App Service plan to autoscale on a schedule, or based on metrics, or both. For more information, see [Scale instance count manually or automatically][app-service-autoscale].
-* **A custom solution**, based on your instrumentation on the application, and management features of Azure, can be useful. For example, you could use Azure diagnostics or other methods of instrumentation in your application, along with custom code to continually monitor and export metrics of the application. You could have custom rules that work on these metrics, and make use of the Service Management or Resource Manager REST API's to trigger autoscaling. The metrics for triggering a scaling operation can be any built-in or custom counter, or other instrumentation you implement within the application. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements. The [Autoscaling Application Block](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) makes use of this approach.
+Azure provides built-in autoscaling for most compute options.
+
+* **Virtual Machines** support autoscaling through the use of [VM Scale Sets][vm-scale-sets]. VM Scale Sets are a way to manage a set of Azure virtual machines as a group. See [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
+
+* **Service Fabric** supports auto-scaling through VM Scale Sets. Every node type in a Service Fabric cluster is set up as a separate VM scale set. Each node type can then be scaled in or out independently. See [Scale a Service Fabric cluster in or out using auto-scale rules][service-fabric-autoscale].
+
+* **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an [App Service plan][app-service-plan]. See [Scale instance count manually or automatically][app-service-autoscale].
+
+* **Azure Cloud Services** also has built-in autoscaling. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
+
+These compute options all use a feature called [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. Examples:
+
+- Scale out to 10 instances on weekdays, and scale in to 4 instances on Saturday and Sunday. 
+
+- Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
+
+For a list of built-in metrics, see [Azure Monitor autoscaling common metrics
+][autoscale-metrics]. You can also implement custom metrics by using Application Insights. 
+
+You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
+
+**Azure Functions** differs from the other compute options discussed so far, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
+
+Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics or other application-based metrics, along with custom code to monitor and export application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
+
+Third-party services are also
 * **Third-party services**, such as [Paraleap AzureWatch](http://www.paraleap.com/AzureWatch), enable you to scale a solution based on schedules, service load and system performance indicators, custom rules, and combinations of different types of rules.
 
 When choosing which autoscaling solution to adopt, consider the following points:
@@ -112,8 +134,13 @@ The following patterns and guidance may also be relevant to your scenario when i
 
 <!-- links -->
 
+[monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
 [app-service-autoscale]: /azure/monitoring-and-diagnostics/insights-how-to-scale?toc=%2fazure%2fapp-service-web%2ftoc.json#scaling-based-on-a-pre-set-metric
-[app-service-plan]: /app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+[app-service-plan]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+[autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
+[cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
+[functions-scale]: /azure/azure-functions/functions-scale
 [link-resource-to-cloud-service]: /azure/cloud-services/cloud-services-how-to-manage#how-to-link-a-resource-to-a-cloud-service
 [service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-scale-up-down
+[vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [vm-scale-sets-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
