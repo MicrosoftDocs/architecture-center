@@ -551,5 +551,6 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 >
 
 ## More information
+* The [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md) contain detailed recommendations for designing public REST APIs.
 * The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
-* The Web [API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a Web API.
+* The [Web API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a web API.
