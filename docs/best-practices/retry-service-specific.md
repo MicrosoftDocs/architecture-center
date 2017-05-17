@@ -650,17 +650,18 @@ The guidance in this section is based on using the StackExchange.Redis client to
 Note that the StackExchange.Redis client uses multiplexing through a single connection. The recommended usage is to create an instance of the client at application startup and use this instance for all operations against the cache. For this reason, the connection to the cache is made only once, and so all of the guidance in this section is related to the retry policy for this initial connection—and not for each operation that accesses the cache.
 
 ### Retry mechanism
-The StackExchange.Redis client uses a connection manager class that is configured through a set of options. These options include a **ConnectRetry** property that specifies the number of times a failed connection to the cache will be retried and a **ReconnectRetryPolicy** which specifies the strategy to use.
+The StackExchange.Redis client uses a connection manager class that is configured through a set of options, incuding:
 
-((StackExchange.Redis.LinearRetry)configOptions.ReconnectRetryPolicy).maxRetryElapsedTimeAllowedMilliseconds
+- **ConnectRetry**. Specifies the number of times a failed connection to the cache will be retried
+- **ReconnectRetryPolicy**. Specifies the retrystrategy to use.
+- **ConnectTimeout**. Specifies the maximum waiting time in milliseconds.
 
 ### Policy configuration
 Retry policies are configured programmatically by setting the options for the client before connecting to the cache. This can be done by creating an instance of the **ConfigurationOptions** class, populating its properties, and passing it to the **Connect** method.
 
-The built-in classes provide support for linear (constant delay) and exponential with randomization retry intervals.
-Or you can create your custom retry policy by implementing **IReconnectRetryPolicy** interface.
+The built-in classes support linear (constant) delay and exponential backoff with randomized retry intervals. You can also create a custom retry policy by implementing the **IReconnectRetryPolicy** interface.
 
-The **ConnectTimeout** property specifies the maximum waiting time in milliseconds.
+The following example configures a retry strategy using exponential backoff.
 
 ```csharp
 var deltaBackOffInMilliseconds = TimeSpan.FromSeconds(5).Milliseconds;
@@ -674,7 +675,8 @@ var options = new ConfigurationOptions
 };
 ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 ```
-Alternatively, you can specify the options as a string, and pass this to the **Connect** method. Note that the **ReconnectRetryPolicy** property can only be set by code.
+
+Alternatively, you can specify the options as a string, and pass this to the **Connect** method. Note that the **ReconnectRetryPolicy** property cannot be set this way, only through code.
 
 ```csharp
     var options = "localhost,connectRetry=3,connectTimeout=2000";
@@ -687,7 +689,7 @@ It is also possible to specify options directly when you connect to the cache.
 var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3");
 ```
 
-For more info see [Stack Exchange Redis Configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration)
+For more information, see [Stack Exchange Redis Configuration](https://stackexchange.github.io/StackExchange.Redis/Configuration) in the StackExchange.Redis documentation.
 
 The following table shows the default settings for the built-in retry policy.
 
@@ -703,7 +705,7 @@ The following table shows the default settings for the built-in retry policy.
 ### Retry usage guidance
 Consider the following guidelines when using Azure Redis Cache:
 
-* The StackExchange Redis client manages its own retries, but only when establishing a connection to the cache when the application first starts. You can configure the connection timeout, the number of retry attempts and the time between retries to establish this connection, but the retry policy does not apply to operations against the cache.
+* The StackExchange Redis client manages its own retries, but only when establishing a connection to the cache when the application first starts. You can configure the connection timeout, the number of retry attempts, and the time between retries to establish this connection, but the retry policy does not apply to operations against the cache.
 * Instead of using a large number of retry attempts, consider falling back by accessing the original data source instead.
 
 ### Telemetry
@@ -736,9 +738,7 @@ retrying; attempts left: 2...
 ```
 
 ### Examples
-The following code example shows how you can configure a constant (linear) delay between retries and the number of retries when initializing the StackExchange.Redis client to access Azure Redis Cache at application startup.
-
-This example shows how to set the configuration using an instance of the **ConfigurationOptions**.
+The following code example configures a constant (linear) delay between retries when initializing the StackExchange.Redis client. This example shows how to set the configuration using an instance of the **ConfigurationOptions**.
 
 ```csharp
 using System;
@@ -784,7 +784,7 @@ namespace RetryCodeSamples
 }
 ```
 
-This example shows how to set the configuration by specifying the options as a string. The connection timeout is the period of time that you are willing to wait for connection to the cache; not the delay between retry attempts. Note that the **ReconnectRetryPolicy** property can only be set by code.
+The next example set the configuration by specifying the options as a string. The connection timeout is the maximum period of time to wait for a connection to the cache, not the delay between retry attempts. Note that the **ReconnectRetryPolicy** property can only be set by code.
 
 ```csharp
 using System.Collections.Generic;
