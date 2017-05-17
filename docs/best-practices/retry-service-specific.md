@@ -10,7 +10,6 @@ ms.author: pnp
 pnp.series.title: Best Practices
 ---
 # Retry guidance for specific services
-[!INCLUDE [header](../_includes/header.md)]
 
 Most Azure services and client SDKs include a retry mechanism. However, these differ because each service has different characteristics and requirements, and so each retry mechanism is tuned to a specific service. This guide summarizes the retry mechanism features for the majority of Azure services, and includes information to help you use, adapt, or extend the retry mechanism for that service.
 
@@ -30,7 +29,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Service Fabric](#service-fabric-retry-guidelines)** |Native in client |Programmatic |Client |None | 
-
+| **[Azure Event Hubs](#azure-event-hubs-retry-guidelines)** |Native in client |Programmatic |Client |None |
 
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception beyond the functionality include in the retry policy. Therefore, the best guidance available at the time of writing is to configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring. For example, if the majority of errors are related to network connectivity issues, you might attempt an immediate retry rather than wait a long time for the first retry.
@@ -933,6 +932,22 @@ Internally, Service Fabric manages this kind of transient fault. You can configu
 
 * [Remote Exception Handling](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
 
+
+## Azure Event Hubs retry guidelines
+
+Azure Event Hubs is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events.
+
+### Retry mechanism
+Retry behavior in the Azure Event Hubs Client Library is controlled by the `RetryPolicy` property on the `EventHubClient` class. The default policy retries with exponential backoff when Azure Event Hub returns a transient `EventHubsException` or an `OperationCanceledException`.
+
+### Example
+```csharp
+EventHubClient client = EventHubClient.CreateFromConnectionString("[event_hub_connection_string]");
+client.RetryPolicy = RetryPolicy.Default;
+```
+
+### More information
+[ .NET Standard client library for Azure Event Hubs](https://github.com/Azure/azure-event-hubs-dotnet)
 
 ## General REST and retry guidelines
 Consider the following when accessing Azure or third party services:
