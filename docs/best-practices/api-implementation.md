@@ -255,15 +255,20 @@ public class OkResultWithCaching<T> : OkNegotiatedContentResult<T>
 
     public override async Task<HttpResponseMessage> ExecuteAsync(CancellationToken cancellationToken)
     {
-        HttpResponseMessage response = await base.ExecuteAsync(cancellationToken);
-
-        response.Headers.CacheControl = this.CacheControlHeader;
-        response.Headers.ETag = ETag;
-
+        HttpResponseMessage response;
+        try
+        {
+            response = await base.ExecuteAsync(cancellationToken);
+            response.Headers.CacheControl = this.CacheControlHeader;
+            response.Headers.ETag = ETag;
+        }
+        catch (OperationCanceledException)
+        {
+            response = new HttpResponseMessage(HttpStatusCode.Conflict) {ReasonPhrase = "Operation was cancelled"};
+        }
         return response;
     }
-}
-```
+}```
 
 > [!NOTE]
 > The HTTP protocol also defines the *no-cache* directive for the Cache-Control header. Rather confusingly, this directive does not mean "do not cache" but rather "revalidate the cached information with the server before returning it"; the data can still be cached, but it is checked each time it is used to ensure that it is still current.
