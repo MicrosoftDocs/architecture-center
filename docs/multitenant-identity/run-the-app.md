@@ -1,5 +1,5 @@
 # Run the Surveys application
-This topic describes how to run the [Tailspin Surveys](02-tailspin-scenario.md) application locally, from Visual Studio. In these steps, you won't deploy the application to Azure. However, you will need to create some Azure resources (an Azure AD tenant and a Redis cache).
+This topic describes how to run the [Tailspin Surveys](./tailspin.md) application locally, from Visual Studio. In these steps, you won't deploy the application to Azure. However, you will need to create some Azure resources (an Azure AD tenant and a Redis cache).
 
 ## Prerequisites:
 -	[Visual Studio 2015][VS2015]
@@ -11,7 +11,7 @@ This topic describes how to run the [Tailspin Surveys](02-tailspin-scenario.md) 
 In this step, you will register the Surveys application in an Azure AD directory.
 
 > This AD directory would belong to the application provider (Tailspin, in our example), not the customers who use the application.
-Registering the application enables the application to use Azure AD for authentication. For more information, see [Authentication and sign-in](03-authentication.md).
+Registering the application enables the application to use Azure AD for authentication. For more information, see [Authentication and sign-in](./authenticate.md).
 
 ### Create a new Azure AD directory
 
