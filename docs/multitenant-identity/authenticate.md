@@ -63,11 +63,6 @@ app.UseOpenIdConnectAuthentication(
     });
 ```
 
-> [!NOTE]
-> See [Startup.cs](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs).
-> 
-> 
-
 For more information about the startup class, see [Application Startup](https://docs.asp.net/en/latest/fundamentals/startup.html) in the ASP.NET Core documentation.
 
 Set the following middleware options:
@@ -200,7 +195,7 @@ app.UseOpenIdConnectAuthentication(options =>
 });
 ```
 
-The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach; see [SurveyAuthenticationEvents.cs](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs).
+The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach.
 
 ### OpenID connect endpoints
 Azure AD supports [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), wherein the identity provider (IDP) returns a JSON metadata document from a [well-known endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The metadata document contains information such as:
@@ -240,4 +235,4 @@ app.UseOpenIdConnectAuthentication(options =>
 [claims]: claims.md
 [cookie-options]: https://docs.asp.net/en/latest/security/authentication/cookie.html#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

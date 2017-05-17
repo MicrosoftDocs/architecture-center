@@ -121,5 +121,5 @@ For more information, see [Role-based and resource-based authorization in multit
 [Authentication events]: authenticate.md#authentication-events
 [signup]: signup.md
 [Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [authorization]: authorize.md

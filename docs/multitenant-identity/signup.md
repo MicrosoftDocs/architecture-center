@@ -54,7 +54,7 @@ When an anonymous user visits the Surveys application, the user is shown two but
 
 ![Application sign-up page](./images/sign-up-page.png)
 
-These buttons invoke actions in the [AccountController] class.
+These buttons invoke actions in the `AccountController` class.
 
 The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.  
 
@@ -120,11 +120,6 @@ public override Task RedirectToAuthenticationEndpoint(RedirectContext context)
 }
 ```
 
-> [!NOTE]
-> See [SurveyAuthenticationEvents.cs].
-> 
-> 
-
 Setting` ProtocolMessage.Prompt` tells the middleware to add the "prompt" parameter to the authentication request.
 
 Note that the prompt is only needed during sign-up. Regular sign-in should not include it. To distinguish between them, we check for the `signup` value in the authentication state. The following extension method checks for this condition:
@@ -162,10 +157,6 @@ internal static bool IsSigningUp(this BaseControlContext context)
     return isSigningUp;
 }
 ```
-
-> [!NOTE]
-> See [BaseControlContextExtensions.cs].
-> 
 
 ## Registering a Tenant
 The Surveys application stores some information about each tenant and user in the application database.
@@ -222,11 +213,6 @@ public override async Task TokenValidated(TokenValidatedContext context)
 }
 ```
 
-> [!NOTE]
-> See [SurveyAuthenticationEvents.cs].
-> 
-> 
-
 This code does the following:
 
 1. Check if the tenant's issuer value is already in the database. If the tenant has not signed up, `FindByIssuerValueAsync` returns null.
@@ -237,7 +223,7 @@ This code does the following:
    1. If the tenant's issuer was not found in the database, it means the tenant is not registered, and the customer needs to sign up. In that case, throw an exception to cause the authentication to fail.
    2. Otherwise, create a database record for this user, if there isn't one already (`CreateOrUpdateUserAsync`).
 
-Here is the [SignUpTenantAsync] method that adds the tenant to the database.
+Here is the `SignUpTenantAsync` method that adds the tenant to the database.
 
 ```csharp
 private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantManager tenantManager)
@@ -283,10 +269,6 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 [app roles]: app-roles.md
 [Tailspin]: tailspin.md
 
-[AccountController]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Controllers/AccountController.cs
 [state]: http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
-[SurveyAuthenticationEvents.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs
-[BaseControlContextExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/BaseControlContextExtensions.cs
 [Authentication]: authenticate.md
-[SignUpTenantAsync]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -188,6 +188,6 @@ The customer must do the following:
 [active-directory-on-azure]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [blog post]: http://www.cloudidentity.com/blog/2015/08/21/OPENID-CONNECT-WEB-SIGN-ON-WITH-ADFS-IN-WINDOWS-SERVER-2016-TP3/
 [Customizing the AD FS Sign-in Pages]: https://technet.microsoft.com/library/dn280950.aspx
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [client assertion]: client-assertion.md
 [active-directory-dotnet-webapp-wsfederation]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation

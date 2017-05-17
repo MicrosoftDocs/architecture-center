@@ -47,7 +47,7 @@ Tokens are sensitive data, because they grant access to a user's resources. (Mor
 > 
 
 ## DistributedTokenCache implementation
-The [DistributedTokenCache][DistributedTokenCache] class derives from the ADAL [TokenCache][tokencache-class] class.
+The `DistributedTokenCache` class derives from the ADAL [TokenCache][tokencache-class] class.
 
 In the constructor, the `DistributedTokenCache` class creates a key for the current user and loads the cache from the backing store:
 
@@ -141,10 +141,9 @@ In our case, we decided not to handle these two events.
 [client-assertion]: ./client-assertion.md
 [data-protection]: https://docs.asp.net/en/latest/security/data-protection/index.html
 [distributed-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/distributed
-[DistributedTokenCache]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.TokenStorage/DistributedTokenCache.cs
 [key-management]: https://docs.asp.net/en/latest/security/data-protection/configuration/default-settings.html
 [in-memory-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/memory
 [tokencache-class]: https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory.tokencache.aspx
 [x509-cert-encryption]: https://docs.asp.net/en/latest/security/data-protection/implementation/key-encryption-at-rest.html#x-509-certificate
 
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

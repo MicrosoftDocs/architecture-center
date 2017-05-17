@@ -152,11 +152,6 @@ public static async Task<HttpResponseMessage> SendRequestWithBearerTokenAsync(th
 }
 ```
 
-> [!NOTE]
-> See [HttpClientExtensions.cs].
-> 
-> 
-
 ## Authenticating in the web API
 The web API has to authenticate the bearer token. In ASP.NET Core, you can use the [Microsoft.AspNet.Authentication.JwtBearer][JwtBearer] package. This package provides middleware that enables the application to receive OpenID Connect bearer tokens.
 
@@ -175,11 +170,6 @@ app.UseJwtBearerAuthentication(options =>
     options.Events = new SurveysJwtBearerEvents();
 });
 ```
-
-> [!NOTE]
-> See [Startup.cs].
-> 
-> 
 
 * **Audience**. Set this to the App ID URL for the web API, which you created when you registered the web API with Azure AD.
 * **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`.
@@ -207,11 +197,6 @@ public override async Task ValidatedToken(ValidatedTokenContext context)
     }
 }
 ```
-
-> [!NOTE]
-> See [SurveysJwtBearerEvents.cs].
-> 
-> 
 
 You can also use the **ValidatedToken** event to do [claims transformation]. Remember that the claims come directly from Azure AD, so if the web application did any claims transformations, those are not reflected in the bearer token that the web API receives.
 
@@ -257,15 +242,12 @@ public void ConfigureServices(IServiceCollection services)
 
 [Tailspin Surveys]: tailspin.md
 [IdentityServer3]: https://github.com/IdentityServer/IdentityServer3
-[Register the web API in Azure AD]: ./running-the-app.md#register-the-surveys-web-api
-[Update the application manifests]: ./running-the-app.md#update-the-application-manifests
-[Give the web application permission to call the web API]: ./running-the-app.md#give-the-web-app-permissions-to-call-the-web-api
+[Register the web API in Azure AD]: ./run-the-app.md#register-the-surveys-web-api
+[Update the application manifests]: ./run-the-app.md#update-the-application-manifests
+[Give the web application permission to call the web API]: ./run-the-app.md#give-the-web-app-permissions-to-call-the-web-api
 [Token caching]: token-cache.md
-[HttpClientExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Common/HttpClientExtensions.cs
-[Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/Startup.cs
 [tenant sign-up]: signup.md
-[SurveysJwtBearerEvents.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/SurveyJwtBearerEvents.cs
 [claims transformation]: claims.md#claims-transformations
 [Authorization]: authorize.md
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [token cache]: token-cache.md
