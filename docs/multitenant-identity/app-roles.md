@@ -165,4 +165,4 @@ There are many existing examples for this approach. For example, see [Create an 
 [Securing a backend web API]: web-api.md
 [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]: /azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
 [application manifest]: /azure/active-directory/active-directory-application-manifest/
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
