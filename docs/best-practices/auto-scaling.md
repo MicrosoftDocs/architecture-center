@@ -22,10 +22,10 @@ There are two main ways that an application can scale: vertically and horizontal
 * **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's uncommon to automate vertical scaling.
 * **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource, such as VM instances. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
 
-Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling.   The rest of this article focuses on horizontal scaling.
+Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. It's possible to horizontally scale a database or message queue, but this usually involves [data partitioning][data-partitioning], which is not generally automated.
+> Autoscaling mostly applies to compute resources. It's possible to horizontally scale a database or message queue, but this usually involves [data partitioning][data-partitioning], which is generally not automated.
 >
 
 ## Overview
@@ -43,51 +43,44 @@ Azure provides built-in autoscaling mechanisms that address common scenarios. If
 
 Azure provides built-in autoscaling for most compute options.
 
-* **Virtual Machines** support autoscaling through the use of [VM Scale Sets][vm-scale-sets]. VM Scale Sets are a way to manage a set of Azure virtual machines as a group. See [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
+* **Virtual Machines** support autoscaling through the use of [VM Scale Sets][vm-scale-sets], which are a way to manage a set of Azure virtual machines as a group. See [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
 
-* **Service Fabric** supports auto-scaling through VM Scale Sets. Every node type in a Service Fabric cluster is set up as a separate VM scale set. Each node type can then be scaled in or out independently. See [Scale a Service Fabric cluster in or out using auto-scale rules][service-fabric-autoscale].
+* **Service Fabric** also supports auto-scaling through VM Scale Sets. Every node type in a Service Fabric cluster is set up as a separate VM scale set. That way, each node type can be scaled in or out independently. See [Scale a Service Fabric cluster in or out using auto-scale rules][service-fabric-autoscale].
 
 * **Azure App Service** has built-in autoscaling. Autoscale settings apply to all of the apps within an [App Service plan][app-service-plan]. See [Scale instance count manually or automatically][app-service-autoscale].
 
-* **Azure Cloud Services** also has built-in autoscaling. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
+* **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
 
-These compute options all use a feature called [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. Examples:
+These compute options all use **[Azure Monitor autoscale][monitoring]** to provide a common set of autoscaling functionality.
+
+**Azure Functions** differs from the previous compute options, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
+
+Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics or other application-based metrics, along with custom code to monitor and export application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
+
+Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
+
+## Use Azure Monitor autoscale
+
+[Azure Monitor autoscale][monitoring] provide a common set of autoscaling functionality for VM Scale Sets, Azure App Service, and Azure Cloud Service. Scaling can be performed on a schedule, or based on a runtime metric, such as CPU or memory usage. Examples:
 
 - Scale out to 10 instances on weekdays, and scale in to 4 instances on Saturday and Sunday. 
-
 - Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
+- Scale out by one instance if the number of messages in a queue exceeds a certain threshold.
 
 For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][autoscale-metrics]. You can also implement custom metrics by  using Application Insights. 
 
 You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
 
-**Azure Functions** differs from the other compute options discussed so far, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
+Consider the following points when using Azure autoscale:
 
-Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics or other application-based metrics, along with custom code to monitor and export application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
-
-When choosing which autoscaling solution to adopt, consider the following points:
-
-* Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
-* Consider whether you can predict the load on the application well enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If this isn't possible, use reactive autoscaling based on runtime metrics, in order to handle unpredictable changes in demand. Typically, you can combine these approaches. For example, create a strategy that adds resources based on a schedule of the times when you know the application is most busy. This helps to ensure that capacity is available when required, without the delay encountered when starting new instances. In addition, for each scheduled rule, define metrics that allow reactive autoscaling during that period to ensure that the application can handle sustained but unpredictable peaks in demand.
-* It's often difficult to understand the relationship between metrics and capacity requirements, especially when an application is initially deployed. Prefer to provision a little extra capacity at the beginning, and then monitor and tune the autoscaling rules to bring the capacity closer to the actual load.
-
-### Use Azure Autoscale
-Autoscale enables you to configure scale out and scale in options for a solution. Autoscale can automatically add and remove instances of Azure Cloud Services web and worker roles, Azure Mobile Services, and Web Apps feature in Azure App Service. It can also enable automatic scaling by starting and stopping instances of Azure Virtual Machines. An Azure autoscaling strategy includes two sets of factors:
-
-* Schedule-based autoscaling that can ensure additional instances are available to coincide with an expected peak in usage, and can scale in once the peak time has passed. This enables you to ensure that you have sufficient instances already running, without waiting for the system to react to the load.
-* Metrics-based autoscaling that reacts to factors such as average CPU utilization over the last hour, or the backlog of messages that the solution is processing in an Azure storage or Azure Service Bus queue. This allows the application to react separately from the scheduled autoscaling rules to accommodate unplanned or unforeseen changes in demand.
-
-Consider the following points when using Autoscale:
-
-* Your autoscaling strategy combines both scheduled and metrics-based scaling. You can specify both types of rules for a service.
-* You should configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling is not an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding (or falling below) a specified threshold.
+* Consider whether you can predict the load on the application well enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If this isn't possible, use reactive autoscaling based on runtime metrics, in order to handle unpredictable changes in demand. Typically, you can combine these approaches. For example, create a strategy that adds resources based on a schedule of the times when you know the application is most busy. This helps to ensure that capacity is available when required, without any delay from starting new instances. For each scheduled rule, define metrics that allow reactive autoscaling during that period to ensure that the application can handle sustained but unpredictable peaks in demand.
+* It's often difficult to understand the relationship between metrics and capacity requirements, especially when an application is initially deployed. Provision a little extra capacity at the beginning, and then monitor and tune the autoscaling rules to bring the capacity closer to the actual load.
+* Configure the autoscaling rules, and then monitor the performance of your application over time. Use the results of this monitoring to adjust the way in which the system scales if necessary. However, keep in mind that autoscaling is not an instantaneous process. It takes time to react to a metric such as average CPU utilization exceeding (or falling below) a specified threshold.
 * Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. It also allows time for new instances that are auto-started to settle into running mode, preventing additional autoscaling actions from occurring while the new instances are starting up. For Azure Cloud Services and Azure Virtual Machines, the default period for the aggregation is 45 minutes, so it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. You can change the aggregation period by using the SDK, but be aware that periods of fewer than 25 minutes may cause unpredictable results (for more information, see [Auto Scaling Cloud Services on CPU Percentage with the Azure Monitoring Services Management Library](http://rickrainey.com/2013/12/15/auto-scaling-cloud-services-on-cpu-percentage-with-the-windows-azure-monitoring-services-management-library/)). For Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure.
-* If you configure autoscaling using the SDK rather than the web portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters that measure specific business processes.
-* When autoscaling Azure Virtual Machines, you must deploy a number of instances of the virtual machine that is equal to the maximum number you will allow autoscaling to start. These instances must be part of the same availability set. The Virtual Machines autoscaling mechanism does not create or delete instances of the virtual machine; instead, the autoscaling rules you configure will start and stop an appropriate number of these instances. For more information, see [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](/azure/cloud-services/cloud-services-how-to-scale/).
-* If new instances cannot be started, perhaps because the maximum for a subscription has been reached or an error occurs during startup, the portal may show that an autoscaling operation succeeded. However, subsequent **ChangeDeploymentConfiguration** events displayed in the portal will show only that a service startup was requested, and there will be no event to indicate it was successfully completed.
-* When autoscaling Service Fabric, the node types in your cluster are made of VM scale sets at the backend, so you need to set up auto-scale rules for each node type/VM scale set. Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more info, see [scale a Service Fabric cluster in or out using auto-scale rules](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-scale-up-down).
+* If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters that measure specific business processes.
+* When autoscaling Service Fabric, the node types in your cluster are made of VM scale sets at the backend, so you need to set up auto-scale rules for each node type. Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more info, see [scale a Service Fabric cluster in or out using auto-scale rules](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-scale-up-down).
 * For Virtual Machine Scale Sets, autoscaling allows the creation or deletion of VMs as needed to match performance requirements. VMs can be added as load increases, and removed when demand decreases in order to minimize costs. For more information, see [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
-* You can use the web portal UI to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage) and [How to Scale an Application](/azure/cloud-services/cloud-services-how-to-scale/).
+* You can use the web portal UI to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
 * When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
   * Scale out operations always take precedence over scale in operations.
   * When scale out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
@@ -111,20 +104,10 @@ Autoscaling isn't an instant solution. Simply adding resources to a system or ru
 ## Related patterns and guidance
 The following patterns and guidance may also be relevant to your scenario when implementing autoscaling:
 
-* [Throttling Pattern](http://msdn.microsoft.com/library/dn589798.aspx). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
-* [Competing Consumers Pattern](http://msdn.microsoft.com/library/dn568101.aspx). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
-* [Instrumentation and Telemetry Guidance](http://msdn.microsoft.com/library/dn589775.aspx). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
+* [Throttling Pattern](../patterns/throttling.md). This pattern describes how an application can continue to function and meet SLAs when an increase in demand places an extreme load on resources. Throttling can be used with autoscaling to prevent a system from being overwhelmed while the system scales out.
+* [Competing Consumers Pattern](../patterns/competing-consumers.md). This pattern describes how to implement a pool of service instances that can handle messages from any application instance. Autoscaling can be used to start and stop service instances to match the anticipated workload. This approach enables a system to process multiple messages concurrently to optimize throughput, improve scalability and availability, and balance the workload.
+* [Monitoring and diagnostics](./monitoring.md). Instrumentation and telemetry are vital for gathering the information that can drive the autoscaling process.
 
-## More information
-* [How to Scale an Application](/azure/cloud-services/cloud-services-how-to-scale/)
-* [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](/azure/cloud-services/cloud-services-how-to-manage)
-* [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage)
-* [Scale linked resources](/azure/cloud-services/cloud-services-how-to-scale)
-* [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
-* [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
-* [Microsoft Insights library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)
-* [Operations on Autoscaling](http://msdn.microsoft.com/library/azure/dn510374.aspx)
-* [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
 <!-- links -->
 
