@@ -652,9 +652,9 @@ Note that the StackExchange.Redis client uses multiplexing through a single conn
 ### Retry mechanism
 The StackExchange.Redis client uses a connection manager class that is configured through a set of options, incuding:
 
-- **ConnectRetry**. Specifies the number of times a failed connection to the cache will be retried
-- **ReconnectRetryPolicy**. Specifies the retrystrategy to use.
-- **ConnectTimeout**. Specifies the maximum waiting time in milliseconds.
+- **ConnectRetry**. The number of times a failed connection to the cache will be retried
+- **ReconnectRetryPolicy**. The retry strategy to use.
+- **ConnectTimeout**. The maximum waiting time in milliseconds.
 
 ### Policy configuration
 Retry policies are configured programmatically by setting the options for the client before connecting to the cache. This can be done by creating an instance of the **ConfigurationOptions** class, populating its properties, and passing it to the **Connect** method.
@@ -683,7 +683,7 @@ Alternatively, you can specify the options as a string, and pass this to the **C
     ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 ```
 
-It is also possible to specify options directly when you connect to the cache.
+You can also specify options directly when you connect to the cache.
 
 ```csharp
 var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3");
@@ -738,7 +738,7 @@ retrying; attempts left: 2...
 ```
 
 ### Examples
-The following code example configures a constant (linear) delay between retries when initializing the StackExchange.Redis client. This example shows how to set the configuration using an instance of the **ConfigurationOptions**.
+The following code example configures a constant (linear) delay between retries when initializing the StackExchange.Redis client. This example shows how to set the configuration using a **ConfigurationOptions** instance.
 
 ```csharp
 using System;
@@ -784,7 +784,7 @@ namespace RetryCodeSamples
 }
 ```
 
-The next example set the configuration by specifying the options as a string. The connection timeout is the maximum period of time to wait for a connection to the cache, not the delay between retry attempts. Note that the **ReconnectRetryPolicy** property can only be set by code.
+The next example sets the configuration by specifying the options as a string. The connection timeout is the maximum period of time to wait for a connection to the cache, not the delay between retry attempts. Note that the **ReconnectRetryPolicy** property can only be set by code.
 
 ```csharp
 using System.Collections.Generic;
