@@ -17,15 +17,15 @@ Autoscaling is the process of dynamically allocating resources to match performa
 
 Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It reduces the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
 
-There are two main ways that an application can scale: vertically and horizontally.
+There are two main ways that an application can scale: 
 
-* **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's uncommon to automate vertical scaling.
-* **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource, such as VM instances. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
+* **Vertical scaling**, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's less common to automate vertical scaling.
+* **Horizontal scaling**, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
 
-Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling. The rest of this article focuses on horizontal scaling.
+Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.
 
 > [!NOTE]
-> Autoscaling mostly applies to compute resources. It's possible to horizontally scale a database or message queue, but this usually involves [data partitioning][data-partitioning], which is generally not automated.
+> Autoscaling mostly applies to compute resources. While it's possible to horizontally scale a database or message queue, this usually involves [data partitioning][data-partitioning], which is generally not automated.
 >
 
 ## Overview
@@ -51,11 +51,11 @@ Azure provides built-in autoscaling for most compute options.
 
 * **Azure Cloud Services** has built-in autoscaling at the role level. See [How to configure auto scaling for a Cloud Service in the portal][cloud-services-autoscale].
 
-These compute options all use **[Azure Monitor autoscale][monitoring]** to provide a common set of autoscaling functionality.
+These compute options all use [Azure Monitor autoscale][monitoring] to provide a common set of autoscaling functionality.
 
-**Azure Functions** differs from the previous compute options, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
+* **Azure Functions** differs from the previous compute options, because you don't need to configure any autoscale rules. Instead, Azure Functions automatically allocates compute power when your code is running, scaling out as necessary to handle load. For more information, see [Choose the correct hosting plan for Azure Functions][functions-scale].
 
-Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics or other application-based metrics, along with custom code to monitor and export application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
+Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics and application-based metrics, along with custom code to monitor and export the application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
 
 Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
 
@@ -80,14 +80,14 @@ Consider the following points when using Azure autoscale:
 * If you configure autoscaling using the SDK rather than the portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters that measure specific business processes.
 * When autoscaling Service Fabric, the node types in your cluster are made of VM scale sets at the backend, so you need to set up auto-scale rules for each node type. Take into account the number of nodes that you must have before you set up auto-scaling. The minimum number of nodes that you must have for the primary node type is driven by the reliability level you have chosen. For more info, see [scale a Service Fabric cluster in or out using auto-scale rules](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-scale-up-down).
 * For Virtual Machine Scale Sets, autoscaling allows the creation or deletion of VMs as needed to match performance requirements. VMs can be added as load increases, and removed when demand decreases in order to minimize costs. For more information, see [How to use automatic scaling and Virtual Machine Scale Sets][vm-scale-sets-autoscale].
-* You can use the web portal UI to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
+* You can use the portal to link resources such as SQL Database instances and queues to a Cloud Service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](/azure/cloud-services/cloud-services-how-to-manage).
 * When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
   * Scale out operations always take precedence over scale in operations.
   * When scale out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
   * When scale in operations conflict, the rule that initiates the smallest decrease in the number of instances takes precedence.
 * In an App Service Environment any worker pool or front-end metrics can be used to define autoscale rules. For more information, see [Autoscaling and App Service Environment](/azure/app-service/app-service-environment-auto-scale).
 
-## Application design considerations for implementing autoscaling
+## Application design considerations
 Autoscaling isn't an instant solution. Simply adding resources to a system or running more instances of a process doesn't guarantee that the performance of the system will improve. Consider the following points when designing an autoscaling strategy:
 
 * The system must be designed to be horizontally scalable. Avoid making assumptions about instance affinity; do not design solutions that require that the code is always running in a specific instance of a process. When scaling a cloud service or web site horizontally, don't assume that a series of requests from the same source will always be routed to the same instance. For the same reason, design services to be stateless to avoid requiring a series of requests from an application to always be routed to the same instance of a service. When designing a service that reads messages from a queue and processes them, don't make any assumptions about which instance of the service handles a specific message. Autoscaling could start additional instances of a service as the queue length grows. The [Competing Consumers Pattern](http://msdn.microsoft.com/library/dn568101.aspx) describes how to handle this scenario.
