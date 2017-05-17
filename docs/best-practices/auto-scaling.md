@@ -17,20 +17,18 @@ Autoscaling is the process of dynamically allocating resources to match performa
 
 Autoscaling takes advantage of the elasticity of cloud-hosted environments while easing management overhead. It reduces the need for an operator to continually monitor the performance of a system and make decisions about adding or removing resources.
 
-> [!NOTE]
-> Autoscaling applies to all of the resources used by an application, not just the compute resources. For example, if your system uses message queues to send and receive information, it could create additional queues as it scales.
->
-
-## Types of scaling
-
- There are two main ways that an application can scale: vertically and horizontally.
+There are two main ways that an application can scale: vertically and horizontally.
 
 * **Vertical scaling**, also called *scaling up and down*, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's uncommon to automate vertical scaling.
 * **Horizontal scaling**, also called *scaling out and in*, means means adding or removing instances of a resource, such as VM instances. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
 
 Many cloud-based systems, including Microsoft Azure, support automating horizontal scaling.   The rest of this article focuses on horizontal scaling.
 
-## Implement an autoscaling strategy
+> [!NOTE]
+> Autoscaling mostly applies to compute resources. It's possible to horizontally scale a database or message queue, but this usually involves [data partitioning][data-partitioning], which is not generally automated.
+>
+
+## Overview
 
 An autoscaling strategy typically involves the following pieces:
 
@@ -59,8 +57,7 @@ These compute options all use a feature called [Azure Monitor autoscale][monitor
 
 - Scale out by one instance if average CPU usage is above 70%, and scale in by one instance if CPU usage falls below 50%.
 
-For a list of built-in metrics, see [Azure Monitor autoscaling common metrics
-][autoscale-metrics]. You can also implement custom metrics by using Application Insights. 
+For a list of built-in metrics, see [Azure Monitor autoscaling common metrics][autoscale-metrics]. You can also implement custom metrics by  using Application Insights. 
 
 You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resource Manager template, or the Azure portal. For more detailed control, use the [Azure Resource Manager REST API](https://msdn.microsoft.com//library/azure/dn790568.aspx). The [Azure Monitoring Service Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) and the [Microsoft Insights Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (in preview) are SDKs that allow collecting metrics from different resources, and perform autoscaling by making use of the REST APIs. For resources where Azure Resource Manager support isn't available, or if you are using Azure Cloud Services, the Service Management REST API can be used for autoscaling. In all other cases, use Azure Resource Manager.
 
@@ -68,13 +65,10 @@ You can configure autoscaling by using PowerShell, the Azure CLI, an Azure Resou
 
 Finally, a custom autoscaling solution can sometimes be useful. For example, you could use Azure diagnostics or other application-based metrics, along with custom code to monitor and export application metrics. Then you could define custom rules based on these metrics, and use Resource Manager REST APIs to trigger autoscaling. However, a custom solution is not simple to implement, and should be considered only if none of the previous approaches can fulfill your requirements.
 
-Third-party services are also
-* **Third-party services**, such as [Paraleap AzureWatch](http://www.paraleap.com/AzureWatch), enable you to scale a solution based on schedules, service load and system performance indicators, custom rules, and combinations of different types of rules.
-
 When choosing which autoscaling solution to adopt, consider the following points:
 
-* Use the built-in autoscaling features of the platform, if they can meet your requirements. If not, carefully consider whether you really do need more complex scaling features. Some examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
-* Consider if you can predict the load on the application with sufficient accuracy to depend only on scheduled autoscaling (adding and removing instances to meet anticipated peaks in demand). Where this isn't possible, use reactive autoscaling based on metrics collected at runtime, to allow the application to handle unpredictable changes in demand. Typically, you can combine these approaches. For example, create a strategy that adds resources such as compute, storage, and queues, based on a schedule of the times when you know the application is most busy. This helps to ensure that capacity is available when required, without the delay encountered when starting new instances. In addition, for each scheduled rule, define metrics that allow reactive autoscaling during that period to ensure that the application can handle sustained but unpredictable peaks in demand.
+* Use the built-in autoscaling features of the platform, if they meet your requirements. If not, carefully consider whether you really need more complex scaling features. Examples of additional requirements may include more granularity of control, different ways to detect trigger events for scaling, scaling across subscriptions, and scaling other types of resources.
+* Consider whether you can predict the load on the application well enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. If this isn't possible, use reactive autoscaling based on runtime metrics, in order to handle unpredictable changes in demand. Typically, you can combine these approaches. For example, create a strategy that adds resources based on a schedule of the times when you know the application is most busy. This helps to ensure that capacity is available when required, without the delay encountered when starting new instances. In addition, for each scheduled rule, define metrics that allow reactive autoscaling during that period to ensure that the application can handle sustained but unpredictable peaks in demand.
 * It's often difficult to understand the relationship between metrics and capacity requirements, especially when an application is initially deployed. Prefer to provision a little extra capacity at the beginning, and then monitor and tune the autoscaling rules to bring the capacity closer to the actual load.
 
 ### Use Azure Autoscale
@@ -139,6 +133,7 @@ The following patterns and guidance may also be relevant to your scenario when i
 [app-service-plan]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
+[data-partitioning]: ./data-partitioning.md
 [functions-scale]: /azure/azure-functions/functions-scale
 [link-resource-to-cloud-service]: /azure/cloud-services/cloud-services-how-to-manage#how-to-link-a-resource-to-a-cloud-service
 [service-fabric-autoscale]: /azure/service-fabric/service-fabric-cluster-scale-up-down
