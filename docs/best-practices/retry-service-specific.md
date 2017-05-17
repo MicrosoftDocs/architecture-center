@@ -652,7 +652,7 @@ Note that the StackExchange.Redis client uses multiplexing through a single conn
 ### Retry mechanism
 The StackExchange.Redis client uses a connection manager class that is configured through a set of options, incuding:
 
-- **ConnectRetry**. The number of times a failed connection to the cache will be retried
+- **ConnectRetry**. The number of times a failed connection to the cache will be retried.
 - **ReconnectRetryPolicy**. The retry strategy to use.
 - **ConnectTimeout**. The maximum waiting time in milliseconds.
 
