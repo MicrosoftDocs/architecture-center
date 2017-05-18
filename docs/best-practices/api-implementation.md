@@ -27,166 +27,166 @@ The code that implements these requests should not impose any side-effects. The 
 >
 
 
-## POST actions that create new resources should do so without unrelated side-effects
+### POST actions that create new resources should not have unrelated side-effects
 
 If a POST request is intended to create a new resource, the effects of the request should be limited to the new resource (and possibly any directly related resources if there is some sort of linkage involved) For example, in an ecommerce system, a POST request that creates a new order for a customer might also amend inventory levels and generate billing information, but it should not modify information not directly related to the order or have any other side-effects on the overall state of the system.
 
-* **Avoid implementing chatty POST, PUT, and DELETE operations**.
+### Avoid implementing chatty POST, PUT, and DELETE operations
 
-    Support POST, PUT and DELETE requests over resource collections. A POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
+Support POST, PUT and DELETE requests over resource collections. A POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
 
-    Note that the OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, see the page [Introducing Batch Support in Web API and Web API OData](http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx) on the Microsoft website.
-* **Abide by the HTTP protocol when sending a response back to a client application**.
+The OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, [Introducing Batch Support in Web API and Web API OData](http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx).
 
-    A web API must return messages that contain the correct HTTP status code to enable the client to determine how to handle the result, the appropriate HTTP headers so that the client understands the nature of the result, and a suitably formatted body to enable the client to parse the result. 
+### Follow the HTTP specification when sending a response 
 
-    For example, a POST operation should return status code 201 (Created) and the response message should include the URI of the newly created resource in the Location header of the response message.
+A web API must return messages that contain the correct HTTP status code to enable the client to determine how to handle the result, the appropriate HTTP headers so that the client understands the nature of the result, and a suitably formatted body to enable the client to parse the result. 
 
-* **Support content negotiation**.
+For example, a POST operation should return status code 201 (Created) and the response message should include the URI of the newly created resource in the Location header of the response message.
 
-    The body of a response message may contain data in a variety of formats. For example, an HTTP GET request could return data in JSON, or XML format. When the client submits a request, it can include an Accept header that specifies the data formats that it can handle. These formats are specified as media types. For example, a client that issues a GET request that retrieves an image can specify an Accept header that lists the media types that the client can handle, such as "image/jpeg, image/gif, image/png".  When the web API returns the result, it should format the data by using one of these media types and specify the format in the Content-Type header of the response.
+### Support content negotiation
 
-    If the client does not specify an Accept header, then use a sensible default format for the response body. As an example, the ASP.NET Web API framework defaults to JSON for text-based data.
+The body of a response message may contain data in a variety of formats. For example, an HTTP GET request could return data in JSON, or XML format. When the client submits a request, it can include an Accept header that specifies the data formats that it can handle. These formats are specified as media types. For example, a client that issues a GET request that retrieves an image can specify an Accept header that lists the media types that the client can handle, such as "image/jpeg, image/gif, image/png".  When the web API returns the result, it should format the data by using one of these media types and specify the format in the Content-Type header of the response.
 
-* **Provide links to support HATEOAS-style navigation and discovery of resources**.
+If the client does not specify an Accept header, then use a sensible default format for the response body. As an example, the ASP.NET Web API framework defaults to JSON for text-based data.
 
-    The API Design Guidance describes how following the HATEOAS approach enables a client to navigate and discover resources from an initial starting point. This is achieved by using links containing URIs; when a client issues an HTTP GET request to obtain a resource, the response should contain URIs that enable a client application to quickly locate any directly related resources. For example, in a web API that supports an e-commerce solution, a customer may have placed many orders. When a client application retrieves the details for a customer, the response should include links that enable the client application to send HTTP GET requests that can retrieve these orders. Additionally, HATEOAS-style links should describe the other operations (POST, PUT, DELETE, and so on) that each linked resource supports together with the corresponding URI to perform each request. This approach is described in more detail in the API Design Guidance document.
+### Provide links to support HATEOAS-style navigation and discovery of resources
 
-    Currently there are no standards that govern the implementation of HATEOAS, but the following example illustrates one possible approach. In this example, an HTTP GET request that finds the details for a customer returns a response that include HATEOAS links that reference the orders for that customer:
+The HATEOAS approach enables a client to navigate and discover resources from an initial starting point. This is achieved by using links containing URIs; when a client issues an HTTP GET request to obtain a resource, the response should contain URIs that enable a client application to quickly locate any directly related resources. For example, in a web API that supports an e-commerce solution, a customer may have placed many orders. When a client application retrieves the details for a customer, the response should include links that enable the client application to send HTTP GET requests that can retrieve these orders. Additionally, HATEOAS-style links should describe the other operations (POST, PUT, DELETE, and so on) that each linked resource supports together with the corresponding URI to perform each request. This approach is described in more detail in the API Design Guidance document.
 
-    ```HTTP
-    GET http://adventure-works.com/customers/2 HTTP/1.1
-    Accept: text/json
+Currently there are no standards that govern the implementation of HATEOAS, but the following example illustrates one possible approach. In this example, an HTTP GET request that finds the details for a customer returns a response that include HATEOAS links that reference the orders for that customer:
+
+```HTTP
+GET http://adventure-works.com/customers/2 HTTP/1.1
+Accept: text/json
+...
+```
+
+```HTTP
+HTTP/1.1 200 OK
+...
+Content-Type: application/json; charset=utf-8
+...
+Content-Length: ...
+{"CustomerID":2,"CustomerName":"Bert","Links":[
+    {"rel":"self",
+    "href":"http://adventure-works.com/customers/2",
+    "action":"GET",
+    "types":["text/xml","application/json"]},
+    {"rel":"self",
+    "href":"http://adventure-works.com/customers/2",
+    "action":"PUT",
+    "types":["application/x-www-form-urlencoded"]},
+    {"rel":"self",
+    "href":"http://adventure-works.com/customers/2",
+    "action":"DELETE",
+    "types":[]},
+    {"rel":"orders",
+    "href":"http://adventure-works.com/customers/2/orders",
+    "action":"GET",
+    "types":["text/xml","application/json"]},
+    {"rel":"orders",
+    "href":"http://adventure-works.com/customers/2/orders",
+    "action":"POST",
+    "types":["application/x-www-form-urlencoded"]}
+]}
+```
+
+In this example, the customer data is represented by the `Customer` class shown in the following code snippet. The HATEOAS links are held in the `Links` collection property:
+
+```C#
+public class Customer
+{
+    public int CustomerID { get; set; }
+    public string CustomerName { get; set; }
+    public List<Link> Links { get; set; }
     ...
-    ```
+}
 
-    ```HTTP
-    HTTP/1.1 200 OK
-    ...
-    Content-Type: application/json; charset=utf-8
-    ...
-    Content-Length: ...
-    {"CustomerID":2,"CustomerName":"Bert","Links":[
-      {"rel":"self",
-       "href":"http://adventure-works.com/customers/2",
-       "action":"GET",
-       "types":["text/xml","application/json"]},
-      {"rel":"self",
-       "href":"http://adventure-works.com/customers/2",
-       "action":"PUT",
-       "types":["application/x-www-form-urlencoded"]},
-      {"rel":"self",
-       "href":"http://adventure-works.com/customers/2",
-       "action":"DELETE",
-       "types":[]},
-      {"rel":"orders",
-       "href":"http://adventure-works.com/customers/2/orders",
-       "action":"GET",
-       "types":["text/xml","application/json"]},
-      {"rel":"orders",
-       "href":"http://adventure-works.com/customers/2/orders",
-       "action":"POST",
-       "types":["application/x-www-form-urlencoded"]}
-    ]}
-    ```
+public class Link
+{
+    public string Rel { get; set; }
+    public string Href { get; set; }
+    public string Action { get; set; }
+    public string [] Types { get; set; }
+}
+```
 
-    In this example, the customer data is represented by the `Customer` class shown in the following code snippet. The HATEOAS links are held in the `Links` collection property:
+The HTTP GET operation retrieves the customer data from storage and constructs a `Customer` object, and then populates the `Links` collection. The result is formatted as a JSON response message. Each link comprises the following fields:
 
-    ```C#
-    public class Customer
-    {
-        public int CustomerID { get; set; }
-        public string CustomerName { get; set; }
-        public List<Link> Links { get; set; }
-        ...
-    }
+* The relationship between the object being returned and the object described by the link. In this case "self" indicates that the link is a reference back to the object itself (similar to a `this` pointer in many object-oriented languages), and "orders" is the name of a collection containing the related order information.
+* The hyperlink (`Href`) for the object being described by the link in the form of a URI.
+* The type of HTTP request (`Action`) that can be sent to this URI.
+* The format of any data (`Types`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
 
-    public class Link
-    {
-        public string Rel { get; set; }
-        public string Href { get; set; }
-        public string Action { get; set; }
-        public string [] Types { get; set; }
-    }
-    ```
+The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
 
-    The HTTP GET operation retrieves the customer data from storage and constructs a `Customer` object, and then populates the `Links` collection. The result is formatted as a JSON response message. Each link comprises the following fields:
-
-  * The relationship between the object being returned and the object described by the link. In this case "self" indicates that the link is a reference back to the object itself (similar to a `this` pointer in many object-oriented languages), and "orders" is the name of a collection containing the related order information.
-  * The hyperlink (`Href`) for the object being described by the link in the form of a URI.
-  * The type of HTTP request (`Action`) that can be sent to this URI.
-  * The format of any data (`Types`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
-
-    The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
-  * An HTTP GET request to the URI `http://adventure-works.com/customers/2` to fetch the details of the customer (again). The data can be returned as XML or JSON.
-  * An HTTP PUT request to the URI `http://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
-  * An HTTP DELETE request to the URI `http://adventure-works.com/customers/2` to delete the customer. The request does not expect any additional information or return data in the response message body.
-  * An HTTP GET request to the URI `http://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
-  * An HTTP PUT request to the URI `http://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
+* An HTTP GET request to the URI `http://adventure-works.com/customers/2` to fetch the details of the customer (again). The data can be returned as XML or JSON.
+* An HTTP PUT request to the URI `http://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
+* An HTTP DELETE request to the URI `http://adventure-works.com/customers/2` to delete the customer. The request does not expect any additional information or return data in the response message body.
+* An HTTP GET request to the URI `http://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
+* An HTTP PUT request to the URI `http://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
 
 ## Considerations for handling exceptions
 
 Consider the following points if an operation throws an uncaught exception:
 
-* **Capture exceptions and return a meaningful response to clients**.
+### Capture exceptions and return a meaningful response to clients**.
 
-    The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
+The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
 
-    The following code shows an example that traps different conditions and returns an appropriate response.
+The code example traps different conditions and returns an appropriate response.
 
-    ```C#
-    [HttpDelete]
-    [Route("customers/{id:int}")]
-    public IHttpActionResult DeleteCustomer(int id)
+```C#
+[HttpDelete]
+[Route("customers/{id:int}")]
+public IHttpActionResult DeleteCustomer(int id)
+{
+    try
     {
-        try
+        // Find the customer to be deleted in the repository
+        var customerToDelete = repository.GetCustomer(id);
+
+        // If there is no such customer, return an error response
+        // with status code 404 (Not Found)
+        if (customerToDelete == null)
         {
-            // Find the customer to be deleted in the repository
-            var customerToDelete = repository.GetCustomer(id);
-
-            // If there is no such customer, return an error response
-            // with status code 404 (Not Found)
-            if (customerToDelete == null)
-            {
-                    return NotFound();
-            }
-
-            // Remove the customer from the repository
-            // The DeleteCustomer method returns true if the customer
-            // was successfully deleted
-            if (repository.DeleteCustomer(id))
-            {
-                // Return a response message with status code 204 (No Content)
-                // To indicate that the operation was successful
-                return StatusCode(HttpStatusCode.NoContent);
-            }
-            else
-            {
-                // Otherwise return a 400 (Bad Request) error response
-                return BadRequest(Strings.CustomerNotDeleted);
-            }
+                return NotFound();
         }
-        catch
+
+        // Remove the customer from the repository
+        // The DeleteCustomer method returns true if the customer
+        // was successfully deleted
+        if (repository.DeleteCustomer(id))
         {
-            // If an uncaught exception occurs, return an error response
-            // with status code 500 (Internal Server Error)
-            return InternalServerError();
+            // Return a response message with status code 204 (No Content)
+            // To indicate that the operation was successful
+            return StatusCode(HttpStatusCode.NoContent);
+        }
+        else
+        {
+            // Otherwise return a 400 (Bad Request) error response
+            return BadRequest(Strings.CustomerNotDeleted);
         }
     }
-    ```
+    catch
+    {
+        // If an uncaught exception occurs, return an error response
+        // with status code 500 (Internal Server Error)
+        return InternalServerError();
+    }
+}
+```
 
-  > [!TIP]
-  > Do not include information that could be useful to an attacker attempting to penetrate your API.
+> [!TIP]
+> Do not include information that could be useful to an attacker attempting to penetrate your API.
   
-  > [!NOTE]
-  > Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
-  >
+Many web servers trap error conditions themselves before they reach the web API. For example, if you configure authentication for a web site and the user fails to provide the correct authentication information, the web server should respond with status code 401 (Unauthorized). Once a client has been authenticated, your code can perform its own checks to verify that the client should be able access the requested resource. If this authorization fails, you should return status code 403 (Forbidden).
  
- * **Handle exceptions in a consistent manner and log information about errors**.
+### Handle exceptions consistently and log information about errors
 
-    To handle exceptions in a consistent manner, consider implementing a global error handling strategy across the entire web API. You should also incorporate error logging which captures the full details of each exception; this error log can contain detailed information as long as it is not made accessible over the web to clients. 
+To handle exceptions in a consistent manner, consider implementing a global error handling strategy across the entire web API. You should also incorporate error logging which captures the full details of each exception; this error log can contain detailed information as long as it is not made accessible over the web to clients. 
 
-* **Distinguish between client-side errors and server-side errors**.
+### Distinguish between client-side errors and server-side errors
 
     The HTTP protocol distinguishes between errors that occur due to the client application (the HTTP 4xx status codes), and errors that are caused by a mishap on the server (the HTTP 5xx status codes). Make sure that you respect this convention in any error response messages.
 
