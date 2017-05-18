@@ -351,7 +351,6 @@ The code below shows the `FindOrderByID` method extended to support the If-None-
 ```csharp
 public class OrdersController : ApiController
 {
-        ...
     [Route("api/orders/{id:int:min(0)}")]
     [HttpGet]
     public IHttpActionResult FindOrderById(int id)
@@ -464,10 +463,9 @@ The next code example shows an implementation of the PUT operation for the Order
 ```csharp
 public class OrdersController : ApiController
 {
-        ...
     [HttpPut]
     [Route("api/orders/{id:int}")]
-            public IHttpActionResult UpdateExistingOrder(int id, DTOOrder order)
+    public IHttpActionResult UpdateExistingOrder(int id, DTOOrder order)
     {
         try
         {
@@ -779,9 +777,6 @@ You can use this information to determine whether a particular web API or operat
 > You can change the details for a published product, and the changes are applied immediately. For example, you can add or remove an operation from a web API without requiring that you republish the product that contains the web API.
 >
 >
-
-## Related patterns
-* The [façade](http://en.wikipedia.org/wiki/Facade_pattern) pattern describes how to provide an interface to a web API.
 
 ## More information
 * [ASP.NET Web API OData](http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
