@@ -73,7 +73,7 @@ You can host background tasks by using a range of different Azure platform servi
 * [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 * [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
-* [**Azure Container Service**](#azure-container-service). Infrastructure to run containerized workloads on the cloud. Orchestrate your containers using Docker Swarm, Kubernetes, or DC/OS.
+* [**Azure Container Service**](#azure-container-service). Azure Container Service provides a container hosting environment on Azure. 
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -189,7 +189,9 @@ An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a 
 
 ## Azure Container Service 
 
-You can use Azure Container Service to run containerized workloads inside a cluster of VMs. Containers can be useful for running background jobs. Some of the benefits include: 
+Azure Container Service lets you configure and manage a cluster of VMs in Azue to run containerized applications. It provides a choice of Docker Swarm, DC/OS, or Kubernetes for orchestration. 
+
+Containers can be useful for running background jobs. Some of the benefits include: 
 
 - Containers support high-density hosting. You can isolate a background task in a container, while placing multiple containers in each VM.
 - The container orchestrator handles internal load balancing, configuring the internal network, and other configuration tasks.
@@ -198,13 +200,13 @@ You can use Azure Container Service to run containerized workloads inside a clus
 
 ### Considerations
 
-- Requires understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.  
-- Container Service runs in an IaaS environment. It provisions a cluster of VMs inside a dedicated VNet.  
+- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.  
+- Container Service runs in an IaaS environment. It provisions a cluster of VMs inside a dedicated VNet. 
 
 ### More information 
 
-* [Azure Container Service introduction](/azure/container-service/container-service-intro) 
-* [What is Azure Container Registry?](/azure/container-registry/container-registry-intro) 
+* [Introduction to Docker container hosting solutions with Azure Container Service](/azure/container-service/container-service-intro) 
+* [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro) 
 
 ## Design considerations
 There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
