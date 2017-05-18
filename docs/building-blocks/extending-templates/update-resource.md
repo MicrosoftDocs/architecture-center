@@ -2,27 +2,17 @@
 title: Extending Azure Resource Manager template functionality - updating a resource
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
 author: petertay
-ms.service: guidance
-ms.topic: article
 ms.date: 05/03/2017
-ms.author: pnp
-
 
 ---
 
-# Azure Resource Manager templates - updating a resource
+# Updating a resource in an Azure resource manager template
 
 There are some scenarios in which you need to update a resource during a deployment. You might encounter this scenario when you cannot specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. Resource Manager supports updating resources during deployment, but you must design your template correctly to avoid errors and to ensure the deployment is handled as an update.
 
 First, you must reference the resource once in the template to create it, but then you must reference the resource by the same name to update it later. However, if two resources have the same name in a template, Resource Manager throws an exception. To avoid this error, specify the updated resource in a second template that's either linked or included as a subtemplate using the `Microsoft.Resources/deployments` resource type.
 
-Second, in the second template, you must either specify the name of the existing property to change or a new name for a property to add. Then, you must also specify the original properties and their original values. If you fail to provide the original properties and values, Resource Manager assumes you want to create a new resource, and deletes the original resource. It replaces the original resource with a new resource that includes only the new properties you've specified.
-
-Finally, you must make the resource dependent on all related resources that you want to deploy. This dependency ensures the resources are created in the correct order. The order is:
-
-1. Resource created
-2. Dependent resources created
-3. Resource (from step 1) updated with values from dependent resources (step 2)
+Second, you must either specify the name of the existing property to change or a new name for a property to add in the nested template. You must also specify the original properties and their original values. If you fail to provide the original properties and values, Resource Manager assumes you want to create a new resource and deletes the original resource.
 
 ## Example template
 
