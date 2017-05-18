@@ -12,11 +12,11 @@ pnp.series.title: Best Practices
 # API implementation
 [!INCLUDE [header](../_includes/header.md)]
 
-A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. Security concerns are described separately in the API Security Guidance document. You can find detailed information about web API design in the API Design Guidance document.
+A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. You can find detailed information about web API design in [API Design][api-design].
 
 ## Considerations for processing requests
 
-Consider the following points when you implement the code to handle requests:
+Consider the following points when you implement the code to handle requests.
 
 ### GET, PUT, DELETE, HEAD, and PATCH actions should be idempotent
 
@@ -51,7 +51,7 @@ If the client does not specify an Accept header, then use a sensible default for
 
 ### Provide links to support HATEOAS-style navigation and discovery of resources
 
-The HATEOAS approach enables a client to navigate and discover resources from an initial starting point. This is achieved by using links containing URIs; when a client issues an HTTP GET request to obtain a resource, the response should contain URIs that enable a client application to quickly locate any directly related resources. For example, in a web API that supports an e-commerce solution, a customer may have placed many orders. When a client application retrieves the details for a customer, the response should include links that enable the client application to send HTTP GET requests that can retrieve these orders. Additionally, HATEOAS-style links should describe the other operations (POST, PUT, DELETE, and so on) that each linked resource supports together with the corresponding URI to perform each request. This approach is described in more detail in the API Design Guidance document.
+The HATEOAS approach enables a client to navigate and discover resources from an initial starting point. This is achieved by using links containing URIs; when a client issues an HTTP GET request to obtain a resource, the response should contain URIs that enable a client application to quickly locate any directly related resources. For example, in a web API that supports an e-commerce solution, a customer may have placed many orders. When a client application retrieves the details for a customer, the response should include links that enable the client application to send HTTP GET requests that can retrieve these orders. Additionally, HATEOAS-style links should describe the other operations (POST, PUT, DELETE, and so on) that each linked resource supports together with the corresponding URI to perform each request. This approach is described in more detail in [API Design][api-design].
 
 Currently there are no standards that govern the implementation of HATEOAS, but the following example illustrates one possible approach. In this example, an HTTP GET request that finds the details for a customer returns a response that include HATEOAS links that reference the orders for that customer:
 
@@ -199,7 +199,6 @@ The HTTP 1.1 protocol supports caching in clients and intermediate servers throu
 
 ```HTTP
 GET http://adventure-works.com/orders/2 HTTP/1.1
-...
 ```
 
 ```HTTP
@@ -333,11 +332,10 @@ A client application can issue a subsequent GET request to retrieve the same res
 
 * The client constructs a GET request containing the ETag for the currently cached version of the resource referenced in an If-None-Match HTTP header:
 
-```HTTP
-GET http://adventure-works.com/orders/2 HTTP/1.1
-If-None-Match: "2147483648"
-...
-```
+    ```HTTP
+    GET http://adventure-works.com/orders/2 HTTP/1.1
+    If-None-Match: "2147483648"
+    ```
 * The GET operation in the web API obtains the current ETag for the requested data (order 2 in the above example), and compares it to the value in the If-None-Match header.
 * If the current ETag for the requested data matches the ETag provided by the request, the resource has not changed and the web API should return an HTTP response with an empty message body and a status code of 304 (Not Modified).
 * If the current ETag for the requested data does not match the ETag provided by the request, then the data has changed and the web API should return an HTTP response with the new data in the message body and a status code of 200 (OK).
@@ -448,15 +446,13 @@ To enable updates over previously cached data, the HTTP protocol supports an opt
 
 * The client constructs a PUT request containing the new details for the resource and the ETag for the currently cached version of the resource referenced in an If-Match HTTP header. The following example shows a PUT request that updates an order:
 
-```HTTP
-PUT http://adventure-works.com/orders/1 HTTP/1.1
-If-Match: "2282343857"
-Content-Type: application/x-www-form-urlencoded
-...
-Date: Fri, 12 Sep 2014 09:18:37 GMT
-Content-Length: ...
-productID=3&quantity=5&orderValue=250
-```
+    ```HTTP
+    PUT http://adventure-works.com/orders/1 HTTP/1.1
+    If-Match: "2282343857"
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: ...
+    productID=3&quantity=5&orderValue=250
+    ```
 * The PUT operation in the web API obtains the current ETag for the requested data (order 1 in the above example), and compares it to the value in the If-Match header.
 * If the current ETag for the requested data matches the ETag provided by the request, the resource has not changed and the web API should perform the update, returning a message with HTTP status code 204 (No Content) if it is successful. The response can include Cache-Control and ETag headers for the updated version of the resource. The response should always include the Location header that references the URI of the newly updated resource.
 * If the current ETag for the requested data does not match the ETag provided by the request, then the data has been changed by another user since it was fetched and the web API should return an HTTP response with an empty message body and a status code of 412 (Precondition Failed).
@@ -560,7 +556,7 @@ You can combine encoded compression with streaming; compress the data first befo
 
 As an alternative to asynchronous streaming, a client application can explicitly request data for large objects in chunks, known as partial responses. The client application sends an HTTP HEAD request to obtain information about the object. If the web API supports partial responses if should respond to the HEAD request with a response message that contains an Accept-Ranges header and a Content-Length header that indicates the total size of the object, but the body of the message should be empty. The client application can use this information to construct a series of GET requests that specify a range of bytes to receive. The web API should return a response message with HTTP status 206 (Partial Content), a Content-Length header that specifies the actual amount of data included in the body of the response message, and a Content-Range header that indicates which part (such as bytes 4000 to 8000) of the object this data represents.
 
-HTTP HEAD requests and partial responses are described in more detail in the API Design Guidance document.
+HTTP HEAD requests and partial responses are described in more detail in [API Design][api-design].
 
 ### Avoid sending unnecessary 100-Continue status messages in client applications
 
@@ -576,8 +572,9 @@ ServicePoint sp = ServicePointManager.FindServicePoint(uri);
 sp.Expect100Continue = false;
 ```
 
-You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created `ServicePoint` objects. For more information, see the [ServicePoint Class](https://msdn.microsoft.com/library/system.net.servicepoint.aspx) page on the Microsoft website.
-* **Support pagination for requests that may return large numbers of objects**.
+You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created `ServicePoint` objects. For more information, see [ServicePoint Class](https://msdn.microsoft.com/library/system.net.servicepoint.aspx).
+
+### Support pagination for requests that may return large numbers of objects
 
 If a collection contains a large number of resources, issuing a GET request to the corresponding URI could result in significant processing on the server hosting the web API affecting performance, and generate a significant amount of network traffic resulting in increased latency.
 
@@ -628,7 +625,7 @@ You can implement a simple polling mechanism by providing a *polling* URI that a
 
 Options for implementing notifications include:
 
-- Using an Azure Notification Hub to push asynchronous responses to client applications. The page [Azure Notification Hubs Notify Users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification/) on the Microsoft website provides further details.
+- Using an Azure Notification Hub to push asynchronous responses to client applications. For more information, see [Azure Notification Hubs Notify Users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification/).
 - Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describes an example solution.
 - Using SignalR to push data in real-time from the web server to the client over a persistent network connection. SignalR is available for ASP.NET web applications as a NuGet package. You can find more information on the [ASP.NET SignalR](http://signalr.net/) website.
 
@@ -698,9 +695,9 @@ Watch out for unexpected response status codes in the 5xx range. These messages 
 * Test query strings. If an operation can take optional parameters (such as pagination requests), test the different combinations and order of parameters.
 * Verify that asynchronous operations complete successfully. If the web API supports streaming for requests that return large binary objects (such as video or audio), ensure that client requests are not blocked while the data is streamed. If the web API implements polling for long-running data modification operations, verify that that the operations report their status correctly as they proceed.
 
-You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate. For more information, see the page [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx) on the Microsoft website.
+You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate. For more information, see [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx).
 
-## Publishing and managing a web API by using the Azure API Management Service
+## Publish and manage a web API using the Azure API Management Service
 Azure provides the [API Management Service](https://azure.microsoft.com/documentation/services/api-management/) which you can use to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
@@ -722,16 +719,15 @@ Azure provides the [API Management Service](https://azure.microsoft.com/document
    >
 6. Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 
-You can find full details describing how to perform these tasks on the [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
+For more information, see the [API Management Documentation](/azure/api-management/). 
 
 > [!TIP]
-> Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [Traffic Manager routing Methods](/azure/traffic-manager/traffic-manager-routing-methods/) page on the Microsoft website.
+> Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, see [Traffic Manager routing Methods](/azure/traffic-manager/traffic-manager-routing-methods/).
 >
 > In this structure, if you are using custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
 >
->
 
-## Supporting developers building client applications
+## Support developers building client applications
 Developers constructing client applications typically require information on how to access the web API, and documentation concerning the parameters, data types, return types, and return codes that describe the different requests and responses between the web service and the client application.
 
 ### Document the REST operations for a web API
@@ -767,7 +763,7 @@ If you have implemented your web API by using the ASP.NET Web API template (eith
 
 You can view this data in real time from the Azure Management portal. You can also create webtests that monitor the health of the web API. A webtest sends a periodic request to a specified URI in the web API and captures the response. You can specify the definition of a successful response (such as HTTP status code 200), and if the request does not return this response you can arrange for an alert to be sent to an administrator. If necessary, the administrator can restart the server hosting the web API if it has failed.
 
-The [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net/) page on the Microsoft website provides more information.
+For more information, see [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net/).
 
 ### Monitoring a web API through the API Management Service
 If you have published your web API by using the API Management service, the API Management page on the Azure Management portal contains a dashboard that enables you to view the overall performance of the service. The Analytics page enables you to drill down into the details of how the product is being used. This page contains the following tabs:
@@ -798,3 +794,8 @@ You can use this information to determine whether a particular web API or operat
 * [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) describes how to use the API Management REST API to build custom management applications.
 * [Traffic Manager Routing Methods](/azure/traffic-manager/traffic-manager-routing-methods/) summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
 * [Application Insights - Get started with ASP.NET](/azure/application-insights/app-insights-asp-net/) provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
+
+
+<!-- links -->
+
+[api-design]: ./api-design.md
