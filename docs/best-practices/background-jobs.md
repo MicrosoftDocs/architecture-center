@@ -189,7 +189,7 @@ An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a 
 
 ## Azure Container Service 
 
-Azure Container Service lets you configure and manage a cluster of VMs in Azue to run containerized applications. It provides a choice of Docker Swarm, DC/OS, or Kubernetes for orchestration. 
+Azure Container Service lets you configure and manage a cluster of VMs in Azure to run containerized applications. It provides a choice of Docker Swarm, DC/OS, or Kubernetes for orchestration. 
 
 Containers can be useful for running background jobs. Some of the benefits include: 
 
