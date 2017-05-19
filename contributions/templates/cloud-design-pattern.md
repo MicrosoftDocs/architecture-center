@@ -4,7 +4,7 @@ description: Article description that appears on landing pages and most search r
 keywords:  Replace a comma-separated list that blah blah
 ms.date: Publication date as mm/dd/yyyy
 pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [availability, data-management, design-implementation, messaging, management-monitoring, performance-scalability, resiliency, security] <- choose appropriate categories from this list
+pnp.pattern.categories: [availability, data-management, design-implementation, messaging, management-monitoring, performance-scalability, resiliency, security] 
 ---
 
 # This should match the `title` text above
@@ -14,6 +14,9 @@ pnp.pattern.categories: [availability, data-management, design-implementation, m
 Your article can have only one H1 heading (#), which is this article title. The H1 heading is always followed by a succinct descriptive paragraph that informs the reader what the article is about and how it can help them. Do not start the article with a note or tip. Replace this text, and other descriptive text, with your descriptive paragraph.
 
 This template is specific to Cloud Design Patterns. Your article should describe the problem that the pattern addresses, identify considerations for applying the pattern, and provide an example based on Microsoft Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. Your article should be broken down into six subheadings (H2, ## in markdown)--Context and problem, Solution, Issues and considerations, When to use this pattern, Example, and Related guidance. The H2 headings and descriptions are included in this template. If you need to create a new heading under one of the H2 headings, use an H3 heading (###).
+
+Regarding the metadata at the document:
+- `pnp.pattern.categories` - This should a comma separarted enclose in square brackets [] using the approved values...
 
 ## Context and problem
 
@@ -53,7 +56,7 @@ This pattern might not be suitable:
 
 Include a working sample that shows the reader how the pattern solution is used in a real-world situation. The sample should be specific and provide code snippets when appropriate.
 
-## Related guidance
+## Next steps
 
 Provide links to other topics that provide additional information about the pattern covered in the article. Topics can include links to pages that provide additional context for the pattern discussed in the article or links to pages that may be useful in a next-steps context. Use the following boilerplate sentence followed by a bulleted list.
 
