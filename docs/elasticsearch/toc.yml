@@ -1,0 +1,23 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+
+- name: Elasticsearch on Azure
+  items:
+  - name: Get started
+    href: index.md
+  - name: Tune data ingestion performance
+    href: data-ingestion-performance.md
+  - name: Tune data aggregation and query performance
+    href: data-aggregation-and-query-performance.md
+  - name: Configure resilience and recovery
+    href: resilience-and-recovery.md
+  - name: Create a performance testing environment
+    href: performance-testing-environment.md
+  - name: Implement a JMeter test plan
+    href: jmeter-test-plan.md
+  - name: Deploy a JMeter JUnit sampler for testing
+    href: jmeter-junit-sampler.md
+  - name: Run the resiliency tests
+    href: automated-resilience-tests.md
+  - name: Run the performance tests
+    href: automated-performance-tests.md
