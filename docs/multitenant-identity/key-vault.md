@@ -62,7 +62,7 @@ To use the `KeyVaultConfigurationProvider`, call the `AddKeyVaultSecrets` extens
 
     if (env.IsDevelopment())
     {
-        builder.AddUserSecrets();
+        builder.AddUserSecrets<Startup>();
     }
     builder.AddEnvironmentVariables();
     var config = builder.Build();
