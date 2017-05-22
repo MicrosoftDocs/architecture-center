@@ -8,11 +8,45 @@ ms.date: 05/03/2017
 
 # Using an object as a parameter in an Azure resource manager template
 
-When you [author Azure resource manager templates][azure-resource-manager-create-template], you can either specify resource properties directly or specify that the value of a parameter be substituted instead. Typically parameter values are specified in an separate file that is provided to resource manager during deployment. However, there is a limit of 255 parameters per deployment. While this is not an issue for small deployments, you may run out of parameters for large and complex deployments.
+When you [author Azure resource manager templates][azure-resource-manager-create-template], you can either specify resource property values directly or specify that the value of a parameter be substituted instead. If parameters are used, their values are typically specified in a separate file provided to resource manager during deployment. 
+
+For small deployments, you can use one parameter for one property value. However, there is a limit of 255 parameters per deployment. Once you get to larger and more complex deployments you may run out of parameters.
 
 ## Create object as parameter
 
-One way to solve this problem is to use an object as a parameter. To do this, specify a parameter as an object in your template, then provide the object as a value or an array of values. You then refer to its subproperties using the `parameter()` function and dot operator. For example:
+One way to solve this problem is to use an object as a parameter. To do this, specify an object as a parameter in your template, then provide the object as a value or an array of values. You then refer to its subproperties using the [`parameter()` function][azure-resource-manager-functions] and dot operator. For example, consider the following parameter named `VNetSettings`:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters":{ 
+      "VNetSettings":{
+          "value":{
+              "name":"VNet1",
+              "addressPrefixes": [
+                  { 
+                      "name": "firstPrefix",
+                      "addressPrefix": "10.0.0.0/22"
+                  }
+              ],
+              "subnets":[
+                  {
+                      "name": "firstSubnet",
+                      "addressPrefix": "10.0.0.0/24"
+                  },
+                  {
+                      "name":"secondSubnet",
+                      "addressPrefix":"10.0.1.0/24"
+                  }
+              ]
+          }
+      }
+  }
+}
+```
+
+The value of `VNetSettings` is a JSON object with three properties: `name`, `addressPrefixes`, and `subnets`. The followng template demonstrates how to access the value of these properties during deployment:
 
 ```json
 {
@@ -56,43 +90,11 @@ One way to solve this problem is to use an object as a parameter. To do this, sp
 
 ```
 
-The corresponding parameter file looks like:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters":{ 
-      "VNetSettings":{
-          "value":{
-              "name":"VNet1",
-              "addressPrefixes": [
-                  { 
-                      "name": "firstPrefix",
-                      "addressPrefix": "10.0.0.0/22"
-                  }
-              ],
-              "subnets":[
-                  {
-                      "name": "firstSubnet",
-                      "addressPrefix": "10.0.0.0/24"
-                  },
-                  {
-                      "name":"secondSubnet",
-                      "addressPrefix":"10.0.1.0/24"
-                  }
-              ]
-          }
-      }
-  }
-}
-```
-
-In this example all the values specified for the VNet come from a single parameter, `VNetSettings`. This is useful for property value management because you  keep all the values for a particular resource in single object. And while this example uses an object as a parameter, you can also use an array of objects as a parameter and refer to the objects using an index into the array.
+Note the use of the `parameters()` function with both the `[]` array indexer and the dot operator to access the values of the sub-properties in the `VNetSettings` parameter. You can use this technique to create as complex of an object as necessary to hold your resource's property values. There is also no requirement that these values be used for a single resource - you can share the object's values across multiple resources if necessary.
 
 ## Use an object instead of multiple arrays
 
-You may be familiar with using a [copy loop][azure-resource-manager-create-multiple-instances] to deploy multiple instances of a resource. To do this, you provide an JSON array of resource properties and the copy loop iterates through it and selects values to apply to the resource's properties. It is possible to iterate over multiple parallel arrays of values, as in the following example: 
+You may be familiar with using a [copy loop][azure-resource-manager-create-multiple-instances] to deploy multiple instances of a resource. To do this, you provide a JSON array of resource property values. The copy loop iterates through it and selects values to apply to the resource's properties. It is possible to iterate over multiple parallel arrays of values, as in the following example: 
 
 ```json
 "variables": {
@@ -135,6 +137,7 @@ The property value is selected from the array using the `variables()` function i
     }
 }
 ```
+
 Notice that the `count` of the copy loop is based on the number of properties in the `firstProperty` array. However, if there is not the same number of properties in the `secondProperty` array, the template will fail validation. It's better practice to include all the properties in a single object because it is much easier to see when a value is missing. For example:
 
 ```json
@@ -247,7 +250,7 @@ This becomes even more useful when combined with the [serial copy loop](./sequen
 
 ```
 
-The corresponding parameter file looks like:
+The corresponding parameter file looks like this:
 
 ```json
 {
@@ -307,12 +310,12 @@ If you would like to experiment with these templates, follow these steps:
 
 ## Next steps
 
-If you require more than the maximum 255 parameters allowed per deployment, use this to specify fewer parameters in your template. You can also use this to manage the properties for your resources more easily, then deploy them without conflicts using a sequential loop.
-
+* You can expand upon these techniques to implement a [property object transformer and collector](./collector.md). The transformer and collector techniques are more general and can be linked from your templates.
 * For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
-* This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
+* This technique is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can review our templates to see how we've implemented this technique.
 
 <!-- links -->
 
 [azure-resource-manager-create-template]: azure/azure-resource-manager/resource-manager-create-first-template
 [azure-resource-manager-create-multiple-instances]: azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
