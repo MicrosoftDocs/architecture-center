@@ -549,8 +549,22 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 > The Header versioning and Media Type versioning mechanisms typically require additional logic to examine the values in the custom header or the Accept header. In a large-scale environment, many clients using different versions of a web API can result in a significant amount of duplicated data in a server-side cache. This issue can become acute if a client application communicates with a web server through a proxy that implements caching, and that only forwards a request to the web server if it does not currently hold a copy of the requested data in its cache.
 >
 >
+## A word on Open API Initiative
+The Open API Initiative [www.openapis.org](https://www.openapis.org/) was created as way to standardize REST APIs description, accross vendors, as a clear and auto-comprehensible way to get interoperable client-to-service communication through HTTP to work easily.
+
+Here are some high level key points to consider in order to understand how to play by its suggested rules.
+
+### Opinions on design and limitations on documentation
+Open API comes with a set of opinionated guidelines on how a REST API should be designed. In the search for a standardized language and common expectations setting, this is not necessarily a bad thing, but one to be considered at API design time.
+
+### Contract-first vs. implementation-first approaches
+Nowadays, describing an Open API has two approaches: contract and implementation. The latter is the most known, which is basing the API's description from the implemented code itself. Lately, designing a contract which all parties (supplier and consumers) will agree on in the end, then, implementing code by using these foundations as guide. For more information, read [Design First vs Code First API Development](https://swaggerhub.com/blog/api-design/design-first-or-code-first-api-development/).
+
+### Description docs at design-time vs runtime
+Another key point to consider is when and how the description documentation will be consumed. In this case, runtime generated documentation counts on up-to-date and effortless on its strenghts front. Tools like Swagger allow this kind of documents become available for any API client, from the API itself. Here's a tutorial on [Web API (Core) help pages using Swagger](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## More information
 * The [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md) contain detailed recommendations for designing public REST APIs.
 * The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
 * The [Web API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a web API.
+* The [Open API Initiative](https://www.openapis.org/) site, contains all related documentation and implementation details on Open API.
