@@ -308,12 +308,12 @@ If you would like to experiment with these templates, follow these steps:
 
 ## Next steps
 
-* You can expand upon these techniques to implement a [property object transformer and collector](collector.md). The transformer and collector techniques are more general and can be linked from your templates.
+* You can expand upon these techniques to implement a [property object transformer and collector](./collector.md). The transformer and collector techniques are more general and can be linked from your templates.
 * For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
 * This technique is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can review our templates to see how we've implemented this technique.
 
 <!-- links -->
 
 [azure-resource-manager-create-template]: /azure/azure-resource-manager/resource-manager-create-first-template
-[azure-resource-manager-create-multiple]: /azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-create-multiplefcoll]: /azure/azure-resource-manager/resource-group-create-multiple
 [azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
