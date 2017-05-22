@@ -8,9 +8,7 @@ ms.date: 05/03/2017
 
 # Using an object as a parameter in an Azure resource manager template
 
-When you [author Azure resource manager templates][azure-resource-manager-create-template], you can either specify resource property values directly or specify that the value of a parameter be substituted instead. If parameters are used, their values are typically specified in a separate file provided to resource manager during deployment. 
-
-For small deployments, you can use one parameter for one property value. However, there is a limit of 255 parameters per deployment. Once you get to larger and more complex deployments you may run out of parameters.
+When you [author Azure resource manager templates][azure-resource-manager-create-template], you can either specify resource property values directly or supply a parameter to be substituted instead. For small deployments, you can use one parameter for one property value. However, there is a limit of 255 parameters per deployment. Once you get to larger and more complex deployments you may run out of parameters.
 
 ## Create object as parameter
 
@@ -163,7 +161,7 @@ Notice that the `count` of the copy loop is based on the number of properties in
 
 ## Use with serial copy
 
-This becomes even more useful when combined with the [serial copy loop](./sequential-loop.md), particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
+This becomes even more useful when combined with the [serial copy loop][azure-resource-manager-create-multiple], particularly for deploying child resources. The following example template deploys a network security group (NSG) with two security rules. The first resource named `NSG1` deploys the NSG. The second resource group named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. The third resource is a nested template that deploys the security rules using an object for its parameter values as in the last example.
 
 ```json
 {
@@ -310,12 +308,12 @@ If you would like to experiment with these templates, follow these steps:
 
 ## Next steps
 
-* You can expand upon these techniques to implement a [property object transformer and collector](./collector.md). The transformer and collector techniques are more general and can be linked from your templates.
+* You can expand upon these techniques to implement a [property object transformer and collector](collector.md). The transformer and collector techniques are more general and can be linked from your templates.
 * For an introduction to the `parameter()` function and using arrays, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
 * This technique is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can review our templates to see how we've implemented this technique.
 
 <!-- links -->
 
-[azure-resource-manager-create-template]: azure/azure-resource-manager/resource-manager-create-first-template
-[azure-resource-manager-create-multiple-instances]: azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-create-template]: /azure/azure-resource-manager/resource-manager-create-first-template
+[azure-resource-manager-create-multiple]: /azure/azure-resource-manager/resource-group-create-multiple
 [azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
