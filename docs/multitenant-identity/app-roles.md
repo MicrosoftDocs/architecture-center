@@ -86,9 +86,9 @@ The `value`  property appears in the role claim. The `id` property is the unique
 > 
 > 
 
-The following screenshot from the Azure portal shows three users. Alice was assigned directly to a role. Bob inherited a role as a member of a security group named "Surveys Admin", which is assigned to a role. Charles is not assigned to any role.
+The following screenshot from the Azure portal shows three users. Alice is a Survey Admin. Bob and John are Survery Creators.
 
-![Assigned users](./images/role-assignments.png)
+![Assigned users](./images/running-the-app/role-assignments.png)
 
 > [!NOTE]
 > Alternatively, the application can assign roles programmatically, using the Azure AD Graph API.  However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
