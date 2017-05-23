@@ -74,11 +74,9 @@ This section shows how to configure the Tailspin Surveys application to use clie
     For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store.
 2. The output from the script is a JSON fragment. Add this to the application manifest of the web app, as follows:
    
-   1. Log into the [Azure management portal][azure-management-portal] and navigate to your Azure AD directory.
-   2. Click **Applications**.
-   3. Select the Surveys application.
-   4. Click **Manage Manifest** and select **Download Manifest**.
-   5. Open the manifest JSON file in a text editor. Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
+   1.	In the Azure management portal, navigate to your Azure AD directory select the Surveys application.
+   2.	Click **Manifest** and then **Edit**.
+   3. Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
       
       ```    
       "keyCredentials": [
@@ -91,8 +89,8 @@ This section shows how to configure the Tailspin Surveys application to use clie
         }
       ],
       ```
-   6. Save your changes to the JSON file.
-   7. Go back to the portal. Click **Manage Manifest** > **Upload Manifest** and upload the JSON file.
+   4. Click **Save**.
+
 3. Run the following command to get the thumbprint of the certificate.
    
     ```
@@ -141,7 +139,7 @@ At run time, the web application reads the certificate from the certificate stor
 
 <!-- Links -->
 [configure-web-app]: /azure/app-service-web/web-sites-configure/
-[azure-management-portal]: https://manage.windowsazure.com
+[azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [key vault]: key-vault.md
 [Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
