@@ -115,45 +115,28 @@ High-level steps:
 
 ### Set up an admin user
 > [!NOTE]
-> To create a key vault, you must use an account which can manage your Azure subscription. Also, any application that you authorize to read from the key vault must registered in the same tenant as that account.
+> To create a key vault, you must use an account which can manage your Azure subscription. Also, any application that you authorize to read from the key vault must be registered in the same tenant as that account.
 > 
 > 
 
 In this step, you will make sure that you can create a key vault while signed in as a user from the tenant where the Surveys app is registered.
 
-First, change the directory associated with your Azure subscription.
-
-1. Log into the [Azure management portal][azure-management-portal]
-2. Click **Settings**.
-   
-    ![Settings](./images/settings.png)
-3. Select your Azure subscription.
-4. Click **Edit Directory** at the bottom of the portal.
-   
-    ![Settings](./images/edit-directory.png)
-5. In "Change the associated directory", select the Azure AD tenant where the Surveys application is registered,
-   
-    ![Settings](./images/edit-directory2.png)
-6. Click the arrow button and complete the dialog.
-
 Create an admin user within the Azure AD tenant where the Surveys application is registered.
 
-1. Log into the [Azure management portal][azure-management-portal].
+1. Log into the [Azure portal][azure-management-portal].
 2. Select the Azure AD tenant where your application is registered.
-3. Click **Users** > **Add User**.
-4. In the **Add User** dialog, assign the user to the Global Admin role.
+3. Click **More service** > **SECURITY + IDENTITY** > **Azure Active Directory** > **User and groups** > **All users**.
+4. At the top of the portal, click **New user**.
+5. Fill in the fields and assign the user to the **Global administrator** directory role.
+6. Click **Create**.
 
-Add the admin user as a co-administrator for your Azure subscription.
+![Global admin user](./images/running-the-app/global-admin-user.png)
 
-1. Log into the [Azure management portal][azure-management-portal].
-2. Click **Settings** and select your Azure subscription.
-3. Click **Administrators**
-4. Click **Add** at the bottom of the portal.
-5. Enter the email of the admin user that you created previously.
-6. Check the checkbox for the subscription.
-7. Click the checkmark button to complete the dialog.
-
-![Add a co-administrator](./images/co-admin.png)
+1. Sign in to the Azure portal.
+2. On the Hub menu, select Subscription > the subscription that you want the admin to access.
+3. In the subscription blade, select Access control (IAM)> Add.  
+4. Select Select a role > Owner.
+5. Type the email address of the user you want to add as owner, click the user, and then click Select.   
 
 ### Set up a client certificate
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
@@ -163,26 +146,24 @@ Add the admin user as a co-administrator for your Azure subscription.
     ```
     For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store.
 2. The output from the script is a JSON fragment. Add this to the application manifest of the web app, as follows:
-   
-   1. Log into the [Azure management portal][azure-management-portal] and navigate to your Azure AD directory.
-   2. Click **Applications**.
-   3. Select the Surveys application.
-   4. Click **Manage Manifest** and select **Download Manifest**.
-   5. Open the manifest JSON file in a text editor. Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
-      
-      ```
-        "keyCredentials": [
-            {
-              "type": "AsymmetricX509Cert",
-              "usage": "Verify",
-              "keyId": "29d4f7db-0539-455e-b708-....",
-              "customKeyIdentifier": "ZEPpP/+KJe2fVDBNaPNOTDoJMac=",
-              "value": "MIIDAjCCAeqgAwIBAgIQFxeRiU59eL.....
-            }
-          ],
-      ```          
-   6. Save your changes to the JSON file.
-   7. Go back to the portal. Click **Manage Manifest** > **Upload Manifest** and upload the JSON file.
+
+   1.	Log into the [Azure management portal][azure-management-portal], navigate to your Azure AD directory and select the Surveys web application.
+   2.	Click **Manifest** and then **Edit**.
+   3.	Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
+        
+        ```
+            "keyCredentials": [
+                {
+                "type": "AsymmetricX509Cert",
+                "usage": "Verify",
+                "keyId": "29d4f7db-0539-455e-b708-....",
+                "customKeyIdentifier": "ZEPpP/+KJe2fVDBNaPNOTDoJMac=",
+                "value": "MIIDAjCCAeqgAwIBAgIQFxeRiU59eL.....
+                }
+            ],
+        ```          
+   4.	Click **Save**.  
+
 3. Add the same JSON fragment to the application manifest of the web API (Surveys.WebAPI).
 4. Run the following command to get the thumbprint of the certificate.
    
@@ -377,7 +358,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 <!-- Links -->
 [adfs]: ./adfs.md
 [authorize-app]: /azure/key-vault/key-vault-get-started//#authorize
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-rm-cmdlets]: https://msdn.microsoft.com/library/mt125356.aspx
 [client-assertion]: client-assertion.md
 [configuration]: /aspnet/core/fundamentals/configuration
