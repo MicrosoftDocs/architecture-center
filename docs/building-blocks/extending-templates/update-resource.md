@@ -16,9 +16,7 @@ Second, you must either specify the name of the existing property to change or a
 
 ## Example template
 
-The following example template demonstrates this. It deploys a virtual network (VNet) named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with the subnet. Then, a deployment resource named `updateVNet` includes a nested template that references the name of the `firstVNet` resource. 
-
-Look at the `addressSpace` property and the `subnets` property on this resource. Notice that the `addressSpace` value is set to the same property value on the `firstVNet` resource deployment object. In the `subnets` array, the value for `firstSubnet` is set similarly. Because all the original `firstVNet` properties have been specified,  Resource Manager updates the resource in Azure. In this case, the update is the addition of a new subnet named `secondSubnet`.
+Let's look at an example template that demonstrates this. Our template deploys a virtual network (VNet) named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`. 
 
 ```json
 {
@@ -116,6 +114,8 @@ Look at the `addressSpace` property and the `subnets` property on this resource.
 }
 ```
 
+Let's take a look at the resource object for our `firstVNet` resource first. Notice that we respecify the settings for our `firstVNet` in a nested template - this is because resource manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By respecifying our values for our `firstSubnet` resource, we are telling resource manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
+
 ## Try the template
 
 If you would like to experiment with this template, follow these steps:
@@ -141,7 +141,4 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 ## Next steps
 
-You can use this in your templates to respecify the original properties of the resource you want to update. Specify the update resource either in a linked or nested template using the `Microsoft.Resources/deployments` resource type.
-
-* For an introduction to the `reference()` function, see [Azure Resource Manager template functions](/azure/azure-resource-manager/resource-group-template-functions.md).
-* This is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
+* This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
