@@ -1,17 +1,13 @@
 ---
-title: Core concepts and best practices | Microsoft Docs
-description: Describes core concepts and best practicies for applying email policies and configurations.
-guidance,active-directory
+title: Core concepts
+description: Describes core concepts for applying email policies and configurations.
 author: jeffgilb
-pnp.series.title: Identity management
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: femila
-pnp.series.prev: adds-extend-domain
-pnp.series.next: azure
-cardTitle: Core concepts and best practices
+ms.date: 05/24/2017
+ms.author: pnp
 
+pnp.series.title: Best Practices
 ---
 
 # Core concepts and best practices
