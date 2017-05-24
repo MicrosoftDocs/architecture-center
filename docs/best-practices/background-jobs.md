@@ -74,6 +74,7 @@ You can host background tasks by using a range of different Azure platform servi
 * [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
 * [**Azure Container Service**](#azure-container-service). Azure Container Service provides a container hosting environment on Azure. 
 * [**Azure Cloud Services**](#azure-cloud-services). You can write code within a role that executes as a background task.
+* [**Azure Logic Apps**](#azure-logic-apps) If your integration scenario needs DevOps capabilities, orchestration across several systems or security compliances, then use Logic Apps. Logic Apps provide a way to simplify and implement scalable integrations and workflows in the cloud.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
@@ -249,6 +250,32 @@ Consider the following points if you are implementing background tasks in a web 
 * [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
 * [Get started with the Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/)
 
+
+### Azure Logic Apps
+ 
+Azure Logic Apps helps you simplify and implement scalable integrations and workflows in the cloud. You can model and automate your process visually as a series of steps known as a workflow in the Logic App Designer. There are also [many connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) that you can add to your logic app so you can quickly integrate across services and protocols across the cloud and on-premises.
+ 
+The Azure portal offers a great way for you to [create and manage Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-create-a-logic-app). 
+ 
+You can create an Azure Resource Manager template for easily deploying the logic app to any environment or resource group where you might need it. Be sure to check out the articles on [authoring Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-walkthrough) and [deploying resources by using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy).
+ 
+You can also [use Visual Studio for designing, building, and deploying your logic apps]((https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-deploy-from-vs). Visual Studio provides rich tools like the Logic App Designer for you to create logic apps, configure deployment and automation templates, and deploy to any environment.
+ 
+Another option is to [manage your logic apps with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.logicapp/v1.0.8/azurerm.logicapp).
+ 
+#### Considerations
+ 
+Logic Apps are more suitable for scenarios where orchestation, automation of business processes, access to on-premises data and integration is needed. Examples of these are, connecting your cloud marketing solution to your on-premises billing system or centralizing messaging across APIs and systems with an Enterprise Service Bus.
+ 
+Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) where enterprise-level DevOps and security practices are required.
+ 
+For more advanced integration scenarios, it includes capabilities from BizTalk, Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily include validation, transformation,and more in to your Logic App workflows.
+ 
+#### More information
+* [Azure Logic Apps documentation](https://docs.microsoft.com/azure/logic-apps/)
+* [What are Logic Apps?](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-what-are-logic-apps)
+* [Azure Logic Apps Examples and Common Scenarios](https://docs.microsoft.com/azure/logic-apps/logic-apps-examples-and-scenarios)
+ 
 
 ## Partitioning
 If you decide to include background tasks within an existing compute instance (such as a web app, web role, existing worker role, or virtual machine), you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
