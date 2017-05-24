@@ -14,7 +14,7 @@ pnp.series.title: Best Practices
 
 All the security measures in the world do not matter if users who experience unnecessary friction when trying to get their work done bypass your organizational security policies. This is where Azure AD single-sign on (SSO) comes in and attempts to minimize the burden on users. This way users can remain productive while still conforming to the access control policies of the organization. 
 
-## End user single sign-on experience
+## Single sign-on authentication
 
 The following diagram illustrates a typical SSO authentication flow:
 
@@ -25,6 +25,8 @@ To begin authentication, the client submits credentials (such as username and pa
 Azure AD verifies the credentials and/or SSO artifact and evaluates all applicable policies. Then it issues an access token for the resource provider (Exchange Online in the above diagram). Azure AD also issues an SSO artifact, as part of the response to allow the client to achieve SSO in future requests. 
 
 The client stores the SSO artifact and submits the access token as a proof of identity to the resource provider. After Exchange Online verifies the access token and performs necessary checks, it grants the client access to the email messages.
+
+### Single sign-on refresh tokens
 
 SSO can be achieved in a variety of ways. For example, cookies from an identity provider can be used as the SSO artifact to store the sign-in state for a user within a browser. Then future attempts to sign in silently (without any prompts for credentials) to applications using the same identity provider are possible. 
 
@@ -38,9 +40,13 @@ Refresh tokens allow the client to obtain a new access token, without needing to
 
 The client continues this SSO process until either the refresh token maximum inactive time setting expires, the refresh token max age expires, or the authentication and authorization policy requirements change. This change occurs during the time when the original refresh token was issued. Significant user attribute changes, for example a password reset, also requires a new authentication token to be generated. The client must do a fresh interactive authentication to continue further. This essentially signifies a break in the SSO process that the client has not experienced until now. 
 
+### Conditional access
+
 Azure AD, as an authorization server for your applications, determines whether to issue access tokens based on an evaluation of any conditional access policies applied to the resource that you’re trying to access. If policy requirements are met, then an access token and updated refresh token are issued. If the policy is not met, the user receives instructions on how to meet the policy and/or will be required to complete additional steps including multi-factor authentication (MFA).  Once MFA has been completed, the MFA claim will be added to the resulting refresh token.  
 
 Claims in the refresh token get accumulated over time. Some of the claims have expiration timelines, after which they are no longer considered during authorization checks. This can sometimes cause unexpected results. For example, if a conditional access policy is configured so that MFA is required for authentication attempts coming from extranet locations, users might sometimes not receive the expected MFA prompt when accessing a resource from extranet. A possible reason for this is that the user could have previously performed MFA shortly before leaving the intranet. Therefore, they hav a valid MFA claim in their access token. This MFA claim satisfies the policy requirement and thus Azure AD does not prompt the user with an additional MFA request.
+
+### Token lifetime policy
 
 Beyond the expiration of individual claims in a token, tokens themselves have expiration times. As noted above, expired tokens are one reason why the SSO experience can be broken. You can set the lifetime of a token issued by Azure AD by using [token lifetime policies](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes). As can be inferred from above, defining the contours of an SSO session is harder to capture when it comes to rich apps as various factors that are seemingly disconnected can impact the lifetime of an SSO session.
 
@@ -48,11 +54,13 @@ Beyond the expiration of individual claims in a token, tokens themselves have ex
 >Azure AD Global Administrators can control the validity and inactivity periods of refresh tokens, access token and claims using the settings described in the article [Configurable token lifetimes in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes).
 >
 
+### Primary refresh tokens
+
 So far, this article discusses how SSO works within the context of a single client. This is not enough to experience SSO within a single app. These days, users experience interactive workflows spanning multiple applications within the same suite of applications, such as Microsoft Office. This includes access across unrelated applications, including internally developed LOB applications. 
 
 Traditionally domain joined Windows devices, using Windows Integrated Authentication (Kerberos), achieve a high degree of SSO experience across multiple applications and resources, including supported browsers such as Internet Explorer or Edge. There is an analogue for the Azure AD realm, in the form of a primary refresh token (PRT). 
 
-This privileged token is only available to a select set of client entities (such as platform system components) that can then allow brokered authentication access to other client applications, so that they can also offer a seamless SSO experience. 
+This privileged PRT token is only available to a select set of client entities (such as platform system components) that can then allow brokered authentication access to other client applications, so that they can also offer a seamless SSO experience. 
 
 For Office 365 users on [iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios) and [Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android) devices, additional work has been done to reduce the number of required authentications by leveraging authentication broker functionality. This functionality is built into the Microsoft Authenticator and Intune Company Portal apps.
 
