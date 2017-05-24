@@ -11,9 +11,9 @@ A successful cloud application will focus on these five pillars of software qual
 | Pillar | Description |
 |--------|-------------|
 | Scalability | The ability of a system to handle increased load. |
-| Availability | The proportion of time that the system is functional and working. |
-| Resiliency | The ability of the system to recover from failures and continue to function. |
-| Management | Operations processes that keep an application running in production. |
+| Availability | The proportion of time that a system is functional and working. |
+| Resiliency | The ability of a system to recover from failures and continue to function. |
+| Management | Operations processes that keep a system running in production. |
 | Security | Protecting applications and data from threats. |
 
 ## Scalability

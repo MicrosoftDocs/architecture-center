@@ -19,7 +19,7 @@ Building a reliable application in the cloud is different than building a reliab
 This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
 ## What is resiliency?
-**Resiliency** is the ability to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
+**Resiliency** is the ability of a system to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
 
 Two important aspects of resiliency are high availability and disaster recovery.
 
@@ -155,15 +155,6 @@ For more information about the FMA process, with specific recommendations for Az
 ## Resiliency strategies
 This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section are meant to summarize the general idea behind each technique, with links to further reading.
 
-### Retry transient failures
-Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
-
-Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt, and limit the total number of failed requests.
-
-![Composite SLA](./images/retry.png)
-
-For more information, see [Retry Pattern][retry-pattern].
-
 ### Load balance across instances
 For scalability, a cloud application should be able to scale out by adding more instances. This approach also improves resiliency, because unhealthy instances can be taken out of rotation.  
 
@@ -172,13 +163,6 @@ For example:
 * Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Run load-balanced VMs for scalability and availability][ra-multi-vm].
 * Scale out an Azure App Service app to multiple instances. App Service automatically load balances across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
-
-### Replicate data
-Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
-
-It's important consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
-
-For highest availability, replicas can be placed in multiple regions. However, this increases the latency to replicate the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
 
 ### Degrade gracefully
 If a service fails and there is no failover path, the application may be able to degrade gracefully, in a way that still provides an acceptable user experience. For example:
@@ -196,6 +180,15 @@ When a single client makes an excessive number of requests, the application migh
 Throttling does not imply the client was necessarily acting maliciously. It just means the client exceeded their service quota.  In some cases, a consumer might consistently exceed their quota or otherwise behave badly. In that case, you might go further and block the user. Typically, this is done by blocking an API key or an IP address range.
 
 For more information, see [Throttling Pattern][throttling-pattern].
+
+### Retry transient failures
+Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
+
+Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt, and limit the total number of failed requests.
+
+![Composite SLA](./images/retry.png)
+
+For more information, see [Retry Pattern][retry-pattern].
 
 ### Use a circuit breaker
 The Circuit Breaker pattern can prevent an application from repeatedly trying an operation that is likely to fail. The analogy is to a physical circuit breaker, a switch that interrupts the flow of current when a circuit is overloaded.
@@ -237,10 +230,17 @@ For example, to book a trip, a customer might reserve a car, a hotel room, and a
 
 For more information, see [Compensating Transaction Pattern][compensating-transaction-pattern]. 
 
-## Testing for resiliency
-Generally, you can't test resiliency in the same way that you test application functionality (by running unit tests and so on). Instead, you must test how the end-to-end workload performs under failure conditions, which by definition don't happen all of the time.
+### Replicate data
+Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
 
-Testing is part of an iterative process. Test the application, measure the outcome, analyze and fix any failures that result, and repeat the process.
+It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
+
+To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
+
+## Testing for resiliency
+Generally, you can't test resiliency in the same way that you test application functionality (by running unit tests and so on). Instead, you must test the performance of the end-to-end workload under intermittent failure conditions.
+
+Testing is an iterative process. Test the application, measure the outcome, analyze and fix any failures that result, and repeat the process.
 
 **Fault injection testing**. Test the resiliency of the system to failures, either by triggering actual failures or by simulating them. Here are some common failure scenarios to test:
 
@@ -296,7 +296,7 @@ You can think of the monitoring and diagnostics process as a pipeline with sever
 
 Monitoring is different than failure detection. For example, your application might detect a transient error and retry, resulting in no downtime. But it should also log the retry operation, so that you can monitor the error rate, in order to get an overall picture of the application health. 
 
-Application logs are an important source of diagnostics data. Here are some best practices for application logging:
+Application logs are an important source of diagnostics data. Here are some proven practices for application logging:
 
 * Log in production. Otherwise, you lose insight at the very times when you need it the most.
 * Log events at service boundaries. Include a correlation ID that flows across service boundaries. If transaction X flows through multiple services and one of them fails, the correlation ID will help you pinpoint why the transaction failed.
