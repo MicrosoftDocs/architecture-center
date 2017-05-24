@@ -4,7 +4,7 @@ description: Guidance on caching to improve performance and scalability.
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 05/24/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
@@ -467,7 +467,7 @@ in the cloud.
 > are currently slated for retirement on November 16th, 2016.
 > It is recommended that you migrate to Azure Redis Cache in
 > preparation for this retirement. For more information, see
-> [What is Azure Redis Cache offering and what size should I use?](https://docs.microsoft.com/en-us/azure/redis-cache/cache-faq#what-redis-cache-offering-and-size-should-i-use).
+> [What is Azure Redis Cache offering and what size should I use?](/azure/redis-cache/cache-faq#what-redis-cache-offering-and-size-should-i-use).
 > 
 > 
 
@@ -564,7 +564,7 @@ Using the session state provider with Azure Redis Cache delivers several benefit
 * Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 * Using compression to save memory and improve network performance.
 
-For more information, visit the [ASP.NET session state provider for Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website.
+For more information, visit the [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website.
 
 > [!NOTE]
 > Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
@@ -1174,7 +1174,7 @@ The following pattern might also be relevant to your scenario when you implement
 ## More information
 * The [MemoryCache class](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) page on the Microsoft website
 * The [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) page on the Microsoft website
-* The [Azure Redis Cache FAQ](https://docs.microsoft.com/en-us/azure/redis-cache/cache-faq) page on the Microsoft website
+* The [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq) page on the Microsoft website
 * The [Configuration model](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) page on the Microsoft website
 * The [Task-based Asynchronous Pattern](http://msdn.microsoft.com/library/hh873175.aspx) page on the Microsoft website
 * The [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) page on the StackExchange.Redis GitHub repo
@@ -1187,8 +1187,8 @@ The following pattern might also be relevant to your scenario when you implement
 * The [Redis security](http://redis.io/topics/security) page on the Redis website
 * The [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) page on the Azure blog
 * The [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) page on the Microsoft website
-* The [ASP.NET session state provider for Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website
-* The [ASP.NET output cache provider for Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website
+* The [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website
+* The [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website
 * The [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) page on the Redis website
 * The [Basic usage](https://stackexchange.github.io/StackExchange.Redis/Basics) page on the StackExchange.Redis website
 * The [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions) page on the StackExchange.Redis repo
