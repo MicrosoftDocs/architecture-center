@@ -6,7 +6,7 @@
 ## [Caching](./caching.md)
 ## [Content Delivery Network](./cdn.md)
 ## [Data partitioning](./data-partitioning.md)
-## [Email](./email-toc.md)
+## [Email](./email-introduction.md)
 ## [Monitoring and diagnostics](./monitoring.md)
 ## [Naming conventions](./naming-conventions.md)
 ## [Retry guidance for specific services](./retry-service-specific.md)
