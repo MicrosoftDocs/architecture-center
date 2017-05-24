@@ -75,7 +75,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Resource Group |Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, parantheses, hyphen, an period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
+| Resource Group |Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, an period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 | Resource Group |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 | General |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric |`"key" : "value"` |`"department" : "Central IT"` |
 | Compute |Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
@@ -165,7 +165,7 @@ For more information on naming blobs, containers and tables, refer to the follow
 * [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
 * [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
 
-A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the **virtual** directory separator. Do not use a backward slash (\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
+A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the **virtual** directory separator. Do not use a backward slash (\\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
 
 It is not possible to modify the name of a storage account or container after it has been created. If you want to use a new name, you must delete it and create a new one.
 
