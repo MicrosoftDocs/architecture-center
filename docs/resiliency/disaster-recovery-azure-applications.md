@@ -18,21 +18,22 @@ As with availability considerations, Azure provides [resiliency technical guidan
 Azure maintains datacenters in many regions around the world. This infrastructure supports several disaster recovery scenarios, such as system-provided geo-replication of Azure Storage to secondary regions. You can also easily and inexpensively deploy a cloud service to multiple locations around the world. Compare this with the cost and difficulty of building and maintaining your own datacenters in multiple regions. Deploying data and services to multiple regions helps protect your application from a major outage in a single region. As you design your disaster recovery plan, it’s important to understand the concept of paired regions. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 ## Azure Traffic Manager
-When a region-specific failure occurs, you must redirect traffic to services or deployments in another region. It is most effective to handle this automatically via services such as Azure Traffic Manager, which can automatically manage the failover of user traffic to another region in case the primary region fails. Because traffic distribution is an important part of a DR strategy, it's important to understand the basics of Traffic Manager.
+When a region-specific failure occurs, you must redirect traffic to services or deployments in another region. It is most effective to handle this via services such as Azure Traffic Manager, which automates the failover of user traffic to another region if the primary region fails. Understanding the fundamentals of Traffic Manager is important when designing an effective DR strategy.
 
-In the following diagram, users connect to a URL specified for Traffic Manager (`http://myATMURL.trafficmanager.net`) which abstracts the actual site URLs (`http://app1URL.cloudapp.net` and `http://app2URL.cloudapp.net`). User requests are routed to the proper underlying URL based on your configured policy (round-robin, performance, or failover). For the sake of this article, we will be concerned with only the failover option.
+Traffic Manager uses the Domain Name System (DNS) to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints. In the following diagram, users connect to a Traffic Manager URL (`http://myATMURL.trafficmanager.net`) which abstracts the actual site URLs (`http://app1URL.cloudapp.net` and `http://app2URL.cloudapp.net`). User requests are routed to the proper underlying URL based on your configured [Traffic Manager routing method](/azure/traffic-manager/traffic-manager-routing-methods). For the sake of this article, we will be concerned with only the failover option.
 
 ![Routing via Azure Traffic Manager](./images/disaster-recovery-azure-applications/routing-using-azure-traffic-manager.png)
 
-When you're configuring Traffic Manager, you provide a new Traffic Manager DNS prefix. This is the URL prefix that you'll provide to your users to access your service. Traffic Manager now abstracts load balancing one level up and not at the region level. The Traffic Manager DNS maps to a CNAME for all the deployments that it manages.
+When configuring Traffic Manager, you provide a new Traffic Manager DNS prefix, which users will use to access your service. Traffic Manager now abstracts load balancing one level higher that the regional level. The Traffic Manager DNS maps to a CNAME for all the deployments that it manages.
 
-Within Traffic Manager, you specify the priority of the deployments that users will be routed to when failure occurs. Traffic Manager monitors the endpoints of the deployments and notes when the primary deployment fails. At failure, Traffic Manager analyzes the prioritized list of deployments and routes users to the next one on the list.
+Within Traffic Manager, you specify a prioritized list of deployments that users will be routed to when failure occurs. Traffic Manager monitors the deployment endpoints. If the primary deployment becomes unavailable, Traffic Manager routes users to the next deployment on the priority list.
 
-Although Traffic Manager decides where to go in a failover, you can decide whether your failover domain is dormant or active while you're not in failover mode. That functionality has nothing to do with Azure Traffic Manager. Traffic Manager detects a failure in the primary site and rolls over to the failover site. Traffic Manager rolls over regardless of whether that site is currently serving users or not.
+Although Traffic Manager decides where to go during a failover, you can decide whether your failover domain is dormant or active while you're not in failover mode (which is unrelated to Traffic Manager). Traffic Manager detects a failure in the primary site and rolls over to the failover site, regardless of whether that site is currently serving users.
 
 For more information on how Azure Traffic Manager works, refer to:
 
 * [Traffic Manager overview](/azure/traffic-manager/traffic-manager-overview/)
+* [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
 * [Configure failover routing method](/azure/traffic-manager/traffic-manager-configure-failover-routing-method/)
 
 ## Azure disaster scenarios
