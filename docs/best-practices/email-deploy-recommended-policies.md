@@ -1,17 +1,13 @@
 ---
-title: Deploying recommended policies | Microsoft Docs
-description: Describes deploying for Microsoft recommendations about how to apply email policies and configurations.
-guidance,active-directory
+title: Deploying recommended policies
+description: Describes deploying Microsoft recommendations about how to apply email policies and configurations.
 author: jeffgilb
-pnp.series.title: Identity management
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: femila
-pnp.series.prev: adds-extend-domain
-pnp.series.next: azure
-cardTitle: Deploying recommended policies
+ms.date: 05/24/2017
+ms.author: pnp
 
+pnp.series.title: Best Practices
 ---
 
 # Deploying recommended policies
