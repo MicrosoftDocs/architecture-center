@@ -1,6 +1,6 @@
 ---
 title: Use Key Vault to protect application secrets
-description: How a use the Key Vault service to store application secrets
+description: How to use the Key Vault service to store application secrets
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
@@ -30,7 +30,7 @@ In the [Tailspin Surveys][Surveys] application, the following settings are secre
 * The Redis connection string.
 * The client secret for the web application.
 
-To store configuration secrets in Key Vault, the Surveys application implements a custom configuration provider, which hooks into the ASP.NET Core 1.0 [configuration system][configuration]. The custom provider reads configuration settings from Key Vault on startup.
+To store configuration secrets in Key Vault, the Surveys application implements a custom configuration provider, which hooks into the ASP.NET Core [configuration system][configuration]. The custom provider reads configuration settings from Key Vault on startup.
 
 The Surveys application loads configuration settings from the following places:
 
@@ -48,10 +48,10 @@ Each of these overrides the previous one, so any settings stored in Key Vault ta
 > 
 > 
 
-At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. (For more information, see [Using Options and configuration objects][options].)
+At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. For more information, see [Using Options and configuration objects][options].
 
 ## Implementation
-The [KeyVaultConfigurationProvider][KeyVaultConfigurationProvider] class is a configuration provider that plugs into the ASP.NET Core 1.0 [configuration system][configuration].
+The `KeyVaultConfigurationProvider` class is a configuration provider that plugs into the ASP.NET Core [configuration system][configuration].
 
 To use the `KeyVaultConfigurationProvider`, call the `AddKeyVaultSecrets` extension method in the startup class:
 
@@ -98,17 +98,11 @@ foreach (var secretItem in secretsResponseList.Value)
     }
 }
 ```
-
-> [!NOTE]
-> See [KeyVaultConfigurationProvider.cs].
-> 
-> 
-
 ## Setting up Key Vault in the Surveys app
 Prerequisites:
 
 * Install the [Azure Resource Manager Cmdlets][azure-rm-cmdlets].
-* Configure the Surveys application as described in [Running the Surveys application][readme].
+* Configure the Surveys application as described in [Run the Surveys application][readme].
 
 High-level steps:
 
@@ -280,7 +274,7 @@ You will use the thumbprint later.
 
 ### Uncomment the code that enables Key Vault
 1. Open the Tailspin.Surveys solution.
-2. In [Tailspin.Surveys.Web/Startup.cs][web-startup], locate the following code block and uncomment it.
+2. In Tailspin.Surveys.Web/Startup.cs, locate the following code block and uncomment it.
    
     ```csharp
     //#if DNX451
@@ -292,7 +286,7 @@ You will use the thumbprint later.
     //                loggerFactory);
     //#endif
     ```
-3. In [Tailspin.Surveys.WebAPI/Startup.cs][web-api-startup], locate the following code block and uncomment it.
+3. In Tailspin.Surveys.WebAPI/Startup.cs, locate the following code block and uncomment it.
    
     ```csharp
     //#if DNX451
@@ -304,7 +298,7 @@ You will use the thumbprint later.
     //                loggerFactory);
     //#endif
     ```
-4. In [Tailspin.Surveys.Web/Startup.cs][web-startup], locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
+4. In Tailspin.Surveys.Web/Startup.cs, locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
    
     ```csharp
     // Uncomment this:
@@ -386,18 +380,13 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-rm-cmdlets]: https://msdn.microsoft.com/library/mt125356.aspx
 [client-assertion]: client-assertion.md
-[configuration]: https://docs.asp.net/en/latest/fundamentals/configuration.html
+[configuration]: /aspnet/core/fundamentals/configuration
 [KeyVault]: https://azure.microsoft.com/services/key-vault/
-[KeyVaultConfigurationProvider]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Configuration.KeyVault/KeyVaultConfigurationProvider.cs
 [key-tags]: https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_Keytags
 [Microsoft.Azure.KeyVault]: https://www.nuget.org/packages/Microsoft.Azure.KeyVault/
-[options]: https://docs.asp.net/en/latest/fundamentals/configuration.html#using-options-and-configuration-objects
-[readme]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-[Setup-KeyVault]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/scripts/Setup-KeyVault.ps1
+[options]: /aspnet/core/fundamentals/configuration#using-options-and-configuration-objects
+[readme]: ./run-the-app.md
+[Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md
 [user-secrets]: http://go.microsoft.com/fwlink/?LinkID=532709
-[web-startup]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs
-[web-api-startup]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/Startup.cs
-
-[KeyVaultConfigurationProvider.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Configuration.KeyVault/KeyVaultConfigurationProvider.cs
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -65,85 +65,81 @@ This pattern might not be suitable:
 
 ## Example
 
-In Microsoft Azure you can use Azure Cache to create a distributed cache that can be shared by multiple instances of an application. The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Cache. This method retrieves an object from the cache using the read-though approach.
+In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. 
 
-An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method generates a string value based on this key (the Azure Cache API uses strings for key values) and tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually retrieves the data from the data store has been omitted because it is data store dependent. Note that the cached item is configured to expire in order to prevent it from becoming stale if it's updated elsewhere.
+To connect to an Azure Redis Cache instance, call the static `Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
-private DataCache cache;
+private static ConnectionMultiplexer Connection;
+
+// Redis Connection string info
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+    return ConnectionMultiplexer.Connect(cacheConnection);
+});
+
+public static ConnectionMultiplexer Connection => lazyConnection.Value;
+```
+
+The `GetMyEntityAsync` method in the following code example shows an implementation of the Cache-Aside pattern based on Azure Redis Cache. This method retrieves an object from the cache using the read-though approach.
+
+An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually reads the data from the data store is not shown here, because it depends on the data store. Note that the cached item is configured to expire to prevent it from becoming stale if it's updated elsewhere.
+
+
+```csharp
+// Set five minute expiration as a default
+private const double DefaultExpirationTimeInMinutes = 5.0;
 
 public async Task<MyEntity> GetMyEntityAsync(int id)
-{  
+{
   // Define a unique key for this method and its parameters.
-  var key = string.Format("StoreWithCache_GetAsync_{0}", id);
-  var expiration = TimeSpan.FromMinutes(3);
-  bool cacheException = false;
-
-  try
+  var key = $"MyEntity:{id}";
+  var cache = Connection.GetDatabase();
+  
+  // Try to get the entity from the cache.
+  var json = await cache.StringGetAsync(key).ConfigureAwait(false);
+  var value = string.IsNullOrWhiteSpace(json) 
+                ? default(MyEntity) 
+                : JsonConvert.DeserializeObject<MyEntity>(json);
+  
+  if (value == null) // Cache miss
   {
-    // Try to get the entity from the cache.
-    var cacheItem = cache.GetCacheItem(key);
-    if (cacheItem != null)
-    {
-      return cacheItem.Value as MyEntity;
-    }
-  }
-  catch (DataCacheException)
-  {
-    // If there's a cache related issue, raise an exception 
-    // and avoid using the cache for the rest of the call.
-    cacheException = true;
-  }
+    // If there's a cache miss, get the entity from the original store and cache it.
+    // Code has been omitted because it's data store dependent.  
+    value = ...;
 
-  // If there's a cache miss, get the entity from the original store and cache it.
-  // Code has been omitted because it's data store dependent.  
-  var entity = ...;
-
-  if (!cacheException)
-  {
-    try
+    // Avoid caching a null value.
+    if (value != null)
     {
-      // Avoid caching a null value.
-      if (entity != null)
-      {
-        // Put the item in the cache with a custom expiration time that 
-        // depends on how critical it is to have stale data.
-        cache.Put(key, entity, timeout: expiration);
-      }
-    }
-    catch (DataCacheException)
-    {
-      // If there's a cache related issue, ignore it
-      // and just return the entity.
+      // Put the item in the cache with a custom expiration time that 
+      // depends on how critical it is to have stale data.
+      await cache.StringSetAsync(key, JsonConvert.SerializeObject(value)).ConfigureAwait(false);
+      await cache.KeyExpireAsync(key, TimeSpan.FromMinutes(DefaultExpirationTimeInMinutes)).ConfigureAwait(false);
     }
   }
 
-  return entity;
+  return value;
 }
 ```
 
->  The examples use the Azure Cache API to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Cache](https://msdn.microsoft.com/library/azure/hh914165.aspx).
+>  The examples use the Azure Redis Cache API to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-web-app-howto)
 
-The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. This is an example of a write-through approach. The code updates the original data store and then removes the cached item from the cache by calling the `Remove` method, specifying the key (the code has been omitted because it is data store dependent).
+The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. This is an example of a write-through approach. The code updates the original data store and then removes the cached item from the cache by calling the `KeyDeleteAsync` method, specifying the key.
 
 >  The order of the steps in this sequence is important. If the item is removed before the cache is updated, the client application has a short period of time to fetch the data (because it isn't found in the cache) before the item in the data store has been changed, resulting in the cache containing stale data.
 
 ```csharp
 public async Task UpdateEntityAsync(MyEntity entity)
 {
-  // Update the object in the original data store
-  await this.store.UpdateEntityAsync(entity).ConfigureAwait(false);
+    // Invalidate the current cache object
+    var cache = Connection.GetDatabase();
+    var id = entity.Id;
+    var key = $"MyEntity:{id}"; // Get the correct key for the cached object.
+    await cache.KeyDeleteAsync(key).ConfigureAwait(false);
 
-  // Get the correct key for the cached object.
-  var key = this.GetAsyncCacheKey(entity.Id);
-
-  // Then, invalidate the current cache object
-  this.cache.Remove(key);
-}
-
-private string GetAsyncCacheKey(int objectId)
-{
-  return string.Format("StoreWithCache_GetAsync_{0}", objectId);
+    // Update the object in the original data store
+    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false); 
 }
 ```
 
@@ -151,6 +147,6 @@ private string GetAsyncCacheKey(int objectId)
 
 The following information may be relevant when implementing this pattern:
 
-- [Caching Guidance](https://msdn.microsoft.com/library/dn589802.aspx). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
+- [Caching Guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/caching). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.

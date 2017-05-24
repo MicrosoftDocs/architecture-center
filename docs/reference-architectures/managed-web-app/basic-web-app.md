@@ -3,18 +3,7 @@ title: Basic web application
 description: >-
   Recommended architecture for a basic web application running in Microsoft
   Azure.
-
-
 author: MikeWasson
-
-
-
-
-ms.service: guidance
-
-ms.topic: article
-
-
 ms.date: 11/23/2016
 ms.author: pnp
 cardTitle: Basic web application
@@ -24,13 +13,12 @@ cardTitle: Basic web application
 
 This reference architecture shows a set of proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution.**](#deploy-the-solution)
 
-
 ![[0]][0]
 
 ## Architecture 
 
 > [!NOTE]
-> This architecture doe not focus on application development, and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
+> This architecture does not focus on application development, and does not assume any particular application framework. The goal is to understand how various Azure services fit together.
 >
 >
 
@@ -89,7 +77,7 @@ Recommendations for scaling a web app:
 * Autoscale rules include a *cool-down* period, which is the interval to wait after a scale action has completed before starting a new scale action. The cool-down period lets the system stabilize before scaling again. Set a shorter cool-down period for adding instances, and a longer cool-down period for removing instances. For example, set 5 minutes to add an instance, but 60 minutes to remove an instance. It's better to add new instances quickly under heavy load to handle the additional traffic, and then gradually scale back.
 
 ### Scaling SQL Database
-If you need a higher service tier or performance level for SQL Database, you can scale up individual databases with no application downtime. For details, see [Change the service tier and performance level of a SQL database][sql-db-scale].
+If you need a higher service tier or performance level for SQL Database, you can scale up individual databases with no application downtime. For more information, see [SQL Database options and performance: Understand what's available in each service tier][sql-db-scale].
 
 ## Availability considerations
 At the time of writing, the service level agreement (SLA) for App Service is 99.95% and the SLA for SQL Database is 99.99% for Basic, Standard, and Premium tiers. 
@@ -240,7 +228,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-backup]: /azure/sql-database/sql-database-business-continuity
 [sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
 [sql-db-overview]: /azure/sql-database/sql-database-technical-overview
-[sql-db-scale]: /azure/sql-database/sql-database-scale-up-powershell
+[sql-db-scale]: /azure/sql-database/sql-database-service-tiers#scaling-up-or-scaling-down-a-single-database
 [sql-db-service-tiers]: /azure/sql-database/sql-database-service-tiers
 [sql-db-v12]: /azure/sql-database/sql-database-features
 [sql-dtu]: /azure/sql-database/sql-database-service-tiers

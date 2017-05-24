@@ -10,14 +10,14 @@ ms.author: pnp
 
 These reference architectures show proven practices for web applications that use Azure App Service and other managed services in Azure.
 
-<ul class="panelContent cardsH">
+<ul class="panelContent">
     <li>
         <a href="./basic-web-app.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/basic-web-app.svg">
                             </div>
                         </div>
@@ -36,13 +36,13 @@ These reference architectures show proven practices for web applications that us
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/scalable-web-app.svg">
                             </div>
                         </div>
                         <div class="cardText">
                             <h3>Improved scalability</h3>
-                            <p>Improve the scalability and performance of a web application by adding cache, CDN, and WebJobs for background tasks.</p>
+                            <p>Improve scalability and performance by adding cache, CDN, and WebJobs for background tasks.</p>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ These reference architectures show proven practices for web applications that us
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage bgdAccent1">
+                            <div class="cardImage">
                             <img src="./images/multi-region-web-app.svg">
                             </div>
                         </div>

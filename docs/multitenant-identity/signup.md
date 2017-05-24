@@ -54,9 +54,9 @@ When an anonymous user visits the Surveys application, the user is shown two but
 
 ![Application sign-up page](./images/sign-up-page.png)
 
-These buttons invoke actions in the [AccountController] class.
+These buttons invoke actions in the `AccountController` class.
 
-The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core 1.0.  
+The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.  
 
 ```csharp
 [AllowAnonymous]
@@ -78,9 +78,6 @@ Now compare the `SignUp` action:
 [AllowAnonymous]
 public IActionResult SignUp()
 {
-    // Workaround for https://github.com/aspnet/Security/issues/546
-    HttpContext.Items.Add("signup", "true");
-
     var state = new Dictionary<string, string> { { "signup", "true" }};
     return new ChallengeResult(
         OpenIdConnectDefaults.AuthenticationScheme,
@@ -123,11 +120,6 @@ public override Task RedirectToAuthenticationEndpoint(RedirectContext context)
 }
 ```
 
-> [!NOTE]
-> See [SurveyAuthenticationEvents.cs].
-> 
-> 
-
 Setting` ProtocolMessage.Prompt` tells the middleware to add the "prompt" parameter to the authentication request.
 
 Note that the prompt is only needed during sign-up. Regular sign-in should not include it. To distinguish between them, we check for the `signup` value in the authentication state. The following extension method checks for this condition:
@@ -166,14 +158,6 @@ internal static bool IsSigningUp(this BaseControlContext context)
 }
 ```
 
-> [!NOTE]
-> See [BaseControlContextExtensions.cs].
-> 
-> [!NOTE]
-> Note: This code includes a workaround for a known bug in ASP.NET Core 1.0 RC1. In the `RedirectToAuthenticationEndpoint` event, there is no way to get the authentication properties that contains the "signup" state. As a workaround, the `AccountController.SignUp` method also puts the "signup" state into the `HttpContext`. This works because `RedirectToAuthenticationEndpoint` happens before the redirect, so we still have the same `HttpContext`.
-> 
-> 
-
 ## Registering a Tenant
 The Surveys application stores some information about each tenant and user in the application database.
 
@@ -186,7 +170,7 @@ When a new tenant signs up, the Surveys application writes a tenant record to th
 Here is the relevant code from the Surveys application:
 
 ```csharp
-public override async Task AuthenticationValidated(AuthenticationValidatedContext context)
+public override async Task TokenValidated(TokenValidatedContext context)
 {
     var principal = context.AuthenticationTicket.Principal;
     var userId = principal.GetObjectIdentifierValue();
@@ -212,7 +196,7 @@ public override async Task AuthenticationValidated(AuthenticationValidatedContex
         }
 
         // In this case, we need to go ahead and set up the user signing us up.
-        await CreateOrUpdateUserAsync(context.AuthenticationTicket, userManager, tenant)
+        await CreateOrUpdateUserAsync(context.Ticket, userManager, tenant)
             .ConfigureAwait(false);
     }
     else
@@ -223,16 +207,11 @@ public override async Task AuthenticationValidated(AuthenticationValidatedContex
             throw new SecurityTokenValidationException($"Tenant {issuerValue} is not registered");
         }
 
-        await CreateOrUpdateUserAsync(context.AuthenticationTicket, userManager, tenant)
+        await CreateOrUpdateUserAsync(context.Ticket, userManager, tenant)
             .ConfigureAwait(false);
     }
 }
 ```
-
-> [!NOTE]
-> See [SurveyAuthenticationEvents.cs].
-> 
-> 
 
 This code does the following:
 
@@ -244,7 +223,7 @@ This code does the following:
    1. If the tenant's issuer was not found in the database, it means the tenant is not registered, and the customer needs to sign up. In that case, throw an exception to cause the authentication to fail.
    2. Otherwise, create a database record for this user, if there isn't one already (`CreateOrUpdateUserAsync`).
 
-Here is the [SignUpTenantAsync] method that adds the tenant to the database.
+Here is the `SignUpTenantAsync` method that adds the tenant to the database.
 
 ```csharp
 private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantManager tenantManager)
@@ -252,7 +231,7 @@ private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantM
     Guard.ArgumentNotNull(context, nameof(context));
     Guard.ArgumentNotNull(tenantManager, nameof(tenantManager));
 
-    var principal = context.AuthenticationTicket.Principal;
+    var principal = context.Ticket.Principal;
     var issuerValue = principal.GetIssuerValue();
     var tenant = new Tenant
     {
@@ -290,10 +269,6 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 [app roles]: app-roles.md
 [Tailspin]: tailspin.md
 
-[AccountController]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Controllers/AccountController.cs
 [state]: http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
-[SurveyAuthenticationEvents.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs
-[BaseControlContextExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/BaseControlContextExtensions.cs
 [Authentication]: authenticate.md
-[SignUpTenantAsync]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

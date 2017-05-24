@@ -17,9 +17,7 @@ In many large-scale solutions, data is divided into separate partitions that can
 ## Why partition data?
 Most cloud applications and services store and retrieve data as part of their operations. The design of the data stores that an application uses can have a significant bearing on the performance, throughput, and scalability of a system. One technique that is commonly applied in large-scale systems is to divide the data into separate partitions.
 
-> The term *partitioning* that's used in this guidance refers to the process of physically dividing data into separate data stores. This is not the same as SQL Server table partitioning, which is a different concept.
->
->
+> In this article, the term *partitioning* means the process of physically dividing data into separate data stores. It is not the same as SQL Server table partitioning.
 
 Partitioning data can offer a number of benefits. For example, it can be applied in order to:
 
@@ -235,7 +233,7 @@ The partitioning scheme that you implement can have a significant bearing on the
   > Although SQL Database does not support cross-database joins, you can perform cross-shard queries with the Elastic Database API. These queries can transparently iterate through the data held in all the shardlets that are referenced by a shard map. The Elastic Database API breaks cross-shard queries down into a series of individual queries (one for each database) and then merges the results. For more information, see the page [Multi-shard querying] on the Microsoft website.
   >
   >
-* The data stored in shardlets that belong to the same shard map should have the same schema. For example, don't create a list shard map that points to some shardlets containing tenant data and other shardlets containing product information. This rule is not enforced by Elastic Database, but data management and querying becomes very complex if each shardlet has a different schema. In the example just cited, a good is solution is to create two list shard maps: one that references tenant data and another that points to product information. Remember that the data belonging to different shardlets can be stored in the same shard.
+* The data stored in shardlets that belong to the same shard map should have the same schema. For example, don't create a list shard map that points to some shardlets containing tenant data and other shardlets containing product information. This rule is not enforced by Elastic Database, but data management and querying becomes very complex if each shardlet has a different schema. In the example just cited, a good solution is to create two list shard maps: one that references tenant data and another that points to product information. Remember that the data belonging to different shardlets can be stored in the same shard.
 
   > [!NOTE]
   > The cross-shard query functionality of the Elastic Database API depends on each shardlet in the shard map containing the same schema.
@@ -261,7 +259,7 @@ Azure storage provides three abstractions for managing data:
 Table storage and blob storage are essentially key-value stores that are optimized to hold structured and unstructured data respectively. Storage queues provide a mechanism for building loosely coupled, scalable applications. Table storage, blob storage, and storage queues are created within the context of an Azure storage account. Storage accounts support three forms of redundancy:
 
 * **Locally redundant storage**, which maintains three copies of data within a single datacenter. This form of redundancy protects against hardware failure but not against a disaster that encompasses the entire datacenter.
-* **Zone-redundant storage**, which maintains three copies of data spread across different datacenters within the same region (or across two geographically close regions). This form of redundancy can protect against disasters that occur within a single datacenter, but cannot protect against large-scale network disconnects that affect an entire region. Note that zone-redundant storage is currently only currently available for block blobs.
+* **Zone-redundant storage**, which maintains three copies of data spread across different datacenters within the same region (or across two geographically close regions). This form of redundancy can protect against disasters that occur within a single datacenter, but cannot protect against large-scale network disconnects that affect an entire region. Note that zone-redundant storage is currently only available for block blobs.
 * **Geo-redundant storage**, which maintains six copies of data: three copies in one region (your local region), and another three copies in a remote region. This form of redundancy provides the highest level of disaster protection.
 
 Microsoft has published scalability targets for Azure Storage. For more information, see the page [Azure Storage scalability and performance targets] on the Microsoft website. Currently, the total storage account capacity cannot exceed 500 TB. (This includes the size of data that's held in table storage and blob storage, as well as outstanding messages that are held in storage queue).
@@ -322,7 +320,7 @@ Blob storage is automatically partitioned based on the blob name. Each blob is h
 
 The actions of writing a single block (block blob) or page (page blob) are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
-Azure blob storage supports transfer rates of up to 60 MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network. For more information, see the page [Using Delivery Content Network for Azure] on the Microsoft website. For additional guidance and considerations, see  [Using Content Delivery Network for Azure].
+Azure blob storage supports transfer rates of up to 60 MB per second or 500 requests per second for each blob. If you anticipate surpassing these limits, and the blob data is relatively static, then consider replicating blobs by using the Azure Content Delivery Network. For more information, see the page [Azure Content Delivery Network] on the Microsoft website. For additional guidance and considerations, see [Using Azure Content Delivery Network].
 
 ## Partitioning Azure storage queues
 Azure storage queues enable you to implement asynchronous messaging between processes. An Azure storage account can contain any number of queues, and each queue can contain any number of messages. The only limitation is the space that's available in the storage account. The maximum size of an individual message is 64 KB. If you require messages bigger than this, then consider using Azure Service Bus queues instead.
@@ -360,44 +358,44 @@ Consider the following points when deciding if or how to partition a Service Bus
 * Partitioned queues and topics can't be configured to be automatically deleted when they become idle.
 * Partitioned queues and topics can't currently be used with the Advanced Message Queuing Protocol (AMQP) if you are building cross-platform or hybrid solutions.
 
-## Partitioning strategies for Azure DocumentDB databases
-Azure DocumentDB is a NoSQL database that can store documents. A document in a DocumentDB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
+## Partitioning strategies for DocumentDB API
+Azure Cosmos DB is a NoSQL database that can store documents using the [DocumentDB API][documentdb-api]. A document in a Cosmos DB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
 
 Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
-Document collections provide a natural mechanism for partitioning data within a single database. Internally, a DocumentDB database can span several servers and might attempt to spread the load by distributing collections across servers. The simplest way to implement sharding is to create a collection for each shard.
+Document collections provide a natural mechanism for partitioning data within a single database. Internally, a Cosmos DB database can span several servers and might attempt to spread the load by distributing collections across servers. The simplest way to implement sharding is to create a collection for each shard.
 
 > [!NOTE]
-> Each DocumentDB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit* (RU) rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see the page [Performance levels in DocumentDB] on the Microsoft website.
+> Each Cosmos DB database has a *performance level* that determines the amount of resources it gets. A performance level is associated with a *request unit* (RU) rate limit. The RU rate limit specifies the volume of resources that's reserved and available for exclusive use by that collection. The cost of a collection depends on the performance level that's selected for that collection. The higher the performance level (and RU rate limit) the higher the charge. You can adjust the performance level of a collection by using the Azure portal. For more information, see the page [Performance levels in Cosmos DB] on the Microsoft website.
 >
 >
 
-All databases are created in the context of a DocumentDB account. A single DocumentDB account can contain several databases, and it specifies in which region the databases are created. Each DocumentDB account also enforces its own access control. You can use DocumentDB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
+All databases are created in the context of a Cosmos DB database account. A single account can contain several databases, and it specifies in which regions the databases are created. Each account also enforces its own access control. You can use Cosmos DB accounts to geo-locate shards (collections within databases) close to the users who need to access them, and enforce restrictions so that only those users can connect to them.
 
-Each DocumentDB account has a quota that limits the number of databases and collections that it can contain and the amount of document storage that's available. These limits are subject to change, but are described on the page [DocumentDB limits and quotas] on the Microsoft website. It is theoretically possible that if you implement a system where all shards belong to the same database, you might reach the storage capacity limit of the account.
+Each Cosmos DB account has a quota that limits the number of databases and collections that it can contain and the amount of document storage that's available. For more information, see [Azure subscription and service limits, quotas, and constraints][azure-limits]. It is theoretically possible that if you implement a system where all shards belong to the same database, you might reach the storage capacity limit of the account.
 
-In this case, you might need to create additional DocumentDB accounts and databases, and distribute the shards across these databases. However, even if you are unlikely to reach the storage capacity of a database, it's a good practice to use multiple databases. That's because each database has its own set of users and permissions, and you can use this mechanism to isolate access to collections on a per-database basis.
+In this case, you might need to create additional accounts and databases, and distribute the shards across these databases. However, even if you are unlikely to reach the storage capacity of a database, it's a good practice to use multiple databases. That's because each database has its own set of users and permissions, and you can use this mechanism to isolate access to collections on a per-database basis.
 
-Figure 8 illustrates the high-level structure of the DocumentDB architecture.
+Figure 8 illustrates the high-level structure of the DocumentDB API.
 
-![The structure of DocumentDB](./images/data-partitioning/DocumentDBStructure.png)
+![The structure of the DocumentDB API](./images/data-partitioning/DocumentDBStructure.png)
 
-*Figure 8.  The structure of the DocumentDB architecture*
+*Figure 8.  The structure of the DocumentDB API architecture*
 
-It is the task of the client application to direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key. Figure 9 shows two DocumentDB databases, each containing two collections that are acting as shards. The data is sharded by a tenant ID and contains the data for a specific tenant. The databases are created in separate DocumentDB accounts. These accounts are located in the same region as the tenants for which they contain data. The routing logic in the client application uses the tenant ID as the shard key.
+It is the task of the client application to direct requests to the appropriate shard, usually by implementing its own mapping mechanism based on some attributes of the data that define the shard key. Figure 9 shows two DocumentDB API databases, each containing two collections that are acting as shards. The data is sharded by a tenant ID and contains the data for a specific tenant. The databases are created in separate Cosmos DB accounts. These accounts are located in the same region as the tenants for which they contain data. The routing logic in the client application uses the tenant ID as the shard key.
 
-![Implementing sharding using Azure DocumentDB](./images/data-partitioning/DocumentDBPartitions.png)
+![Implementing sharding using the DocumentDB API](./images/data-partitioning/DocumentDBPartitions.png)
 
-*Figure 9. Implementing sharding using an Azure DocumentDB database*
+*Figure 9. Implementing sharding using the DocumentDB API*
 
-Consider the following points when deciding how to partition data with a DocumentDB database:
+Consider the following points when deciding how to partition data with the DocumentDB API:
 
-* **The resources available to a DocumentDB database are subject to the quota limitations of the DocumentDB account**. Each database can hold a number of collections (again, there is a limit), and each collection is associated with a performance level that governs the RU rate limit (reserved throughput) for that collection. For more information, go to the page [DocumentDB limits and quotas] on the Microsoft website.
+* **The resources available to a DocumentDB API database are subject to the quota limitations of the account**. Each database can hold a number of collections (again, there is a limit), and each collection is associated with a performance level that governs the RU rate limit (reserved throughput) for that collection. For more information, see [Azure subscription and service limits, quotas, and constraints].
 * **Each document must have an attribute that can be used to uniquely identify that document within the collection in which it is held**. This attribute is different from the shard key, which defines which collection holds the document. A collection can contain a large number of documents. In theory, it's limited only by the maximum length of the document ID. The document ID can be up to 255 characters.
-* **All operations against a document are performed within the context of a transaction. Transactions in DocumentDB databases are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously will not see a partial document that is then removed.
-* **DocumentDB database queries are also scoped to the collection level**. A single query can retrieve data from only one collection. If you need to retrieve data from multiple collections, you must query each collection individually and merge the results in your application code.
-* **DocumentDB databases supports programmable items that can all be stored in a collection alongside documents**. These include stored procedures, user-defined functions, and triggers (written in JavaScript). These items can access any document within the same collection. Furthermore, these items run either inside the scope of the ambient transaction (in the case of a trigger that fires as the result of a create, delete, or replace operation performed against a document), or by starting a new transaction (in the case of a stored procedure that is run as the result of an explicit client request). If the code in a programmable item throws an exception, the transaction is rolled back. You can use stored procedures and triggers to maintain integrity and consistency between documents, but these documents must all be part of the same collection.
-* **The collections that you intend to hold in the databases in a DocumentDB account should be unlikely to exceed the throughput limits defined by the performance levels of the collections**. These limits are described on the page [Manage DocumentDB capacity needs] on the Microsoft website. If you anticipate reaching these limits, consider splitting collections across databases in different DocumentDB accounts to reduce the load per collection.
+* **All operations against a document are performed within the context of a transaction. Transactions are scoped to the collection in which the document is contained.** If an operation fails, the work that it has performed is rolled back. While a document is subject to an operation, any changes that are made are subject to snapshot-level isolation. This mechanism guarantees that if, for example, a request to create a new document fails, another user who's querying the database simultaneously will not see a partial document that is then removed.
+* **Database queries are also scoped to the collection level**. A single query can retrieve data from only one collection. If you need to retrieve data from multiple collections, you must query each collection individually and merge the results in your application code.
+* **DocumentDB API databases supports programmable items that can all be stored in a collection alongside documents**. These include stored procedures, user-defined functions, and triggers (written in JavaScript). These items can access any document within the same collection. Furthermore, these items run either inside the scope of the ambient transaction (in the case of a trigger that fires as the result of a create, delete, or replace operation performed against a document), or by starting a new transaction (in the case of a stored procedure that is run as the result of an explicit client request). If the code in a programmable item throws an exception, the transaction is rolled back. You can use stored procedures and triggers to maintain integrity and consistency between documents, but these documents must all be part of the same collection.
+* **The collections that you intend to hold in the databases should be unlikely to exceed the throughput limits defined by the performance levels of the collections**. For more informationm, see Request Units in Azure Cosmos DB][cosmos-db-ru]. If you anticipate reaching these limits, consider splitting collections across databases in different accounts to reduce the load per collection.
 
 ## Partitioning strategies for Azure Search
 The ability to search for data is often the primary method of navigation and exploration that's provided by many web applications. It helps users find resources quickly (for example, products in an e-commerce application) based on combinations of search criteria. The Azure Search service provides full-text search capabilities over web content, and includes features such as type-ahead, suggested queries based on near matches, and faceted navigation. A full description of these capabilities is available on the page [What is Azure Search?] on the Microsoft website.
@@ -500,7 +498,6 @@ For more information about using partitions in Event Hubs, see [What is Event Hu
 
 For considerations about trade-offs between availability and consistency, see [Availability and consistency in Event Hubs].
 
-
 ## Rebalancing partitions
 As a system matures and you understand the usage patterns better, you might have to adjust the partitioning scheme. For example, individual partitions might start attracting a disproportionate volume of traffic and become hot, leading to excessive contention. Additionally, you might have underestimated the volume of data in some partitions, causing you to approach the limits of the storage capacity in these partitions. Whatever the cause, it is sometimes necessary to rebalance partitions to spread the load more evenly.
 
@@ -512,7 +509,7 @@ In some cases, data storage systems that don't publicly expose how data is alloc
 2. Migrating the affected data from the old partitioning scheme to the new set of partitions.
 
 > [!NOTE]
-> The mapping of DocumentDB database collections to servers is transparent, but you can still reach the storage capacity and throughput limits of a DocumentDB account. If this happens, you might need to redesign your partitioning scheme and migrate the data.
+> The mapping of database collections to servers is transparent, but you can still reach the storage capacity and throughput limits of a Cosmos DB account. If this happens, you might need to redesign your partitioning scheme and migrate the data.
 >
 >
 
@@ -554,7 +551,6 @@ When considering strategies for implementing data consistency, the following pat
 * The page [Performing entity group transactions] on the Microsoft website provides detailed information about implementing transactional operations over entities that are stored in Azure table storage.
 * The article [Azure Storage table design guide] on the Microsoft website contains detailed information about partitioning data in Azure table storage.
 * The page [Using Azure Content Delivery Network] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
-* The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB databases allocate resources.
 * The page [What is Azure Search?] on the Microsoft website provides a full description of the capabilities that are available in Azure Search.
 * The page [Service limits in Azure Search] on the Microsoft website contains information about the capacity of each instance of Azure Search.
 * The page [Supported data types (Azure Search)] on the Microsoft website summarizes the data types that you can use in searchable documents and indexes.
@@ -563,27 +559,29 @@ When considering strategies for implementing data consistency, the following pat
 * The page [Running Redis on a CentOS Linux VM in Azure] on the Microsoft website walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
 * The [Data types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
+[Availability and consistency in Event Hubs]: /azure/event-hubs/event-hubs-availability-and-consistency
+[azure-limits]: /azure/azure-subscription-service-limit
+[Azure Content Delivery Network]: /azure/cdn/cdn-overview
 [Azure Redis Cache]: http://azure.microsoft.com/services/cache/
 [Azure Storage Scalability and Performance Targets]: /azure/storage/storage-scalability-targets
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
 [Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
+[cosmos-db-ru]: /azure/documentdb/documentdb-request-units
 [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
 [Data consistency primer]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
-[DocumentDB limits and quotas]: /azure/documentdb/documentdb-limits
+[documentdb-api]: /azure/documentdb/documentdb-introduction
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [guidelines and recommendations for reliable collections in Azure Service Fabric]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[Manage DocumentDB capacity needs]: /azure/documentdb/documentdb-manage
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
 [Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
 [Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
-[Performance levels in DocumentDB]: /azure/documentdb/documentdb-performance-levels
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
@@ -595,5 +593,6 @@ When considering strategies for implementing data consistency, the following pat
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
 [Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions
+[What is Event Hubs?]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [What is Azure Search?]: /azure/search/search-what-is-azure-search
 [What is Azure SQL Database?]: /azure/sql-database/sql-database-technical-overview

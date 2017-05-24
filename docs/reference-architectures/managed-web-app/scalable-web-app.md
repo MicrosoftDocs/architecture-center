@@ -37,7 +37,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 * **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function in the WebJob. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 * **Cache**. Store semi-static data in [Azure Redis Cache][azure-redis].  
 * **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
-* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as Azure Table storage or [DocumentDB][documentdb].
+* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as [Cosmos DB][documentdb].
 * **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.  
 * **Email/SMS**. Use a third-party service such as SendGrid or Twilio to send email or SMS messages instead of building this functionality directly into the application.
 
@@ -87,7 +87,7 @@ Modern applications often process large amounts of data. In order to scale for t
 | Files |Images, documents, PDFs |Azure Blob Storage |
 | Key/Value pairs |User profile data looked up by user ID |Azure Table storage |
 | Short messages intended to trigger further processing |Order requests |Azure Queue storage, Service Bus queue, or Service Bus topic |
-| Non-relational data with a flexible schema requiring basic querying |Product catalog |Document database, such as Azure DocumentDB, MongoDB, or Apache CouchDB |
+| Non-relational data with a flexible schema requiring basic querying |Product catalog |Document database, such as Azure Cosmos DB, MongoDB, or Apache CouchDB |
 | Relational data requiring richer query support, strict schema, and/or strong consistency |Product inventory |Azure SQL Database |
 
 ## Scalability considerations

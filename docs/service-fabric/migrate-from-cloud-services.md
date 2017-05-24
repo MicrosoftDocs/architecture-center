@@ -1,13 +1,10 @@
 ---
-title: Migrating an Azure Cloud Services application to Azure Service Fabric 
+title: Migrate an Azure Cloud Services application to Azure Service Fabric 
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
-ms.date: 03/24/2017
-ms.author: pnp
+ms.date: 04/27/2017
 ---
-# Migrating an Azure Cloud Services application to Azure Service Fabric 
+# Migrate an Azure Cloud Services application to Azure Service Fabric 
 
 [![GitHub](../_images/github.png) Sample code][sample-code]
 
@@ -49,7 +46,6 @@ An in-depth discussion of microservices is beyond scope of this article, but her
 - **Agile development**. Individual services have less code than a monolithic application, making the code base easier to understand, reason about, and test.
 - **Small, focused teams**. Because the application is broken down into many small services, each service can be built by a small focused team.
 
-
 ## Why Service Fabric?
       
 Service Fabric is a good fit for a microservices architecture, because most of the features needed in a distributed system are built into Service Fabric, including:
@@ -62,7 +58,7 @@ Service Fabric is a good fit for a microservices architecture, because most of t
 - **Service orchestration** across a cluster of machines.
 - **Higher density** for optimizing resource consumption. A single node can host multiple services.
 
-Service Fabric is used by various Microsoft services, including Azure SQL Database, DocumentDB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications. 
+Service Fabric is used by various Microsoft services, including Azure SQL Database, Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications. 
 
 ## Comparing Cloud Services with Service Fabric
 
@@ -308,7 +304,7 @@ However, at this point the application does not get all the benefits of microser
 [kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
 [lb-probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [owin]: https://www.asp.net/aspnet/overview/owin-and-katana
-[sample-code]: https://github.com/mspnp/ServiceFabricGuidance
+[sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric
 [sf-application-model]: /azure/service-fabric/service-fabric-application-model
 [sf-aspnet-core]: /azure/service-fabric/service-fabric-add-a-web-frontend
 [sf-auto-scale]: /azure/service-fabric/service-fabric-cluster-scale-up-down
