@@ -10,7 +10,7 @@ ms.author: pnp
 pnp.series.title: Best Practices
 ---
 
-# Core concepts and best practices
+# Core concepts
 
 All the security measures in the world do not matter if users who experience unnecessary friction when trying to get their work done bypass your organizational security policies. This is where Azure AD single-sign on (SSO) comes in and attempts to minimize the burden on users. This way users can remain productive while still conforming to the access control policies of the organization. 
 
