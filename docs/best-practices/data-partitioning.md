@@ -479,6 +479,13 @@ Consider the following points when deciding how to partition data with Azure Red
   >
 * Redis supports a limited number of atomic operations. The only operations of this type that support multiple keys and values are MGET and MSET operations. MGET operations return a collection of values for a specified list of keys, and MSET operations store a collection of values for a specified list of keys. If you need to use these operations, the key-value pairs that are referenced by the MSET and MGET commands must be stored within the same database.
 
+## Partitioning Strategies for Azure Service Fabric
+Azure Service Fabric is a microservices platform that provides a runtime for distributed applications in the cloud. Service Fabric supports .Net guest executables, stateful and stateless services, and containers. Stateful services provide a [reliable collection][service-fabric-reliable-collections] to persistently store data in a key-value collection within the Service Fabric cluster. For more information about strategies for partioning keys in a reliable collection, see [guidelines and recommendations for reliable collections in Azure Service Fabric].
+
+### More information
+* [Overview of Azure Service Fabric] is an introduction to Azure Service Fabric.
+* [Partition Service Fabric reliable services] provides more information about reliable services in Azure Service Fabric.
+
 ## Partitioning strategies for Azure Event Hubs
 
 [Azure Event Hubs][event-hubs] is designed for data streaming at massive scale, and partitioning is built into the service to enable horizontal scaling. Each consumer only reads a specific partition of the message stream. 
@@ -568,9 +575,12 @@ When considering strategies for implementing data consistency, the following pat
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
+[guidelines and recommendations for reliable collections in Azure Service Fabric]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections-guidelines
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Multi-shard querying]: /azure/sql-database/sql-database-elastic-scale-multishard-querying
+[Overview of Azure Service Fabric]: /azure/service-fabric/service-fabric-overview
+[Partition Service Fabric reliable services]: /azure/service-fabric/service-fabric-concepts-partitioning
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/library/azure/dd894038.aspx
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
@@ -578,6 +588,7 @@ When considering strategies for implementing data consistency, the following pat
 [Scaling using the Elastic Database split-merge tool]: /azure/sql-database/sql-database-elastic-scale-overview-split-and-merge
 [Using Azure Content Delivery Network]: /azure/cdn/cdn-create-new-endpoint
 [Service Bus quotas]: /azure/service-bus-messaging/service-bus-quotas
+[service-fabric-reliable-collections]: /azure/service-fabric/service-fabric-reliable-services-reliable-collections
 [Service limits in Azure Search]:  /azure/search/search-limits-quotas-capacity
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
 [Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
