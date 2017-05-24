@@ -1,12 +1,12 @@
 ---
-title: Using an object as a parameter in an Azure resource manager template
+title: Use an object as a parameter in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters
 author: petertay
 ms.date: 05/03/2017
 
 ---
 
-# Using an object as a parameter in an Azure resource manager template
+# Use an object as a parameter in an Azure resource manager template
 
 When you [author Azure resource manager templates][azure-resource-manager-create-template], you can either specify resource property values directly in the template or define a parameter and provide values during deployment. It's fine to use a parameter for each property value for small deployments, but there is a limit of 255 parameters per deployment. Once you get to larger and more complex deployments you may run out of parameters.
 
@@ -87,9 +87,9 @@ Now let's have a look at the rest of our template to see how the `VNetSettings` 
     }
   ]
 ```
-The values of our `VNetSettings` object are applied to the properties required by our VNet resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properites. 
+The values of our `VNetSettings` object are applied to the properties required by our VNet resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properties. 
 
-There is one issue to be aware of if you use the dymamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here - one named `"firstProperty"` and one named `"secondProperty"`. 
+There is one issue to be aware of if you use the dynamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here - one named `"firstProperty"` and one named `"secondProperty"`. 
 
 ```json
 "variables": {
@@ -133,9 +133,9 @@ Now let's take a look at the way we access the properties in the variable using 
 }
 ```
 
-The `copyIndex()` function returns the current iteration of the copy loop, and we use as an index into each of the two arrays simulataneously.
+The `copyIndex()` function returns the current iteration of the copy loop, and we use as an index into each of the two arrays simultaneously.
 
-This works fine when the two arrays are the same length. The issue arises if you've made a mistake and the two arrays are different lengths - in this case your template will fail valiadation during deployment. You can avoid this issue by including all your properties in a single object, because it is much easier to see when a value is missing. For example, let's take a look another parameter object in which each element of the `"propertyObject"` array is the union of the `"firstProperty"` and `"secondProperty"` arrays from earlier.
+This works fine when the two arrays are the same length. The issue arises if you've made a mistake and the two arrays are different lengths - in this case your template will fail validation during deployment. You can avoid this issue by including all your properties in a single object, because it is much easier to see when a value is missing. For example, let's take a look another parameter object in which each element of the `"propertyObject"` array is the union of the `"firstProperty"` and `"secondProperty"` arrays from earlier.
 
 ```json
 "variables": {
@@ -158,9 +158,9 @@ This works fine when the two arrays are the same length. The issue arises if you
 }
 ```
 
-Notice the third element in the array? It's missing the `"number"` property, but it's much easier to notice that you've missed when you're authoring the parameter values.
+Notice the third element in the array? It's missing the `"number"` property, but it's much easier to notice that you've missed it when you're authoring the parameter values this way.
 
-## Using a propery object in a copy loop
+## Using a property object in a copy loop
 
 This approach becomes even more useful when combined with the [serial copy loop][azure-resource-manager-create-multiple], particularly for deploying child resources. 
 
@@ -207,7 +207,7 @@ First, let's take a look at our parameters. When we look at our template we'll s
   }
 ```
 
-Now let's take a look at our template. Our first resource named `NSG1` deploys the NSG. Our second resource named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. Our third resource is a nested template that deploys our security rules using an object for its parameter valuesh as in the last example.
+Now let's take a look at our template. Our first resource named `NSG1` deploys the NSG. Our second resource named `loop-0` performs two functions: first, it `dependsOn` the NSG so its deployment doesn't begin until `NSG1` is completed, and it is the first iteration of the sequential loop. Our third resource is a nested template that deploys our security rules using an object for its parameter values as in the last example.
 
 ```json
 {
@@ -294,7 +294,7 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
 
 ```
 
-Let's take a closer look at how we specify our property values in the `"securityRules"` child resource: all of our properties are referenced using the `parameter()` function, and then we use the dot operator `.` to reference our `"securityRules"` array, indexed by the current value of the iteration. Finally, we use another dot operator `.` to reference the name of the object. 
+Let's take a closer look at how we specify our property values in the `"securityRules"` child resource: all of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `"securityRules"` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object. 
 
 ## Try the template
 
@@ -321,6 +321,6 @@ If you would like to experiment with these templates, follow these steps:
 <!-- links -->
 [azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/resource-group-authoring-templates
 [azure-resource-manager-create-template]: /azure/azure-resource-manager/resource-manager-create-first-template
-[azure-resource-manager-create-multiplefcoll]: /azure/azure-resource-manager/resource-group-create-multiple
+[azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
 [azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
 [nsg]: /azure/virtual-network/virtual-networks-nsg

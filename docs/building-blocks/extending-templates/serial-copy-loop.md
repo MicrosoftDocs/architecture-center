@@ -6,7 +6,7 @@ ms.date: 05/03/2017
 
 ---
 
-# Extending serial copy functionality in a resource manager template
+# Extend serial copy functionality in a resource manager template
 
 You can deploy multiple instances of a single resource type in an [Azure Resource Manager][azure-resource-manager-overview] template using a [copy loop][create-multiple-instances]. To do this, you specify the copy loop within the resource. Then, resource manager processes the resource as many times as specified in the `count` property. The resource's properties are dynamically set by assigning them to a parameter or variable array that is indexed using the [`copyIndex()`][azure-resource-manager-functions-numeric] function. For example:
 
