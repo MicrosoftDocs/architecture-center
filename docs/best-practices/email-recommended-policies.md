@@ -74,13 +74,13 @@ Some customers have a subset of data that must be protected at higher levels or 
 
 Some organizations may have a very small amount of data that is highly classified, trade secret, or regulated data. Microsoft provides capabilities to help organizations meet these requirements, including added protection for identities and devices. 
 
-## Default protection mechanism recommendations
+### Default protection mechanism recommendations
 
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
 ![Default protection mechanism recommendations](./images/email/protection-tiers.png)
 
-## Device ownership
+### Device ownership
 The above table reflects the trend for many organizations to support a mix of corporate-owned devices (COD) as well as personal or bring-your-own devices (BYOD) to enable mobile productivity across their workforces. Intune App Protection Policies ensure that email is protected from exfiltrating out of the Outlook mobile app and other Office mobile apps, on both COD and BYOD.  
 
 Corporate-owned devices are required to be managed by Intune or domain-joined to apply additional protections and control.  Depending on data sensitivity, your organization may choose to not allow BYOD for specific user populations or specific apps.
