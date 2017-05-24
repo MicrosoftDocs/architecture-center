@@ -184,5 +184,4 @@ For most organizations, it is important to be able to set expectations for  user
 
 
 ## Next Steps
-
-Deploying recommended policies
+[Deploy recommended policies](email-deploy-recommended-policies.md)
