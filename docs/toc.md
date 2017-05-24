@@ -31,9 +31,9 @@
 ## [Caching](./best-practices/caching.md)
 ## [Content Delivery Network](./best-practices/cdn.md)
 ## [Data partitioning](./best-practices/data-partitioning.md)
-## [Email](./best-practices/email-toc.md)
 ## [Monitoring and diagnostics](./best-practices/monitoring.md)
 ## [Naming conventions](./best-practices/naming-conventions.md)
+## [Secure email](./best-practices/email=introduction.md)
 ## [Transient fault handling](./best-practices/transient-faults.md)
 ## [Retry guidance for specific services](./best-practices/retry-service-specific.md)
 
