@@ -10,7 +10,7 @@ ms.author: pnp
 pnp.series.title: Best Practices
 ---
 
-# Deploying recommended policies
+# Deploy recommended policies
 
 This section discusses how to deploy the recommended policies in a newly provisioned environment. Setting up these policies in a separate lab environment allows you to understand and evaluate the recommended policies before staging the rollout of them in your pre-production and production environments. Your newly provisioned environment may be cloud-only or Hybrid.  
 
@@ -162,4 +162,4 @@ If a user reports that they are being expected to perform MFA when this was prev
 Users within the organization with a Global Administrator or Security Administrator role can use Azure AD Identity Protection to review the risky events that contributed to the calculated risk score. If they identify some events that where flagged as suspicious, but are confirmed to be valid (such as a login from an unfamiliar location when an employee is on vacation), the administrator can resolve the event so it no longer contributes to the risk score.
 
 ## Next steps
-EMS and Office 365 service descriptions
+[EMS and Office 365 service descriptions](email-ems-office365-service-descriptions.md)
