@@ -1,17 +1,13 @@
 ---
-title: Recommended policies | Microsoft Docs
+title: Recommended policies
 description: Describes the policies for Microsoft recommendations about how to apply email policies and configurations.
-guidance,active-directory
 author: jeffgilb
-pnp.series.title: Identity management
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2017
-ms.author: femila
-pnp.series.prev: adds-extend-domain
-pnp.series.next: azure
-cardTitle: Recommended policies
+ms.date: 05/24/2017
+ms.author: pnp
 
+pnp.series.title: Best Practices
 ---
 
 # Recommended policies
