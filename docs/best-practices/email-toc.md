@@ -1,4 +1,4 @@
-# Email
+# Secure Email
 ## [Introduction](./email-introduction.md)
 ## [Core concepts](./email-core-concepts.md)
 ## [Recommended policies](./email-recommended-policies.md)
