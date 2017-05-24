@@ -41,4 +41,4 @@ We have done our best to account for a wide variety of organizational protection
 >
 
 ## Next Steps
-[Core concepts](email-core-concepts-best-practices.md)
+[Core concepts](email-core-concepts.md)
