@@ -48,9 +48,9 @@ The application should wrap all attempts to access a remote service in code that
 
 An application should log the details of faults and failing operations. This information is useful to operators. If a service is frequently unavailable or busy, it's often because the service has exhausted its resources. You can reduce the frequency of these faults by scaling out the service. For example, if a database service is continually overloaded, it might be beneficial to partition the database and spread the load across multiple servers.
 
-> Microsoft Azure provides extensive support for the Retry pattern. The patterns & practices [Transient Fault Handling Block](https://msdn.microsoft.com/library/hh680934.aspx) enables an application to handle transient faults in many Azure services using a range of retry strategies. The [Microsoft Entity Framework version 6](https://msdn.microsoft.com/en-us/data/dn456835.aspx) provides facilities for retrying database operations. Additionally, many of the Azure Service Bus and Azure Storage APIs implement retry logic transparently.
+> [Microsoft Entity Framework](https://docs.microsoft.com/ef/) provides facilities for retrying database operations. Also, most Azure services and client SDKs include a retry mechanism. For more information, see [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific).
 
-## Issues and considerations
+## Issues and considerationsm
 
 You should consider the following points when deciding how to implement this pattern.
 
@@ -86,21 +86,21 @@ This pattern might not be useful:
 
 ## Example
 
-This example in C# illustrates an implementation of the Retry pattern. The `OperationWithBasicRetryAsync` method, shown below, invokes an external service asynchronously through the `TransientOperationAsync` method (the details of this method will be specific to the service and are omitted from the sample code).
+This example in C# illustrates an implementation of the Retry pattern. The `OperationWithBasicRetryAsync` method, shown below, invokes an external service asynchronously through the `TransientOperationAsync` method. The details of the `TransientOperationAsync` method will be specific to the service and are omitted from the sample code.
 
 ```csharp
 private int retryCount = 3;
-...
+private readonly TimeSpan delay = TimeSpan.FromSeconds(5);
 
 public async Task OperationWithBasicRetryAsync()
 {
   int currentRetry = 0;
 
-  for (; ;)
+  for (;;)
   {
     try
     {
-      // Calling external service.
+      // Call external service.
       await TransientOperationAsync();
 
       // Return or break.
@@ -118,8 +118,8 @@ public async Task OperationWithBasicRetryAsync()
       // long to wait, based on the retry strategy.
       if (currentRetry > this.retryCount || !IsTransient(ex))
       {
-        // If this isn't a transient error
-        // or we shouldn't retry, rethrow the exception.
+        // If this isn't a transient error or we shouldn't retry, 
+        // rethrow the exception.
         throw;
       }
     }
@@ -127,7 +127,7 @@ public async Task OperationWithBasicRetryAsync()
     // Wait to retry the operation.
     // Consider calculating an exponential delay here and
     // using a strategy best suited for the operation and fault.
-    Await.Task.Delay();
+    await Task.Delay(delay);
   }
 }
 
@@ -172,5 +172,5 @@ private bool IsTransient(Exception ex)
 ## Related patterns and guidance
 
 - [Circuit Breaker pattern](circuit-breaker.md). The Retry pattern is useful for handling transient faults. If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. The Retry pattern can also be used in conjunction with a circuit breaker to provide a comprehensive approach to handling faults.
-- [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/hh680934.aspx).
-- [Connection Resiliency / Retry Logic](https://msdn.microsoft.com/en-us/data/dn456835.aspx)
+- [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+- [Connection Resiliency](https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency)

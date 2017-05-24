@@ -22,7 +22,7 @@ Tailspin is a fictitious company that is developing a SaaS application named Sur
 * Users can create, edit, and publish surveys.
 
 > [!NOTE]
-> To get started with the application, see [Running the Surveys application].
+> To get started with the application, see [Run the Surveys application].
 > 
 > 
 
@@ -53,7 +53,7 @@ When Alice logs in, she sees the survey listed under "Surveys I can contribute t
 Note that Alice signs into her own tenant, not as a guest of the Contoso tenant. Alice has contributor permissions only for that survey &mdash; she cannot view other surveys from the Contoso tenant.
 
 ## Architecture
-The Surveys application consists of a web front end and a web API backend. Both are implemented using [ASP.NET Core 1.0].
+The Surveys application consists of a web front end and a web API backend. Both are implemented using [ASP.NET Core].
 
 The web application uses Azure Active Directory (Azure AD) to authenticate users. The web application also calls Azure AD to get OAuth 2 access tokens for the Web API. Access tokens are cached in Azure Redis Cache. The cache enables multiple instances to share the same token cache (e.g., in a server farm).
 
@@ -65,6 +65,6 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 
 [authentication]: authenticate.md
 
-[Running the Surveys application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-[ASP.NET Core 1.0]: https://docs.asp.net/en/latest/
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[Run the Surveys application]: ./run-the-app.md
+[ASP.NET Core]: /aspnet/core
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

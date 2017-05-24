@@ -41,7 +41,7 @@ Here are some of the claims from AAD that an app might typically care about:
 | unique_name |A human readable display name of the user. Example: `"alice@contoso.com"` |
 | upn |User principal name. Example: `"alice@contoso.com"` |
 
-This table lists the claim types as they appear in the ID token. In ASP.NET Core 1.0, the OpenID Connect middleware converts some of the claim types when it populates the Claims collection for the user principal:
+This table lists the claim types as they appear in the ID token. In ASP.NET Core, the OpenID Connect middleware converts some of the claim types when it populates the Claims collection for the user principal:
 
 * oid > `http://schemas.microsoft.com/identity/claims/objectidentifier`
 * tid > `http://schemas.microsoft.com/identity/claims/tenantid`
@@ -49,7 +49,7 @@ This table lists the claim types as they appear in the ID token. In ASP.NET Core
 * upn > `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
 
 ## Claims transformations
-During the authentication flow, you might want to modify the claims that you get from the IDP. In ASP.NET Core 1.0, you can perform claims transformation inside of the **AuthenticationValidated** event from the OpenID Connect middleware. (See [Authentication events].)
+During the authentication flow, you might want to modify the claims that you get from the IDP. In ASP.NET Core, you can perform claims transformation inside of the **AuthenticationValidated** event from the OpenID Connect middleware. (See [Authentication events].)
 
 Any claims that you add during **AuthenticationValidated** are stored in the session authentication cookie. They don't get pushed back to Azure AD.
 
@@ -120,6 +120,6 @@ For more information, see [Role-based and resource-based authorization in multit
 [issuer]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 [Authentication events]: authenticate.md#authentication-events
 [signup]: signup.md
-[Claims-Based Authorization]: https://docs.asp.net/en/latest/security/authorization/claims.html
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[Claims-Based Authorization]: /aspnet/core/security/authorization/claims
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [authorization]: authorize.md

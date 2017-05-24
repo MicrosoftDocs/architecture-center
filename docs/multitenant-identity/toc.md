@@ -11,4 +11,5 @@
 ## [Client assertion](./client-assertion.md)
 ## [Protect application secrets](./key-vault.md)
 ## [Federate with a customer's AD FS](./adfs.md)
+## [Run the Surveys application](./run-the-app.md)
     

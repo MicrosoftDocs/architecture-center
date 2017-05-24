@@ -76,7 +76,9 @@ The rest of this article assumes the application is authenticating with Azure AD
 In order for Azure AD to issue a bearer token for the web API, you need to configure some things in Azure AD.
 
 1. [Register the web API in Azure AD].
+
 2. Add the client ID of the web app to the web API application manifest, in the `knownClientApplications` property. See [Update the application manifests].
+
 3. [Give the web application permission to call the web API].
    
    In the Azure Management Portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
@@ -152,13 +154,8 @@ public static async Task<HttpResponseMessage> SendRequestWithBearerTokenAsync(th
 }
 ```
 
-> [!NOTE]
-> See [HttpClientExtensions.cs].
-> 
-> 
-
 ## Authenticating in the web API
-The web API has to authenticate the bearer token. In ASP.NET Core 1.0, you can use the [Microsoft.AspNet.Authentication.JwtBearer][JwtBearer] package. This package provides middleware that enables the application to receive OpenID Connect bearer tokens.
+The web API has to authenticate the bearer token. In ASP.NET Core, you can use the [Microsoft.AspNet.Authentication.JwtBearer][JwtBearer] package. This package provides middleware that enables the application to receive OpenID Connect bearer tokens.
 
 Register the middleware in your web API `Startup` class.
 
@@ -175,11 +172,6 @@ app.UseJwtBearerAuthentication(options =>
     options.Events = new SurveysJwtBearerEvents();
 });
 ```
-
-> [!NOTE]
-> See [Startup.cs].
-> 
-> 
 
 * **Audience**. Set this to the App ID URL for the web API, which you created when you registered the web API with Azure AD.
 * **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`.
@@ -207,11 +199,6 @@ public override async Task ValidatedToken(ValidatedTokenContext context)
     }
 }
 ```
-
-> [!NOTE]
-> See [SurveysJwtBearerEvents.cs].
-> 
-> 
 
 You can also use the **ValidatedToken** event to do [claims transformation]. Remember that the claims come directly from Azure AD, so if the web application did any claims transformations, those are not reflected in the bearer token that the web API receives.
 
@@ -257,15 +244,12 @@ public void ConfigureServices(IServiceCollection services)
 
 [Tailspin Surveys]: tailspin.md
 [IdentityServer3]: https://github.com/IdentityServer/IdentityServer3
-[Register the web API in Azure AD]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#register-the-surveys-web-api
-[Update the application manifests]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#update-the-application-manifests
-[Give the web application permission to call the web API]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md#give-the-web-app-permissions-to-call-the-web-api
+[Register the web API in Azure AD]: ./run-the-app.md#register-the-surveys-web-api-in-your-ad-directory
+[Update the application manifests]: ./run-the-app.md#update-the-application-manifests
+[Give the web application permission to call the web API]: ./run-the-app.md#give-the-surveys-web-app-permissions-to-call-the-web-api
 [Token caching]: token-cache.md
-[HttpClientExtensions.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Common/HttpClientExtensions.cs
-[Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/Startup.cs
 [tenant sign-up]: signup.md
-[SurveysJwtBearerEvents.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.WebAPI/SurveyJwtBearerEvents.cs
 [claims transformation]: claims.md#claims-transformations
 [Authorization]: authorize.md
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [token cache]: token-cache.md

@@ -70,13 +70,15 @@ If you require a background task to communicate with the calling task to indicat
 You can host background tasks by using a range of different Azure platform services:
 
 * [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
-* [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
-* [**Azure Batch**](/azure/batch/batch-technical-overview/). It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines, and can automatically scale compute resources to meet the needs of your jobs.
+* [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
+* [**Azure Container Service**](#azure-container-service). Azure Container Service provides a container hosting environment on Azure. 
+* [**Azure Cloud Services**](#azure-cloud-services). You can write code within a role that executes as a background task.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
 
-## Azure Web Apps and WebJobs
+### Azure Web Apps and WebJobs
+
 You can use Azure WebJobs to execute custom jobs as background tasks within an Azure Web App. WebJobs run within the context of your web app as a continuous process. WebJobs also run in response to a trigger event from Azure Scheduler or external factors, such as changes to storage blobs and message queues. Jobs can be started and stopped on demand, and shut down gracefully. If a continuously running WebJob fails, it is automatically restarted. Retry and error actions are configurable.
 
 When you configure a WebJob:
@@ -101,14 +103,78 @@ Azure WebJobs have the following characteristics:
   * { "stopping_wait_time": 60 }
   * { "is_singleton": true }
 
-### Considerations
+#### Considerations
+
 * By default, WebJobs scale with the web app. However, you can configure jobs to run on single instance by setting the **is_singleton** configuration property to **true**. Single instance WebJobs are useful for tasks that you do not want to scale or run as simultaneous multiple instances, such as reindexing, data analysis, and similar tasks.
 * To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host WebJobs that may be long running or resource intensive.
 
 ### More information
 * [Azure WebJobs recommended resources](/azure/app-service-web/websites-webjobs-resources) lists the many useful resources, downloads, and samples for WebJobs.
 
-## Azure Cloud Services web and worker roles
+### Azure Virtual Machines
+Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
+
+To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](/azure/app-service-web/choose-web-site-cloud-service-vm/). For information about the options for Virtual Machines, see [Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
+
+To initiate the background task in a separate virtual machine, you have a range of options:
+
+* You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
+* You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
+* You can use Azure Scheduler to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
+
+See the earlier section [Triggers](#triggers) for more information about how you can initiate background tasks.  
+
+#### Considerations
+Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
+
+* Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
+* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/en-us/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/en-us/download/details.aspx?id=50013).
+* You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
+
+#### More information
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
+* [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
+### Azure Batch 
+
+Consider [Azure Batch](/azure/batch/) if you need to run large, parallel high-performance computing (HPC) workloads across tens, hundreds, or thousands of VMs.  
+
+The Batch service provisions the VMs, assign tasks to the VMs, runs the tasks, and monitors the progress. Batch can automatically scale out the VMs in response to the workload. Batch also provides job scheduling. Azure Batch supports both Linux and Windows VMs.
+
+#### Considerations 
+
+Batch works well with intrinsically parallel workloads. It can also perform parallel calculations with a reduce step at the end, or run [Message Passing Interface (MPI) applications](/azure/batch/batch-mpi) for parallel tasks that require message passing between nodes. 
+
+An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
+
+#### More information 
+
+* [Run intrinsically parallel workloads with Batch](/azure/batch/batch-technical-overview) 
+* [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics) 
+* [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
+
+### Azure Container Service 
+
+Azure Container Service lets you configure and manage a cluster of VMs in Azure to run containerized applications. It provides a choice of Docker Swarm, DC/OS, or Kubernetes for orchestration. 
+
+Containers can be useful for running background jobs. Some of the benefits include: 
+
+- Containers support high-density hosting. You can isolate a background task in a container, while placing multiple containers in each VM.
+- The container orchestrator handles internal load balancing, configuring the internal network, and other configuration tasks.
+- Containers can be started and stopped as needed. 
+- Azure Container Registry allows you to register your containers inside Azure boundaries. This comes with security, privacy, and proximity benefits. 
+
+#### Considerations
+
+- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.  
+- Container Service runs in an IaaS environment. It provisions a cluster of VMs inside a dedicated VNet. 
+
+#### More information 
+
+* [Introduction to Docker container hosting solutions with Azure Container Service](/azure/container-service/container-service-intro) 
+* [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro) 
+
+### Azure Cloud Services 
 You can execute background tasks within a web role or in a separate worker role. When you are deciding whether to use a worker role, consider scalability and elasticity requirements, task lifetime, release cadence, security, fault tolerance, contention, complexity, and the logical architecture. For more information, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
 
 There are several ways to implement background tasks within a Cloud Services role:
@@ -118,10 +184,8 @@ There are several ways to implement background tasks within a Cloud Services rol
 * Use the WebJobs SDK to implement background tasks such as WebJobs that are initiated as a startup task. For more information, see [Create a .NET WebJob in Azure App Service](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started).
 * Use a startup task to install a Windows service that executes one or more background tasks. You must set the **taskType** property to **background** so that the service executes in the background. For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks).
 
-### Running background tasks in the web role
 The main advantage of running background tasks in the web role is the saving in hosting costs because there is no requirement to deploy additional roles.
 
-### Running background tasks in a worker role
 Running background tasks in a worker role has several advantages:
 
 * It allows you to manage scaling separately for each type of role. For example, you might need more instances of a web role to support the current load, but fewer instances of the worker role that executes background tasks. By scaling background task compute instances separately from the UI roles, you can reduce hosting costs, while maintaining acceptable performance.
@@ -129,7 +193,7 @@ Running background tasks in a worker role has several advantages:
 * It allows you to implement separation of concerns. Each role type can implement a specific set of clearly defined and related tasks. This makes designing and maintaining the code easier because there is less interdependence of code and functionality between each role.
 * It can help to isolate sensitive processes and data. For example, web roles that implement the UI do not need to have access to data that is managed and controlled by a worker role. This can be useful in strengthening security, especially when you use a pattern such as the [Gatekeeper Pattern](http://msdn.microsoft.com/library/dn589793.aspx).  
 
-### Considerations
+#### Considerations
 Consider the following points when choosing how and where to deploy background tasks when using Cloud Services web and worker roles:
 
 * Hosting background tasks in an existing web role can save the cost of running a separate worker role just for these tasks. However, it is likely to affect the performance and availability of the application if there is contention for processing and other resources. Using a separate worker role protects the web role from the impact of long-running or resource-intensive background tasks.
@@ -140,37 +204,51 @@ Consider the following points when choosing how and where to deploy background t
   * If you use startup tasks, you are responsible for managing the task execution and checking if it fails.
 * Managing and monitoring startup tasks is more difficult than using the **RoleEntryPoint** class approach. However, the Azure WebJobs SDK includes a dashboard to make it easier to manage WebJobs that you initiate through startup tasks.
 
-### More information
+#### Lifecycle 
+ If you decide to implement background jobs for Cloud Services applications that use web and worker roles by using the **RoleEntryPoint** class, it is important to understand the lifecycle of this class in order to use it correctly.
+
+Web and worker roles go through a set of distinct phases as they start, run, and stop. The **RoleEntryPoint** class exposes a series of events that indicate when these stages are occurring. You use these to initialize, run, and stop your custom background tasks. The complete cycle is:
+
+* Azure loads the role assembly and searches it for a class that derives from **RoleEntryPoint**.
+* If it finds this class, it calls **RoleEntryPoint.OnStart()**. You override this method to initialize your background tasks.
+* After the **OnStart** method has completed, Azure calls **Application_Start()** in the application’s Global file if this is present (for example, Global.asax in a web role running ASP.NET).
+* Azure calls **RoleEntryPoint.Run()** on a new foreground thread that executes in parallel with **OnStart()**. You override this method to start your background tasks.
+* When the Run method ends, Azure first calls **Application_End()** in the application’s Global file if this is present, and then calls **RoleEntryPoint.OnStop()**. You override the **OnStop** method to stop your background tasks, clean up resources, dispose of objects, and close connections that the tasks may have used.
+* The Azure worker role host process is stopped. At this point, the role will be recycled and will restart.
+
+For more details and an example of using the methods of the **RoleEntryPoint** class, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
+
+#### Implementation considerations
+
+Consider the following points if you are implementing background tasks in a web or worker role:
+
+* The default **Run** method implementation in the **RoleEntryPoint** class contains a call to **Thread.Sleep(Timeout.Infinite)** that keeps the role alive indefinitely. If you override the **Run** method (which is typically necessary to execute background tasks), you must not allow your code to exit from the method unless you want to recycle the role instance.
+* A typical implementation of the **Run** method includes code to start each of the background tasks and a loop construct that periodically checks the state of all the background tasks. It can restart any that fail or monitor for cancellation tokens that indicate that jobs have completed.
+* If a background task throws an unhandled exception, that task should be recycled while allowing any other background tasks in the role to continue running. However, if the exception is caused by corruption of objects outside the task, such as shared storage, the exception should be handled by your **RoleEntryPoint** class, all tasks should be cancelled, and the **Run** method should be allowed to end. Azure will then restart the role.
+* Use the **OnStop** method to pause or kill background tasks and clean up resources. This might involve stopping long-running or multistep tasks. It is vital to consider how this can be done to avoid data inconsistencies. If a role instance stops for any reason other than a user-initiated shutdown, the code running in the **OnStop** method must be completed within five minutes before it is forcibly terminated. Ensure that your code can be completed in that time or can tolerate not running to completion.  
+* The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns the value **true**. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
+* You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings that you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks/).
+* If there is an error in a startup task, it might force the role to continually restart. This can prevent you from performing a virtual IP (VIP) address swap back to a previously staged version because the swap requires exclusive access to the role. This cannot be obtained while the role is restarting. To resolve this:
+  
+  * Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
+    
+    ```C#
+    var freeze = CloudConfigurationManager.GetSetting("Freeze");
+    if (freeze != null)
+    {
+     if (Boolean.Parse(freeze))
+       {
+         Thread.Sleep(System.Threading.Timeout.Infinite);
+     }
+    }
+    ```
+    
+    * Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
+
+#### More information
 * [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
-* [What is the Azure WebJobs SDK](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk)
-* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
+* [Get started with the Azure WebJobs SDK](/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started/)
 
-## Azure Virtual Machines
-Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps or Cloud Services, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
-
-To help you choose when to use Virtual Machines, see [Azure App Services, Cloud Services and Virtual Machines comparison](https://docs.microsoft.com/en-us/azure/app-service-web/choose-web-site-cloud-service-vm). For information about the options for Virtual Machines, see [Virtual Machine and Cloud Service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). For more information about the operating systems and prebuilt images that are available for Virtual Machines, see [Azure Virtual Machines Marketplace](https://azure.microsoft.com/gallery/virtual-machines/).
-
-To initiate the background task in a separate virtual machine, you have a range of options:
-
-* You can execute the task on demand directly from your application by sending a request to an endpoint that the task exposes. This passes in any data that the task requires. This endpoint invokes the task.
-* You can configure the task to run on a schedule by using a scheduler or timer that is available in your chosen operating system. For example, on Windows you can use Windows Task Scheduler to execute scripts and tasks. Or, if you have SQL Server installed on the virtual machine, you can use the SQL Server Agent to execute scripts and tasks.
-* You can use Azure Scheduler to initiate the task by adding a message to a queue that the task listens on, or by sending a request to an API that the task exposes.
-
-See the earlier section [Triggers](#triggers) for more information about how you can initiate background tasks.  
-
-### Considerations
-Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
-
-* Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the [Azure Service Management Cmdlets](http://msdn.microsoft.com/library/azure/dn495240.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](http://technet.microsoft.com/library/gg276383.aspx).
-* You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
-
-### More information
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
-* [Azure Virtual Machines FAQ](/azure/virtual-machines/linux/classic/faq)
-
-## Design considerations
-There are several fundamental factors to consider when you design background tasks. The following sections discuss partitioning, conflicts, and coordination.
 
 ## Partitioning
 If you decide to include background tasks within an existing compute instance (such as a web app, web role, existing worker role, or virtual machine), you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
@@ -202,45 +280,6 @@ Coordinating multiple tasks and steps can be challenging, but there are three co
 * **Managing execution of the steps for a task**. An application might perform tasks that comprise a number of steps (some of which might invoke remote services or access remote resources). The individual steps might be independent of each other, but they are orchestrated by the application logic that implements the task. For more information, see [Scheduler Agent Supervisor Pattern](http://msdn.microsoft.com/library/dn589780.aspx).
 * **Managing recovery for task steps that fail**. An application might need to undo the work that is performed by a series of steps (which together define an eventually consistent operation) if one or more of the steps fail. For more information, see [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx).
 
-## Lifecycle (Cloud Services)
- If you decide to implement background jobs for Cloud Services applications that use web and worker roles by using the **RoleEntryPoint** class, it is important to understand the lifecycle of this class in order to use it correctly.
-
-Web and worker roles go through a set of distinct phases as they start, run, and stop. The **RoleEntryPoint** class exposes a series of events that indicate when these stages are occurring. You use these to initialize, run, and stop your custom background tasks. The complete cycle is:
-
-* Azure loads the role assembly and searches it for a class that derives from **RoleEntryPoint**.
-* If it finds this class, it calls **RoleEntryPoint.OnStart()**. You override this method to initialize your background tasks.
-* After the **OnStart** method has completed, Azure calls **Application_Start()** in the application’s Global file if this is present (for example, Global.asax in a web role running ASP.NET).
-* Azure calls **RoleEntryPoint.Run()** on a new foreground thread that executes in parallel with **OnStart()**. You override this method to start your background tasks.
-* When the Run method ends, Azure first calls **Application_End()** in the application’s Global file if this is present, and then calls **RoleEntryPoint.OnStop()**. You override the **OnStop** method to stop your background tasks, clean up resources, dispose of objects, and close connections that the tasks may have used.
-* The Azure worker role host process is stopped. At this point, the role will be recycled and will restart.
-
-For more details and an example of using the methods of the **RoleEntryPoint** class, see [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx).
-
-## Considerations
-Consider the following points when you are planning how you will run background tasks in a web or worker role:
-
-* The default **Run** method implementation in the **RoleEntryPoint** class contains a call to **Thread.Sleep(Timeout.Infinite)** that keeps the role alive indefinitely. If you override the **Run** method (which is typically necessary to execute background tasks), you must not allow your code to exit from the method unless you want to recycle the role instance.
-* A typical implementation of the **Run** method includes code to start each of the background tasks and a loop construct that periodically checks the state of all the background tasks. It can restart any that fail or monitor for cancellation tokens that indicate that jobs have completed.
-* If a background task throws an unhandled exception, that task should be recycled while allowing any other background tasks in the role to continue running. However, if the exception is caused by corruption of objects outside the task, such as shared storage, the exception should be handled by your **RoleEntryPoint** class, all tasks should be cancelled, and the **Run** method should be allowed to end. Azure will then restart the role.
-* Use the **OnStop** method to pause or kill background tasks and clean up resources. This might involve stopping long-running or multistep tasks. It is vital to consider how this can be done to avoid data inconsistencies. If a role instance stops for any reason other than a user-initiated shutdown, the code running in the **OnStop** method must be completed within five minutes before it is forcibly terminated. Ensure that your code can be completed in that time or can tolerate not running to completion.  
-* The Azure load balancer starts directing traffic to the role instance when the **RoleEntryPoint.OnStart** method returns the value **true**. Therefore, consider putting all your initialization code in the **OnStart** method so that role instances that do not successfully initialize will not receive any traffic.
-* You can use startup tasks in addition to the methods of the **RoleEntryPoint** class. You should use startup tasks to initialize any settings that you need to change in the Azure load balancer because these tasks will execute before the role receives any requests. For more information, see [Run startup tasks in Azure](/azure/cloud-services/cloud-services-startup-tasks).
-* If there is an error in a startup task, it might force the role to continually restart. This can prevent you from performing a virtual IP (VIP) address swap back to a previously staged version because the swap requires exclusive access to the role. This cannot be obtained while the role is restarting. To resolve this:
-  
-  * Add the following code to the beginning of the **OnStart** and **Run** methods in your role:
-    
-    ```C#
-    var freeze = CloudConfigurationManager.GetSetting("Freeze");
-    if (freeze != null)
-    {
-     if (Boolean.Parse(freeze))
-       {
-         Thread.Sleep(System.Threading.Timeout.Infinite);
-     }
-    }
-    ```
-    
-    * Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
 
 ## Resiliency considerations
 Background tasks must be resilient in order to provide reliable services to the application. When you are planning and designing background tasks, consider the following points:

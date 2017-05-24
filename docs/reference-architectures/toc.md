@@ -12,6 +12,7 @@
 ### [VPN](./hybrid-networking/vpn.md)
 ### [ExpressRoute](./hybrid-networking/expressroute.md)
 ### [ExpressRoute with VPN failover](./hybrid-networking/expressroute-vpn-failover.md)
+### [Hub-spoke topology](./hybrid-networking/hub-spoke.md)
 
 ## [Network DMZ](./dmz/index.md)
 ### [DMZ between Azure and on-premises](./dmz/secure-vnet-hybrid.md)

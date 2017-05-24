@@ -26,7 +26,7 @@ When you're building a multitenant application, one of the first challenges is m
 
 Azure Active Directory (Azure AD) has some great features that support all of these scenarios.
 
-To accompany this series of articles, we also created a complete, [end-to-end implementation][sample application] of a multitenant app. The articles reflect what we learned in the process of building the application. To get started with the application, see [Running the Surveys application][running-the-app].
+To accompany this series of articles, we created a complete [end-to-end implementation][sample application] of a multitenant application. The articles reflect what we learned in the process of building the application. To get started with the application, see [Run the Surveys application][running-the-app].
 
 ## Introduction
 
@@ -93,11 +93,11 @@ This guidance does not consider other aspects of multitenancy such as data parti
 
 
 <!-- Links -->
-[ADConnect]: /azure/active-directory/active-directory-aadconnect/
-[AzureAD]: https://azure.microsoft.com/documentation/services/active-directory/
+[ADConnect]: /azure/active-directory/active-directory-aadconnect
+[AzureAD]: /azure/active-directory
 
 [Federating with a customer's AD FS]: adfs.md
 [tailpin]: tailspin.md
 
-[running-the-app]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/docs/running-the-app.md
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[running-the-app]: ./run-the-app.md
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

@@ -4,13 +4,12 @@ description: Guidance on caching to improve performance and scalability.
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 05/24/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
 # Caching
-[!INCLUDE [header](../_includes/header.md)]
 
 Caching is a common technique that aims to improve the performance and
 scalability of a system. It does this by temporarily copying frequently accessed data
@@ -467,7 +466,7 @@ in the cloud.
 > are currently slated for retirement on November 16th, 2016.
 > It is recommended that you migrate to Azure Redis Cache in
 > preparation for this retirement. For more information, see
-> [What is Azure Redis Cache offering and what size should I use?](/azure/redis-cache/cache-faq#what-redis-cache-offering-and-size-should-i-use)e.
+> [What is Azure Redis Cache offering and what size should I use?](/azure/redis-cache/cache-faq#what-redis-cache-offering-and-size-should-i-use).
 > 
 > 
 
@@ -537,37 +536,6 @@ For more information, visit the [Redis security](http://redis.io/topics/security
 > 
 > 
 
-### Using the Azure Redis cache
-The Azure Redis Cache provides access to Redis servers running on servers hosted at an Azure datacenter; it acts as a façade that provides access control and security. You can provision a cache by using the Azure Management portal. The portal provides a number of predefined configurations, ranging from a 53GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with an SLA of 99.9% availability, down to a 250MB cache without replication (no availability guarantees) running on shared hardware.
-
-Using the Azure Management portal, you can also configure the eviction policy of the cache, and control access to the cache by adding users to the roles provided; Owner, Contributor, Reader. These roles define the operations that members can perform. For example, members of the Owner role have complete control over the cache (including security) and its contents, members of the Contributor role can read and write information in the cache, and members of the Reader role can only retrieve data from the cache.
-
-Most administrative tasks are performed through the Azure Management portal, and for this reason many of the administrative commands available in the standard version of Redis are not available, including the ability to modify the configuration programmatically, shutdown the Redis server, configure additional slaves, or forcibly save data to disk.
-
-The Azure management portal includes a convenient graphical display that enables you to monitor the performance of the cache. For example, you can view the number of connections being made, the number of requests performed, the volume of reads and writes, and the number of cache hits versus cache misses. Using this information, you can determine the effectiveness of the cache and if necessary switch to a different configuration or change the eviction policy. Additionally, you can create alerts that send email messages to an administrator if one or more critical metrics fall outside of an expected range. For example, if the number of cache misses exceeds a specified value in the last hour, an administrator could be alerted as the cache may be too small or data may be being evicted too quickly.
-
-You can also monitor CPU, memory, and network usage for the cache.
-
-For further information and examples showing how to create and configure an Azure Redis Cache, visit the page [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
-
-## Caching session state and HTML output
-If you building ASP.NET web applications that run by using Azure web roles, you can save session state information and HTML output in an Azure Redis Cache. The Session State Provider for Azure Redis Cache enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity is not available and caching session data in-memory would not be appropriate.
-
-Using the Session State Provider with Azure Redis Cache delivers several benefits, including:
-
-* It can share session state amongst a large number of instances of an ASP.NET web application, providing improved scalability,
-* It supports controlled, concurrent access to the same session state data for multiple readers and a single writer, and
-* It can use compression to save memory and improve network performance.
-
-For more information visit the [ASP.NET Session State Provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider/) page on the Microsoft website.
-
-> [!NOTE]
-> Do not use the Session State Provider for Azure Redis Cache for ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
-> 
-> 
-
-Similarly, the Output Cache Provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the Output Cache Provider with Azure Redis Cache can improve the response times of applications that render complex HTML output; application instances generating similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh.  For more information visit the [ASP.NET Output Cache Provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider/) page on the Microsoft website.
-
 ### Azure Redis cache
 Azure Redis Cache provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure  portal.
 
@@ -595,14 +563,14 @@ Using the session state provider with Azure Redis Cache delivers several benefit
 * Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 * Using compression to save memory and improve network performance.
 
-For more information, visit the [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider/) page on the Microsoft website.
+For more information, visit the [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website.
 
 > [!NOTE]
 > Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 > 
 > 
 
-Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh. For more information, visit the [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider/) page on the Microsoft website.
+Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh. For more information, visit the [ASP.NET output cache provider for Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website.
 
 ## Building a custom Redis cache
 Azure Redis Cache acts as a façade to the underlying Redis servers. Currently it supports a fixed set of configurations but does not provide for Redis clustering. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
@@ -611,7 +579,9 @@ This is a potentially complex process because you might need to create several V
 
 Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. The page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) on the Microsoft website walks through an example that shows how to build and configure a Redis node running as an Azure VM.
 
-[AZURE.NOTE] Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
+> [!NOTE]
+> Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
+> 
 
 ## Partitioning a Redis cache
 Partitioning the cache involves splitting the cache across multiple computers. This structure gives you several advantages over using a single cache server, including:
@@ -753,9 +723,9 @@ The following code illustrates a method named `RetrieveBlogPost` that uses these
 ```csharp
 // The BlogPost type
 [Serializable]
-private class BlogPost
+public class BlogPost
 {
-    private HashSet<string> tags = new HashSet<string>();
+    private HashSet<string> tags;
 
     public BlogPost(int id, string title, int score, IEnumerable<string> tags)
     {
@@ -768,7 +738,7 @@ private class BlogPost
     public int Id { get; set; }
     public string Title { get; set; }
     public int Score { get; set; }
-    public ICollection<string> Tags { get { return this.tags; } }
+    public ICollection<string> Tags => this.tags;
 }
 ...
 private async Task<BlogPost> RetrieveBlogPost(string blogPostKey)
@@ -799,9 +769,9 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-The page [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) on the Microsoft website provides more information about how to write client applications that can use the Azure Redis Cache. Additional information is available on the [Basic usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) on the StackExchange.Redis website.
+The page [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) on the Microsoft website provides more information about how to write client applications that can use the Azure Redis Cache. Additional information is available on the [Basic usage page](https://stackexchange.github.io/StackExchange.Redis/Basics) on the StackExchange.Redis website.
 
-The page [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The next section in this article, Using  Redis Caching, provides examples of some of the more advanced techniques that you can apply to data that's held in a Redis cache.
+The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The next section in this article, Using  Redis Caching, provides examples of some of the more advanced techniques that you can apply to data that's held in a Redis cache.
 
 ## Using Redis caching
 The simplest use of Redis for caching concerns is key-value pairs where the value is an uninterpreted string of arbitrary length that can contain any binary data. (It is essentially  an array of bytes that can be treated as a string). This scenario was illustrated in the section Implement Redis Cache client applications earlier in this article.
@@ -871,9 +841,9 @@ Redis supports a series of atomic get-and-set operations on string values. These
   ...
   // Find all values that match a list of keys
   RedisKey[] keys = { "data:key1", "data:key99", "data:key322"};
-  RedisValue[] values = null;
-  values = cache.StringGet(keys);
   // values should contain { "value1", "value2", "value3" }
+  RedisValue[] values = cache.StringGet(keys);
+
   ```
 
 You can also combine multiple operations into a single Redis transaction as described in the Redis transactions and batches section earlier in this article. The StackExchange library provides support for transactions through the `ITransaction` interface.
@@ -901,7 +871,7 @@ Remember that Redis transactions are unlike transactions in relational databases
 
 If any command fails, the others still continue processing. If you need to verify that a command has completed successfully, you must fetch the results of the command by using the **Result** property of the corresponding task, as shown in the example above. Reading the **Result** property will block the calling thread until the task has completed.
 
-For more information, see the [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) page on the StackExchange.Redis website.
+For more information, see the [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions) page on the StackExchange.Redis website.
 
 When performing batch operations, you can use the `IBatch` interface of the StackExchange library. This interface provides access to a set of methods similar to those accessed by the `IDatabase` interface, except that all the methods are asynchronous.
 
@@ -964,9 +934,8 @@ await cache.KeyExpireAsync("data:key1",
 ...
 ```
 
-> *Tip:* You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
-> 
-> 
+> [!TIP] 
+> You can manually remove an item from the cache by using the DEL command, which is available through the StackExchange library as the `IDatabase.KeyDeleteAsync` method.
 
 ### Use tags to cross-correlate cached items
 A Redis set is a collection of multiple items that share a single key. You can create a set by using the SADD command. You can retrieve the items in a set by using the SMEMBERS command. The StackExchange library implements the SADD command with the `IDatabase.SetAddAsync` method, and the SMEMBERS command with the `IDatabase.SetMembersAsync` method.
@@ -978,32 +947,31 @@ The following code snippets show how sets can be useful for quickly storing and 
 A `BlogPost` object contains four fields—an ID, a title, a ranking score, and a collection of tags. The first code snippet below shows the sample data that's used for populating a C# list of `BlogPost` objects:
 
 ```csharp
-List<string[]> tags = new List<string[]>()
+List<string[]> tags = new List<string[]>
 {
-    new string[] { "iot","csharp" },
-    new string[] { "iot","azure","csharp" },
-    new string[] { "csharp","git","big data" },
-    new string[] { "iot","git","database" },
-    new string[] { "database","git" },
-    new string[] { "csharp","database" },
-    new string[] { "iot" },
-    new string[] { "iot","database","git" },
-    new string[] { "azure","database","big data","git","csharp" },
-    new string[] { "azure" }
+    new[] { "iot","csharp" },
+    new[] { "iot","azure","csharp" },
+    new[] { "csharp","git","big data" },
+    new[] { "iot","git","database" },
+    new[] { "database","git" },
+    new[] { "csharp","database" },
+    new[] { "iot" },
+    new[] { "iot","database","git" },
+    new[] { "azure","database","big data","git","csharp" },
+    new[] { "azure" }
 };
 
 List<BlogPost> posts = new List<BlogPost>();
-int blogKey = 0;
-int blogPostId = 0;
+int blogKey = 1;
 int numberOfPosts = 20;
 Random random = new Random();
 for (int i = 0; i < numberOfPosts; i++)
 {
-    blogPostId = blogKey++;
+    blogKey++;
     posts.Add(new BlogPost(
-        blogPostId,               // Blog post ID
+        blogKey,                  // Blog post ID
         string.Format(CultureInfo.InvariantCulture, "Blog Post #{0}",
-            blogPostId),          // Blog post title
+            blogKey),             // Blog post title
         random.Next(100, 10000),  // Ranking score
         tags[i % tags.Count]));   // Tags--assigned from a collection
                                   // in the tags list
@@ -1113,7 +1081,7 @@ IDatabase cache = redisHostConnection.GetDatabase();
 ...
 string redisKey = "blog:post_rankings";
 BlogPost blogPost = ...; // Reference to a blog post that has just been rated
-await cache.SortedSetAddAsync(redisKey, blogPost.Title, blogpost.Score);
+await cache.SortedSetAddAsync(redisKey, blogPost.Title, blogPost.Score);
 ```
 
 You can retrieve the blog post titles and scores in ascending score order by using the `IDatabase.SortedSetRangeByRankWithScores` method:
@@ -1162,10 +1130,7 @@ You create an `ISubscription` object by using the `GetSubscriber` method of the 
 ConnectionMultiplexer redisHostConnection = ...;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ...
-await subscriber.SubscribeAsync("messages:blogPosts", (channel, message) =>
-{
-    Console.WriteLine("Title is: {0}", message);
-});
+await subscriber.SubscribeAsync("messages:blogPosts", (channel, message) => Console.WriteLine("Title is: {0}", message));
 ```
 
 The first parameter to the `Subscribe` method is the name of the channel. This name follows the same conventions that are used by keys in the cache. The name can contain any binary data, although it is advisable to use relatively short, meaningful strings to help ensure good performance and maintainability.
@@ -1180,7 +1145,7 @@ To publish to a channel, an application can use the Redis PUBLISH command. The S
 ConnectionMultiplexer redisHostConnection = ...;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ...
-BlogPost blogpost = ...;
+BlogPost blogPost = ...;
 subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 ```
 
@@ -1200,7 +1165,30 @@ redisHostConnection.PreserveAsyncOrder = false;
 ISubscriber subscriber = redisHostConnection.GetSubscriber();
 ```
 
+### Serialization considerations
+
+When you choose a serialization format, consider tradeoffs between performance, interoperability, versioning, compatibility with existing systems, data compression, and memory overhead. When you are evaluating performance, remember that benchmarks are highly dependent on context. They may not reflect your actual workload, and may not consider newer libraries or versions. There is no single "fastest" serializer for all scenarios. 
+
+Some options to consider include:
+
+- [Protocol Buffers](https://github.com/google/protobuf) (also called protobuf) is a serialization format developed by Google for serializing structured data efficiently. It uses strongly-typed definition files to define message structures. These definition files are then compiled to language-specific code for serializing and deserializing messages. Protobuf can be used over existing RPC mechanisms, or it can generate an RPC service.
+
+- [Apache Thrift](https://thrift.apache.org/) uses a similar approach, with strongly typed definition files and a compilation step to generate the serialization code and RPC services.  
+
+- [Apache Avro](https://avro.apache.org/) provides similar functionality to Protocol Buffers and Thrift, but there is no compilation step. Instead, serialized data always includes a schema that describes the structure. 
+
+- [JSON](http://json.org/) is an open standard that uses human-readable text fields. It has broad cross-platform support. JSON does not use message schemas. Being a text-based format, it is not very efficient over the wire. In some cases, however, you may be returning cached items directly to a client via HTTP, in which case storing JSON could save the cost of deserializing from another format and then serializing to JSON.
+
+- [BSON](http://bsonspec.org/) is a binary serialization format that uses a structure similar to JSON. BSON was designed to be lightweight, easy to scan, and fast to serialize and deserialize, relative to JSON. Payloads are comparable in size to JSON. Depending on the data, a BSON payload may be smaller or larger than a JSON payload. BSON has some additional data types that are not available in JSON, notably BinData (for byte arrays) and Date.
+
+- [MessagePack](http://msgpack.org/) is a binary serialization format that is designed to be compact for transmission over the wire. There are no message schemas or message type checking.
+
+- [Bond](https://microsoft.github.io/bond/) is a cross-platform framework for working with schematized data. It supports cross-language serialization and deserialization. Notable differences from other systems listed here are support for inheritance, type aliases, and generics. 
+
+- [gRPC](http://www.grpc.io/) is an open source RPC system developed by Google. By default, it uses Protocol Buffers as its definition language and underlying message interchange format.
+
 ## Related patterns and guidance
+
 The following pattern might also be relevant to your scenario when you implement caching in your applications:
 
 * [Cache-aside pattern](http://msdn.microsoft.com/library/dn589799.aspx): This pattern describes how to load data on demand into a cache from a data store. This pattern also helps to maintain consistency between data that's held in the cache and the data in the original data store.
@@ -1209,10 +1197,10 @@ The following pattern might also be relevant to your scenario when you implement
 ## More information
 * The [MemoryCache class](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) page on the Microsoft website
 * The [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) page on the Microsoft website
-* The [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq/) page on the Microsoft website
+* The [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq) page on the Microsoft website
 * The [Configuration model](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) page on the Microsoft website
 * The [Task-based Asynchronous Pattern](http://msdn.microsoft.com/library/hh873175.aspx) page on the Microsoft website
-* The [Pipelines and multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) page on the StackExchange.Redis GitHub repo
+* The [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) page on the StackExchange.Redis GitHub repo
 * The [Redis persistence](http://redis.io/topics/persistence) page on the Redis website
 * The [Replication page](http://redis.io/topics/replication) on the Redis website
 * The [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial) page on the Redis website
@@ -1222,10 +1210,10 @@ The following pattern might also be relevant to your scenario when you implement
 * The [Redis security](http://redis.io/topics/security) page on the Redis website
 * The [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) page on the Azure blog
 * The [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) page on the Microsoft website
-* The [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider/) page on the Microsoft website
-* The [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider/) page on the Microsoft website
+* The [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website
+* The [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website
 * The [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) page on the Redis website
-* The [Basic usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) page on the StackExchange.Redis website
-* The [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) page on the StackExchange.Redis repo
+* The [Basic usage](https://stackexchange.github.io/StackExchange.Redis/Basics) page on the StackExchange.Redis website
+* The [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions) page on the StackExchange.Redis repo
 * The [Data partitioning guide](http://msdn.microsoft.com/library/dn589795.aspx) on the Microsoft website
 

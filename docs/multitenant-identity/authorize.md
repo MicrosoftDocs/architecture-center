@@ -15,7 +15,7 @@ pnp.series.next: web-api
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-Our [reference implementation] is an ASP.NET Core 1.0 application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core 1.0.
+Our [reference implementation] is an ASP.NET Core application. In this article we'll look at two general approaches to authorization, using the authorization APIs provided in ASP.NET Core.
 
 * **Role-based authorization**. Authorizing an action based on the roles assigned to a user. For example, some actions require an administrator role.
 * **Resource-based authorization**. Authorizing an action based on a particular resource. For example, every resource has an owner. The owner can delete the resource; other users cannot.
@@ -33,7 +33,7 @@ Roles apply to *users* of the application. In the Surveys application, a user is
 
 For a discussion of how to define and manage roles, see [Application roles].
 
-Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core 1.0 introduces an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
+Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 
 ### Create policies
 To define a policy, first create a class that implements `IAuthorizationRequirement`. It's easiest to derive from `AuthorizationHandler`. In the `Handle` method, examine the relevant claim(s).
@@ -43,7 +43,7 @@ Here is an example from the Tailspin Surveys application:
 ```csharp
 public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequirement>, IAuthorizationRequirement
 {
-    protected override void Handle(AuthorizationContext context, SurveyCreatorRequirement requirement)
+    protected override void HandleRequirementAsync(AuthorizationHandlerContext context, SurveyCreatorRequirement requirement)
     {
         if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin) ||
             context.User.HasClaim(ClaimTypes.Role, Roles.SurveyCreator))
@@ -53,11 +53,6 @@ public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequir
     }
 }
 ```
-
-> [!NOTE]
-> See [SurveyCreatorRequirement.cs]
->
->
 
 This class defines the requirement for a user to create a new survey. The user must be in the SurveyAdmin or SurveyCreator role.
 
@@ -82,18 +77,13 @@ services.AddAuthorization(options =>
 });
 ```
 
-> [!NOTE]
-> See [Startup.cs]
->
->
-
 This code also sets the authentication scheme, which tells ASP.NET which authentication middleware should run if authorization fails. In this case, we specify the cookie authentication middleware, because the cookie authentication middleware can redirect the user to a "Forbidden" page. The location of the Forbidden page is set in the AccessDeniedPath option for the cookie middleware; see [Configuring the authentication middleware].
 
 ### Authorize controller actions
 Finally, to authorize an action in an MVC controller, set the policy in the `Authorize` attribute:
 
 ```csharp
-[Authorize(Policy = "SurveyCreatorRequirement")]
+[Authorize(Policy = "RequireSurveyCreator")]
 public IActionResult Create()
 {
     // ...
@@ -108,7 +98,7 @@ In earlier versions of ASP.NET, you would set the **Roles** property on the attr
 
 ```
 
-This is still supported in ASP.NET Core 1.0, but it has some drawbacks compared with authorization policies:
+This is still supported in ASP.NET Core, but it has some drawbacks compared with authorization policies:
 
 * It assumes a particular claim type. Policies can check for any claim type. Roles are just a type of claim.
 * The role name is hard-coded into the attribute. With policies, the authorization logic is all in one place, making it easier to update or even load from configuration settings.
@@ -123,12 +113,12 @@ This is still supported in ASP.NET Core 1.0, but it has some drawbacks compared 
 
 Note that "owner" and "contributor" are not application roles; they are stored per survey, in the application database. To check whether a user can delete a survey, for example, the app checks whether the user is the owner for that survey.
 
-In ASP.NET Core 1.0, implement resource-based authorization by deriving from **AuthorizationHandler** and overriding the **Handle** method.
+In ASP.NET Core, implement resource-based authorization by deriving from **AuthorizationHandler** and overriding the **Handle** method.
 
 ```csharp
 public class SurveyAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, Survey>
 {
-     protected override void Handle(AuthorizationContext context, OperationAuthorizationRequirement operation, Survey resource)
+    protected override void HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement operation, Survey resource)
     {
     }
 }
@@ -175,7 +165,7 @@ The application also defines a set of possible operations on surveys:
 The following code creates a list of permissions for a particular user and survey. Notice that this code looks at both the user's app roles, and the owner/contributor fields in the survey.
 
 ```csharp
-protected override void Handle(AuthorizationContext context, OperationAuthorizationRequirement operation, Survey resource)
+protected override void HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement operation, Survey resource)
 {
     var permissions = new List<UserPermissionType>();
     string userTenantId = context.User.GetTenantIdValue();
@@ -216,11 +206,6 @@ protected override void Handle(AuthorizationContext context, OperationAuthorizat
 }
 ```
 
-> [!NOTE]
-> See [SurveyAuthorizationHandler.cs].
->
->
-
 In a multi-tenant application, you must ensure that permissions don't "leak" to another tenant's data. In the Surveys app, the Contributor permission is allowed across tenants &mdash; you can assign someone from another tenant as a contriubutor. The other permission types are restricted to resources that belong to that user's tenant. To enforce this requirement, the code checks the tenant ID before granting the permission. (The `TenantId` field as assigned when the survey is created.)
 
 The next step is to check the operation (read, update, delete, etc) against the permissions. The Surveys app implements this step by using a lookup table of functions:
@@ -255,12 +240,8 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 [Tailspin]: tailspin.md
 
 [Application roles]: app-roles.md
-[policies]: https://docs.asp.net/en/latest/security/authorization/policies.html
-[rbac]: https://docs.asp.net/en/latest/security/authorization/resourcebased.html
+[policies]: /aspnet/core/security/authorization/policies
 [reference implementation]: tailspin.md
-[SurveyCreatorRequirement.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyCreatorRequirement.cs
-[Startup.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs
 [Configuring the authentication middleware]: authenticate.md#configure-the-auth-middleware
-[SurveyAuthorizationHandler.cs]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Security/Policy/SurveyAuthorizationHandler.cs
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [web-api]: web-api.md

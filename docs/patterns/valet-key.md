@@ -21,7 +21,7 @@ Use a token that provides clients with restricted direct access to a specific re
 
 ## Context and problem
 
-Client programs and web browsers often need to read and write files or data streams to and from an application’s storage. Typically, the application will handle the movement of the data &emdash;either by fetching it from storage and streaming it to the client, or by reading the uploaded stream from the client and storing it in the data store. However, this approach absorbs valuable resources such as compute, memory, and bandwidth.
+Client programs and web browsers often need to read and write files or data streams to and from an application’s storage. Typically, the application will handle the movement of the data &mdash; either by fetching it from storage and streaming it to the client, or by reading the uploaded stream from the client and storing it in the data store. However, this approach absorbs valuable resources such as compute, memory, and bandwidth.
 
 Data stores have the ability to handle upload and download of data directly, without requiring that the application perform any processing to move this data. But, this typically requires the client to have access to the security credentials for the store. This can be a useful technique to minimize data transfer costs and the requirement to scale out the application, and to maximize performance. It means, though, that the application is no longer able to manage the security of the data. After the client has a connection to the data store for direct access, the application can't act as the gatekeeper. It's no longer in control of the process and can't prevent subsequent uploads or downloads from the data store.
 

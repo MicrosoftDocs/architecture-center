@@ -73,7 +73,15 @@ This pattern is useful for:
 
 - Applications where the configuration changes often and the changes can be applied to components without requiring the application to be restarted, or without requiring the hosting server to be rebooted.
 
-This pattern might not be useful if the runtime components are designed so they can only be configured at initialization time, and the effort of updating those components can't be justified in comparison to restarting the application and enduring a short downtime.
+This pattern might not be useful when:
+
+- Your deployment process uses an immutable infrastructure approach. With this approach, infrastructure is never modified after it’s deployed to production. Instead, components are replaced with each deployment.
+
+- The effort of updating components can't be justified in comparison to restarting the application and enduring a short downtime.
+
+- Reconfiguration is undesirable due to security restrictions.
+
+- The runtime components are designed so they can only be configured at initialization time.
 
 ## Related patterns and guidance
 

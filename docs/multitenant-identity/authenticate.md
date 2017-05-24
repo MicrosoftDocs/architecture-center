@@ -15,7 +15,7 @@ pnp.series.next: claims
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application is built with ASP.NET Core 1.0, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
+The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate users with Azure Active Directory (Azure AD). The Surveys application uses ASP.NET Core, which has built-in middleware for OIDC. The following diagram shows what happens when the user signs in, at a high level.
 
 ![Authentication flow](./images/auth-flow.png)
 
@@ -42,34 +42,28 @@ In the **Configure** page:
 * Generate a client secret: Under **keys**, click on the drop down that says **Select duration** and pick either 1 or 2 years. The key will be visible when you click **Save**. Be sure to copy the value, because it's not shown again when you reload the configuration page.
 
 ## Configure the auth middleware
-This section describes how to configure the authentication middleware in ASP.NET Core 1.0 for multitenant authentication with OpenID Connect.
+This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
 In your startup class, add the OpenID Connect middleware:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(options =>
-{
-    options.AutomaticAuthenticate = true;
-    options.AutomaticChallenge = true;
-    options.ClientId = [client ID];
-    options.Authority = "https://login.microsoftonline.com/common/";
-    options.CallbackPath = [callback path];
-    options.PostLogoutRedirectUri = [application URI];
-    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = false
-    };
-    options.Events = [event callbacks];
-});
+app.UseOpenIdConnectAuthentication(
+    new OpenIdConnectOptions {
+        ClientId = [client ID],
+        ClientSecret = [client Secret]
+        Authority = https://login.microsoftonline.com/common/,
+        ResponseType = OpenIdConnectResponseType.CodeIdToken,
+        PostLogoutRedirectUri = [application URI],
+        SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
+        TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false
+        },
+        Events = [event callbacks]
+    });
 ```
 
-> [!NOTE]
-> See [Startup.cs](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Startup.cs).
-> 
-> 
-
-For more information about the startup class, see [Application Startup](https://docs.asp.net/en/latest/fundamentals/startup.html) in the ASP.NET Core 1.0 documentation.
+For more information about the startup class, see [Application Startup in ASP.NET Core](/aspnet/core/fundamentals/startup).
 
 Set the following middleware options:
 
@@ -201,7 +195,7 @@ app.UseOpenIdConnectAuthentication(options =>
 });
 ```
 
-The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach; see [SurveyAuthenticationEvents.cs](https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.Web/Security/SurveyAuthenticationEvents.cs).
+The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach.
 
 ### OpenID connect endpoints
 Azure AD supports [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), wherein the identity provider (IDP) returns a JSON metadata document from a [well-known endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The metadata document contains information such as:
@@ -239,6 +233,6 @@ app.UseOpenIdConnectAuthentication(options =>
 [**Next**][claims]
 
 [claims]: claims.md
-[cookie-options]: https://docs.asp.net/en/latest/security/authentication/cookie.html#controlling-cookie-options
+[cookie-options]: /aspnet/core/security/authentication/cookie#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

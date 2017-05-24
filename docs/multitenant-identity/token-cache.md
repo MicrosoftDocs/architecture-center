@@ -27,15 +27,10 @@ Instead, you should implement a custom token cache that derives from the ADAL `T
 
 The `TokenCache` class stores a dictionary of tokens, indexed by issuer, resource, client ID, and user. A custom token cache should write this dictionary to a backing store, such as a Redis cache.
 
-In the Tailspin Surveys application, the `DistributedTokenCache` class implements the token cache. This implementation uses the [IDistributedCache][distributed-cache] abstraction from ASP.NET Core 1.0. That way, any `IDistributedCache` implementation can be used as a backing store.
+In the Tailspin Surveys application, the `DistributedTokenCache` class implements the token cache. This implementation uses the [IDistributedCache][distributed-cache] abstraction from ASP.NET Core. That way, any `IDistributedCache` implementation can be used as a backing store.
 
 * By default, the Surveys app uses a Redis cache.
-* For a single-instance web server, you could use the ASP.NET Core 1.0 [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
-
-> [!NOTE]
-> Currently the Redis cache is not supported for .NET Core.
-> 
-> 
+* For a single-instance web server, you could use the ASP.NET Core [in-memory cache][in-memory-cache]. (This is also a good option for running the app locally during development.)
 
 `DistributedTokenCache` stores the cache data as key/value pairs in the backing store. The key is the user ID plus client ID, so the backing store holds separate cache data for each unique combination of user/client.
 
@@ -44,15 +39,15 @@ In the Tailspin Surveys application, the `DistributedTokenCache` class implement
 The backing store is partitioned by user. For each HTTP request, the tokens for that user are read from the backing store and loaded into the `TokenCache` dictionary. If Redis is used as the backing store, every server instance in a server farm reads/writes to the same cache, and this approach scales to many users.
 
 ## Encrypting cached tokens
-Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised. The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. For that reason, the `DistributedTokenCache` encrypts everything that it writes to the backing store. Encryption is done using the ASP.NET Core 1.0 [data protection][data-protection] APIs.
+Tokens are sensitive data, because they grant access to a user's resources. (Moreover, unlike a user's password, you can't just store a hash of the token.) Therefore, it's critical to protect tokens from being compromised. The Redis-backed cache is protected by a password, but if someone obtains the password, they could get all of the cached access tokens. For that reason, the `DistributedTokenCache` encrypts everything that it writes to the backing store. Encryption is done using the ASP.NET Core [data protection][data-protection] APIs.
 
 > [!NOTE]
-> If you deploy to Azure Web Sites, the encryption keys are backed up to network storage and synchronized across all machines (see [Key Management][key-management]). By default, keys are not encrypted when running in Azure Web Sites, but you can [enable encryption using an X.509 certificate][x509-cert-encryption].
+> If you deploy to Azure Web Sites, the encryption keys are backed up to network storage and synchronized across all machines (see [Key management and lifetime][key-management]). By default, keys are not encrypted when running in Azure Web Sites, but you can [enable encryption using an X.509 certificate][x509-cert-encryption].
 > 
 > 
 
 ## DistributedTokenCache implementation
-The [DistributedTokenCache][DistributedTokenCache] class derives from the ADAL [TokenCache][tokencache-class] class.
+The `DistributedTokenCache` class derives from the ADAL [TokenCache][tokencache-class] class.
 
 In the constructor, the `DistributedTokenCache` class creates a key for the current user and loads the cache from the backing store:
 
@@ -144,12 +139,10 @@ In our case, we decided not to handle these two events.
 <!-- links -->
 [ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 [client-assertion]: ./client-assertion.md
-[data-protection]: https://docs.asp.net/en/latest/security/data-protection/index.html
-[distributed-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/distributed
-[DistributedTokenCache]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps/blob/master/src/Tailspin.Surveys.TokenStorage/DistributedTokenCache.cs
-[key-management]: https://docs.asp.net/en/latest/security/data-protection/configuration/default-settings.html
-[in-memory-cache]: https://docs.microsoft.com/aspnet/core/performance/caching/memory
+[data-protection]: /aspnet/core/security/data-protection/
+[distributed-cache]: /aspnet/core/performance/caching/distributed
+[key-management]: /aspnet/core/security/data-protection/configuration/default-settings
+[in-memory-cache]: /aspnet/core/performance/caching/memory
 [tokencache-class]: https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory.tokencache.aspx
-[x509-cert-encryption]: https://docs.asp.net/en/latest/security/data-protection/implementation/key-encryption-at-rest.html#x-509-certificate
-
-[sample application]: https://github.com/Azure-Samples/guidance-identity-management-for-multitenant-apps
+[x509-cert-encryption]: /aspnet/core/security/data-protection/implementation/key-encryption-at-rest#x509-certificate
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

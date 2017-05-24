@@ -11,7 +11,7 @@ ms.author: pnp
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 <section class="series">
-    <ul class="cardsD panelContent">
+    <ul class="panelContent">
     <!--Windows VM -->
     <li>
         <a href="./virtual-machines-windows/index.md">
@@ -19,7 +19,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./virtual-machines-windows/images/n-tier.svg');">
+                            <div class="cardImage">
+                                <img src="./virtual-machines-windows/images/n-tier.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -38,7 +39,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./virtual-machines-linux/images/n-tier.svg');">
+                            <div class="cardImage">
+                                <img src="./virtual-machines-linux/images/n-tier.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -57,7 +59,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./hybrid-networking/images/vpn.svg');">
+                            <div class="cardImage">
+                                <img src="./hybrid-networking/images/vpn.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -76,7 +79,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./dmz/images/secure-vnet-dmz.svg');">
+                            <div class="cardImage">
+                                <img src="./dmz/images/secure-vnet-dmz.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -95,7 +99,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./identity/images/adds-extend-domain.svg');">
+                            <div class="cardImage">
+                                <img src="./identity/images/adds-extend-domain.svg" height="140px" >
                             </div>
                         </div>
                         <div class="cardText">
@@ -114,7 +119,8 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
-                            <div class="cardImage cardScaleImage bgdAccent1" style="background-image: url('./managed-web-app/images/scalable-web-app.svg');">
+                            <div class="cardImage">
+                                <img src="./managed-web-app/images/scalable-web-app.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
