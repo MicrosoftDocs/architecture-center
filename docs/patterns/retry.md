@@ -50,7 +50,7 @@ An application should log the details of faults and failing operations. This inf
 
 > [Microsoft Entity Framework](https://docs.microsoft.com/ef/) provides facilities for retrying database operations. Also, most Azure services and client SDKs include a retry mechanism. For more information, see [Retry guidance for specific services](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific).
 
-## Issues and considerationsm
+## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern.
 
