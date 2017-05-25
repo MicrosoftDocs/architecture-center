@@ -16,6 +16,8 @@ This article provides an overview of the EMS and Office 365 services utilized in
 
 These services provide capabilities that enable Microsoft cloud enterprise administrators to not just protect company employees’ identities and devices, but also control access to company data itself; both in transit and at rest.
 
+## Services 
+
 The services referenced in this document are described in the table below.
  
 |Service|Description|
@@ -27,7 +29,7 @@ The services referenced in this document are described in the table below.
 |[Microsoft Intune](https://docs.microsoft.com/intune/understand-explore/introduction-to-microsoft-intune)|Intune is a cloud-based enterprise mobility management (EMM) service that helps enable your workforce to be productive while keeping your corporate data protected. Intune integrates closely with Azure AD for identity and access control and is used for device and application management. [Intune’s device management](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies) capabilities are used to configure and protect your user’s devices, including Windows PCs. <br><br>Intune device management capabilities support both [Bring Your Own Device (BYOD)](https://docs.microsoft.com/enterprise-mobility-security/solutions/enable-byod) enrollment which lets users enroll their personal phones, tablets, or PCs, and [Corporate-owned Device (COD)](https://docs.microsoft.com/enterprise-mobility-security/solutions/issue-corp-devices) enrollment that enable management scenarios like automatic enrollment, shared devices, or pre-authorized enrollment requirement configurations. For added security, you can even require MFA to enroll a device. Once enrolled into management, Intune can configure device features and settings to enable secure access to company resources.|
 
 
-## Core concepts
+## EMS concepts
 Core concepts and EMS capabilities that you should be familiar with are referenced in this document are described in the table below.
 
 |Core Concept|Description|
