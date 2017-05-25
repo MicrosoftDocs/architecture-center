@@ -23,6 +23,6 @@
 ### [Remediating events](./email-deploy-recommended-policies.md#remediating-events-that-have-results-in-medium-or-high-risk-access)
 ## [EMS and Office 365 service descriptions](email-ems-office365-service-descriptions.md)
 ### [Services](email-ems-office365-service-descriptions.md#services)
-### [EMS concepts](email-ems-office365-service-descriptions.md#ems-services)
+### [EMS concepts](email-ems-office365-service-descriptions.md#ems-concepts)
 
 
