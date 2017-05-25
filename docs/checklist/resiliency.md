@@ -14,7 +14,7 @@ ms.custom: resiliency, checklist
 Designing your application for resiliency requires planning for and mitigating a variety of failure modes that could occur. Review the items in this checklist against your application design to make it more resilient.
 
 ## Requirements
-* **Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see the [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements) section of the [Designing resilient applications for Azure](../resiliency/index.md) document.
+* **Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see the [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements) section of [Designing resilient applications for Azure](../resiliency/index.md).
 
 ## Failure Mode Analysis
 * **Perform a failure mode analysis (FMA) for your application.** FMA is a process for building resiliency into an application early in the design stage. The goals of an FMA include:  
@@ -135,7 +135,7 @@ The following checklist items apply to specific services in Azure.
 
 ### Azure Storage
 * **For application data, use read-access geo-redundant storage (RA-GRS).** RA-GRS storage replicates the data to a secondary region, and provides read-only access from the secondary region. If there is a storage outage in the primary region, the application can read the data from the secondary region. For more information, see [Azure Storage replication](/azure/storage/storage-redundancy/).
-* **For VM disks, use Premium Storage** For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](/azure/storage/storage-premium-storage/).
+* **For VM disks, use Managed Disks.** (see the [Virtual Machines](#virtual-machines) section).
 * **For Queue storage, create a backup queue in another region.** For Queue storage, a read-only replica has limited use, because you can't queue or dequeue items. Instead, create a backup queue in a storage account in another region. If there is a storage outage, the application can use the backup queue, until the primary region becomes available again. That way, the application can still process new requests.  
 
 ### Cosmos DB
@@ -150,7 +150,7 @@ The following checklist items apply to specific services in Azure.
 * **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
 ### SQL Server (running in a VM)
-* **Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see  [More information...](../reference-architectures/virtual-machines-windows/n-tier.md)
+* **Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
 * **Back up the database**. If you are already using [Azure Backup](https://azure.microsoft.com/documentation/services/backup/) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql/). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
 
 ### Traffic Manager
@@ -159,12 +159,10 @@ The following checklist items apply to specific services in Azure.
 
 ### Virtual Machines
 * **Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or [VM scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/), with a load balancer in front.
-* **Specify the availability set when you provision the VM.** Currently, there is no way to add a Resource Manager VM to an availability set after the VM is provisioned. When you add a new VM to an existing availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, the load balancer won't route network traffic to that VM.
+* **Specify ab availability set when you provision the VM.** Currently, there is no way to add a VM to an availability set after the VM is provisioned. When you add a new VM to an existing availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, the load balancer won't route network traffic to that VM.
 * **Put each application tier into a separate Availability Set.** In an N-tier application, don't put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.
 * **Choose the right VM size based on performance requirements.** When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. This helps to ensure the application behaves as expected in a cloud environment. Also, if you need multiple NICs, be aware of the NIC limit for each size.
-* **Use premium storage for VHDs.** Azure Premium Storage provides high-performance, low-latency disk support. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](/azure/storage/storage-premium-storage/) Choose a VM size that supports premium storage.
-* **Create a separate storage account for each VM.** Place the VHDs for one VM into a separate storage account. This helps to avoid hitting the IOPS limits for storage accounts. For more information, see [Azure Storage Scalability and Performance Targets](/azure/storage/storage-scalability-targets/). However, if you are deploying a large number of VMs, be aware of the per-subscription limit for storage accounts. See [Storage limits](/azure/azure-subscription-service-limits/#storage-limits).
-* **Create a separate storage account for diagnostic logs**. Don't write diagnostic logs to the same storage account as the VHDs, to avoid having the diagnostic logging affect the IOPS for the VM disks. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
+* **Use Managed Disks for VHDs.** [Managed Disks][managed-disks] provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, Managed Disks aren't subject to the IOPS limits of VHDs created in a storage account. For more information, see [Manage the availability of Windows virtual machines in Azure][vm-manage-availability].
 * **Install applications on a data disk, not the OS disk.** Otherwise, you may reach the disk size limit.
 * **Use Azure Backup to back up VMs.** Backups protect against accidental data loss. For more information, see [Protect Azure VMs with a recovery services vault](/azure/backup/backup-azure-vms-first-look-arm/).
 * **Enable diagnostic logs**, including basic health metrics, infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a non-bootable state. For more information, see [Overview of Azure Diagnostic Logs][diagnostics-logs].
@@ -178,23 +176,25 @@ The following checklist items apply to specific services in Azure.
 
 <!-- links -->
 [app-service-autoscale]: /azure/monitoring-and-diagnostics/insights-how-to-scale/
-[asynchronous-c-sharp]:https://msdn.microsoft.com/library/mt674882.aspx
+[asynchronous-c-sharp]: /dotnet/articles/csharp/async
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
 [azure-backup]: https://azure.microsoft.com/documentation/services/backup/
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
+[circuit-breaker]: ../patterns/circuit-breaker.md
 [cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale/
 [diagnostics-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs/
 [fma]: ../resiliency/failure-mode-analysis.md
 [resilient-deployment]: ../resiliency/index.md#resilient-deployment
 [load-balancer]: /azure/load-balancer/load-balancer-overview/
+[managed-disks]: /azure/storage/storage-managed-disks-overview
 [monitoring-and-diagnostics-guidance]: ../best-practices/monitoring.md
 [resource-manager]: /azure/azure-resource-manager/resource-group-overview/
-[retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
+[retry-pattern]: ../patterns/retry.md
 [retry-service-guidance]: ../best-practices/retry-service-specific.md
 [search-optimization]: /azure/search/search-performance-optimization/
 [sql-backup]: /azure/sql-database/sql-database-automated-backups/
 [sql-restore]: /azure/sql-database/sql-database-recovery-using-backups/
 [traffic-manager]: /azure/traffic-manager/traffic-manager-overview/
 [traffic-manager-routing]: /azure/traffic-manager/traffic-manager-routing-methods/
+[vm-manage-availability]: /azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set
 [vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/
