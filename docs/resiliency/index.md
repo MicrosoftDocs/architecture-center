@@ -169,7 +169,7 @@ For scalability, a cloud application should be able to scale out by adding more 
 
 For example:
 
-* Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Running multiple VMs on Azure for scalability and availability][ra-multi-vm].
+* Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Run load-balanced VMs for scalability and availability][ra-multi-vm].
 * Scale out an Azure App Service app to multiple instances. App Service automatically load balances across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
 
@@ -275,7 +275,7 @@ Two concepts related to resilient deployment are *infrastructure as code* and *i
 
 Another question is how to roll out an application update. We recommend techniques such as blue-green deployment or canary releases, which push updates in highly controlled way to minimize possible impacts from a bad deployment.
 
-* [Blue-green deployment][blue-green] is a technique where you deploy an update into a separate production environment from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with [staging slots][staging-slots]. 
+* [Blue-green deployment][blue-green] is a technique where you deploy an update into a separate production environment from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with staging slots. 
 * [Canary releases][canary-release] are similar to blue-green deployment. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more traffic to the new version, until it gets 100% of traffic.
 
 Whatever approach you take, make sure that you can roll back to the last-known good-deployment, in case the new version is not functioning. Also, if errors occur, it must be possible to tell from the application logs which version caused the error. 
@@ -336,21 +336,20 @@ Here are the major points to take away from this article:
 [circuit-breaker-pattern]: https://msdn.microsoft.com/library/dn589784.aspx
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
-[dsc]: https://azure.microsoft.com/documentation/articles/automation-dsc-overview/
+[dsc]: /azure/automation/automation-dsc-overview
 [fma]: failure-mode-analysis.md
 [hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
 [jmeter]: http://jmeter.apache.org/
-[load-leveling-pattern]: https://msdn.microsoft.com/library/dn589783.aspx
+[load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
 [monitoring-guidance]: ../best-practices/monitoring.md
-[ra-basic-web]: https://azure.microsoft.com/documentation/articles/web-apps-basic/
-[ra-multi-vm]: https://azure.microsoft.com/documentation/articles/compute-multi-vm/
+[ra-basic-web]: ../reference-architectures/managed-web-app/basic-web-app.md
+[ra-multi-vm]: ../reference-architectures/virtual-machines-windows/multi-vm.md
 [checklist]: ../checklist/resiliency.md
-[retry-pattern]: https://msdn.microsoft.com/library/dn589788.aspx
+[retry-pattern]: ../patterns/retry.md
 [retry-service-specific guidance]: ../best-practices/retry-service-specific.md
 [sla]: https://azure.microsoft.com/support/legal/sla/
-[staging-slots]: https://azure.microsoft.com/documentation/articles/web-apps-basic/
-[throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
+[throttling-pattern]: ../patterns/throttling.md
 [tm]: https://azure.microsoft.com/services/traffic-manager/
-[tm-failover]: https://azure.microsoft.com/documentation/articles/traffic-manager-monitoring/
+[tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx
