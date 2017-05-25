@@ -30,9 +30,9 @@ The following email clients support Modern Authentication and Conditional Access
 
 ![Recommended email clients](./images/email/recommended-email-clients.png)
 
-####Learn more
-[Enable Modern Authentication for Office 2013 on Windows devices](https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910)
-[Outlook for iOS - iTunes](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8) 
+#### Learn more
+[Enable Modern Authentication for Office 2013 on Windows devices](https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910)<br>
+[Outlook for iOS - iTunes](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)<br>
 [Outlook for Android - Google Play](https://play.google.com/store/apps/details?id=com.microsoft.office.outlook&hl=en)
 
 #### Additional client software
