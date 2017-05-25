@@ -119,6 +119,9 @@ Set the IP address of the preferred and secondary domain name service (DNS) serv
 
 Create an AD FS farm with at least two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account does not make the entire farm inaccessible.
 
+> [!IMPORTANT]
+> We recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way. Our [reference architectures](/azure/architecture/reference-architectures/) do not currently deploy managed disks but the [template building blocks](https://github.com/mspnp/template-building-blocks/wiki) will be updated to deploy managed disks in version 2.
+
 Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. Each availability set must have at least two update domains and two fault domains.
 
 Configure the load balancers for the AD FS VMs and WAP VMs as follows:
