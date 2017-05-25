@@ -99,7 +99,7 @@ For Office 365 users on [iOS](https://docs.microsoft.com/azure/active-directory/
 >The recommendations described in this document assume that one of the apps including an authentication broker (Microsoft Authenticator or Intune Company Portal app) has been deployed to your users' iOS or Android devices. 
 >
 
-### Multi-factor authentication (MFA) 
+### Multi-factor authentication
 
 Multi-factor Authentication (MFA) provides a high level of trust about the subject of authentication, because the subject provided multiple proofs or pieces of evidence about the subject’s identity. The proofs can be pre-established secrets that only the subject and the authority are aware of or a physical entity that only the subject is expected to possess. MFA is typically performed in stages. First it establishes the identity using passwords, and then it require a different (less prone to malicious attacks) authentication method as the second factor, or vice versa.
 
