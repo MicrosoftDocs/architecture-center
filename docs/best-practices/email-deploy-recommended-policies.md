@@ -31,7 +31,7 @@ The following tables describe in detail the appropriate settings necessary to ex
 The following table describes the conditional access policy settings to implement for this policy.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----------|
 |**Assignments**|Users and groups|Include|Select users and groups – Select specific security group containing targeted users|Start with security group including pilot users.|
 |||Exclude|Exception security group; service accounts (app identities)|Membership modified on an as needed temporary basis|
 ||Cloud apps|Include|Select apps -  Select Office 365 Exchange Online||
