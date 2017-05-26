@@ -28,12 +28,13 @@ Before implementing the policies described in the remainder of this document, th
 ### Recommended email clients
 The following email clients support Modern Authentication and Conditional Access.  Azure Information Protection is not yet available for all clients.
 
-![Recommended email clients](./images/email/recommended-email-clients.png)
-
-#### Learn more
-[Enable Modern Authentication for Office 2013 on Windows devices](https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910)<br>
-[Outlook for iOS - iTunes](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)<br>
-[Outlook for Android - Google Play](https://play.google.com/store/apps/details?id=com.microsoft.office.outlook&hl=en)
+|Platform|Client|Version/Notes|Azure Info Protection|
+|--------|------|-------------|---------------------|
+|**Windows**|Outlook|2016, 2013 ([Enable Modern Auth]((https://support.office.com/en-us/article/Enable-Modern-Authentication-for-Office-2013-on-Windows-devices-7dc1c01a-090f-4971-9677-f1b192d6c910))|Yes|
+|**iOS**|Outlook|[Latest](https://itunes.apple.com/us/app/microsoft-outlook-email-and-calendar/id951937596?mt=8)|No|
+|**Android**|Outlook|[Latest](https://play.google.com/store/apps/details?id=com.microsoft.office.outlook&hl=en)|No|
+|**macOS**|Support coming soon||No|
+|**Linux**|Not supported||No|
 
 #### Additional client software
 To access Azure Information Protection protected documents additional software may be required. Be sure that you are using [supported software and document formats](https://docs.microsoft.com/information-protection/get-started/requirements-applications) to create and view protected documents with Azure Information Protection.
@@ -48,11 +49,12 @@ For BYOD Windows devices, users can use "Add work or school account". For BYOD W
 
 ### iOS devices
 
-We recommend installing the Microsoft Authenticator app on user devices before deploying conditional access or MFA policies. At a minimum, the app should be installed when users are [asked to register their device](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time) with Azure AD by adding a work or school account or when they install the Intune company portal app to enroll their device into management. This depends on the configured conditional access policy.
+We recommend installing the [Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) on user devices before deploying conditional access or MFA policies. At a minimum, the app should be installed when users are [asked to register their device](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time) with Azure AD by adding a work or school account or when they install the Intune company portal app to enroll their device into management. This depends on the configured conditional access policy.
 
 ### Android devices
 
-We recommend users install the Intune Company Portal app and Microsoft Authenticator app before conditional access policies are deployed or when required during certain authentication attempts. After app installation, users may be asked to register with Azure AD or enroll their device with Intune. This depends on the configured conditional access policy. 
+We recommend users install the [Intune Company Portal app](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal&hl=en
+) and [Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) before conditional access policies are deployed or when required during certain authentication attempts. After app installation, users may be asked to register with Azure AD or enroll their device with Intune. This depends on the configured conditional access policy. 
 
 We also recommend that corporate-owned devices (COD) are standardized on OEMs and versions that support Android for Work or Samsung Knox to allow mail accounts to be managed and protected by Intune MDM policy.
 
@@ -72,7 +74,12 @@ Each Industry has their own well-known regulations. Rather than providing a list
 
 The following table contains default protection mechanism recommendations for each of the previously defined security and protection tiers:
 
-![Default protection mechanism recommendations](./images/email/protection-tiers.png)
+|Protection mechanism|Baseline|Sensitive|Highly regulated|
+|--------------------|--------|---------|----------------|
+|**Enforce MFA**|On medium or above sign-in risk|On low or above sign-in risk|On all new sessions|
+|**Enforce Password Change**|For high risk users|For high risk users|For high risk users|
+|**Enforce Intune Application Protection**|Yes|Yes|Yes|
+|**Enforce Intune Enrollment (COD**|Require a compliant or domain joined device|Require a compliant or domain joined device|Require a compliant or domain joined device|
 
 ### Device ownership
 The above table reflects the trend for many organizations to support a mix of corporate-owned devices (COD) as well as personal or bring-your-own devices (BYOD) to enable mobile productivity across their workforces. Intune App Protection Policies ensure that email is protected from exfiltrating out of the Outlook mobile app and other Office mobile apps, on both COD and BYOD.  
@@ -100,7 +107,13 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 #### Data loss prevention 
 The goal for your device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-![Data loss prevention baseline](./images/email/data-loss-protection.png)
+|Policy recommendation|Description|
+|---------------------|-----------|
+|**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager|
+|**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
+|**Require user mobile device management**|Require that user devices used to access email are managed by Intune or company email is accessed only through mobile email apps protected by Intune App Protection policies such as Outlook Mobile|
+|**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
+|**Apply an Intune App Protection Policy for managed apps running on unmanaged devices**|Apply an Intune App Protection Policy for managed apps running on unmanaged, personal mobile devices to require: a PIN with minimum length 6, device encryption, and that the device is healthy (is not jailbroken, rooted; passes health attestation)|
 
 ### User Impact
 
@@ -132,7 +145,13 @@ You can give users single sign-on (SSO) experience as described in earlier secti
 
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. You can do this by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-![Data loss prevention sensitive](./images/email/data-loss-protection2.png)
+|Policy recommendation|Description|
+|---------------------|-----------|
+|**Require user PC management**|Require users to join their PCs to an Active Directory Domain or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
+|**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
+|**Require user mobile device management**|Require that user devices used to access email are managed by Intune or company email is accessed only through mobile email apps protected by Intune App Protection policies such as Outlook Mobile|
+|**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
+|**Apply an Intune App Protection Policy for managed apps running on unmanaged devices**|Apply an Intune App Protection Policy for managed apps running on unmanaged, personal mobile devices to require: a PIN with minimum length 6, device encryption, and that the device is healthy (is not jailbroken, rooted; passes health attestation)|
 
 ### User Impact
 
@@ -164,7 +183,12 @@ The goal for these device and app management policies is to protect data loss in
 
 For the highly regulated tier, We recommend requiring apps that support Intune App Protection policy running only on Intune compliant or domain-joined devices.
 
-![Data loss prevention sensitive highly regulated](./images/email/data-loss-protection3.png)
+|Policy recommendation|Description|
+|---------------------|-----------|
+|**Require user PC management**|Require users to join their PCs to an Active Directory Domain, or enroll their PCs into management with Intune or Configuration Manager and ensure those devices are compliant with policies before allowing email access|
+|**Apply security settings via group policy objects (GPO) or Configuration Manager policies for domain joined PCs**|Deploy policies that configure managed PCs to enable BitLocker, enable anti-virus, and enable firewall|
+|**Require user mobile device management**|Require that user devices used to access email are managed by Intune or company email is accessed only through mobile email apps protected by Intune App Protection policies such as Outlook Mobile|
+|**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and, if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
 
 ### User Impact
 For most organizations, it is important to be able to set expectations for  users around when and under what conditions they will be expected to sign into Office 365 to access their email.  
