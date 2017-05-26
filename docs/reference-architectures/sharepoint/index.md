@@ -56,8 +56,6 @@ The gateway subnet must be named *GatewaySubnet*. Assign the gateway subnet addr
 
 ### VM recommendations
 
-Make sure your Azure subscription has enough VM core quota for the deployment, or the deployment will fail. See [Azure subscription and service limits, quotas, and constraints][quotas]. The total number of cores will depend on the VM size. See [Sizes for Windows virtual machines in Azure]. 
-
 Based on Standard DSv2 virtual machine sizes, this architecture requires a minimum of 38 cores:
 
 - 8 SharePoint servers on Standard_DS3_v2 (4 cores each) = 32 cores
@@ -66,8 +64,10 @@ Based on Standard DSv2 virtual machine sizes, this architecture requires a minim
 - 1 majority node on Standard_DS1_v2 = 1 core
 - 1 management server on Standard_DS1_v2 = 1 core
 
-For more information, see [SharePoint Server recommendations](#sharepoint-server recommendations) below.
+The total number of cores will depend on the VM sizes that you select. For more information, see [SharePoint Server recommendations](#sharepoint-server-recommendations) below.
 
+Make sure your Azure subscription has enough VM core quota for the deployment, or the deployment will fail. See [Azure subscription and service limits, quotas, and constraints][quotas]. 
+ 
 ### NSG recommendations
 
 We recommend having one NSG for each subnet that contains VMs, to enable subnet isolation. Do not assign an NSG to the gateway subnet, or the gateway will stop functioning.
@@ -113,7 +113,6 @@ For more information about these recommendations, see Initial deployment adminis
 This reference architecture deploys a SharePoint Server 2016 farm that can be extended to Office 365 SharePoint Online. If you have Office Online Server, see Office Web Apps and Office Online Server supportability in Azure.
 
 The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based virtual machines must be added to the farm to support this hybrid scenario.
-
 
 ### SQL Server Always On Availability Groups
 
