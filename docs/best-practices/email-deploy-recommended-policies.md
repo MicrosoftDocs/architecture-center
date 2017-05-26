@@ -8,6 +8,7 @@ ms.date: 05/24/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
+
 ---
 
 # Deploy recommended policies
@@ -51,7 +52,7 @@ You must express this as a Conditional Access policy specifically for Exchange O
 ![Exchange online policy](./images/email/exchange-online-policy.png)
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Application access**|Outlook and other apps that user modern authentication|All platforms|True|Selected|
 |||Windows must meet the following requirement|Device must be domain joined or compliant|Selected (List)|
 |||Selected platform|False||
@@ -71,7 +72,7 @@ You must express this as a Conditional Access policy specifically for Exchange O
 Additionally you will need to add the following Conditional Access settings for Exchange Online. Log into the Microsoft Azure Portal with your administrator credentials and then navigate to **Intune App Protection > Settings > Conditional Access > Exchange Online**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**App access**|Allowed apps|Enable app access|Allow apps that support Intune app policies|Selected (list) – This will result in a list of apps/platform combinations supported by Intune app policies|
 |**User access**|Allowed apps|Restricted user groups|Add users groups – Select specific security group containing targeted users|Start with security group including pilot users|
 |||Exempt user groups|Exception security groups|||
@@ -86,7 +87,7 @@ Once your pilot project has been completed, this set of policies should be appli
 The following table describes the conditional access policy settings to implement for this policy.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Assignments**|Users and groups|Include|Select users and groups – Select specific security group containing targeted users|Start with security group including pilot users|
 |||Exclude|Exception security group; service accounts (app identities)|Membership modified on an as needed temporary basis|
 ||Cloud apps|Include|Select apps -  Select Office 365 Exchange Online||
@@ -117,7 +118,7 @@ Once the pilot project has been completed, this set of policies should be applie
 The following table describes the conditional access policy settings to implement for this policy.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Assignments**|Users and groups|Include|Select users and groups – Select specific security group containing targeted users|Start with security group including pilot users|
 |||Exclude|Exception security group; service accounts (app identities)|Membership modified on an as needed temporary basis|
 ||Cloud apps|Include|Select apps -  Select Office 365 Exchange Online||
@@ -140,7 +141,7 @@ Once the pilot project has been completed, this set of policies should be applie
 To ensure all high-risk users, compromised accounts, are forced to perform a password change when signing-in, the following policy must be applied. Log in to the [Microsoft Azure Portal (http://portal.azure.com)](http://portal.azure.com/) with your administrator credentials and navigate to **Azure AD Identity Protection > User Risk Policy**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Assignments**|Users|Include|All users|Selected|
 |||Exclude|None||
 ||Conditions|User risk|High|Selected|
@@ -169,7 +170,7 @@ The following tables describe, in details, the appropriate settings necessary to
 The following table describes the recommended Intune app protection policy settings.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**General**|Email|Name|Secure email policy for Android|Enter a policy name|
 |||Description||Enter text that describes the policy|
 |||Platform|Android|There are slight differences in the app protection policy options between iOS and Android; this policy is specifically for Android|
@@ -206,7 +207,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 ||**Email profile**|Exchange Active Sync|Host (*)| Outlook.office365.com|
 |||Account Name (*)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
@@ -223,7 +224,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at  **Policy > Configuration Policies > Add > iOS > General Configuration (iOS 8.0 and later)**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Security**|All|All|Not configured||
 |**Cloud**|All|All|Not configured||
 |**Applications**|Browser|All|Not configured||
@@ -241,7 +242,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at **Policy > Configuration Policies > Add > iOS > Email Profile (Samsung KNOX Standard 4.0 and later)**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Email profile**|Exchange Active Sync|Host (*)| Outlook.office365.com|
 |||Account Name (*)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
@@ -262,7 +263,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at **Policy > Configuration Policies > Add > iOS > Email Profile (Android for Work - Gmail)**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Email profile**|Exchange Active Sync|Host(*)| Outlook.office365.com|
 |||Account Name(*)|SecureEmailAccount|Admini choice|
 |||Username|User principal name|Selected – Drop down|
@@ -275,7 +276,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at  **Policy > Configuration Policies > Add > iOS > General Configuration (Android for Work)**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**Security**|Password|Minimum password length|Not configured||
 |||Number of repeated sign-in failures before the work profile is removed|Not configured||
 |||Minutes of inactivity before device locks|Not configured||
@@ -292,7 +293,7 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at  **Policy > Compliance Policy > Add**.
 
 |Categories|Type|Properties|Values|Notes|
-|----------|----|----------|------------|
+|:---------|:---|:---------|:-----|:----|
 |**System security**|Password|Require a password to unlock mobile devices (...)|Yes|Selected – Drop down|
 |||Allow simple passwords (...)|No|Selected – Drop down|
 |||Minimum password length (...)|6|Selected – List|
@@ -305,10 +306,6 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 ||Device threat protection|All|Not configured||
 ||Jailbreak|Device must not be jailbroken or rooted (iOS 8.0+, Android 4.0+)|Yes||
 |**Device properties**|Operating system version|All|Not configured|||
-
-
-
-
 
 For all of the above policies to be considered deployed they must be targeted at user groups. This can be done when the policy is created (on Save), or later by selecting Manage Deployment in the Policy section (same level as Add).
 
