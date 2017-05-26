@@ -33,6 +33,7 @@
 ## [Data partitioning](./best-practices/data-partitioning.md)
 ## [Monitoring and diagnostics](./best-practices/monitoring.md)
 ## [Naming conventions](./best-practices/naming-conventions.md)
+## [Secure email](./best-practices/email-introduction.md)
 ## [Transient fault handling](./best-practices/transient-faults.md)
 ## [Retry guidance for specific services](./best-practices/retry-service-specific.md)
 

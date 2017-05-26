@@ -9,4 +9,5 @@
 ## [Monitoring and diagnostics](./monitoring.md)
 ## [Naming conventions](./naming-conventions.md)
 ## [Retry guidance for specific services](./retry-service-specific.md)
+## [Secure email](./email-introduction.md)
 ## [Transient fault handling](./transient-faults.md)
