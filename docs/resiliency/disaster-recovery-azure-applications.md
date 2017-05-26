@@ -4,7 +4,7 @@ description: Technical overview and in-depth information about designing applica
 author: adamglick
 ms.service: guidance
 ms.topic: article
-ms.date: 08/18/2016
+ms.date: 05/26/2017
 ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
