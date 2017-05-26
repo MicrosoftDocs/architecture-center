@@ -87,10 +87,8 @@ cache by adding more servers.
 
 There are two main disadvantages of the shared caching approach:
 
-* The cache is slower to  access because it is no longer held locally to each
-  application instance.
-* The requirement to implement a separate
-  cache service might add complexity to the solution.
+* The cache is slower to access because it is no longer held locally to each application instance.
+* The requirement to implement a separate cache service might add complexity to the solution.
 
 ## Considerations for using caching
 The following sections describe in more detail the considerations
@@ -114,7 +112,7 @@ Consider caching data that is read frequently but modified infrequently
 we don't recommend that you use the cache as the authoritative store of critical information. Instead,
 ensure that all changes that your application cannot afford to lose are always saved to a
 persistent data store. This means that if the cache is unavailable, your application can
-still continue to operate by using the data store, and you won't  lose important
+still continue to operate by using the data store, and you won't lose important
 information.
 
 ### Determine how to cache data effectively
@@ -223,12 +221,9 @@ to the cache will fail with an exception.
 
 Some caching implementations might provide additional eviction policies. There are several types of eviction policies. These include:
 
-* A most-recently-used policy (in the expectation that the
-  data will not be required again).
-* A first-in-first-out policy (oldest data is
-  evicted first).
-* An explicit removal policy based on a triggered event (such as the
-  data being modified).
+* A most-recently-used policy (in the expectation that the data will not be required again).
+* A first-in-first-out policy (oldest data is evicted first).
+* An explicit removal policy based on a triggered event (such as the data being modified).
 
 ### Invalidate data in a client-side cache
 Data that's held in a client-side cache is generally considered to be outside
@@ -372,28 +367,20 @@ For more information about handling data consistency, see the
 [Data consistency primer](http://msdn.microsoft.com/library/dn589800.aspx).
 
 ### Protect cached data
-Irrespective of the cache service you use, consider
-how to protect the data that's held in the cache from unauthorized
-access. There are two main concerns:
+Irrespective of the cache service you use, consider how to protect the data that's held in the cache from unauthorized access. There are two main concerns:
 
-* The privacy of the data in the cache
-* The privacy of data as it flows between the cache and the
-  application that's using the cache
+* The privacy of the data in the cache.
+* The privacy of data as it flows between the cache and the application that's using the cache.
 
 To protect data in the cache, the cache service might implement
 an authentication mechanism that requires that applications specify the following:
 
 * Which identities can access data in the cache.
-* Which operations (read and write) that these identities are
-  allowed to perform.
+* Which operations (read and write) that these identities are allowed to perform.
 
-To reduce overhead that's associated with
-reading and writing data, after an identity has been granted
-write and/or read access to the cache, that identity can use
-any data in the cache.
+To reduce overhead that's associated with reading and writing data, after an identity has been granted write and/or read access to the cache, that identity can use any data in the cache.
 
-If you need to restrict access to
-subsets of the cached data, you can do one of the following:
+If you need to restrict access to subsets of the cached data, you can do one of the following:
 
 * Split the cache into partitions (by using different cache
   servers) and only grant access to identities for the
