@@ -50,7 +50,7 @@ We recommend separating resource groups according to the server role, and having
 
 ### Virtual network and subnet recommendations
 
-Use one subnet for each Sharepoint role, plus a subnet for the gateway and one for the jumpbox. 
+Use one subnet for each SharePointrole, plus a subnet for the gateway and one for the jumpbox. 
 
 The gateway subnet must be named *GatewaySubnet*. Assign the gateway subnet address space from the last part of the virtual network address space. For more information, see [Connect an on-premises network to Azure using a VPN gateway][hybrid-vpn-ra].
 
@@ -60,7 +60,7 @@ Based on Standard DSv2 virtual machine sizes, this architecture requires a minim
 
 - 8 SharePoint servers on Standard_DS3_v2 (4 cores each) = 32 cores
 - 2 Active Directory domain controllers on Standard_DS1_v2 (1 core each) = 2 cores
-- 2 SQL Server VMs on Standard_DS1_v2 Standard_DS1_v2 = 2 cores
+- 2 SQL Server VMs on Standard_DS1_v2 = 2 cores
 - 1 majority node on Standard_DS1_v2 = 1 core
 - 1 management server on Standard_DS1_v2 = 1 core
 
@@ -72,7 +72,7 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 
 We recommend having one NSG for each subnet that contains VMs, to enable subnet isolation. Do not assign an NSG to the gateway subnet, or the gateway will stop functioning.
  
-In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the Sharepoint subnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
+In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the SharePointsubnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
 
 This configuration primarily follows the reference architecture for n-tier applications, but deployment models can vary. For more information, see [Filter network traffic with network security groups][virtual-networks-nsg].
 
@@ -85,7 +85,7 @@ For best reliability, we recommend using [Azure Managed Disks][managed-disks]. M
 > [!NOTE]
 > Currently the Resource Manager template for this reference architecture does not use managed disks. We are planning to update the template to use managed disks.
 
-Use Premium managed disks for all Sharepoint and SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management server. 
+Use Premium managed disks for all SharePointand SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management server. 
 
 ### SharePoint Server recommendations
 
@@ -116,7 +116,7 @@ For more information about these recommendations, see Initial deployment adminis
 
 ### Hybrid workloads
 
-This reference architecture deploys a SharePoint Server 2016 farm that can be uses as a [hybrid environment][sharepoint-hybrid] &mdash; that is, extending Sharepoint Server 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
+This reference architecture deploys a SharePoint Server 2016 farm that can be uses as a [hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePointServer 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
 
 The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based virtual machines must be added to the farm to support this hybrid scenario.
 
