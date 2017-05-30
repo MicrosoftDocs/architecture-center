@@ -211,7 +211,7 @@ In this step, you will use Entity Framework 7 to create a local SQL database, us
 
 3.	Run the following commands:
 
-          dotnet ef database update
+          dotnet ef database update --startup-project ..\Tailspin.Surveys.Web
 
 ## Run the application
 
