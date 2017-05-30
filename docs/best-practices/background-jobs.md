@@ -252,28 +252,60 @@ Consider the following points if you are implementing background tasks in a web 
 
 
 ### Azure Logic Apps
+
+Logic Apps are more suitable for scenarios where orchestation, automation of business processes, access to on-premises data and integration is needed.
  
-Azure Logic Apps helps you simplify and implement scalable integrations and workflows in the cloud. You can model and automate your process visually as a series of steps known as a workflow in the Logic App Designer. There are also [many connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) that you can add to your logic app so you can quickly integrate across services and protocols across the cloud and on-premises.
- 
-The Azure portal offers a great way for you to [create and manage Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-create-a-logic-app). 
- 
-You can create an Azure Resource Manager template for easily deploying the logic app to any environment or resource group where you might need it. Be sure to check out the articles on [authoring Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-walkthrough) and [deploying resources by using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy).
- 
+The Azure portal offers an easy way for you to [create and manage Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-create-a-logic-app) by defining a workflow in the Logic App Designer. You can also define a workflow declaratively using JSON. 
+
+Azure Logic Apps currently supports over [100 ready-to-use connectors]((https://docs.microsoft.com/en-us/azure/connectors/apis-list)), ranging from on-premises SAP to Azure Cognitive Services. For systems and services that might not have published connectors, you can also extend logic apps.
+
 You can also [use Visual Studio for designing, building, and deploying your logic apps]((https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-deploy-from-vs). Visual Studio provides rich tools like the Logic App Designer for you to create logic apps, configure deployment and automation templates, and deploy to any environment.
- 
+
+You can create an Azure Resource Manager template for easily deploying the logic app to any environment or resource group where you might need it. Be sure to check out the articles on [authoring Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-template-walkthrough) and [deploying resources by using Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy).
+
 Another option is to [manage your logic apps with PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.logicapp/v1.0.8/azurerm.logicapp).
  
-#### Considerations
- 
-Logic Apps are more suitable for scenarios where orchestation, automation of business processes, access to on-premises data and integration is needed. Examples of these are, connecting your cloud marketing solution to your on-premises billing system or centralizing messaging across APIs and systems with an Enterprise Service Bus.
- 
-Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) where enterprise-level DevOps and security practices are required.
- 
-For more advanced integration scenarios, it includes capabilities from BizTalk, Microsoft's industry leading integration platform. The Enterprise Integration Pack connectors allow you to easily include validation, transformation,and more in to your Logic App workflows.
- 
+The Logic Apps service is "serverless", so the underlying platform handles scale, availability, and performance. 
+
+Logic Apps use a consumption plan where you only pay for what you use. All actions executed in a run of a logic app instance are metered.
+
+#### Implementation Considerations
+
+- Triggers:
+  - You can *trigger* your workflow with a schedule event, a manual invocation, or an event from an external system. 
+  - You can natively expose synchronous HTTP endpoints as triggers on logic apps so that you can trigger or call your logic apps through a URL by using a [Request](https://docs.microsoft.com/en-us/azure/connectors/connectors-native-reqres), [API Connection Webhook](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-actions-triggers#api-connection) or [HTTP Webhook](https://docs.microsoft.com/en-us/azure/connectors/connectors-native-http).
+
+- Response:
+  - You can respond to certain requests that start a logic app by returning content to the caller. To construct the status code, header, and body for your response, you can use the **Response** action.
+
+- Long running tasks:
+  - The Logic App engine will timeout a request after 1 minute. For long running tasks, you can follow either an async or webhook pattern. If a 202 ACCEPTED response with a valid location header is received, the engine will honour the async pattern and continue to poll the location header until a non-202 status is returned. Or you can use a webhook action or trigger and subscribe for a HTTP POST endpoint to be called when the task is ready.
+
+- Working with collections and batches:
+  - **ForEach** letsyou iterate over a set of up to 5,000 rows of data and perform an action for each item. Once within the loop you can begin to specify what should occur at each value of the array. Each iteration will execute in parallel by default but you can use the *Sequential* keyword to run it sequentially.
+  - **Until** lets you perform an action or series of actions until a condition is met. The most common scenario for this is calling an endpoint until you get the response you are looking for. In the designer, you can specify to add an until loop. After adding actions inside the loop, you can set the exit condition, as well as the loop limits. There is a 1 minute delay between loop cycles.
+  - **SplitOn** lets you debatch an array of up to 5,000 items and start a workflow per item. You cannot have a spliton and also implement the synchronous response pattern. Any workflow called that has a response action in addition to spliton will run asynchronously and send an immediate 202 Accepted response.
+
+- Organizing your actions:
+  - You can nest workflows in your logic app by adding other logic apps that can receive requests.
+  - It is possible to group a series of actions together using a **scope**. This is particularly useful for implementing exception handling. In the designer you can add a new scope, and begin adding any actions inside of it.
+
+- Retrying and handling failures:
+  - By default, all actions retry 4 additional times over 20-second intervals but you can configure retry policies in the inputs for a particular action.
+  - Actions added through the Logic App Designer are set to *runAfter* the previous step if the previous step Succeeded. However, you can customize this value to fire actions when previous actions have Failed, Skipped, or a possible set of these values. This means you can catch failures and act on them, for example sending a SMS to alert or undoing previous steps to leave the process in a consistent state.
+  - Check a real use case of [logging and error handling in a logic app](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-scenario-error-and-exception-handling).
+
+- Extending:
+  - You can extend the functionality of your logic app by calling *Azure Functions* to run your code snippets.
+  - For more advanced integration scenarios, it includes capabilities from *BizTalk* using the *Enterprise Integration Pack* connectors.
+
+- Monitoring, diagnostics and alerting:
+  - After you create a logic app, you can see the full history of its execution in the Azure portal, including full request and response information.
+  - You can set up services like Azure Diagnostics and Azure Alerts to monitor events real-time, and alert you for events.
+  - More info on [monitoring your logic apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-monitor-your-logic-apps)
+
 #### More information
 * [Azure Logic Apps documentation](https://docs.microsoft.com/azure/logic-apps/)
-* [What are Logic Apps?](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-what-are-logic-apps)
 * [Azure Logic Apps Examples and Common Scenarios](https://docs.microsoft.com/azure/logic-apps/logic-apps-examples-and-scenarios)
  
 
