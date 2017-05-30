@@ -8,15 +8,16 @@ ms.date: 05/24/2017
 ms.author: pnp
 
 pnp.series.title: Best Practices
+
 ---
 
 # Recommended policies
  
-This article describes the policies Microsoft recommends to help secure organizational email. 
+This article describes recommended policies to help our customers secure organizational email. 
 
 ## Prerequisites
 
-Before implementing the policies described in the remainder of this document, there are several prerequisites that must be met:
+Before implementing the policies described in the remainder of this document, there are several prerequisites that your organization must meet:
 * [Configure named networks](https://docs.microsoft.com/azure/active-directory/active-directory-known-networks-azure-portal). Azure AD Identity Protection collects and analyzes all available session data to generate a risk score. We recommend that you specify your organization's public IP ranges for your network in the Azure AD named networks configuration. Traffic coming from these ranges is given a reduced risk score, so traffic from outside the corporate environment is treated as higher risk score.
 * [Register all users with multi-factor authentication (MFA)](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices). Azure AD Identity Protection makes use of Azure MFA to perform additional security verification. We recommend that you require all users to register for Azure MFA ahead of time.
 * [Enable automatic device registration of domain joined Windows computers](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup). Conditional access can ensure the device connecting to the service is a domain joined or compliant device. To support this on Windows computers, the device must be registered with Azure AD.  This article discusses how to configure automatic device registration.  Note that AD FS is a requirement.
@@ -26,7 +27,7 @@ Before implementing the policies described in the remainder of this document, th
 * [Enable Azure Information Protection](https://docs.microsoft.com/en-us/information-protection/get-started/infoprotect-tutorial-step1) by activating Rights Management. Use Azure Information Protection with email to start with classification of emails. Follow the quick start tutorial to customize and publish policy.  
 
 ### Recommended email clients
-The following email clients support Modern Authentication and Conditional Access.  Azure Information Protection is not yet available for all clients.
+The following email clients support Modern Authentication and Conditional Access. Azure Information Protection is not yet available for all clients.
 
 |Platform|Client|Version/Notes|Azure Info Protection|
 |:-------|:-----|:------------|:--------------------|
@@ -37,7 +38,7 @@ The following email clients support Modern Authentication and Conditional Access
 |**Linux**|Not supported||No|
 
 #### Additional client software
-To access Azure Information Protection protected documents additional software may be required. Be sure that you are using [supported software and document formats](https://docs.microsoft.com/information-protection/get-started/requirements-applications) to create and view protected documents with Azure Information Protection.
+To access Azure Information Protection protected documents, additional software may be required. Be sure that you are using [supported software and document formats](https://docs.microsoft.com/information-protection/get-started/requirements-applications) to create and view protected documents with Azure Information Protection.
 
 ## Recommended client configuration for SSO and conditional access
 This section describes the default platform client configurations we recommend to provide the best SSO experience to your users, as well as the technical pre-requisites for conditional access.
@@ -60,9 +61,9 @@ We also recommend that corporate-owned devices (COD) are standardized on OEMs an
 
 ## Tiers of security and protection
 
-Different organizations have different requirements regarding security and data protection. These requirements vary by industry segment and by job functions within organizations. For example, your legal department and Office 365 administrators might require additional security and information protection controls around their email correspondence that are not required for other business unit users. 
+Most organizations have specific requirements regarding security and data protection. These requirements vary by industry segment and by job functions within organizations. For example, your legal department and Office 365 administrators might require additional security and information protection controls around their email correspondence that are not required for other business unit users. 
 
-Each Industry has their own well-known regulations. Rather than providing a list of all possible security options or a recommendation per industry segment or job function, this article provides recommendations for 3 different tiers of security and protection for your email that can be applied based on the granularity of your needs: [baseline, sensitive, and highly regulated](https://go.microsoft.com/fwlink/p/?linkid=841656).  
+Each industry also has their own set of specialized regulations. Rather than providing a list of all possible security options or a recommendation per industry segment or job function, this article provides recommendations for 3 different tiers of security and protection for your email that can be applied based on the granularity of your needs: [baseline, sensitive, and highly regulated](https://go.microsoft.com/fwlink/p/?linkid=841656).  
 
 **Baseline**. We recommend that you establish a minimum standard for protecting data, as well as the identities and devices that access your data. Baseline recommendations can be followed to provide strong default protection that meets the needs of many organizations. 
 
@@ -127,7 +128,9 @@ Users typically benefit from single sign-on (SSO) except during the following si
 
 ## Sensitive
 
-This section describes the secure email recommendations for the sensitive tier of data, identity, and device protection. These recommendations are for customers who have a subset of data that must be protected at higher levels or require all data to be protected at these higher levels. You can apply increased protection to all or specific data sets in your Office 365 environment. For example, you can apply policies to ensure sensitive data is only shared between protected apps to prevent data loss. We recommend protecting identities and devices that access sensitive data with comparable levels of security. 
+This section describes the secure email recommendations for the sensitive tier of data, identity, and device protection. These recommendations are for customers who have a subset of data that must be protected at higher levels or require all data to be protected at these higher levels. 
+
+You can apply increased protection to all or specific data sets in your Office 365 environment. For example, you can apply policies to ensure sensitive data is only shared between protected apps to prevent data loss. We recommend protecting identities and devices that access sensitive data with comparable levels of security. 
 
 ### Conditional access policy settings
 #### Identity protection 
@@ -155,7 +158,7 @@ The goal for these device and app management policies is to protect data loss in
 
 ### User Impact
 
-For most organizations, it???s important to be able to set expectations for their users around when and under what conditions they will be expected to sign into Office 365 to access their email. 
+For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
 Users typically benefit from single sign-on (SSO) except under the following situations: 
 
@@ -181,7 +184,7 @@ For highly regulated tier Microsoft recommends enforcing MFA for all new session
 #### Data Loss Prevention
 The goal for these device and app management policies is to protect data loss in the event of a lost or stolen device. This is done by ensuring that access to data is protected by a PIN, that the data is encrypted on the device, and that the device is not compromised.
 
-For the highly regulated tier, We recommend requiring apps that support Intune App Protection policy running only on Intune compliant or domain-joined devices.
+For the highly regulated tier, we recommend requiring apps that support Intune App Protection policy running only on Intune compliant or domain-joined devices.
 
 |Policy recommendation|Description|
 |:--------------------|:----------|
@@ -191,9 +194,9 @@ For the highly regulated tier, We recommend requiring apps that support Intune A
 |**Apply an Intune Device Compliance Policy on managed devices**|Apply an Intune Device Compliance Policy for managed corporate mobile devices and Intune-managed PCs that requires: a PIN with minimum length 6, device encryption, a healthy device (is not jailbroken, rooted; passes health attestation), and, if available, require devices that are Low risk as determined by a third-party MTP like Lookout or SkyCure|
 
 ### User Impact
-For most organizations, it is important to be able to set expectations for  users around when and under what conditions they will be expected to sign into Office 365 to access their email.  
+For most organizations, it is important to be able to set expectations for users specific to when and under what conditions they will be expected to sign into Office 365 email. 
 
-* Maximin lifetime of a single sign-on session is 1 day. Users will be required to re-authenticate with MFA after the sessions expire.
+* Maximum lifetime of a single sign-on session is 1 day. Users will be required to re-authenticate with MFA after the sessions expire.
 * When users at risk sign-in, after complete MFA, will be asked to change their password.
 * When requesting authentication tokens for Exchange Online:
  * Users will be asked to perform MFA whenever they begin a new session.  

@@ -13,19 +13,24 @@ pnp.series.title: Best Practices
 
 # Deploy recommended policies
 
-This section discusses how to deploy the recommended policies in a newly provisioned environment. Setting up these policies in a separate lab environment allows you to understand and evaluate the recommended policies before staging the rollout of them in your pre-production and production environments. Your newly provisioned environment may be cloud-only or Hybrid.  
+This section discusses how to deploy the recommended policies in a newly provisioned environment. Setting up these policies in a separate lab environment allows you to understand and evaluate the recommended policies before staging the rollout to your pre-production and production environments. Your newly provisioned environment may be cloud-only or Hybrid.  
 
-To successfully deploy the recommended polices, you’ll need to take actions in the Azure portal to meet the prerequisites stated earlier. Specifically, before continuing, ensure that you have configured named networks to ensure Azure Identity Protection can properly generate a risk score, required that all users are registered for multi-factor authentication (MFA), and you have configured password sync and self-service password reset to enable users to reset passwords themselves. 
+To successfully deploy the recommended polices, you’ll need to take actions in the Azure portal to meet the prerequisites stated earlier. Specifically, you need to:
+* Configure named networks, to ensure Azure Identity Protection can properly generate a risk score
+* Require all users to register for multi-factor authentication (MFA)
+* Configure password sync and self-service password reset, to enable users to be able to reset passwords themselves
 
-Both Azure AD and Intune policies can be targeted at specific groups of users.  We suggest rolling out the policies defined earlier in a staged way so that you can validate the performance of the policies and your support teams relative to the policy incrementally.  
+You can target both Azure AD and Intune policies towards specific groups of users. We suggest rolling out the policies defined earlier in a staged way, so that you can validate the performance of the policies and your support teams relative to the policy incrementally.
 
 ## Baseline CA policy
 
-To create a new conditional access policy: log into the Microsoft Azure Portal with your administrator credentials and then navigate to **Azure Active Directory > Security > Conditional access**, and add a new policy (+Add) as shown in the following screen shot:
+To create a new conditional access policy, log into the Microsoft Azure Portal with your administrator credentials, and then navigate to **Azure Active Directory > Security > Conditional access**. 
+
+You can add a new policy (+Add) as shown in the following screen shot:
 
 ![Baseline CA policy](./images/email/baseline-ca-policy.png)
 
-The following tables describe in detail the appropriate settings necessary to express the policies required for each level of protection.
+The following tables describe the appropriate settings necessary to express the policies required for each level of protection.
 
 ### Medium and above risk requires MFA
 
@@ -47,9 +52,11 @@ The following table describes the conditional access policy settings to implemen
 
 ### Require a compliant or domain joined device
 
-You must express this as a Conditional Access policy specifically for Exchange Online in the Intune Management Portal. To create a new Intune Conditional Access Policy for Exchange Online: log into the [Microsoft Management Portal (http://manage.microsoft.com)](http://manage.microsoft.com/) with your administrator credentials and then navigate to **Policy > Conditional Access > Exchange Online Policy**.
+To create a new Intune Conditional Access Policy for Exchange Online, log into the [Microsoft Management Portal (http://manage.microsoft.com)](http://manage.microsoft.com/) with your administrator credentials and then navigate to **Policy > Conditional Access > Exchange Online Policy**.
 
 ![Exchange online policy](./images/email/exchange-online-policy.png)
+
+You must set a Conditional Access policy specifically for Exchange Online in the Intune Management Portal to require a compliant or domain joined device.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
@@ -69,7 +76,9 @@ You must express this as a Conditional Access policy specifically for Exchange O
 
 ### Mobile application management conditional access for Exchange online
 
-Additionally you will need to add the following Conditional Access settings for Exchange Online. Log into the Microsoft Azure Portal with your administrator credentials and then navigate to **Intune App Protection > Settings > Conditional Access > Exchange Online**.
+You must set a Conditional Access policy specifically for Exchange Online in the Intune Management Portal to manage mobile apps.
+
+To manage mobile apps, log into the Microsoft Azure Portal with your administrator credentials, and then navigate to **Intune App Protection > Settings > Conditional Access > Exchange Online**.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
@@ -79,12 +88,12 @@ Additionally you will need to add the following Conditional Access settings for 
 
 #### Apply to:
 
-Once your pilot project has been completed, this set of policies should be applied to all users in your organization.
+Once your pilot project has been completed, these policies should be applied to all users in your organization.
 
 ## Sensitive CA policy
 
 ### Low and above risk requires MFA
-The following table describes the conditional access policy settings to implement for this policy.
+The following table describes the conditional access policy settings to implement for low- and above-risk policies.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
@@ -110,12 +119,12 @@ The following table describes the conditional access policy settings to implemen
 
 #### Apply to:
 
-Once the pilot project has been completed, this set of policies should be applied to users in your organization that require access to emails that are considered to be in the sensitive category.
+Once the pilot project has been completed, these policies should be applied to users in your organization who require access to email considered sensitive.
 
 ## Highly regulated CA policy
 ### MFA required
 
-The following table describes the conditional access policy settings to implement for this policy.
+The following table describes the conditional access policy settings to implement for the highly regulated policy.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
@@ -134,11 +143,13 @@ The following table describes the conditional access policy settings to implemen
 ### Mobile application management conditional access for Exchange online
 (See baseline instructions)
 #### Apply to:
-Once the pilot project has been completed, this set of policies should be applied to users in your organization that require access to emails that are considered to be in the highly regulated category.
+Once the pilot project has been completed, these policies should be applied to users in your organization who require access to email considered highly regulated.
 
 ## User risk policy
 ### High risk users must change password
-To ensure all high-risk users, compromised accounts, are forced to perform a password change when signing-in, the following policy must be applied. Log in to the [Microsoft Azure Portal (http://portal.azure.com)](http://portal.azure.com/) with your administrator credentials and navigate to **Azure AD Identity Protection > User Risk Policy**.
+To ensure that all high-risk users compromised accounts are forced to perform a password change when signing-in, you must apply the following policy. 
+
+Log in to the [Microsoft Azure Portal (http://portal.azure.com)](http://portal.azure.com/) with your administrator credentials, and then navigate to **Azure AD Identity Protection > User Risk Policy**.
 
 |Categories|Type|Properties|Values|Notes|
 |:---------|:---|:---------|:-----|:----|
@@ -151,13 +162,15 @@ To ensure all high-risk users, compromised accounts, are forced to perform a pas
 |**Enforce policy**|||On|Starts enforcing policy|
 
 ## Additional configurations
-In addition to the above policies, the following Mobile Application and Device Management settings must be configured. 
+In addition to the above policies, you must configure the following Mobile Application and Device Management settings discussed in this section. 
 
 ### Intune mobile application management 
 
-To ensure email is protected by the policy recommendations stated earlier for each security and data protection tier, you need to create Intune app protection policies from within the Azure portal.
+To ensure email is protected by the policy recommendations stated earlier for each security and data protection tier, you must create Intune app protection policies from within the Azure portal.
 
-To create a new app protection policy: log into the Microsoft Azure Portal with your administer credentials and then navigate to **Intune App Protection > Settings > App policy**, and add a new policy (+Add) as shown in the following screen shot:
+To create a new app protection policy, log into the Microsoft Azure Portal with your administer credentials, and then navigate to **Intune App Protection > Settings > App policy**.
+
+Add a new policy (+Add) as shown in the following screen shot:
 
 ![Intune mobile application management](./images/email/intune-mobile-app-mgmt.png)
 
@@ -195,12 +208,10 @@ The following table describes the recommended Intune app protection policy setti
 |||Offline interval (days) before app data is wiped|90||
 |||Block screen capture and Android assistant|No|On iOS this is not an available option|
 
-When done, remember to click “Create”. Repeat above steps replacing the selected platform (dropdown) with iOS. This should leave you with two app policies. Once the policy is created, assign groups to the policy to deploy.
-
-When done, remember to click “Create”. Repeat above steps replacing the selected platform (dropdown) with iOS. This should leave you with two app policies. Once the policy is created, assign groups to the policy to deploy.
+When complete, remember to click "Create". Repeat the above steps and replace the selected platform (dropdown) with iOS. This creates two app policies, so once you create the policy, then assign groups to the policy and deploy it.
 
 ### Intune mobile device management
-The following Configuration and Compliance policies must be created and applied. Log into the [Microsoft Management Portal (http://manage.microsoft.com)](https://manage.microsoft.com/) with your administrator credentials.
+You create the following Configuration and Compliance policies by logging into the [Microsoft Management Portal (http://manage.microsoft.com)](https://manage.microsoft.com/) with your administrator credentials.
 
 #### iOS email profile
 In the [Intune management portal (https://manage.microsoft.com)](https://manage.microsoft.com/) create the following Configuration policies at **Policy > Configuration Policies > Add > iOS > Email Profile (iOS 8 and later)**.
@@ -307,10 +318,10 @@ In the [Intune management portal (https://manage.microsoft.com)](https://manage.
 ||Jailbreak|Device must not be jailbroken or rooted (iOS 8.0+, Android 4.0+)|Yes||
 |**Device properties**|Operating system version|All|Not configured|||
 
-For all of the above policies to be considered deployed they must be targeted at user groups. This can be done when the policy is created (on Save), or later by selecting Manage Deployment in the Policy section (same level as Add).
+For all of the above policies to be considered deployed, they must be targeted at user groups. You can do this by creating the policy (on Save) or later by selecting Manage Deployment in the Policy section (same level as Add).
 
 ## Remediating events that have results in medium or high risk access
-If a user reports that they are being expected to perform MFA when this was previously not required, support can review their status from a risk perspective.  
+If a user reports that they are now expected to perform MFA when this was previously not required, support can review their status from a risk perspective.  
 
 Users within the organization with a Global Administrator or Security Administrator role can use Azure AD Identity Protection to review the risky events that contributed to the calculated risk score. If they identify some events that where flagged as suspicious, but are confirmed to be valid (such as a login from an unfamiliar location when an employee is on vacation), the administrator can resolve the event so it no longer contributes to the risk score.
 

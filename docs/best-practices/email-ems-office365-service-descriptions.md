@@ -12,9 +12,7 @@ pnp.series.title: Best Practices
 
 # EMS and Office 365 service descriptions
 
-This article provides an overview of the EMS and Office 365 services utilized in the stated recommendations and provides an overview of the core concepts necessary to understand the protection capabilities described. 
-
-These services provide capabilities that enable Microsoft cloud enterprise administrators to not just protect company employees’ identities and devices, but also control access to company data itself; both in transit and at rest.
+This article provides an overview of the EMS and Office 365 services utilized in the stated recommendations, and discusses core concepts necessary to understand Azure email protection capabilities. These capabilities enable Microsoft cloud enterprise administrators to protect company employees’ identities and devices, and also control access to company data itself - both in transit and at rest.
 
 ## Services 
 
@@ -30,7 +28,7 @@ The services referenced in this document are described in the table below.
 
 
 ## EMS concepts
-Core concepts and EMS capabilities that you should be familiar with are referenced in this document are described in the table below.
+Core concepts and EMS capabilities that you should be familiar with are described in the table below.
 
 |Core Concept|Description|
 |------------|-----------|

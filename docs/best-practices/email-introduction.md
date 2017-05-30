@@ -15,7 +15,7 @@ pnp.series.title: Best Practices
  
 ## Introduction
 
-While there is no single best recommendation for all customer environments, the best practices in this document describe general Microsoft recommendations about how to apply email policies and configurations. These recommendations ensure that your employees are both secure and productive.  Specifically, this document focuses on protecting organizational email while minimizing the usability impact for your users.
+The recommendations in this document describe general Microsoft guideline for applying email policies and configurations throughout the enterprise. These recommendations ensure that your employees are both secure and productive.  Specifically, this document focuses on protecting organizational email while minimizing the usability impact for your users.
 
 ### Intended audience
 
@@ -23,7 +23,7 @@ This document is intended for enterprise infrastructure architects and IT Pros f
 
 ### Customer environment
 
-The policies recommended in this document are applicable to enterprise organizations operating both entirely in the Microsoft cloud, and for customers with their infrastructure deployed both on-premises and in the Microsoft cloud. 
+The policies recommended in this document apply to enterprise organizations operating both entirely in the Microsoft cloud, and for customers with their infrastructure deployed both on-premises and in the Microsoft cloud. 
 
 ### Assumptions
 
@@ -33,12 +33,12 @@ This document outlines how to apply the recommended configuration for protected 
 
 ### Caveats
 
-Your organization may be subject to regulatory or other compliance requirements, including specific recommendations that may require you to apply policies that diverge from these recommended configurations.  These configurations recommended leverage controls that have not historically been available.  We recommend these controls, because we believe they represent a balance between security and productivity.  
+Your organization may be subject to regulatory or other compliance requirements, including specific recommendations that may require you to apply policies that diverge from these recommended configurations.  These configurations recommend leverage controls that have not historically been available.  We recommend these controls, because we believe they represent a balance between security and productivity.  
 
 We have done our best to account for a wide variety of organizational protection requirements. But, we cannot account for all possible requirements or for all the unique aspects of your organization. Use this document as a guide for how Microsoft and the secure productive enterprise team is thinking about how to correctly apply policy in your organization. 
 
 >[!NOTE]
->For an overview of the core concepts necessary to understand the protection capabilities described in these recommendations, see [EMS and Office 365 Service Descriptions].
+>For an overview of the core concepts necessary to understand the protection capabilities described in these recommendations, see [EMS and Office 365 Service Descriptions](email-ems-office365-service-descriptions.md).
 >
 
 ## Core concepts
