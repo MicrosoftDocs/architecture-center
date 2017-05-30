@@ -15,7 +15,7 @@ pnp.series.title: Best Practices
  
 ## Introduction
 
-The recommendations in this document describe general Microsoft guideline for applying email policies and configurations throughout the enterprise. These recommendations ensure that your employees are both secure and productive.  Specifically, this document focuses on protecting organizational email while minimizing the usability impact for your users.
+The recommendations in this document describe general Microsoft guidelines for applying email policies and configurations throughout the enterprise. These recommendations ensure that your employees are both secure and productive.  Specifically, this document focuses on protecting organizational email while minimizing the usability impact for your users.
 
 ### Intended audience
 
