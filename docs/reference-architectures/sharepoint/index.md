@@ -24,7 +24,7 @@ The architecture consists of the following components:
 
 - **Virtual network (VNet)**. The VMs are deployed in a VNet with a unique intranet address space. The VNet is further subdivided into subnets. 
 
-- **Virtual machines (VMs)**. The VMs are deployed into the VNet, and private static IP addresses are assigned to all the VMs. Dynamic addresses are not recommended for servers. 
+- **Virtual machines (VMs)**. The VMs are deployed into the VNet, and private static IP addresses are assigned to all of the VMs. Static IP addresses are recommended for the VMs running SQL Server and SharePoint Server 2016, to avoid issues with IP address caching and changes of addresses after a restart.
 
 - **Availability sets**. Place the VMs for each SharePoint role into separate [availability sets][availability-set], and provision at least two virtual machines (VMs) are provisioned for each role. This makes the VMs eligible for a higher service level agreement (SLA). 
 
@@ -58,7 +58,7 @@ We recommend separating resource groups according to the server role, and having
 
 ### Virtual network and subnet recommendations
 
-Use one subnet for each SharePointrole, plus a subnet for the gateway and one for the jumpbox. 
+Use one subnet for each SharePoint role, plus a subnet for the gateway and one for the jumpbox. 
 
 The gateway subnet must be named *GatewaySubnet*. Assign the gateway subnet address space from the last part of the virtual network address space. For more information, see [Connect an on-premises network to Azure using a VPN gateway][hybrid-vpn-ra].
 
@@ -80,7 +80,7 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 
 We recommend having one NSG for each subnet that contains VMs, to enable subnet isolation. Do not assign an NSG to the gateway subnet, or the gateway will stop functioning.
  
-In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the SharePointsubnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
+In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the SharePoint subnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
 
 If you want to configure subnet isolation, add NSG rules that define the allowed or denied inbound or outbound traffic for each subnet. 
 
@@ -95,7 +95,7 @@ For best reliability, we recommend using [Azure Managed Disks][managed-disks]. M
 > [!NOTE]
 > Currently the Resource Manager template for this reference architecture does not use managed disks. We are planning to update the template to use managed disks.
 
-Use Premium managed disks for all SharePointand SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management server. 
+Use Premium managed disks for all SharePoint and SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management server. 
 
 ### SharePoint Server recommendations
 
@@ -126,7 +126,7 @@ For more information about these recommendations, see Initial deployment adminis
 
 ### Hybrid workloads
 
-This reference architecture deploys a SharePoint Server 2016 farm that can be uses as a [hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePointServer 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
+This reference architecture deploys a SharePoint Server 2016 farm that can be uses as a [hybrid environment][sharepoint-hybrid] &mdash; that is, extending SharePoint Server 2016 to Office 365 SharePoint Online. If you have Office Online Server, see [Office Web Apps and Office Online Server supportability in Azure][office-web-apps].
 
 The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based virtual machines must be added to the farm to support this hybrid scenario.
 
