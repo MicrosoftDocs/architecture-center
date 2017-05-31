@@ -312,7 +312,7 @@ below.
 #### Use Azure portal
 1. Copy your parameters files to a URI that is publicly accessible.
 2. Right-click **Deploy to Azure** below and select either **Open link in new tab** or **Open link in new window**.
-   [![Deploy to Azure](/azure/guidance/_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-compute-single-vm%2Fazuredeploy.json)
+   [![Deploy to Azure](/azure/guidance/_images/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Flarry%2Fsap%2Fsap%2Fsap-hana%2Fazuredeploy.json)
 3. In the Azure portal, enter values for the following settings: 
    
    * For **Subscription**, choose the subscription you want to use for your deployment.
