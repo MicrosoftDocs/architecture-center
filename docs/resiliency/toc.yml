@@ -14,12 +14,8 @@
     items:
     - name: Disaster recovery
       href: disaster-recovery-azure-applications.md
-    - name: Disaster recovery and high availability
-      href: disaster-recovery-high-availability-azure-applications.md
     - name: High availability
       href: high-availability-azure-applications.md
-    - name: High availability checklist
-      href: high-availability-checklist.md
     - name: Recovery from data corruption or accidental deletion
       href: recovery-data-corruption.md
     - name: Recovery from local failures
