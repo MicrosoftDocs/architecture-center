@@ -87,10 +87,8 @@ cache by adding more servers.
 
 There are two main disadvantages of the shared caching approach:
 
-* The cache is slower to  access because it is no longer held locally to each
-  application instance.
-* The requirement to implement a separate
-  cache service might add complexity to the solution.
+* The cache is slower to access because it is no longer held locally to each application instance.
+* The requirement to implement a separate cache service might add complexity to the solution.
 
 ## Considerations for using caching
 The following sections describe in more detail the considerations
@@ -114,7 +112,7 @@ Consider caching data that is read frequently but modified infrequently
 we don't recommend that you use the cache as the authoritative store of critical information. Instead,
 ensure that all changes that your application cannot afford to lose are always saved to a
 persistent data store. This means that if the cache is unavailable, your application can
-still continue to operate by using the data store, and you won't  lose important
+still continue to operate by using the data store, and you won't lose important
 information.
 
 ### Determine how to cache data effectively
@@ -223,12 +221,9 @@ to the cache will fail with an exception.
 
 Some caching implementations might provide additional eviction policies. There are several types of eviction policies. These include:
 
-* A most-recently-used policy (in the expectation that the
-  data will not be required again).
-* A first-in-first-out policy (oldest data is
-  evicted first).
-* An explicit removal policy based on a triggered event (such as the
-  data being modified).
+* A most-recently-used policy (in the expectation that the data will not be required again).
+* A first-in-first-out policy (oldest data is evicted first).
+* An explicit removal policy based on a triggered event (such as the data being modified).
 
 ### Invalidate data in a client-side cache
 Data that's held in a client-side cache is generally considered to be outside
@@ -369,31 +364,23 @@ application instance could read and populate the cache with the
 old value.
 
 For more information about handling data consistency, see the
-[Data consistency primer](http://msdn.microsoft.com/library/dn589800.aspx) page on the Microsoft website.
+[Data consistency primer](http://msdn.microsoft.com/library/dn589800.aspx).
 
 ### Protect cached data
-Irrespective of the cache service you use, consider
-how to protect the data that's held in the cache from unauthorized
-access. There are two main concerns:
+Irrespective of the cache service you use, consider how to protect the data that's held in the cache from unauthorized access. There are two main concerns:
 
-* The privacy of the data in the cache
-* The privacy of data as it flows between the cache and the
-  application that's using the cache
+* The privacy of the data in the cache.
+* The privacy of data as it flows between the cache and the application that's using the cache.
 
 To protect data in the cache, the cache service might implement
 an authentication mechanism that requires that applications specify the following:
 
 * Which identities can access data in the cache.
-* Which operations (read and write) that these identities are
-  allowed to perform.
+* Which operations (read and write) that these identities are allowed to perform.
 
-To reduce overhead that's associated with
-reading and writing data, after an identity has been granted
-write and/or read access to the cache, that identity can use
-any data in the cache.
+To reduce overhead that's associated with reading and writing data, after an identity has been granted write and/or read access to the cache, that identity can use any data in the cache.
 
-If you need to restrict access to
-subsets of the cached data, you can do one of the following:
+If you need to restrict access to subsets of the cached data, you can do one of the following:
 
 * Split the cache into partitions (by using different cache
   servers) and only grant access to identities for the
@@ -563,21 +550,21 @@ Using the session state provider with Azure Redis Cache delivers several benefit
 * Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 * Using compression to save memory and improve network performance.
 
-For more information, visit the [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website.
+For more information, see [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider/).
 
 > [!NOTE]
 > Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 > 
 > 
 
-Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh. For more information, visit the [ASP.NET output cache provider for Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website.
+Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider/).
 
 ## Building a custom Redis cache
 Azure Redis Cache acts as a façade to the underlying Redis servers. Currently it supports a fixed set of configurations but does not provide for Redis clustering. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
 
 This is a potentially complex process because you might need to create several VMs to act as master and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple masters and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of master/subordinate servers (a cluster must contain at least three master nodes).
 
-Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. The page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) on the Microsoft website walks through an example that shows how to build and configure a Redis node running as an Azure VM.
+Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it.  For an example of building and configuring a Redis node running as an Azure VM, see [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx).
 
 > [!NOTE]
 > Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
@@ -769,7 +756,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-The page [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) on the Microsoft website provides more information about how to write client applications that can use the Azure Redis Cache. Additional information is available on the [Basic usage page](https://stackexchange.github.io/StackExchange.Redis/Basics) on the StackExchange.Redis website.
+For additional information on writing client applications that can the Azure Redis Cache, see [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md).
 
 The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The next section in this article, Using  Redis Caching, provides examples of some of the more advanced techniques that you can apply to data that's held in a Redis cache.
 

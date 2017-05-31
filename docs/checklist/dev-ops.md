@@ -116,7 +116,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Use configuration management.** Configuration changes should be planned, visible to operations, and recorded. This could take the form of a configuration management database, or a configuration-as-code approach. Configuration should be audited regularly to ensure that what's expected is actually in place.
 
-**Get an Azure support plan and understand the process.** Azure offers a number of [support plans][azure-support-plans]. Determine the right plan for your needs, and make sure the entire team knows how to use it. Team members should understand the details of the plan, how the support process works, and how to open a support ticket with Azure.
+**Get an Azure support plan and understand the process.** Azure offers a number of [support plans][azure-support-plans]. Determine the right plan for your needs, and make sure the entire team knows how to use it. Team members should understand the details of the plan, how the support process works, and how to open a support ticket with Azure. If you are anticipating a high-scale event, Azure support can assist you with increasing your service limits. For more information, see the [Azure Support FAQs](https://azure.microsoft.com/en-us/support/faq/).
 
 **Follow least-privilege principles when granting access to resources.** Carefully manage access to resources. Access should be denied by default, unless a user is explicitly given access to a resource. Only grant a user access to what they need to complete their tasks. Track user permissions and perform regular security audits.
 

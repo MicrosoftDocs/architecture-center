@@ -5,7 +5,8 @@
         "src": ".",
         "dest": ".",
         "files": [
-          "**/*.md"
+          "**/*.md",
+          "**/toc.yml"
         ],
         "exclude": [
           "**/obj/**",

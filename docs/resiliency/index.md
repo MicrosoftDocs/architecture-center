@@ -4,7 +4,7 @@ description: How to build resilient applications in Azure, for high availability
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 05/26/2017
 ms.author: pnp
 ms.custom: resiliency
 
@@ -19,7 +19,7 @@ Building a reliable application in the cloud is different than building a reliab
 This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
 ## What is resiliency?
-**Resiliency** is the ability to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
+**Resiliency** is the ability of a system to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
 
 Two important aspects of resiliency are high availability and disaster recovery.
 
@@ -28,9 +28,9 @@ Two important aspects of resiliency are high availability and disaster recovery.
 
 One way to think about HA versus DR is that DR starts when the impact of a fault exceeds the ability of the HA design to handle it. For example, putting several VMs behind a load balancer will provide availability if one VM fails, but not if they all fail at the same time. 
 
-When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it within the normal timeframe?
+When you design an application to be resilient, you have to understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available? You also have to define what it means for the application to be available. For example, is the application "down" if a customer can submit an order but the system cannot process it within the normal timeframe? Also consider the probability of a particular type of outage occurring, and whether a mitigation strategy is cost-effective.
 
-Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after a disaster. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. This article focuses on cloud applications, but resilience planning must be done in the context of overall BC requirements. 
+Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after adverse conditions, such as a natural disaster or a downed service. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. This article focuses on cloud applications, but resilience planning must be done in the context of overall BC requirements. For more information, see the [Contingency Planning Guide][capacity-planning-guide] from the National Institute of Science and Technology (NIST).
 
 ## Process to achieve resiliency
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
@@ -57,15 +57,15 @@ Many cloud solutions consist of multiple application workloads. The term "worklo
 
 These workloads might have different requirements for availability, scalability, data consistency, disaster recovery, and so forth. Again, these are business decisions.
 
-Also think about usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline; a video streaming service must stay up during a big sports event; and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is more expensive, so during less critical times, you might run the application in a single region.  
+Also consider usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline, a video streaming service must stay up during a big sports event, and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is more expensive, so during less critical times, you might run the application in a single region.
 
 ### RTO and RPO
-Two important metrics to consider are the recovery time objective and recovery point objective:
+Two important metrics to consider are the recovery time objective and recovery point objective.
 
 * **Recovery time objective** (RTO) is the maximum acceptable time that an application can be unavailable after an incident. If your RTO is 90 minutes, you must be able to restore the application to a running state within 90 minutes from the start of a disaster. If you have a very low RTO, you might keep a second deployment continually running on standby, to protect against a regional outage.
 * **Recovery point objective** (RPO) is the maximum duration of data loss that is acceptable during a disaster. For example, if you store data in a single database, with no replication to other databases, and perform hourly backups, you could lose up to an hour of data. 
 
-RTO and RPO are business requirements. Another common metric is **mean time to recover** (MTTR), which is the average time that it takes to restore the application after a failure. MTTR is an empirical fact about a system. If MTTR exceeds the RTO, then a failure in the system will cause an unacceptable business disruption, because it won't be possible to restore the system within the defined RTO. 
+RTO and RPO are business requirements. Conducting a risk assessment can help you define the application's RTO and RPO. Another common metric is **mean time to recover** (MTTR), which is the average time that it takes to restore the application after a failure. MTTR is an empirical fact about a system. If MTTR exceeds the RTO, then a failure in the system will cause an unacceptable business disruption, because it won't be possible to restore the system within the defined RTO. 
 
 ### SLAs
 In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commitments for uptime and connectivity. If the SLA for a particular service is 99.9%, it means you should expect the service to be available 99.9% of the time.
@@ -75,7 +75,7 @@ In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commi
 > 
 > 
 
-You should define your own target SLAs for each workload in your solution. An SLA makes it possible to reason about the architecture, and whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service. 
+You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service. 
 
 The following table shows the potential cumulative downtime for various SLA levels. 
 
@@ -103,13 +103,13 @@ Consider an App Service web app that writes to Azure SQL Database. At the time o
 
 ![Composite SLA](./images/sla1.png)
 
-What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. In general, the probability of each service failing is independent, so the composite SLA for this application is 99.95% x 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising, because an application that relies on multiple services has more potential failure points. 
+What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. In general, the probability of each service failing is independent, so the composite SLA for this application is 99.95% &times; 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising, because an application that relies on multiple services has more potential failure points. 
 
 On the other hand, you can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue, to be processed later.
 
 ![Composite SLA](./images/sla2.png)
 
-With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 × 0.001, so the composite SLA for this combined path is  
+With this design, the application is still available even if it can't connect to the database. However, it fails if the database and the queue both fail at the same time. The expected percentage of time for a simultaneous failure is 0.0001 &times; 0.001, so the composite SLA for this combined path is:  
 
 * Database OR queue = 1.0 &minus; (0.0001 &times; 0.001) = 99.99999%
 
@@ -125,11 +125,11 @@ Let *N* be the composite SLA for the application deployed in one region. The exp
 
 * Combined SLA for both regions = 1 &minus; (1 &minus; N)(1 &minus; N) = N + (1 &minus; N)N
 
-Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. As of when this article was written, the SLA for Traffic Manager SLA is 99.99%.
+Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. At the time of this writing, the SLA for Traffic Manager SLA is 99.99%.
 
 * Composite SLA = 99.99% &times; (combined SLA for both regions)
 
-A further detail is that failing over is not instantaneous, which can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
+Also, failing over is not instantaneous and can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
 
 The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
@@ -153,7 +153,7 @@ For more information about the FMA process, with specific recommendations for Az
 | Slow response |Request times out |
 
 ## Resiliency strategies
-This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section are meant to summarize the general idea behind each technique, with links to further reading.
+This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section summarize the general idea behind each technique, with links to further reading.
 
 ### Retry transient failures
 Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
@@ -165,26 +165,27 @@ Each retry attempt adds to the total latency. Also, too many failed requests can
 For more information, see [Retry Pattern][retry-pattern].
 
 ### Load balance across instances
-For scalability, a cloud application should be able to scale out by adding more instances. This approach also improves resiliency, because unhealthy instances can be taken out of rotation.  
+For scalability, a cloud application should be able to scale out by adding more instances. This approach also improves resiliency, because unhealthy instances can be removed from rotation.  
 
 For example:
 
 * Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Run load-balanced VMs for scalability and availability][ra-multi-vm].
-* Scale out an Azure App Service app to multiple instances. App Service automatically load balances across instances. See [Basic web application][ra-basic-web].
+* Scale out an Azure App Service app to multiple instances. App Service automatically balances load across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
+
 
 ### Replicate data
 Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
 
-It's important consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
+It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
 
-For highest availability, replicas can be placed in multiple regions. However, this increases the latency to replicate the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
+To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
 
 ### Degrade gracefully
-If a service fails and there is no failover path, the application may be able to degrade gracefully, in a way that still provides an acceptable user experience. For example:
+If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
 
-* Put a work item on a queue, to be executed later. 
-* Return an estimated value 
+* Put a work item on a queue, to be handled later. 
+* Return an estimated value.
 * Use locally cached data. 
 * Show the user an error message. (This option is better than having the application stop responding to requests.)
 
@@ -193,12 +194,12 @@ Sometimes a small number of users create excessive load. That can have an impact
 
 When a single client makes an excessive number of requests, the application might throttle the client for a certain period of time. During the throttling period, the application refuses some or all of the requests from that client (depending on the exact throttling strategy). The threshold for throttling might depend on the customer's service tier. 
 
-Throttling does not imply the client was necessarily acting maliciously. It just means the client exceeded their service quota.  In some cases, a consumer might consistently exceed their quota or otherwise behave badly. In that case, you might go further and block the user. Typically, this is done by blocking an API key or an IP address range.
+Throttling does not imply the client was necessarily acting maliciously, only that it exceeded its service quota. In some cases, a consumer might consistently exceed their quota or otherwise behave badly. In that case, you might go further and block the user. Typically, this is done by blocking an API key or an IP address range.
 
 For more information, see [Throttling Pattern][throttling-pattern].
 
 ### Use a circuit breaker
-The Circuit Breaker pattern can prevent an application from repeatedly trying an operation that is likely to fail. The analogy is to a physical circuit breaker, a switch that interrupts the flow of current when a circuit is overloaded.
+The Circuit Breaker pattern can prevent an application from repeatedly trying an operation that is likely to fail. This is similar to a physical circuit breaker, a switch that interrupts the flow of current when a circuit is overloaded.
 
 The circuit breaker wraps calls to a service. It has three states:
 
@@ -222,7 +223,7 @@ To avoid this, you can partition a system into isolated groups, so that a failur
 
 Examples:
 
-* Partition a database -- for example, by tenant -- and assign a separate pool of web server instances for each partition.  
+* Partition a database (for example, by tenant) and assign a separate pool of web server instances for each partition.  
 * Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library][hystrix].
 * Use [containers][containers] to limit the resources available to a particular subsystem. 
 
@@ -237,12 +238,13 @@ For example, to book a trip, a customer might reserve a car, a hotel room, and a
 
 For more information, see [Compensating Transaction Pattern][compensating-transaction-pattern]. 
 
+
 ## Testing for resiliency
-Generally, you can't test resiliency in the same way that you test application functionality (by running unit tests and so on). Instead, you must test how the end-to-end workload performs under failure conditions, which by definition don't happen all of the time.
+Generally, you can't test resiliency in the same way that you test application functionality (by running unit tests and so on). Instead, you must test how the end-to-end workload performs under failure conditions which only occur intermittently.
 
-Testing is part of an iterative process. Test the application, measure the outcome, analyze and fix any failures that result, and repeat the process.
+Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 
-**Fault injection testing**. Test the resiliency of the system to failures, either by triggering actual failures or by simulating them. Here are some common failure scenarios to test:
+**Fault injection testing**. Test the resiliency of the system during failures, either by triggering actual failures or by simulating them. Here are some common failure scenarios to test:
 
 * Shut down VM instances.
 * Crash processes.
@@ -253,11 +255,11 @@ Testing is part of an iterative process. Test the application, measure the outco
 * Unmount disks.
 * Redeploy a VM.
 
-Measure the recovery times and verify they meet your business requirements. Test combinations of failure modes, as well. Make sure that failures don't cascade, and are handled in an isolated way.
+Measure the recovery times and verify that your business requirements are met. Test combinations of failure modes as well. Make sure that failures don't cascade, and are handled in an isolated way.
 
 This is another reason why it's important to analyze possible failure points during the design phase. The results of that analysis should be inputs into your test plan.
 
-**Load testing**. Load test the application using a tool such as [Visual Studio Team Services][vsts] or [Apache JMeter][jmeter] Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data, or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.   
+**Load testing**. Load test the application using a tool such as [Visual Studio Team Services][vsts] or [Apache JMeter][jmeter]. Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.   
 
 ## Resilient deployment
 Once an application is deployed to production, updates are a possible source of errors. In the worst case, a bad update can cause downtime. To avoid this, the deployment process must be predictable and repeatable. Deployment includes provisioning Azure resources, deploying application code, and applying configuration settings. An update may involve all three, or a subset. 
@@ -271,37 +273,37 @@ The crucial point is that manual deployments are prone to error. Therefore, it's
 Two concepts related to resilient deployment are *infrastructure as code* and *immutable infrastructure*.
 
 * **Infrastructure as code** is the practice of using code to provision and configure infrastructure. Infrastructure as code may use a declarative approach or an imperative approach (or a combination of both). Resource Manager templates are an example of a declarative approach. PowerShell scripts are an example of an imperative approach.
-* **Immutable infrastructure** is the principle that you shouldn’t modify infrastructure after it’s deployed to production. Otherwise, you can get into a state where ad hoc changes have been applied, so it’s hard to know exactly what changed, and hard to reason about the system. 
+* **Immutable infrastructure** is the principle that you shouldn’t modify infrastructure after it’s deployed to production. Otherwise, you can get into a state where ad hoc changes have been applied, so it's hard to know exactly what changed, and hard to reason about the system. 
 
 Another question is how to roll out an application update. We recommend techniques such as blue-green deployment or canary releases, which push updates in highly controlled way to minimize possible impacts from a bad deployment.
 
-* [Blue-green deployment][blue-green] is a technique where you deploy an update into a separate production environment from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with staging slots. 
-* [Canary releases][canary-release] are similar to blue-green deployment. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more traffic to the new version, until it gets 100% of traffic.
+* [Blue-green deployment][blue-green] is a technique where an update is deployed into a production environment separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with staging slots.
+* [Canary releases][canary-release] are similar to blue-green deployments. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more of the traffic to the new version, until it gets 100% of the traffic.
 
-Whatever approach you take, make sure that you can roll back to the last-known good-deployment, in case the new version is not functioning. Also, if errors occur, it must be possible to tell from the application logs which version caused the error. 
+Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. Also, if errors occur, the application logs must indicate which version caused the error. 
 
 ## Monitoring and diagnostics
 Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure. 
 
-Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs -- it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
+Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs &mdash; it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
 
 You can think of the monitoring and diagnostics process as a pipeline with several distinct stages:
 
 ![Composite SLA](./images/monitoring.png)
 
-* **Instrumentation**. The raw data for monitoring and diagnostics comes from a variety of sources, including application logs, web server logs, OS performance counters, database logs, and diagnostics built into the Azure platform. Most Azure services have a diagnostics feature that you can use to figure out the cause of problems.
-* **Collection and storage**. The raw instrumentation data can be held in a variety of locations and with varying formats (application trace logs, performace counters, IIS logs). These disparate sources are collected, consolidated, and put into reliable storage.
-* **Analysis and diagnosis**. After the data is consolidated, it can be analyzed, in order to troubleshoot issues and provide an overall view of the health of the application.
-* **Visualization and alerts**. In this stage, telemetry data is presented in such a way that an operator can quickly spot trends or problems. Example include dashboards or email alerts.  
+* **Instrumentation**. The raw data for monitoring and diagnostics comes from a variety of sources, including application logs, web server logs, OS performance counters, database logs, and diagnostics built into the Azure platform. Most Azure services have a diagnostics feature that you can use to determine the cause of problems.
+* **Collection and storage**. Raw instrumentation data can be held in various locations and with various formats (e.g., application trace logs, IIS logs, performance counters). These disparate sources are collected, consolidated, and put into reliable storage.
+* **Analysis and diagnosis**. After the data is consolidated, it can be analyzed to troubleshoot issues and provide an overall view of application health.
+* **Visualization and alerts**. In this stage, telemetry data is presented in such a way that an operator can quickly notice problems or trends. Example include dashboards or email alerts.  
 
-Monitoring is different than failure detection. For example, your application might detect a transient error and retry, resulting in no downtime. But it should also log the retry operation, so that you can monitor the error rate, in order to get an overall picture of the application health. 
+Monitoring is not the same as failure detection. For example, your application might detect a transient error and retry, resulting in no downtime. But it should also log the retry operation, so that you can monitor the error rate, in order to get an overall picture of application health. 
 
-Application logs are an important source of diagnostics data. Here are some best practices for application logging:
+Application logs are an important source of diagnostics data. Best practices for application logging include:
 
-* Log in production. Otherwise, you lose insight at the very times when you need it the most.
-* Log events at service boundaries. Include a correlation ID that flows across service boundaries. If transaction X flows through multiple services and one of them fails, the correlation ID will help you pinpoint why the transaction failed.
-* Use semantic logging, also called structured logging. Unstructured logs make it hard to automate the consumption and analysis of the log data, which is needed at cloud scale.
-* Use asynchronous logging. Otherwise, the logging system itself can cause the application to fail, by causing requests to back up, as they block waiting to write a logging event.
+* Log in production. Otherwise, you lose insight where you need it most.
+* Log events at service boundaries. Include a correlation ID that flows across service boundaries. If a transaction flows through multiple services and one of them fails, the correlation ID will help you pinpoint why the transaction failed.
+* Use semantic logging, also known as structured logging. Unstructured logs make it hard to automate the consumption and analysis of the log data, which is needed at cloud scale.
+* Use asynchronous logging. Otherwise, the logging system itself can cause the application to fail by causing requests to back up, as they block while waiting to write a logging event.
 * Application logging is not the same as auditing. Auditing may be done for compliance or regulatory reasons. As such, audit records must be complete, and it's not acceptible to drop any while processing transactions. If an application requires auditing, this should be kept separate from diagnostics logging. 
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics guidance][monitoring-guidance].
@@ -309,16 +311,16 @@ For more information about monitoring and diagnostics, see [Monitoring and diagn
 ## Manual failure responses
 Previous sections have focused on automated recovery strategies, which are critical for high availability. However, sometimes manual intervention is needed.
 
-* **Alerts**. Monitor your application for warning signs that may require pro-active intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert, so that you can follow up.  
-* **Manual failover**. Some systems cannot fail over automatically, and require a manual failover. 
+* **Alerts**. Monitor your application for warning signs that may require proactive intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert so that you can follow up.  
+* **Manual failover**. Some systems cannot fail over automatically and require a manual failover. 
 * **Operational readiness testing**. If your application fails over to a secondary region, you should perform an operational readiness test before you fail back to the primary region. The test should verify that the primary region is healthy and ready to receive traffic again.
 * **Data consistency check**. If a failure happens in a data store, there may be data inconsistencies when the store becomes available again, especially if the data was replicated. 
 * **Restoring from backup**. For example, if SQL Database experiences a regional outage, you can geo-restore the database from the latest backup.
 
-Document and test your disaster recovery plan. Include written procedures for any manual steps, such as manual failover, restoring data from backups, and so forth. 
+Document and test your disaster recovery plan. Evaluate the business impact of application failures. Automate the process as much as possible, and document any manual steps, such as manual failover or data restoration from backups. Regularly test your disaster recovery process to validate and improve the plan. 
 
 ## Summary
-This article looked at resiliency from a holistic perspective, emphasizing some of the unique challenges of the cloud. These include the distributed nature of cloud computing, the use of commodity hardware, and the presence of transience network faults.
+This article discussed resiliency from a holistic perspective, emphasizing some of the unique challenges of the cloud. These include the distributed nature of cloud computing, the use of commodity hardware, and the presence of transient network faults.
 
 Here are the major points to take away from this article:
 
@@ -337,6 +339,7 @@ Here are the major points to take away from this article:
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: /azure/automation/automation-dsc-overview
+[contingency-planning-guide]: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
 [fma]: failure-mode-analysis.md
 [hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
 [jmeter]: http://jmeter.apache.org/
