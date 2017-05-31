@@ -12,6 +12,7 @@ ms.author: pnp
 # High availability for applications built on Microsoft Azure
 A highly available application absorbs fluctuations in availability, load, and temporary failures in dependent services and hardware. The application continues to perform acceptably, as defined by business requirements or application service-level agreements (SLAs).
 
+## Azure high-availability features 
 Azure has many built-in platform features that support highly-available applications. This section describes some of those key features.
 
 ### Fabric controller
