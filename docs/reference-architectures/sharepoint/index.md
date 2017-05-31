@@ -1,8 +1,18 @@
+---
+title: Run a high availability SharePoint Server 2016 farm in Azure
+description:  Proven practices for setting up a high availability SharePoint Server 2016 farm on Azure.
+author: njray
+ms.date: 05/30/17
+---
+
 # Run a high availability SharePoint Server 2016 farm in Azure
 
 This reference architecture shows a set of proven practices for setting up a high availability SharePoint Server 2016 farm using MinRole topology and SQL Server Always On availability groups on Azure. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence.
 
 ![](./images/sharepoint-ha.png)
+
+> [!NOTE]
+> The reference architecture doesn't implement the Active Directory trust relationship with an existing on-premises environment. You must also configure the gateway yourself.
 
 ## Architecture
 
@@ -26,8 +36,6 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. Because SharePoint Server 2016 does not support using Azure Active Directory Domain Services, you must deploy Windows Server AD domain controllers. These domain controllers run in the Azure virtual network and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the cross-premises connection to your on-premises network. In DNS, intranet A or CNAME records are used so intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-    > [!NOTE]
-    > The reference architecture doesn't implement the Active Directory trust relationship with an existing on-premises environment. You must also configure the gateway yourself.
 
 - **SQL Server Always On Availability Group**. For high availability of the SQL Server database, we recommend [SQL Server Always On Availability Groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica of an availability group, and the other contains the secondary replica. 
 
@@ -73,6 +81,8 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 We recommend having one NSG for each subnet that contains VMs, to enable subnet isolation. Do not assign an NSG to the gateway subnet, or the gateway will stop functioning.
  
 In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the SharePointsubnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
+
+If you want to configure subnet isolation, add NSG rules that define the allowed or denied inbound or outbound traffic for each subnet. 
 
 This configuration primarily follows the reference architecture for n-tier applications, but deployment models can vary. For more information, see [Filter network traffic with network security groups][virtual-networks-nsg].
 
@@ -134,7 +144,7 @@ We recommend that the majority node server reside on a separate computer from th
 
 To scale up the existing servers, simply change the VM size. 
 
-With the MinRoles capability in SharePoint Server 2016, you can scale out servers based on the server's role and also remove servers from a role. When you add servers to a role, you can specify any of the single roles or one of the combined roles. If you add servers to the Search role, however, you must also reconfigure the search topology using PowerShell. You can also convert roles using MinRoles. For more information, see [Managing a MinRole Server Farm in SharePoint Server 2016][sharepoint-minrole].
+With the [MinRoles][minroles] capability in SharePoint Server 2016, you can scale out servers based on the server's role and also remove servers from a role. When you add servers to a role, you can specify any of the single roles or one of the combined roles. If you add servers to the Search role, however, you must also reconfigure the search topology using PowerShell. You can also convert roles using MinRoles. For more information, see [Managing a MinRole Server Farm in SharePoint Server 2016][sharepoint-minrole].
 
 Note that SharePoint Server 2016 doesn't support using virtual machine scale sets for auto-scaling.
 
@@ -152,7 +162,7 @@ The tasks to consider when managing SQL Server in a SharePoint environment may d
 
 ## Security considerations
 
-The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers for domain-join and authentication processes. Azure Active Directory Domain Services can't be used for this purpose. To extend the security model of this architecture, you can insert a perimeter network (also known as DMZ) and make sure that the Windows Server AD domain has a trust relationship with the forest. For more information, see [Create an AD DS resource forest in Azure][adds-forest-ra]. 
+The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers for domain-join and authentication processes. Azure Active Directory Domain Services can't be used for this purpose. To extend the Windows Server AD identity infrastructure already in place in the intranet, this architecture uses two Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest.
 
 In addition, it's always wise to plan for security hardening. Other recommendations include:
 
@@ -218,6 +228,7 @@ An Azure Resource Manager deployment template for this architecture is available
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
+[minroles]: https://technet.microsoft.com/library/mt346114(v=office.16).aspx
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
