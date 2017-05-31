@@ -12,7 +12,7 @@ ms.author: pnp
 # High availability for applications built on Microsoft Azure
 A highly available application absorbs fluctuations in availability, load, and temporary failures in dependent services and hardware. The application continues to perform acceptably, as defined by business requirements or application service-level agreements (SLAs).
 
-## Azure high-availability features 
+## Azure high-availability features
 Azure has many built-in platform features that support highly-available applications. This section describes some of those key features.
 
 ### Fabric controller
@@ -24,7 +24,7 @@ The following diagram shows Azure shared resources that the fabric controller de
 
 ![Simplified view of fault domain isolation](./images/high-availability-azure-applications/fault-domain-isolation.png)
 
-Upgrade domains are similar to fault domains, but they support upgrades rather than failures. An upgrade domain is a logical unit of instance separation that determines which instances in a particular service will be upgraded at a specific point in time. By default, five upgrade domains are defined for your hosted service deployment. However, you can change that value in the service definition file. For example, if you have eight instances of your web role, there will be two instances in three upgrade domains and two instances in one upgrade domain. Azure defines the update sequence based on the number of upgrade domains. For more information, see [Update a cloud service](/azure/cloud-services/cloud-services-update-azure-service/).
+While fault domains are physical separations to mitigate failure, upgrade domains are logical units of instance separation that determine which instances in a particular service will be upgraded at a specific time. By default, five upgrade domains are defined for your hosted service deployment. However, you can change that value in the service definition file. For example, if you have eight instances of your web role, there will be two instances in three upgrade domains and two instances in one upgrade domain. Azure defines the update sequence based on the number of upgrade domains. For more information, see [Update a cloud service](/azure/cloud-services/cloud-services-update-azure-service/).
 
 ### Features in other services
 In addition to the platform features that support high availability of compute resources, Azure embeds high-availability features in its other services. For example, Azure Storage maintains at least three replicas of all data in your Azure storage account. It also enables geo-replication to store copies of your data in a secondary region. The Azure Content Delivery Network allows blobs to be cached around the world for redundancy,scalability, and lower latency. Azure SQL Database maintains multiple replicas as well.
