@@ -315,9 +315,9 @@ For additional information about partitioning data in Azure table storage, see t
 ## Partitioning Azure blob storage
 Azure blob storage makes it possible to hold large binary objects--currently up to 5 TB in size for block blobs or 1 TB for page blobs. (For the most recent information, go to the page [Azure Storage scalability and performance targets] on the Microsoft website.) Use block blobs in scenarios such as streaming where you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
-Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements, although this grouping is logical rather than physical. Inside a container, each blob has a unique name.
+Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements. This grouping is logical rather than physical. Inside a container, each blob has a unique name.
 
-Blob storage is automatically partitioned based on the blob name. Blobs in the same container do not necessarily share a partition. This architecture helps Azure blob storage to balance the load across servers transparently.
+The partition key for a blob is account name + container name + blob name. This means each blob can have its own partition if load on the blob demands it. Blobs can be distributed across many servers in order to scale out access to them, but a single blob can only be served by a single server. 
 
 The actions of writing a single block (block blob) or page (page blob) are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
