@@ -12,7 +12,7 @@ pnp.series.title: Best Practices
 # API implementation
 [!INCLUDE [header](../_includes/header.md)]
 
-A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. You can find detailed information about web API design in the [API Design Guidance]. (/azure/architecture/best-practices/api-design) document. For security concerns see [Security, Authentication, and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security).
+A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. For detailed information about web API design, see [API Design Guidance](/azure/architecture/best-practices/api-design).
 
 ## Considerations for processing requests
 
@@ -20,7 +20,7 @@ Consider the following points when you implement the code to handle requests.
 
 ### GET, PUT, DELETE, HEAD, and PATCH actions should be idempotent
 
-The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different (the first DELETE request might return status code 204 (No Content) while a subsequent DELETE request might return status code 404 (Not Found)).
+The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different. Tthe first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
 > The article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
