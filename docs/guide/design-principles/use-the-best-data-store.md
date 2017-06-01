@@ -23,7 +23,7 @@ Remember that data includes more than just the persisted application data. It al
 
 ## Recommendations
 
-**Don't use a relational database for everything**. Consider other data stores when appropriate. 
+**Don't use a relational database for everything**. Consider other data stores when appropriate. See [Choose the right data store][data-store-overview].
 
 **Embrace polyglot persistence**. In any large solution, it's likely that a single data store technology won't fill all your needs. 
 
@@ -36,3 +36,5 @@ Remember that data includes more than just the persisted application data. It al
 **Use compensating transactions**. A side effect of polyglot persistence is that single transaction might write data to multiple stores. If something fails, use compensating transactions to undo any steps that already completed.
 
 **Look at bounded contexts**. *Bounded context* is a term from domain driven design. A bounded context is an explicit boundary around a domain model, and defines which parts of the domain the model applies to. Ideally, a bounded context maps to a subdomain of the business domain. The bounded contexts in your system are a natural place to consider polyglot persistence. For example, "products" may appear in both the Product Catalog subdomain and the Product Inventory subdomain, but it's very likely that these two subdomains have different requirements for storing, updating, and querying products.
+
+[data-store-overview]: ../technology-choices/data-store-overview.md

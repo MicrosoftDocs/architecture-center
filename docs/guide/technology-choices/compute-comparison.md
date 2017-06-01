@@ -13,7 +13,7 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Container Service | Cloud Services | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Application composition | Agnostic | Applications | Services, guest executables | Functions | Agnostic | Roles | Scheduled jobs  |
+| Application composition | Agnostic | Applications | Services, guest executables | Functions | Containers | Roles | Scheduled jobs  |
 | Density | Agnostic | Multiple apps per instance via app plans | Multiple services per VM | No dedicated instances <a href="#note1"><sup>1</sup></a> | Multiple containers per VM | One role instance per VM | Multiple apps per VM |
 | Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 5 <a href="#note3"><sup>3</sup></a> | No dedicated nodes <a href="#note1"><sup>1</sup></a> | 3 | 2 | 1 <a href="#note4"><sup>4</sup></a> |
 | State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
