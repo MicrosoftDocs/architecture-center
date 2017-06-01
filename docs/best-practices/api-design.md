@@ -556,7 +556,7 @@ The [Open API Initiative](https://www.openapis.org/) was created by an industry 
 You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
 - The OpenAPI Specification comes with with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
-- OpenAPI promotes a contract-first approach, rather than an implementation-first. Contract-first means that you design the API contract first (the interface) and then write code that implements the contract. 
+- OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract. 
 - Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API Help Pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## More information
