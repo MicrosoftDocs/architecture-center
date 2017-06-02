@@ -1,0 +1,11 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+
+- name: Pivotal Cloud Foundry on Azure
+  items:
+  - name: Introduction
+    href: index.md
+  - name: Logical infrastructure
+    href: logical-infrastructure.md
+  - name: Applications and microservices
+    href: applications-and-microservices.md
