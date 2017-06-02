@@ -6,7 +6,7 @@ author: dragon119
 
 # Performance antipatterns for cloud applications
 
-A *performance antipattern* is a common practice that is likely to cause scalability problems when an application is under pressure. For each antipattern, we describe why the antipattern typically occurs, symptoms of the antipattern, and some techniques for resolving the problem. We also provide sample code that illustrates both the antipattern and a suggested solution. 
+A *performance antipattern* is a common practice that is likely to cause scalability problems when an application is under pressure. 
 
 Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to experience real-world workloads. At that point, it starts to perform poorly &mdash; rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 
@@ -15,9 +15,11 @@ Here is a common scenario: An application behaves well during performance testin
 
 The answer to the first question is straightforward. It's very difficult in a test environment to simulate real users, their behavior patterns, and the volumes of work they might perform. The only completely sure way to understand how a system behaves under load is to observe it in production. To be clear, we aren't suggesting that you should skip performance testing. Performance tests are crucial for getting baseline performance metrics. But you must be prepared to observe and correct performance issues when they arise in the live system.
 
-The answer to the second question, how to fix the problem, is less straightforward. Any number of factors might contribute, and sometimes the problem only manifests under certain circumstances. Instrumentation and logging are key to finding the root cause, but you also have to know what to look for. These antipatterns are intended to give you a starting point for your investigations.
+The answer to the second question, how to fix the problem, is less straightforward. Any number of factors might contribute, and sometimes the problem only manifests under certain circumstances. Instrumentation and logging are key to finding the root cause, but you also have to know what to look for. 
 
-Here is the list of antipatterns that we've identified: 
+Based on our engagements with Microsoft Azure customers, we've identified some of the most common performance issues that customers see in production. For each antipattern, we describe why the antipattern typically occurs, symptoms of the antipattern, and techniques for resolving the problem. We also provide sample code that illustrates both the antipattern and a suggested solution. 
+
+Some of these antipatterns may seem obvious when you read the descriptions, but they occur more often than you might think. Sometimes an application inherits a design that worked enough on-premisesm, but doesn't scale in the cloud. Or an application might start with a very clean design, but as new features are added, one or more of these antipatterns creeps in. Regardless, this guide will help you to identify and fix these antipatterns.
 
 | Antipattern | Description |
 |-------------|-------------|

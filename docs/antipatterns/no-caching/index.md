@@ -201,9 +201,8 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 - [Caching best practices][caching-guidance].
 - [Cache-Aside Pattern][cache-aside-pattern].
 
-
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
-[cache-aside-pattern]: https://msdn.microsoft.com/library/dn589799.aspx
+[cache-aside-pattern]: /azure/architecture/patterns/cache-aside
 [caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [client-cache]: ../../best-practices/api-implementation.md#considerations-for-optimizing-client-side-data-access
