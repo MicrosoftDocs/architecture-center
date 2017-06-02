@@ -6,7 +6,7 @@ author: dragon119
 
 # Performance antipatterns for cloud applications
 
-A *performance antipattern* is a common practice that is likely to cause scalability problems when an application is under pressure. Based on our own experience and customer engagements, we have identified a set of antipatterns that are a frequent source of performance problems. For each antipattern, we describe why the antipattern typically occurs, symptoms of the antipattern, and some techniques for resolving the problem. We also provide sample code that illustrates both the antipattern and a suggested solution. 
+A *performance antipattern* is a common practice that is likely to cause scalability problems when an application is under pressure. For each antipattern, we describe why the antipattern typically occurs, symptoms of the antipattern, and some techniques for resolving the problem. We also provide sample code that illustrates both the antipattern and a suggested solution. 
 
 Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to experience real-world workloads. At that point, it starts to perform poorly &mdash; rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 
