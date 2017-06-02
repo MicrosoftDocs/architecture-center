@@ -18,8 +18,8 @@ pnp.series.prev:
 Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and
 operating applications. PCF can run on-premises, and atop public cloud
 providers like Microsoft Azure. This gives enterprises a hybrid and
-multi-cloud platform.\
-\
+multi-cloud platform.
+
 PCF is a uniform way for you to launch, and quickly iterate, on
 applications in any popular language. The platform manages many
 implementation details for you. With PCF, you no longer have to think
@@ -39,10 +39,8 @@ architecture organizes elements according to their network affinity.
 - **App Services Virtual Network**, used by PCF managed services like
     MySQL, RabbitMQ and Spring Cloud® Services for Pivotal Cloud Foundry
 
-![Screen Shot 2017-03-02 at 1.04.58
-PM.png](images/media/image1.png){width="6.5in"
-height="3.5833333333333335in"}*Figure 1 - An overview of selected
-Pivotal Cloud Foundry components.*
+![Screen Shot 2017-03-02 at 1.04.58 PM.png](images/media/image1.png)
+*Figure 1 - An overview of selected Pivotal Cloud Foundry components.*
 
 Let’s review each item in Figure 1.
 
@@ -142,9 +140,7 @@ Let’s review each item in Figure 1.
     features, shown below. Users can analyze logs and metrics using this
     starter OMS visualization widget.
 
-![](images/media/image2.png){width="6.5in"
-height="3.2083333333333335in"}
-
+![](images/media/image2.png)
 *Figure X - Cloud Foundry metrics and logging, shown in the Microsoft
 OMS.*
 
@@ -202,8 +198,8 @@ OMS.*
 
 Customers use Pivotal Cloud Foundry's core components to deploy and
 operate their apps. Developers and operators tend to extend their modern
-apps with other services.\
-\
+apps with other services.
+
 These add-ons connect via an Application Services Virtual Network. Here
 are a few popular services that Azure customers often integrate into
 their apps.
@@ -254,11 +250,7 @@ their apps.
     most popular categories.
 
 - **Internal Services.** Customers may connect their own internal
-    services using the service\
-    broker interface.
-
-- **Application Gateway**. \[MICROSOFT CALL TO ACTION: CONTENT
-    MISSING\]
+    services using the service broker interface.
 
 ### Other Topics
 
@@ -379,7 +371,9 @@ requirements.
 
 ## Spring Cloud Services & Steeltoe
 
-### ![scs.png](images/media/image3.png){width="0.6145833333333334in" height="0.6145833333333334in"}Overview
+![scs.png](images/media/image3.png)
+
+### Overview
 
 [*Spring Cloud Services (SCS) for
 PCF*](http://docs.pivotal.io/spring-cloud-services/1-3/index.html)
@@ -400,14 +394,16 @@ service instance on-demand. From there, you can bind to it and consume
 it. This again frees you to focus on the value added by your own
 microservices.
 
-### ![Config\_Server.png](images/media/image4.png){width="0.6331846019247594in" height="0.6423611111111112in"} Config Server for Pivotal Cloud Foundry
+![Config\_Server.png](images/media/image4.png)
+
+### Config Server for Pivotal Cloud Foundry
 
 [*Config Server for
 PCF*](http://docs.pivotal.io/spring-cloud-services/1-3/config-server/)
 is an externalized application configuration service. This delivers a
 central place to manage an application’s external properties across all
-environments.\
-\
+environments.
+
 Config Server will manage the configuration for an app as it advances
 through the deployment pipeline (dev, test, prod). Developers can be
 sure that an app has everything it needs to run during this process.
@@ -416,27 +412,25 @@ configurations.Users can manage configuration content with many tools,
 including Git. We also plan future support for Vault (as well as Git and
 Vault in composite fashion).
 
-![](images/media/image5.png){width="4.541666666666667in"
-height="1.7779396325459318in"}\
+![](images/media/image5.png)
 *Figure 2 - Config Server for Pivotal Cloud Foundry.*
 
-### ![Service\_Registry.png](images/media/image6.png){width="0.668403324584427in" height="0.6597222222222222in"}Service Registry for Pivotal Cloud Foundry
+![Service\_Registry.png](images/media/image6.png)
+
+### Service Registry for Pivotal Cloud Foundry
 
 [*Service Registry for
 PCF*](http://docs.pivotal.io/spring-cloud-services/1-3/service-registry/)
 provides an implementation of the [*Service Discovery pattern, based on
 Netflix
 Eureka*](http://docs.pivotal.io/spring-cloud-services/1-3/service-registry/resources.html).
-This is one of the key tenets of a microservice-based architecture.\
-\
+This is one of the key tenets of a microservice-based architecture.
+
 Manual configuration of each client or service is difficult. It often
 proves brittle in production. Instead, use Service Registry to
 dynamically discover and call registered services.
 
-![Service registry
-overview](images/media/image7.png){width="3.5156255468066493in"
-height="1.8265080927384076in"}
-
+![Service registry overview](images/media/image7.png)
 *Figure 3 - Service Registry for Pivotal Cloud Foundry.*
 
 First, a client registers with the Service Registry. The client also
@@ -445,7 +439,9 @@ the Registry expects a regular heartbeat message from each service
 instance. If the heartbeat message is not received consistently, the
 Service Registry removes the instance from its registry.
 
-### ![Circuit\_Breaker.png](images/media/image8.png){width="0.6631944444444444in" height="0.6631944444444444in"}Circuit Breaker Dashboard for Pivotal Cloud Foundry
+![Circuit\_Breaker.png](images/media/image8.png)
+
+### Circuit Breaker Dashboard for Pivotal Cloud Foundry
 
 The [*Hystrix*](https://github.com/Netflix/Hystrix) library (part of
 [*Spring Cloud Netflix*](https://cloud.spring.io/spring-cloud-netflix/))
@@ -462,9 +458,7 @@ to a failing service can also make it difficult to repair. Hystrix
 circuit breakers can prevent failures from cascading. They can also
 provide fallback behavior until a failing service is restored to normal.
 
-![](images/media/image9.png){width="3.611111111111111in"
-height="2.109054024496938in"}
-
+![](images/media/image9.png)
 *Figure 4 - Circuit Breaker for Pivotal Cloud Foundry.*
 
 When applied to a service, a circuit breaker watches for failing calls
@@ -475,8 +469,7 @@ recover. The Circuit Breaker Dashboard provides operational visibility
 into the behavior of all of the circuit breakers present in a fleet of
 cloud-native services.
 
-![](images/media/image10.png){width="3.125in"
-height="1.1354166666666667in"}
+![](images/media/image10.png)
 
 ### Microservices for .NET with Steeltoe
 
@@ -490,7 +483,7 @@ is that much easier.
 
 Steeltoe includes three modules:
 
-**Service Discovery**\
+**Service Discovery**
 How do you make the interactions between your microservices reliable and
 failure tolerant? For starters, you need a service registry—basically a
 phone book for your microservices—so service consumers know exactly
@@ -498,7 +491,7 @@ where to find healthy service instances. Steeltoe includes a .NET client
 for Netflix Eureka so your microservices can register themselves and
 discover other registered services.
 
-**Config Server**\
+**Config Server**
 “Strict separation of config from code” has become a cloud mandate, but
 that begs the question, where do you put it? And once you’ve
 externalized your config from your app, how do you track who changed
@@ -506,7 +499,7 @@ what, when? Steeltoe leverages Spring Cloud Config Server so you can
 store your app’s config in a centralized, version-controlled git repo
 and then load it at runtime.
 
-**Cloud Connectors**\
+**Cloud Connectors**
 Steeltoe automatically wires up common backing services, because no
 microservice is an island. And because it was built by Pivotal, Steeltoe
 integrates elegantly with Cloud Foundry.
