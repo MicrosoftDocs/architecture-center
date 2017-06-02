@@ -35,8 +35,7 @@ It has the following subnets:
 
 - Dynamic or On Demand Service tiles
 
-![PCF\_on\_MS\_Azure\_refarch.png](images/media/image11.png){width="7.223958880139983in"
-height="4.858082895888014in"}
+![PCF\_on\_MS\_Azure\_refarch.png](images/media/image11.png)
 
 *Figure 5 - A logical reference architecture for Pivotal Cloud Foundry
 atop Microsoft Azure, featuring a single resource group.*
@@ -52,9 +51,6 @@ to as fault domains.
 
 In this reference architecture BOSH will create multiple Availability
 Sets for your PCF deployment.
-
-\[**MICROSOFT CALL TO ACTION:** WE NEED TO ELABORATE ON THIS, I.E. BASED
-ON SCOTIABANK LEARNINGS\]
 
 ### IaaS Architecture
 
