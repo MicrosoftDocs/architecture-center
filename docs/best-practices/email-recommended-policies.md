@@ -122,8 +122,8 @@ For most organizations, it is important to be able to set user expectations arou
 
 Users typically benefit from single sign-on (SSO) except during the following situations: 
 * When requesting authentication tokens for Exchange Online:
- * Users may be asked to MFA whenever a medium or above sign-in risk is detected and users has not yet performed MFA in their current sessions.  
- * Users will be required to either use email apps that support the Intune App Protection SDK or access emails from Intune compliant or AD domain-joined devices. 
+  * Users may be asked to MFA whenever a medium or above sign-in risk is detected and users has not yet performed MFA in their current sessions.  
+  * Users will be required to either use email apps that support the Intune App Protection SDK or access emails from Intune compliant or AD domain-joined devices. 
 * When users at risk sign-in, and successfully complete MFA, they will be asked to change their password.
 
 ## Sensitive
@@ -199,9 +199,9 @@ For most organizations, it is important to be able to set expectations for users
 * Maximum lifetime of a single sign-on session is 1 day. Users will be required to re-authenticate with MFA after the sessions expire.
 * When users at risk sign-in, after complete MFA, will be asked to change their password.
 * When requesting authentication tokens for Exchange Online:
- * Users will be asked to perform MFA whenever they begin a new session.  
- * Users will be required to use email apps that support the Intune App Protection SDK
- * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
+  * Users will be asked to perform MFA whenever they begin a new session.  
+  * Users will be required to use email apps that support the Intune App Protection SDK
+  * Users will be required to access emails from Intune compliant or AD domain-joined devices. 
 
 
 ## Next Steps
