@@ -39,4 +39,7 @@
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns
       topicHref: /azure/architecture/antipatterns
-    
+    - name: Pivotal Cloud Foundry
+      tocHref: /azure/architecture/cloud-foundry
+      topicHref: /azure/architecture/cloud-foundry
+
