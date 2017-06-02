@@ -36,7 +36,7 @@ Typical uses for this architecture include:
 The following diagram highlights the important components in this architecture:
 
 > A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "DMZ - Public" page.
-> 
+> [The Visio file needs update]
 > 
 
 [![0]][0] 
