@@ -107,6 +107,8 @@
     href: service-fabric/migrate-from-cloud-services.md
   - name: Run Elasticsearch on Azure
     href: elasticsearch/index.md
+  - name: Run Pivotal Cloud Foundry on Azure
+    href: cloud-foundy/index.md
 
 - name: Resources
   items:

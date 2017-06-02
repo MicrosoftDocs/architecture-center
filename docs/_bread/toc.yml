@@ -36,3 +36,6 @@
     - name: Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
+    - name: Pivotal Cloud Foundry
+      tocHref: /azure/architecture/cloud-foundry
+      topicHref: /azure/architecture/cloud-foundry
