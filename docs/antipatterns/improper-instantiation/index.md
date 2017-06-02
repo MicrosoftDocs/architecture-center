@@ -10,7 +10,7 @@ It can hurt performance to continually create new instances of an object that is
 
 ## Problem description
 
-Many libraries provide abstractions of external resources. Internally, these classes typically manage their own connections to the resource, acting as brokers that clients can use to access the resource. Here are some examples of brokerer classes that are relevant to Azure applications:
+Many libraries provide abstractions of external resources. Internally, these classes typically manage their own connections to the resource, acting as brokers that clients can use to access the resource. Here are some examples of broker classes that are relevant to Azure applications:
 
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
 - `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue. 
@@ -99,7 +99,7 @@ is designed to be shared rather than pooled. Other objects might support pooling
 
 - Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
 
-- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. The objects intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` managems connections. (See [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging]).
+- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. The objects intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. (See [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging]).
 
 
 ## How to detect the problem

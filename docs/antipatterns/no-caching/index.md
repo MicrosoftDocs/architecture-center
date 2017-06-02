@@ -10,7 +10,7 @@ In a cloud application that handles many concurrent requests, repeatedly fetchin
 
 ## Problem description
 
-When data is not cached, it can cause a number of undesireable behaviors:
+When data is not cached, it can cause a number of undesirable behaviors:
 
 - The application repeatedly retrieves the same information from a resource that is expensive to access, in terms of I/O overhead or latency.
 - The application uses processing resources to construct the same objects or data structures for multiple requests.
@@ -94,7 +94,7 @@ public class CacheService
 }
 ```
 
-Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Redis Cache. If the value isn't found in Redis Cache, the `CacheService` invokes a lambda function that was passed to it by the caller. The lamba function is responsible for fetching the data from the database. This implementation decouples the repository from the particular caching solution, and decouples the `CacheService` from the database. 
+Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Redis Cache. If the value isn't found in Redis Cache, the `CacheService` invokes a lambda function that was passed to it by the caller. The lambda function is responsible for fetching the data from the database. This implementation decouples the repository from the particular caching solution, and decouples the `CacheService` from the database. 
 
 ## Considerations
 
@@ -186,7 +186,7 @@ FROM [Person].[Person] AS [Extent1]
 WHERE [Extent1].[BusinessEntityId] = @p__linq__0
 ```
 
-This is the query that Entity Framework generates in `GetByIdAsync` method shown earlirt.
+This is the query that Entity Framework generates in `GetByIdAsync` method shown earlier.
 
 ### Implement the solution and verify the result
 

@@ -154,7 +154,7 @@ This graph shows performance results from a load test that simulated up to 400 c
 
 ![Load test results for the GetAllFieldsAsync method][Load-Test-Results-Client-Side1]
 
-A load test for the `AggregateOnClientAsync` operation shows a similar pattern. The volume of requests is reasonably stable. The average response time increases with the workload, allthough more slowly than the previous graph.
+A load test for the `AggregateOnClientAsync` operation shows a similar pattern. The volume of requests is reasonably stable. The average response time increases with the workload, although more slowly than the previous graph.
 
 ![Load test results for the AggregateOnClientAsync method][Load-Test-Results-Client-Side2]
 

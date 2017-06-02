@@ -168,7 +168,7 @@ As more users send POST requests to the `WorkInFrontEnd` controller, the respons
 
 ### Review the source code
 
-The final step is to look at the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, becaue the `Post` method did not block waiting for a long-running task to complete.
+The final step is to look at the source code. The development team was aware that the `Post` method could take a considerable amount of time, which is why the original implementation used a separate thread. That solved the immediate problem, because the `Post` method did not block waiting for a long-running task to complete.
 
 ```csharp
 public void Post()

@@ -10,7 +10,7 @@ Putting all of an application's data into a single data store can hurt performan
 
 ## Problem description
 
-Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skillset of the development team. 
+Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team. 
 
 Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogenous types of data, documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
@@ -99,9 +99,9 @@ Look for correlations between increased response times and increased database ac
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utililzation of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where the throughput peaked, in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where the throughput peaked, in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
 
-![The database monitor in the Azure Management Portal showing resource utilization of the database][MonolithicDatabaseUtilization]
+![The database monitor in the Azure classic portal showing resource utilization of the database][MonolithicDatabaseUtilization]
 
 ### Examine the telemetry for the data stores
 
@@ -126,11 +126,11 @@ The application was changed to write logs to a separate data store. Here are the
 The pattern of throughput is similar to the earlier graph, but the point at which performance peaks is approximately 500 requests
 per second higher. The average response time is marginally lower. However, these statistics don't tell the full story. Telemetry for the business database shows that DTU utilization peaks at around 75%, rather than 100%.
 
-![The database monitor in the Azure Management Portal showing resource utilization of the database in the polyglot scenarion][PolyglotDatabaseUtilization]
+![The database monitor in the Azure classic portal showing resource utilization of the database in the polyglot scenario][PolyglotDatabaseUtilization]
 
 Similarly, the maximum DTU utilization of the log database only reaches about 70%. The databases are no longer the limiting factor in the performance of the system.
 
-![The database monitor in the Azure Management Portal showing resource utilization of the log database in the polyglot scenarion][LogDatabaseUtilization]
+![The database monitor in the Azure classic portal showing resource utilization of the log database in the polyglot scenario][LogDatabaseUtilization]
 
 
 ## Related resources
