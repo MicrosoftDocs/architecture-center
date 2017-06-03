@@ -310,7 +310,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [ef]: /ef/
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/application-monitoring
-[no-cache]: ./no-caching.md
+[no-cache]: ../no-caching/index.md
 
 [key-indicators-chatty-io]: _images/ChattyIO.jpg
 [key-indicators-chunky-io]: _images/ChunkyIO.jpg
