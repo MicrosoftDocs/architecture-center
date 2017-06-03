@@ -51,7 +51,7 @@ public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcatego
 }
 ```
 
-This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is called the "N+1 problem". 
+This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the "N+1 problem". 
 
 ### Implementing a single logical operation as a series of HTTP requests
 
@@ -214,7 +214,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](http://azure.microsoft.com/en-us/services/event-hubs/).
 
-- Consider caching data that you retrieve from a service or a database. This can help to reduce the volume of I/O, by avoiding repeated requests for the same data. For more information, see [Caching best practices][caching-guidance].
+- Consider caching data that you retrieve from a service or a database. This can help to reduce the volume of I/O by avoiding repeated requests for the same data. For more information, see [Caching best practices][caching-guidance].
 
 ## How to detect the problem
 
@@ -237,15 +237,13 @@ service.
 store.
 - Applications and services becoming I/O bound.
 
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems. 
-
 ## Example diagnosis
 
 The following sections apply these steps to the example shown earlier that queries a database.
 
 ### Load test the application
 
-This graph shows the results of load testing. Median response time is measured in 10s of seconds per request. The graph shows very high latency: With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query. 
+This graph shows the results of load testing. Median response time is measured in 10s of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query. 
 
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
@@ -273,7 +271,7 @@ It turns out that the `GetProductsInSubCategoryAsync` method, shown earlier, per
 ![Query statistics for the sample application under test][queries2]
 
 > [!NOTE]
-> This image shows trace information for the slowest instance of the `GetProductsInSubCategoryAsync` operation in the load test. In a production environment, it's useful to examine traces of the slowest instances, to see if there is a pattern that suggests a problem. If you just look at average or fast-running operations, you may be looking at the "happy path" and missing problems that could get dramatically worse under load.
+> This image shows trace information for the slowest instance of the `GetProductsInSubCategoryAsync` operation in the load test. In a production environment, it's useful to examine traces of the slowest instances, to see if there is a pattern that suggests a problem. If you just look at the average values, you might overlook problems that will get dramatically worse under load.
 
 The next image shows the actual SQL statements that were issued. The query that fetches price information is run for each individual product in the product subcategory. Using a join would considerably reduce the number of database calls.
 
@@ -289,7 +287,7 @@ Rewriting the call to Entity Framework produced the following results.
 
 This load test was performed on the same deployment, using the same load profile. This time the graph shows much lower latency. The average request time at 1000 users is between 5 and 6 seconds, down from nearly a minute.
 
-This time the system supported an average of 3970 requests per minute, compared to 410 for the earlier test.
+This time the system supported an average of 3,970 requests per minute, compared to 410 for the earlier test.
 
 ![Transaction overview for the chunky API][databasetraffic2]
 
@@ -299,9 +297,11 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 
 ## Related resources
 
-- [Data Consistency Primer][data-consistency-guidance]
-- [Caching best practices][caching-guidance]
 - [API Design best practices][api-design]
+- [Caching best practices][caching-guidance]
+- [Data Consistency Primer][data-consistency-guidance]
+- [Extraneous Fetching antipattern][extraneous-fetching]
+- [No Caching antipattern][no-cache]
 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.md
@@ -310,6 +310,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [ef]: /ef/
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/application-monitoring
+[no-cache]: ./no-caching.md
 
 [key-indicators-chatty-io]: _images/ChattyIO.jpg
 [key-indicators-chunky-io]: _images/ChunkyIO.jpg

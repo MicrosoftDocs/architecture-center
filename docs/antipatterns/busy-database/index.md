@@ -19,9 +19,9 @@ Many database systems can run code. Examples include stored procedures and trigg
 This antipattern typically occurs because:
 
 - The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or perform complex calculations.
-- Developers attempted to write queries whose results can be displayed directly. This might involve combining fields, or formatting dates, times, currency, and numeric values according to locale.
-- Developers were trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
-- Stored procedures are being used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
+- Developers try to write queries whose results can be displayed directly to users. For example a query might combine fields, or format dates, times, and currency according to locale.
+- Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
+- Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
 
 The following example retrieves the 20 most valuable orders for a specified sales territory and formats the results as XML.
 It uses Transact-SQL functions to parse the data and convert the results to XML. You can find the complete sample [here][sample-app].
@@ -153,9 +153,7 @@ using (var command = new SqlCommand(...))
 
                 var orderDate = (DateTime)reader["OrderDate"];
                 var totalDue = (Decimal)reader["TotalDue"];
-                var reviewRequired = totalDue > 5000
-                    ? 'Y'
-                    : 'N';
+                var reviewRequired = totalDue > 5000 ? 'Y' : 'N';
 
                 order.Add(
                     new XAttribute("OrderNumber", orderNumber),
@@ -181,9 +179,7 @@ using (var command = new SqlCommand(...))
 
             var productId = (int)reader["ProductID"];
             var quantity = (short)reader["Quantity"];
-            var inventoryCheckRequired = (productId >= 710 && productId <= 720 && quantity >= 5)
-                ? 'Y'
-                : 'N';
+            var inventoryCheckRequired = (productId >= 710 && productId <= 720 && quantity >= 5) ? 'Y' : 'N';
 
             lineItems.Add(
                 new XElement("LineItem",
@@ -211,7 +207,7 @@ using (var command = new SqlCommand(...))
 
 - Do not relocate processing if doing so causes the database to transfer far more data over the network. See the [Extraneous Fetching antipattern][ExtraneousFetching].
 
-- The application tier that requests the data may need to scale out to handle the additional processing load.
+- If you move processing to an application tier, that tier may need to scale out to handle the additional work.
 
 ## How to detect the problem
 
@@ -223,9 +219,9 @@ You can perform the following steps to help identify this problem:
 
 2. Examine the work performed by the database during these periods.
 
-3. If you suspect that particular operations might cause too much database activity, perform load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load test to observe how the database is used.
+3. If you suspect that particular operations might cause too much database activity, perform load testing in a controlled environment. Each test should run a mixture of the suspect operations with a variable user load. Examine the telemetry from the load tests to observe how the database is used.
 
-4. If the database activity reveals significant processing but little data traffic, review the source code and determine whether the processing can better be performed elsewhere.
+4. If the database activity reveals significant processing but little data traffic, review the source code to determine whether the processing can better be performed elsewhere.
 
 If the volume of database activity is low or response times are relatively fast, then a busy database is unlikely to be a performance problem.
 
@@ -262,7 +258,7 @@ CPU and DTU utilization shows that the system took longer to reach saturation, d
 
 ## Related resources 
 
-- [Extraneous Fetching][ExtraneousFetching]
+- [Extraneous Fetching antipattern][ExtraneousFetching]
 
 
 [dtu]: /sql-database/sql-database-what-is-a-dtu

@@ -17,7 +17,7 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Redis Cache.
 
-These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.)
+These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.)
 
 The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].
 
@@ -99,8 +99,7 @@ is designed to be shared rather than pooled. Other objects might support pooling
 
 - Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
 
-- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. The objects intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. (See [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging]).
-
+- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These factories  objects are intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
 ## How to detect the problem
 
@@ -118,8 +117,6 @@ You can perform the following steps to help identify this problem:
 4. Review the source code and examine the how broker objects are managed.
 
 Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are utilizing resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted. 
-
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems.
 
 ## Example diagnosis
 
@@ -139,12 +136,12 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing emulates the typical operations that users might perform. This can help to  identify which parts of a system suffer
+Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer
 from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 
-At first, the volume of requests handled per second increases the workload increases. At about 30 users, however, the volume of successful requests reaches a limit, and the system starts to generate exceptions. From then on, the volume of exceptions gradually increases with the user load. 
+At first, the volume of requests handled per second increases as the workload increases. At about 30 users, however, the volume of successful requests reaches a limit, and the system starts to generate exceptions. From then on, the volume of exceptions gradually increases with the user load. 
 
 The load test reported these failures as HTTP 500 (Internal Server) errors. Reviewing the telemetry showed that these errors were caused by the system running out of socket resources, as more and more `HttpClient` objects were created.
 
@@ -171,9 +168,8 @@ The next graph shows a similar load test using a shared instance of the `Expensi
 
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
-[service-bus-messaging]: /service-bus-messaging/service-bus-performance-improvements
-[NewRelic]: http://newrelic.com/azure
-[AppDynamics]: http://www.appdynamics.co.uk/cloud/windows-azure
+[service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
+[new-relic]: https://newrelic.com/application-monitoring
 [throughput-new-HTTPClient-instance]: _images/HttpClientInstancePerRequest.jpg
 [dashboard-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestWebTransactions.jpg
 [thread-profiler-new-HTTPClient-instance]: _images/HttpClientInstancePerRequestThreadProfile.jpg

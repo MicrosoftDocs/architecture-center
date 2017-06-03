@@ -26,7 +26,7 @@ This antipattern typically occurs because:
 - The application uses a library that only provides synchronous methods for I/O. 
 - An external library performs synchronous I/O operations internally. A single synchronous I/O call can block an entire call chain.
 
-The following code uploads a file to Azure blob storage. There are two places where the code blocks waiting for synchronous I/O: the `CreateIfNotExists` method and the `UploadFromStream` method.
+The following code uploads a file to Azure blob storage. There are two places where the code blocks waiting for synchronous I/O, the `CreateIfNotExists` method and the `UploadFromStream` method.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -138,10 +138,9 @@ await LibraryIOOperationAsync();
 
 ## Considerations
 
-- I/O operations that are expected to be very short lived and are unlikely to cause contention might be more performant as synchronous operations. For example, accessing fast, local resources such as small files on an SSD drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits asynchronous I/O. However, these cases are relatively rare compared with most I/O operations that should be done asynchronously.
+- I/O operations that are expected to be very short lived and are unlikely to cause contention might be more performant as synchronous operations. An example might be reading small files on an SSD drive. The overhead of dispatching a task to another thread, and synchronizing with that thread when the task completes, might outweigh the benefits of asynchronous I/O. However, these cases are relatively rare, and most I/O operations should be done asynchronously.
 
 - Improving I/O performance may cause other parts of the system to become bottlenecks. For example, unblocking threads might result in a higher volume of concurrent requests to shared resources, leading in turn to resource starvation or throttling. If that becomes a problem, you might need to scale out the number of web servers or partition data stores to reduce contention.
-
 
 ## How to detect the problem
 
@@ -155,8 +154,6 @@ You can perform the following steps to help identify the problem:
 
 3. Perform controlled load testing of each operation that is performing synchronous I/O, to find out whether those operations are affecting system performance.
 
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems.
-
 ## Example diagnosis
 
 The following sections apply these steps to the sample application described earlier.
@@ -165,7 +162,7 @@ The following sections apply these steps to the sample application described ear
 
 For Azure web applications and web roles, it's worth monitoring the performance of the IIS web server. In particular, pay attention to the request queue length to establish whether requests are being blocked waiting for available threads during periods of high activity. You can gather this information by enabling Azure diagnostics. For more information, see:
 
-- [How to: Monitor Apps in Azure App Service][web-sites-monitor]
+- [Monitor Apps in Azure App Service][web-sites-monitor]
 - [Create and use performance counters in an Azure application][performance-counters]
 
 Instrument the application to see how requests are handled once they have been accepted. Tracing the flow of a request can help to identify whether it is performing slow-running calls and blocking the current thread. Thread profiling can also highlight requests that are being blocked.
@@ -176,7 +173,7 @@ The following graph shows the performance of the synchronous `GetUserProfile` me
 
 ![Performance chart for the sample application performing synchronous I/O operations][sync-performance]
 
-The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. Note that the scale for these two measure is logarithmic. The number of requests per second doubles between this point and the end of the test.
+The synchronous operation is hard-coded to sleep for 2 seconds, to simulate synchronous I/O, so the minimum response time is slightly over 2 seconds. When the load reaches approximately 2500 concurrent users, the average response time reaches a plateau, although the volume of requests per second continues to increase. Note that the scale for these two measures is logarithmic. The number of requests per second doubles between this point and the end of the test.
 
 In isolation, it's not necessarily clear from this test whether the synchronous I/O is a problem. Under heavier load, the application may reach a tipping point where the web server can no longer process requests in a timely manner, causing client applications to receive time-out exceptions.
 

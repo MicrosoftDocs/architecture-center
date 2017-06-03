@@ -12,7 +12,7 @@ Putting all of an application's data into a single data store can hurt performan
 
 Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team. 
 
-Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogenous types of data, documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
+Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogenous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
 - Storing and retrieving large amounts of unrelated data in the same data store can cause contention, which in turn leads to slow response times and connection failures.
 - Whichever data store is chosen, it might not be the best fit for all of the different types of data, or it might not be optimized for the operations that the application performs. 
@@ -77,8 +77,6 @@ You can perform the following steps to help identify the cause.
 3. Identify which data stores were accessed during those periods.
 4. Identify data storage resources that might be experiencing contention.
 
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems.
-
 ## Example diagnosis
 
 The following sections apply these steps to the sample application described earlier.
@@ -99,13 +97,13 @@ Look for correlations between increased response times and increased database ac
 
 ### Identify which data stores are accessed during those periods
 
-The next graph shows the utilization of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where the throughput peaked, in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
+The next graph shows the utilization of database throughput units (DTU) during the load test. (A DTU is a measure of available capacity, and is a combination of CPU utilization, memory allocation, I/O rate.) Utilization of DTUs quickly reached 100%. This is roughly the point where throughput peaked in the previous graph. Database utilization remained very high until the test finished. There is a slight drop toward the end, which could be caused by throttling, competition for database connections, or other factors.
 
 ![The database monitor in the Azure classic portal showing resource utilization of the database][MonolithicDatabaseUtilization]
 
 ### Examine the telemetry for the data stores
 
-Instrumented the data stores to capture the low level details of the activity. In the sample application, the data access statistics showed a high volume of insert operations performed against both the `PurchaseOrderHeader` table and the `MonoLog` table. 
+Instrument the data stores to capture the low-level details of the activity. In the sample application, the data access statistics showed a high volume of insert operations performed against both the `PurchaseOrderHeader` table and the `MonoLog` table. 
 
 ![The data access statistics for the sample application][MonolithicDataAccessStats]
 
@@ -115,7 +113,7 @@ At this point, you can review the source code, focusing on the points where cont
 
 - Data that is logically separate being written to the same store. Data such as logs, reports, and queued messages should not be held in the same database as business information.
 - A mismatch between the choice of data store and the type of data, such as large blobs or XML documents in a relational database.
-- Data with significantly different usage patterns that share the same store, such as high-write, low-read data stored with the opposite.
+- Data with significantly different usage patterns that share the same store, such as high-write/low-read data being stored with low-write/high-read data.
 
 ### Implement the solution and verify the result
 

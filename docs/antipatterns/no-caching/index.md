@@ -10,13 +10,13 @@ In a cloud application that handles many concurrent requests, repeatedly fetchin
 
 ## Problem description
 
-When data is not cached, it can cause a number of undesirable behaviors:
+When data is not cached, it can cause a number of undesirable behaviors, including:
 
-- The application repeatedly retrieves the same information from a resource that is expensive to access, in terms of I/O overhead or latency.
-- The application uses processing resources to construct the same objects or data structures for multiple requests.
-- The application makes excessive calls to a remote service that has a service quota and throttles clients past a certain limit.
+- Repeatedly fetching the same information from a resource that is expensive to access, in terms of I/O overhead or latency.
+- Repeatedly constructing the same objects or data structures for multiple requests.
+- Making excessive calls to a remote service that has a service quota and throttles clients past a certain limit.
 
-In turn, these problems can lead to poor response times when retrieving data, increased contention in the data store, and poor scalability as more users request data.
+In turn, these problems can lead to poor response times, increased contention in the data store, and poor scalability.
 
 The following example uses Entity Framework to connect to a database. Every client request results in a call to the database, even if multiple requests are fetching exactly the same data. The cost of repeated requests, in terms of I/O overhead and data access charges, can accumulate quickly.
 
@@ -48,12 +48,12 @@ This antipattern typically occurs because:
 
 ## How to fix the problem
 
-The most popular caching strategy is the *on-demand* or [*cache-aside*][cache-aside-pattern] strategy. This approach is suitable for data that changes frequently.
+The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 
-- On read, the application first tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
+- On read, the application tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
 - On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it is required.
 
-Here is the previous example updated to use the Cache-Aside pattern.  
+This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside] pattern.  
 
 ```csharp
 public class CachedPersonRepository : IPersonRepository
@@ -102,7 +102,7 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - Applications that cache nonstatic data should be designed to support eventual consistency.
 
-- For web APIs, you can support client-side caching by including a Cache-Control header in request and response messages, and using ETags to identify versions of objects. See [Considerations for optimizing client-side data access][client-cache].
+- For web APIs, you can support client-side caching by including a Cache-Control header in request and response messages, and using ETags to identify versions of objects. For more information, see [API implementation][api-implementation].
 
 - You don't have to cache entire entities. If most of an entity is static but only a small piece changes frequently, cache the static elements and retrieve the dynamic elements from the data source. This approach can help to reduce the volume of I/O being performed against the data source.
 
@@ -110,11 +110,11 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - To prevent data from becoming stale, many caching solutions support configurable expiration periods, so that data is automatically removed from the cache after a specified interval. You may need to tune the expiration time for your scenario. Data that is highly static can stay in the cache for longer periods than volatile data that may become stale quickly.
 
-- If the caching solution doesn't provide built-in expiration, you may need to implement a background process that occasionally sweeps the cache, to prevent it from growing without limits, and to evict stale data. 
+- If the caching solution doesn't provide built-in expiration, you may need to implement a background process that occasionally sweeps the cache, to prevent it from growing without limits. 
 
 - Besides caching data from an external data source, you can use caching to save the results of complex computations. Before you do that, however, instrument the application to determine whether the application is really CPU bound.
 
-- It might be useful to prime the cache when the application start. Populate the cache with the data that is most likely to be used.
+- It might be useful to prime the cache when the application starts. Populate the cache with the data that is most likely to be used.
 
 - Always include instrumentation that detects cache hits and cache misses. Use this information to tune caching policies, such what data to cache, and how long to hold data in the cache before it expires.
 
@@ -133,10 +133,8 @@ causing performance problems:
 
 4. Perform load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads. 
 
-5. Examine the data access statistics for the underlying data stores
-and review how often the same data requests are repeated. 
+5. Examine the data access statistics for the underlying data stores and review how often the same data requests are repeated. 
 
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems.
 
 ## Example diagnosis
 
@@ -154,7 +152,7 @@ If you need a deeper analysis, you can use a profiler to capture low-level perfo
 
 ### Load test the application
 
-The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users, performing a typical series of operations. 
+The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations. 
 
 ![Performance load test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
 
@@ -171,7 +169,7 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle)
 CROSS APPLY sys.dm_exec_query_plan(plan_handle)
 ```
 
-The `UseCount` column in the results indicates how frequently each query is run. The following image shows that the third query was run 256,049 times, significantly more than any other query.
+The `UseCount` column in the results indicates how frequently each query is run. The following image shows that the third query was run more than 250,000 times, significantly more than any other query.
 
 ![Results of querying the dynamic management views in SQL Server Management Server][Dynamic-Management-Views]
 
@@ -198,14 +196,16 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 
 ## Related resources
 
-- [Caching best practices][caching-guidance].
-- [Cache-Aside Pattern][cache-aside-pattern].
+- [API implementation best practices][api-implementation]
+- [Cache-Aside Pattern][cache-aside-pattern]
+- [Caching best practices][caching-guidance]
+- [Circuit Breaker pattern][circuit-breaker]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/NoCaching
 [cache-aside-pattern]: /azure/architecture/patterns/cache-aside
 [caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
-[client-cache]: ../../best-practices/api-implementation.md#considerations-for-optimizing-client-side-data-access
+[api-implementation]: ../../best-practices/api-implementation.md#considerations-for-optimizing-client-side-data-access
 [NewRelic]: http://newrelic.com/azure
 [NewRelic-server-requests]: _images/New-Relic.jpg
 [Performance-Load-Test-Results-Uncached]:_images/InitialLoadTestResults.jpg

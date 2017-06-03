@@ -8,7 +8,7 @@ author: dragon119
 
 A *performance antipattern* is a common practice that is likely to cause scalability problems when an application is under pressure. 
 
-Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to experience real-world workloads. At that point, it starts to perform poorly &mdash; rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
+Here is a common scenario: An application behaves well during performance testing. It's released to production, and begins to handle real workloads. At that point, it starts to perform poorly &mdash; rejecting user requests, stalling, or throwing exceptions. The development team is then faced with two questions:
 
 - Why didn't this behavior show up during testing?
 - How do we fix it?

@@ -64,7 +64,7 @@ The call to `AsEnumerable` is a hint that there is a problem. This method conver
 
 Avoid fetching large volumes of data that may quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed. 
 
-Instead of getting all the columns from a table and then filtering them, select the columns that you need from the database.
+Instead of getting every column from a table and then filtering them, select the columns that you need from the database.
 
 ```csharp
 public async Task<IHttpActionResult> GetRequiredFieldsAsync()
@@ -107,17 +107,19 @@ List<Product> products = query.ToList();
 
 ## Considerations
 
-- In some cases, you can improve performance by partitioning data horizontally. If different operations access different attributes of the data, horizontal partitioning can to reduce contention. Often, most operations are run against a small subset of the data, so spreading this load may improve performance. See [Data partitioning][data-partitioning].
+- In some cases, you can improve performance by partitioning data horizontally. If different operations access different attributes of the data, horizontal partitioning may reduce contention. Often, most operations are run against a small subset of the data, so spreading this load may improve performance. See [Data partitioning][data-partitioning].
 
 - For operations that have to support unbounded queries, implement pagination and only fetch a limited number of entities at a time. For example, if a customer is browsing a product catalog, you can show one page of results at a time.
 
-- When possible, take advantage of features built into the data store. For example, SQL databases typically provide aggregate functions. In other types of data store, you may be able to store and update this information separately, as records are added, updated,or removed, so the application doesn't have to the calculation every time.
+- When possible, take advantage of features built into the data store. For example, SQL databases typically provide aggregate functions. 
+
+- If you're using a data store that doesn't support a particular function, such as aggregration, you could store the calculated result elsewhere, updating the value as records are added or updated, so the application doesn't have to recalculate the value each time it's needed.
 
 - If you see that requests are retrieving a large number of fields, examine the source code to determine whether all of these fields are actually necessary. Sometimes these requests are the result of poorly designed `SELECT *` query. 
 
 - Similarly, requests that retrieve a large number of entities may be sign that the application is not filtering data correctly. Verify that all of these entities are actually needed. Use database-side filtering if possible, for example, by using `WHERE` clauses in SQL. 
 
-- However, offloading processing to the database is not always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but are not designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
+- Offloading processing to the database is not always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but are not designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
 
 
 ## How to detect the problem
@@ -126,7 +128,7 @@ Symptoms of extraneous fetching include high latency and low throughput. If the 
 
 The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence]. 
 
-You can perform the following steps to help identify the causes of any problems:
+You can perform the following steps to help identify the cause:
 
 1. Identify slow workloads or transactions by performing load-testing, process monitoring, or other methods of capturing instrumentation data.
 2. Observe any behavioral patterns exhibited by the system. Are there particular limits in terms of transactions per second or volume of users?
@@ -141,8 +143,6 @@ Look for any of these symptoms:
 - Contention in a shared resource or data store.
 - An operation that frequently receives large volumes of data over the network.
 - Applications and services spending significant time waiting for I/O to complete.
-
-If you already have insight into the problem, you may be able to skip some of these steps. However, avoid making unfounded or biased assumptions. A thorough analysis can sometimes find unexpected causes of performance problems. 
 
 ## Example diagnosis    
 
@@ -168,7 +168,7 @@ A slow operation is not necessarily a problem, if it is not being performed when
 
 ### Identify data sources in slow workloads
 
-If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system data to see which sources are accessed during periods of poor performance. 
+If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance. 
 
 For each data source, instrument the system to capture the following:
 
@@ -177,15 +177,15 @@ For each data source, instrument the system to capture the following:
 - The timing of these operations, especially the latency of requests.
 - The nature and rate of any errors that occur while accessing each data store under typical load.
 
-Compare this information against the volume of data being returned by the application to the client. Track the ratio of the volume of data returned by the data store against the volume of data returned to the client. Any large disparity between should be investigated, to determine whether the application fetching extraneous data and performing processing that the data store could handle.
+Compare this information against the volume of data being returned by the application to the client. Track the ratio of the volume of data returned by the data store against the volume of data returned to the client. If there is any large disparity, investigate to determine whether the application is fetching data that it doesn't need.
 
-You may be able to capture this data by  observing the live system and tracing the lifecycle of each user request, or you can model a series of synthetic workloads and run them against a test system.
+You may be able to capture this data by observing the live system and tracing the lifecycle of each user request, or you can model a series of synthetic workloads and run them against a test system.
 
-The following graphs show the telemetry captured using [New Relic APM][new-relic] during a load test of the `GetAllFieldsAsync` method. Note the difference between the volumes of data received from the database and the corresponding HTTP responses.
+The following graphs show telemetry captured using [New Relic APM][new-relic] during a load test of the `GetAllFieldsAsync` method. Note the difference between the volumes of data received from the database and the corresponding HTTP responses.
 
 ![Telemetry for the `GetAllFieldsAsync` method][TelemetryAllFields]
 
-For each request, the database returned 80503 bytes, but the response to the client only contained 19855 bytes, about 25% of the size of the database response. The size of the data returned to the client can vary depending on the format. For this load test, the client requested JSON data. Separate testing using XML (not shown) had a response size of 35655 bytes, or 44% of the size of the database response.
+For each request, the database returned 80,503 bytes, but the response to the client only contained 19,855 bytes, about 25% of the size of the database response. The size of the data returned to the client can vary depending on the format. For this load test, the client requested JSON data. Separate testing using XML (not shown) had a response size of 35,655 bytes, or 44% of the size of the database response.
 
 The load test for the `AggregateOnClientAsync` method shows more extreme results. In this case, each test performed a query that
 retrieved over 280Kb of data from the database, but the JSON response was a mere 14 bytes. The wide disparity is because the method calculates an aggregated result from a large volume of data.
@@ -194,7 +194,7 @@ retrieved over 280Kb of data from the database, but the JSON response was a mere
 
 ### Identify and analyze slow queries
 
-Look for database queries that consume the most resources and take the most time to execute. You can add instrumentation to find the start and completion times for many database operations. Many data stores also provide in-depth information on how queries are performed and optimized. For example, the Query Performance pane in the Azure SQL Database management portal lets you select a query and view detailed runtime performance information. For example, here is the query generated by the `GetAllFieldsAsync` operation.
+Look for database queries that consume the most resources and take the most time to execute. You can add instrumentation to find the start and completion times for many database operations. Many data stores also provide in-depth information on how queries are performed and optimized. For example, the Query Performance pane in the Azure SQL Database management portal lets you select a query and view detailed runtime performance information. Here is the query generated by the `GetAllFieldsAsync` operation:
 
 ![The Query Details pane in the Windows Azure SQL Database management portal][QueryDetails]
 
@@ -223,10 +223,12 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 ## Related resources
 
 - [Busy Database antipattern][BusyDatabase]
-- [Data partitioning guidance][data-partitioning]
+- [Chatty I/O antipattern][chatty-io]
+- [Data partitioning best practices][data-partitioning]
 
 
 [BusyDatabase]: ../busy-database/index.md
+[chatty-io]: ../chatty-io.md
 [data-partitioning]: ../../best-practices/data-partitioning.md
 [new-relic]: https://newrelic.com/application-monitoring
 
