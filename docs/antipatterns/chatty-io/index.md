@@ -1,6 +1,6 @@
 ---
 title: Chatty I/O antipattern
-description: 
+description: A large number of I/O requests can hurt performance and responsiveness.
 author: dragon119
 ---
 

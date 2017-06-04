@@ -1,12 +1,13 @@
 ---
 title: Busy Front End antipattern
-description: 
+description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Busy Front End antipattern
 
-Performing asynchronous work in a large number of background threads can starve other concurrent foreground tasks of resources, decreasing response times to unacceptable levels.
+Performing asynchronous work on a large number of background threads can starve other concurrent foreground tasks of resources, decreasing response times to unacceptable levels.
 
 ## Problem description
 

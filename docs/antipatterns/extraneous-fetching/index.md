@@ -1,7 +1,8 @@
 ---
 title: Extraneous Fetching anitpattern
-description: 
+description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Extraneous Fetching antipattern

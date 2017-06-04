@@ -1,7 +1,8 @@
 ---
 title: Busy Database antipattern
-description: 
+description: Offloading processing to a database server can cause performance and scalability problems.
 author: dragon119
+ms.date: 06/05/2017
 ---
 # Busy Database antipattern
 

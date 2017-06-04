@@ -1,7 +1,8 @@
 ---
 title: No Caching antipattern
-description: 
+description: Repeatedly fetching the same data can reduce performance and scalability.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # No Caching antipattern

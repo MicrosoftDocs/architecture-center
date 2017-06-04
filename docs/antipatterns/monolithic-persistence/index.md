@@ -1,7 +1,8 @@
 ---
 title: Monolithic Persistence antipattern
-description: 
+description: Putting all of an application's data into a single data store can hurt performance.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Monolithic Persistence antipattern

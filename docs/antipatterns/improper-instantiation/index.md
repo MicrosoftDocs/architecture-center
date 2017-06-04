@@ -1,7 +1,8 @@
 ---
 title: Improper Instantiation antipattern
-description: 
+description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Improper Instantiation antipattern

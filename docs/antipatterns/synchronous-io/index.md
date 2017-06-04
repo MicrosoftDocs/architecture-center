@@ -1,7 +1,8 @@
 ---
 title: Synchronous I/O antipattern
-description: 
+description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Synchronous I/O antipattern

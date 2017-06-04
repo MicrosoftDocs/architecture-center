@@ -1,7 +1,8 @@
 ---
 title: Performance antipatterns for cloud applications
-description: 
+description: Common practices that are likely to cause scalability problems.
 author: dragon119
+ms.date: 06/05/2017
 ---
 
 # Performance antipatterns for cloud applications
