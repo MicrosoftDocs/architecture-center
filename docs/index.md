@@ -77,18 +77,18 @@ ms.author: pnp
     </a>
 </li>
 <li>
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke">
+    <a href="/azure/architecture/antipatterns">
     <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardImageOuter">
                     <div class="cardImage">
-                        <img src="_images/new-with-chevron.svg" alt="Implement a hub-spoke network topology" />
+                        <img src="_images/performance.svg" alt="Performance antipatterns" />
                     </div>
                 </div>
                 <div class="cardText">
-                    <h3>Implement a Hub-Spoke Network Topology</h3>
-                    <p>This reference architecture connects several virtual networks (VNets). One VNet acts as a hub, and the others act as spokes on the hub.</p>
+                    <h3>Performance antipatterns</h3>
+                    <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
                 </div>
             </div>
         </div>
