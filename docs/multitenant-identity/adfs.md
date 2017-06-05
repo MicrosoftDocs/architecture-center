@@ -37,7 +37,7 @@ There are three main roles in the trust relation:
 > [!NOTE]
 > In this article, we assume the application uses OpenID connect as the authentication protocol. Another option is to use WS-Federation.
 > 
-> For OpenID Connect, the SaaS provider must use AD FS 4.0 running in Windows Server 2016, which is currently in Technical Preview. AD FS 3.0 does not support OpenID Connect.
+> For OpenID Connect, the SaaS provider must use AD FS 2016, running in Windows Server 2016. AD FS 3.0 does not support OpenID Connect.
 > 
 > ASP.NET Core does not include out-of-the-box support for WS-Federation.
 > 
@@ -52,7 +52,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 4. Claims flow from AD FS to the app, using OpenID Connect. This requires a protocol transition from WS-Federation.
 
 ## Limitations
-At the time of this writing, the application receives a limited set of claims in the OpenID id_token, as listed in the following table. AD FS 4.0 is in still preview, so this set might change. It is not currently possible to define additional claims:
+By default the relying party application receives only a fixed set of claims available in the id_token (as listed in the following table). AD FS 2016 RTM has the capability to customize the id_token in OpenID Connect scenarios. [This document describes further details](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |
