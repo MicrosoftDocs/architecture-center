@@ -36,3 +36,7 @@
     - name: Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
+    - name: Performance Antipatterns
+      tocHref: /azure/architecture/antipatterns
+      topicHref: /azure/architecture/antipatterns
+    

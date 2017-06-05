@@ -77,6 +77,26 @@
   - name: Retry guidance for specific services
     href: best-practices/retry-service-specific.md
 
+- name: Performance Antipatterns
+  href: antipatterns/index.md
+  items:
+  - name: Busy Database
+    href: antipatterns/busy-database/index.md
+  - name: Busy Front End
+    href: antipatterns/busy-front-end/index.md
+  - name: Chatty I/O
+    href: antipatterns/chatty-io/index.md
+  - name: Extraneous Fetching
+    href: antipatterns/extraneous-fetching/index.md
+  - name: Improper Instantiation
+    href: antipatterns/improper-instantiation/index.md
+  - name: Monolithic Persistence
+    href: antipatterns/monolithic-persistence/index.md
+  - name: No Caching
+    href: antipatterns/no-caching/index.md
+  - name: Synchronous I/O
+    href: antipatterns/synchronous-io/index.md
+
 - name: Design Review Checklists
   items:
   - name: Availability
