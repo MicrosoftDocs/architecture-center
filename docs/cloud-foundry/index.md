@@ -65,14 +65,10 @@ Let’s review each item in Figure 1.
     communicates with the BOSH Director to deploy Elastic Runtime
     components and other services.
 
-<!-- -->
-
 - **BOSH Director.** [*BOSH
     Director*](http://docs.pivotal.io/pivotalcf/1-9/customizing/vsphere-config.html)
     performs a highly automated PCF deployment based on user-provided
     configuration details.
-
-<!-- -->
 
 - **NAT Gateway.** A network address translation (NAT) gateway enables
     services in a private subnet to connect to other PCF components. The
