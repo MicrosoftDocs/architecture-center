@@ -24,7 +24,7 @@ Our **calling template** includes two resources:
 2) a network security group (NSG).
 
 Our **collector template** includes two resources:
-1) an [**anchor** resource][anchor-resource], and
+1) an **anchor** resource, and
 2) a template link that invokes the transform template in a copy loop.
 
 Our **transform template** includes a single resource: an empty template with a variable that transforms our `source` JSON to the JSON schema expected by our NSG resource in the **main template**.
@@ -302,7 +302,6 @@ Finally, our `"Microsoft.Network/networkSecurityGroups"` resource directly assig
 * This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
 
 <!-- links -->
-[anchor-resource]: ./serial-copy-loop.md
 [objects-as-parameters]: ./objects-as-parameters.md
 [resource-manager-linked-template]: /azure/azure-resource-manager/resource-group-linked-templates
 [resource-manager-variables]: /azure/azure-resource-manager/resource-group-template-functions-deployment
