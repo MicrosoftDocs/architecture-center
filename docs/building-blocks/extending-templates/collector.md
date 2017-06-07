@@ -299,7 +299,7 @@ Finally, our `"Microsoft.Network/networkSecurityGroups"` resource directly assig
 
 ## Next steps
 
-* This approach is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). 
+* This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
 
 <!-- links -->
 [anchor-resource]: ./serial-copy-loop.md

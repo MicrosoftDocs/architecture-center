@@ -1,5 +1,5 @@
 ---
-title: Extending Azure Resource Manager template functionality - updating a resource
+title: Update a resource in an Azure resource manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
 author: petertay
 ms.date: 05/03/2017
@@ -141,4 +141,4 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 ## Next steps
 
-* This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/).
+* This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
