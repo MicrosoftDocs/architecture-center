@@ -258,28 +258,13 @@ You will use the thumbprint later.
 2. In Tailspin.Surveys.Web/Startup.cs, locate the following code block and uncomment it.
    
     ```csharp
-    //#if DNX451
-    //            _configuration = builder.Build();
-    //            builder.AddKeyVaultSecrets(_configuration["AzureAd:ClientId"],
-    //                _configuration["KeyVault:Name"],
-    //                _configuration["AzureAd:Asymmetric:CertificateThumbprint"],
-    //                Convert.ToBoolean(_configuration["AzureAd:Asymmetric:ValidationRequired"]),
-    //                loggerFactory);
-    //#endif
+    //var config = builder.Build();
+    //builder.AddAzureKeyVault(
+    //    $"https://{config["KeyVault:Name"]}.vault.azure.net/",
+    //    config["AzureAd:ClientId"],
+    //    config["AzureAd:ClientSecret"]);
     ```
-3. In Tailspin.Surveys.WebAPI/Startup.cs, locate the following code block and uncomment it.
-   
-    ```csharp
-    //#if DNX451
-    //            var config = builder.Build();
-    //            builder.AddKeyVaultSecrets(config["AzureAd:ClientId"],
-    //                config["KeyVault:Name"],
-    //                config["AzureAd:Asymmetric:CertificateThumbprint"],
-    //                Convert.ToBoolean(config["AzureAd:Asymmetric:ValidationRequired"]),
-    //                loggerFactory);
-    //#endif
-    ```
-4. In Tailspin.Surveys.Web/Startup.cs, locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
+3. In Tailspin.Surveys.Web/Startup.cs, locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
    
     ```csharp
     // Uncomment this:
@@ -297,6 +282,7 @@ In Solution Explorer, right-click the Tailspin.Surveys.Web project and select **
     {
       "AzureAd": {
         "ClientId": "[Surveys web app client ID]",
+        "ClientSecret": "[Surveys web app client secret]",
         "PostLogoutRedirectUri": "https://localhost:44300/",
         "WebApiResourceId": "[App ID URI of your Surveys.WebAPI application]",
         "Asymmetric": {
@@ -315,6 +301,7 @@ In Solution Explorer, right-click the Tailspin.Surveys.Web project and select **
 Replace the entries in [square brackets] with the correct values.
 
 * `AzureAd:ClientId`: The client ID of the Surveys app.
+* `AzureAd:ClientSecret`: The key that you generated when you registered the Surveys application in Azure AD.
 * `AzureAd:WebApiResourceId`: The App ID URI that you specified when you created the Surveys.WebAPI application in Azure AD.
 * `Asymmetric:CertificateThumbprint`: The certificate thumbprint that you got previously, when you created the client certificate.
 * `KeyVault:Name`: The name of your key vault.
