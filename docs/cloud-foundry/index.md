@@ -10,31 +10,27 @@ ms.custom: cloud-foundry
 
 Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating applications. PCF can run on-premises or on public cloud providers such as Microsoft Azure. This gives enterprises a hybrid and multi-cloud platform.
 
-PCF is a uniform way for you to launch, and quickly iterate, on applications in any popular language. The platform manages many implementation details for you. With PCF, you no longer have to think about how to deploy, scale, and expose an app. You can instead focus on adding business value with custom code. PCF enables developers to speed up application development and reduce time to market.
+PCF is a uniform way for to launch, and quickly iterate, on applications in any popular language. The platform manages many implementation details for you. 
 
 ## Pivotal Cloud Foundry architecture
 
-The diagram in Figure 1 highlights important PCF components. This architecture organizes elements according to their network affinity.
+The following diagram shows the main components of PCF. This architecture organizes elements according to their network affinity. 
 
-- **Infrastructure Services Virtual Network**, used by Pivotal Ops Manager to control the underlying infrastructure
+- **Infrastructure Services Virtual Network**. Used by Pivotal Ops Manager to control the underlying infrastructure.
 
-- **Elastic Runtime Virtual Network**, used by PCF’s Elastic Runtime, container orchestrator, and other related services
+- **Elastic Runtime Virtual Network**. Used by PCF's Elastic Runtime, container orchestrator, and other related services.
 
-- **App Services Virtual Network**, used by PCF managed services like MySQL, RabbitMQ and Spring Cloud® Services for Pivotal Cloud Foundry
+- **App Services Virtual Network**. Used by PCF managed services like MySQL, RabbitMQ, and Spring Cloud Services for Pivotal Cloud Foundry.
 
-![Figure 1 - An overview of selected Pivotal Cloud Foundry components](./images/index/Overview-of-selected-Pivotal-Cloud-Foundry-components.png)
-
-_Figure 1 - An overview of selected Pivotal Cloud Foundry components._
-
-Let’s review each item in Figure 1.
+![Selected Pivotal Cloud Foundry components](./images/index/Overview-of-selected-Pivotal-Cloud-Foundry-components.png)
 
 ### Infrastructure Services Virtual Network
 
 - **CredHub.** CredHub is a forthcoming extension to Cloud Foundry. This feature centralizes and secures credential generation, storage, lifecycle management, and access. CredHub can mitigate the risk of leaked credentials, a common culprit in data breaches.
 
-- **LDAP.** Lightweight Directory Access Protocol is a protocol used for single sign-on methods. It connects an identity management tool (such as [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)) and 3rd party systems. Pivotal Cloud Foundry supports LDAP and SSO via its [UAA service](http://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/uaa.html).
+- **LDAP.** Lightweight Directory Access Protocol is a protocol used for single sign-on methods. It connects an identity management tool (such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)) and 3rd party systems. Pivotal Cloud Foundry supports LDAP and SSO via its [UAA service](http://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/uaa.html).
 
-- **PCF Ops Manager.** Operations Manager (“[Ops Manager](http://docs.pivotal.io/pivotalcf/1-9/customizing/index.html)”) is a web application used to deploy and manage PCF. Ops Manager communicates with the BOSH Director to deploy Elastic Runtime components and other services.
+- **PCF Ops Manager.** Operations Manager, also called [Ops Manager](http://docs.pivotal.io/pivotalcf/1-9/customizing/index.html), is a web application used to deploy and manage PCF. Ops Manager communicates with the BOSH Director to deploy Elastic Runtime components and other services.
 
 - **BOSH Director.** [BOSH Director](http://docs.pivotal.io/pivotalcf/1-9/customizing/vsphere-config.html) performs a highly automated PCF deployment based on user-provided configuration details.
 
@@ -42,7 +38,7 @@ Let’s review each item in Figure 1.
 
 ### Elastic RunTime Virtual Network
 
-- **Load Balancer.** Production PCF environments use a highly-available [load balancer.](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) The load balancer route traffic to PCF Router IPs and supports SSL termination with wildcard DNS location. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. Global deployments should use the [Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/), routing to [Azure Load Balancers](https://azure.microsoft.com/en-us/services/load-balancer/) in different regions.
+- **Load Balancer.** Production PCF environments use a highly-available [load balancer.](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) The load balancer route traffic to PCF Router IPs and supports SSL termination with wildcard DNS location. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. Global deployments should use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), routing to [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer/) in different regions.
 
 - **TCP Router.** The [TCP Router](http://docs.pivotal.io/pivotalcf/1-9/adminguide/enabling-tcp-routing.html)works with applications that serve requests on non-HTTP TCP protocols. TCP Routing terminates the TLS as close to your apps as possible. In this scenario, packets are not decrypted before reaching the application level. This configuration helps compliance with certain regulations.
 
@@ -54,11 +50,9 @@ Let’s review each item in Figure 1.
 
 - **PCF Metrics.** [PCF Metrics](http://docs.pivotal.io/pcf-metrics/1-2/index.html) stores logs, metrics data, and event data from applications running on PCF. The module renders this data visually. This treatment helps operators and developers better understand the application health and performance.
 
-- **Log Search.** Operators can use [PCF Log Search](https://docs.pivotal.io/logsearch/index.html) to analyze logs from different system components. Some customers prefer Azure's native capabilities in this area. Options include the [Microsoft Operations Management Suite](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) (OMS) and [Monitor](https://azure.microsoft.com/en-us/blog/announcing-the-public-preview-of-azure-monitor/) services. Microsoft has adapted Cloud Foundry's Firehose and nozzle features, shown below. Users can analyze logs and metrics using this starter OMS visualization widget.
+- **Log Search.** Operators can use [PCF Log Search](https://docs.pivotal.io/logsearch/index.html) to analyze logs from different system components. Some customers prefer Azure's native capabilities in this area. Options include the [Microsoft Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) (OMS) and [Monitor](/announcing-the-public-preview-of-azure-monitor/) services. Microsoft has adapted Cloud Foundry's Firehose and nozzle features, shown below. Users can analyze logs and metrics using this starter OMS visualization widget.
 
-![Figure 2 - Cloud Foundry metrics and logging, shown in the Microsoft OMS](./images/index/Cloud-Foundry-metrics-and-logging-shown-in-Microsoft-OMS.png)
-
-_Figure 2 - Cloud Foundry metrics and logging, shown in the Microsoft OMS._
+    ![Cloud Foundry metrics and logging, shown in the Microsoft OMS](./images/index/Cloud-Foundry-metrics-and-logging-shown-in-Microsoft-OMS.png)
 
 - **Diego.** [Diego is the container orchestrator](http://docs.pivotal.io/pivotalcf/1-9/concepts/diego/diego-architecture.html) for Pivotal Cloud Foundry.
 
@@ -76,7 +70,7 @@ _Figure 2 - Cloud Foundry metrics and logging, shown in the Microsoft OMS._
 
 - **Log Aggregator.** The Log Aggregator (or “[Loggregator](https://docs.pivotal.io/pivotalcf/1-9/loggregator/architecture.html)”) aggregates and streams logs and metrics. It collects and processes data from all user apps and Elastic Runtime components.
 
-- **Azure Blob Storage.** PCF uses [Blob Storage](http://docs.pivotal.io/pivotalcf/1-9/concepts/high-availability.html#blobstore) to host buildpacks, droplets, packages and resources. This can be an object storage service or internal file system. Azure Blob storage is recommended for PCF deployments on Azure. [This is supported by default in the recommended BOSH manifest files](https://azure.microsoft.com/en-us/blog/cloud-foundry-integrating-with-azure-blob-storage-and-managed-disks/).
+- **Azure Blob Storage.** PCF uses [Blob Storage](http://docs.pivotal.io/pivotalcf/1-9/concepts/high-availability.html#blobstore) to host buildpacks, droplets, packages and resources. This can be an object storage service or internal file system. Azure Blob storage is recommended for PCF deployments on Azure. [This is supported by default in the recommended BOSH manifest files](https://azure.microsoft.com/blog/cloud-foundry-integrating-with-azure-blob-storage-and-managed-disks/).
 
 ### Application Services Virtual Network
 
@@ -86,13 +80,13 @@ These add-ons connect via an Application Services Virtual Network. Here are a fe
 
 - **Spring Cloud Services.** [Spring Cloud Services for Pivotal Cloud Foundry](https://docs.google.com/document/d/1HkjX7DyY5szFiuwqmYmCHz-vUbXN3cQoRjFDYP8kDr0/edit#heading=h.rys80p658l9p) (PCF) packages server-side components of Spring Cloud projects, including Spring Cloud Netflix and Spring Cloud Config, and makes them available as services in the PCF Marketplace.
 
-- **Azure SQL Database.** [Azure SQL Database](https://azure.microsoft.com/en-us/services/sql-database/) is a managed cloud database for app developers. The service makes building and maintaining applications easier and more productive. SQL Database includes built-in intelligence that learns app patterns and adapts to maximize performance, reliability, and data protection.
+- **Azure SQL Database.** [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a managed cloud database for app developers. The service makes building and maintaining applications easier and more productive. SQL Database includes built-in intelligence that learns app patterns and adapts to maximize performance, reliability, and data protection.
 
-- **Azure Redis Cache.** [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/) is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft and accessible from any application within Azure. It is available in three tiers: basic, standard, or premium.
+- **Azure Redis Cache.** [Azure Redis Cache](https://azure.microsoft.com/services/cache/) is based on the popular open-source Redis cache. It gives you access to a secure, dedicated Redis cache, managed by Microsoft and accessible from any application within Azure. It is available in three tiers: basic, standard, or premium.
 
-- **Azure Event Hubs.** [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention enabling you to ingress massive amounts of telemetry into the cloud and read the data from multiple applications using publish-subscribe semantics.
+- **Azure Event Hubs.** [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention enabling you to ingress massive amounts of telemetry into the cloud and read the data from multiple applications using publish-subscribe semantics.
 
-- **Azure Service Bus.** [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/) offers a highly-reliable cloud messaging service between applications and services, even when one or more is offline. Available in every Azure region, this fully-managed service eliminates the burdens of server management and licensing. Asynchronous operations enable flexible, brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publish/subscribe capabilities—perfect for tasks such as order processing.
+- **Azure Service Bus.** [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) offers a highly-reliable cloud messaging service between applications and services, even when one or more is offline. Available in every Azure region, this fully-managed service eliminates the burdens of server management and licensing. Asynchronous operations enable flexible, brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publish/subscribe capabilities—perfect for tasks such as order processing.
 
 - **Third-Party Services.** Many different software packages can be integrated with Pivotal Cloud Foundry. Application performance management (APM), API Gateways, and NoSQL databases are some of the most popular categories.
 
@@ -108,7 +102,7 @@ These add-ons connect via an Application Services Virtual Network. Here are a fe
 
 ## How the Platform Supports Compliance & Security
 
-A common security mindset: “going slower reduces risk.” Pivotal and its customers believe that the *opposite* is true. The faster systemschange, the harder they are to penetrate. That’s the core idea of cloud-native security, and the “secure by default” features in PCF. These features help companies meet common compliance and security requirements.
+A common security mindset: “going slower reduces risk.” Pivotal and its customers believe that the *opposite* is true. The faster systemschange, the harder they are to penetrate. That's the core idea of cloud-native security, and the “secure by default” features in PCF. These features help companies meet common compliance and security requirements.
 
 - **Authentication.** The [User Account and Authentication](http://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/uaa.html) (UAA) is the identity management service for PCF. It is an OAuth2 provider, issuing tokens for client applications to use when they act on behalf of PCF users. UAA works with the login server to authenticate users with their PCF credentials. It performs [single sign-on (SSO) duties](https://docs.pivotal.io/p-identity/1-9/) using those credentials (or others). UAA has endpoints for managing user accounts, and other functions like registering OAuth2 clients. On Azure, customers tend to use their enterprise Azure Active Directory (AAD). [PCF offers easy integration with AAD for platform access.](https://docs.pivotal.io/pivotalcf/1-9/opsguide/auth-sso.html#configure-pcf-for-saml) In fact, it's the same as on-premise Active Directory or LDAP integration. You need to provide the necessary XML metadata file, and it's done!
 
@@ -132,33 +126,23 @@ A common security mindset: “going slower reduces risk.” Pivotal and its cust
 
     - **Spaces.** Every application and service is part of a space. Each org contains at least one space. A space provides a shared location for application development, deployment, and maintenance. Each space role applies only to a particular space.
 
-    - **Roles and Permissions.** A user can have one or more roles. These roles defines the user’s permissions in the org and within specific spaces in that org.
+    - **Roles and Permissions.** A user can have one or more roles. These roles defines the user's permissions in the org and within specific spaces in that org.
 
 - **SSL/TLS.** [SSL/TLS certificates](http://docs.pivotal.io/pivotalcf/1-9/adminguide/securing-traffic.html) can secure HTTP traffic into your Elastic Runtime deployment. To secure non-HTTP traffic, terminate TLS at your load balancer or at the application with [TCP Routing](http://docs.pivotal.io/pivotalcf/1-9/adminguide/enabling-tcp-routing.html).
 
 ## Spring Cloud Services & Steeltoe
 
-![Spring Cloud Services logo](./images/index/Spring-Cloud-Services-logo.png)
-
-### Overview
-
 [Spring Cloud Services (SCS) for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/index.html) includes components of [Spring Cloud projects](http://cloud.spring.io/) (like [Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-netflix/) and [Spring Cloud Config](https://cloud.spring.io/spring-cloud-config/)). SCS are available as services in the PCF Marketplace. With SCS, you do not have to manage or maintain these components, Pivotal does that for you.
 
 Use SCS to create a [Config Server](#config_server.png-config-server-for-pivotal-cloud-foundry), [Service Registry](#service_registry.pngservice-registry-for-pivotal-cloud-foundry), or [Circuit Breaker Dashboard](#circuit_breaker.pngcircuit-breaker-dashboard-for-pivotal-cloud-foundry) service instance on-demand. From there, you can bind to it and consume it. This again frees you to focus on the value added by your own microservices.
 
-![Config Server logo](./images/index/Config-Server-logo.png)
-
 ### Config Server for Pivotal Cloud Foundry
 
-[Config Server for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/config-server/) is an externalized application configuration service. This delivers a central place to manage an application’s external properties across all environments.
+[Config Server for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/config-server/) is an externalized application configuration service. This delivers a central place to manage an application's external properties across all environments.
 
 Config Server will manage the configuration for an app as it advances through the deployment pipeline (dev, test, prod). Developers can be sure that an app has everything it needs to run during this process. Config Server supports labeled versions of environment-specific configurations.Users can manage configuration content with many tools, including Git. We also plan future support for Vault (as well as Git and Vault in composite fashion).
 
-![Figure 3 - Config Server for Pivotal Cloud Foundry](./images/index/Config-Server-for-Pivotal-Cloud-Foundry.png)
-
-_Figure 3 - Config Server for Pivotal Cloud Foundry._
-
-![Service Registry logo](./images/index/Service-Registry-logo.png)
+![Config Server for Pivotal Cloud Foundry](./images/index/Config-Server-for-Pivotal-Cloud-Foundry.png)
 
 ### Service Registry for Pivotal Cloud Foundry
 
@@ -166,13 +150,9 @@ _Figure 3 - Config Server for Pivotal Cloud Foundry._
 
 Manual configuration of each client or service is difficult. It often proves brittle in production. Instead, use Service Registry to dynamically discover and call registered services.
 
-![Figure 4 - Service Registry for Pivotal Cloud Foundry](./images/index/Service-Registry-for-Pivotal-Cloud-Foundry.png)
-
-_Figure 4 - Service Registry for Pivotal Cloud Foundry._
+![Service Registry for Pivotal Cloud Foundry](./images/index/Service-Registry-for-Pivotal-Cloud-Foundry.png)
 
 First, a client registers with the Service Registry. The client also provides metadata about itself, like its host and port. Once registered, the Registry expects a regular heartbeat message from each service instance. If the heartbeat message is not received consistently, the Service Registry removes the instance from its registry.
-
-![Circuit Breaker Dashboard logo](./images/index/Circuit-Breaker-Dashboard-logo.png)
 
 ### Circuit Breaker Dashboard for Pivotal Cloud Foundry
 
@@ -185,13 +165,11 @@ _Figure 5 - Circuit Breaker for Pivotal Cloud Foundry._
 
 When applied to a service, a circuit breaker watches for failing calls to the service. If failures reach a certain threshold, it “opens” the circuit. The circuit breaker automatically redirects calls to the specified fallback mechanism. This gives the failing service time to recover. The Circuit Breaker Dashboard provides operational visibility into the behavior of all of the circuit breakers present in a fleet of cloud-native services.
 
-![Steeltoe logo](./images/index/Steeltoe-logo.png) 
-
 ### Microservices for .NET with Steeltoe
 
 Spring Cloud Services bring common microservices patterns to Java developers. [Steeltoe](http://steeltoe.io/) does the same for .NET developers. Steeltoe helps .NET client apps integrate with Spring Cloud Services. Steeltoe also includes connector libraries for Cloud Foundry. This handles the parsing of environment variables (VCAP\_SERVICES) for you. As a result, extending apps with backing services like Azure SQL DB is that much easier.
 
-Steeltoe includes three modules:
+Steeltoe includes the following modules.
 
 **Service Discovery**
 
@@ -199,7 +177,7 @@ How do you make the interactions between your microservices reliable and failure
 
 **Config Server**
 
-“Strict separation of config from code” has become a cloud mandate, but that begs the question, where do you put it? And once you’ve externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app’s config in a centralized, version-controlled git repo and then load it at runtime.
+“Strict separation of config from code” has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
 
 **Cloud Connectors**
 
