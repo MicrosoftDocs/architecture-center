@@ -147,16 +147,13 @@ The base reference approach creates a single Resource Group. The Resource Group 
 
 - **Many Availability Sets, created by BOSH for each deployment job type.** Availability sets allocate BOSH jobs across 1 or more fault or upgrade domains. This allows jobs to complete, even if Azure failures occur. Each BOSH job in a PCF release gets their own availability set. This creates many instances, so that jobs can proceed in case of a single Azure Fault Domain failure. For more information, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/virtual-machines-windows-manage-availability).
 
-- **One virtual network (VNet) with a large range of address space that is divided into subnets** Here's a typical allocation of address space within the VNet.
+- **Virtual network (VNet)**  Create one VNet with a large range of address space that is divided into subnets. In a deployment with multiple resource groups, the Network and PCF resource groups should share the same region. This allows BOSH jobs in one resource group to attach networks to another. Here's a typical allocation of address space within the VNet.
 
-    Example: 10.xxx.yyy.0/20
-
+    - VNet: 10.xxx.yyy.0/20
     - Infrastructure subnet: 10.xxx.yyy.0/26
     - Elastic Runtime subnet: 10.xxx.yyy.0/22
     - Services subnet: 10.xxx.yyy.0/22
     - Dynamic Service subnet: 10.xxx.yyy.0/22
-
-    In a deployment with multiple resource groups, the Network and PCF resource groups should share the same region. This allows BOSH jobs in one resource group to attach networks to another.
 
 - **Network Security Group (NSG).** The NSG manages firewall rules that apply to network interfaces. Ops Manager for Azure currently limits PCF deployments to one NSG.
 
