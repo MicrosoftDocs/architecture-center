@@ -188,12 +188,7 @@ Steeltoe automatically wires up common backing services, because no microservice
 
 ## Hosting Pivotal Cloud Foundry in Microsoft Azure
 
-The following diagram shows an architecture for a single PCF deployment hosted in Microsoft Azure. The diagram shows core networking, consisting of an Azure virtual network (VNet) with the following subnets:
-
-- Infrastructure
-- ERT (Elastic Runtime)
-- Service tiles
-- Dynamic or On Demand Service tiles
+The following diagram shows an architecture for a single PCF deployment hosted in Microsoft Azure. The diagram shows core networking, consisting of an Azure virtual network (VNet) subnets for Infrastructure, ERT (Elastic Runtime), Service tiles, and Dynamic or On Demand Service tiles
 
 ![Pivotal Cloud Foundry running on Microsoft Azure](./images/logical-infrastructure/Logical-reference-architecture-for-Pivotal-Cloud-Foundry-atop-Microsoft-Azure.png)
 
@@ -230,7 +225,7 @@ The base reference approach creates a single Resource Group. The Resource Group 
 
 - **Network Security Group (NSG).** The NSG manages firewall rules that apply to network interfaces. Ops Manager for Azure currently limits PCF deployments to one NSG.
 
-- **Azure Load Balancers (ALBs).** Load balancers are used as follows:
+- **Azure Load Balancers.** Load balancers are used as follows:
 
     - One for Public app access, enabling an API (or Control Path) and Apps (or Data Path)
     - One for Internal use, for example MySQL
@@ -289,7 +284,7 @@ If you're running an application in the public cloud and in your datacenter, cho
 
 - **Go through your data center every time.** In this scenario, traffic flows through your existing global traffic manager. Administrators create routing policies based on custom rules. These policies steer requests to the most suitable site, either on-premises or the public cloud. Then, admins build firewall rules that only allow traffic from your data center to the public cloud. These rules block all other traffic into the company's public cloud instances. This hybrid setup requires a high-speed, dedicated connection between your data center(s) and the public cloud site. It is important to note that data is typically served from the on-premises site. Other application elements enjoy greater elasticity.
 
-- **Balance traffic across public cloud nodes and your datacenter.** For this option, use DNS routing or a global load balancing service from a 3rd party. Pivotal Cloud Foundry easily supports this scenario. Deploy two PCF foundations, then configure each to work with the desired policies.
+- **Balance traffic across public cloud nodes and your datacenter.** For this option, use DNS routing or a global load balancing service from a 3rd party. Pivotal Cloud Foundry easily supports this scenario. Create two PCF deployments, then configure each to work with the desired policies.
 
 ### Active-Active or Active-Passive?
 
