@@ -10,7 +10,7 @@ ms.custom: cloud-foundry
 
 Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating applications. PCF can run on-premises or on public cloud providers such as Microsoft Azure. This gives enterprises a hybrid and multi-cloud platform.
 
-PCF is a uniform way for to launch, and quickly iterate, on applications in any popular language. The platform manages many implementation details for you. 
+PCF is a uniform way for to launch, and quickly iterate, applications in any popular language. The platform manages many implementation details for you. 
 
 ## Pivotal Cloud Foundry architecture
 
@@ -38,7 +38,12 @@ The following diagram shows the main components of PCF. This architecture organi
 
 ### Elastic RunTime Virtual Network
 
-- **Load Balancer.** Production PCF environments use a highly-available [load balancer.](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) The load balancer route traffic to PCF Router IPs and supports SSL termination with wildcard DNS location. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. Global deployments should use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), routing to [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer/) in different regions.
+- **Load Balancer.** Production environments should use a highly-available [load balancer](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) to route traffic to the PCF Router IPs and provide SSL termination. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. In Azure, we recommend using [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction) for the load balancer role. 
+
+    > [!NOTE]
+    > The term *load balancer* here is used in a generic sense and doesn't refer specifically to [Azure Load Balancer](https://azure.microsoft.com/services/load-balancer/_. 
+
+    Multi-region deployments should use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) to route to the closest region.
 
 - **TCP Router.** The [TCP Router](http://docs.pivotal.io/pivotalcf/1-9/adminguide/enabling-tcp-routing.html) works with applications that serve requests on non-HTTP TCP protocols. TCP Routing terminates the TLS as close to your apps as possible. In this scenario, packets are not decrypted before reaching the application level. This configuration helps compliance with certain regulations.
 

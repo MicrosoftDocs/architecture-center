@@ -13,9 +13,9 @@ pnp.series.next:
 pnp.series.prev: 
 ---
 
-# PCF Foundation hosted in Microsoft Azure
+# Hosting Pivotal Cloud Foundry in Microsoft Azure
 
-The following diagram shows an architecture for PCF Foundation hosted in Microsoft Azure. The diagram shows core networking, consisting of an Azure virtual network (VNet) with the following subnets:
+The following diagram shows an architecture for a single PCF deployment hosted in Microsoft Azure. The diagram shows core networking, consisting of an Azure virtual network (VNet) with the following subnets:
 
 - Infrastructure
 - ERT (Elastic Runtime)
