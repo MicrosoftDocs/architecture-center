@@ -2,24 +2,17 @@
 title: Get started with Cloud Foundry on Azure
 description: 'How to install, configure, and run Cloud Foundry on Azure.'
 author: tbd
-ms.service: guidance
-ms.topic: article
 ms.date: 06/06/2017
-ms.author: tbd
 ms.custom: cloud-foundry
-
-pnp.series.title: Cloud Foundry on Azure
-pnp.series.next: 
-pnp.series.prev: 
 ---
 
 # Run Pivotal Cloud Foundry on Azure
 
-Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating applications. PCF can run on-premises, and atop public cloud providers like Microsoft Azure. This gives enterprises a hybrid and multi-cloud platform.
+Pivotal Cloud Foundry (PCF) is a cloud-native platform for deploying and operating applications. PCF can run on-premises or on public cloud providers such as Microsoft Azure. This gives enterprises a hybrid and multi-cloud platform.
 
 PCF is a uniform way for you to launch, and quickly iterate, on applications in any popular language. The platform manages many implementation details for you. With PCF, you no longer have to think about how to deploy, scale, and expose an app. You can instead focus on adding business value with custom code. PCF enables developers to speed up application development and reduce time to market.
 
-## Architecture
+## Pivotal Cloud Foundry architecture
 
 The diagram in Figure 1 highlights important PCF components. This architecture organizes elements according to their network affinity.
 
