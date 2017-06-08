@@ -36,13 +36,13 @@ The following diagram shows an application architecture with some common cloud-n
 
 - **Query Service, a Spring Boot app, searches the relational database and returns relevant results.** In contrast to the Command Service, this does not change the state of the system. This service is likely to experience variable load, and can be scaled accordingly.
 
-- **Config Server, implemented as Spring Cloud Services Config Server, stores all environmental variables.** No configuration is stored in any of the services. The Config Server stores this information and provides it on-demand. This is a cloud-native best practice, in keeping with “12 factor app” principles.
+- **Config Server, implemented as Spring Cloud Services Config Server, stores all environmental variables.** No configuration is stored in any of the services. The Config Server stores this information and provides it on-demand. This is a cloud-native best practice, in keeping with "12 factor app" principles.
 
 - **Event Processor, written in Spring Cloud Data Flow, works with the Command Service.** This is the other part of the application's business logic.
 
 - **MySQL for PCF serves as the system of truth.** It returns results requested by the Query Service.
 
-- **Event Store, based on [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), is the high-volume event processing system.** This pattern is often referred to as “Event Sourcing”. It is a superior option for this scenario, since event streams in the past may need to be “replayed.” In contrast, systems like RabbitMQ immediately delete messages upon successful receipt. Azure Event Hubs natively supports C\# .NET clients and Java clients.
+- **Event Store, based on [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), is the high-volume event processing system.** This pattern is often referred to as "Event Sourcing". It is a superior option for this scenario, since event streams in the past may need to be "replayed." In contrast, systems like RabbitMQ immediately delete messages upon successful receipt. Azure Event Hubs natively supports C\# .NET clients and Java clients.
 
 ## Considerations for High Availability Across Multiple Sites
 

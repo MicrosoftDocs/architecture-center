@@ -34,13 +34,13 @@ The following diagram shows the main components of PCF. This architecture organi
 
 - **BOSH Director.** [BOSH Director](http://docs.pivotal.io/pivotalcf/1-9/customizing/vsphere-config.html) performs a highly automated PCF deployment based on user-provided configuration details.
 
-- **NAT Gateway.** A network address translation (NAT) gateway enables services in a private subnet to connect to other PCF components. The NAT Gateway also prevents components *outside* the Infrastructure Services VLAN from initiating a connection with these services. [Read more about configuring firewalls for PCF](http://docs.pivotal.io/pivotalcf/1-9/customizing/config_firewall.html).
+- **NAT Gateway.** A network address translation (NAT) gateway enables services in a private subnet to connect to other PCF components. The NAT Gateway also prevents components *outside* the Infrastructure Services VLAN from initiating a connection with these services. For more information, see[Preparing Your Firewall for Deploying Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-9/customizing/config_firewall.html) in the Pivotal documentation.
 
 ### Elastic RunTime Virtual Network
 
 - **Load Balancer.** Production PCF environments use a highly-available [load balancer.](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) The load balancer route traffic to PCF Router IPs and supports SSL termination with wildcard DNS location. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. Global deployments should use [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), routing to [Azure Load Balancers](https://azure.microsoft.com/services/load-balancer/) in different regions.
 
-- **TCP Router.** The [TCP Router](http://docs.pivotal.io/pivotalcf/1-9/adminguide/enabling-tcp-routing.html)works with applications that serve requests on non-HTTP TCP protocols. TCP Routing terminates the TLS as close to your apps as possible. In this scenario, packets are not decrypted before reaching the application level. This configuration helps compliance with certain regulations.
+- **TCP Router.** The [TCP Router](http://docs.pivotal.io/pivotalcf/1-9/adminguide/enabling-tcp-routing.html) works with applications that serve requests on non-HTTP TCP protocols. TCP Routing terminates the TLS as close to your apps as possible. In this scenario, packets are not decrypted before reaching the application level. This configuration helps compliance with certain regulations.
 
 - **HTTP Router.** The [HTTP Router](http://docs.pivotal.io/pivotalcf/1-9/concepts/http-routing.html) manages HTTP traffic into and out of the PCF deployment.
 
@@ -66,17 +66,15 @@ The following diagram shows the main components of PCF. This architecture organi
 
 - **Messaging.** [Messaging](https://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/messaging-nats.html) in PCF is done via NATS, a lightweight publish-subscribe and distributed queueing messaging system.
 
-- **Errand.** These instances are dedicated to [running one-off errands](https://docs.pivotal.io/tiledev/tile-errands.html) (for example, adding and removing Tiles).
+- **Errand.** These instances are dedicated to [running one-off errands](https://docs.pivotal.io/tiledev/tile-errands.html), such as adding and removing Tiles.
 
-- **Log Aggregator.** The Log Aggregator (or “[Loggregator](https://docs.pivotal.io/pivotalcf/1-9/loggregator/architecture.html)”) aggregates and streams logs and metrics. It collects and processes data from all user apps and Elastic Runtime components.
+- **Log Aggregator.** The Log Aggregator (or [Loggregator](https://docs.pivotal.io/pivotalcf/1-9/loggregator/architecture.html)) aggregates and streams logs and metrics. It collects and processes data from all user apps and Elastic Runtime components.
 
 - **Azure Blob Storage.** PCF uses [Blob Storage](http://docs.pivotal.io/pivotalcf/1-9/concepts/high-availability.html#blobstore) to host buildpacks, droplets, packages and resources. This can be an object storage service or internal file system. Azure Blob storage is recommended for PCF deployments on Azure. [This is supported by default in the recommended BOSH manifest files](https://azure.microsoft.com/blog/cloud-foundry-integrating-with-azure-blob-storage-and-managed-disks/).
 
 ### Application Services Virtual Network
 
-Customers use Pivotal Cloud Foundry's core components to deploy and operate their apps. Developers and operators tend to extend their modern apps with other services.
-
-These add-ons connect via an Application Services Virtual Network. Here are a few popular services that Azure customers often integrate into their apps.
+Customers use Pivotal Cloud Foundry's core components to deploy and operate their apps. Developers and operators tend to extend their modern apps with other services. These add-ons connect via an Application Services Virtual Network. Here are a few popular services that Azure customers often integrate into their apps.
 
 - **Spring Cloud Services.** [Spring Cloud Services for Pivotal Cloud Foundry](https://docs.google.com/document/d/1HkjX7DyY5szFiuwqmYmCHz-vUbXN3cQoRjFDYP8kDr0/edit#heading=h.rys80p658l9p) (PCF) packages server-side components of Spring Cloud projects, including Spring Cloud Netflix and Spring Cloud Config, and makes them available as services in the PCF Marketplace.
 
@@ -102,11 +100,11 @@ These add-ons connect via an Application Services Virtual Network. Here are a fe
 
 ## How the Platform Supports Compliance & Security
 
-A common security mindset: “going slower reduces risk.” Pivotal and its customers believe that the *opposite* is true. The faster systemschange, the harder they are to penetrate. That's the core idea of cloud-native security, and the “secure by default” features in PCF. These features help companies meet common compliance and security requirements.
+A common security mindset: "going slower reduces risk." Pivotal and its customers believe that the *opposite* is true. The faster systemschange, the harder they are to penetrate. That's the core idea of cloud-native security, and the "secure by default" features in PCF. These features help companies meet common compliance and security requirements.
 
 - **Authentication.** The [User Account and Authentication](http://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/uaa.html) (UAA) is the identity management service for PCF. It is an OAuth2 provider, issuing tokens for client applications to use when they act on behalf of PCF users. UAA works with the login server to authenticate users with their PCF credentials. It performs [single sign-on (SSO) duties](https://docs.pivotal.io/p-identity/1-9/) using those credentials (or others). UAA has endpoints for managing user accounts, and other functions like registering OAuth2 clients. On Azure, customers tend to use their enterprise Azure Active Directory (AAD). [PCF offers easy integration with AAD for platform access.](https://docs.pivotal.io/pivotalcf/1-9/opsguide/auth-sso.html#configure-pcf-for-saml) In fact, it's the same as on-premise Active Directory or LDAP integration. You need to provide the necessary XML metadata file, and it's done!
 
-- **BOSH.** [BOSH](https://bosh.cloudfoundry.org/docs/about.html) deploys Pivotal Cloud Foundry and related services. It unifies the management of cloud software across its lifecycle. BOSH can provision and deploy software over hundreds of VMs. It also performs monitoring, failure recovery, and software updates with zero-to-minimal downtime. BOSH supports many “immutable infrastructure” concepts. It enables two important elements of [cloud-native security](https://pivotal.io/cloud-native-security):
+- **BOSH.** [BOSH](https://bosh.cloudfoundry.org/docs/about.html) deploys Pivotal Cloud Foundry and related services. It unifies the management of cloud software across its lifecycle. BOSH can provision and deploy software over hundreds of VMs. It also performs monitoring, failure recovery, and software updates with zero-to-minimal downtime. BOSH supports many "immutable infrastructure" concepts. It enables two important elements of [cloud-native security](https://pivotal.io/cloud-native-security):
 
     - **Repair.** Repair vulnerable software as soon as updates are available.
 
@@ -163,7 +161,7 @@ The [Circuit Breaker Dashboard for PCF](http://docs.pivotal.io/spring-cloud-serv
 
 _Figure 5 - Circuit Breaker for Pivotal Cloud Foundry._
 
-When applied to a service, a circuit breaker watches for failing calls to the service. If failures reach a certain threshold, it “opens” the circuit. The circuit breaker automatically redirects calls to the specified fallback mechanism. This gives the failing service time to recover. The Circuit Breaker Dashboard provides operational visibility into the behavior of all of the circuit breakers present in a fleet of cloud-native services.
+When applied to a service, a circuit breaker watches for failing calls to the service. If failures reach a certain threshold, it "opens" the circuit. The circuit breaker automatically redirects calls to the specified fallback mechanism. This gives the failing service time to recover. The Circuit Breaker Dashboard provides operational visibility into the behavior of all of the circuit breakers present in a fleet of cloud-native services.
 
 ### Microservices for .NET with Steeltoe
 
@@ -177,7 +175,7 @@ How do you make the interactions between your microservices reliable and failure
 
 **Config Server**
 
-“Strict separation of config from code” has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
+"Strict separation of config from code" has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
 
 **Cloud Connectors**
 

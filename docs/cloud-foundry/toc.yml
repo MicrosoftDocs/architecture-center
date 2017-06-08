@@ -3,7 +3,7 @@
 
 - name: Pivotal Cloud Foundry on Azure
   items:
-  - name: Introduction
+  - name: Run PCF on Azure
     href: index.md
   - name: Logical infrastructure
     href: logical-infrastructure.md
