@@ -16,15 +16,19 @@ PCF is a uniform way for to launch, and quickly iterate, applications in any pop
 
 The following diagram shows the main components of PCF. This architecture organizes elements according to their network affinity. 
 
-- **Infrastructure Services Virtual Network**. Used by Pivotal Ops Manager to control the underlying infrastructure.
-
-- **Elastic Runtime Virtual Network**. Used by PCF's Elastic Runtime, container orchestrator, and other related services.
-
-- **App Services Virtual Network**. Used by PCF managed services like MySQL, RabbitMQ, and Spring Cloud Services for Pivotal Cloud Foundry.
-
 ![Selected Pivotal Cloud Foundry components](./images/index/Overview-of-selected-Pivotal-Cloud-Foundry-components.png)
 
-### Infrastructure Services Virtual Network
+The network is logically subdivided:
+
+- **Infrastructure Services**. Used by Pivotal Ops Manager to control the underlying infrastructure.
+
+- **Elastic Runtime**. Used by PCF's Elastic Runtime, container orchestrator, and other related services.
+
+- **App Services**. Used by PCF managed services like MySQL, RabbitMQ, and Spring Cloud Services for Pivotal Cloud Foundry.
+
+In an Azure deployment, these divisions will correspond to subnets in an Azure virtual network (VNet).
+
+### Infrastructure Services 
 
 - **CredHub.** CredHub is a forthcoming extension to Cloud Foundry. This feature centralizes and secures credential generation, storage, lifecycle management, and access. CredHub can mitigate the risk of leaked credentials, a common culprit in data breaches.
 
@@ -36,7 +40,7 @@ The following diagram shows the main components of PCF. This architecture organi
 
 - **NAT Gateway.** A network address translation (NAT) gateway enables services in a private subnet to connect to other PCF components. The NAT Gateway also prevents components *outside* the Infrastructure Services VLAN from initiating a connection with these services. For more information, see[Preparing Your Firewall for Deploying Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-9/customizing/config_firewall.html) in the Pivotal documentation.
 
-### Elastic RunTime Virtual Network
+### Elastic RunTime 
 
 - **Load Balancer.** Production environments should use a highly-available [load balancer](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) to route traffic to the PCF Router IPs and provide SSL termination. It adds appropriate `x-forwarded-for` and `x-forwarded-proto` HTTP headers to incoming requests. WebSockets can be supported as needed. In Azure, we recommend using [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction) for the load balancer role. 
 
@@ -77,9 +81,9 @@ The following diagram shows the main components of PCF. This architecture organi
 
 - **Azure Blob Storage.** PCF uses [Blob Storage](http://docs.pivotal.io/pivotalcf/1-9/concepts/high-availability.html#blobstore) to host buildpacks, droplets, packages and resources. This can be an object storage service or internal file system. Azure Blob storage is recommended for PCF deployments on Azure. [This is supported by default in the recommended BOSH manifest files](https://azure.microsoft.com/blog/cloud-foundry-integrating-with-azure-blob-storage-and-managed-disks/).
 
-### Application Services Virtual Network
+### Application Services 
 
-Customers use Pivotal Cloud Foundry's core components to deploy and operate their apps. Developers and operators tend to extend their modern apps with other services. These add-ons connect via an Application Services Virtual Network. Here are a few popular services that Azure customers often integrate into their apps.
+Customers use Pivotal Cloud Foundry's core components to deploy and operate their apps. Developers and operators tend to extend their modern apps with other services. Here are a few popular services that Azure customers often integrate into their apps.
 
 - **Spring Cloud Services.** [Spring Cloud Services for Pivotal Cloud Foundry](https://docs.google.com/document/d/1HkjX7DyY5szFiuwqmYmCHz-vUbXN3cQoRjFDYP8kDr0/edit#heading=h.rys80p658l9p) (PCF) packages server-side components of Spring Cloud projects, including Spring Cloud Netflix and Spring Cloud Config, and makes them available as services in the PCF Marketplace.
 
