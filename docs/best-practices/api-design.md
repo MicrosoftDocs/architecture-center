@@ -550,7 +550,17 @@ This approach is arguably the purest of the versioning mechanisms and lends itse
 >
 >
 
+## Open API Initiative
+The [Open API Initiative](https://www.openapis.org/) was created by an industry consortium to standardize REST API descriptions across vendors. As part of this initiative, the Swagger 2.0 specification was renamed the OpenAPI Specification (OAS) and brought under the Open API Initiative.
+
+You may want to adopt OpenAPI for your web APIs. Some points to consider:
+
+- The OpenAPI Specification comes with with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
+- OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract. 
+- Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API Help Pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
+
 ## More information
 * The [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md) contain detailed recommendations for designing public REST APIs.
 * The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
 * The [Web API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a web API.
+* The [Open API Initiative](https://www.openapis.org/) site, contains all related documentation and implementation details on Open API.

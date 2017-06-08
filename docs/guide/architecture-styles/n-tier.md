@@ -69,7 +69,7 @@ Each tier consists of two or more VMs, placed in an availability set or VM scale
 
 Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group (NSG) rules and route tables to individual tiers.
 
-The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On Availability Groups for high availability. For Linux, we recommend Apache Cassandra. (SQL Server for Linux is currently in preview) 
+The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On Availability Groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra. 
 
 Network Security Groups (NSGs) restrict access to each tier. For example, the database tier only allows access from the business tier.
 

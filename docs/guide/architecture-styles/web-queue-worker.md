@@ -28,11 +28,11 @@ The Web-Queue-Worker architecture is typically implemented using managed compute
 
 Consider this architecture style for:
 
-- Applications with a relatively simple domain .
+- Applications with a relatively simple domain.
 - Applications with some long-running workflows or batch operations.
 - When you want to use managed services, rather than infrastructure as a service (IaaS).
 
-## Benefits:
+## Benefits
 
 - Relatively simple architecture that is easy to understand.
 - Easy to deploy and manage.

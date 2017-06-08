@@ -37,7 +37,7 @@ The architecture has the following components:
 * **Load balancer rules**. Used to distribute network traffic among all the VMs in the back-end address pool. 
 * **Network address translation (NAT) rules**. Used to route traffic to a specific VM. For example, to enable remote desktop protocol (RDP) to the VMs, create a separate NAT rule for each VM. 
 * **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
-* **Storage**. Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
+* **Storage**. If you are not using [managed disks](/azure/storage/storage-managed-disks-overview), storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
 You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
@@ -70,7 +70,10 @@ To route traffic to a specific VM, use NAT rules. For example, to enable RDP to 
 
 ### Storage account recommendations
 
-Create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the input/output operations per second [(IOPS) limits][vm-disk-limits] for storage accounts. 
+Create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the input/output operations per second [(IOPS) limits][vm-disk-limits] for storage accounts.
+
+> [!IMPORTANT]
+> We recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way. Our [reference architectures](/azure/architecture/reference-architectures/) do not currently deploy managed disks but the [template building blocks](https://github.com/mspnp/template-building-blocks/wiki) will be updated to deploy managed disks in version 2.
 
 Create one storage account for diagnostic logs. This storage account can be shared by all the VMs.
 
@@ -89,13 +92,13 @@ Another option for scaling is to use a [virtual machine scale set][vmss]. VM sca
 
 Currently, scale sets do not support data disks. The options for storing data are Azure File storage, the OS drive, the temp drive, or an external store such as Azure Storage. 
 
-By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. We recommend no more than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.  
+By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. If you are not using [managed disks] (/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks), we recommend no more than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.  
 
 There are two basic ways to configure VMs deployed in a scale set: 
 
 - Use extensions to configure the VM after it is provisioned. With this approach, new VM instances may take longer to start up than a VM with no extensions.
 
-- Create a custom image. This option may be quicker to deploy. However, it requires you to keep the image up to date. A scale set built on a custom image must create all OS disk VHDs within one storage account. 
+- Deploy a [managed disk](/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up to date.  
 
 For additional considerations, see [Designing VM Scale Sets For Scale][vmss-design].
 

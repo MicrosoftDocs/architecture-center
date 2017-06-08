@@ -1,0 +1,146 @@
+- name: Azure Architecture Center
+  href: index.md
+
+- name: Application Architecture Guide
+  href: guide/index.md
+  items:
+  - name: Architecture styles
+    href: guide/architecture-styles/index.md
+  - name: Technology choices
+    href: guide/technology-choices/index.md
+    items:
+  - name: Design principles
+    href: guide/design-principles/index.md
+  - name: Pillars of software quality
+    href: guide/pillars.md
+  - name: Design patterns
+    href: patterns/index.md?toc=/azure/architecture/guide/toc.json
+
+- name: Reference Architectures
+  href: reference-architectures/index.md
+  items:
+  - name: Identity management
+    href: reference-architectures/identity/index.md
+  - name: Hybrid network
+    href: reference-architectures/hybrid-networking/index.md
+  - name: Network DMZ
+    href: reference-architectures/dmz/index.md
+  - name: VM workloads (Linux)
+    href: reference-architectures/virtual-machines-linux/index.md
+  - name: VM workloads (Windows)
+    href: reference-architectures/virtual-machines-windows/index.md
+  - name: Web application with managed services
+    href: reference-architectures/managed-web-app/index.md
+
+- name: Cloud Design Patterns
+  href: patterns/index.md
+  items:
+  - name: Availability patterns
+    href: patterns/category/availability.md
+  - name: Data management patterns
+    href: patterns/category/data-management.md
+  - name: Design and Implementation patterns
+    href: patterns/category/design-implementation.md
+  - name: Management and Monitoring patterns
+    href: patterns/category/management-monitoring.md
+  - name: Messaging patterns
+    href: patterns/category/messaging.md
+  - name: Performance and scalability patterns
+    href: patterns/category/performance-scalability.md
+  - name: Resiliency patterns
+    href: patterns/category/resiliency.md
+  - name: Security patterns
+    href: patterns/category/security.md
+
+- name: Best Practices
+  items:
+  - name: API design
+    href: best-practices/api-design.md
+  - name: API implementation
+    href: best-practices/api-implementation.md
+  - name: Autoscaling
+    href: best-practices/auto-scaling.md
+  - name: Background jobs
+    href: best-practices/background-jobs.md
+  - name: Caching
+    href: best-practices/caching.md
+  - name: Content Delivery Network
+    href: best-practices/cdn.md
+  - name: Data partitioning
+    href: best-practices/data-partitioning.md
+  - name: Monitoring and diagnostics
+    href: best-practices/monitoring.md
+  - name: Naming conventions
+    href: best-practices/naming-conventions.md
+  - name: Transient fault handling
+    href: best-practices/transient-faults.md
+  - name: Retry guidance for specific services
+    href: best-practices/retry-service-specific.md
+
+- name: Performance Antipatterns
+  href: antipatterns/index.md
+  items:
+  - name: Busy Database
+    href: antipatterns/busy-database/index.md
+  - name: Busy Front End
+    href: antipatterns/busy-front-end/index.md
+  - name: Chatty I/O
+    href: antipatterns/chatty-io/index.md
+  - name: Extraneous Fetching
+    href: antipatterns/extraneous-fetching/index.md
+  - name: Improper Instantiation
+    href: antipatterns/improper-instantiation/index.md
+  - name: Monolithic Persistence
+    href: antipatterns/monolithic-persistence/index.md
+  - name: No Caching
+    href: antipatterns/no-caching/index.md
+  - name: Synchronous I/O
+    href: antipatterns/synchronous-io/index.md
+
+- name: Design Review Checklists
+  items:
+  - name: Availability
+    href: checklist/availability.md
+  - name: DevOps
+    href: checklist/dev-ops.md
+  - name: Resiliency
+    href: checklist/resiliency.md
+  - name: Scalability
+    href: checklist/scalability.md
+
+- name: Design for Resiliency
+  items:
+  - name: Designing resilient applications
+    href: resiliency/index.md
+  - name: Resiliency checklist
+    href: checklist/resiliency.md?toc=/azure/architecture/resiliency/toc.json
+  - name: Failure mode analysis
+    href: resiliency/failure-mode-analysis.md
+
+- name: Scenario guides
+  items:
+  - name: Azure for AWS Professionals
+    href: aws-professional/index.md
+  - name: Manage Identity in Multitenant Applications
+    href: multitenant-identity/index.md
+  - name: Migrate from Cloud Services to Service Fabric
+    href: service-fabric/migrate-from-cloud-services.md
+  - name: Run Elasticsearch on Azure
+    href: elasticsearch/index.md
+
+- name: Resources
+  items:
+  - name: Microsoft Trust Center for Azure
+    href: https://www.microsoft.com/en-us/trustcenter/cloudservices/azure
+  - name: Icons and diagrams
+    href: resources/diagrams.md
+  - name: Calendar of Azure updates
+    href: https://azure.microsoft.com/updates/
+  - name: Training
+    href: https://azure.microsoft.com/community/training/
+  - name: SQLCAT blog
+    href: https://blogs.msdn.microsoft.com/sqlcat/
+  - name: AzureCAT blog
+    href: https://blogs.msdn.microsoft.com/azurecat/
+  - name: White papers
+    href: https://azure.microsoft.com/resources/whitepapers/

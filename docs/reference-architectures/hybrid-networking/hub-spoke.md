@@ -17,7 +17,7 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 The benefits of this toplogy include:
 
 * **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
-* **Overcome subscriptions limits** by peering VNets from different ubscriptions to the central hub.
+* **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
 * **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 Typical uses for this architecture include:
