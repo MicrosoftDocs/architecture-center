@@ -21,9 +21,7 @@ The following diagram shows the main components of PCF. This architecture organi
 The network is logically subdivided:
 
 - **Infrastructure Services**. Used by Pivotal Ops Manager to control the underlying infrastructure.
-
 - **Elastic Runtime**. Used by PCF's Elastic Runtime, container orchestrator, and other related services.
-
 - **App Services**. Used by PCF managed services like MySQL, RabbitMQ, and Spring Cloud Services for Pivotal Cloud Foundry.
 
 In an Azure deployment, these divisions will correspond to subnets in an Azure virtual network (VNet).
@@ -109,8 +107,6 @@ First, a client registers with the Service Registry. The client also provides me
 
 The [Hystrix](https://github.com/Netflix/Hystrix) library (part of [Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-netflix/)) provides an implementation of the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern. The [Circuit Breaker Dashboard for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/circuit-breaker/) visualizes the metrics of the circuit breakers inside an app. Cloud-native architectures are often composed of many layers of distributed services. End-user requests may comprise multiple calls to these services. If a lower-level service fails, that failure can cascade up to the end user and spread to other dependent services. Heavy traffic to a failing service can also make it difficult to repair. Hystrix circuit breakers can prevent failures from cascading. They can also provide fallback behavior until a failing service is restored to normal.
 
-![Figure 5 - Circuit Breaker for Pivotal Cloud Foundry](./images/index/Circuit-Breaker-for-Pivotal-Cloud-Foundry.png)
-
 When applied to a service, a circuit breaker watches for failing calls to the service. If failures reach a certain threshold, it "opens" the circuit. The circuit breaker automatically redirects calls to the specified fallback mechanism. This gives the failing service time to recover. The Circuit Breaker Dashboard provides operational visibility into the behavior of all of the circuit breakers present in a fleet of cloud-native services.
 
 ### Microservices for .NET with Steeltoe
@@ -119,11 +115,11 @@ Spring Cloud Services bring common microservices patterns to Java developers. [S
 
 Steeltoe includes the following modules.
 
-**Service Discovery**. How do you make the interactions between your microservices reliable and failure tolerant? For starters, you need a service registry—basically a phone book for your microservices—so service consumers know exactly where to find healthy service instances. Steeltoe includes a .NET client for Netflix Eureka so your microservices can register themselves and discover other registered services.
+**Service Discovery**. A service registry enables service consumers to look up healthy service instances. Steeltoe includes a .NET client for Netflix Eureka so your microservices can register themselves and discover other registered services.
 
-**Config Server**. "Strict separation of config from code" has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
+**Config Server**. Steeltoe leverages Spring Cloud Config Server to store application configuration in a centralized, version-controlled git repo and then load it at runtime.
 
-**Cloud Connectors**. Steeltoe automatically wires up common backing services, because no microservice is an island. And because it was built by Pivotal, Steeltoe integrates elegantly with Cloud Foundry.
+**Cloud Connectors**. Steeltoe automatically wires up common backing services.
 
 ## Hosting Pivotal Cloud Foundry in Microsoft Azure
 
