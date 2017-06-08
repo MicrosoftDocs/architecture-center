@@ -2,7 +2,7 @@
 title: Deploy SAP NetWeaver and SAP HANA on Azure
 description:  This Microsoft Azure reference architecture shows a set of proven practices for running SAP HANA in a high availability environment on Azure.
 author: njray
-ms.date: 05/30/17
+ms.date: 6/08/17
 ---
 
 # Deploy SAP NetWeaver and SAP HANA on Azure
@@ -29,7 +29,7 @@ in the following “Architecture” section.
 
 ## Architecture
 
-This reference architecture depicts a distributed installation of SAP applications on a SAP HANA database. Although this document focuses on a highly available environment within a single Azure region, all components of this architecture may be replicated to secondary regions for disaster recovery purposes.
+This reference architecture depicts a distributed installation of SAP applications. There are several databases that SAP applications can use, and here the SAP HANA database is described. Although this document focuses on a highly available environment within a single Azure region, all components of this architecture can be replicated to secondary regions for disaster recovery purposes.
 
 The architecture consists of the following components.
 
@@ -49,12 +49,14 @@ The architecture consists of the following components.
     same role. Using availability sets improves the availability of a service
     during system failure or routine cloud platform maintenance.
 
-
--	**Load balancers.** [Azure Load Balancer][azure-lb] (shown on the left in Figure 1) is used in a round-robin configuration for
-    HTTP or HTTPS traffic distribution among the SAP application servers of the
-    same type (either ABAP or Java). SMLG, the internal load balancer in ABAP
+-	**Load balancers.** The SAP Web Dispatcher component is used as a load balancer 
+    for SAP traffic among the SAP application servers. To achieve high availability,
+    the [Azure Load Balancer][azure-lb] (shown on the left in Figure 1) is used
+    to implement the failover cluster for the SAP web dispatchers. 
+    SMLG, the internal load balancer in ABAP
     Central Services (ASCS), is used for balancing the SAP application server
-    pool.  An Azure [internal load balancer][ilb] (shown on the right in Figure 1) is also used to implement the ASCS Windows
+    pool for SAPGUIs and RFC traffic.  An Azure [internal load balancer][ilb]
+     (shown on the right in Figure 1) is also used to implement the ASCS Windows
     Server Failover Cluster (WSFC). The application server connection to the
     highly available ASCS is through the cluster virtual network name. Assigning
     the cluster virtual network name to the endpoint of this internal load
@@ -80,7 +82,7 @@ The architecture consists of the following components.
     other virtual machines for administrative tasks only.
 
 -   **Azure virtual machines**. Windows Azure virtual machines are used for
-    administration and SAP workloads. The SAP HANA database runs on Linux Azure
+    administration and SAP workloads. The database runs on Linux Azure
     virtual machines.
 
 -   **Azure Storage**. This is a persistent store. The operating system, SAP
@@ -90,13 +92,13 @@ The architecture consists of the following components.
     Cluster Edition performs the cluster shared volume (CSV) function by
     replicating independent disks owned by the cluster nodes. For details, see
     “3. Important Update for SAP Customers Running ASCS on SIOS on Azure” at
-    [Running SAP applications on the Microsoft
-    platform][running-sap].
+    [Running SAP applications on the Microsoft platform][running-sap].
 
 -   **SAP NetWeaver**. This application layer performs business logic
     computation and includes SAP ASCS and the application servers.
 
--   **SAP HANA**. This SAP in-memory data platform provides high availability at
+-   **Database tier**. SAP supports multiple database technologies. This document 
+    focuses on SAP HANA. The SAP HANA in-memory data platform provides high availability at
     the data tier through the HANA System Replication (HSR) feature, which
     implements a manual failover.
  
@@ -107,7 +109,7 @@ Your requirements might differ from the architecture described here. Use these r
 ### SAP application on Azure
 The common practice for achieving high availability is through redundancy of
 critical components. In this distributed installation of the SAP application on
-a SAP HANA database, the base installation is replicated to achieve high
+a centralized database, the base installation is replicated to achieve high
 availability. For each layer of the architecture, the high availability design
 varies depending on the components as follows:
 
@@ -118,9 +120,8 @@ varies depending on the components as follows:
 - **Application servers.** High availability is achieved by load balancing
     traffic within a pool of application servers.
 
--	**HANA database.** The HSR feature provides native database-level
-    replication. Automatic failover is possible with HA extensions from the
-    operating system vendor. 
+-	**Database tier.** For SAP HANA running on Azure, the high availability approach is to implement HSR. 
+    This replication solution doesn’t offer automatic failover. To do that, use additional HA extensions from the Linux distribution.
 
 ### Availability sets
 Putting virtual machines that perform the same role into an availability sets
@@ -143,9 +144,10 @@ secure them more easily by managing the subnet security policies, not the
 individual servers.
 
 ### Load balancers
-Azure Load Balancer or SAP Web Dispatcher can distribute HTTP(S) connections to
-the application server pool among servers of the same type, either ABAP or Java. [SAP Web Dispatcher][sap-dispatcher]. handles load balancing of HTTP(S) traffic to dual-stack servers (ABAP and Java). SAP has advocated single-stack application servers for years, so very few
-applications run on a dual-stack deployment model.
+[SAP Web Dispatcher][sap-dispatcher]. handles load balancing of HTTP(S) traffic to
+ dual-stack servers (ABAP and Java). SAP has advocated single-stack application servers for years, so very few
+applications run on a dual-stack deployment model nowadays. The Azure Load Balancer 
+depicted in the architecture diagram implements the high availability cluster for the SAP Web Dispatcher.
 
 For traffic from SAPGUI clients connecting a SAP server via DIAG and Remote
 Function Calls (RFC), the SCS message server balances the load by creating SAP
@@ -154,9 +156,7 @@ App Server [Logon Groups][logon-groups], so no additional load balancer is neede
 ### NICs
 SAP landscape management functions require segregation of server traffic on
 different NICs. For example, business data should be separated from
-administrative traffic and backup traffic. Please refer to the [SAP LandScape
-Management (LaMa) 3.0
-announcement][lama].
+administrative traffic and backup traffic. 
 Using multiple NICs to connect to different subnets provides the means for data
 segregation. For more information, see “Networking” in  [Building High Availability for SAP NetWeaver and SAP HANA][sap-ha].
 
@@ -172,12 +172,12 @@ servers and database servers, to a single subnet. When a network security group
 is associated with a subnet, it then applies to all the servers within the
 subnet. To note exceptions, servers that require a special security profile may
 be connected to their own subnet and associated with a network security group
-within the group. For implementation details, see  [Filter network traffic with network security groups][filter-network].
+within the group. For implementation details, see [Filter network traffic with network security groups][filter-network].
 
 ### Azure Storage
 With all database server virtual machines, we recommend using Azure Premium
-Storage for consistent read/write latency. For SAP application servers including
-the (A)SCS virtual machines, we recommend using Azure Standard Storage, because
+Storage for consistent read/write latency. For SAP application servers, including
+the (A)SCS virtual machines, you can use Azure Standard Storage, because
 application execution takes place in memory and uses disks for logging only.
 
 Each Azure blob has an IOPS quota. The common practices in storage volume
@@ -190,7 +190,8 @@ For the backup data store, we recommend using Azure [cool blob storage][cool-blo
 The cool storage tier is a cost-effective way to store data that is less
 frequently accessed and long-lived.
 
-For simplicity, we recommend using [Azure Managed Disks][managed-disks] to manage the storage associated with the virtual machine disks. For the entire
+For simplicity, we recommend using [Azure Managed Disks][managed-disks] to manage the 
+storage associated with the virtual machine disks. For the entire
 deployment, use Premium storage for all disk performance-dependent workloads
 
 We recommend using Managed Disks for all layers of the SAP application stack.
@@ -202,41 +203,42 @@ the disks of virtual machines in an availability set are sufficiently isolated
 from each other to avoid single points of failure.
 
 ## Scalability considerations
-t the SAP application layer, Azure offers a wide range of virtual machine sizes
+At the SAP application layer, Azure offers a wide range of virtual machine sizes
 for scaling up and scaling out. Please see SAP note 1928533 for an inclusive
 list.
 
 For SAP HANA on Azure virtual machines with both OLTP and OLAP SAP applications,
 the SAP-certified virtual machine size is GS5 single instance. As larger virtual
 machines become available, you can scale up with the same cloud deployment. For
-larger workloads, Microsoft also offers [Azure Large
-Instances][azure-large-instances] for SAP HANA on physical servers co-located in a Microsoft Azure certified
+larger workloads, Microsoft also offers [Azure Large Instances][azure-large-instances] 
+for SAP HANA on physical servers co-located in a Microsoft Azure certified
 datacenter, which provides up to 4 TB of memory capacity for a single instance
 at this time. Multi-node configuration is also possible with a total memory
 capacity of up to 32 TB.
 
 ## Availability considerations
-A SAP HANA native system replication feature provides manual failover. To
-further lower unplanned downtime, a high availability extension for the specific
+The database tier's native system replication feature provides either manual or automatic failover between replicated nodes. To
+further lower unplanned downtime on Linux-based database systems, a high availability extension for the specific
 Linux distribution is required.
 
 ## Disaster recovery considerations
-Azure Site Recovery (ASR) is effective in replicating both Windows and Linux SAP
-application servers onto a remote region for disaster recovery (DR). Don’t use
-ASR to replicate database content, however. As a virtual machine replication
-technology, ASR can’t guarantee database consistency for recovery. Instead, use
-a native database replication technology such a SQL Always On Availability Group
-or Log Shipping. Or, in the case of SAP HANA DB, use HSR across Azure regions
-for database replication. For implementation details, review the blog,
-[Protecting SAP Systems Running on VMware with Azure Site Recovery][protecting-sap].
+In an SAP three-tier deployment, each tier uses a different strategy to provide disaster recovery (DR) protection.
 
-In addition, ASR can’t be used to replicate clustered nodes. For the SCS layer,
-use either a three-node geo-cluster (see SAP reference implementation note
-1634991), or simply schedule a batch job to copy the `/sapmnt` content to the DR
-region. The sapmnt file-share is an SAP share that contains application server
-executables and logs, but no SAP business transactional data. The copies refresh
-the `/sapmnt` share of a prebuilt SCS node to keep kernel executables in sync with
-the SCS in the primary region.
+-	**Application servers tier.** For high availability of ASCS on Azure Windows virtual machines,
+    WSFC is used with SIOS DataKeeper to implement the cluster shared volume.
+    For implementation details, see [Clustering SAP ASCS on Azure][clustering].
+
+- **SAP Central services.** This component of the SAP application stack also doesn’t persist 
+   business data. You can build a VM in the DR region to run the SCS role. The only content 
+   from the primary SCS node to synchronize is the /sapmnt share content. Also, if configuration 
+   changes or kernel updates take place on the primary SCS servers, they must be repeated on the 
+   DR SCS. To synchronize the two servers, simply use a regularly scheduled copy job to copy 
+   `/sapmnt` to the DR side. For details about the build, copy, and test failover process, download 
+   [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution][sap-netweaver-dr], 
+   and refer to "4.3. SAP SPOF layer (ASCS)."
+
+-	**SAP database tier.** Use the database-specific replication solution. 
+    With HANA, use HANA-supported replication solutions such as HSR or Storage Replication. For SQL Server, use AlwaysOn Availability Group replicas.  
 
 ## Operational considerations
 SAP HANA has a backup feature that makes use of the underlying Azure
@@ -305,7 +307,7 @@ To deploy this reference architecture, you can use PowerShell, bash, or the
 Azure portal. To do so using your own parameter files, follow the instructions
 below.
 
-1. Download all the files and folders in this folder.
+1. Clone or download the .zip file containing all the files and folders from this GitHub repository.
 2. In the **parameters** folder, customize each parameter file according to your needs.
 3. Follow the steps in one of the following sections to deploy your solution.
 
@@ -393,7 +395,6 @@ described below.
 [filter-network]: https://azure.microsoft.com/en-us/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
 [hana-backup]: /azure/virtual-machines/workloads/sap/sap-hana-backup-guide
 [hana-guide]: https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.01/en-US/7eb0167eb35e4e2885415205b8383584.html
-[lama]: https://blogs.sap.com/2017/03/07/announcing-general-availability-of-sap-landscape-management-3.0/
 [ilb]: /azure/load-balancer/load-balancer-internal-overview
 [logon-groups]: https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing
 [managed-disks]: /azure/storage/storage-managed-disks-overview
@@ -410,6 +411,7 @@ described below.
 [sap-guide]: https://service.sap.com/instguides
 [sap-ha]: https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf
 [sap-hana-on-azure]: https://azure.microsoft.com/en-us/services/virtual-machines/sap-hana/
+[sap-netweaver-dr]: http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx
 [sap-security]: https://archive.sap.com/documents/docs/DOC-62943
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [stack-overflow]: http://stackoverflow.com/tags/sap/info
