@@ -167,11 +167,7 @@ The base reference approach creates a single Resource Group. The Resource Group 
     - One for an Optional TCP Routers, if selected
     - One for an Optional SSH Proxy
 
-- **Storage accounts to match deployment needs.** Storage accounts are used to store the VM disks. Multiple storage accounts are suggested for two reasons. First, IOPS is capped at around 20,000, per account. Second, this avoids a single point of failure in the storage tier. Please note that customers pay for the *consumption* of storage, not the *number* of Storage Accounts. Five storage accounts should be allocated as follows.
-
-    - One for Ops Manager
-    - One for BOSH
-    - Three for Elastic Runtime and other tile deployments
+- **Storage accounts to match deployment needs.** Storage accounts are used to store the VM disks. Multiple storage accounts are suggested for two reasons. First, IOPS is capped at around 20,000, per account. Second, this avoids a single point of failure in the storage tier. Please note that customers pay for the *consumption* of storage, not the *number* of Storage Accounts. Five storage accounts should be allocated as follows: One for Ops Manager, one for BOSH, and three for Elastic Runtime and other tile deployments. 
 
     We recommend Premium storage for Elastic Runtime and tile deployments. Support for [Azure Managed Disks](/azure/storage/storage-managed-disks-overview) is planned for Pivotal Cloud Foundry.
 
