@@ -28,7 +28,7 @@ The network is logically subdivided:
 
 In an Azure deployment, these divisions will correspond to subnets in an Azure virtual network (VNet).
 
-### Infrastructure Services 
+### Infrastructure services 
 
 - **LDAP.** Lightweight Directory Access Protocol is a protocol used for single sign-on methods. It connects an identity management tool (such as [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)) and 3rd party systems. Pivotal Cloud Foundry supports LDAP and SSO via its [UAA service](http://docs.pivotal.io/pivotalcf/1-9/concepts/architecture/uaa.html).
 
@@ -38,7 +38,7 @@ In an Azure deployment, these divisions will correspond to subnets in an Azure v
 
 - **NAT Gateway.** A network address translation (NAT) gateway enables services in a private subnet to connect to other PCF components. The NAT Gateway also prevents components *outside* the Infrastructure Services VLAN from initiating a connection with these services. For more information, see[Preparing Your Firewall for Deploying Pivotal Cloud Foundry](http://docs.pivotal.io/pivotalcf/1-9/customizing/config_firewall.html) in the Pivotal documentation.
 
-### Elastic RunTime 
+### Elastic Runtime 
 
 - **Load Balancer.** Production environments should use a highly-available [load balancer](http://docs.pivotal.io/pivotalcf/1-9/customizing/custom-load-balancer.html) to route traffic to the PCF Router IPs and provide SSL termination. In Azure, we recommend using [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction) for the load balancer role. 
 
@@ -77,7 +77,7 @@ In an Azure deployment, these divisions will correspond to subnets in an Azure v
 
 - **Blob Storage.** Use [Azure Blob Storage](/azure/storage/) to host buildpacks, droplets, packages and resources. 
 
-### Application Services 
+### Application services 
 
 Customers use Pivotal Cloud Foundry's core components to deploy and operate their apps. Developers and operators may extend their applications with other services, such as [Spring Cloud Services](http://docs.pivotal.io/spring-cloud-services/), Azure services such as [SQL Database](https://azure.microsoft.com/services/sql-database/), or third-party services.
 
@@ -89,7 +89,7 @@ Use SCS to create a [Config Server](#config_server.png-config-server-for-pivotal
 
 ### Config Server for Pivotal Cloud Foundry
 
-[Config Server for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/config-server/) is an externalized application configuration service. This delivers a central place to manage an application's external properties across all environments.
+[Config Server for PCF](http://docs.pivotal.io/spring-cloud-services/1-4/common/config-server/) is an externalized application configuration service. This delivers a central place to manage an application's external properties across all environments.
 
 Config Server will manage the configuration for an app as it advances through the deployment pipeline (dev, test, prod). Developers can be sure that an app has everything it needs to run during this process. Config Server supports labeled versions of environment-specific configurations.Users can manage configuration content with many tools, including Git. We also plan future support for Vault (as well as Git and Vault in composite fashion).
 
@@ -97,7 +97,7 @@ Config Server will manage the configuration for an app as it advances through th
 
 ### Service Registry for Pivotal Cloud Foundry
 
-[Service Registry for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/service-registry/) provides an implementation of the [Service Discovery pattern, based on Netflix Eureka](http://docs.pivotal.io/spring-cloud-services/1-3/service-registry/resources.html). This is one of the key tenets of a microservice-based architecture.
+[Service Registry for PCF](http://docs.pivotal.io/spring-cloud-services/1-4/common/service-registry/) provides an implementation of the Service Discovery pattern, based on Netflix Eureka. This is one of the key tenets of a microservice-based architecture.
 
 Manual configuration of each client or service is difficult. It often proves brittle in production. Instead, use Service Registry to dynamically discover and call registered services.
 
@@ -112,8 +112,6 @@ The [Circuit Breaker Dashboard for PCF](http://docs.pivotal.io/spring-cloud-serv
 
 ![Figure 5 - Circuit Breaker for Pivotal Cloud Foundry](./images/index/Circuit-Breaker-for-Pivotal-Cloud-Foundry.png)
 
-_Figure 5 - Circuit Breaker for Pivotal Cloud Foundry._
-
 When applied to a service, a circuit breaker watches for failing calls to the service. If failures reach a certain threshold, it "opens" the circuit. The circuit breaker automatically redirects calls to the specified fallback mechanism. This gives the failing service time to recover. The Circuit Breaker Dashboard provides operational visibility into the behavior of all of the circuit breakers present in a fleet of cloud-native services.
 
 ### Microservices for .NET with Steeltoe
@@ -122,17 +120,11 @@ Spring Cloud Services bring common microservices patterns to Java developers. [S
 
 Steeltoe includes the following modules.
 
-**Service Discovery**
+**Service Discovery**. How do you make the interactions between your microservices reliable and failure tolerant? For starters, you need a service registry—basically a phone book for your microservices—so service consumers know exactly where to find healthy service instances. Steeltoe includes a .NET client for Netflix Eureka so your microservices can register themselves and discover other registered services.
 
-How do you make the interactions between your microservices reliable and failure tolerant? For starters, you need a service registry—basically a phone book for your microservices—so service consumers know exactly where to find healthy service instances. Steeltoe includes a .NET client for Netflix Eureka so your microservices can register themselves and discover other registered services.
+**Config Server**. "Strict separation of config from code" has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
 
-**Config Server**
-
-"Strict separation of config from code" has become a cloud mandate, but that begs the question, where do you put it? And once you've externalized your config from your app, how do you track who changed what, when? Steeltoe leverages Spring Cloud Config Server so you can store your app's config in a centralized, version-controlled git repo and then load it at runtime.
-
-**Cloud Connectors**
-
-Steeltoe automatically wires up common backing services, because no microservice is an island. And because it was built by Pivotal, Steeltoe integrates elegantly with Cloud Foundry.
+**Cloud Connectors**. Steeltoe automatically wires up common backing services, because no microservice is an island. And because it was built by Pivotal, Steeltoe integrates elegantly with Cloud Foundry.
 
 ## Hosting Pivotal Cloud Foundry in Microsoft Azure
 
@@ -142,13 +134,13 @@ The following diagram shows an architecture for a single PCF deployment hosted i
 
 This diagram shows a single PCF deployment in a single Azure Resource Group. 
 
-### Availability Sets 
+### Availability sets 
 
 In Azure, virtual machines (VMs) can be placed in to a logical grouping called an availability set. The Azure platform distributes the placement of those VMs across the underlying infrastructure to avoid single points of failure on the hardware clusters.
 
 In this reference architecture BOSH will create multiple Availability Sets for your PCF deployment.
 
-### IaaS Architecture
+### IaaS architecture
 
 Here are the core Azure architectural constructs required to deploy PCF. Pivotal recommends that customers automate their deployment with the [Azure Resource Marketplace template](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry). This reduces the likelihood of human error and makes your deployments more consistent.
 
@@ -180,7 +172,7 @@ The base reference approach creates a single Resource Group. The Resource Group 
     - One for an Optional TCP Routers, if selected
     - One for an Optional SSH Proxy
 
-- **Storage Accounts to match deployment needs.** Storage accounts are used to store the VM disks. Multiple storage accounts are suggested for two reasons. First, IOPS is capped at around 20,000, per account. Second, this avoids a single point of failure in the storage tier. Please note that customers pay for the *consumption* of storage, not the *number* of Storage Accounts. Five storage accounts should be allocated as follows.
+- **Storage accounts to match deployment needs.** Storage accounts are used to store the VM disks. Multiple storage accounts are suggested for two reasons. First, IOPS is capped at around 20,000, per account. Second, this avoids a single point of failure in the storage tier. Please note that customers pay for the *consumption* of storage, not the *number* of Storage Accounts. Five storage accounts should be allocated as follows.
 
     - One for Ops Manager
     - One for BOSH
@@ -198,7 +190,7 @@ The base reference approach creates a single Resource Group. The Resource Group 
     - One optional HTTPS Ops Manager
     - One optional SSH Proxy to Diego Brains
 
-### Network Topology
+### Network topology
 
 The following diagram shows the Azure network elements configured in practice.
 
@@ -206,13 +198,13 @@ The following diagram shows the Azure network elements configured in practice.
 
 Additional guidance for this reference architecture is in the [Pivotal Customer0 Github repo](https://github.com/c0-ops/landingpage/blob/master/azure/refarch-main.md). The repo also offers configurations for multi-resource group environments.
 
-## Hybrid Considerations
+## Hybrid considerations
 
 The most popular hybrid configuration for enterprises is using the public cloud as an extension of an on-premises datacenter. In this scenario, applications run on-premises and in multi-tenant, elastic infrastructure. Administrators configure firewall rules in the public cloud to restrict access such that only certain IP ranges (those of a corporate network) can access the app. Customers can connect their private data centers to Azure data centers with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Here are some considerations to keep in mind for this scenario.
 
-### Data Replication
+### Data replication
 
 Data should be the foremost consideration in designing hybrid architectures. After all, most regulations and compliance standards apply to the treatment of data.
 
@@ -226,7 +218,7 @@ Either cluster can perform read/write operations. PCC also handles de-duplicatio
 
 ![Data replication across two sites, featuring Pivotal Cloud Foundry and Pivotal Cloud Cache](./images/logical-infrastructure/Data-replication-across-two-sites-featuring-Pivotal-Cloud-Foundry-and-Pivotal-Cloud-Cache.png)
 
-### Routing Site Selection
+### Routing site selection
 
 If you're running an application in the public cloud and in your datacenter, choose how you want to route the traffic.
 
@@ -234,7 +226,7 @@ If you're running an application in the public cloud and in your datacenter, cho
 
 - **Balance traffic across public cloud nodes and your datacenter.** For this option, use DNS routing or a global load balancing service from a 3rd party. Pivotal Cloud Foundry easily supports this scenario. Create two PCF deployments, then configure each to work with the desired policies.
 
-### Active-Active or Active-Passive?
+### Active-active or active-passive?
 
 One of the main obstacles to achieving active-active is latency between data centers. Distributed transactions cause latency, and should be avoided whenever possible. Access data locally; resolve requests in a single DC. Data partitioning can also mitigate latency. But, this comes with its own set of issues, such as consistency, who to trust for conflict resolution, and so on.
 
@@ -242,11 +234,11 @@ Active-passive configurations are easier. The passive site gets an update every 
 
 Another option for replication is [Azure SQL Database geo-replication.](/azure/sql-database/sql-database-geo-replication-overview) This option replicates database transactions within a region and across Azure regions.
 
-### Deployment Orchestration
+### Deployment orchestration
 
 Continuous deployment is one [three crucial tenants for the digital era](http://www.slideshare.net/Pivotal/the-five-stages-of-cloud-native). Verify your CI/CD tooling and processes as you deploy asynchronous apps across different targets.Systems such as [Concourse](http://concourse.ci/) and [Spinnaker](http://www.spinnaker.io/) are particularly well-suited for this use case. [Visual Studio integrations](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension) also provide deployment automation to PCF instances.
 
-## Applications and Microservices Running on PCF
+## Applications and microservices running on PCF
 
 The following diagram shows an application architecture with some common cloud-native attributes, including:
 
@@ -277,6 +269,6 @@ The architecture contains the following components:
 
 - **Event Store, based on [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), is the high-volume event processing system.** This pattern is often referred to as "Event Sourcing". It is a superior option for this scenario, since event streams in the past may need to be "replayed." In contrast, systems like RabbitMQ immediately delete messages upon successful receipt. Azure Event Hubs natively supports C\# .NET clients and Java clients.
 
-## Next Steps
+## Next steps
 
 Try out PCF on Azure from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/pivotal.pivotal-cloud-foundry). This creates a full PCF deployment, including the Azure Service Broker. 
