@@ -59,7 +59,7 @@ In an Azure deployment, these divisions will correspond to subnets in an Azure v
 
 - **Log Search.** Operators can use [PCF Log Search](https://docs.pivotal.io/logsearch/index.html) to analyze logs from different system components. Some customers prefer Azure's native capabilities in this area. Options include the [Microsoft Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview) (OMS) and [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) Microsoft has adapted Cloud Foundry's Firehose and nozzle features, shown below. Users can analyze logs and metrics using this starter OMS visualization widget.
 
-- **Diego.** [Diego is the container orchestrator](http://docs.pivotal.io/pivotalcf/1-9/concepts/diego/diego-architecture.html) for Pivotal Cloud Foundry.
+- **Diego.** [Diego](http://docs.pivotal.io/pivotalcf/1-9/concepts/diego/diego-architecture.html) is the container orchestrator for Pivotal Cloud Foundry.
 
     - **Brain.** The [Diego Brain](http://docs.pivotal.io/pivotalcf/1-9/concepts/diego/diego-architecture.html#brain-components) distributes one-off tasks and long-running processes (LRPs) to Diego Cells. These processes are dynamically managed, increasing fault-tolerance and long-term consistency.
 
@@ -107,8 +107,7 @@ First, a client registers with the Service Registry. The client also provides me
 
 ### Circuit Breaker Dashboard for Pivotal Cloud Foundry
 
-The [Hystrix](https://github.com/Netflix/Hystrix) library (part of [Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-netflix/)) provides an implementation of the [Circuit Breaker pattern](http://docs.pivotal.io/spring-cloud-services/1-3/circuit-breaker/resources.html).
-The [Circuit Breaker Dashboard for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/circuit-breaker/) visualizes the metrics of the circuit breakers inside an app. Cloud-native architectures are often composed of many layers of distributed services. End-user requests may comprise multiple calls to these services. If a lower-level service fails, that failure can cascade up to the end user and spread to other dependent services. Heavy traffic to a failing service can also make it difficult to repair. Hystrix circuit breakers can prevent failures from cascading. They can also provide fallback behavior until a failing service is restored to normal.
+The [Hystrix](https://github.com/Netflix/Hystrix) library (part of [Spring Cloud Netflix](https://cloud.spring.io/spring-cloud-netflix/)) provides an implementation of the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern. The [Circuit Breaker Dashboard for PCF](http://docs.pivotal.io/spring-cloud-services/1-3/circuit-breaker/) visualizes the metrics of the circuit breakers inside an app. Cloud-native architectures are often composed of many layers of distributed services. End-user requests may comprise multiple calls to these services. If a lower-level service fails, that failure can cascade up to the end user and spread to other dependent services. Heavy traffic to a failing service can also make it difficult to repair. Hystrix circuit breakers can prevent failures from cascading. They can also provide fallback behavior until a failing service is restored to normal.
 
 ![Figure 5 - Circuit Breaker for Pivotal Cloud Foundry](./images/index/Circuit-Breaker-for-Pivotal-Cloud-Foundry.png)
 
@@ -210,7 +209,7 @@ Data should be the foremost consideration in designing hybrid architectures. Aft
 
 Traditional scenarios feature a primary site and a secondary site. The system sends database logs from the primary data center to the secondary location in regular intervals.
 
-However, most Pivotal customers want to use **bi-directional data replication**. Here, the system replicates data in near real-time, between sites. Both sites serve traffic and process requests. This approach boosts reliability and resiliency of the application.
+However, most Pivotal customers want to use bi-directional data replication, where the system replicates data in near real-time, between sites. Both sites serve traffic and process requests. This approach boosts reliability and resiliency of the application.
 
 Pivotal Cloud Foundry customers achieve this with Pivotal Cloud Cache (PCC), a high-performance, highly available caching layer. As changes occur, PCC creates events in a replication queue, then sends them to the other site. Events can be replicated in user-specified intervals (for example, every 5 seconds), or after a defined count (for example, every 1000 events). PCC compresses and encrypts the events before sending. Upon receipt at the other site, it decompresses and decrypts the data.
 
@@ -236,7 +235,7 @@ Another option for replication is [Azure SQL Database geo-replication.](/azure/s
 
 ### Deployment orchestration
 
-Continuous deployment is one [three crucial tenants for the digital era](http://www.slideshare.net/Pivotal/the-five-stages-of-cloud-native). Verify your CI/CD tooling and processes as you deploy asynchronous apps across different targets.Systems such as [Concourse](http://concourse.ci/) and [Spinnaker](http://www.spinnaker.io/) are particularly well-suited for this use case. [Visual Studio integrations](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension) also provide deployment automation to PCF instances.
+Verify your CI/CD tooling and processes as you deploy asynchronous apps across different targets. Systems such as [Concourse](http://concourse.ci/) and [Spinnaker](http://www.spinnaker.io/) are particularly well-suited for this use case. [Visual Studio integrations](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension) also provide deployment automation to PCF instances.
 
 ## Applications and microservices running on PCF
 
