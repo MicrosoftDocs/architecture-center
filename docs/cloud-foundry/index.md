@@ -121,7 +121,7 @@ Steeltoe includes the following modules.
 
 **Cloud Connectors**. Steeltoe automatically wires up common backing services.
 
-## Hosting Pivotal Cloud Foundry in Microsoft Azure
+## Hosting Pivotal Cloud Foundry in Azure
 
 The following diagram shows an architecture for a single PCF deployment hosted in Microsoft Azure. The diagram shows core networking, consisting of an Azure virtual network (VNet) subnets for Infrastructure, ERT (Elastic Runtime), Service tiles, and Dynamic or On Demand Service tiles
 
@@ -151,10 +151,10 @@ The base reference approach creates a single Resource Group. The Resource Group 
 
     Example: 10.xxx.yyy.0/20
 
-        - Infrastructure subnet: 10.xxx.yyy.0/26
-        - Elastic Runtime subnet: 10.xxx.yyy.0/22
-        - Services subnet: 10.xxx.yyy.0/22
-        - Dynamic Service subnet: 10.xxx.yyy.0/22
+    - Infrastructure subnet: 10.xxx.yyy.0/26
+    - Elastic Runtime subnet: 10.xxx.yyy.0/22
+    - Services subnet: 10.xxx.yyy.0/22
+    - Dynamic Service subnet: 10.xxx.yyy.0/22
 
     In a deployment with multiple resource groups, the Network and PCF resource groups should share the same region. This allows BOSH jobs in one resource group to attach networks to another.
 
