@@ -149,14 +149,14 @@ The base reference approach creates a single Resource Group. The Resource Group 
 
 - **One virtual network (VNet) with a large range of address space that is divided into subnets** Here's a typical allocation of address space within the VNet.
 
-    - Example: 10.xxx.yyy.0/20
+    Example: 10.xxx.yyy.0/20
 
         - Infrastructure subnet: 10.xxx.yyy.0/26
         - Elastic Runtime subnet: 10.xxx.yyy.0/22
         - Services subnet: 10.xxx.yyy.0/22
         - Dynamic Service subnet: 10.xxx.yyy.0/22
 
-    - Note that a subnet is a logical component, bound to a single VNet. It must exist in the the same Resource Group. In Multi Resource Group deployments, the Network and PCF resource groups should share the same region. This allows BOSH jobs in one resource group to attach networks to another.
+    In a deployment with multiple resource groups, the Network and PCF resource groups should share the same region. This allows BOSH jobs in one resource group to attach networks to another.
 
 - **Network Security Group (NSG).** The NSG manages firewall rules that apply to network interfaces. Ops Manager for Azure currently limits PCF deployments to one NSG.
 
@@ -197,33 +197,28 @@ Additional guidance for this reference architecture is in the [Pivotal Customer0
 
 The most popular hybrid configuration for enterprises is using the public cloud as an extension of an on-premises datacenter. In this scenario, applications run on-premises and in multi-tenant, elastic infrastructure. Administrators configure firewall rules in the public cloud to restrict access such that only certain IP ranges (those of a corporate network) can access the app. Customers can connect their private data centers to Azure data centers with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-Here are some considerations to keep in mind for this scenario.
-
 ### Data replication
 
 Data should be the foremost consideration in designing hybrid architectures. After all, most regulations and compliance standards apply to the treatment of data.
 
-Traditional scenarios feature a primary site and a secondary site. The system sends database logs from the primary data center to the secondary location in regular intervals.
+Traditional scenarios feature a primary site and a secondary site. The system sends database logs from the primary data center to the secondary location in regular intervals. However, most Pivotal customers want to use bi-directional data replication, where the system replicates data in near real-time, between sites. Both sites serve traffic and process requests. This approach boosts reliability and resiliency of the application. 
+Pivotal Cloud Foundry customers achieve this with Pivotal Cloud Cache (PCC), a high-performance, highly available caching layer. 
 
-However, most Pivotal customers want to use bi-directional data replication, where the system replicates data in near real-time, between sites. Both sites serve traffic and process requests. This approach boosts reliability and resiliency of the application.
+As changes occur, PCC creates events in a replication queue, then sends them to the other site. Events can be replicated in user-specified intervals (for example, every 5 seconds), or after a defined count (for example, every 1000 events). PCC compresses and encrypts the events before sending. Upon receipt at the other site, it decompresses and decrypts the data. Either cluster can perform read/write operations. PCC also handles de-duplication and conflict resolution. This is an important feature to ensure 100% data redundancy across locations.
 
-Pivotal Cloud Foundry customers achieve this with Pivotal Cloud Cache (PCC), a high-performance, highly available caching layer. As changes occur, PCC creates events in a replication queue, then sends them to the other site. Events can be replicated in user-specified intervals (for example, every 5 seconds), or after a defined count (for example, every 1000 events). PCC compresses and encrypts the events before sending. Upon receipt at the other site, it decompresses and decrypts the data.
-
-Either cluster can perform read/write operations. PCC also handles de-duplication and conflict resolution. This is an important feature to ensure 100% data redundancy across locations.
-
-![Data replication across two sites, featuring Pivotal Cloud Foundry and Pivotal Cloud Cache](./images/logical-infrastructure/Data-replication-across-two-sites-featuring-Pivotal-Cloud-Foundry-and-Pivotal-Cloud-Cache.png)
+![Data replication across two sites, using Pivotal Cloud Foundry and Pivotal Cloud Cache](./images/logical-infrastructure/Data-replication-across-two-sites-featuring-Pivotal-Cloud-Foundry-and-Pivotal-Cloud-Cache.png)
 
 ### Routing site selection
 
 If you're running an application in the public cloud and in your datacenter, choose how you want to route the traffic.
 
-- **Go through your data center every time.** In this scenario, traffic flows through your existing global traffic manager. Administrators create routing policies based on custom rules. These policies steer requests to the most suitable site, either on-premises or the public cloud. Then, admins build firewall rules that only allow traffic from your data center to the public cloud. These rules block all other traffic into the company's public cloud instances. This hybrid setup requires a high-speed, dedicated connection between your data center(s) and the public cloud site. It is important to note that data is typically served from the on-premises site. Other application elements enjoy greater elasticity.
+- **Go through your data center every time.** In this scenario, traffic flows through your existing global traffic manager. Administrators create routing policies based on custom rules. These policies steer requests to the most suitable site, either on-premises or the public cloud. Then, admins build firewall rules that only allow traffic from your data center to the public cloud. These rules block all other traffic into the company's public cloud instances. This hybrid setup requires a high-speed, dedicated connection between your data center(s) and the public cloud site. Data is typically served from the on-premises site. Other application elements enjoy greater elasticity.
 
 - **Balance traffic across public cloud nodes and your datacenter.** For this option, use DNS routing or a global load balancing service from a 3rd party. Pivotal Cloud Foundry easily supports this scenario. Create two PCF deployments, then configure each to work with the desired policies.
 
 ### Active-active or active-passive?
 
-One of the main obstacles to achieving active-active is latency between data centers. Distributed transactions cause latency, and should be avoided whenever possible. Access data locally; resolve requests in a single DC. Data partitioning can also mitigate latency. But, this comes with its own set of issues, such as consistency, who to trust for conflict resolution, and so on.
+One of the main obstacles to achieving active-active is latency between data centers. Distributed transactions cause latency, and should be avoided whenever possible. Access data locally; resolve requests in a single DC. Data partitioning can also mitigate latency. But this comes with its own set of issues, such as consistency, who to trust for conflict resolution, and so on.
 
 Active-passive configurations are easier. The passive site gets an update every X seconds or Y events, as described in the [Data Replication](#data-replication) section). If the active site goes down, you simply re-route traffic to the passive location.
 
@@ -262,7 +257,7 @@ The architecture contains the following components:
 
 - **MySQL for PCF serves as the system of truth.** It returns results requested by the Query Service.
 
-- **Event Store, based on [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), is the high-volume event processing system.** This pattern is often referred to as "Event Sourcing". It is a superior option for this scenario, since event streams in the past may need to be "replayed." In contrast, systems like RabbitMQ immediately delete messages upon successful receipt. Azure Event Hubs natively supports C\# .NET clients and Java clients.
+- **Event Store**, based on [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). This pattern is often referred to as [Event Sourcing](/azure/architecture/patterns/event-sourcing). It is a superior option for this scenario, since event streams in the past may need to be "replayed." In contrast, systems like RabbitMQ immediately delete messages upon successful receipt.
 
 ## Next steps
 
