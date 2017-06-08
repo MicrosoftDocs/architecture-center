@@ -1,12 +1,12 @@
 ---
-title: Update a resource in an Azure resource manager template
+title: Update a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
 author: petertay
 ms.date: 05/03/2017
 
 ---
 
-# Update a resource in an Azure resource manager template
+# Update a resource in an Azure Resource Manager template
 
 There are some scenarios in which you need to update a resource during a deployment. You might encounter this scenario when you cannot specify all the properties for a resource until other, dependent resources are created. For example, if you create a backend pool for a load balancer, you might update the network interfaces (NICs) on your virtual machines (VMs) to include them in the backend pool. And while Resource Manager supports updating resources during deployment, you must design your template correctly to avoid errors and to ensure the deployment is handled as an update.
 
@@ -16,7 +16,7 @@ Second, you must either specify the name of the existing property to change or a
 
 ## Example template
 
-Let's look at an example template that demonstrates this. Our template deploys a virtual network (VNet) named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`. 
+Let's look at an example template that demonstrates this. Our template deploys a virtual network  named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`. 
 
 ```json
 {
@@ -114,26 +114,26 @@ Let's look at an example template that demonstrates this. Our template deploys a
 }
 ```
 
-Let's take a look at the resource object for our `firstVNet` resource first. Notice that we respecify the settings for our `firstVNet` in a nested template - this is because resource manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By respecifying our values for our `firstSubnet` resource, we are telling resource manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
+Let's take a look at the resource object for our `firstVNet` resource first. Notice that we respecify the settings for our `firstVNet` in a nested template&mdash;this is because Resource Manager doesn't allow the same deployment name within the same template and nested templates are considered to be a different template. By respecifying our values for our `firstSubnet` resource, we are telling Resource Manager to update the existing resource instead of deleting it and redeploying it. Finally, our new settings for `secondSubnet` are picked up during this update.
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps:
+If you would like to experiment with this template, follow these steps: <<RBC: Just wanted to point out that objects-as-parameters has 12 steps. Just want to make sure that this isn't missing something.>>
 
-1.	Go to the Azure portal, select the "+" icon, and search for the "template deployment" resource type. When you find it in the search results, select it.
-2.	When you get to the "template deployment" page, select the **create** button, which opens the "custom deployment" blade.
+1.	Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
+2.	Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
 3.	Select the **edit** icon.
 4.	Delete the empty template.
-5.	Copy and paste the preceding sample template into the right-hand pane.
+5.	Copy and paste the sample template into the right pane.
 6.	Select the **save** button.
-7.	You return to the "custom deployment" pane, but this time there are some drop-down boxes. Select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, then select the **I agree** button.
+7.	You return to the **custom deployment** pane, but this time there are some drop-down list boxes. Select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, then select the **I agree** button.
 8.	Select the **purchase** button.
 
-Once deployment has finished, open the resource group you specified in the portal. You see a VNet named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource. 
+Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource. 
 
 ![Original subnet and updated subnet](../_images/firstVNet-subnets.png)
 
-Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `Subnet` is set to `firstSubnet (10.0.0.0/24)`. 
+Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`. 
 
 ![nic1 IP configurations settings](../_images/nic1-ipconfigurations.png)
 
@@ -141,4 +141,4 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 ## Next steps
 
-* This is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
+* This technique is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
