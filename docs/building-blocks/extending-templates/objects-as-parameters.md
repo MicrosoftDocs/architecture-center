@@ -2,7 +2,7 @@
 title: Use an object as a parameter in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters
 author: petertay
-ms.date: 05/03/2017
+ms.date: 06/09/2017
 
 ---
 
