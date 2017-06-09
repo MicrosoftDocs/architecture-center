@@ -14,7 +14,7 @@ To accomplish this, use the [`condition` element][azure-resource-manager-conditi
 
 ## Example template
 
-Let's look at an example template that demonstrates this. Our template uses the [`condition` element][azure-resource-manager-condition] to control deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource. This resource creates a peering between two Azure Virtual Networks <<RBC: Service name (capped) or generic ref (lowercase)? Because it was preceded by Azure I guessed service.>> in the same region.
+Let's look at an example template that demonstrates this. Our template uses the [`condition` element][azure-resource-manager-condition] to control deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource. This resource creates a peering between two Azure Virtual Networks in the same region.
 
 Let's take a look at each section of the template.
 
@@ -46,7 +46,7 @@ Our `virtualNetworkPeerings` parameter is an `array` and has the following schem
 ]
 ```
 
-The properties in our parameter specify the [settings related to peering virtual networks][vnet-peering-resource-schema]. We'll provide the values for these properties when we specify the `"Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource in the `resources` section:
+The properties in our parameter specify the [settings related to peering virtual networks][vnet-peering-resource-schema]. We'll provide the values for these properties when we specify the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource in the `resources` section:
 
 ```json
 "resources": [
@@ -94,7 +94,7 @@ Our `name` for the inline template is made unique by concatenating the current i
 
 The `condition` element specifies that our resource should be processed when the `greater()` function evaluates to `true`. Here, we're testing if the `virtualNetworkPeerings` parameter array is `greater()` than zero. If it is, it evaluates to `true` and the `condition` is satisfied. Otherwise, it's `false`.
 
-Next, we specify our `copy` loop. It's a `serial` <<RBC: Is there a reason this is capped? other loop names are lc. I see it's capped in the code, but in other docs it's lc in text and code.>> loop that means the loop is done in sequence, with each resource waiting until the last resource has been deployed. <<RBC: , which introduces a nonessential clause, and this isn't much of a sentence without the text after the comma.>> The `count` property specifies the number of times the loop iterates. Here, normally we'd set it to the length of the `virtualNetworkPeerings` array because it contains the parameter objects specifying the resource we want to deploy. However, if we do that, validation will fail if the array is empty because Resource Manager notices that we are attempting to access properties that do not exist. We can work around this, however. Let's take a look at the variables we'll need:
+Next, we specify our `copy` loop. It's a `serial` loop that means the loop is done in sequence, with each resource waiting until the last resource has been deployed. The `count` property specifies the number of times the loop iterates. Here, normally we'd set it to the length of the `virtualNetworkPeerings` array because it contains the parameter objects specifying the resource we want to deploy. However, if we do that, validation will fail if the array is empty because Resource Manager notices that we are attempting to access properties that do not exist. We can work around this, however. Let's take a look at the variables we'll need:
 
 ```json
   "variables": {
@@ -113,7 +113,7 @@ Our `workaround` variable includes two properties, one named `true` and one name
 
 Our `peerings` variable uses our `workaround` variable by once again testing if the length of the `virtualNetworkPeerings` parameter array is greater than zero. If it is, the `string` evaluates to `true` and the `workaround` variable evalutes to the `virtualNetworkPeerings` parameter array. Otherwise, it evaluates to `false` and the `workaround` variable evaluates to our empty object in the first element of the array.
 
-Now that we've worked around <<RBC: I see what you did there, HA!>> the validation issue, we can simply specify the deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource in the nested template, passing the `name` and `properties` from our `virtualNetworkPeerings` parameter array. You can see this in the `template` element nested in the `properties` element of our resource.
+Now that we've worked around the validation issue, we can simply specify the deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource in the nested template, passing the `name` and `properties` from our `virtualNetworkPeerings` parameter array. You can see this in the `template` element nested in the `properties` element of our resource.
 
 ## Next steps
 
