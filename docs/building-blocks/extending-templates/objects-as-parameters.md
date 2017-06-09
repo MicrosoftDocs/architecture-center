@@ -12,7 +12,7 @@ When you [author Azure Resource Manager templates][azure-resource-manager-create
 
 One way to solve this problem is to use an object as a parameter instead of a value. To do this, define the parameter in your template and specify a JSON object instead of a single value during deployment. Then, reference the subproperties of the parameter using the [`parameter()` function][azure-resource-manager-functions] and dot operator in your template.
 
-Let's take a look at an example that deploys a virtual network resource. First, let's specify a `VNetSettings` parameter in our template and set the `"type"` to `"object"`:
+Let's take a look at an example that deploys a virtual network resource. First, let's specify a `VNetSettings` parameter in our template and set the `type` to `object`:
 
 ```json
 ...
@@ -51,7 +51,7 @@ Next, let's provide values for the `VNetSettings` object:
 }
 ```
 
-As you can see, our single parameter actually specifies three subproperties: `"name"`, `"addressPrefixes"`, and `"subnets"`. Each of these subproperties either specifies a value or other subproperties. The result is that our single parameter specifies all the values necessary to deploy our virtual network.
+As you can see, our single parameter actually specifies three subproperties: `name`, `addressPrefixes`, and `subnets`. Each of these subproperties either specifies a value or other subproperties. The result is that our single parameter specifies all the values necessary to deploy our virtual network.
 
 Now let's have a look at the rest of our template to see how the `VNetSettings` object is used:
 
@@ -89,7 +89,7 @@ Now let's have a look at the rest of our template to see how the `VNetSettings` 
 ```
 The values of our `VNetSettings` object are applied to the properties required by our virtual network resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properties. 
 
-There is one issue to be aware of if you use the dynamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here&mdash;one named `"firstProperty"` and one named `"secondProperty"`. 
+There is one issue to be aware of if you use the dynamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here&mdash;one named `firstProperty` and one named `secondProperty`. 
 
 ```json
 "variables": {
@@ -135,7 +135,7 @@ Now let's take a look at the way we access the properties in the variable using 
 
 The `copyIndex()` function returns the current iteration of the copy loop, and we use that as an index into each of the two arrays simultaneously.
 
-This works fine when the two arrays are the same length. The issue arises if you've made a mistake and the two arrays are different lengths&mdash;in this case your template will fail validation during deployment. You can avoid this issue by including all your properties in a single object, because it is much easier to see when a value is missing. For example, let's take a look another parameter object in which each element of the `"propertyObject"` array is the union of the `"firstProperty"` and `"secondProperty"` arrays from earlier.
+This works fine when the two arrays are the same length. The issue arises if you've made a mistake and the two arrays are different lengths&mdash;in this case your template will fail validation during deployment. You can avoid this issue by including all your properties in a single object, because it is much easier to see when a value is missing. For example, let's take a look another parameter object in which each element of the `propertyObject` array is the union of the `firstProperty` and `secondProperty` arrays from earlier.
 
 ```json
 "variables": {
@@ -158,7 +158,7 @@ This works fine when the two arrays are the same length. The issue arises if you
 }
 ```
 
-Notice the third element in the array? It's missing the `"number"` property, but it's much easier to notice that you've missed it when you're authoring the parameter values this way.
+Notice the third element in the array? It's missing the `number` property, but it's much easier to notice that you've missed it when you're authoring the parameter values this way.
 
 ## Using a property object in a copy loop
 
@@ -166,7 +166,7 @@ This approach becomes even more useful when combined with the [serial copy loop]
 
 To demonstrate this, let's look at a template that deploys a [network security group (NSG)][nsg] with two security rules. 
 
-First, let's take a look at our parameters. When we look at our template we'll see that we've defined one parameter named `"networkSecurityGroupsSettings"` that includes an array named `"securityRules"`. This array contains two JSON objects that specify a number of settings for a security rule.
+First, let's take a look at our parameters. When we look at our template we'll see that we've defined one parameter named `networkSecurityGroupsSettings` that includes an array named `securityRules`. This array contains two JSON objects that specify a number of settings for a security rule.
 
 ```json
 {
@@ -294,16 +294,16 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
 
 ```
 
-Let's take a closer look at how we specify our property values in the `"securityRules"` child resource. All of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `"securityRules"` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object. 
+Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `securityRules` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object. 
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps: <<RBC: Shoul this be added to the other docs in this set? What if they don't read this particular one for some reason?>>
+If you would like to experiment with this template, follow these steps: 
 
 1.	Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
 2.	Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
 3.	Select the **edit template** button.
-4.	Delete the empty template. <<RBC: The style guide says not to use "right-hand" do you think it will be clear enough this way? Also, the update-resource doc has it this way.>>
+4.	Delete the empty template. 
 5.	Copy and paste the sample template into the right pane.
 6.	Select the **save** button.
 7.	When you are returned to the **custom deployment** pane, select the **edit parameters** button.
