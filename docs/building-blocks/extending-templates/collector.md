@@ -10,7 +10,7 @@ ms.date: 06/09/2017
 
 In [use an object as a parameter in an Azure Resource Manager template][objects-as-parameters], you learned how to store resource property values in an object and apply them to a resource during deployment. While this is a very useful way to manage your parameters, it still requires you to map the object's properties to resource properties each time you use it in your template.
 
-To work around this, you can implement a property transform and collector that iterates your object array and transforms it into the JSON schema expected by the resource.
+To work around this, you can implement a property transform and collector template that iterates your object array and transforms it into the JSON schema expected by the resource.
 
 > [!IMPORTANT]
 > This approach requires that you have a deep understanding of Resource Manager templates and functions.
@@ -21,7 +21,7 @@ Let's take a look at how we can implement a property collector and transformer w
 
 Our **calling template** includes two resources:
 * a template link that invokes our **collector template**.
-* an NSG.
+* the NSG resource to deploy.
 
 Our **collector template** includes two resources:
 * an **anchor** resource.
