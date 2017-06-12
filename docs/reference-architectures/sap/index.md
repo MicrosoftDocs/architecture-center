@@ -6,7 +6,6 @@ ms.date: 6/08/17
 ---
 
 # Deploy SAP NetWeaver and SAP HANA on Azure
-[!INCLUDE [header](../../_includes/header.md)]
 
 This reference architecture shows a set of proven practices for running SAP HANA in a high availability environment on Azure. 
 
@@ -416,4 +415,4 @@ described below.
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [stack-overflow]: http://stackoverflow.com/tags/sap/info
 [white-papers]: https://azure.microsoft.com/en-us/blog/azure-compliance-white-paper-o-rama/
-[0]: ../images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
+[0]: ./images/sap-hana.png "SAP HANA architecture using Microsoft Azure"
