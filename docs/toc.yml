@@ -128,7 +128,7 @@
   - name: Run Elasticsearch on Azure
     href: elasticsearch/index.md
   - name: Extend Azure Resource Manager Template Functionality
-  - href: building-blocks/extending-templates/index.md
+    href: building-blocks/extending-templates/index.md
 
 - name: Resources
   items:
