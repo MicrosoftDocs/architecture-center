@@ -1,0 +1,25 @@
+---
+title: {{ title }}
+description: {{ description }}
+layout: LandingPage
+---
+
+# {{ title }}
+
+<ul id="pnp-featured" class="panelContent cardsC">
+    {%- for item in featured -%}
+    <li>
+    {% include 'featured-card' %}
+    </li>
+    {%- endfor -%}
+</ul>
+
+<hr />
+
+<ul class="panelContent cardsI">
+{%- for item in series -%}
+    <li>
+    {% include 'two-column-card' %}
+    </li>
+{%- endfor -%}
+</ul>
