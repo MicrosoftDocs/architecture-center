@@ -190,6 +190,25 @@ ms.author: pnp
 </div>
 </a>
     </li>
+        <li>
+    <a href="http://aka.ms/azureconnectioncenter">
+<div class="cardSize">
+<div class="cardPadding">
+    <div class="card">
+        <div class="cardImageOuter">
+            <div class="cardImage">
+                <img src="_images/global-connection-center.svg" alt="Identity Management for Multitenant Applications" />
+            </div>
+        </div>
+        <div class="cardText">
+            <h3>Azure Global Connection Center</h3>
+            <p>Understand the national clouds, make use of their services, and extend the reach of your applications.</p>
+        </div>
+    </div>
+</div>
+</div>
+</a>
+    </li>
     <li>
     <a href="https://blogs.msdn.microsoft.com/azurecat/">
 <div class="cardSize">

@@ -1,6 +1,6 @@
 {
   "port": 8000,
-  "directory": "_site",
+  "directory": "_site/azure-architecture-center",
   "forbid": [],
   "rewrite": [
       {
