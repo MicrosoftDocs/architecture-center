@@ -1,0 +1,5 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+
+- name: Pivotal Cloud Foundry on Azure
+  href: index.md
