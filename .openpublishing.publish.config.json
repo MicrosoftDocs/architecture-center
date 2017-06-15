@@ -41,7 +41,6 @@
     }
   ],
   "branch_target_mapping": {
-    "pdf-test": [ "Publish", "PDF" ],
     "live": [ "Publish", "PDF" ]
   },
   "need_generate_pdf_url_template": true,
