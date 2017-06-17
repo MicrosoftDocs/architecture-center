@@ -126,7 +126,7 @@ The following checklist items apply to specific services in Azure.
 * **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 * **Configure indexers for multi-region deployments.** If you have a multi-region deployment, consider your options for continuity in indexing.
 
-  * If the data source is geo-replicated, point each indexer of each regional Azure Search service to its local data source replica.  
+  * If the data source is geo-replicated, you should generally point each indexer of each regional Azure Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Search indexers at the new primary replica.  
   * If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
 
 ### Azure Storage
