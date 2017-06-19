@@ -403,4 +403,4 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 [swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm
 [template-bb]: https://github.com/mspnp/template-building-blocks/wiki
 [white-papers]: https://azure.microsoft.com/en-us/blog/azure-compliance-white-paper-o-rama/
-[0]: ../_images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
+[0]: ../images/SAP-HANA-RA-diagram.png "SAP HANA architecture using Microsoft Azure"
