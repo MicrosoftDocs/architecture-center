@@ -1,60 +1,54 @@
-# Gateway Aggregation Pattern
+# Gateway Aggregation pattern
 
-Aggregate multiple individual requests to a single request using the gateway aggregation pattern. This pattern is useful when a client must make multiple calls to different backend systems to perform an operation.
+Use a gateway to aggregate multiple individual requests into a single request. This pattern is useful when a client must make multiple calls to different backend systems to perform an operation.
 
-## Context and Problem
+## Context and problem
 
-In order to perform a single task, a client may have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request to those back-end services. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and calls across a network. The increasing use of microservice architectures has made these problems much more common, as applications built around many smaller services naturally have a higher amount of cross-service calls. 
+To perform a single task, a client may have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely impact the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls. 
 
-This chattiness between a client and a backend can adversely impact the performance and scale of the application. As an example, a mobile application may make multiple calls over a cellular network during use. Each request requires adequate resources to send the request, receive and process the response.
+In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests, causing undesirable behavior of the application. While each request may be done in parallel, the application must send, wait and process data for each request, all on separate connections, increasing the possibility of failure.
 
 ![](./_images/gateway-aggregation-problem.png) 
 
-In the diagram above, the application sends individual requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). In this example, the application must make three separate requests, and receive three separate responses 
-
-Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests, causing undesirable behavior of the application. While each request may be done in parallel, the application must send, wait and process data for each request, all on separate connections, increasing the possibility of failure.
-
 ## Solution
 
-Use the gateway aggregation pattern to reduce chattiness between the client and the services. The gateway is responsible for receiving, processing, and dispatching requests to the various backend systems before aggregating the results and sending them back to the requesting client.
+Use a gateway to reduce chattiness between the client and the services. The gateway receives client requests, dispatches requests to the various backend systems, and then aggregates the results and sends them back to the requesting client.
 
-Implementing the gateway aggregation pattern can help in reducing the number of requests being made by an application to back end services, and is well suited to improving application performance when using high latency networks.
+This pattern can reduce the number of requests that the application makes to backend services. It can improve application performance over high-latency networks.
+
+In the following diagram, the application sends a request to the gateway (1). The request contains a package of additional requests. The gateway decomposes these and processes each request by sending it to the relevant service (2). Each service returns a response to the gateway (3). The gateway combines the responses from each service and sends the response to the application (4). The application makes a single request and receives only a single response from the gateway.
 
 ![](./_images/gateway-aggregation.png)
 
-In the diagram above, the gateway aggregator is sent a request by the application (1). The 
-request contains a package of additional requests that the gateway decomposes from the data and processes each of those requests by sending each to the relevant service (2). Each service individually processes the request and returns the response to the gateway (3). The gateway then combines the responses from each service and sends the response to the application (4).
-
-In the above example, the application needs to make only a single request and receive only a single response from the gateway. Introduction of the gateway aggregator reduces chattiness and improves performance of the application.
-
-## Issues and Considerations
+## Issues and considerations
 
 - The gateway should not introduce service coupling across the backend services.
 - The gateway should be located near the backend services to reduce latency as much as possible.
-- The gateway service may introduce a single point of failure. Ensure it is properly designed to accommodate your application's availability requirements.
-- The gateway may introduce a bottleneck. Ensure the gateway has adequate performance to handle load and can be easily scaled in line with your growth expectations.
+- The gateway service may introduce a single point of failure. Ensure the gateway is properly designed to accommodate your application's availability requirements.
+- The gateway may introduce a bottleneck. Ensure the gateway has adequate performance to handle load and can be scaled to meet your anticipated growth.
 - Perform load testing against the gateway to ensure you don't introduce cascading failures for services.
-- Implement fail-safe design, using techniques such as bulkheads, circuit breaking, retry, timeouts, etc...
+- Implement a resilient design, using techniques such as bulkheads, circuit breaking, retry, and timeouts.
 - It may be acceptable to timeout and return a partial set of data, consider how your application will handle this scenario.
-- Use asynchronous I/O to ensure a delay occurring at the backend doesn't cause performance issues in the application.
+- Use asynchronous I/O to ensure that a delay at the backend doesn't cause performance issues in the application.
 - Implement distributed tracing using correlation IDs to track each individual call.
 - Monitor request metrics and response sizes.
 - Consider returning cached data as a failover strategy to handle failures.
-- Consider an aggregation service behind a gateway. Request aggregation will likely have different resource requirements than other services in the gateway and may impact routing and offload functionality.
+- Instead of building aggregation into the gateway, consider placing an aggregation service behind the gateway. Request aggregation will likely have different resource requirements than other services in the gateway and may impact the gatewat's routing and offloading functionality.
 
-## When to Use this Pattern
+## When to use this pattern
 
 Use this pattern when:
 
 - A client needs to communicate with multiple backend services to perform an operation.
-- The client is using networks that cause significant latency between the clients and backends.
+- The client may use networks that cause significant latency between the clients and backends.
 
 This pattern may not be suitable when:
 
-- Reducing chattiness between a client and multiple operations in a single service.  It may be better to instead add a batch operation to the service.
+- You want to reduce the number of calls between a client and a single service across multiple operations. In that scenario, it may be better to add a batch operation to the service.
 - The client or application is located near the backend services and latency is not a significant factor.
 
 ## Example
+
 The following example illustrates how to create a simple a gateway aggregation NGINX service using Lua:
 
 ```lua
@@ -108,8 +102,7 @@ http {
 
 ## Related guidance
 
-Gateway Router Pattern
-Gateway Offload Pattern
-Backend for Frontend Pattern
-
+- [Backends for Frontends pattern](./backends-for-frontends.md)
+- [Gateway Offload pattern](./gateway-offload.md)
+- [Gateway Routing pattern](./gateway-routing.md)
 

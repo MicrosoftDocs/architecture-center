@@ -1,20 +1,16 @@
-# Gateway Routing Pattern
+# Gateway Routing pattern
 
-Route requests to multiple services using a single endpoint with the gateway routing pattern. This pattern is useful when you wish to expose multiple services on a single endpoint and route to the appropriate service based on the request.
+Route requests to multiple services using a single endpoint. This pattern is useful when you wish to expose multiple services on a single endpoint and route to the appropriate service based on the request.
 
-## Context and Problem
+## Context and problem
 
-When a client needs to consume multiple applications and services, setting up an endpoint for each of the services and having the client consumer manage each endpoint can be challenging.
-
-For example, a client application may need to communicate with any number of services to facilitate the application's capabilities. An e-commerce application could provide services such as search, reviews, cart, checkout, and order history, each of which provide a different interface that the client must interact with.
-
-A client application that depends on multiple services such as those above must know about each endpoint in order to connect to those services or endpoints. If a change or upgrade is required to any endpoint that the client requires, the client must also be updated to reflect the change to the endpoint. If a service must be split, the code must change at both the service and the consumer side, increasing complexity when refactoring services.
+When a client needs to consume multiple services, setting up a separate endpoint for each service and having the client manage each endpoint can be challenging. For example, an e-commerce application might provide services such as search, reviews, cart, checkout, and order history. Each service has a different API that the client must interact with, and the client must know about each endpoint in order to connect to the services. If a change or upgrade is required to any endpoint, the client must be updated as well. If you refactor a service into two or more separate services, the code must change in both the service and the client, which makes refactoring more complex.
 
 ## Solution
 
-Place a gateway in front of a set of applications, services or deployments and use context in the request (e.g. application Layer 7) to route the request to the appropriate instances.
+Place a gateway in front of a set of applications, services, or deployments. Use application Layer 7 routing to route the request to the appropriate instances.
 
-By implementing the gateway routing pattern, the client application only needs to know about and communicate with a single endpoint. If a service is consolidated or decomposed, the client does not necessarily require updating since it will continue making requests to the gateway instead of directly with the service. 
+With this pattern, the client application only needs to know about and communicate with a single endpoint. If a service is consolidated or decomposed, the client does not necessarily require updating. It can continue making requests to the gateway.
 
 A gateway can allow you to abstract backend services from the clients, allowing you to keep client calls simple while enabling changes in the backend service structures behind the gateway. Client calls can be routed to whatever service or services need to handle the expected client behavior, allowing you to add, split, or otherwise reorganize services behind the gateway without requiring any changes to the consumer.
 
@@ -22,7 +18,7 @@ A gateway can allow you to abstract backend services from the clients, allowing 
  
 The gateway routing pattern can also assist with deployment by allowing you to manage how updates are rolled out to users without needing to modify the endpoints clients access. When a new version of your service is deployed, it can be deployed in parallel with the existing version. Gateway routing allows you to manage what version of the service is presented to the clients. This allows you to use whatever release strategy you want, performing incremental, parallel, or complete rollouts of updates. Any issues discovered after the new service is deployed can be quickly reverted by making a configuration change at the gateway without affecting clients.
 
-## Issues and Considerations
+## Issues and considerations
 
 When you are deploying the gateway routing pattern, consider the following points:
 
@@ -31,7 +27,7 @@ When you are deploying the gateway routing pattern, consider the following point
 - Perform load testing against the gateway to ensure you don't introduce cascading failures for services.
 - Gateway routing is level 7. It can be based on IP, port, header, or URL.
 
-## When to Use this Pattern
+## When to use this pattern
 
 Use this pattern when:
 
@@ -39,9 +35,7 @@ Use this pattern when:
 - You wish to simplify client applications by using a single endpoint.
 - When you need to route requests from externally addressable endpoints to internal virtual endpoints, such as exposing ports on a VM to cluster virtual IP address.
 
-This pattern may not be suitable:
-
-- When you have a simple application that uses only one or two services.
+This pattern may not be suitable when you have a simple application that uses only one or two services.
 
 ## Example
 
@@ -68,9 +62,9 @@ server {
 
 ## Related guidance
 
-- Gateway Offload
-- Gateway Aggregator
-- Backend for Frontends
+- [Backends for Frontendss pattern](./backends-for-frontends.md)
+- [Gateway Aggregation pattern](./gateway-aggregation.md)
+- [Gateway Offload pattern](./gateway-offload.md)
 
 
 

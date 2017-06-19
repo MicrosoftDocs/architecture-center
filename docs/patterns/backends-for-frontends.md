@@ -1,8 +1,8 @@
 # Backends for Frontends pattern
 
-Use the backends for frontends pattern to develop targeted backend services for use with specific frontend applications or interfaces. This pattern is useful when you wish to avoid implementing customizations for multiple interfaces in a single backend.
+Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you wish to avoid implementing customizations for multiple interfaces in a single backend.
 
-## Context and Problem
+## Context and problem
 
 As an application is developed it may initially be targeted at a desktop web user interface. Typically, a backend service is developed in parallel and provides the features that the desktop web user interface requires. As the application's user base grows, a mobile application is developed that must also interact with the same backend. Originally developed for the desktop web user interface, it becomes a general-purpose backend serving the requirements of both the desktop and mobile interfaces.
 
@@ -49,8 +49,8 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- [Gateway Router pattern](./gateway-router.md)
-- [Gateway Offload pattern](./gateway-offload.md)
 - [Gateway Aggregation pattern](./gateway-offload.md)
+- [Gateway Offload pattern](./gateway-offload.md)
+- [Gateway Routing pattern](./gateway-routing.md)
 
 
