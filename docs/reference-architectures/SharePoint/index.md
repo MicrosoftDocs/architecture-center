@@ -494,7 +494,7 @@ To explore more, try the following:
 [arm]: /azure/azure-resource-manager/resource-group-overview
 [availability-set]: /azure/virtual-machines/windows/manage-availability#configure-each-application-tier-into-separate-availability-sets
 [availability-group]: https://msdn.microsoft.com/library/hh510230.aspx
-[azure-cli]]: /cli/azure/install-azure-cli
+[azure-cli]: /cli/azure/install-azure-cli
 [azure-forum]: https://azure.microsoft.com/en-us/support/forums/
 [azure-portal]: https://ms.portal.azure.com
 [backup-restore]: https://technet.microsoft.com/en-us/library/gg266384(v=office.16).aspx
