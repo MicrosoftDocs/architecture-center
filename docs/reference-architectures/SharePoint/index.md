@@ -22,7 +22,6 @@ Figure 1. Highly available SharePoint Server 2016 farm
 >
 >
 
-
 ## Architecture
 
 This architecture builds on the one shown one shown in [Run Windows VMs for an n-tier application][n-tier]. In the Azure IaaS environment, this architecture deploys a SharePoint Server
@@ -32,7 +31,8 @@ for a disaster recovery scenario.
 
 The architecture consists of the following components:
 
--   **Resource groups.** For different roles or tiers, separate [resource groups][resource-group] are 
+-   **Resource groups.** For different roles or tiers, separate 
+[resource groups][resource-group] are 
     typically created so assets can be deployed, managed, and monitored as a
     group. Here, a single resource group is used for the SharePoint servers. A
     separate resource group is used for infrastructure components that are
