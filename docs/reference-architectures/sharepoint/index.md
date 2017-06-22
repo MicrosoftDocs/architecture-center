@@ -2,7 +2,7 @@
 title: Run a high availability SharePoint Server 2016 farm in Azure
 description:  This reference architecture shows a set of proven practices for setting up a high availability SharePoint Server 2016 farm using MinRole topology and SQL Server Always On availability groups on Azure.
 author: njray
-ms.date: 06/21/17
+ms.date: 06/22/17
 ---
 
 # Run a high availability SharePoint Server 2016 farm in Azure
