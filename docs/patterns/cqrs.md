@@ -5,7 +5,7 @@ keywords: design pattern
 author: dragon119
 ms.service: guidance
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 ms.author: pnp
 
 pnp.series.title: Cloud Design Patterns

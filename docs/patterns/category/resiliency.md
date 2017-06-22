@@ -4,7 +4,7 @@ description: Resiliency is the ability of a system to gracefully handle and reco
 keywords: design pattern
 author: dragon119
 ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 ms.topic: article
 ms.service: guidance
 
