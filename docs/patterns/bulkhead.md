@@ -13,7 +13,7 @@ This pattern is named *Bulkhead* because it resembles the sectioned partitions o
 
 ## Context and problem
 
-An cloud-based application may include multiple services, with each service having one or more consumers. Excessive load or failure in a service will impact all consumers of the service.
+A cloud-based application may include multiple services, with each service having one or more consumers. Excessive load or failure in a service will impact all consumers of the service.
 
 Moreover, a consumer may send requests to multiple services simultaneously, using resources for each request. When the consumer sends a request to a service that is misconfigured or not responding, the resources used by the client's request may not be freed in a timely manner. As requests to the service continue, those resources may be exhausted. For example, the client's connection pool may be exhausted. At that point, requests by the consumer to other services are impacted. Eventually the consumer can no longer send requests to other services, not just the original unresponsive service.
 
@@ -23,7 +23,7 @@ The same issue of resource exhaustion affects services with multiple consumers. 
 
 Partition service instances into different groups, based on consumer load and availability requirements. This design helps to isolate failures, and allows you to sustain service functionality for some consumers, even during a failure.
 
-A consumer can also partition resources, to ensure that resources used to call one service don't affect the resources used to call another service. For example, a consumer that calls multiple services may be assigned a connection pool for each service. If a service begins to fail, it only affects the connection pool assigned for that service, allowing the consumer to continue using the other services without issue.
+A consumer can also partition resources, to ensure that resources used to call one service don't affect the resources used to call another service. For example, a consumer that calls multiple services may be assigned a connection pool for each service. If a service begins to fail, it only affects the connection pool assigned for that service, allowing the consumer to continue using the other services.
 
 The benefits of this pattern include:
 
@@ -35,13 +35,11 @@ The following diagram shows bulkheads structured around connection pools that ca
 
 ![](./_images/bulkhead-1.png) 
 
-The next diagram shows see multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. But because each service instance is isolated from the others, the other clients can continue making calls.
+The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
 ![](./_images/bulkhead-2.png)
      
 ## Issues and considerations
-
-When implementing this pattern, consideration should be given to the following points:
 
 - Define partitions around the business and technical requirements of the application.
 - When partitioning services or consumers into bulkheads, consider the level of isolation offered by the technology as well as the overhead in terms of cost, performance and manageability.
