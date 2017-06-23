@@ -13,7 +13,7 @@ This pattern can be useful for offloading common client connectivity tasks such 
 
 ## Context and problem
 
-Resilient cloud-based applications require features such as [circuit breaking][circuit-breaker], routing, metering and monitoring, and the ability to make network-related configuration updates. It may be difficult or impossible to update legacy applications or existing code libraries to add these features, because the code is no longer maintained or is otherwise not easily modified by the development team.
+Resilient cloud-based applications require features such as [circuit breaking][circuit-breaker], routing, metering and monitoring, and the ability to make network-related configuration updates. It may be difficult or impossible to update legacy applications or existing code libraries to add these features, because the code is no longer maintained or can't be easily modified by the development team.
 
 Network calls may also require substantial configuration for connection, authentication, and authorization. If these calls are used across multiple applications, built using multiple languages and frameworks, the calls must be configured for each of these instances. In addition, network and security functionality may need to be managed by a central team within your organization. With a large code base, it can be risky for that team to update application code they aren't familiar with.
 
@@ -30,8 +30,8 @@ Ambassador services can be deployed as a [sidecar][sidecar] to accompany the lif
 ## Issues and considerations
 
 - The proxy adds some latency overhead. Consider whether a client library, invoked directly by the application, is a better approach.
-- Consider the possible impact of including generalize features in the proxy. For example, if an operation is not idempotent, it may not be possible to retry that operation safely.
-- Consider a mechanism to allow the client to pass some context to the proxy, as well as back to the client. For exampple, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
+- Consider the possible impact of including generalized features in the proxy. For example, the ambassador could handle retries, but that might not be safe unless all operations are idempotent.
+- Consider a mechanism to allow the client to pass some context to the proxy, as well as back to the client. For example, include HTTP request headers to opt out of retry or specify the maximum number of times to retry.
 - Consider how you will package and deploy the proxy.
 - Consider whether to use a single shared instance for all clients or an instance for each client.
 

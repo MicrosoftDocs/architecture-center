@@ -23,18 +23,18 @@ Isolate the legacy and modern systems by placing an anti-corruption layer betwee
 
 ![](./_images/anti-corruption-layer.png) 
 
-Communication between the modern application and the anti-corruption layer always uses the application's data model and architecture. Calls from the anti-corruption layer the legacy system conform to that system's data model or methods. The layer anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
+Communication between the modern application and the anti-corruption layer always uses the application's data model and architecture. Calls from the anti-corruption layer to the legacy system conform to that system's data model or methods. The anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
 
 ## Issues and considerations
 
-- The anti-corruption layer may add latency to calls made between the legacy and modern applications
+- The anti-corruption layer may add latency to calls made between the two systems.
 - The anti-corruption layer adds an additional service that must be managed and maintained.
 - Consider how your anti-corruption layer will scale.
-- Consider whether you need more than one anti-corruption layer. You may want to decompose functionality into multiple services using different technologies or languages, or have other partitioning requirements.
+- Consider whether you need more than one anti-corruption layer. You may want to decompose functionality into multiple services using different technologies or languages, or there may be other reasons to partition the anti-corruption layer.
 - Consider how the anti-corruption layer will be managed in relation with your other applications or services. How will it be integrated into your monitoring, release, and configuration processes?
 - Make sure transaction and data consistency are maintained and can be monitored.
-- Consider whether the anti-corruption layer needs to handle all communication between legacy and modern systems, or just a subset of features? 
-- Consider whether the anti-corruption layer is meant to be permanent, or eventually retired once all legacy functionality has been migrated?
+- Consider whether the anti-corruption layer needs to handle all communication between legacy and modern systems, or just a subset of features. 
+- Consider whether the anti-corruption layer is meant to be permanent, or eventually retired once all legacy functionality has been migrated.
 
 ## When to use this pattern
 

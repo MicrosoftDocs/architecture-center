@@ -7,45 +7,43 @@ ms.date: 06/23/2017
 
 # Backends for Frontends pattern
 
-Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you wish to avoid implementing customizations for multiple interfaces in a single backend.
+Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you want to avoid customizing a single backend for multiple interfaces.
 
 ## Context and problem
 
-As an application is developed it may initially be targeted at a desktop web user interface. Typically, a backend service is developed in parallel and provides the features that the desktop web user interface requires. As the application's user base grows, a mobile application is developed that must also interact with the same backend. Originally developed for the desktop web user interface, it becomes a general-purpose backend serving the requirements of both the desktop and mobile interfaces.
+An application may initially be targeted at a desktop web UI. Typically, a backend service is developed in parallel that provides the features needed for that UI. As the application's user base grows, a mobile application is developed that must interact with the same backend. The backend service becomes a general-purpose backend, serving the requirements of both the desktop and mobile interfaces.
 
-The capabilities of a mobile device differ significantly from a desktop web user interface in screen size, performance, and display limitations. As a result, the requirements of the mobile application's backend differ from the desktop web user interface.
+But the capabilities of a mobile device differ significantly from a desktop browser, in terms screen size, performance, and display limitations. As a result, the requirements for a mobile application backend differ from the desktop web UI. 
 
-These differences result in competing requirements for the backend. The backend requires regular and significant changes such that it can serve both the desktop web user interface and the mobile application. It becomes a focus for development activity from separate interface teams and, ultimately, emerges as a bottleneck in the development process. Conflicting update requirements, and the need to keep the service working for both frontends, can result in lots of effort expended on a single deployable resource.
+These differences result in competing requirements for the backend. The backend requires regular and significant changes to serve both the desktop web UI and the mobile application. Often, separate interface teams work on each frontend, causing the backend to become a bottleneck in the development process. Conflicting update requirements, and the need to keep the service working for both frontends, can result in spending a lot of effort on a single deployable resource.
 
 ![](./_images/backend-for-frontend.png) 
 
-As the development activity focuses around the backend service, a separate team may be created to manage and maintain the backend. Ultimately this results in a disconnect between the interface and backend development teams, reducing developer output at the interface level and placing a burden on the backend team to balance the requirements of the different user interface teams.
+As the development activity focuses on the backend service, a separate team may be created to manage and maintain the backend. Ultimately, this results in a disconnect between the interface and backend development teams, placing a burden on the backend team to balance the competing requirements of the different UI teams. When one interface team requires changes to the backend, those changes must be validated with other interface teams before they can be integrated into the backend. 
 
 ## Solution
 
-Use the backends for frontends pattern and create one backend per user interface. This allows you to fine tune the behavior and performance of the backend to best match the needs of your frontend environment, without worrying about affecting other frontend experiences.
+Create one backend per user interface. Fine tune the behavior and performance of each backend to best match the needs of the frontend environment, without worrying about affecting other frontend experiences.
 
 ![](./_images/backend-for-frontend-example.png) 
 
-Since each backend is specific to one interface it can be optimized for that interface, meaning it will be smaller, less complex and likely faster than a generic backend that tries to satisfy requirement for all interfaces.
-
-Each interface team has autonomy to control their own backend and is not reliant on a centralized backend development team to mediate with other interface teams before changes can be made to their backend. This gives the interface team flexibility in language selection, release cadence, prioritization of workload and feature integration in their backend.
+Because each backend is specific to one interface, it can be optimized for that interface. As a result, it will be smaller, less complex, and likely faster than a generic backend that tries to satisfy the requirements for all interfaces. Each interface team has autonomy to control their own backend and doesn't rely on a centralized backend development team. This gives the interface team flexibility in language selection, release cadence, prioritization of workload, and feature integration in their backend.
 
 ## Issues and considerations
 
-- Consider how many backends for frontends you will deploy.
+- Consider how many backends to deploy.
 - If different interfaces (such as mobile clients) will make the same requests, consider whether it is necessary to implement a backend for each interface, or if a single backend will suffice.
 - Code duplication across services is highly likely when implementing this pattern.
 - Frontend-focused backend services should only contain client-specific logic and behavior. General business logic and other global features should be managed elsewhere in your application.
-- Think about how the backend for frontend pattern might be reflected in the responsibilities of a development team.
-- Consider how long it will take to implement a backend for frontend pattern. Will the delay in building the new focused backends incur technical debt while continuing to support supporting the existing generic backend?
+- Think about how this pattern might be reflected in the responsibilities of a development team.
+- Consider how long it will take to implement this pattern. Will the effort of building the new backends incur technical debt, while you continue to support the existing generic backend?
 
 ## When to use this pattern
 
 Use this pattern when:
 
 - A shared or general purpose backend service must be maintained with significant development overhead.
-- You want to optimize the backend, and have it focused toward the requirements of the specific interface that interacts with it.
+- You want to optimize the backend for the requirements of specific client interfaces.
 - Customizations are made to a general-purpose backend to accommodate multiple interfaces.
 - An alternative language is better suited for the backend of a different user interface.
 
