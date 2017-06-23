@@ -260,7 +260,7 @@ After you deploy this reference architecture, the following resource groups are 
 
 5.  When the remote connection to the user computer opens, open a browser and go to <http://portal.contoso.local>.
 
-6.  In the **Windows Security** box, log on to the SharePoint portal using **contoso.local\\onpremuser** for the user name and **AweS0me\@PW** for the password.
+6.  In the **Windows Security** box, log on to the SharePoint portal using **contoso.local\\testmuser** for the user name and **AweS0me\@PW** for the password.
 
 >   This logon tunnels in from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you’ll see the root demo site.
 
