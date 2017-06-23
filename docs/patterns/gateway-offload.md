@@ -35,8 +35,6 @@ Benefits of this pattern include:
 
 ## Issues and considerations
 
-When using the Gateway Offload pattern, consider the following points:
-
 - Ensure the API gateway is highly available and resilient to failure. Avoid single points of failure by running multiple instances of your API gateway. 
 - Ensure the gateway is designed for the capacity and scaling requirements of your application and endpoints. Make sure the gateway does not become a bottleneck for the application and is sufficiently scalable.
 - Only offload features that are used by the entire application, such as security or data transfer.
