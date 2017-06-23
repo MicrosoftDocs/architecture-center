@@ -1,3 +1,10 @@
+---
+title: Gateway Routing pattern
+description: Route requests to multiple services using a single endpoint.
+author: dragon119
+ms.date: 06/23/2017
+---
+
 # Gateway Routing pattern
 
 Route requests to multiple services using a single endpoint. This pattern is useful when you wish to expose multiple services on a single endpoint and route to the appropriate service based on the request.

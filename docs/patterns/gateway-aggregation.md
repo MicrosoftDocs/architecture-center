@@ -1,3 +1,10 @@
+---
+title: Gateway Aggregation pattern
+description: Use a gateway to aggregate multiple individual requests into a single request.
+author: dragon119
+ms.date: 06/23/2017
+---
+
 # Gateway Aggregation pattern
 
 Use a gateway to aggregate multiple individual requests into a single request. This pattern is useful when a client must make multiple calls to different backend systems to perform an operation.

@@ -1,3 +1,10 @@
+---
+title: Ambassador pattern
+description: Create helper services that send network requests on behalf of a consumer service or application.
+author: dragon119
+ms.date: 06/23/2017
+---
+
 ## Ambassador pattern
 
 Create helper services that send network requests on behalf of a consumer service or application. An ambassador service can be thought of as an out-of-process proxy that is co-located with the client.

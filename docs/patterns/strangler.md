@@ -1,4 +1,11 @@
-# Strangler Pattern
+---
+title: Strangler pattern
+description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
+author: dragon119
+ms.date: 06/23/2017
+---
+
+# Strangler pattern
 
 Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. As features from the legacy system are replaced, the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it. 
 
@@ -11,7 +18,6 @@ Completely replacing a complex system can be a huge undertaking. Often, you will
 ## Solution
 
 Incrementally replace specific pieces of functionality with new applications and services. Create a façade that intercepts requests going to the backend legacy system. The façade routes these requests either to the legacy application or the new services. Existing features can be migrated to the new system gradually, and consumers can continue using the same interface, unaware that any migration has taken place.
-
 
 ![](./_images/strangler.png)  
 

@@ -1,6 +1,13 @@
+---
+title: Bulkhead pattern
+description: Isolate elements of an application into pools so that if one fails, the others will continue to function
+author: dragon119
+ms.date: 06/23/2017
+---
+
 # Bulkhead pattern
 
-Isolate elements of an application, such as client or service instances, into pools so that if one fails, the others will continue to function.
+Isolate elements of an application into pools so that if one fails, the others will continue to function.
 
 This pattern is named *Bulkhead* because it resembles the sectioned partitions of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking. 
 

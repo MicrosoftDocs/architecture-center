@@ -1,4 +1,11 @@
-# Sidecar Pattern
+---
+title: Sidecar pattern
+description: Deploy components of an application into a separate process or container to provide isolation and encapsulation.
+author: dragon119
+ms.date: 06/23/2017
+---
+
+# Sidecar pattern
 
 Deploy components of an application into a separate process or container to provide isolation and encapsulation. This pattern can also enable applications to be composed of heterogeneous components and technologies.
 
