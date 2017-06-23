@@ -38,7 +38,7 @@ Use this pattern when:
 
 - A client needs to consume multiple services that can be accessed behind a gateway.
 - You wish to simplify client applications by using a single endpoint.
-- You need to route requests from externally addressable endpoints to internal virtual endpoints, such as exposing ports on a VM to cluster virtual IP address.
+- You need to route requests from externally addressable endpoints to internal virtual endpoints, such as exposing ports on a VM to cluster virtual IP addresses.
 
 This pattern may not be suitable when you have a simple application that uses only one or two services.
 
