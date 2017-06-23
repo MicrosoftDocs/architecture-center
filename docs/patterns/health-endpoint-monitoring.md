@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, management-monitoring, resiliency]
 ---
 
-# Health Endpoint Monitoring
+# Health Endpoint Monitoring pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

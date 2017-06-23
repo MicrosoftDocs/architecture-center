@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
 ---
 
-# Materialized View
+# Materialized View pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

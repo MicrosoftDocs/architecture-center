@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
 ---
 
-# Sharding
+# Sharding pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
 ---
 
-# Static Content Hosting
+# Static Content Hosting pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

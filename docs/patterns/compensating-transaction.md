@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [resiliency]
 ---
 
-# Compensating Transaction
+# Compensating Transaction pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

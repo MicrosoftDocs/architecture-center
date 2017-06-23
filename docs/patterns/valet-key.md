@@ -13,7 +13,7 @@ pnp.pattern.categories: [data-management, security]
 
 ---
 
-# Valet Key
+# Valet Key pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

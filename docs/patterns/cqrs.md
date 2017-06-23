@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
 ---
 
-# Command and Query Responsibility Segregation (CQRS)
+# Command and Query Responsibility Segregation (CQRS) pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

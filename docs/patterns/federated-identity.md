@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [security]
 ---
 
-# Federated Identity
+# Federated Identity pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

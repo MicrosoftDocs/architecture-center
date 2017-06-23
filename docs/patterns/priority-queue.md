@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, performance-scalability]
 ---
 
-# Priority Queue
+# Priority Queue pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

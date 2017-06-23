@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, resiliency]
 ---
 
-# Scheduler Agent Supervisor
+# Scheduler Agent Supervisor pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

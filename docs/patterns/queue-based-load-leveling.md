@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, availability, performance-scalability, resiliency]
 ---
 
-# Queue-Based Load Leveling
+# Queue-Based Load Leveling pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

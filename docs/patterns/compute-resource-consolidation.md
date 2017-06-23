@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation]
 ---
 
-# Compute Resource Consolidation
+# Compute Resource Consolidation pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

@@ -13,7 +13,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [security]
 ---
 
-# Gatekeeper
+# Gatekeeper pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

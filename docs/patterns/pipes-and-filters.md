@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, messaging]
 ---
 
-# Pipes and Filters
+# Pipes and Filters pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

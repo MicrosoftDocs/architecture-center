@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, performance-scalability]
 ---
 
-# Throttling
+# Throttling pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

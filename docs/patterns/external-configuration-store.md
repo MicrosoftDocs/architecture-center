@@ -12,7 +12,7 @@ pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, management-monitoring]
 ---
 
-# External Configuration Store
+# External Configuration Store pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

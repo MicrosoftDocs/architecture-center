@@ -13,7 +13,7 @@ pnp.pattern.categories: [design-implementation, resiliency]
 
 ---
 
-# Leader Election
+# Leader Election pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 
