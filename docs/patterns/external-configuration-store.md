@@ -59,7 +59,7 @@ Consider how to protect the configuration data to allow access to only the appro
 
 Centrally stored configurations, which change application behavior during runtime, are critically important and should be deployed, updated, and managed using the same mechanisms as deploying application code. For example, changes that can affect more than one application must be carried out using a full test and staged deployment approach to ensure that the change is appropriate for all applications that use this configuration. If an administrator edits a setting to update one application, it could adversely impact other applications that use the same setting.
 
-If an application caches configuration information, the application needs to be alerted if the configuration changes. It might be possible to implement an expiration policy over cached configuration data so that this information is automatically refreshed periodically and any changes picked up (and acted on). The [Runtime Reconfiguration pattern](runtime-reconfiguration.md) might be relevant to your scenario.
+If an application caches configuration information, the application needs to be alerted if the configuration changes. It might be possible to implement an expiration policy over cached configuration data so that this information is automatically refreshed periodically and any changes picked up (and acted on).
 
 ## When to use this pattern
 
@@ -344,9 +344,5 @@ public override bool OnStart()
 ```
 
 ## Related patterns and guidance
-
-The following information might also be relevant when implementing this pattern:
-
-- [Runtime Reconfiguration pattern](runtime-reconfiguration.md). In addition to storing configuration settings externally, it's useful to be able to update them and have the changes applied without restarting the application. Describes how to design an application so that it can be reconfigured without requiring redeployment or restarting.
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/external-configuration-store).

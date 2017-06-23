@@ -24,6 +24,5 @@ Cloud applications run in in a remote datacenter where you do not have full cont
 | [Gateway Offload](../gateway-offload.md) | Offload shared or specialized service functionality to a gateway proxy. |
 | [Gateway Routing](../gateway-routing.md) | Route requests to multiple services using a single endpoint. |
 | [Health Endpoint Monitoring](../health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
-| [Runtime Reconfiguration](../runtime-reconfiguration.md) | Design an application so that it can be reconfigured without requiring redeployment or restarting the application. |
 | [Sidecar](../sidecar.md) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. |
 | [Strangler](../strangler.md) | Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. |

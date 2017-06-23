@@ -61,5 +61,6 @@ The following diagram shows an application making a request to a remote service 
 
 <!-- links -->
 
+[circuit-breaker]: ./circuit-breaker.md
 [resiliency-patterns]: ./category/resiliency.md
 [sidecar]: ./sidecar.md

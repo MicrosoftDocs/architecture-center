@@ -101,7 +101,6 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [Priority Queue](./priority-queue.md) | Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority. |
 | [Queue-Based Load Leveling](./queue-based-load-leveling.md) | Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads. |
 | [Retry](./retry.md) | Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed. |
-| [Runtime Reconfiguration](./runtime-reconfiguration.md) | Design an application so that it can be reconfigured without requiring redeployment or restarting the application. |
 | [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md) | Coordinate a set of actions across a distributed set of services and other remote resources. |
 | [Sharding](./sharding.md) | Divide a data store into a set of horizontal partitions or shards. |
 | [Sidecar](./sidecar.md) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. |

@@ -72,8 +72,6 @@
   href: queue-based-load-leveling.md
 - name: Retry
   href: retry.md
-- name: Runtime Reconfiguration
-  href: runtime-reconfiguration.md
 - name: Scheduler Agent Supervisor
   href: scheduler-agent-supervisor.md
 - name: Sharding
