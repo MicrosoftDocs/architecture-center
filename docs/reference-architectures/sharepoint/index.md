@@ -1,6 +1,6 @@
 ---
 title: Run a high availability SharePoint Server 2016 farm in Azure
-description:  This reference architecture shows a set of proven practices for setting up a high availability SharePoint Server 2016 farm using MinRole topology and SQL Server Always On availability groups on Azure.
+description:  Proven practices for setting up a high availability SharePoint Server 2016 farm using MinRole topology and SQL Server Always On availability groups on Azure.
 author: njray
 ms.date: 06/22/17
 ---
@@ -26,27 +26,27 @@ This architecture builds on the one shown one shown in [Run Windows VMs for an n
 
 The architecture consists of the following components:
 
--   **Resource groups.** For different roles or tiers, separate [resource groups][resource-group] are typically created so assets can be deployed, managed, and monitored as a group. Here, a single resource group is used for the SharePoint servers. A separate resource group is used for infrastructure components that are independent of VMs, such as the virtual network and load balancers.
+- **Resource groups.** For different roles or tiers, separate [resource groups][resource-group] are typically created so assets can be deployed, managed, and monitored as a group. Here, a single resource group is used for the SharePoint servers. A separate resource group is used for infrastructure components that are independent of VMs, such as the virtual network and load balancers.
 
--   **Availability sets.** For high availability, an [availability set][availability-set] is created for each SharePoint role, and at least two virtual machines are provisioned for each role. This makes the virtual machines eligible for the availability [service level agreement][sla] (SLA) for Azure VMs.
+- **Availability sets.** For high availability, an [availability set][availability-set] is created for each SharePoint role, and at least two virtual machines are provisioned for each role. This makes the virtual machines eligible for the availability [service level agreement][sla] (SLA) for Azure VMs.
 
--   **Internal load balancer.** Client-based SharePoint request traffic from the intranet is distributed to the front-end web servers of the SharePoint farm through an [internal load balancer][ilb].
+- **Internal load balancer.** Client-based SharePoint request traffic from the intranet is distributed to the front-end web servers of the SharePoint farm through an [internal load balancer][ilb].
 
--   **Virtual network**. Virtual machines are deployed in a virtual network with a unique intranet address space. A separate subnet is created for each group of virtual machines for a specific role and for the gateway subnet. To specify the address range and subnet mask, CIDR notation is used. Assign the [gateway subnet address space][gateway-subnet] from the last part of the virtual network address space.
+- **Virtual network**. Virtual machines are deployed in a virtual network with a unique intranet address space. A separate subnet is created for each group of virtual machines for a specific role and for the gateway subnet. To specify the address range and subnet mask, CIDR notation is used. Assign the [gateway subnet address space][gateway-subnet] from the last part of the virtual network address space.
 
--   **Virtual machines**. Private static IP addresses are assigned to all the virtual machines. Dynamic addresses are not recommended for servers.
+- **Virtual machines**. Private static IP addresses are assigned to all the virtual machines. Dynamic addresses are not recommended for servers.
 
--   **Network security groups**. For each subnet that contains virtual machines, a [network security group][nsg] is created. These groups enable you to perform subnet isolation.
+- **Network security groups**. For each subnet that contains virtual machines, a [network security group][nsg] is created. These groups enable you to perform subnet isolation.
 
--   **Gateway.** This [gateway][gateway] provides a connection between your on-premises network and the Azure virtual network. Your connection can use ExpressRoute or  site-to-site [VPN][vpn].
+- **Gateway.** This [gateway][gateway] provides a connection between your on-premises network and the Azure virtual network. Your connection can use ExpressRoute or  site-to-site [VPN][vpn].
 
--   **Windows Server Active Directory (AD) domain controllers.** Because SharePoint Server 2016 does not support using Azure Active Directory Domain Services, you must deploy Windows Server AD domain controllers. These domain controllers run in the Azure virtual network and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the virtual network rather than sending that authentication traffic across the cross-premises connection to your on-premises network. In DNS, intranet A or CNAME records are used so intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
+- **Windows Server Active Directory (AD) domain controllers.** Because SharePoint Server 2016 does not support using Azure Active Directory Domain Services, you must deploy Windows Server AD domain controllers. These domain controllers run in the Azure virtual network and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the virtual network rather than sending that authentication traffic across the cross-premises connection to your on-premises network. In DNS, intranet A or CNAME records are used so intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
--   **SQL Server Always On availability group.** For high availability, two virtual machines are used for SQL Server—one that contains the primary database replica of an [availability group][availability-group] and the other for  the secondary backup replica.
+- **SQL Server Always On availability group.** For high availability, two virtual machines are used for SQL Server. One contains the primary database replica of an [availability group][availability-group], and the other contains the secondary backup replica.
 
--   **Majority node.** For the failover cluster, a [majority node][majority-node] virtual machine is created.
+-  **Majority node.** For the failover cluster, a [majority node][majority-node] virtual machine is created.
 
--   **SharePoint servers**. The SharePoint servers perform the web front-end, caching, application, and search [roles][roles].
+- **SharePoint servers**. The SharePoint servers perform the web front-end, caching, application, and search [roles][roles].
 
 
 ## Recommendations
@@ -93,31 +93,28 @@ These Azure best practices primarily follow the reference architecture for [n-ti
 
 ### Storage recommendations
 
-The storage configuration of the virtual machines in the farm should match the appropriate best practices used for on-premises deployments. SharePoint servers should have a separate disk for logs. SharePoint servers hosting search index roles require additional disk space for the search index to be stored. For SQL Server, the standard practice is separation of data and logs. Add more disks for database backup storage, and use a separate disk for [tempdb][tempdb].
+The storage configuration of the VMs in the farm should match the appropriate best practices used for on-premises deployments. SharePoint servers should have a separate disk for logs. SharePoint servers hosting search index roles require additional disk space for the search index to be stored. For SQL Server, the standard practice is separation of data and logs. Add more disks for database backup storage, and use a separate disk for [tempdb][tempdb].
 
-For best reliability, we recommend using  [Azure Managed Disks Overview][managed-disks].  Managed disks ensure that the disks for VMs within the an availability set are isolated to avoid single points of failure.
+For best reliability, we recommend using  [Azure Managed Disks Overview][managed-disks]. Managed disks ensure that the disks for VMs within the an availability set are isolated to avoid single points of failure.
 
 > [!NOTE]
 >  Currently the Resource Manager template for this reference architecture does not use managed disks. We are planning to update the template to use managed disks.
->
->
 
-Use Premium managed disks for all SharePointand SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management  server.
+Use Premium managed disks for all SharePoint and SQL Server VMs. You can use Standard managed disks for the majority node server, the domain controllers, and the management  server.
 
 ### SharePoint Server recommendations
 
-Before configuring the SharePoint farm, make sure you have one Windows Server Active Directory service account per service. For this architecture, you need at a minimum the
-following domain-level accounts to isolate privilege per role:
+Before configuring the SharePoint farm, make sure you have one Windows Server Active Directory service account per service. For this architecture, you need at a minimum the following domain-level accounts to isolate privilege per role:
 
--   SQL Server Service account
--   Setup User account
--   Server Farm account
--   Search Service account
--   Content Access account
--   Web App Pool accounts
--   Service App Pool accounts
--   Cache Super User account
--   Cache Super Reader account
+- SQL Server Service account
+- Setup User account
+- Server Farm account
+- Search Service account
+- Content Access account
+- Web App Pool accounts
+- Service App Pool accounts
+- Cache Super User account
+- Cache Super Reader account
 
 For all roles except the Search Indexer, we recommended using the [Standard_DS3_v2][ds3] VM size. The Search Indexer should be at least the [Standard_DS13_v2][ds13] size.
 
@@ -136,7 +133,7 @@ For more information about these recommendations, see [Initial deployment admini
 
 ### SQL Server Always On Availability Groups
 
-This architecture uses SQL Server virtual machines because SharePoint Server 2016 can’t use Azure SQL Database. To support high availability in SQL Server, we recommend [creating Always On Availability Groups][creating-always-on], which specify a set of databases that fail over together, making them highly-available and recoverable. In  comparison, an Azure availability set allocates virtual machines to different fault domains. In this reference architecture, the databases are created during deployment, but you must manually [enable Always On][enable-always-on] Availability Groups and  [add the SharePoint databases][add-databases] to an availability group.
+This architecture uses SQL Server virtual machines because SharePoint Server 2016 cannot use Azure SQL Database. To support high availability in SQL Server, we recommend [creating Always On Availability Groups][creating-always-on], which specify a set of databases that fail over together, making them highly-available and recoverable. In  comparison, an Azure availability set allocates virtual machines to different fault domains. In this reference architecture, the databases are created during deployment, but you must manually [enable Always On][enable-always-on] Availability Groups and  [add the SharePoint databases][add-databases] to an availability group.
 
 We also recommend adding a listener IP address to the cluster, which is the private IP address of the internal load balancer for the SQL Server virtual machines.
 
@@ -144,7 +141,7 @@ To promote performance and security, see the [best practices][sql-best-practices
 
 ### Majority node server recommendations
 
-We strongly recommend that the majority node server reside on a separate computer from the replication partners. The server enables the secondary replication partner server in a high-safety mode session to recognize whether to initiate an automatic failover. Unlike the two partners, the majority node server doesn’t serve the database but rather supports automatic failover.
+We strongly recommend that the majority node server reside on a separate computer from the replication partners. The server enables the secondary replication partner server in a high-safety mode session to recognize whether to initiate an automatic failover. Unlike the two partners, the majority node server doesn't serve the database but rather supports automatic failover.
 
 ## Scalability considerations
 
@@ -155,6 +152,7 @@ With the new [MinRoles][minroles] capability in SharePoint Server 2016, you can 
 Learn more about how to [manage your MinRole farm deployment][manage-minroles]. 
 
 ## Availability considerations
+
 This reference architecture supports high availability within an Azure region, because each role has at least two VMs deployed in an availability set.
 
 To protect against a regional failure, create a separate disaster recovery farm in a different Azure region. Your recovery time objectives (RTOs) and recovery point objectives (RPOs) will determine the setup requirements. For details, see [Choose a disaster recovery strategy for SharePoint 2016][choose-dr]. The secondary region should be a paired region with the primary region. In the event of a broad outage, recovery of one region is prioritized out of every pair. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions][bcdr].
@@ -173,26 +171,26 @@ The default service applications in this deployment are designed to support hybr
 ## Security considerations
 The domain-level service accounts used to run SharePoint Server 2016 require Windows Server AD domain controllers for domain-join and authentication processes. Azure Active Directory Domain Services can’t be used instead. To extend the Windows Server AD identity infrastructure already in place in the intranet, this architecture uses two Windows Server AD replica domain controllers of an existing on-premises Windows Server AD forest. See also [Create an AD DS resource forest in Azure][ad-ds].
 
-In addition, it’s always wise to plan for [security hardening][security-hardening]. Other recommendations include:
+In addition, it's always wise to plan for [security hardening][security-hardening]. Other recommendations include:
 
--   Add rules to network security groups to isolate subnets and roles.
+- Add rules to network security groups to isolate subnets and roles.
 
--   Don’t assign public IP addresses to VMs.
+- Don’t assign public IP addresses to VMs.
 
--   For intrusion detection and analysis of payloads, consider using a network virtual appliance in front of the front-end web servers instead of an internal Azure load balancer.
+- For intrusion detection and analysis of payloads, consider using a network virtual appliance in front of the front-end web servers instead of an internal Azure load balancer.
 
--   As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
+- As an option, use IPsec policies for encryption of cleartext traffic between servers. If you are also doing subnet isolation, update your network security group rules to allow IPsec traffic.
 
--   Install anti-malware agents for the VMs.
+- Install anti-malware agents for the VMs.
 
 ## Community
 Communities can answer questions and help you set up a successful deployment. Consider the following:
 
--   [Azure Forum][azure-forum]
+- [Azure Forum][azure-forum]
 
--   [TechNet Wiki: SharePoint: Community Best Practices][technet-wiki]
+- [TechNet Wiki: SharePoint: Community Best Practices][technet-wiki]
 
--   [SharePoint Microsoft Tech Community][sharepoint-community]
+- [SharePoint Microsoft Tech Community][sharepoint-community]
 
 ## Solution deployment
 
@@ -245,7 +243,7 @@ After you deploy this reference architecture, the following resource groups are 
 | Resource Group        | Purpose                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------|
 | ra-onprem-sp2016-rg   | Simulated on-premises network with Active Directory, federated with the SharePoint 2016 network |
-| ra-sp2016-networ-rg   | Infrastructure to support SharePoint deployment                                                 |
+| ra-sp2016-network-rg   | Infrastructure to support SharePoint deployment                                                 |
 | ra-sp2016-workload-rg | SharePoint and supporting resources                                                             |
 
 ### Scenario 1: Validate access to the SharePoint site from an on-premises network
