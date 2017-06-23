@@ -115,4 +115,4 @@ http {
 
 [bulkhead]: ./bulkhead.md
 [circuit-breaker]: ./circuit-breaker.md
-[retry]: ./retry.,d
+[retry]: ./retry.md
