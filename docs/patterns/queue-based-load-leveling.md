@@ -6,13 +6,13 @@ author: dragon119
 ms.service: guidance
 ms.topic: article
 ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [messaging, availability, performance-scalability, resiliency]
 ---
 
-# Queue-Based Load Leveling
+# Queue-Based Load Leveling pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 
