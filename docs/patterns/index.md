@@ -91,7 +91,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 | [Federated Identity](./federated-identity.md) | Delegate authentication to an external identity provider. |
 | [Gatekeeper](./gatekeeper.md) | Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them. |
 | [Gateway Aggregation](./gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. |
-| [Gateway Offload](./gateway-offload.md) | Offload shared or specialized service functionality to a gateway proxy. |
+| [Gateway Offloading](./gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. |
 | [Gateway Routing](./gateway-routing.md) | Route requests to multiple services using a single endpoint. |
 | [Health Endpoint Monitoring](./health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
 | [Index Table](./index-table.md) | Create indexes over the fields in data stores that are frequently referenced by queries. |

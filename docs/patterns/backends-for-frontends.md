@@ -54,8 +54,8 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- [Gateway Aggregation pattern](./gateway-offload.md)
-- [Gateway Offload pattern](./gateway-offload.md)
+- [Gateway Aggregation pattern](./gateway-aggregation.md)
+- [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)
 
 

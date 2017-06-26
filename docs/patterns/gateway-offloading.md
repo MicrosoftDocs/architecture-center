@@ -1,11 +1,11 @@
 ---
-title: Gateway Offload pattern
+title: Gateway Offloading pattern
 description: Offload shared or specialized service functionality to a gateway proxy.
 author: dragon119
 ms.date: 06/23/2017
 ---
 
-# Gateway Offload pattern
+# Gateway Offloading pattern
 
 Offload shared or specialized service functionality to a gateway proxy. This pattern can simplify application development by moving shared service functionality, such as the use of SSL certificates, from other parts of the application into the gateway.
 

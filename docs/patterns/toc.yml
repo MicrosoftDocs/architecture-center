@@ -52,8 +52,8 @@
   href: gatekeeper.md
 - name: Gateway Aggregation
   href: gateway-aggregation.md
-- name: Gateway Offload
-  href: gateway-offload.md
+- name: Gateway Offloading
+  href: gateway-offloading.md
 - name: Gateway Routing
   href: gateway-routing.md
 - name: Health Endpoint Monitoring
