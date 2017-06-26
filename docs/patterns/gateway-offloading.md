@@ -23,7 +23,7 @@ Offload some features into an API gateway, particularly cross-cutting concerns s
 
 The following diagram shows an API gateway that terminates inbound SSL connections. It requests data on behalf of the original requestor from any HTTP server upstream of the API gateway.
 
- ![](./_images/gateway-offloading.png)
+ ![](./_images/gateway-offload.png)
  
 Benefits of this pattern include:
 
