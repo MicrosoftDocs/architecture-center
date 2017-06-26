@@ -110,7 +110,7 @@ http {
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
-- [Gateway Offload pattern](./gateway-offload.md)
+- [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)
 
 [bulkhead]: ./bulkhead.md

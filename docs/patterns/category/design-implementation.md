@@ -24,7 +24,7 @@ Good design encompasses factors such as consistency and coherence in component d
 | [Compute Resource Consolidation](../compute-resource-consolidation.md) | Consolidate multiple tasks or operations into a single computational unit |
 | [External Configuration Store](../external-configuration-store.md) | Move configuration information out of the application deployment package to a centralized location. |
 | [Gateway Aggregation](../gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. |
-| [Gateway Offload](../gateway-offload.md) | Offload shared or specialized service functionality to a gateway proxy. |
+| [Gateway Offloading](../gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. |
 | [Gateway Routing](../gateway-routing.md) | Route requests to multiple services using a single endpoint. |
 | [Leader Election](../leader-election.md) | Coordinate the actions performed by a collection of collaborating task instances in a distributed application by electing one instance as the leader that assumes responsibility for managing the other instances. |
 | [Pipes and Filters](../pipes-and-filters.md) | Break down a task that performs complex processing into a series of separate elements that can be reused. |

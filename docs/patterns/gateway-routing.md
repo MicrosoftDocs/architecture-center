@@ -69,7 +69,7 @@ server {
 
 - [Backends for Frontendss pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
-- [Gateway Offload pattern](./gateway-offload.md)
+- [Gateway Offloading pattern](./gateway-offloading.md)
 
 
 

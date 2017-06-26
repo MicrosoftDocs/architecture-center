@@ -21,7 +21,7 @@ Cloud applications run in in a remote datacenter where you do not have full cont
 | [Anti-Corruption Layer](../anti-corruption-layer.md) | Implement a façade or adapter layer between a modern application and a legacy system. |
 | [External Configuration Store](../external-configuration-store.md) | Move configuration information out of the application deployment package to a centralized location. |
 | [Gateway Aggregation](../gateway-aggregation.md) | Use a gateway to aggregate multiple individual requests into a single request. |
-| [Gateway Offload](../gateway-offload.md) | Offload shared or specialized service functionality to a gateway proxy. |
+| [Gateway Offloading](../gateway-offloading.md) | Offload shared or specialized service functionality to a gateway proxy. |
 | [Gateway Routing](../gateway-routing.md) | Route requests to multiple services using a single endpoint. |
 | [Health Endpoint Monitoring](../health-endpoint-monitoring.md) | Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals. |
 | [Sidecar](../sidecar.md) | Deploy components of an application into a separate process or container to provide isolation and encapsulation. |
