@@ -64,7 +64,7 @@ ms.author: pnp
             <div class="card">
                 <div class="cardImageOuter">
                     <div class="cardImage">
-                        <img src="_images/best-practices.svg" alt="Best Practices" />
+                        <img src="_images/best-practices.svg" alt="Best Practices" height="100%" />
                     </div>
                 </div>
                 <div class="cardText">
@@ -222,6 +222,25 @@ ms.author: pnp
         <div class="cardText">
             <h3>SQL Server Customer Advisory Team</h3>
             <p>The SQLCAT team's blog</p>
+        </div>
+    </div>
+</div>
+</div>
+</a>
+    </li>
+    <li>
+    <a href="/azure/architecture/building-blocks/extending-templates">
+<div class="cardSize">
+<div class="cardPadding">
+    <div class="card">
+        <div class="cardImageOuter">
+            <div class="cardImage">
+                <img src="_images/new-content.svg" alt="Extend Azure Resource Manager template functionality" />
+            </div>
+        </div>
+        <div class="cardText">
+            <h3>Extend Azure Resource Manager template functionality</h3>
+            <p>Some advanced techniques for authoring and structuring Resource Manager templates.</p>
         </div>
     </div>
 </div>
