@@ -26,7 +26,7 @@ The architecture consists of the following components:
 
 - **Virtual machines (VMs)**. The VMs are deployed into the VNet, and private static IP addresses are assigned to all of the VMs. Static IP addresses are recommended for the VMs running SQL Server and SharePoint Server 2016, to avoid issues with IP address caching and changes of addresses after a restart.
 
-- **Availability sets**. Place the VMs for each SharePoint role into separate [availability sets][availability-set], and provision at least two virtual machines (VMs) are provisioned for each role. This makes the VMs eligible for a higher service level agreement (SLA). 
+- **Availability sets**. Place the VMs for each SharePoint role into separate [availability sets][availability-set], and provision at least two virtual machines (VMs) for each role. This makes the VMs eligible for a higher service level agreement (SLA). 
 
 - **Internal load balancer**. The [load balancer][load-balancer] distributes SharePoint request traffic from the on-premises network to the front-end web servers of the SharePoint farm. 
 
@@ -36,10 +36,9 @@ The architecture consists of the following components:
 
 - **Windows Server Active Directory (AD) domain controllers**. Because SharePoint Server 2016 does not support using Azure Active Directory Domain Services, you must deploy Windows Server AD domain controllers. These domain controllers run in the Azure virtual network and have a trust relationship with the on-premises Windows Server AD forest. Client web requests for SharePoint farm resources are authenticated in the VNet rather than sending that authentication traffic across the cross-premises connection to your on-premises network. In DNS, intranet A or CNAME records are used so intranet users can resolve the name of the SharePoint farm to the private IP address of the internal load balancer.
 
-
 - **SQL Server Always On Availability Group**. For high availability of the SQL Server database, we recommend [SQL Server Always On Availability Groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica of an availability group, and the other contains the secondary replica. 
 
-- **Majority node**. This VM allows the failover cluster to establish quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster][sql-quorum].
+- **Majority node VM**. This VM allows the failover cluster to establish quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster][sql-quorum].
 
 - **SharePoint servers**. The SharePoint servers perform the web front-end, caching, application, and search roles. 
 
@@ -52,9 +51,6 @@ Your requirements might differ from the architecture described here. Use these r
 ### Resource group recommendations
 
 We recommend separating resource groups according to the server role, and having a separate resource group for infrastructure components that are global resources. In this architecture, the SharePoint resources form one group, while the SQL Server and other utility assets form another.
-
-> [!NOTE]
-> After you create a resource group, you can't rename it.
 
 ### Virtual network and subnet recommendations
 
@@ -80,15 +76,13 @@ Make sure your Azure subscription has enough VM core quota for the deployment, o
 
 We recommend having one NSG for each subnet that contains VMs, to enable subnet isolation. Do not assign an NSG to the gateway subnet, or the gateway will stop functioning.
  
-In addition to the default network security group rules, this architecture adds an NSG rule in the SQL Server subnet to allow SQL Server requests (TCP port 1433) from the SharePoint subnets, RDP traffic (port 3389) from the management subnet, and any traffic from the Active Directory and gateway subnets.
-
 If you want to configure subnet isolation, add NSG rules that define the allowed or denied inbound or outbound traffic for each subnet. 
 
 This configuration primarily follows the reference architecture for n-tier applications, but deployment models can vary. For more information, see [Filter network traffic with network security groups][virtual-networks-nsg].
 
 ### Storage recommendations
 
-The storage configuration of the VMs in the farm should match the appropriate best practices used for on-premises deployments. SharePoint servers should have a separate disk for logs. SharePoint servers hosting search index roles require additional disk space for the search index to be stored. For SQL Server, the standard practice to separate data and logs. Add more disks for database backup storage, and use a separate disk for [tempdb][tempdb].
+The storage configuration of the VMs in the farm should match the appropriate best practices used for on-premises deployments. SharePoint servers should have a separate disk for logs. SharePoint servers hosting search index roles require additional disk space for the search index to be stored. For SQL Server, the standard practice is to separate data and logs. Add more disks for database backup storage, and use a separate disk for [tempdb][tempdb].
 
 For best reliability, we recommend using [Azure Managed Disks][managed-disks]. Managed disks ensure that the disks for VMs within the an availability set are isolated to avoid single points of failure. 
 
@@ -99,7 +93,7 @@ Use Premium managed disks for all SharePoint and SQL Server VMs. You can use Sta
 
 ### SharePoint Server recommendations
 
-Before configuring the SharePoint farm, make sure you have one Windows Server AD service account per service. For this architecture, you need at a minimum the following domain-level accounts to isolate privilege per role:
+Before configuring the SharePoint farm, make sure you have one Windows Server Active Directory service account per service. For this architecture, you need at a minimum the following domain-level accounts to isolate privilege per role:
 
 - SQL Server Service account
 - Setup User account
@@ -174,56 +168,126 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 
 ## Deploy the solution
 
-An Azure Resource Manager deployment template for this architecture is available on GitHub. The architecture is based on the Windows VM workloads pattern and is deployed in three stages. To deploy the architecture, follow these steps:
+The deployment scripts for this reference architecture are available on [Github][github]. To run the PowerShell script that deploys this architecture, use the latest version of the Azure [command line interface][azure-cli] (CLI).
 
-1.	Click the button below to begin the first stage of deployment:
- 
-2.	When the link has opened in the Azure portal, enter the following values:
+You can deploy this architecture incrementally or all at once. The first time, we recommend an incremental deployment, so that you can see what each deployment does. Specify the increment using one of the following *mode* parameters.
 
-    - For **Resource group**, select **Create New** and enter `ra-sp2016-network-rg` in the text box. The resource group name is already defined in the parameter file.
-    - In the **Location** box, select the region.
-    - Leave the **Template Root Uri** and **Parameter Root Uri** boxes as is.
-    - Review the terms and conditions.
-    - Click the **Purchase** button.
+| Mode           | What it does                                                                                                            |
+|----------------|-------------------------------------------------------------------------------------------------------------------------|
+| onprem         | (Optional) Deploys a simulated on-premises network environment, for testing or evaluation. This step does not connect to an actual on-premises networks. |
+| infrastructure | Deploys the SharePoint 2016 network infrastructure and jumpbox to Azure.                                                |
+| createvpn      | Deploys a virtual network gateway for both the SharePoint and on-premises networks and connects them. Run this step only if you ran the `onprem` step.                |
+| workload       | Deploys the SharePoint servers to the SharePoint network.                                                               |
+| security       | Deploys the network security group to the SharePoint network.                                                           |
+| all            | Deploys all the preceding deployments.                            
 
-3.	Check Azure portal notifications for a message that the first stage of the deployment is complete.
 
-4.	Click the button below to begin the second stage of the deployment:
- 
-5.	When the link has opened in the Azure portal, enter the following values:
+To deploy the archicture incrementally with a simulated on-premises network environment, run the following steps in order:
 
-    - For **Resource group**, select **Create New** and enter `ra-sp2016-workload-rg` in the box. The resource group name is already defined in the parameter file.
-    - In the **Location** box, select the region.
-    - Leave the **Template Root Uri** and the **Parameter Root Uri** boxes as is.
-    - Review the terms and conditions.
-    - Click the **Purchase** button.
+1. onprem
+2. infrastructure
+3. createvpn
+4. workload
+5. security
 
-6. Check Azure portal notifications for a message that the second stage of deployment is complete.
+To deploy the architecture incrementally without a simulated on-premises network environment, run the following steps in order:
 
-7. Click the button below to begin the third stage of the deployment:
- 
-8. When the link has opened in the Azure portal, enter the following values:
+1. infrastructure
+2. workload
+3. security
 
-    - For **Resource group**, select **Use Existing** and enter `ra-sp2016-network-rg` in the box.
-    - In the **Location** box, select the region.
-    - Leave the **Template Root Uri** and the **Parameter Root Uri** boxes as is.
-    - Review the terms and conditions.
-    - Click the **Purchase** button.
+To deploy everything in one step, use `all`. Note that the entire process may take several hours.
 
-9.	Check Azure portal notifications for a message that the third stage of the deployment is complete.
+### Prerequisites
 
-10.	The parameter files include hard-coded administrator user names and passwords, and it is strongly recommended that you immediately change both on all the VMs. To do this:
+* Before deploying this reference architecture, verify that your subscription has sufficient quota—at least 38 cores. If you don't have enough, use the Azure portal to submit a support request for more quota.
 
-    - For each VM in the Azure portal, click **Reset password** in the **Support + troubleshooting** blade. 
-    - In the **Mode** box, select **Reset password**, then select a new user name and password. 
-    - Click **Update** to save the changes.
+* To estimate the cost of this deployment, see the [Azure Pricing Calculator][azure-pricing].
+
+### Deploy the reference architecture
+
+1.  Download or clone the solution folder from [Github][github] to your local computer.
+
+2.  Open a PowerShell window and navigate to the `/reference-architectures/sharepoint/sharepoint-2016` folder.
+
+3.  Run the following PowerShell command. For \<subscription id\>, use your Azure subscription ID. For \<location\>, specify an Azure region, such as `eastus` or `westus`. For \<mode\>, specify `onprem`, `infrastructure`, `createvpn`, `workload`, `security`, or `all`.
+
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
+    ```   
+
+4.  When prompted, log on to your Azure account. The deployment scriptscan take up to several hours to complete, depending on the mode you selected.
+
+> [!WARNING]
+> The parameter files include a hard-coded password (`AweS0me@PW`) in various places. You should change these values before you deploy.
+
+## Validate the deployment
+
+After deploying the architecture, use the following scenarios to validate that the SharePoint service has been deployed to Azure and can be accessed by the simulated on-premises network.
+
+After you deploy this reference architecture, the following resource groups are listed under the Subscription that you used:
+
+| Resource Group        | Purpose                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------|
+| ra-onprem-sp2016-rg   | Simulated on-premises network with Active Directory, federated with the SharePoint 2016 network |
+| ra-sp2016-network-rg   | Infrastructure to support SharePoint deployment                                                 |
+| ra-sp2016-workload-rg | SharePoint and supporting resources                                                             |
+
+### Scenario 1: Validate access to the SharePoint site from an on-premises network
+
+1. In the [Azure portal][azure-portal], under **Resource groups**, select the `ra-onprem-sp2016-rg` resource group.
+
+2. In the list of resources, select the VM resource named `ra-adds-user-vm1`. 
+
+3. Connect to the VM, as described in [Connect to virtual machine][connect-to-vm]. The user name is `\onpremuser`.
+
+5.  When the remote connection to the VM is established, open a browser in the VM and navigate to `http://portal.contoso.local`.
+
+6.  In the **Windows Security** box, log on to the SharePoint portal using `contoso.local\testmuser` for the user name.
+
+This logon tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
+
+### Scenario 2: Validate jumpbox access to VMs and check configuration settings
+
+1.  In [Azure portal][azure-portal], under **Resource groups**, select the `ra-sp2016-network-rg` resource group.
+
+2.  In the list of resources, select the VM resource named `ra-sp2016-jb-vm1`, which is the jumpbox.
+
+3. Connect to the VM, as described in [Connect to virtual machine][connect-to-vm]. The user name is `testuser`.
+
+4.  After you log onto the jumpbox, open an RDP session from the jumpbox. Connect to any other VMs in the VNet. The username is `testuser`. You can ignore the warning about the remote computer's security certificate.
+
+5.  When the remote connection to the virtual machine opens, review the configuration and make changes using the administrative tools such as Server Manager.
+
+The following table shows the VMs that are deployed. 
+
+| Resource Name      | Purpose                                   | Resource Group        | VM Name                       |
+|--------------------|-------------------------------------------|-----------------------|-------------------------------|
+| Ra-sp2016-ad-vm1   | Active Directory + DNS              | Ra-sp2016-network-rg  | Ad1.contoso.local             |
+| Ra-sp2016-ad-vm2   | Active Directory + DNS              |                       | Ad2.contoso.local             |
+| Ra-sp2016-fsw-vm1  | SharePoint                                |                       | Fsw1.contoso.local            |
+| Ra-sp2016-jb-vm1   | Jumpbox                                   |                       | Jb (use public IP to log on) |
+| Ra-sp2016-sql-vm1  | SQL Always On - Failover                  |                       | Sq1.contoso.local             |
+| Ra-sp2016-sql-vm2  | SQL Always On - Primary                   |                       | Sq2.contoso.local             |
+| Ra-sp2016-app-vm1  | SharePoint 2016 Application MinRole       | Ra-sp2016-workload-rg | App1.contoso.local            |
+| Ra-sp2016-app-vm2  | SharePoint 2016 Application MinRole       |                       | App2.contoso.local            |
+| Ra-sp2016-dch-vm1  | SharePoint 2016 Distributed Cache MinRole |                       | Dch1.contoso.local            |
+| Ra-sp2016-dch-vm2  | SharePoint 2016 Distributed Cache MinRole |                       | Dch2.contoso.local            |
+| Ra-sp2016-srch-vm1 | SharePoint 2016 Search MinRole            |                       | Srch1.contoso.local           |
+| Ra-sp2016-srch-vm2 | SharePoint 2016 Search MinRole            |                       | Srch2.contoso.local           |
+| Ra-sp2016-wfe-vm1  | SharePoint 2016 Web Front End MinRole     |                       | Wfe1.contoso.local            |
+| Ra-sp2016-wfe-vm2  | SharePoint 2016 Web Front End MinRole     |                       | Wfe2.contoso.local            |
+
 
 <!-- links -->
 
 [adds-forest-ra]: ../identity/adds-forest.md
 [availability-set]: /azure/virtual-machines/windows/manage-availability
+[azure-portal]: https://ms.portal.azure.com
+[azure-pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: https://technet.microsoft.com/library/mt793548(v=office.16).aspx
+[connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
 [hybrid-ra]: ../hybrid-networking/index.md
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
