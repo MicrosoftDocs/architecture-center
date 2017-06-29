@@ -203,7 +203,7 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
 
 ### Deploy the reference architecture
 
-1.  Download or clone the solution folder from [Github][github] to your local computer.
+1.  Download or clone the solution folder from [GitHub][github] to your local computer.
 
 2.  Open a PowerShell window and navigate to the `/reference-architectures/sharepoint/sharepoint-2016` folder.
 
@@ -283,6 +283,7 @@ The following table shows the VMs that are deployed.
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: https://technet.microsoft.com/library/mt793548(v=office.16).aspx
 [connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
+[github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.md
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
