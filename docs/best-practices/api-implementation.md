@@ -268,7 +268,8 @@ public class OkResultWithCaching<T> : OkNegotiatedContentResult<T>
         }
         return response;
     }
-}```
+}
+```
 
 > [!NOTE]
 > The HTTP protocol also defines the *no-cache* directive for the Cache-Control header. Rather confusingly, this directive does not mean "do not cache" but rather "revalidate the cached information with the server before returning it"; the data can still be cached, but it is checked each time it is used to ensure that it is still current.
