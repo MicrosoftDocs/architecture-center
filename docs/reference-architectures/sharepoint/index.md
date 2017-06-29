@@ -203,9 +203,9 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
 
 ### Deploy the reference architecture
 
-1.  Download or clone the solution folder from [GitHub][github] to your local computer.
+1.  Download or clone the [GitHub repo][github] to your local computer.
 
-2.  Open a PowerShell window and navigate to the `/reference-architectures/sharepoint/sharepoint-2016` folder.
+2.  Open a PowerShell window and navigate to the `/sharepoint/sharepoint-2016` folder.
 
 3.  Run the following PowerShell command. For \<subscription id\>, use your Azure subscription ID. For \<location\>, specify an Azure region, such as `eastus` or `westus`. For \<mode\>, specify `onprem`, `infrastructure`, `createvpn`, `workload`, `security`, or `all`.
 
