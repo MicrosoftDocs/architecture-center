@@ -168,7 +168,7 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 
 ## Deploy the solution
 
-The deployment scripts for this reference architecture are available on [Github][github]. To run the PowerShell script that deploys this architecture, use the latest version of the Azure [command line interface][azure-cli] (CLI).
+The deployment scripts for this reference architecture are available on [Github][github]. 
 
 You can deploy this architecture incrementally or all at once. The first time, we recommend an incremental deployment, so that you can see what each deployment does. Specify the increment using one of the following *mode* parameters.
 
@@ -200,6 +200,8 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
 
 ### Prerequisites
 
+* Install the latest version of [Azure PowerShell][azure-ps].
+
 * Before deploying this reference architecture, verify that your subscription has sufficient quota—at least 38 cores. If you don't have enough, use the Azure portal to submit a support request for more quota.
 
 * To estimate the cost of this deployment, see the [Azure Pricing Calculator][azure-pricing].
@@ -230,7 +232,7 @@ After you deploy this reference architecture, the following resource groups are 
 | Resource Group        | Purpose                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------|
 | ra-onprem-sp2016-rg   | Simulated on-premises network with Active Directory, federated with the SharePoint 2016 network |
-| ra-sp2016-network-rg   | Infrastructure to support SharePoint deployment                                                 |
+| ra-sp2016-network-rg  | Infrastructure to support SharePoint deployment                                                 |
 | ra-sp2016-workload-rg | SharePoint and supporting resources                                                             |
 
 ### Scenario 1: Validate access to the SharePoint site from an on-premises network
@@ -243,7 +245,7 @@ After you deploy this reference architecture, the following resource groups are 
 
 5.  When the remote connection to the VM is established, open a browser in the VM and navigate to `http://portal.contoso.local`.
 
-6.  In the **Windows Security** box, log on to the SharePoint portal using `contoso.local\testmuser` for the user name.
+6.  In the **Windows Security** box, log on to the SharePoint portal using `contoso.local\testuser` for the user name.
 
 This logon tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
 
@@ -263,27 +265,27 @@ The following table shows the VMs that are deployed.
 
 | Resource Name      | Purpose                                   | Resource Group        | VM Name                       |
 |--------------------|-------------------------------------------|-----------------------|-------------------------------|
-| Ra-sp2016-ad-vm1   | Active Directory + DNS              | Ra-sp2016-network-rg  | Ad1.contoso.local             |
-| Ra-sp2016-ad-vm2   | Active Directory + DNS              |                       | Ad2.contoso.local             |
-| Ra-sp2016-fsw-vm1  | SharePoint                                |                       | Fsw1.contoso.local            |
-| Ra-sp2016-jb-vm1   | Jumpbox                                   |                       | Jb (use public IP to log on) |
-| Ra-sp2016-sql-vm1  | SQL Always On - Failover                  |                       | Sq1.contoso.local             |
-| Ra-sp2016-sql-vm2  | SQL Always On - Primary                   |                       | Sq2.contoso.local             |
+| Ra-sp2016-ad-vm1   | Active Directory + DNS                    | Ra-sp2016-network-rg  | Ad1.contoso.local             |
+| Ra-sp2016-ad-vm2   | Active Directory + DNS                    | Ra-sp2016-network-rg  | Ad2.contoso.local             |
+| Ra-sp2016-fsw-vm1  | SharePoint                                | Ra-sp2016-network-rg  | Fsw1.contoso.local            |
+| Ra-sp2016-jb-vm1   | Jumpbox                                   | Ra-sp2016-network-rg  | Jb (use public IP to log on) |
+| Ra-sp2016-sql-vm1  | SQL Always On - Failover                  | Ra-sp2016-network-rg  | Sq1.contoso.local             |
+| Ra-sp2016-sql-vm2  | SQL Always On - Primary                   | Ra-sp2016-network-rg  | Sq2.contoso.local             |
 | Ra-sp2016-app-vm1  | SharePoint 2016 Application MinRole       | Ra-sp2016-workload-rg | App1.contoso.local            |
-| Ra-sp2016-app-vm2  | SharePoint 2016 Application MinRole       |                       | App2.contoso.local            |
-| Ra-sp2016-dch-vm1  | SharePoint 2016 Distributed Cache MinRole |                       | Dch1.contoso.local            |
-| Ra-sp2016-dch-vm2  | SharePoint 2016 Distributed Cache MinRole |                       | Dch2.contoso.local            |
-| Ra-sp2016-srch-vm1 | SharePoint 2016 Search MinRole            |                       | Srch1.contoso.local           |
-| Ra-sp2016-srch-vm2 | SharePoint 2016 Search MinRole            |                       | Srch2.contoso.local           |
-| Ra-sp2016-wfe-vm1  | SharePoint 2016 Web Front End MinRole     |                       | Wfe1.contoso.local            |
-| Ra-sp2016-wfe-vm2  | SharePoint 2016 Web Front End MinRole     |                       | Wfe2.contoso.local            |
+| Ra-sp2016-app-vm2  | SharePoint 2016 Application MinRole       | Ra-sp2016-workload-rg | App2.contoso.local            |
+| Ra-sp2016-dch-vm1  | SharePoint 2016 Distributed Cache MinRole | Ra-sp2016-workload-rg | Dch1.contoso.local            |
+| Ra-sp2016-dch-vm2  | SharePoint 2016 Distributed Cache MinRole | Ra-sp2016-workload-rg | Dch2.contoso.local            |
+| Ra-sp2016-srch-vm1 | SharePoint 2016 Search MinRole            | Ra-sp2016-workload-rg | Srch1.contoso.local           |
+| Ra-sp2016-srch-vm2 | SharePoint 2016 Search MinRole            | Ra-sp2016-workload-rg | Srch2.contoso.local           |
+| Ra-sp2016-wfe-vm1  | SharePoint 2016 Web Front End MinRole     | Ra-sp2016-workload-rg | Wfe1.contoso.local            |
+| Ra-sp2016-wfe-vm2  | SharePoint 2016 Web Front End MinRole     | Ra-sp2016-workload-rg | Wfe2.contoso.local            |
 
 
 <!-- links -->
 
-[adds-forest-ra]: ../identity/adds-forest.md
 [availability-set]: /azure/virtual-machines/windows/manage-availability
-[azure-portal]: https://ms.portal.azure.com
+[azure-portal]: https://portal.azure.com
+[azure-ps]: /powershell/azure/overview
 [azure-pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: https://technet.microsoft.com/library/mt793548(v=office.16).aspx
@@ -311,7 +313,6 @@ The following table shows the VMs that are deployed.
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
-[vm-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../virtual-machines-windows/n-tier.md
