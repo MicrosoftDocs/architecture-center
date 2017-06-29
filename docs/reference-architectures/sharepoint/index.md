@@ -182,7 +182,7 @@ You can deploy this architecture incrementally or all at once. The first time, w
 | all            | Deploys all the preceding deployments.                            
 
 
-To deploy the archicture incrementally with a simulated on-premises network environment, run the following steps in order:
+To deploy the architecture incrementally with a simulated on-premises network environment, run the following steps in order:
 
 1. onprem
 2. infrastructure
@@ -218,7 +218,7 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
     .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
     ```   
 
-4.  When prompted, log on to your Azure account. The deployment scriptscan take up to several hours to complete, depending on the mode you selected.
+4.  When prompted, log on to your Azure account. The deployment scripts can take up to several hours to complete, depending on the mode you selected.
 
 > [!WARNING]
 > The parameter files include a hard-coded password (`AweS0me@PW`) in various places. You should change these values before you deploy.
