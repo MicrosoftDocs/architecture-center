@@ -165,15 +165,15 @@ A deployment for this reference architecture is available on [GitHub][gitnub]. I
 
 * To estimate the cost of this deployment, see the [Azure Pricing Calculator][azure-pricing]. This reference architecture deploys the following:
 
-| Resource name      | Purpose                                                                                                                                 | VM     |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------|
-| ra-sap-wdp-vm1     | SAP Web Dispatcher instance                                                                                                             | DS11v2 |
-| ra-sap-wdp-vmN     | Virtual machiness for Web Dispatcher  (where _N_ is an incrementing number based on the number of virtual machines you deployed).       | DS11v2 |
-| ra-sap-data-vm1    | SAP HANA database instance                                                                                                              | GS5    |
-| ra-sapApps-scs-vm1 | SAP Central Services                                                                                                                    | DS11v2 |
-| ra-sapApps-scs-vmN | Virtual machines for SCS  (where _N_ is an incrementing number based on the number of virtual machines you deployed).                   | DS11v2 |
-| ra-sapApps-vm1     | SAP NetWeaver application                                                                                                               | DS11v2 |
-| ra-sapApps-vmN     | Virtual machines associated with NetWeaver  (where _N_ is an incrementing number based on the number of virtual machines you deployed). | DS11v2 |
+| Resource name            | Purpose                                                                                                                                 | VM     |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------|
+| ```ra-sap-wdp-vm1```     | SAP Web Dispatcher instance                                                                                                             | DS11v2 |
+| ```ra-sap-wdp-vmN```     | Virtual machiness for Web Dispatcher  (where _N_ is an incrementing number based on the number of virtual machines you deployed).       | DS11v2 |
+| ```ra-sap-data-vm1```    | SAP HANA database instance                                                                                                              | GS5    |
+| ```ra-sapApps-scs-vm1``` | SAP Central Services                                                                                                                    | DS11v2 |
+| ```ra-sapApps-scs-vmN``` | Virtual machines for SCS  (where _N_ is an incrementing number based on the number of virtual machines you deployed).                   | DS11v2 |
+| ```ra-sapApps-vm1```     | SAP NetWeaver application                                                                                                               | DS11v2 |
+| ```ra-sapApps-vmN```     | Virtual machines associated with NetWeaver  (where _N_ is an incrementing number based on the number of virtual machines you deployed). | DS11v2 |
 
 ### Deploy SAP infrastructure
 To run the PowerShell script that deploys this architecture, use the latest version of the Azure [command line interface][azure-cli] (CLI).
