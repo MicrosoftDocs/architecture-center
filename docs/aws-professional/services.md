@@ -3,15 +3,11 @@ title: Azure and AWS services compared - multicloud
 description: See how Microsoft Azure cloud services compare to Amazon Web Services (AWS) for multicloud solutions or migration to Azure. Learn the IT capabilities of each.  
 keywords: cloud services comparison, cloud services compared, multicloud, compare azure aws, compare azure and aws, compare aws and azure, IT capabilities
 author: lbrader
-ms.service: guidance
-ms.topic: article
 ms.date: 03/24/2017
-ms.author: pnp
 
 pnp.series.title: Azure for AWS Professionals
 ---
 # AWS to Azure services comparison
-[!INCLUDE [header](../_includes/header.md)]
 
 This article helps you understand how Microsoft Azure services compare to Amazon Web Services (AWS). Whether you are planning a multicloud solution with Azure and AWS, or migrating to Azure, you can compare the IT capabilities of Azure and AWS services in all categories.
 
@@ -106,7 +102,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS exper
 
 ## Intelligence
 
-| Area                                                      | AWS service        | Azure ervice                                                                                                                                                   | Description                                                                                                                                                   |
+| Area                                                      | AWS service        | Azure service                                                                                                                                                   | Description                                                                                                                                                   |
 |-----------------------------------------------------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conversational user interfaces virtual personal assistant | Alexa Skills Kits  | [Cortana Intelligence Suite —Cortana Integration](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/)                                        | Services cover intelligence cognitive services, machine learning, analytics, information management, big data and dashboards and visualizations.              |
 | **&nbsp;**                                                |                    | [Microsoft Bot Framework + Azure Bot Service](https://dev.botframework.com/)                                                                                   | Builds and connects intelligent bots that interact with your users using text/SMS, Skype, Teams, Slack, Office 365 mail, Twitter, and other popular services. |
