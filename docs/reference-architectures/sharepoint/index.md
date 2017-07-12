@@ -216,7 +216,7 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
 4.  When prompted, log on to your Azure account. The deployment scripts can take up to several hours to complete, depending on the mode you selected.
 
 > [!WARNING]
-> The parameter files include a hard-coded password (`AweS0me@PW`) in various places. You should change these values before you deploy.
+> The parameter files include a hard-coded password (`AweS0me@PW`) in various places. Change these values before you deploy.
 
 ## Validate the deployment
 
