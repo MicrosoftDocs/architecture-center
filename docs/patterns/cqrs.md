@@ -193,7 +193,7 @@ public class ProductsCommandHandler :
     var product = repository.Find(command.ProductId);
     if (product != null)
     {
-      product.RateProuct(command.UserId, command.Rating);
+      product.RateProduct(command.UserId, command.Rating);
       repository.Save(product);
     }
   }
