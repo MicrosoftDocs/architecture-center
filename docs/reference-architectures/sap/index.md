@@ -7,7 +7,7 @@ ms.date: 6/29/17
 
 # Deploy SAP NetWeaver and SAP HANA on Azure
 
-This reference architecture shows a set of proven practices for running SAP HANA in a high availability environment on Azure. 
+This reference architecture shows a set of proven practices for running SAP HANA in a high availability environment on Azure. [**Deploy this solution**.](#deploy-the-solution)
 
 ![0][0]
 
@@ -39,9 +39,7 @@ The architecture consists of the following components.
 
 - **NICs.** The VMs that run SAP NetWeaver require two network interfaces (NICs). Assign one NIC to the NetWeaver subnet, and the other to the management subnet. See [Recommendations](#recommendations) below for more information.
 
-- **Network security groups**. Use [network security groups][nsg] (NSGs) to restrict traffic between the various subnets in the VNet.
-
-- **VPN Gateway.** This reference architecture deploys a VPN Gateway to extend your on-premises network to the Azure VNet. Alternatively, consider using ExpressRoute, which uses a dedicated private connection that does not go over the public Internet. For more information, see [Connect an on-premises network to Azure using ExpressRoute][expressroute].
+- **VPN Gateway.** The VPN Gateway extends your on-premises network to the Azure VNet. You can also use ExpressRoute, which uses a dedicated private connection that does not go over the public Internet. The example solution does not deploy the gateway. For more information, see [Connect an on-premises network to Azure][hybrid-networking].
 
 ## Recommendations
 
@@ -123,6 +121,8 @@ For SAP HANA data-at-rest encryption, we recommend using the SAP HANA native enc
 > [!NOTE]
 > Don't use the HANA data-at-rest encryption with Azure disk encryption on the same server.
 
+Consider using [network security groups][nsg] (NSGs) to restrict traffic between the various subnets in the VNet.
+
 ## Deploy the solution 
 
 The deployment scripts for this reference architecture are available on [GitHub][github].
@@ -189,8 +189,10 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 
 4. For each VM named `ra-sapApps-scs-vm1` ... `ra-sapApps-scs-vmN`, log into the VM, and install and configure the SAP Central Services (SCS) using the [SAP installation guides][sap-guide].
 
-5.  For each VM named `ra-sapApps-vm1` ... `ra-sapApps-vm1`, log into the VM, and install and configure the SAP NetWeaver application using the [SAP installation guides][sap-guide].
+5.  For each VM named `ra-sapApps-vm1` ... `ra-sapApps-vmN`, log into the VM, and install and configure the SAP NetWeaver application using the [SAP installation guides][sap-guide].
 
+> [!WARNING]
+> The parameter files include a hard-coded password (`AweS0me@PW`) in various places. Change these values before you deploy.
 
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [azure-lb]: /azure/load-balancer/load-balancer-overview
@@ -200,10 +202,10 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 [clustering]: https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/20/clustering-sap-ascs-instance-using-windows-server-failover-cluster-on-microsoft-azure-with-sios-datakeeper-and-azure-internal-load-balancer/
 [cool-blob-storage]: /azure/storage/storage-blob-storage-tiers
 [disk-encryption]: /azure/security/azure-security-disk-encryption
-[expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
 [github]: https://github.com/mspnp/reference-architectures/tree/master/sap/sap-hana
 [hana-backup]: /azure/virtual-machines/workloads/sap/sap-hana-backup-guide
 [hana-guide]: https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.01/en-US/7eb0167eb35e4e2885415205b8383584.html
+[hybrid-networking]: ../hybrid-networking/index.md
 [logon-groups]: https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [monitoring]: /azure/architecture/best-practices/monitoring
