@@ -145,7 +145,7 @@ This reference architecture deploys the following VMs:
 | `ra-sapApps-vm1` ... `ra-sapApps-vmN` | DS11v2 | SAP NetWeaver application |
 | `ra-sap-wdp-vm1` ... `ra-sap-wdp-vmN` | DS11v2 | SAP Web Dispatcher |
 | `ra-sap-data-vm1` | GS5 | SAP HANA database instance |
-| `jumpbox-vm1` | DS1V2 | Jumpbox |
+| `ra-sap-jumpbox-vm1` | DS1V2 | Jumpbox |
 
 A single SAP HANA instance is deployed. For the application VMs, the number of instances to deploy is specified in the template parameters.
 
@@ -185,7 +185,7 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 > [!NOTE]
 > For SAP installation instructions, you must have a SAP Support Portal username and password to download the [SAP installation guides][sap-guide].
 
-1. Log into the jumpbox (`jumpbox-vm1`). You will use the jumpbox to log into the other VMs. 
+1. Log into the jumpbox (`ra-sap-jumpbox-vm1`). You will use the jumpbox to log into the other VMs. 
 
 2.  For each VM named `ra-sap-wdp-vm1` ... `ra-sap-wdp-vmN`, log into the VM, and install and configure the SAP Web Dispatcher instance using the steps described in the [Web Dispatcher Installation][sap-dispatcher-install] wiki.
 
