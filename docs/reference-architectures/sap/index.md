@@ -163,11 +163,11 @@ You can deploy this architecture incrementally or all at once. The first time, w
 
 To deploy the solution, perform the following steps:
 
-1. Download or clone [GitHub repo][github] to your local computer.
+1. Download or clone the [GitHub repo][github] to your local computer.
 
 2. Open a PowerShell window and navigate to the `/sap/sap-hana/` folder.
 
-3. Run the following PowerShell cmdlet. For `subscription id`, use your Azure subscription ID. For `<location>`, specify an Azure region, such as `eastus` or `westus`. For `<mode>`, specify one of the modes listed above.
+3. Run the following PowerShell cmdlet. For `<subscription id>`, use your Azure subscription ID. For `<location>`, specify an Azure region, such as `eastus` or `westus`. For `<mode>`, specify one of the modes listed above.
 
     ```powershell
      .\Deploy-ReferenceArchitecture -SubscriptionId <subscription id> -Location <location> -ResourceGroupName <resource group> <mode>
