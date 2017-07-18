@@ -133,7 +133,9 @@ The deployment scripts for this reference architecture are available on [GitHub]
  
 - Install the latest version of [Azure PowerShell][azure-ps]. 
 
-- Before deploying, verify that your subscription has sufficient quota for VM cores. If not, use the Azure portal to submit a support request for more quota.
+- This deployment requires 51 cores. Before deploying, verify that your subscription has sufficient quota for VM cores. If not, use the Azure portal to submit a support request for more quota.
+ 
+- This deployment uses a GS-series VM. Check the availability of the GS series per region [here][region-availability].
 
 - To estimate the cost of this deployment, see the [Azure Pricing Calculator][azure-pricing]. 
  
@@ -196,7 +198,6 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 5.  For each VM named `ra-sapApps-vm1` ... `ra-sapApps-vmN`, log into the VM, and install and configure the SAP NetWeaver application using the [SAP installation guides][sap-guide].
 
 
-
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [azure-lb]: /azure/load-balancer/load-balancer-overview
 [azure-pricing]: https://azure.microsoft.com/pricing/calculator/
@@ -215,6 +216,7 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 [multiple-vm-nics]: /azure/virtual-machines/windows/multiple-nics
 [netweaver-on-azure]: /azure/virtual-machines/workloads/sap/planning-guide
 [nsg]: /azure/virtual-network/virtual-networks-nsg
+[region-availability]: https://azure.microsoft.com/regions/services/
 [running-SAP]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/06/07/sap-on-sql-general-update-for-customers-partners-june-2016/
 [sap-1943937]: https://launchpad.support.sap.com/#/notes/1943937
 [sap-1928533]: https://launchpad.support.sap.com/#/notes/1928533
@@ -223,7 +225,7 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 [sap-dispatcher-install]: https://wiki.scn.sap.com/wiki/display/SI/Web+Dispatcher+Installation
 [sap-guide]: https://service.sap.com/instguides
 [sap-ha]: https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf
-[sap-hana-on-azure]: https://azure.microsoft.com/en-us/services/virtual-machines/sap-hana/
+[sap-hana-on-azure]: https://azure.microsoft.com/services/virtual-machines/sap-hana/
 [sap-netweaver-dr]: http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx
 [sap-security]: https://archive.sap.com/documents/docs/DOC-62943
 [vm-sizes-mem]: /azure/virtual-machines/windows/sizes-memory
