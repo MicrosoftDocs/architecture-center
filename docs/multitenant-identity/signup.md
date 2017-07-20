@@ -130,20 +130,11 @@ internal static bool IsSigningUp(this BaseControlContext context)
     Guard.ArgumentNotNull(context, nameof(context));
 
     string signupValue;
-    object obj;
     // Check the HTTP context and convert to string
-    if (context.HttpContext.Items.TryGetValue("signup", out obj))
+    if ((context.Ticket == null) ||
+        (!context.Ticket.Properties.Items.TryGetValue("signup", out signupValue)))
     {
-        signupValue = (string)obj;
-    }
-    else
-    {
-        // It's not in the HTTP context, so check the authentication ticket.  If it's not there, we aren't signing up.
-        if ((context.AuthenticationTicket == null) ||
-            (!context.AuthenticationTicket.Properties.Items.TryGetValue("signup", out signupValue)))
-        {
-            return false;
-        }
+        return false;
     }
 
     // We have found the value, so see if it's valid
@@ -186,9 +177,6 @@ public override async Task TokenValidated(TokenValidatedContext context)
 
     if (context.IsSigningUp())
     {
-        // Originally, we were checking to see if the tenant was non-null, however, this would not allow
-        // permission changes to the application in AAD since a re-consent may be required.  Now we just don't
-        // try to recreate the tenant.
         if (tenant == null)
         {
             tenant = await SignUpTenantAsync(context, tenantManager)

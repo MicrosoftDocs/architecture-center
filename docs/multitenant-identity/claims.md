@@ -62,7 +62,7 @@ Here are some examples of claims transformation:
   var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
   if (!string.IsNullOrWhiteSpace(email))
   {
-   identity.AddClaim(new Claim(ClaimTypes.Email, email));
+      identity.AddClaim(new Claim(ClaimTypes.Email, email));
   }
   ```
 * Add **default claim values** for claims that aren't present &mdash; for example, assigning a user to a default role. In some cases this can simplify authorization logic.

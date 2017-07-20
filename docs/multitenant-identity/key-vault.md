@@ -30,74 +30,20 @@ In the [Tailspin Surveys][Surveys] application, the following settings are secre
 * The Redis connection string.
 * The client secret for the web application.
 
-To store configuration secrets in Key Vault, the Surveys application implements a custom configuration provider, which hooks into the ASP.NET Core [configuration system][configuration]. The custom provider reads configuration settings from Key Vault on startup.
-
 The Surveys application loads configuration settings from the following places:
 
 * The appsettings.json file
 * The [user secrets store][user-secrets] (development environment only; for testing)
 * The hosting environment (app settings in Azure web apps)
-* Key Vault
+* Key Vault (when enabled)
 
 Each of these overrides the previous one, so any settings stored in Key Vault take precedence.
 
 > [!NOTE]
 > By default, the Key Vault configuration provider is disabled. It's not needed for running the application locally. You would enable it in a production deployment.
-> 
-> The Key Vault provider is currently not supported for .NET Core, because it requires the [Microsoft.Azure.KeyVault][Microsoft.Azure.KeyVault] package.
-> 
-> 
 
 At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. For more information, see [Using Options and configuration objects][options].
 
-## Implementation
-The `KeyVaultConfigurationProvider` class is a configuration provider that plugs into the ASP.NET Core [configuration system][configuration].
-
-To use the `KeyVaultConfigurationProvider`, call the `AddKeyVaultSecrets` extension method in the startup class:
-
-```csharp
-    var builder = new ConfigurationBuilder()
-        .SetBasePath(appEnv.ApplicationBasePath)
-        .AddJsonFile("appsettings.json");
-
-    if (env.IsDevelopment())
-    {
-        builder.AddUserSecrets<Startup>();
-    }
-    builder.AddEnvironmentVariables();
-    var config = builder.Build();
-
-    // Add key vault configuration:
-    builder.AddKeyVaultSecrets(config["AzureAd:ClientId"],
-        config["KeyVault:Name"],
-        config["AzureAd:Asymmetric:CertificateThumbprint"],
-        Convert.ToBoolean(config["AzureAd:Asymmetric:ValidationRequired"]),
-        loggerFactory);
-```
-
-Notice that `KeyVaultConfigurationProvider` requires some configuration settings, which need to be stored in one of the other configuration sources.
-
-When the application starts, `KeyVaultConfigurationProvider` enumerates all of the secrets in the key vault. For each secret, it looks for a tag named 'ConfigKey'. The value of the tag is the name of the configuration setting.
-
-> [!NOTE]
-> [Tags][key-tags] are optional metadata stored with a key. Tags are used here because key names cannot contain colon (:) characters.
-> 
-> 
-
-```csharp
-var kvClient = new KeyVaultClient(GetTokenAsync);
-var secretsResponseList = await kvClient.GetSecretsAsync(_vault, MaxSecrets, token);
-foreach (var secretItem in secretsResponseList.Value)
-{
-    //The actual config key is stored in a tag with the Key "ConfigKey"
-    // because ':' is not supported in a shared secret name by Key Vault.
-    if (secretItem.Tags != null && secretItem.Tags.ContainsKey(ConfigKey))
-    {
-        var secret = await kvClient.GetSecretAsync(secretItem.Id, token);
-        Data.Add(secret.Tags[ConfigKey], secret.Value);
-    }
-}
-```
 ## Setting up Key Vault in the Surveys app
 Prerequisites:
 
@@ -121,7 +67,7 @@ High-level steps:
 
 In this step, you will make sure that you can create a key vault while signed in as a user from the tenant where the Surveys app is registered.
 
-Create an admin user within the Azure AD tenant where the Surveys application is registered.
+Create an administrator user within the Azure AD tenant where the Surveys application is registered.
 
 1. Log into the [Azure portal][azure-management-portal].
 2. Select the Azure AD tenant where your application is registered.
@@ -132,11 +78,18 @@ Create an admin user within the Azure AD tenant where the Surveys application is
 
 ![Global admin user](./images/running-the-app/global-admin-user.png)
 
-1. Sign in to the Azure portal.
-2. On the Hub menu, select Subscription > the subscription that you want the admin to access.
-3. In the subscription blade, select Access control (IAM)> Add.  
-4. Select Select a role > Owner.
-5. Type the email address of the user you want to add as owner, click the user, and then click Select.   
+Now assign this user as the subscription owner.
+
+1. On the Hub menu, select **Subscriptions**.
+
+    ![](./images/running-the-app/subscriptions.png)
+
+2. Select the subscription that you want the administrator to access.
+3. In the subscription blade, select **Access control (IAM)**.
+4. Click **Add**.
+4. Under **Role**, select **Owner**.
+5. Type the email address of the user you want to add as owner.
+6. Select the user and click **Save**.
 
 ### Set up a client certificate
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
@@ -144,35 +97,32 @@ Create an admin user within the Azure AD tenant where the Surveys application is
     ```
     .\Setup-KeyVault.ps1 -Subject <<subject>>
     ```
-    For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store.
-2. The output from the script is a JSON fragment. Add this to the application manifest of the web app, as follows:
-
-   1.	Log into the [Azure management portal][azure-management-portal], navigate to your Azure AD directory and select the Surveys web application.
-   2.	Click **Manifest** and then **Edit**.
-   3.	Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
+    For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store. The output from the script is a JSON fragment. Copy this value.
+2. In [Azure portal][azure-portal], switch to the directory where the Surveys application is registered, by selecting your account in the top right corner of the portal.
+3. Select **Azure Active Directory** > **App Registrations** > Surveys
+4.	Click **Manifest** and then **Edit**.
+5.	Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
         
-        ```
-            "keyCredentials": [
-                {
-                "type": "AsymmetricX509Cert",
-                "usage": "Verify",
-                "keyId": "29d4f7db-0539-455e-b708-....",
-                "customKeyIdentifier": "ZEPpP/+KJe2fVDBNaPNOTDoJMac=",
-                "value": "MIIDAjCCAeqgAwIBAgIQFxeRiU59eL.....
-                }
-            ],
-        ```          
-   4.	Click **Save**.  
+    ```json
+    "keyCredentials": [
+        {
+        "type": "AsymmetricX509Cert",
+        "usage": "Verify",
+        "keyId": "29d4f7db-0539-455e-b708-....",
+        "customKeyIdentifier": "ZEPpP/+KJe2fVDBNaPNOTDoJMac=",
+        "value": "MIIDAjCCAeqgAwIBAgIQFxeRiU59eL.....
+        }
+    ],
+    ```          
 
-3. Add the same JSON fragment to the application manifest of the web API (Surveys.WebAPI).
-4. Run the following command to get the thumbprint of the certificate.
+6. Click **Save**.  
+7. Repeat steps 3-6 to add the same JSON fragment to the application manifest of the web API (Surveys.WebAPI).
+8. From the PowerShell window, run the following command to get the thumbprint of the certificate.
    
     ```
     certutil -store -user my [subject]
     ```
-    where `[subject]` is the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Remove the spaces between the hexadecimal numbers.
-
-You will use the thumbprint later.
+    where `[subject]` is the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Copy this value. You will use the thumbprint later.
 
 ### Create a key vault
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
@@ -191,14 +141,14 @@ You will use the thumbprint later.
 2. Run SetupKeyVault.ps again, with the following parameters:
    
     ```
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ApplicationIds @("<<web app client ID>>", "<<web API client ID>>")
+    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
     ```
    
     where
    
    * key vault name = The name that you gave the key vault in the previous step.
-   * web app client ID = The client ID for the Surveys web application.
-   * web api client ID = The client ID for the Surveys.WebAPI application.
+   * Surveys app ID = The application ID for the Surveys web application.
+   * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
      
      Example:
      
@@ -217,7 +167,7 @@ You will use the thumbprint later.
 1. Run SetupKeyVault.ps as follows::
    
     ```
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName RedisCache -KeyValue "<<Redis DNS name>>.redis.cache.windows.net,password=<<Redis access key>>,ssl=true" -ConfigName "Redis:Configuration"
+    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName Redis--Configuration -KeyValue "<<Redis DNS name>>.redis.cache.windows.net,password=<<Redis access key>>,ssl=true" 
     ```
     where
    
@@ -232,7 +182,7 @@ You will use the thumbprint later.
 2. At this point, it's a good idea to test whether you successfully stored the secrets to key vault. Run the following PowerShell command:
    
     ```
-    Get-AzureKeyVaultSecret <<key vault name>> RedisCache | Select-Object *
+    Get-AzureKeyVaultSecret <<key vault name>> Redis--Configuration | Select-Object *
     ```
     The output should show the secret value plus some metadata:
    
@@ -240,7 +190,7 @@ You will use the thumbprint later.
 3. Run SetupKeyVault.ps again to add the database connection string:
    
     ```
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName ConnectionString -KeyValue <<DB connection string>> -ConfigName "Data:SurveysConnectionString"
+    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName Data--SurveysConnectionString -KeyValue <<DB connection string>> -ConfigName "Data:SurveysConnectionString"
     ```
    
     where `<<DB connection string>>` is the value of the database connection string.
@@ -250,7 +200,7 @@ You will use the thumbprint later.
     Example:
    
     ```
-    .\Setup-KeyVault.ps1 -KeyVaultName mykeyvault -KeyName ConnectionString -KeyValue "Server=(localdb)\MSSQLLocalDB;Database=Tailspin.SurveysDB;Trusted_Connection=True;MultipleActiveResultSets=true" -ConfigName "Data:SurveysConnectionString"
+    .\Setup-KeyVault.ps1 -KeyVaultName mykeyvault -KeyName Data--SurveysConnectionString -KeyValue "Server=(localdb)\MSSQLLocalDB;Database=Tailspin.SurveysDB;Trusted_Connection=True;MultipleActiveResultSets=true" 
     ```
 
 ### Uncomment the code that enables Key Vault
@@ -345,7 +295,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 <!-- Links -->
 [adfs]: ./adfs.md
 [authorize-app]: /azure/key-vault/key-vault-get-started//#authorize
-[azure-management-portal]: https://portal.azure.com/
+[azure-portal]: portal.azure.com
 [azure-rm-cmdlets]: https://msdn.microsoft.com/library/mt125356.aspx
 [client-assertion]: client-assertion.md
 [configuration]: /aspnet/core/fundamentals/configuration

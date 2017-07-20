@@ -43,13 +43,14 @@ Here is an example from the Tailspin Surveys application:
 ```csharp
 public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequirement>, IAuthorizationRequirement
 {
-    protected override void HandleRequirementAsync(AuthorizationHandlerContext context, SurveyCreatorRequirement requirement)
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, SurveyCreatorRequirement requirement)
     {
-        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin) ||
+        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin) || 
             context.User.HasClaim(ClaimTypes.Role, Roles.SurveyCreator))
         {
             context.Succeed(requirement);
         }
+        return Task.FromResult(0);
     }
 }
 ```
@@ -65,6 +66,9 @@ services.AddAuthorization(options =>
         policy =>
         {
             policy.AddRequirements(new SurveyCreatorRequirement());
+            policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
+            // By adding the CookieAuthenticationDefaults.AuthenticationScheme, if an authenticated
+            // user is not in the appropriate role, they will be redirected to a "forbidden" page.
             policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme);
         });
 
@@ -72,21 +76,23 @@ services.AddAuthorization(options =>
         policy =>
         {
             policy.AddRequirements(new SurveyAdminRequirement());
+            policy.RequireAuthenticatedUser();  
             policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme);
         });
 });
 ```
 
-This code also sets the authentication scheme, which tells ASP.NET which authentication middleware should run if authorization fails. In this case, we specify the cookie authentication middleware, because the cookie authentication middleware can redirect the user to a "Forbidden" page. The location of the Forbidden page is set in the AccessDeniedPath option for the cookie middleware; see [Configuring the authentication middleware].
+This code also sets the authentication scheme, which tells ASP.NET which authentication middleware should run if authorization fails. In this case, we specify the cookie authentication middleware, because the cookie authentication middleware can redirect the user to a "Forbidden" page. The location of the Forbidden page is set in the `AccessDeniedPath` option for the cookie middleware; see [Configuring the authentication middleware].
 
 ### Authorize controller actions
 Finally, to authorize an action in an MVC controller, set the policy in the `Authorize` attribute:
 
 ```csharp
-[Authorize(Policy = "RequireSurveyCreator")]
+[Authorize(Policy = PolicyNames.RequireSurveyCreator)]
 public IActionResult Create()
 {
-    // ...
+    var survey = new SurveyDTO();
+    return View(survey);
 }
 ```
 
@@ -138,7 +144,7 @@ To perform authorization checks, use the **IAuthorizationService** interface, wh
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, survey, Operations.Read) == false)
 {
-    return new HttpStatusCodeResult(403);
+    return StatusCode(403);
 }
 ```
 
@@ -165,43 +171,48 @@ The application also defines a set of possible operations on surveys:
 The following code creates a list of permissions for a particular user and survey. Notice that this code looks at both the user's app roles, and the owner/contributor fields in the survey.
 
 ```csharp
-protected override void HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement operation, Survey resource)
+public class SurveyAuthorizationHandler : AuthorizationHandler<OperationAuthorizationRequirement, Survey>
 {
-    var permissions = new List<UserPermissionType>();
-    string userTenantId = context.User.GetTenantIdValue();
-    int userId = ClaimsPrincipalExtensions.GetUserKey(context.User);
-    string user = context.User.GetUserName();
-
-    if (resource.TenantId == userTenantId)
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, OperationAuthorizationRequirement requirement, Survey resource)
     {
-        // Admin can do anything, as long as the resource belongs to the admin's tenant.
-        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin))
+        var permissions = new List<UserPermissionType>();
+        int surveyTenantId = context.User.GetSurveyTenantIdValue();
+        int userId = context.User.GetSurveyUserIdValue();
+        string user = context.User.GetUserName();
+
+        if (resource.TenantId == surveyTenantId)
         {
-            context.Succeed(operation);
-            return;
+            // Admin can do anything, as long as the resource belongs to the admin's tenant.
+            if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin))
+            {
+                context.Succeed(requirement);
+                return Task.FromResult(0);
+            }
+
+            if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyCreator))
+            {
+                permissions.Add(UserPermissionType.Creator);
+            }
+            else
+            {
+                permissions.Add(UserPermissionType.Reader);
+            }
+
+            if (resource.OwnerId == userId)
+            {
+                permissions.Add(UserPermissionType.Owner);
+            }
+        }
+        if (resource.Contributors != null && resource.Contributors.Any(x => x.UserId == userId))
+        {
+            permissions.Add(UserPermissionType.Contributor);
         }
 
-        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyCreator))
+        if (ValidateUserPermissions[requirement](permissions))
         {
-            permissions.Add(UserPermissionType.Creator);
+            context.Succeed(requirement);
         }
-        else
-        {
-            permissions.Add(UserPermissionType.Reader);
-        }
-
-        if (resource.OwnerId == userId)
-        {
-            permissions.Add(UserPermissionType.Owner);
-        }
-    }
-    if (resource.Contributors != null && resource.Contributors.Any(x => x.UserId == userId))
-    {
-        permissions.Add(UserPermissionType.Contributor);
-    }
-    if (ValidateUserPermissions[operation](permissions))
-    {
-        context.Succeed(operation);
+        return Task.FromResult(0);
     }
 }
 ```
@@ -232,7 +243,6 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
         { Operations.UnPublish, x => x.Contains(UserPermissionType.Owner) }
     };
 ```
-
 
 [**Next**][web-api]
 

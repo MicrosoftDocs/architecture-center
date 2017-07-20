@@ -160,17 +160,21 @@ The web API has to authenticate the bearer token. In ASP.NET Core, you can use t
 Register the middleware in your web API `Startup` class.
 
 ```csharp
-app.UseJwtBearerAuthentication(options =>
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext dbContext, ILoggerFactory loggerFactory)
 {
-    options.Audience = "[app ID URI]";
-    options.Authority = "https://login.microsoftonline.com/common/";
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        //Instead of validating against a fixed set of known issuers, we perform custom multi-tenant validation logic
-        ValidateIssuer = false,
-    };
-    options.Events = new SurveysJwtBearerEvents();
-});
+    // ...
+
+    app.UseJwtBearerAuthentication(new JwtBearerOptions {
+        Audience = configOptions.AzureAd.WebApiResourceId,
+        Authority = Constants.AuthEndpointPrefix,
+        TokenValidationParameters = new TokenValidationParameters {
+            ValidateIssuer = false
+        },
+        Events= new SurveysJwtBearerEvents(loggerFactory.CreateLogger<SurveysJwtBearerEvents>())
+    });
+    
+    // ...
+}
 ```
 
 * **Audience**. Set this to the App ID URL for the web API, which you created when you registered the web API with Azure AD.
@@ -179,14 +183,14 @@ app.UseJwtBearerAuthentication(options =>
 * **Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
-Validate the token issuer in the **JwtBearerEvents.ValidatedToken** event. The issuer is sent in the "iss" claim.
+Validate the token issuer in the **JwtBearerEvents.TokenValidated** event. The issuer is sent in the "iss" claim.
 
 In the Surveys application, the web API doesn't handle [tenant sign-up]. Therefore, it just checks if the issuer is already in the application database. If not, it throws an exception, which causes authentication to fail.
 
 ```csharp
-public override async Task ValidatedToken(ValidatedTokenContext context)
+public override async Task TokenValidated(TokenValidatedContext context)
 {
-    var principal = context.AuthenticationTicket.Principal;
+    var principal = context.Ticket.Principal;
     var tenantManager = context.HttpContext.RequestServices.GetService<TenantManager>();
     var userManager = context.HttpContext.RequestServices.GetService<UserManager>();
     var issuerValue = principal.GetIssuerValue();
@@ -194,13 +198,27 @@ public override async Task ValidatedToken(ValidatedTokenContext context)
 
     if (tenant == null)
     {
-        // the caller was not from a trusted issuer - throw to block the authentication flow
+        // The caller was not from a trusted issuer. Throw to block the authentication flow.
         throw new SecurityTokenValidationException();
+    }
+
+    var identity = principal.Identities.First();
+
+    // Add new claim for survey_userid
+    var registeredUser = await userManager.FindByObjectIdentifier(principal.GetObjectIdentifierValue());
+    identity.AddClaim(new Claim(SurveyClaimTypes.SurveyUserIdClaimType, registeredUser.Id.ToString()));
+    identity.AddClaim(new Claim(SurveyClaimTypes.SurveyTenantIdClaimType, registeredUser.TenantId.ToString()));
+
+    // Add new claim for Email
+    var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
+    if (!string.IsNullOrWhiteSpace(email))
+    {
+        identity.AddClaim(new Claim(ClaimTypes.Email, email));
     }
 }
 ```
 
-You can also use the **ValidatedToken** event to do [claims transformation]. Remember that the claims come directly from Azure AD, so if the web application did any claims transformations, those are not reflected in the bearer token that the web API receives.
+As this example shows, you can also use the **TokenValidated** event to modify the claims. Remember that the claims come directly from Azure AD. If the web application modifies the claims that it gets, those changes won't show up in the bearer token that the web API receives. For more information, see [Claims transformations][claims-transformation].
 
 ## Authorization
 For a general discussion of authorization, see [Role-based and resource-based authorization][Authorization]. 
@@ -230,9 +248,19 @@ public void ConfigureServices(IServiceCollection services)
             policy =>
             {
                 policy.AddRequirements(new SurveyCreatorRequirement());
+                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
+                policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
+            });
+        options.AddPolicy(PolicyNames.RequireSurveyAdmin,
+            policy =>
+            {
+                policy.AddRequirements(new SurveyAdminRequirement());
+                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
                 policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
             });
     });
+    
+    // ...
 }
 ```
 
@@ -249,7 +277,7 @@ public void ConfigureServices(IServiceCollection services)
 [Give the web application permission to call the web API]: ./run-the-app.md#give-the-surveys-web-app-permissions-to-call-the-web-api
 [Token caching]: token-cache.md
 [tenant sign-up]: signup.md
-[claims transformation]: claims.md#claims-transformations
+[claims-transformation]: claims.md#claims-transformations
 [Authorization]: authorize.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
 [token cache]: token-cache.md

@@ -90,15 +90,13 @@ The following screenshot from the Azure portal shows users and groups for the Su
 
 ![Users and Groups](./images/running-the-app/users-and-groups.png)
 
-As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role.
+As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. In the case of Bob, he has not been assigned a role yet.
 
 ![Admin group members](./images/running-the-app/admin-members.png)
 
-In the case of Charles, he has not been assigned a role yet.
 
 > [!NOTE]
-> Alternatively, the application can assign roles programmatically, using the Azure AD Graph API.  However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
-> 
+> An alternative approach is for the application to assign roles programmatically, using the Azure AD Graph API. However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
 > 
 
 **Get role claims**. When a user signs in, the application receives the user's assigned role(s) in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`.  
@@ -160,7 +158,6 @@ Drawbacks:
 * Cannot use AD security groups to manage role assignments.
 * Stores user information in the application database, where it can get out of sync with the tenant's AD directory, as users are added or removed.   
 
-There are many existing examples for this approach. For example, see [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service].
 
 [**Next**][authorization]
 
@@ -169,6 +166,5 @@ There are many existing examples for this approach. For example, see [Create an 
 
 [authorization]: authorize.md
 [Securing a backend web API]: web-api.md
-[Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]: /azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
 [application manifest]: /azure/active-directory/active-directory-application-manifest/
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
