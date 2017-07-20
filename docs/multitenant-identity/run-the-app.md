@@ -6,7 +6,8 @@ ms.date: 05/22/2017
 ---
 
 # Run the Surveys application
-This topic describes how to run the [Tailspin Surveys](./tailspin.md) application locally, from Visual Studio. In these steps, you won't deploy the application to Azure. However, you will need to create some Azure resources &mdash; an Azure Active Directory (Azure AD) directory and a Redis cache.
+
+This article describes how to run the [Tailspin Surveys](./tailspin.md) application locally, from Visual Studio. In these steps, you won't deploy the application to Azure. However, you will need to create some Azure resources &mdash; an Azure Active Directory (Azure AD) directory and a Redis cache.
 
 Here is a summary of the steps:
 
@@ -17,10 +18,9 @@ Here is a summary of the steps:
 5. Run the application and sign up a new tenant.
 6. Add application roles to users.
 
-## Prerequisites:
+## Prerequisites
 -	[Visual Studio 2017][VS2017]
 -	[Microsoft Azure](https://azure.microsoft.com) account
-
 
 ## Create the Tailspin tenant
 
@@ -64,7 +64,7 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
  
 7. Click **Properties**.
 
-8. In the **App ID URI** edit box, enter `https://domain/surveys.webapi`, where `domain` is the domain name of the directory. For example: `https://tailspin.onmicrosoft.com/surveys.webapi`
+8. In the **App ID URI** edit box, enter `https://<domain>/surveys.webapi`, where `<domain>` is the domain name of the directory. For example: `https://tailspin.onmicrosoft.com/surveys.webapi`
 
     ![Settings](./images/running-the-app/settings.png)
 
@@ -94,7 +94,7 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 6. Click **Properties**.
 
-7. In the **App ID URI** edit box, enter `https://domain/surveys`, where `domain` is the domain name of the directory. 
+7. In the **App ID URI** edit box, enter `https://<domain>/surveys`, where `<domain>` is the domain name of the directory. 
 
     ![Settings](./images/running-the-app/settings.png)
 
