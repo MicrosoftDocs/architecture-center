@@ -4,7 +4,7 @@ description: How to use client assertion to get access tokens from Azure AD.
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications
@@ -62,86 +62,46 @@ Notice that the `client_secret` parameter is no longer used. Instead, the `clien
 > 
 > 
 
-## Using client assertion in the Surveys application
-This section shows how to configure the Tailspin Surveys application to use client assertion. In these steps, you will generate a self-signed certificate that is suitable for development, but not for production use.
-
-1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
-   
-    ```
-    .\Setup-KeyVault.ps -Subject [subject]
-    ```
-   
-    For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store.
-2. The output from the script is a JSON fragment. Add this to the application manifest of the web app, as follows:
-   
-   1. Log into the [Azure management portal][azure-management-portal] and navigate to your Azure AD directory.
-   2. Click **Applications**.
-   3. Select the Surveys application.
-   4. Click **Manage Manifest** and select **Download Manifest**.
-   5. Open the manifest JSON file in a text editor. Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
-      
-      ```    
-      "keyCredentials": [
-        {
-          "type": "AsymmetricX509Cert",
-          "usage": "Verify",
-          "keyId": "29d4f7db-0539-455e-b708-....",
-          "customKeyIdentifier": "ZEPpP/+KJe2fVDBNaPNOTDoJMac=",
-          "value": "MIIDAjCCAeqgAwIBAgIQFxeRiU59eL.....
-        }
-      ],
-      ```
-   6. Save your changes to the JSON file.
-   7. Go back to the portal. Click **Manage Manifest** > **Upload Manifest** and upload the JSON file.
-3. Run the following command to get the thumbprint of the certificate.
-   
-    ```
-    certutil -store -user my [subject]
-    ```
-   
-    where `[subject]` is the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Remove the spaces between the hexadecimal numbers.
-4. Update your app secrets. In Solution Explorer, right-click the Tailspin.Surveys.Web project and select **Manage User Secrets**. Add an entry for "Asymmetric" under "AzureAd", as shown below:
-   
-    ```
-    {
-      "AzureAd": {
-        "ClientId": "[Surveys application client ID]",
-        // "ClientSecret": "[client secret]",  << Delete this entry
-        "PostLogoutRedirectUri": "https://localhost:44300/",
-        "WebApiResourceId": "[App ID URI of your Survey.WebAPI application]",
-        // new:
-        "Asymmetric": {
-          "CertificateThumbprint": "[certificate thumbprint]",  // Example: "105b2ff3bc842c53582661716db1b7cdc6b43ec9"
-          "StoreName": "My",
-          "StoreLocation": "CurrentUser",
-          "ValidationRequired": "false"
-        }
-      },
-      "Redis": {
-        "Configuration": "[Redis connection string]"
-      }
-    }
-    ```
-   
-    You must set `ValidationRequired` to false, because the certificate was not a signed by a root CA authority. In production, use a certificate that is signed by a CA authority and set `ValidationRequired` to true.
-   
-    Also delete the entry for `ClientSecret`, because it's not needed with client assertion.
-5. In Startup.cs, locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
-   
-    ```csharp
-    // Uncomment this:
-    services.AddSingleton<ICredentialService, CertificateCredentialService>();
-    // Comment out this:
-    //services.AddSingleton<ICredentialService, ClientCredentialService>();
-    ```
-
 At run time, the web application reads the certificate from the certificate store. The certificate must be installed on the same machine as the web app.
+
+The Surveys application includes a helper class that creates a [ClientAssertionCertificate](/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
+
+```csharp
+public class CertificateCredentialService : ICredentialService
+{
+    private Lazy<Task<AdalCredential>> _credential;
+
+    public CertificateCredentialService(IOptions<ConfigurationOptions> options)
+    {
+        var aadOptions = options.Value?.AzureAd;
+        _credential = new Lazy<Task<AdalCredential>>(() =>
+        {
+            X509Certificate2 cert = CertificateUtility.FindCertificateByThumbprint(
+                aadOptions.Asymmetric.StoreName,
+                aadOptions.Asymmetric.StoreLocation,
+                aadOptions.Asymmetric.CertificateThumbprint,
+                aadOptions.Asymmetric.ValidationRequired);
+            string password = null;
+            var certBytes = CertificateUtility.ExportCertificateWithPrivateKey(cert, out password);
+            return Task.FromResult(new AdalCredential(new ClientAssertionCertificate(aadOptions.ClientId, new X509Certificate2(certBytes, password))));
+        });
+    }
+
+    public async Task<AdalCredential> GetCredentialsAsync()
+    {
+        return await _credential.Value;
+    }
+}
+```
+
+For information about setting up client assertion in the Surveys application, see [Use Azure Key Vault to protect application secrets
+][key vault].
 
 [**Next**][key vault]
 
 <!-- Links -->
 [configure-web-app]: /azure/app-service-web/web-sites-configure/
-[azure-management-portal]: https://manage.windowsazure.com
+[azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521
 [key vault]: key-vault.md
 [Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1

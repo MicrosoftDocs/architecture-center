@@ -4,7 +4,7 @@ description: How a use claims for issuer validation and authorization
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications
@@ -62,7 +62,7 @@ Here are some examples of claims transformation:
   var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
   if (!string.IsNullOrWhiteSpace(email))
   {
-   identity.AddClaim(new Claim(ClaimTypes.Email, email));
+      identity.AddClaim(new Claim(ClaimTypes.Email, email));
   }
   ```
 * Add **default claim values** for claims that aren't present &mdash; for example, assigning a user to a default role. In some cases this can simplify authorization logic.
