@@ -75,13 +75,11 @@ The rest of this article assumes the application is authenticating with Azure AD
 ## Register the web API in Azure AD
 In order for Azure AD to issue a bearer token for the web API, you need to configure some things in Azure AD.
 
-1. [Register the web API in Azure AD].
+1. Register the web API in Azure AD.
 
 2. Add the client ID of the web app to the web API application manifest, in the `knownClientApplications` property. See [Update the application manifests].
 
-3. [Give the web application permission to call the web API].
-   
-   In the Azure Management Portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
+3. Give the web application permission to call the web API. In the Azure Management Portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
    
    ![Delegated permissions](./images/delegated-permissions.png)
 
@@ -272,9 +270,7 @@ public void ConfigureServices(IServiceCollection services)
 
 [Tailspin Surveys]: tailspin.md
 [IdentityServer3]: https://github.com/IdentityServer/IdentityServer3
-[Register the web API in Azure AD]: ./run-the-app.md#register-the-surveys-web-api-in-your-ad-directory
 [Update the application manifests]: ./run-the-app.md#update-the-application-manifests
-[Give the web application permission to call the web API]: ./run-the-app.md#give-the-surveys-web-app-permissions-to-call-the-web-api
 [Token caching]: token-cache.md
 [tenant sign-up]: signup.md
 [claims-transformation]: claims.md#claims-transformations

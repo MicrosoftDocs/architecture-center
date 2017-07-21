@@ -98,9 +98,13 @@ Now assign this user as the subscription owner.
     .\Setup-KeyVault.ps1 -Subject <<subject>>
     ```
     For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store. The output from the script is a JSON fragment. Copy this value.
-2. In [Azure portal][azure-portal], switch to the directory where the Surveys application is registered, by selecting your account in the top right corner of the portal.
+
+2. In the [Azure portal][azure-portal], switch to the directory where the Surveys application is registered, by selecting your account in the top right corner of the portal.
+
 3. Select **Azure Active Directory** > **App Registrations** > Surveys
+
 4.	Click **Manifest** and then **Edit**.
+
 5.	Paste the output from the script into the `keyCredentials` property. It should look similar to the following:
         
     ```json
@@ -116,13 +120,16 @@ Now assign this user as the subscription owner.
     ```          
 
 6. Click **Save**.  
+
 7. Repeat steps 3-6 to add the same JSON fragment to the application manifest of the web API (Surveys.WebAPI).
+
 8. From the PowerShell window, run the following command to get the thumbprint of the certificate.
    
     ```
     certutil -store -user my [subject]
     ```
-    where `[subject]` is the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Copy this value. You will use the thumbprint later.
+    
+    For `[subject]`, use the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Copy this value. You will use the thumbprint later.
 
 ### Create a key vault
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
@@ -131,37 +138,27 @@ Now assign this user as the subscription owner.
     .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ResourceGroupName <<resource group name>> -Location <<location>>
     ```
    
-    When prompted for credentials, sign in as the Azure AD user that you created earlier. The script creates a new resource group, and a new key vault within that resource group.
+    When prompted for credentials, sign in as the Azure AD user that you created earlier. The script creates a new resource group, and a new key vault within that resource group. 
    
-    Note: For the -Location parameter, you can use the following PowerShell command to get a list of valid regions:
-   
-    ```
-    Get-AzureRmResourceProvider -ProviderNamespace "microsoft.keyvault" | Where-Object { $_.ResourceTypes.ResourceTypeName -eq "vaults" } | Select-Object -ExpandProperty Locations
-    ```
-2. Run SetupKeyVault.ps again, with the following parameters:
+2. Run SetupKeyVault.ps again as follows:
    
     ```
     .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
     ```
    
-    where
+    Set the following parameter values:
    
-   * key vault name = The name that you gave the key vault in the previous step.
-   * Surveys app ID = The application ID for the Surveys web application.
-   * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
+       * key vault name = The name that you gave the key vault in the previous step.
+       * Surveys app ID = The application ID for the Surveys web application.
+       * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
+         
+    Example:
      
-     Example:
-     
-     ```
+    ```
      .\Setup-KeyVault.ps1 -KeyVaultName tailspinkv -ApplicationIds @("f84df9d1-91cc-4603-b662-302db51f1031", "8871a4c2-2a23-4650-8b46-0625ff3928a6")
-     ```
-     
-     > [!NOTE]
-     > You can get the client IDs from the [Azure management portal][azure-management-portal]. Select the Azure AD tenant, select the application, and click **Configure**.
-     > 
-     > 
-     
-     This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault](/azure/key-vault/key-vault-get-started/) for more information.
+    ```
+    
+    This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault](/azure/key-vault/key-vault-get-started/) for more information.
 
 ### Add configuration settings to your key vault
 1. Run SetupKeyVault.ps as follows::
@@ -175,18 +172,12 @@ Now assign this user as the subscription owner.
    * Redis DNS name = The DNS name of your Redis cache instance.
    * Redis access key = The access key for your Redis cache instance.
      
-     This command adds a secret to your key vault. The secret is a name/value pair plus a tag:
-   * The key name isn't used by the application, but must be unique within the Key Vault.
-   * The value is the value of the configuration option, in this case the Redis connection string.
-   * the "ConfigKey" tag holds the name of the configuration key.
 2. At this point, it's a good idea to test whether you successfully stored the secrets to key vault. Run the following PowerShell command:
    
     ```
     Get-AzureKeyVaultSecret <<key vault name>> Redis--Configuration | Select-Object *
     ```
-    The output should show the secret value plus some metadata:
-   
-    ![PowerShell output](./images/get-secret.png)
+
 3. Run SetupKeyVault.ps again to add the database connection string:
    
     ```
