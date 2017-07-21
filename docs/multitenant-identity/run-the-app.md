@@ -2,7 +2,7 @@
 title: Run the Surveys application
 description: How to run the Surveys sample application locally
 author: MikeWasson
-ms.date: 05/22/2017
+ms:date: 07/21/2017
 ---
 
 # Run the Surveys application

@@ -4,7 +4,7 @@ description: Caching access tokens used for invoking a backend Web API
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 02/16/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications

@@ -4,7 +4,7 @@ description: How to onboard tenants in a multitenant application
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 05/23/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications

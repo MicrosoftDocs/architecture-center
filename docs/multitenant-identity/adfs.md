@@ -4,7 +4,7 @@ description: How to federate with a customer's AD FS in a multitenant applicatio
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 06/02/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications

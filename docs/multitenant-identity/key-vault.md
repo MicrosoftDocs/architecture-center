@@ -4,7 +4,7 @@ description: How to use the Key Vault service to store application secrets
 author: MikeWasson
 ms.service: guidance
 ms.topic: article
-ms.date: 02/16/2016
+ms:date: 07/21/2017
 ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications
@@ -286,7 +286,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 <!-- Links -->
 [adfs]: ./adfs.md
 [authorize-app]: /azure/key-vault/key-vault-get-started//#authorize
-[azure-portal]: portal.azure.com
+[azure-portal]: https://portal.azure.com
 [azure-rm-cmdlets]: https://msdn.microsoft.com/library/mt125356.aspx
 [client-assertion]: client-assertion.md
 [configuration]: /aspnet/core/fundamentals/configuration
