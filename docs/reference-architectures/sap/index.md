@@ -2,7 +2,7 @@
 title: Deploy SAP NetWeaver and SAP HANA on Azure
 description:  Proven practices for running SAP HANA in a high availability environment on Azure.
 author: njray
-ms.date: 6/29/17
+ms.date: 06/29/2017
 ---
 
 # Deploy SAP NetWeaver and SAP HANA on Azure
