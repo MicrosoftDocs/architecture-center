@@ -38,66 +38,76 @@ Microsoft offers the ability to create a domain and request an SSL certificate f
 > **NOTE**: Strong passwords **(Minimum 15 characters, with upper and lower case letters, at least 1 number and 1 special character)** are recommended throughout the solution.
 #### Why does the ARM template fail to deploy `xxxxxxxx` service?
 > Currently this solution requires that you deploy in US EAST. Limitations of service avalibility in all regions may prevent the solution from deploying storage accounts, or the AES. This solution was tested with the following resource group: `New-AzureRmResourceGroup -Name [RESOURCE GROUP NAME] -Location "East US"`
-#### The deployment of my services takes over two hours. Is this normal?
-> The total time for deployment of the services is approximately 1.5 hours from when **Purchase** is clicked on the ARM template. ASE takes 2 hours to provision.
+#### The deployment of my services is taking a long time (over two hours). Is this normal?
+> The total time for deployment of the services is approximately 1.5 hours from when you select **Purchase** on the ARM template. ASE takes 2 hours to provision.
 [How to deploy ASE](http://www.bizbert.com/bizbert/2016/01/07/AppServiceEnvironmentsHowToDeployAPIAppsToAVirtualNetwork.aspx)
 #### How do I use this solution in my production deployment environment?
-> This solution (including the scripts, template, and documentation) is designed to help you build a pilot or demo site. Using this solution does not provide a ready-to-production solution for customers; it only illustrates the components required to build a secure and compliant end-to-end solution. For example, custom host names, SSL certificates, virtual network address spacing, NSG routing, existing Storage and databases, existing enterprise-wide OMS workspaces and solutions, Azure Key Vault rotation policies, usage of existing AD admins and RBAC roles, and usage of existing AD applications and service principals will require customization to meet the requirements of your custom solution in production.
-#### The scripts fail with permission error XXXX - what do I do next?
-The following logins should be tested whenever you restart your PowerShell
-IDE session. This may not always be necessary, but it is strongly recommended to
+> This solution (including the scripts, template, and documentation) are designed to help you build a pilot or demo site. Using this solution does not provide a customer ready to run solution, it only illustrates the components required to build for a secure and compliant end to end solution. For instance, Custom Host Names, SSL Certificates, Virtual network address spacing, NSG routing, existing Storage and Databases, existing enterprise-wide OMS workspaces and solutions, Key vault rotation policies, usage of existing AD Admins and RBAC roles, usage of existing AD Applications and Service Principals will require customization and change to meet your custom production ready solution.
+
+####The scripts fail to run, I get a permission error XXXX, what do I do next?
+The following log-ons should be tested whenever you restart your PowerShell
+IDE session. This may not be required at all times, but strongly recommended to
 ensure the correct credentials are cached in your new session. ---at all times
 for this demo log in as the **admin** user in our example.
 
 Logging in to the powershell administrative
 
-1.  Connect to your [Azure AD service](https://docs.microsoft.com/en-us/powershell/module/azuread/connect-azuread?view=azureadps-2.0)  by running the following command as your admin user (e.g., admin\@pcidemo.onmicrosoft.com).
+
+1.  [Connect to your Azure
+    AD](https://docs.microsoft.com/en-us/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+    service running the following command, with your admin user such as
+    admin\@pcidemo.onmicrosoft.com
 ```powershell
     Connect-AzureAD
 ```
 2.  [Connect to your Azure Active
     directory](https://docs.microsoft.com/en-us/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)
-    by running the following command as your admin user (e.g., admin\@pcidemo.onmicrosoft.com).
+    running the following command, with your admin user such as
+    admin\@pcidemo.onmicrosoft.com
 ```powershell
     Connect-MsolService
 ```
-3.  [Connect to Azure
-    Resource Manager](https://msdn.microsoft.com/en-us/library/mt125356.aspx) by running the following command as your admin user (e.g.,admin\@pcidemo.onmicrosoft.com).
+3.  [Connect to your Azure
+    Resource](https://msdn.microsoft.com/en-us/library/mt125356.aspx) manager
+    running the following commands, with your admin user such as
+    admin\@pcidemo.onmicrosoft.com
 ```powershell
-    Login-AzureRmAccount
+    login-azurermaccount
 ```
-4.  Retrieve your subscription information running the following command.
+4.  Retrieve your subscription information running the following commands
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
-#### What else should I consider once the solution is installed?
-Once the script has completed, you should consider resetting your administrative passwords, including your ADsqladmin and Admin users. The following command can be used to quickly reset passwords in PowerShell. 
+#### What else do I need to consider once the solution is installed?
+Once the script has completed you should consider resetting your administrative passwords, including your ADsqladmin, and Admin users. The following command can be used to quickly reset passwords in PowerShell. 
+
+#### When I run the scripts, I receive the following error "New-Alias : The alias is not allowed, because an alias with the name 'Login-AzureRmAccount' already exists."
+This error is related to conflicting PowerShell Modules. To fix, uninstall all PowerShell msi and modules. 
 
 ```powershell
 Set-MsolUserPassword -userPrincipalName [sqladmin@yourdomain] -NewPassword [NEWPASSWORD] -ForceChangePassword $false
 ```
 
-#### When I run the scripts, I receive the following error: "New-Alias : The alias is not allowed, because an alias with the name 'Login-AzureRmAccount' already exists."  How do I correct this?
-This error is related to conflicting PowerShell Modules. To correct this, uninstall all PowerShell msi and modules. 
-
 #### Are there third party solutions that can help achieve or manage PCI compliance?
-Third-party products can help with continuous compliance efforts. Examples of the products available in the Azure marketplace are listed below.
+The following examples in the marketplace partners that have solutions that can help with continous compliance efforts.
 
-| Security Layer | Azure Marketplace Product(s) |
-| --- | --- |
-| Continuous Compliance Monitoring | [CloudNeeti - Continuous Governance of Azure Assets](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudneeti.cloudneeti_enterpise?tab=Overview) |
-| Network Security and Management | [Azure Marketplace: Network Security](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1)        |
-| Extending Identity Security | [Azure Marketplace: Security + Identity](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security-identity?page=1) |
-| Extending Monitoring and Diagnostics 	| [Azure Marketplace: Monitoring + Diagnostics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=monitoring-diagnostics) |
+| Security Layer                           	| Azure Marketplace Product(s)                                                                                                                                         	|
+|------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Continuous Compliance Monitoring         	| [CloudNeeti - Continuous Governance of Azure Assets](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudneeti.cloudneeti_enterpise?tab=Overview)     	|
+| Network Security and Management      	| [Azure Marketplace: Network Security](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1)                                     	|
+| Extending Identity Security           	| [Azure Marketplace: Security + Identity](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/security-identity?page=1)                           	|
+| Extending Monitoring and Diagnostics 	| [Azure Marketplace: Monitoring + Diagnostics](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/monitoring-management?page=1&subcategories=monitoring-diagnostics) 	|
 
  #### How often is this solution updated? 
 
-This solution is maintained in three repositories, one private, and two public. Currently, the Avyan Consulting team manages the development branch of this solution; for any questions or concerns, contact azurecompliance@avyanconsulting.com.
+This solution is maintained in three repositories, one private, and two public. Currently Avyan Consulting team provided the development branch of this solution, any questions or concerns contact. azurecompliance@avyanconsulting.com 
 
-The current version of this solution is avalible in preview. At present, a stable build has not yet been committed. Please check back frequently for updates on the official release of this solution.
+The current version of the solution is avalible in preview,  no stable build has been commited.
+ Please check back frequently for updates for the official release of this solution.
+The next version pre-release, fixes and updates are located at [Avyan Consulting Git Repo](https://github.com/AvyanConsultingCorp/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/)
 
-The next version pre-release, fixes and updates are located at [Avyan Consulting GitHub Repo](https://github.com/AvyanConsultingCorp/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/).
 
-
-![](images/deploy.png)
+  ![](images/deploy.png)
+  
+  
