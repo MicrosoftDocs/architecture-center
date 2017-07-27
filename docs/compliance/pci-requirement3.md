@@ -37,7 +37,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Microsoft Azure** | Not applicable |
-| **Customer (PaaS & IaaS)** | Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
+| **Customer <br> (PaaS & IaaS)** | Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
 | **Customer PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no PAN data is stored. |
 
 ### PCI DSS Requirement 3.2.1  
