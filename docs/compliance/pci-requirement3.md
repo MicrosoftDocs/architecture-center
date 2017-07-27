@@ -17,6 +17,7 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 - A quarterly process for identifying and securely deleting stored cardholder data that exceeds defined retention.
 
 **Responsibilities: `Shared`**
+
 |||
 |---|---|
 | **Microsoft Azure** | Responsible for ensuring the customer data designated for deletion is securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies. | 
