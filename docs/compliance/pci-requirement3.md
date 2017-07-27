@@ -1,12 +1,12 @@
 # Protect Cardholder Data  
 
+> NOTE: These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+
 ## PCI DSS Requirement 3: Protect stored cardholder data
 
 Protection methods such as encryption, truncation, masking, and hashing are critical components of cardholder data protection. If an intruder circumvents other security controls and gains access to encrypted data, without the proper cryptographic keys, the data is unreadable and unusable to that person. Other effective methods of protecting stored data should also be considered as potential risk mitigation opportunities. For example, methods for minimizing risk include not storing cardholder data unless absolutely necessary, truncating cardholder data if full PAN is not needed, and not sending unprotected PANs using end-user messaging technologies, such as e-mail and instant messaging. 
 
 Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acronyms for definitions of “strong cryptography” and other PCI DSS terms. 
-
-For information on testing procedures and guidance for each requirement, see "PCI DSS Requirements and Security Assessment Procedures, Version 3.2".
 
 ### PCI DSS Requirement 3.1  
 
@@ -21,6 +21,7 @@ For information on testing procedures and guidance for each requirement, see "PC
 |---|---|
 | **Microsoft Azure** | Responsible for ensuring the customer data designated for deletion is securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies. | 
 | **Customer (PaaS & IaaS)** | Responsible for limiting CHD storage, defining retention requirements for CHD, deleting CHD in a timely fashion, ensuring all CHD is securely deleted or destroyed and verifying timely and appropriate deletion on a quarterly basis. | 
+| **Customer PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD. However, all data is encrypted and no PAN data is stored. |
 | | |
 
 ### PCI DSS Requirement 3.2  
@@ -36,8 +37,10 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|---|
 | **Microsoft Azure** | Not applicable |
-| **Customer (PaaS & IaaS)** |Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
-|||		
+| **Customer (PaaS & IaaS)** | Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
+| **Customer PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no PAN data is stored.
+ |
+|||
 
 ### PCI DSS Requirement 3.2.1  
 
@@ -50,6 +53,15 @@ Sensitive authentication data includes the data as cited in the following Requir
 > - Service code  
 >
 >To minimize risk, store only these data elements as needed for business.  
+
+**Responsibilities:** `Customer Only`  
+
+|||
+|---|---|---|
+| **Microsoft Azure** | Not applicable  |
+| **Customer (PaaS & IaaS)** | Customers are responsible for ensuring that authentication data, track data, verification codes, and PINs are not stored after authorization, unless they are Issuers. |
+| **Customer PCI Blueprint (PaaS)** | Contso Clinic does not store the full content of any CHD. |
+|||
 
 ### PCI DSS Requirement 3.2.2
 
@@ -147,3 +159,17 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 **3.7** Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 
+
+
+
+** TABLE TEMPLATE ***
+
+**Responsibilities:** ``  
+
+|||
+|---|---|---|
+| **Microsoft Azure** | ipsum-lorem  |
+| **Customer (PaaS)** | ipsum-lorem |
+| **Customer (IaaS)** | ipsum-lorem |
+| **Customer PCI Blueprint (PaaS)** | ipsum-lorem|
+|||
