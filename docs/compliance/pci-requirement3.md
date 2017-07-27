@@ -34,7 +34,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 **Responsibilities:** `Customer Only`  
 
-|||
+| X | Y |
 |---|---|---|
 | **Microsoft Azure** | Not applicable |
 | **Customer (PaaS & IaaS)** | Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
