@@ -21,8 +21,8 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 |||
 |---|---|
 | **Microsoft Azure** | Responsible for ensuring the customer data designated for deletion is securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies. | 
-| **Customer (PaaS & IaaS)** | Responsible for limiting CHD storage, defining retention requirements for CHD, deleting CHD in a timely fashion, ensuring all CHD is securely deleted or destroyed and verifying timely and appropriate deletion on a quarterly basis. | 
-| **Customer PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD. However, all data is encrypted and no PAN data is stored. |
+| **Customer <br> (PaaS & IaaS)** | Responsible for limiting CHD storage, defining retention requirements for CHD, deleting CHD in a timely fashion, ensuring all CHD is securely deleted or destroyed and verifying timely and appropriate deletion on a quarterly basis. | 
+| **Customer <br> PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD. However, all data is encrypted and no PAN data is stored. |
 
 ### PCI DSS Requirement 3.2  
 
@@ -38,7 +38,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |---|---|
 | **Microsoft Azure** | Not applicable |
 | **Customer <br> (PaaS & IaaS)** | Responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.Customers are responsible for ensuring authentication data, track data, verification codes and PINs are not stored after authorization, unless they are Issuers.
-| **Customer PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no PAN data is stored. |
+| **Customer <br> PCI Blueprint (PaaS)** | The Contoso Webstore demo does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no PAN data is stored. |
 
 ### PCI DSS Requirement 3.2.1  
 
@@ -57,8 +57,8 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Microsoft Azure** | Not applicable  |
-| **Customer (PaaS & IaaS)** | Customers are responsible for ensuring that authentication data, track data, verification codes, and PINs are not stored after authorization, unless they are Issuers. |
-| **Customer PCI Blueprint (PaaS)** | Contso Clinic does not store the full content of any CHD. |
+| **Customer <br> (PaaS & IaaS)** | Customers are responsible for ensuring that authentication data, track data, verification codes, and PINs are not stored after authorization, unless they are Issuers. |
+| **Customer <br> PCI Blueprint (PaaS)** | Contso Clinic does not store the full content of any CHD. |
 
 ### PCI DSS Requirement 3.2.2
 
