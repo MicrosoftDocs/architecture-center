@@ -78,3 +78,6 @@
 
   - name: SAP NetWeaver and SAP HANA
     href: sap/index.md
+
+  - name: SharePoint Server 2016 farm
+    href: sharepoint/index.md
