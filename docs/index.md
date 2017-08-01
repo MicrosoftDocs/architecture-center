@@ -194,7 +194,7 @@ ms.author: pnp
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="azure/architecture/reference-architectures/sharepoint/images/sharepoint.svg" alt="Run SharePoint 2016 on Azure" />
+                                <img src="/azure/architecture/reference-architectures/sharepoint/images/sharepoint.svg" alt="Run SharePoint 2016 on Azure" />
                             </div>
                         </div>
                         <div class="cardText">
