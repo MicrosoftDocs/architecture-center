@@ -29,7 +29,7 @@
     href: reference-architectures/dmz/index.md
   - name: SAP NetWeaver and SAP HANA
     href: reference-architectures/sap/index.md
-  - name: SharePoint Server 2016 farm
+  - name: SharePoint Server 2016
     href: reference-architectures/sharepoint/index.md
   - name: VM workloads (Linux)
     href: reference-architectures/virtual-machines-linux/index.md
