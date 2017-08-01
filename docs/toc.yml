@@ -31,6 +31,10 @@
     href: reference-architectures/virtual-machines-windows/index.md
   - name: Web application with managed services
     href: reference-architectures/managed-web-app/index.md
+  - name: SAP NetWeaver and SAP HANA
+    href: reference-architectures/sap/index.md
+  - name: SharePoint Server 2016 farm
+    href: reference-architectures/sharepoint/index.md
 
 - name: Cloud Design Patterns
   href: patterns/index.md
