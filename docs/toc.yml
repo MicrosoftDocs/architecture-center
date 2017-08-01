@@ -23,18 +23,18 @@
     href: reference-architectures/identity/index.md
   - name: Hybrid network
     href: reference-architectures/hybrid-networking/index.md
+  - name: Managed web application
+    href: reference-architectures/managed-web-app/index.md
   - name: Network DMZ
     href: reference-architectures/dmz/index.md
-  - name: VM workloads (Linux)
-    href: reference-architectures/virtual-machines-linux/index.md
-  - name: VM workloads (Windows)
-    href: reference-architectures/virtual-machines-windows/index.md
-  - name: Web application with managed services
-    href: reference-architectures/managed-web-app/index.md
   - name: SAP NetWeaver and SAP HANA
     href: reference-architectures/sap/index.md
   - name: SharePoint Server 2016 farm
     href: reference-architectures/sharepoint/index.md
+  - name: VM workloads (Linux)
+    href: reference-architectures/virtual-machines-linux/index.md
+  - name: VM workloads (Windows)
+    href: reference-architectures/virtual-machines-windows/index.md
 
 - name: Cloud Design Patterns
   href: patterns/index.md
