@@ -2,7 +2,7 @@
 title: Run a high availability SharePoint Server 2016 farm in Azure
 description:  Proven practices for setting up a high availability SharePoint Server 2016 farm on Azure.
 author: njray
-ms.date: 06/30/17
+ms.date: 08/01/2017
 ---
 
 # Run a high availability SharePoint Server 2016 farm in Azure
