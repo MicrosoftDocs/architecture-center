@@ -212,11 +212,13 @@ To deploy everything in one step, use `all`. Note that the entire process may ta
     ```powershell
     .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
     ```   
+4. When prompted, log on to your Azure account. The deployment scripts can take up to several hours to complete, depending on the mode you selected.
 
-4.  When prompted, log on to your Azure account. The deployment scripts can take up to several hours to complete, depending on the mode you selected.
+5. When the deployment completes, run the scripts to configure SQL Server Always On Availability Groups. See the [readme][readme] for details.
 
 > [!WARNING]
 > The parameter files include a hard-coded password (`AweS0me@PW`) in various places. Change these values before you deploy.
+
 
 ## Validate the deployment
 
@@ -292,6 +294,7 @@ The following table shows the VMs that are deployed.
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
+[readme]: https://github.com/mspnp/reference-architectures/tree/master/sharepoint/sharepoint-2016
 [resource-group]: /azure/azure-resource-manager/resource-group-overview
 [quotas]: /azure/azure-subscription-service-limits
 [sharepoint-accounts]: https://technet.microsoft.com/library/ee662513(v=office.16).aspx
