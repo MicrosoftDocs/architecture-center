@@ -197,6 +197,7 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 
 5.  For each VM named `ra-sapApps-vm1` ... `ra-sapApps-vmN`, log into the VM, and install and configure the SAP NetWeaver application using the [SAP installation guides][sap-guide].
 
+**_Contributors to this reference architecture_** &mdash; Rick Rainey, Ross Sponholtz, Ben Trinh
 
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [azure-lb]: /azure/load-balancer/load-balancer-overview
