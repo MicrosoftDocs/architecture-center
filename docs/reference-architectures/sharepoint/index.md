@@ -276,6 +276,8 @@ The following table shows the VMs that are deployed.
 | Ra-sp2016-wfe-vm2  | SharePoint 2016 Web Front End MinRole     | Ra-sp2016-workload-rg | Wfe2.contoso.local            |
 
 
+**_Contributors to this reference architecture_** &mdash;  Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
+
 <!-- links -->
 
 [availability-set]: /azure/virtual-machines/windows/manage-availability
