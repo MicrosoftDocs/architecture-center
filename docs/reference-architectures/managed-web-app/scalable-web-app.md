@@ -11,13 +11,10 @@ pnp.series.title: Azure App Service
 pnp.series.prev: basic-web-app
 pnp.series.next: multi-region-web-app
 
-ms.service: guidance
 
-ms.topic: article
 
 
 ms.date: 11/23/2016
-ms.author: pnp
 cardTitle: Improve scalability
 ---
 # Improve scalability in a web application

@@ -3,9 +3,6 @@ title: Pipes and Filters
 description: Break down a task that performs complex processing into a series of separate elements that can be reused.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

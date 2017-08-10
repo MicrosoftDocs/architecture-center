@@ -3,9 +3,6 @@ title: Scheduler Agent Supervisor
 description: Coordinate a set of actions across a distributed set of services and other remote resources.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

@@ -2,10 +2,7 @@
 title: Data partitioning guidance
 description: Guidance for how to separate partitions to be managed and accessed separately.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 07/13/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

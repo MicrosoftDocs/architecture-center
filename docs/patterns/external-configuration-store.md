@@ -3,9 +3,6 @@ title: External Configuration Store
 description: Move configuration information out of the application deployment package to a centralized location.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

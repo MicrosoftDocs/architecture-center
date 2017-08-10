@@ -2,10 +2,7 @@
 title: Content Delivery Network guidance
 description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 09/30/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

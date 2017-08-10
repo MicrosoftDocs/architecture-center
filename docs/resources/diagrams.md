@@ -1,7 +1,6 @@
 ---
 title: Icons and other assets for architectual diagrams
 description: Icons, Viso templates, PNG files, and SVG files that are useful for producing your own architecture diagrams
-ms.service: guidance
 ---
 
 # Icons and diagrams

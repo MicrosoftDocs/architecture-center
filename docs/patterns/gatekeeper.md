@@ -4,9 +4,6 @@ description: Protect applications and services by using a dedicated host instanc
 keywords: design pattern
 author: dragon119
 
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

@@ -2,10 +2,7 @@
 title: Background jobs guidance
 description: Guidance on background tasks that run independently of the user interface.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 05/24/2017
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

@@ -5,16 +5,10 @@ description: >-
   Azure virtual network and an on-premises network connected using a VPN.
 
 author: RohitSharma-pnp
+ms.date: 11/28/2016
 
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute
-
-ms.service: guidance
-
-ms.topic: article
-
-ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.prev: ./index
 cardTitle: VPN
 ---

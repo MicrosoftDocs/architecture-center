@@ -5,18 +5,9 @@ description: How to create a trusted Active Directory domain in Azure.
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-
-
+ms.date: 11/28/2016
 
 pnp.series.title: Identity management
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.prev: adds-extend-domain
 pnp.series.next: adfs
 cardTitle: Create an AD DS forest in Azure
