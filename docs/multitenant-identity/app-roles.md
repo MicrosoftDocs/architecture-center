@@ -2,10 +2,7 @@
 title: Application roles
 description: How to perform authorization using application roles
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
 ms:date: 07/21/2017
-ms.author: pnp
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup

@@ -3,10 +3,7 @@ title: CQRS
 description: Segregate operations that read data from operations that update data by using separate interfaces.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 06/23/2017
-ms.author: pnp
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]

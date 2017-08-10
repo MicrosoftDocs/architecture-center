@@ -3,9 +3,6 @@ title: Competing Consumers
 description: Enable multiple concurrent consumers to process messages received on the same messaging channel.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

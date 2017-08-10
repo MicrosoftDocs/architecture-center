@@ -2,10 +2,7 @@
 title: Run the automated Elasticsearch resiliency tests
 description: Description of how you can run the resiliency tests in your own environment.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 09/22/2016
-ms.author: pnp
 
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: deploy-jmeter-junit-sampler

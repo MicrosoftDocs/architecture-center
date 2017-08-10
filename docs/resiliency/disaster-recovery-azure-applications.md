@@ -2,10 +2,7 @@
 title: Disaster recovery for Azure applications
 description: Technical overview and in-depth information about designing applications for disaster recovery on Microsoft Azure.
 author: adamglick
-ms.service: guidance
-ms.topic: article
 ms.date: 05/26/2017
-ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Disaster recovery for Azure applications

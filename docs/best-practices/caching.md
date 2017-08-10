@@ -2,10 +2,7 @@
 title: Caching guidance
 description: Guidance on caching to improve performance and scalability.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 05/24/2017
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
