@@ -67,7 +67,7 @@ Scenarios where CDN may be less useful include:
 * If the data is private, such as for large enterprises or supply chain ecosystems.
 
 ## General guidelines and good practices
-Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources you application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
+Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources your application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
 ### Origin
 Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS endpoint that the CDN service will use to access and cache the content.
@@ -149,7 +149,7 @@ If SEO is an important consideration in your application, perform the following 
 * When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
 
 ### Monitoring and logging
-Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site
+Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site.
 
 Enable logging for the CDN and monitor this log as part of your daily operations.
 
