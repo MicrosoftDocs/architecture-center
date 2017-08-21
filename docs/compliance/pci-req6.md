@@ -1,9 +1,9 @@
-﻿# Implement Strong Access Control Measures
+﻿# Maintain a Vulnerability Management Program
 
-## PCI DSS Requirement 6: Restrict access to cardholder data by business need to know  
+## PCI DSS Requirement 6: Develop and maintain secure systems and applications  
 
-To ensure critical data can only be accessed by authorized personnel, systems and processes must be in place to limit access based on need to know and according to job responsibilities.
-“Need to know” is when access rights are granted to only the least amount of data and privileges needed to perform a job.
+Unscrupulous individuals use security vulnerabilities to gain privileged access to systems. Many of these vulnerabilities are fixed by vendor-provided security patches, which must be installed by the entities that manage the systems. All systems must have all appropriate software patches to protect against the exploitation and compromise of cardholder data by malicious individuals and malicious software.
+Note: Appropriate software patches are those patches that have been evaluated and tested sufficiently to determine that the patches do not conflict with existing security configurations. For in-house developed applications, numerous vulnerabilities can be avoided by using standard system development processes and secure coding techniques.
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
@@ -57,7 +57,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.3.1
+#### PCI DSS Requirement 6.3.1
 
 **6.3.1** Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.
 
@@ -70,7 +70,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.3.2
+#### PCI DSS Requirement 6.3.2
 
 **6.3.2** Review custom code prior to release to production or customers in order to identify any potential coding vulnerability (using either manual or automated processes) to include at least the following:
 - Code changes are reviewed by individuals other than the originating code author, and by individuals knowledgeable about code-review techniques and secure coding practices.
@@ -99,12 +99,12 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program.</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including: <br /><br /><ul>- The identification and documentation of the planned change <br /><br />- Identification of business goals, priorities and scenarios during product planning <br /><br />- Specification of feature/component design <br /><br />- Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact <br /><br />- Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate.  Customers are responsible for their own applications hosted in Microsoft Azure.</ul> |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).<br /><br /><br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).|
+| **Microsoft&nbsp;Azure** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<br /><br /><ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including:<br /><br /><ul><li>The identification and documentation of the planned change</li><li>Identification of business goals, priorities and scenarios during product planning</li><li>Specification of feature/component design</li><li>Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact</li><li>Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate.  Customers are responsible for their own applications hosted in Microsoft Azure.</li></ul> |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).|
 
 
 
-### PCI DSS Requirement 6.4.1
+#### PCI DSS Requirement 6.4.1
 
 **6.4.1** Separate development/test environments from production environments, and enforce the separation with access controls.
 
@@ -117,7 +117,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.4.2
+#### PCI DSS Requirement 6.4.2
 
 **6.4.2** Separation of duties between development/test and production environments
 
@@ -130,7 +130,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.4.3
+#### PCI DSS Requirement 6.4.3
 
 **6.4.3** Production data (live PANs) are not used for testing or development
 
@@ -143,7 +143,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.4.4
+#### PCI DSS Requirement 6.4.4
 
 **6.4.4** Removal of test data and accounts from system components before the system becomes active / goes into production.
 
@@ -156,7 +156,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.4.5
+#### PCI DSS Requirement 6.4.5
 
 **6.4.5** Change control procedures for the implementation of security patches and software modifications must include the following:
 - **6.5.4.1** Documentation of impact.
@@ -173,7 +173,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 6.4.6
+#### PCI DSS Requirement 6.4.6
 
 **6.4.6** Upon completion of a significant change, all relevant PCI DSS requirements must be implemented on all new or changed systems and networks, and documentation updated as applicable.
 

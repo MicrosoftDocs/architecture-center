@@ -1,0 +1,74 @@
+﻿# Protect Cardholder Data
+
+## PCI DSS Requirement 4: Encrypt transmission of cardholder data across open, public networks  
+
+Sensitive information must be encrypted during transmission over networks that are easily accessed by malicious individuals. Misconfigured wireless networks and vulnerabilities in legacy encryption and authentication protocols continue to be targets of malicious individuals who exploit these vulnerabilities to gain privileged access to cardholder data environments.
+
+> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+
+### PCI DSS Requirement 4.1
+
+**4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+- Only trusted keys and certificates are accepted.
+- The protocol in use only supports secure versions or configurations.
+- The encryption strength is appropriate for the encryption methodology in use. 
+
+> **Note:** Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
+>
+> Examples of open, public networks include but are not limited to:
+- The Internet
+- Wireless technologies, including 802.11 and Bluetooth
+- Cellular technologies, for example, Global System for Mobile communications (GSM), Code division multiple access (CDMA)
+- General Packet Radio Service (GPRS)
+- Satellite communications
+
+
+**Responsibilities: `Customer Only`**
+
+|||
+|---|---|
+| **Microsoft&nbsp;Azure** | Not applicable. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)  uses the following:<br /><br /><ul>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)<br /><br />SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).<br /><br />[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)<br /><br /></ul>Using Azure Key Vault respects Azure Government, PCI DSS, and HIPAA requirements.|
+
+
+
+#### PCI DSS Requirement 4.1.1
+
+**4.1.1** Ensure wireless networks transmitting cardholder data, or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
+
+**Responsibilities: `Customer Only`**
+
+|||
+|---|---|
+| **Microsoft&nbsp;Azure** | Not applicable. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Wireless and SNMP are not implemented in the solution.|
+
+
+
+### PCI DSS Requirement 4.2
+
+**4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
+
+**Responsibilities: `Customer Only`**
+
+|||
+|---|---|
+| **Microsoft&nbsp;Azure** | Not applicable. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not have any messaging solutions implemented that may send unprotected PAN data.|
+
+
+
+### PCI DSS Requirement 4.3
+
+**4.3** Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
+
+**Responsibilities: `Customer Only`**
+
+|||
+|---|---|
+| **Microsoft&nbsp;Azure** | Not applicable. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for documenting and encrypting transmissions containing cardholder data.|
+
+
+
+
