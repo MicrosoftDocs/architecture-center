@@ -231,7 +231,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure monitoring event rules provide an increased level of monitoring for high risk operations and assets. Azure-managed network devices are monitored for compliance with established security standards.   |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md/pre-installed-oms-solutions).<br /><br /><br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br /><br /><br />|
 
 
 
@@ -244,7 +244,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md/pre-installed-oms-solutions).<br /><br /><br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br /><br /><br />|
 
 
 

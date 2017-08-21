@@ -104,7 +104,7 @@ Each of the network tiers has a dedicated network security group [NSG]:
 - An NSG for management jumpbox/bastion host 
 - An NSG for the app service environment
 
-Each of the NSGs have specific ports and protocols opened for the secure and correct working of the solution. For more information, see [PCI Guidance - Network Security Groups](reference.md/network-security-groups).
+Each of the NSGs have specific ports and protocols opened for the secure and correct working of the solution. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).
 
 Each of the NSGs have specific ports and protocols opened for the secure and
 correct working of the solution. In addition, the following configurations are enabled for each NSG

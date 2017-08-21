@@ -72,7 +72,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure employs boundary protection devices such as gateways, network ACLs, and application firewalls to control communications at external and internal boundaries at the platform level. The customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](reference.md#app-service/environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
 
 
 
