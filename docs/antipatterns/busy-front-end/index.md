@@ -25,7 +25,7 @@ public class WorkInFrontEndController : ApiController
 {
     [HttpPost]
     [Route("api/workinfrontend")]
-    public void Post()
+    public HttpResponseMessage Post()
     {
         new Thread(() =>
         {
