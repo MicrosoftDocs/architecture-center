@@ -1,0 +1,36 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+  
+- name: PCI DSS Guidance
+  items:
+  - name: Overview
+    href: index.md
+  - name: Failure mode analysis
+    href: pci-faq.md
+
+  - name: PCI DSS Requirements
+    items:
+    - name: Requirement 1 - Firewalls
+      href: pci-req1.md
+    - name: Requirement 2 - Passwords
+      href: pci-req2.md
+    - name: Requirement 3 - CHD
+      href: pci-req3.md
+    - name: Requirement 4 - Encryption
+      href: pci-req4.md
+    - name: Requirement 5 - Malware
+      href: pci-req5.md
+    - name: Requirement 6 - Secure Systems
+      href: pci-req6.md
+    - name: Requirement 7 - Access
+      href: pci-req7.md
+    - name: Requirement 8 - Identity
+      href: pci-req8.md
+    - name: Requirement 9 - Physical Access
+      href: pci-req9.md
+    - name: Requirement 10 - Monitoring
+      href: pci-req10.md
+    - name: Requirement 11 - Testing
+      href: pci-req11.md
+    - name: Requirement 12 - Policy
+      href: pci-req12.md
