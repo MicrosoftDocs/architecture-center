@@ -79,7 +79,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS exper
 | NoSQL—document storage  | DynamoDB                             | [Cosmos DB](https://azure.microsoft.com/services/documentdb/)                                                  | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar.         |
 | NoSQL—key/value storage | DynamoDB and SimpleDB                | [Table Storage](https://azure.microsoft.com/services/storage/tables/)                                           | A nonrelational data store for semi-structured data. Developers store and query data items via web services requests.                                   |
 | Caching                 | ElastiCache                          | [Azure Redis Cache](https://azure.microsoft.com/services/cache/)                                                | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
-| Database migration      | Database Migration Service (Preview) | [SQL Database Migration Wizard](https://azure.microsoft.com/documentation/articles/sql-database-cloud-migrate/) | Typically is focused on the migration of database schema and data from one database format to a specific database technology in the cloud.              |
+| Database migration      | Database Migration Service (Preview) | [Azure Database Migration Service](https://azure.microsoft.com/en-us/campaigns/database-migration/) | Typically is focused on the migration of database schema and data from one database format to a specific database technology in the cloud.              |
 
 
 ## Analytics and big data
