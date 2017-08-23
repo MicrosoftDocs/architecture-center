@@ -43,6 +43,15 @@ The following OMS Solutions are pre-installed with this reference solution:
 - [Update Management](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-solution-update-management)
 
 
+## Encryption
+
+The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to manage keys, preventing retrieval of CHD.
+
+- [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. 
+- [SQL TDE](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt all customer cardholder data, expiry date, and CVV.
+- Data is stored on disk using [Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) and BitLocker.
+
+
 ## Azure SQL Database
 
 A PaaS SQL Database instance is used to showcase database security measures:
@@ -77,9 +86,7 @@ Also, the SQL DB Column Encryption is conducted using the AD app. Refer to this 
 [Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware) 
 for Azure Cloud Services and Virtual Machines is real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems.
 
-**Optional Vulnerability Assessment**
-
-Azure Advisor  https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations
+[Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with Azure Security Center to bring you security recommendations. 
 
 
 ## Mitigation of the Risk of Security Vulnerabilities
@@ -91,10 +98,7 @@ The reference solution reduces the risk of security vulnerabilities using an App
 - [Prevention mode] (https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-portal) with OWASP 3.0 ruleset
 - [Diagnostics logging](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
 - [Custom health probes](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
-
-Azure Security Center, and Azure security advisor provide additional protection and notifications. reputation system is provided by ASC
-Azure Security Center https://azure.microsoft.com/en-us/services/security-center/
-Azure Advisor  https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations
+- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide additional protection and notifications. Azure Security Center also provides a reputation system.
 
 
 ## Network Security Groups

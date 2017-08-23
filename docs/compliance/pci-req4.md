@@ -23,12 +23,12 @@ Sensitive information must be encrypted during transmission over networks that a
 - Satellite communications
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)  uses the following:<br /><br /><ul>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)<br /><br />SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).<br /><br />[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)<br /><br /></ul>Using Azure Key Vault respects Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)  uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li><li></li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 
@@ -36,7 +36,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 **4.1.1** Ensure wireless networks transmitting cardholder data, or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -49,12 +49,12 @@ Sensitive information must be encrypted during transmission over networks that a
 
 **4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not have any messaging solutions implemented that may send unprotected PAN data.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not have any messaging solutions implemented that may send unprotected primary account number (PAN) data.|
 
 
 
@@ -62,7 +62,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 **4.3** Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

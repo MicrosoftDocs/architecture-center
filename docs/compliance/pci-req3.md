@@ -15,12 +15,12 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 - Processes for secure deletion of data when no longer needed
 - A quarterly process for identifying and securely deleting stored cardholder data that exceeds defined retention.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure is responsible for ensuring the customer data designated for deletion are securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not delete or destroy any stored CHD. However all data is encrypted and no PAN data is stored.<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not delete or destroy any stored CHD. However all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
 
 
 
@@ -32,12 +32,12 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 > - The data is stored securely.
 Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no PAN data is stored.<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
 
 
 
@@ -53,7 +53,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 >
 > To minimize risk, store only these data elements as needed for business.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -66,7 +66,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 **3.2.2** Do not store the card verification code or value (three-digit or four-digit number printed on the front or back of a payment card used to verify card-not-present transactions) after authorization.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -79,7 +79,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 **3.2.3** Do not store the personal identification number (PIN) or the encrypted PIN block after authorization.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -93,12 +93,12 @@ Sensitive authentication data includes the data as cited in the following Requir
 **3.3** Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see more than the first six/last four digits of the PAN.
 Note: This requirement does not supersede stricter requirements in place for displays of cardholder data—for example, legal or payment card brand requirements for point-of-sale (POS) receipts.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore masks the PAN using transparent data encryption, always encrypted columns, and dynamic data masking. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore masks the primary account number (PAN) using transparent data encryption, always encrypted columns, and dynamic data masking. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -112,12 +112,12 @@ Note: This requirement does not supersede stricter requirements in place for dis
  
 > **Note:** It is a relatively trivial effort for a malicious individual to reconstruct original PAN data if they have access to both the truncated and hashed version of a PAN. Where hashed and truncated versions of the same PAN are present in an entity’s environment, additional controls must be in place to ensure that the hashed and truncated versions cannot be correlated to reconstruct the original PAN.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore encrypts all credit card data, and uses Key Vault to manage keys, preventing retrieval of CHD.<br /><br />[Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to manage keys, preventing retrieval of CHD.<br /><br />For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -127,12 +127,12 @@ Note: This requirement does not supersede stricter requirements in place for dis
 
 > **Note:** This requirement applies in addition to all other PCI DSS encryption and key-management requirements.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a "jumpbox" or bastion host with the following configurations:<br /><br /><ul>[Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)<br /><br />[OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)<br /><br />[VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)<br /><br />[Bitlocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</ul>Using Azure Key Vault respects Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a "jumpbox" or bastion host with the following configurations:<br /><br /><ul><li>[Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)</li><li>[OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 
@@ -142,7 +142,7 @@ Note: This requirement does not supersede stricter requirements in place for dis
 
 > **Note:** This requirement applies to keys used to encrypt stored cardholder data, and also applies to key-encrypting keys used to protect data-encrypting keys—such key-encrypting keys must be at least as strong as the data-encrypting key.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -160,7 +160,7 @@ Note: This requirement does not supersede stricter requirements in place for dis
 
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -176,12 +176,12 @@ keys to the fewest number of custodians
 necessary.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore key management is isolated to one user account (admin@contosoclinic.com).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
 
 
@@ -195,12 +195,12 @@ necessary.
 > **Note:** It is not required that public keys be
 stored in one of these forms.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the specific key vaults identified by the customer. <br /><br /><br /><br />Key Vault can be accessed simultaneously and globally by multiple applications, which reduces the need to copy a key and store in multiple locations.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the specific key vaults identified by the customer.<br /><br />Key Vault can be accessed simultaneously and globally by multiple applications, which reduces the need to copy a key and store in multiple locations. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -210,27 +210,26 @@ stored in one of these forms.
 fewest possible locations.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the specific key vaults identified by the customer. <br /><br />Key Vault can be accessed simultaneously and globally by multiple applications, which reduces the need to copy a key and store in multiple locations. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management.For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
 ### PCI DSS Requirement 3.6
 
 **3.6** Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following: 
-
 > **Note:** Numerous industry standards for key management are available from various resources including NIST, which can be found at http://csrc.nist.gov.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides documentation to illustrate an Azure Key Vault deployment.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -238,12 +237,12 @@ fewest possible locations.
 
 **3.6.1** Generation of strong cryptographic keys
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:** <br /><br />When generating keys in Key Vault, Azure is responsible for generating keys per the customer's specifications. Keys are generated using a HSM.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -251,12 +250,12 @@ fewest possible locations.
 
 **3.6.2** Secure cryptographic key distribution
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />The bring your own key (BYOK) tool encapsulates the customer key, and targets a specific security vault which is tied to a specific Azure subscription. The key can only be imported to the defined subscription’s key vault, in the specified region. This process uses the encryption procedures provided by the hardware manufacturer.  Customers receive a notification that the transfer was successful.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -264,12 +263,12 @@ fewest possible locations.
 
 **3.6.3** Secure cryptographic key storage
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the HSMs, and are secured using the hardware manufacturer’s cryptographic security.  The metadata on keys is stored in Azure Storage in an encrypted state, which is unique to each key vault. <br /><br /> |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -277,12 +276,12 @@ fewest possible locations.
 
 **3.6.4** Cryptographic key changes for keys that have reached the end of their cryptoperiod (for example, after a defined period of time has passed and/or after a certain amount of cipher-text has been produced by a given key), as defined by the associated application vendor or key owner, and based on industry best practices and guidelines (for example, NIST Special Publication 800-57).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to update or roll keys, which is defined by the customer.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -292,12 +291,12 @@ fewest possible locations.
 
 > **Note:** If retired or replaced cryptographic keys need to be retained, these keys must be securely archived (for example, by using a key-encryption key). Archived cryptographic keys should only be used for decryption/verification purposes.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to retire or replace, which is defined by the customer. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -307,12 +306,12 @@ fewest possible locations.
 
 > **Note:** Examples of manual key-management operations include, but are not limited to: key generation, transmission, loading, storage, and destruction.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -320,12 +319,12 @@ fewest possible locations.
 
 **3.6.7** Prevention of unauthorized substitution of cryptographic keys.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vaults are logically separated, and do not support cross-directory authorization. As a result, unauthorized substitution is prevented.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. <br /><br />Stores Keys- SQL DB Column Encryption keys  customer managed keys |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -333,12 +332,12 @@ fewest possible locations.
 
 **3.6.8** Requirement for cryptographic key custodians to formally acknowledge that they understand and accept their key-custodian responsibilities.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore key management is isolated to one user account (admin@contosoclinic.com).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
 
 
@@ -346,12 +345,12 @@ fewest possible locations.
 
 **3.7** Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides documentation to illustrate an Azure Key Vault deployment.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 

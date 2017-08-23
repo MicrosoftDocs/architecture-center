@@ -11,7 +11,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 **7.1** Limit access to system components and cardholder data to only those individuals whose job requires such access.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -26,7 +26,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 - System components and data resources that each role needs to access for their job function
 - Level of privilege required (for example, user, administrator, etc.) for accessing resources.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -39,12 +39,12 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 **7.1.2** Restrict access to privileged user IDs to least privileges necessary to perform job responsibilities.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published and communicated to Windows Azure. The Microsoft Azure Information Security Policy requires that access to Microsoft Azure assets be granted based on business justification, with the asset owner's authorization and based on "need-to-know" and "least-privilege" principles. The policy also addresses requirements for access management lifecycle including access provisioning, access authorization, authentication removal of access rights, and periodic access reviews.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore assigns only two users during the deployment. The users provided are admin, and sqladmin, users are edna, and chris.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
 
 
 
@@ -52,12 +52,12 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 **7.1.3** Assign access based on individual personnel’s job classification and function.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore assigns only two users during the deployment. The users provided are admin, and sqladmin, users are edna, and chris. User roles are limited to duties, based on the documented demo scenario.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
 
 
 
@@ -65,7 +65,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 **7.1.4** Require documented approval by authorized parties specifying required privileges.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -82,7 +82,7 @@ This access control system must include the following:
 - 7.2.2 Assignment of privileges to individuals based on job classification and function.
 - 7.2.3 Default “deny-all” setting.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -95,12 +95,12 @@ This access control system must include the following:
 
 **7.3** Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore documentation provides details regarding who uses CHD, and how CHD is used.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore documentation provides a use case and a description regarding who uses CHD, and how CHD is used.|
 
 
 

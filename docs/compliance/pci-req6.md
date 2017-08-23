@@ -15,7 +15,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 > 
 > Methods for evaluating vulnerabilities and assigning risk ratings will vary based on an organization’s environment and risk-assessment strategy. Risk rankings should, at a minimum, identify all vulnerabilities considered to be a “high risk” to the environment. In addition to the risk ranking, vulnerabilities may be considered “critical” if they pose an imminent threat to the environment, impact critical systems, and/or would result in a potential compromise if not addressed. Examples of critical systems may include security systems, public-facing devices and systems, databases, and other systems that store, process, or transmit cardholder data.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -30,7 +30,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 > **Note:** Critical security patches should be identified according to the risk ranking process defined in Requirement 6.1.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -48,7 +48,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 > **Note:** This applies to all software developed internally as well as bespoke or custom software developed by a third party.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -61,7 +61,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.3.1** Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -82,7 +82,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 >
 > Code reviews can be conducted by knowledgeable internal personnel or third parties. Public-facing web applications are also subject to additional controls, to address ongoing threats and vulnerabilities after implementation, as defined at PCI DSS Requirement 6.6.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -95,12 +95,12 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.4** Follow change control processes and procedures for all changes to system components. The processes must include the following (see Requirements 6.4.1 to 6.4.6):
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<br /><br /><ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including:<br /><br /><ul><li>The identification and documentation of the planned change</li><li>Identification of business goals, priorities and scenarios during product planning</li><li>Specification of feature/component design</li><li>Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact</li><li>Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate.  Customers are responsible for their own applications hosted in Microsoft Azure.</li></ul> |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).|
 
 
 
@@ -108,7 +108,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.4.1** Separate development/test environments from production environments, and enforce the separation with access controls.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -121,7 +121,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.4.2** Separation of duties between development/test and production environments
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -134,12 +134,12 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.4.3** Production data (live PANs) are not used for testing or development
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has no live PAN data.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has no live primary account number (PAN) data.|
 
 
 
@@ -147,7 +147,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.4.4** Removal of test data and accounts from system components before the system becomes active / goes into production.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -164,7 +164,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 - **6.5.4.3** Functionality testing to verify that the change does not adversely impact the security of the system.
 - **6.5.4.4** Back-out procedures.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -180,7 +180,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -196,7 +196,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 - Develop applications based on secure coding guidelines.
 
 > **Note:** The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, etc.), the current best practices must be used for these requirements 
-
+> 
 > **Note:** Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external) 
 
 - **6.5.1** Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.
@@ -210,7 +210,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 - **6.5.9** Cross-site request forgery (CSRF)
 - **6.5.10** Broken authentication and session management
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -223,10 +223,12 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.6** For public-facing web applications, address new threats and vulnerabilities on an ongoing basis and ensure these applications are protected against known attacks by either of the following methods:
 - Reviewing public-facing web applications via manual or automated application vulnerability security assessment tools or methods, at least annually and after any changes 
+>
 > **Note:** This assessment is not the same as the vulnerability scans performed for Requirement 11.2. 
+>
 - Installing an automated technical solution that detects and prevents web-based attacks (for example, a web-application firewall) in front of public-facing web applications, to continually check all traffic.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -239,7 +241,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 **6.7** Ensure that security policies and operational procedures for developing and maintaining secure systems and applications are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

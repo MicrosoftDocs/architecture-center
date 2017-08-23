@@ -10,7 +10,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.1** Implement audit trails to link all access to system components to each individual user.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -30,12 +30,12 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - **10.2.6** Initialization, stopping, or pausing of the audit logs
 - **10.2.7** Creation and deletion of system-level objects
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, etc.) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](reference.md#logging).|
 
 
 
@@ -49,7 +49,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - **10.3.5** Origination of event
 - **10.3.6** Identity or name of affected data, system component, or resource
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -63,7 +63,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 **10.4** Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. 
 > **Note:** One example of time synchronization technology is Network Time Protocol (NTP).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -76,7 +76,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.4.1** Critical systems have the correct and consistent time.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -89,7 +89,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.4.2** Time data is protected.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -102,7 +102,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.4.3** Time settings are received from industry-accepted time sources.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5** Secure audit trails so they cannot be altered.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -128,7 +128,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5.1** Limit viewing of audit trails to those with a job-related need.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -141,7 +141,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5.2** Protect audit trail files from unauthorized modifications.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -154,7 +154,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5.3** Promptly back up audit trail files to a centralized log server or media that is difficult to alter.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -167,7 +167,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5.4** Write logs for external-facing technologies onto a secure, centralized, internal log server or media device.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -180,7 +180,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.5.5** Use file-integrity monitoring or change-detection software on logs to ensure that existing log data cannot be changed without generating alerts (although new data being added should not cause an alert).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -194,12 +194,12 @@ Logging mechanisms and the ability to track user activities are critical in prev
 **10.6** Review logs and security events for all system components to identify anomalies or suspicious activity. 
 >Note: Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, etc.) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Security Center to monitor, report, and prevent anomalies.<br /><br />- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)<br /><br />- [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations)|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -211,12 +211,12 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - Logs of all critical system components
 - Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, etc.).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Security Center to monitor, report, and prevent anomalies.<br /><br />- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)<br /><br />- [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations)|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -224,12 +224,12 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.6.2** Review logs of all other system components periodically based on the organization’s policies and risk management strategy, as determined by the organization’s annual risk assessment.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Security Center to monitor, report, and prevent anomalies.<br /><br />- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)<br /><br />- [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations)|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -237,12 +237,12 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.6.3** Follow up exceptions and anomalies identified during the review process.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Security Center to monitor, report, and prevent anomalies.<br /><br />- [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/)<br /><br />- [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations)|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -250,7 +250,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 **10.7** Retain audit trail history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from backup).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -275,7 +275,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -299,7 +299,7 @@ remediation required to address root cause
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -313,12 +313,12 @@ remediation required to address root cause
 **10.9** Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides detailed documentation about how the CHD is managed and protected.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a use case and a description about how the CHD is managed and protected.|
 
 
 

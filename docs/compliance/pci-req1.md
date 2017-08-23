@@ -14,7 +14,7 @@ Other system components may provide firewall functionality, as long as they meet
 **1.1** Establish and implement firewall and router configuration standards that include the following (see 1.1.1 through 1.1.7):
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -28,12 +28,12 @@ Other system components may provide firewall functionality, as long as they meet
 **1.1.1** A formal process for approving and testing all network connections and changes to the firewall and router configurations
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).<br /><br />[Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).<br /><br />[Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
 
 
 
@@ -41,7 +41,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.2** Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -54,7 +54,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.3** Current diagram that shows all cardholder data flows across systems and networks
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -67,7 +67,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.4** Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -80,7 +80,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.5** Description of groups, roles, and responsibilities for management of network components
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -93,7 +93,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.6** Documentation and business justification for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -106,7 +106,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.1.7** Requirement to review firewall and router rule sets at least every six months
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -121,7 +121,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 > **Note:** An “untrusted network” is any network that is external to the networks belonging to the entity under review, and/or which is out of the entity's ability to control or manage.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -134,7 +134,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.2.1** Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -147,7 +147,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.2.2** Secure and synchronize router configuration files.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -160,7 +160,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.2.3** Install perimeter firewalls between all wireless networks and the cardholder data environment, and configure these firewalls to deny or, if traffic is necessary for business purposes, permit only authorized traffic between the wireless environment and the cardholder data environment.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -173,7 +173,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.3** Prohibit direct public access between the Internet and any system component in the cardholder data environment.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -187,7 +187,7 @@ Other system components may provide firewall functionality, as long as they meet
 **1.3.1** Implement a DMZ to limit inbound traffic to only system components that provide authorized publicly accessible services, protocols, and ports.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -200,7 +200,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.3.2** Limit inbound Internet traffic to IP addresses within the DMZ.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -213,12 +213,12 @@ Other system components may provide firewall functionality, as long as they meet
 
 **1.3.3** Implement anti-spoofing measures to detect and block forged source IP addresses from entering the network. (For example, block traffic originating from the Internet with an internal source address.)
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Refer to Azure Controls.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -227,7 +227,7 @@ Other system components may provide firewall functionality, as long as they meet
 **1.3.4** Do not allow unauthorized outbound traffic from the cardholder data environment to the Internet.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -241,12 +241,12 @@ Other system components may provide firewall functionality, as long as they meet
 **1.3.5** Permit only “established” connections into the network.
 
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure implements network filtering to prevent spoofed traffic and restrict incoming and outgoing traffic to trusted platform components. The Microsoft Azure network is segregated to separate customer traffic from management traffic. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Refer to Azure Controls|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -255,7 +255,7 @@ Other system components may provide firewall functionality, as long as they meet
 **1.3.6** Place system components that store cardholder data (such as a database) in an internal network zone, segregated from the DMZ and other untrusted networks.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -277,7 +277,7 @@ unauthorized parties.
 - Internal use of RFC1918 address space instead of registered addresses.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -293,12 +293,12 @@ unauthorized parties.
 - Personal firewall software is actively running.
 - Personal firewall software is not alterable by users of mobile and/or employee-owned devices.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not provide protection of end user devices. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore does not provide protection of end user devices. [Microsoft Intune](https://www.microsoft.com/en-us/cloud-platform/microsoft-intune) can be used to manage the mobile devices your workforce uses to access company data.|
 
 
 
@@ -306,7 +306,7 @@ unauthorized parties.
 
 **1.5** Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

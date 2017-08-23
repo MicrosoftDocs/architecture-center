@@ -11,7 +11,7 @@ Malicious individuals (external and internal to an entity) often use vendor defa
 **2.1** Always change vendor-supplied defaults and remove or disable unnecessary default accounts **before** installing a system on the network.
 This applies to ALL default passwords, including but not limited to those used by operating systems, software that provides security services, application and system accounts, point-of-sale (POS) terminals, Simple Network Management Protocol (SNMP) community strings, etc.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -24,7 +24,7 @@ This applies to ALL default passwords, including but not limited to those used b
 
 **2.1.1** For wireless environments connected to the cardholder data environment or transmitting cardholder data, change ALL wireless vendor defaults at installation, including but not limited to default wireless encryption keys, passwords, and SNMP community strings.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -42,12 +42,12 @@ Sources of industry-accepted system hardening standards may include, but are not
 - SysAdmin Audit Network Security (SANS) Institute
 - National Institute of Standards Technology (NIST)
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | For Microsoft Azure, the OSSC Technical Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides hardening of all services in scope for the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides hardening of all services in scope for the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).|
 
 
 
@@ -57,7 +57,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 > **Note:** Where virtualization technologies are in use, implement only one primary function per virtual system component.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -70,7 +70,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 **2.2.2** Enable only necessary services, protocols, daemons, etc., as required for the function of the system.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -88,7 +88,7 @@ requirements in Appendix A2 must be
 completed.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ completed.
 
 **2.2.4** Configure system security parameters to prevent misuse.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -114,7 +114,7 @@ completed.
 
 **2.2.5** Remove all unnecessary functionality, such as scripts, drivers, features, subsystems, file systems, and unnecessary web servers.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -129,12 +129,12 @@ completed.
 
 > **Note:** Where SSL/early TLS is used, the requirements in Appendix A2 must be completed.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure ensures the use of strong cryptography are enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the blueprint.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Microsoft&nbsp;Azure** | Microsoft Azure ensures the use of strong cryptography is  enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
 
 
 
@@ -142,7 +142,7 @@ completed.
 
 **2.4** Maintain an inventory of system components that are in scope for PCI DSS.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -155,7 +155,7 @@ completed.
 
 **2.5** Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -168,7 +168,7 @@ completed.
 
 **2.6** Shared hosting providers must protect each entity’s hosted environment and cardholder data. These providers must meet specific requirements as detailed in *Appendix A: Additional PCI DSS Requirements for Shared Hosting Providers.*
 
-**Responsibilities: `Not Applicable`**
+**Responsibilities:&nbsp;&nbsp;`Not Applicable`**
 
 |||
 |---|---|

@@ -5,7 +5,7 @@
   items:
   - name: Overview
     href: index.md
-  - name: Failure mode analysis
+  - name: FAQs
     href: pci-faq.md
 
   - name: PCI DSS Requirements

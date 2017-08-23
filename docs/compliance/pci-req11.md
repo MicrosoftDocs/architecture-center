@@ -13,7 +13,7 @@ Vulnerabilities are being discovered continually by malicious individuals and re
 Whichever methods are used, they must be sufficient to detect and identify both authorized and unauthorized devices.
 
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -26,7 +26,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.1.1** Maintain an inventory of authorized wireless access points including a documented business justification.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -40,7 +40,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 **11.1.2** Implement incident response procedures in the event unauthorized wireless access points are detected.
 
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
@@ -56,12 +56,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 > For initial PCI DSS compliance, it is not required that four quarters of passing scans be completed if the assessor verifies 1) the most recent scan result was a passing scan, 2) the entity has documented policies and procedures requiring quarterly scanning, and 3) vulnerabilities noted in the scan results have been corrected as shown in a re-scan(s). For subsequent years after the initial PCI DSS review, four quarters of passing scans must have occurred.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure performs quarterly internal and external vulnerability scans. Scans are performed by qualified personnel. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations<br /><br />) provide vulnerability information and remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
 
 
 
@@ -69,12 +69,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.2.1** Perform quarterly internal vulnerability scans. Address vulnerabilities and perform rescans to verify all “high risk” vulnerabilities are resolved in accordance with the entity’s vulnerability ranking (per Requirement 6.1). Scans must be performed by qualified personnel.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure performs scans for vulnerabilities on in-scope underlying infrastructure. Micorsoft Azure implements vulnerability scanning on server operating systems, databases, and network devices with the appropriate vulnerability scanning tools. Azure web applications are scanned with appropriate industry scanning solutions. Vulnerability scans are performed on a quarterly basis.<br /><br />Rescans are performed as needed against all systems, until all “high-risk” vulnerabilities (as identified in Requirement 6.1) are resolved. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations<br /><br />) provide vulnerability information and remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
 
 
 
@@ -84,7 +84,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 > **Note:** Quarterly external vulnerability scans must be performed by an Approved Scanning Vendor (ASV), approved by the Payment Card Industry Security Standards Council (PCI SSC).
 > Refer to the ASV Program Guide published on the PCI SSC website for scan customer responsibilities, scan preparation, etc.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -97,7 +97,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.2.3** Perform internal and external scans, and rescans as needed, after any significant change. Scans must be performed by qualified personnel.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -118,12 +118,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 - Includes review and consideration of threats and vulnerabilities experienced in the last 12 months
 - Specifies retention of penetration testing results and remediation activities results
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure validates services using third party penetration testing based upon the OWASP (Open Web Application Security Project) top ten using CREST-certified testers. The results of testing are tracked through a risk register, which is audited and reviewed on a regular basis to ensure compliance to  security practices. <br /><br />Microsoft also uses Red Teaming against Microsoft-managed infrastructure, services and applications. No end-customer data is deliberately targeted during Red Teaming and live site penetration testing. The tests are against Microsoft Azure infrastructure and platforms as well as Microsoft’s own applications and data. Customer tenants, applications and data hosted in Azure are never targeted.<br /><br />Microsoft Azure has employed an independent assessor to develop a system assessment plan and conduct a controls assessment. Controls assessments are performed annually and the results are reported to relevant parties. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations<br /><br />) provide vulnerability information and remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
 
 
 
@@ -131,12 +131,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.3.1** Perform *external* penetration testing at least annually and after any significant infrastructure or application upgrade or modification (such as an operating system upgrade, a sub-network added to the environment, or a web server added to the environment).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 11.3](#pci-dss-requirement-11-3). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations<br /><br />) provide vulnerability information and remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
 
 
 
@@ -144,12 +144,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.3.2** Perform *internal* penetration testing at least annually and after any significant infrastructure or application upgrade or modification (such as an operating system upgrade, a sub-network added to the environment, or a web server added to the environment).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure contracts with independent assessors to perform penetration testing of the  Microsoft Azure boundary. Red-Team exercises are also routinely performed and results used to make security improvements. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediations.|
 
 
 
@@ -157,12 +157,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.3.3** Exploitable vulnerabilities found during penetration testing are corrected and testing is repeated to verify the corrections.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Procedures have been established to monitor the Microsoft Azure platform components for known security vulnerabilities. <br /><br /><br /><br />Each quarter targeted comprehensive security vulnerability scanning against prioritized components of the Azure production environment is performed to identify security vulnerabilities. Results are reported to stakeholders and remediation is tracked by the team through closure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
 
 
 
@@ -170,12 +170,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.3.4** If segmentation is used to isolate the CDE from other networks, perform penetration tests at least annually and after any changes to segmentation controls/methods to verify that the segmentation methods are operational and effective, and isolate all out-of-scope systems from systems in the CDE.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Procedures have been established to monitor the Microsoft Azure platform components for known security vulnerabilities. <br /><br /><br /><br />Each quarter targeted comprehensive security vulnerability scanning against prioritized components of the Azure production environment is performed to identify security vulnerabilities. Results are reported to stakeholders and remediation is tracked by the team through closure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
 
 
 
@@ -185,12 +185,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 11.3.4](#pci-dss-requirement-11-3-4). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations), which provide vulnerability information and remediations, have been used to ensure that all outstanding issues were remediated for the Contoso Webstore demo CDE.|
 
 
 
@@ -199,12 +199,12 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 **11.4** Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. Monitor all traffic at the perimeter of the cardholder data environment as well as at critical points in the cardholder data environment, and alert personnel to suspected compromises.
 Keep all intrusion-detection and prevention engines, baselines, and signatures up to date.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure conducts real-time analysis of events within its operational environment and IDS systems generate near real-time alerts about events that could potentially compromise the system.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS service, and network intrusion detection and prevention refer to Azure's responsibility.  Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide intrusion alerting and  remediations.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS service, and network intrusion detection and prevention refer to Azure's responsibility.  [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide intrusion alerting and  remediations.|
 
 
 
@@ -213,12 +213,12 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 **11.5** Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. 
 > **Note:** For change-detection purposes, critical files are usually those that do not regularly change, but the modification of which could indicate a system compromise or risk of compromise. Change-detection mechanisms such as file-integrity monitoring products usually come pre-configured with critical files for the related operating system. Other critical files, such as those for custom applications, must be evaluated and defined by the entity (that is, the merchant or service provider).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure maintains and notifies customers of potential changes and events that may impact security or availability of the services through an online Service Dashboard. Changes to the security commitments and security obligations of Microsoft Azure customers are updated on the Microsoft Azure website in a timely manner.<br /><br /><br /><br />Installation or changes to software on Microsoft Azure production environment is restricted to authorized administration personnel and follows change management procedures. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore demo is a PaaS service and change detection has been implementation using OMS<br /><br />-   Activity Log Analytics https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs <br /><br />-   Azure Networking Analytics https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json <br /><br />-   Azure SQL Analytics<br /><br />-   Change Tracking https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-change-tracking?toc=%2fazure%2foperations-management-suite%2ftoc.json <br /><br />-   Key Vault Analytics https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault?toc=%2fazure%2foperations-management-suite%2ftoc.json <br /><br />-   Service Map] https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-service-map <br /><br />-   Security and Audit https://www.microsoft.com/en-us/cloud-platform/security-and-compliance <br /><br />-   Antimalware https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-malware?toc=%2fazure%2foperations-management-suite%2ftoc.json <br /><br />-   Update Management https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-solution-update-management <br /><br /><br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore demo is a PaaS service and change detection has been implemented using OMS. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br />|
 
 
 
@@ -226,7 +226,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 **11.5.1** Implement a process to respond to any alerts generated by the change-detection solution.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -239,7 +239,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 **11.6** Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

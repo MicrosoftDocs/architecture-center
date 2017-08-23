@@ -10,12 +10,12 @@ Any physical access to data or systems that house cardholder data provides the o
 
 **9.1** Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for implementing, enforcing, and monitoring physical access security for data centers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -24,12 +24,12 @@ Any physical access to data or systems that house cardholder data provides the o
 **9.1.1** Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law.
 > **Note:** “Sensitive areas” refers to any data center, server room or any area that houses systems that store, process, or transmit cardholder data. This excludes public-facing areas where only point-of-sale terminals are present, such as the cashier areas in a retail store.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for implementing, enforcing, and monitoring CCTV and biometric access control mechanisms for data centers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -39,12 +39,12 @@ Any physical access to data or systems that house cardholder data provides the o
 
 For example, network jacks located in public areas and areas accessible to visitors could be disabled and only enabled when network access is explicitly authorized. Alternatively, processes could be implemented to ensure that visitors are escorted at all times in areas with active network jacks.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | There are no publicly accessible network jacks within the Microsoft Azure platform. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -52,12 +52,12 @@ For example, network jacks located in public areas and areas accessible to visit
 
 **9.1.3** Restrict physical access to wireless access points, gateways, handheld devices, networking/communications hardware, and telecommunication lines.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Physical access to Microsoft Azure network hardware is tightly controlled by access lists, multiple forms of authentication, physical barriers to entry, and requirement for business need to be approved for access to equipment. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -68,12 +68,12 @@ For example, network jacks located in public areas and areas accessible to visit
 - Changes to access requirements
 - Revoking or terminating onsite personnel and expired visitor identification (such as ID badges).
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for implementing, enforcing, and monitoring physical access security and FTE or contractor identification when visiting data centers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for implementing, enforcing, and monitoring physical access security and employee or contractor identification when visiting data centers. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -83,12 +83,12 @@ For example, network jacks located in public areas and areas accessible to visit
 - Access must be authorized and based on individual job function.
 - Access is revoked immediately upon termination, and all physical access mechanisms, such as keys, access cards, etc., are returned or disabled.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Access authorizations to Microsoft data centers is controlled using an authorized access list approved by the Data Center team based on the principle of least privilege. The access control list is reviewed, verified and updated quarterly.<br /><br /><br /><br />Microsoft Azure data centers utilize physical access devices such as perimeter gates, electronic access badge readers, biometric readers, man-traps/portals and anti-pass back devices. Access badge devices are continuously monitored. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Microsoft&nbsp;Azure** | Access authorizations to Microsoft data centers is controlled using an authorized access list approved by the Data Center team based on the principle of least privilege. The access control list is reviewed, verified and updated quarterly.<br /><br />Microsoft Azure data centers utilize physical access devices such as perimeter gates, electronic access badge readers, biometric readers, man-traps/portals, and anti-pass back devices. Access badge devices are continuously monitored. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -97,12 +97,12 @@ For example, network jacks located in public areas and areas accessible to visit
 **9.4** Implement procedures to identify and authorize visitors.
 Procedures should include the following:
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -111,12 +111,12 @@ Procedures should include the following:
 **9.4.1** Visitors are authorized before entering, and escorted at all times within, areas where cardholder data is processed or maintained.
 
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -124,12 +124,12 @@ Procedures should include the following:
 
 **9.4.2** Visitors are identified and given a badge or other identification that expires and that visibly distinguishes the visitors from onsite personnel.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft data center access must be pre-approved and authorized visitors are required to check-in with physical security at the point of arrival and provide a valid proof of ID before entry. Badges clearly indicate FTEs. Contractors and visitors receive temporary badges that must be surrendered upon departure from the facility. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Microsoft&nbsp;Azure** | Microsoft data center access must be pre-approved and authorized visitors are required to check-in with physical security at the point of arrival and provide a valid proof of ID before entry. Badges clearly indicate employees. Contractors and visitors receive temporary badges that must be surrendered upon departure from the facility. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -137,12 +137,12 @@ Procedures should include the following:
 
 **9.4.3** Visitors are asked to surrender the badge or identification before leaving the facility or at the date of expiration.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Visitors are required to surrender badges upon departure from any Microsoft facility. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -152,12 +152,12 @@ Procedures should include the following:
 Document the visitor’s name, the firm represented, and the onsite personnel authorizing physical access on the log.
 Retain this log for a minimum of three months, unless otherwise restricted by law.
 
-**Responsibilities: `Microsoft Azure Only`**
+**Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for maintaining a visitor log as a physical audit trail of visitor activity to the facility as well as computer rooms and data centers where cardholder data is stored or transmitted. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
 
@@ -165,12 +165,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.5** Physically secure all media.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -178,12 +178,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.5.1** Store media backups in a secure location, preferably an off-site facility, such as an alternate or backup site, or a commercial storage facility. Review the location’s security at least annually.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -191,12 +191,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.6** Maintain strict control over the internal or external distribution of any kind of media, including the following:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -204,12 +204,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.6.1** Classify media so the sensitivity of the data can be determined.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -217,12 +217,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.6.2** Send the media by secured courier or other delivery method that can be accurately tracked.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -230,12 +230,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.6.3** Ensure management approves any and all media that is moved from a secured area (including when media is distributed to individuals).
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -243,12 +243,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.7** Maintain strict control over the storage and accessibility of media.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -257,12 +257,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 **9.7.1** Properly maintain inventory logs of all media and conduct media inventories at least annually.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -270,12 +270,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.8** Destroy media when it is no longer needed for business or legal reasons as follows:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -283,12 +283,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.8.1** Shred, incinerate, or pulp hard-copy materials so that cardholder data cannot be reconstructed. Secure storage containers used for materials that are to be destroyed.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Microsoft SQL Server. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
 
 
 
@@ -296,12 +296,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.8.2** Render cardholder data on electronic media unrecoverable so that cardholder data cannot be reconstructed.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Data destruction techniques vary depending on the type of data object being destroyed, whether it be subscriptions, storage, virtual machines, or databases. In the Microsoft Azure multi-tenant environment, careful attention is taken to ensure that one customer’s data is not allowed to either “leak” into another customer’s data, or when a customer deletes data, no other customer (including, in most cases, the customer who once owned the data) can gain access to that deleted data.<br /><br /><br /><br />Microsoft Azure follows NIST 800-88 Guidelines on Media Sanitization, which address the  principal concern of ensuring that data is not unintentionally released.  These guidelines encompass both electronic and physical sanitization. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a script to remove and wipe all data and services. The CleanUpDeployment.ps1 script can be used to remove the Contoso Webstore service and data stores, including the sample CHD.|
+| **Microsoft&nbsp;Azure** | Data destruction techniques vary depending on the type of data object being destroyed, whether it be subscriptions, storage, virtual machines, or databases. In the Microsoft Azure multi-tenant environment, careful attention is taken to ensure that one customer’s data is not allowed to either “leak” into another customer’s data, or when a customer deletes data, no other customer (including, in most cases, the customer who once owned the data) can gain access to that deleted data.<br /><br />Microsoft Azure follows NIST 800-88 Guidelines on Media Sanitization, which address the  principal concern of ensuring that data is not unintentionally released.  These guidelines encompass both electronic and physical sanitization. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore can be deleted entirely by deleting the Resource Group used during deployment.|
 
 
 
@@ -310,12 +310,12 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 **9.9** Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.
 > **Note:** These requirements apply to card-reading devices used in card-present transactions (that is, card swipe or dip) at the point of sale. This requirement is not intended to apply to manual key-entry components such as computer keyboards and POS keypads. 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - App Service Environment](reference.md#operations-management-suite).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).|
 
 
 
@@ -326,7 +326,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 - Location of device (for example, the address of the site or facility where the device is located)
 - Device serial number or other method of unique identification.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -340,7 +340,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 **9.9.2** Periodically inspect device surfaces to detect tampering (for example, addition of card skimmers to devices), or substitution (for example, by checking the serial number or other device characteristics to verify it has not been swapped with a fraudulent device).
 > **Note:** Examples of signs that a device might have been tampered with or substituted include unexpected attachments or cables plugged into the device, missing or changed security labels, broken or differently colored casing, or changes to the serial number or other external markings.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -357,7 +357,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 - Be aware of suspicious behavior around devices (for example, attempts by unknown persons to unplug or open devices).
 - Report suspicious behavior and indications of device tampering or substitution to appropriate personnel (for example, to a manager or security officer).
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -370,7 +370,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 **9.10** Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

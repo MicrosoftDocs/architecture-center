@@ -10,7 +10,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 **12.1** Establish, publish, maintain, and disseminate a security policy.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -23,7 +23,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 **12.1.1** Review the security policy at least annually and update the policy when the environment changes.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -40,7 +40,7 @@ A strong security policy sets the security tone for the whole entity and informs
 - Results in a formal, documented analysis of risk. 
 > Examples of risk-assessment methodologies include but are not limited to OCTAVE, ISO 27005, and NIST SP 800-30.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -55,7 +55,7 @@ A strong security policy sets the security tone for the whole entity and informs
 > **Note:** Examples of critical technologies include, but are not limited to, remote access and wireless technologies, laptops, tablets, removable electronic media, e-mail usage and Internet usage.
 Ensure these usage policies require the following:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -68,7 +68,7 @@ Ensure these usage policies require the following:
 
 **12.3.1** Explicit approval by authorized parties
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -81,7 +81,7 @@ Ensure these usage policies require the following:
 
 **12.3.2** Authentication for use of the technology
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -94,7 +94,7 @@ Ensure these usage policies require the following:
 
 **12.3.3** A list of all such devices and personnel with access
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -107,7 +107,7 @@ Ensure these usage policies require the following:
 
 **12.3.4** A method to accurately and readily determine owner, contact information, and purpose (for example, labeling, coding, and/or inventorying of devices)
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -120,7 +120,7 @@ Ensure these usage policies require the following:
 
 **12.3.5** Acceptable uses of the technology
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -133,7 +133,7 @@ Ensure these usage policies require the following:
 
 **12.3.6** Acceptable network locations for the technologies
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -146,7 +146,7 @@ Ensure these usage policies require the following:
 
 **12.3.7** List of company-approved products
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -159,7 +159,7 @@ Ensure these usage policies require the following:
 
 **12.3.8** Automatic disconnect of sessions for remote-access technologies after a specific period of inactivity
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -172,7 +172,7 @@ Ensure these usage policies require the following:
 
 **12.3.9** Activation of remote-access technologies for vendors and business partners only when needed by vendors and business partners, with immediate deactivation after use
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -186,7 +186,7 @@ Ensure these usage policies require the following:
 **12.3.10** For personnel accessing cardholder data via remote-access technologies, prohibit the copying, moving, and storage of cardholder data onto local hard drives and removable electronic media, unless explicitly authorized for a defined business need.
 Where there is an authorized business need, the usage policies must require the data be protected in accordance with all applicable PCI DSS Requirements.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.4** Ensure that the security policy and procedures clearly define information security responsibilities for all personnel.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -212,10 +212,10 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.4.1** Additional requirement for service providers only: Executive management shall establish responsibility for the protection of cardholder data and a PCI DSS compliance program to include:
 - Overall accountability for maintaining PCI DSS compliance
-- Defining a charter for a PCI DSS compliance program and communication to executive management
+- Defining a charter for a PCI DSS compliance program and communication to executive management 
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -228,7 +228,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5** Assign to an individual or team the following information security management responsibilities:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5.1** Establish, document, and distribute security policies and procedures.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -254,7 +254,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5.2** Monitor and analyze security alerts and information, and distribute to appropriate personnel.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -267,7 +267,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5.3** Establish, document, and distribute security incident response and escalation procedures to ensure timely and effective handling of all situations.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -280,7 +280,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5.4** Administer user accounts, including additions, deletions, and modifications.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -293,7 +293,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.5.5** Monitor and control all access to data.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -306,7 +306,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.6** Implement a formal security awareness program to make all personnel aware of the importance of cardholder data security.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -320,7 +320,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.6.1** Educate personnel upon hire and at least annually. 
 > **Note:** Methods can vary depending on the role of the personnel and their level of access to the cardholder data.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -333,7 +333,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.6.2** Require personnel to acknowledge at least annually that they have read and understood the security policy and procedures.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -347,7 +347,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.7** Screen potential personnel prior to hire to minimize the risk of attacks from internal sources. (Examples of background checks include previous employment history, criminal record, credit history, and reference checks.) 
 > **Note:** For those potential personnel to be hired for certain positions such as store cashiers who only have access to one card number at a time when facilitating a transaction, this requirement is a recommendation only.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -360,7 +360,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.8** Maintain and implement policies and procedures to manage service providers with whom cardholder data is shared, or that could affect the security of cardholder data, as follows:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -374,7 +374,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.8.1** Maintain a list of service providers including a description of the service provided.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -388,7 +388,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.8.2** Maintain a written agreement that includes an acknowledgement that the service providers are responsible for the security of cardholder data the service providers possess or otherwise store, process or transmit on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 > **Note:** The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -401,7 +401,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.8.3** Ensure there is an established process for engaging service providers including proper due diligence prior to engagement.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -414,7 +414,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.8.4** Maintain a program to monitor service providers’ PCI DSS compliance status at least annually.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -427,12 +427,12 @@ Where there is an authorized business need, the usage policies must require the 
 
 **12.8.5** Maintain information about which PCI DSS requirements are managed by each service provider, and which are managed by the entity.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for retaining a copy of this Responsibility Summary Matrix, which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for retaining a copy of the Responsibility Summary Matrix (http://aka.ms/pci32matrix), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
 
 
 
@@ -441,7 +441,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.9** Additional requirement for service providers only: Service providers acknowledge in writing to customers that they are responsible for the security of cardholder data the service provider possesses or otherwise stores, processes, or transmits on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 Note: The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -454,7 +454,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 
 **12.10** Implement an incident response plan. Be prepared to respond immediately to a system breach.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -474,7 +474,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 - Coverage and responses of all critical system components
 - Reference or inclusion of incident response procedures from the payment brands.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -488,7 +488,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 **12.10.2** Review and test the plan, including all elements listed in Requirement 12.10.1, at least annually.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -501,7 +501,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 
 **12.10.3** Designate specific personnel to be available on a 24/7 basis to respond to alerts.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -514,7 +514,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 
 **12.10.4** Provide appropriate training to staff with security breach response responsibilities.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -527,7 +527,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 
 **12.10.5** Include alerts from security monitoring systems, including but not limited to intrusion-detection, intrusion-prevention, firewalls, and file-integrity monitoring systems.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -540,7 +540,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 
 **12.10.6** Develop a process to modify and evolve the incident response plan according to lessons learned and to incorporate industry developments.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -558,11 +558,11 @@ Reviews must cover the following processes:
 - Firewall rule-set reviews
 - Applying configuration standards to new systems
 - Responding to security alerts
-- Change management processes
+- Change management processes 
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -575,11 +575,11 @@ Reviews must cover the following processes:
 
 **12.11.1** Additional requirement for service providers only: Maintain documentation of quarterly review process to include:
 - Documenting results of the reviews
-- Review and sign-off of results by personnel assigned responsibility for the PCI DSS compliance program
+- Review and sign-off of results by personnel assigned responsibility for the PCI DSS compliance program 
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|

@@ -10,7 +10,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 **5.1** Deploy anti-virus software on all systems commonly affected by malicious software (particularly personal computers and servers).
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -23,7 +23,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 **5.1.1** Ensure that anti-virus programs are capable of detecting, removing, and protecting against all known types of malicious software.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -36,7 +36,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 **5.1.2** For systems considered to be not commonly affected by malicious software, perform periodic evaluations to identify and evaluate evolving malware threats in order to confirm whether such systems continue to not require anti-virus software.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -52,7 +52,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 - Perform periodic scans
 - Generate audit logs which are retained per PCI DSS Requirement 10.7.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -67,7 +67,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 > **Note:** Anti-virus solutions may be temporarily disabled only if there is legitimate technical need, as authorized by management on a case-by-case basis. If anti-virus protection needs to be disabled for a specific purpose, it must be formally authorized. Additional security measures may also need to be implemented for the period of time during which anti-virus protection is not active.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
@@ -80,7 +80,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 **5.4** Ensure that security policies and operational procedures for protecting systems against malware are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|

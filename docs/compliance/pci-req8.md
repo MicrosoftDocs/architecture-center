@@ -13,12 +13,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1** Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides documentation and details the correct usage of administrators for the sample deployment.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides provides a use case and a descriptionforthe correct usage of administrators for the sample deployment.|
 
 
 
@@ -26,12 +26,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.1** Assign all users a unique ID before allowing them to access system components or cardholder data.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID.<br /><br />[Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
 
 
 
@@ -39,12 +39,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.2** Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID.<br /><br />[Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
 
 
 
@@ -52,12 +52,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.3** Immediately revoke access for any terminated users.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes Azure Active Directory for user management. Revocation of users can be done in Active directory.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes Azure Active Directory for user management. Revocation of users can be done in Active Directory.|
 
 
 
@@ -65,12 +65,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.4** Remove/disable inactive user accounts within 90 days.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes Azure Active Directory for user management. Revocation of users can be done in Active directory.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire in 90 days.|
 
 
 
@@ -80,12 +80,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 - Enabled only during the time period needed and disabled when not in use.
 - Monitored when in use.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published, and communicated to Microsoft Azure. The Information Security Policy requires that access to Microsoft Azure assets to be granted based on business justification, with the asset owner's authorization and limited based on "need-to-know" and "least-privilege" principles. In addition, the policy also addresses requirements for access management lifecycle including access provisioning, authentication, access authorization, removal of access rights, and periodic access reviews.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation.<br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
 
 
 
@@ -93,7 +93,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.6** Limit repeated access attempts by locking out the user ID after not more than six attempts.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -106,7 +106,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.7** Set the lockout duration to a minimum of 30 minutes or until an administrator enables the user ID.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -119,7 +119,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.1.8** If a session has been idle for more than 15 minutes, require the user to re-authenticate to re-activate the terminal or session.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -135,7 +135,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 - Something you have, such as a token device or smart card
 - Something you are, such as a biometric.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -148,12 +148,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 **8.2.1** Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](reference.md#encryption).<br /><br />|
 
 
 
@@ -162,12 +162,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 **8.2.2** Verify user identity before modifying any authentication credential—for example, performing password resets, provisioning new tokens, or generating new keys.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
 
 
 
@@ -178,12 +178,12 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 - Contain both numeric and alphabetic characters.
 Alternatively, the passwords/passphrases must have complexity and strength at least equivalent to the parameters specified above.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide.|
 
 
 
@@ -191,12 +191,12 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 **8.2.4** Change user passwords/passphrases at least once every 90 days.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire at least once every 90 days.|
 
 
 
@@ -204,12 +204,12 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 **8.2.5** Do not allow an individual to submit a new password/passphrase that is the same as any of the last four passwords/passphrases he or she has used.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
 
 
 
@@ -217,12 +217,12 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 **8.2.6** Set passwords/passphrases for first-time use and upon reset to a unique value for each user, and change immediately after the first use.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all users in Contoso Webstore enforce a strong password requirement, details of the password requirements are documented in the deployment guide. Durring installation strong passwords are enforced. <br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
 
 
 
@@ -234,12 +234,12 @@ passwords) is not considered multi-factor
 authentication.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Cotoso Webstore assigns only two users during the deployment. The users provided are admin, and sqladmin, users are edna, and chris. TFA is not implemented for the demo.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -248,12 +248,12 @@ authentication.
 **8.3.1** Incorporate multi-factor authentication for all non-console access into the CDE for personnel with administrative access.
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -262,12 +262,12 @@ authentication.
 **8.3.2** Incorporate multi-factor authentication for all remote network access (both user and administrator, and including third-party access for support or maintenance) originating from outside the entity’s network.
 
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -279,7 +279,7 @@ authentication.
 - Instructions not to reuse previously used passwords
 - Instructions to change passwords if there is any suspicion the password could be compromised.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
@@ -295,26 +295,26 @@ authentication.
 - Shared user IDs do not exist for system administration and other critical functions.
 - Shared and generic user IDs are not used to administer any system components.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Cotoso Webstore assigns only two users during the deployment. The users provided are admin, and sqladmin, users are edna, and chris. TFA is not implemented for the demo.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
 #### PCI DSS Requirement 8.5.1
 
 **8.5.1** **Additional requirement for service providers only:** Service providers with remote access to customer premises (for example, for support of POS systems or servers) must use a unique authentication credential (such as a password/phrase) for each customer. 
-Note: This requirement is not intended to apply to shared hosting providers accessing their own hosting environment, where multiple customer environments are hosted. 
+> **Note:** This requirement is not intended to apply to shared hosting providers accessing their own hosting environment, where multiple customer environments are hosted.
 
-**Responsibilities: `UNKNOWN`**
+**Responsibilities:&nbsp;&nbsp;`Not Applicable`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable for Microsoft Azure customers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable for Microsoft Azure customers.|
 
 
 
@@ -324,12 +324,12 @@ Note: This requirement is not intended to apply to shared hosting providers acce
 - Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
 - Physical and/or logical controls must be in place to ensure only the intended account can use that mechanism to gain access.
 
-**Responsibilities: `Shared`**
+**Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore assigns only two users during the deployment. The users provided are admin, and sqladmin, users are edna, and chris. All access is managed via [Azure Key Vault] (https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault] (https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
 
 
 
@@ -340,12 +340,12 @@ Note: This requirement is not intended to apply to shared hosting providers acce
 - Only database administrators have the ability to directly access or query databases.
 - Application IDs for database applications can only be used by the applications (and not by individual users or other non-application processes).
 
-**Responsibilities: `Deployment of all CHD data for Contoso Webstoreis protected with Azure Key Vault, and encryption of records outlined in the deployment documentation.`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Deployment of all CHD data for Contoso Webstoreis protected with Azure Key Vault, and encryption of records outlined in the deployment documentation.<br /><br /><br /><br />Azure Key Vault https://azure.microsoft.com/en-us/services/key-vault/  helps safeguard cryptographic keys and secrets used by cloud applications and services. Stores<br /><br />Keys- SQL DB Column Encryption keys  customer managed keys <br /><br />Secrets - Bitlocker keys for Azure Disk Encryption<br /><br /><br /><br />The Contoso Webstore includes identity management capabilities. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore protects all cardholder data with Azure Key Vault, and encryption of records is outlined in the deployment documentation. For more information, see [PCI Guidance - Encryption](reference.md#encryption).<br /><br />|
 
 
 
@@ -353,7 +353,7 @@ Note: This requirement is not intended to apply to shared hosting providers acce
 
 **8.8** Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.
 
-**Responsibilities: `Customer Only`**
+**Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
