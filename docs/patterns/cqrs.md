@@ -231,6 +231,8 @@ Also notice how the `IProductsDomain` interface contains methods that have a mea
 
 The following patterns and guidance are useful when implementing this pattern:
 
+- For a comparison of CQRS with other architectural styles, see [Architecture styles](/azure/architecture/guide/architecture-styles/) and [CQRS architecture style](/azure/architecture/guide/architecture-styles/cqrs).
+
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 
 - [Data Partitioning Guidance](https://msdn.microsoft.com/library/dn589795.aspx). Describes how the read and write data stores used in the CQRS pattern can be divided into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
