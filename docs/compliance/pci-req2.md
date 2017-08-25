@@ -1,10 +1,10 @@
-﻿# Build and Maintain a Secure Network and Systems
+﻿## PCI DSS Requirement 2: <br /> Do not use vendor-supplied defaults for system passwords and other security parameters  
 
-## PCI DSS Requirement 2: Do not use vendor-supplied defaults for system passwords and other security parameters  
-
-Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
+### [Build and Maintain a Secure Network and Systems]
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+
+Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
 
 ### PCI DSS Requirement 2.1
 

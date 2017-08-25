@@ -1,11 +1,11 @@
-﻿# Implement Strong Access Control Measures
+﻿## PCI DSS Requirement 7: <br /> Restrict access to cardholder data by business need to know  
 
-## PCI DSS Requirement 7: Restrict access to cardholder data by business need to know  
+### [Implement Strong Access Control Measures]
+
+> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 To ensure critical data can only be accessed by authorized personnel, systems and processes must be in place to limit access based on need to know and according to job responsibilities.
 “Need to know” is when access rights are granted to only the least amount of data and privileges needed to perform a job.
-
-> **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 ### PCI DSS Requirement 7.1
 

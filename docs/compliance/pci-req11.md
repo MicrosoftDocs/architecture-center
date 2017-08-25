@@ -1,10 +1,10 @@
-﻿# Regularly Monitor and Test Networks
+﻿## PCI DSS Requirement 11: <br /> Regularly test security systems and processes.  
 
-## PCI DSS Requirement 11: Regularly test security systems and processes.  
-
-Vulnerabilities are being discovered continually by malicious individuals and researchers, and being introduced by new software. System components, processes, and custom software should be tested frequently to ensure security controls continue to reflect a changing environment.
+### [Regularly Monitor and Test Networks]
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
+
+Vulnerabilities are being discovered continually by malicious individuals and researchers, and being introduced by new software. System components, processes, and custom software should be tested frequently to ensure security controls continue to reflect a changing environment.
 
 ### PCI DSS Requirement 11.1
 

@@ -2,39 +2,29 @@
 
 ### PUBLIC PREVIEW BETA 1
 
-
-
 ## Description
-  
 
+The Azure blueprint solution is intended to simplify Azure adoption, showcase a commonly-used reference architecture, and provide guidance for deploying a secure and compliant PaaS solution for customers considering the complexities of storing sensitive payment card data.  This solution (developed jointly with Avyan Consulting, a Microsoft MVP partner) is designed to illustrate an end-to-end solution that can satisfy the needs of organizations seeking a cloud solution to reduce the burden or cost of deployment.
 
-The Azure blueprint solution is intended to simplify azure adoption, showcase commonly used reference architecture, and teach how to deploy a secure and compliant PaaS solution for customer considering the complexities of storing sensitive payment card related data. 
-The solution joint developed with Avyan consulting (Microsoft MVP partner) was designed to illustrate an end to end solution that can satisfy the needs in organizations that maybe looking for a cloud solution to reduce the burden, or cost of deployment.
-This solution enables the ability to:
-
--	Collect, store, and retrieve payment card data while complying with stringent Payment Card Industry, Data Security Standards (PCI DSS 3.2) requirements.
-
-This solution illustrates the management of credit card data including card number, expiration, CVC (Card Verification Check) numbers securely in a four-tier secure and compliant solution could be deployed as an end-to-end Azure solution.
-
+This solution enables collecting, storing, and retrieving payment card data while complying with stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) requirements. This solution illustrates the management of credit card data including card number, expiration, CVV (Card Verification Value) numbers securely in a multi-tier secure and compliant solution that can be deployed as an end-to-end Azure solution.
 
 ![](images/4tier.png)
 
+### Solution Components
 
-### Components of this solution
+- **Reference architecture**. The reference architecture shows the design used for the Contoso webstore solution.
+- **Azure Resource Manager templates**. In this deployment, JavaScript Object Notation (.JSON) files enable Microsoft Azure to automatically deploy the components of the reference architecture by providing configuration parameters during setup.
+- **PowerShell scripts**. The scripts created by [Avyan Consulting Corp](http://www.avyanconsulting.com/azureservices) help deploy the end-to-end solution. The scripts consist of:
+    - Module installation and Global administrator setup script installs and verifie that required PowerShell modules and Global adminisitrator are configured correctly.
+    - An installation PowerShell script that deploys the end-to-end solution, which includes the components (https://github.com/Microsoft/azure-sql-security-sample) built by the Microsoft SQL team. 
 
--   **Reference architecture**. The reference architecture provides the design that was used for the Contoso webstore solution.
--   **Azure Resource Manager templates**. In this deployment, JavaScript Object Notation (.JSON) files provide Microsoft Azure the ability to automatically deploy the components of the reference architecture after the configuration parameters are provided during setup.
--   **PowerShell scripts**. The scripts created by [Avyan Consulting Corp](http://www.avyanconsulting.com/azureservices) solution help set up the end-to-end solution. The scripts consist of:
-    -   Module installation, and Global administrator setup script script will install and verify that required PowerShell modules, and Global adminisitrator are configured correctly.
-    -   A installation PowerSHell script that deploys the end to end solution. that includes the components built (https://github.com/Microsoft/azure-sql-security-sample) built by the Microsoft SQL team. 
 
-	
-## DEPLOYING THE SOLUTION
+## Deploying the Solution
 
-The deployment of this sample requires few steps that all can be run using Microsoft PowerShell v5. To be able to connect to the website, it is required that you provide a custom domain name, such as contoso.com. This is enabled by using the '-customHostName' switch on step2. [Details to purchase, and enable a custom domain.](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app)
-A custom domain name is not required to successfully deploy the solution for it to run, however you will not be able to connect to the website for demonstration purposes.
+The deployment of this sample requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name, such as contoso.com. This is specified by using the '-customHostName' switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
+A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
-It is also highly advised that a clean installation of PowerShell be used to deploy the solution, or an understanding how to verify that your are running the latest modules required for the scripts to run correctly. For our example we use a Windows 10 VM that we log into, and run the following commands (note we are enabling the custom domain command)
+It is also highly recommended that a clean installation of PowerShell be used to deploy the solution, or verifying that you are using the latest modules required for the scripts to run correctly. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command).
 
 1. Install the required modules, and set up the administrator roles correctly.
 ```powershell
@@ -46,12 +36,9 @@ It is also highly advised that a clean installation of PowerShell be used to dep
 -installModules
  ```
  
+<a href="0-Setup-AdministrativeAccountAndPermission.md"> review the 0-Setup-AdministrativeAccountAndPermission for detailed usage instructions </a> 
 
- 
- <a href="0-Setup-AdministrativeAccountAndPermission.md"> review the 0-Setup-AdministrativeAccountAndPermission for detailed usage instructions </a> 
-
- 
- 2. Install the solution-update-management 
+2. Install the solution-update-management 
  ```powershell
 .\1-DeployAndConfigureAzureResources.ps1 
 -resourceGroupName contosowebstore
@@ -66,9 +53,7 @@ It is also highly advised that a clean installation of PowerShell be used to dep
 -enableADDomainPasswordPolicy 
 ```
 
-
 <a href="1-DeployAndConfigureAzureResources.md"> review the 1-DeployAndConfigureAzureResources for detailed usage instructions </a> 
-
 
 3. Deploy OMS logging and resources
  ```powershell
@@ -80,36 +65,24 @@ It is also highly advised that a clean installation of PowerShell be used to dep
 ```
 
 <a href="Payment Sample dataset.md"> review the 2-EnableOMSLoggingOnResources.ps1 or Payment Sample dataset.md for detailed usage instructions </a> 
-
-
-
-
 	
-## USER SCENARIO
+## User Scenario
 
-The Payment processing solution for PCI DSS 3.2 enablement will address the following use case -
+The payment processing solution for PCI DSS 3.2 enablement addresses the use case below.
 
-> This scenario illustrates how a fictitious webstore moved their payment card processing to a cloud based payment processing using Azure services, the solution addresses the collection of basic user information, and their payment information. The solution does not process, or resolve the purchase of the card holder data (CHD) 
-
-
+> This scenario illustrates how a fictitious webstore moved their payment card processing to a cloud based payment processing solution using Azure services. The solution addresses the collection of basic user information and their payment information. ** EDIT -> ** The solution does not process or resolve the purchase of the card holder data (CHD).
 
 ### Use Case
-A small webstore called, 'Contoso webstore' is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a  clerk to collect credit card payments from their customer.
+A small webstore called *Contoso Webstore* is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a clerk to collect credit card payments from their customers.
 
-The administrator is looking for a solution that can be quickly deployable to achieve his goals in illustrating a cloud born solution. He will use this proof-of-concept (POC) to discuss with his stakeholders how Azure can be used to accomplish:
+The administrator is looking for a solution that can be quickly deployed to achieve his goals in for a cloud-born solution. He will use this proof-of-concept (POC) to discuss with his stakeholders how Azure can be used to collect, store, and retrieve payment card data while complying with stringent Payment Card Industry Data Security Standard (PCI DSS) requirements.
 
--   Collect, store, and retrieve payment card data while complying with stringent Payment Card Industry, Data Security Standards (PCI DSS) requirements
+> You will be responsible for conducting appropriate security and compliance reviews of any solution built with the architecture used by this POC, as requirements may vary based on the specifics of your implementation and geography. PCI DSS requires that you work directly with an accredited Qualified Security Assessor to certify your production-ready solution.
 
+### Elements of the Proof of Concept (POC) Demo
 
-> You will be responsible for conducting appropriate security and compliance reviews of any
-solution built with the architecture used by this POC, as requirements may vary
-based on the specifics of your implementation and geography. PCI DSS requires
-that you work directly with an accredited Qualified Security Assessor to certify
-your production ready solution.
+The POC solution is designed with the following fictitious elements:
 
-### Elements of the Proof of Concept (POC), Demo
-
-The POC solution is designed with the following fictitious elements
 Domain site `contosowebstore.com`
 
 User roles used to illustrate the use case, and provide insight into the user interface.
@@ -122,12 +95,11 @@ User roles used to illustrate the use case, and provide insight into the user in
 | Name: |`Global Admin Azure PCI Samples`|
 |User type:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
+* The admin account cannot read credit card information unmasked. All actions are logged.
+* The admin account cannot manage or log into SQL Database.
+* The admin account can manage Active Directory and subscription.
 
-* admin cannot read credit card information unmasked. In addition, all actions are logged.
-* admin cannot manage or log into SQL database.
-* admin can manage active directory, and subscription
-
-#### Role: Sql Administrator
+#### Role: SQL Administrator
 
 |Item      |Example|
 |----------|------|
@@ -137,11 +109,8 @@ User roles used to illustrate the use case, and provide insight into the user in
 |Last name: |`PCI Samples`|
 |User type:| `Administrator`|
 
-
-* sqladmin cannot view unfiltered credit card information. In addition, all actions are logged.
-* sqladmin can manage SQL database.
-
-
+* The sqladmin account cannot view unfiltered credit card information. All actions are logged.
+* The sqladmin account can manage SQL database.
 
 #### Role: Clerk
 
@@ -153,21 +122,17 @@ User roles used to illustrate the use case, and provide insight into the user in
 |Last name:| `Benson`|
 | User type: |`Member`|
 
-Edna Benson is the receptonist, and business manager. She is responsible to ensure that customer information is accurate, and billing is completed. Edna is the user loged in for all interactions of the POC DEMO website. Edna's rightsare as followes: 
+Edna Benson is the receptionist and business manager. She is responsible for ensuring that customer information is accurate and billing is completed. Edna is the user logged in for all interactions with the POC Demo website. Edna has the following rights: 
 
-* Edna can Create, read customer information *
-* Edna will be able to modify customer information.
-* Edna can overwrite (or replace) credit card number, expiration, and CVC verification information.
+- Edna can create and read customer information
+- Edna can modify customer information.
+- Edna can overwrite or replace credit card number, expiration, and CVV information.
 
-
-> In the `Contoso webstore` Demo User Application, you will be logged in to is configured to use **Edna** and able to test the capabilities of the deployed environment.
-
-
-
+> In the Contoso Webstore Demo User Application, *EDIT ->* you will be logged in to is configured to use **Edna** and able to test the capabilities of the deployed environment.
 
 ### contosowebstore Azure pricing sample calculation
 
-The solution cost sample has a monthly fee structure and a use per hr. to
+The solution cost sample has a monthly fee structure and a use per hour to
 consider when sizing the solution. This example deployment **estimate** cost using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). The solution 
 consist of the following items:
 
@@ -190,53 +155,48 @@ consist of the following items:
 | | | | | **Annual Total  $5,684.04** |
  
 Disclaimer 
-All prices shown are in US Dollar ($). This estimate was created in April 2017 
+All prices shown are in US Dollars ($). This estimate was created in April 2017.
 
 This solution used the following Azure services (details to the deployment
-architecture are located in [DEPLOYMENT ARCHITECTURE](#deployment-architecture)):
+architecture are located in the [Deployment Architecture](#deployment-architecture) section.
 
-
->-   Application Gateway
->-   Azure Active Directory
->-   App Service Environment
->-   OMS Log Analytics
->-   Azure Key Vault
->-   Network Security Groups
->-   Azure SQL DB
->-   Azure Load Balancer
->-   Application Insights
->-   Azure Security Center
->-   Azure Web App
->-   Azure Automation
->-   Azure Automation Runbooks
->-   Azure DNS
->-   Azure Virtual Network
->-   Azure Virtual Machine
->-   Azure Resource Group and Policies
->-   Azure Blob Storage
->-   Azure Active Directory access control (RBAC)
-
+>- Application Gateway
+>- Azure Active Directory
+>- App Service Environment
+>- OMS Log Analytics
+>- Azure Key Vault
+>- Network Security Groups
+>- Azure SQL DB
+>- Azure Load Balancer
+>- Application Insights
+>- Azure Security Center
+>- Azure Web App
+>- Azure Automation
+>- Azure Automation Runbooks
+>- Azure DNS
+>- Azure Virtual Network
+>- Azure Virtual Machine
+>- Azure Resource Group and Policies
+>- Azure Blob Storage
+>- Azure Active Directory access control (RBAC)
 
 # Deployment Architecture
 
-The following section provides insight into the development, and implementation
-elements. The descriptions in this document’s deployment strategies apply to the
-following diagram:
+The following section provides insight into the development and implementation elements. The descriptions in this document’s deployment strategies apply to the following diagram:
 
 ![](images/Azure_PaaS_-_PCI_DSS_Reference_Architecture.png)
 
 ### Network Segmentation and Security
 
-
 #### Application Gateway
 
--   [End-to-End-SSL] (https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
--   [SSL Offload][DEPRECATED](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-portal)
--   [Disable TLS v1.0 and v1.1](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
--   [Web application firewall](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview)(WAF mode)
--   [Prevention mode](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-portal) with OWASP 3.0 ruleset
--   [Diagnostics logging](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
--   [Custom health probes](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
+- [End-to-End-SSL] (https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [SSL Offload][DEPRECATED](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-portal)
+- [Disable TLS v1.0 and v1.1](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [Web application firewall](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview)(WAF mode)
+- [Prevention mode](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-portal) with OWASP 3.0 ruleset
+- [Diagnostics logging](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
+- [Custom health probes](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
 
 #### Virtual network
 
@@ -244,31 +204,28 @@ following diagram:
 
 #### Network security groups (NSGs)
 
-Each of the network tiers have a dedicated NSG
+Each of the network tiers has a dedicated NSG.
 
--   A DMZ network security group for firewall and Application Gateway WAF
--   An NSG for management jumpbox (bastion host)
--   An NSG for the app service environment
+- A DMZ network security group for firewall and Application Gateway WAF
+- An NSG for the management jumpbox (bastion host)
+- An NSG for the app service environment
 
-Each of the NSGs have specific ports and protocols opened for the secure and
-correct working of the solution.
+Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution.
 
 In addition, the following configurations are enabled for each NSG
 
--   [Enabled diagnostics logs and events are stored in storage account](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)
--   [Connected OMS Log Analytics to the NSGs diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- [Enabled diagnostics logs and events are stored in storage account](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)
+- [Connected OMS Log Analytics to the NSGs diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### Subnets
 
--	Ensure each subnet is associated with its corresponding NSG
+- Ensure each subnet is associated with its corresponding NSG
 
 #### Custom domain SSL certificates
 
--	HTTPS traffic enabled using custom domain SSL certificate
+- HTTPS traffic enabled using custom domain SSL certificate
 
 ### Data at Rest
-
-
 
 To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:
 
@@ -279,21 +236,21 @@ To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.m
 
 A PaaS SQL Database instance was used to showcase  security measures.
 
--   [AD Authentication and Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
--   [Enabled Auditing logging](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
--   [Enabled Transparent Data Encryption](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
--   [Enabled SQL DB Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)(allowing for ASE worker pools and client IP management)
--   [Enabled Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started)
--   [Enabled Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
--	[Enabled Dynamic Data masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started)(using the post-deployment PowerShell script)
+- [AD Authentication and Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- [Enabled Auditing logging](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
+- [Enabled Transparent Data Encryption](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
+- [Enabled SQL DB Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)(allowing for ASE worker pools and client IP management)
+- [Enabled Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started)
+- [Enabled Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+-Enabled Dynamic Data masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started)(using the post-deployment PowerShell script)
 
 ### Logging and Auditing
 
 Logging using OMS, and Runbook to collect logs.
--   **Activity Logs**: Configure [Azure Activity Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) to provide insight into the operations that were performed on resources in your subscription.
--   **Diagnostic Logs:** [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs could include Windows event system logs, Azure Blob storage, tables, and queue logs.
--   **Firewall Logs:** The Application Gateway provides full diagnostics and access logs. Firewall logs are available for Application Gateway resources that have WAF enabled.
--   **Log Archiving:** All diagnostics logs are configured to write to a centralized and encrypted Azure storage account for archival and a defined retention period (2 days). Logs are then connected to Azure Log Analytics (OMS) for processing, storing, and dashboarding.
+- **Activity Logs**: Configure [Azure Activity Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) to provide insight into the operations that were performed on resources in your subscription.
+- **Diagnostic Logs:** [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs could include Windows event system logs, Azure Blob storage, tables, and queue logs.
+- **Firewall Logs:** The Application Gateway provides full diagnostics and access logs. Firewall logs are available for Application Gateway resources that have WAF enabled.
+- **Log Archiving:** All diagnostics logs are configured to write to a centralized and encrypted Azure storage account for archival and a defined retention period (2 days). Logs are then connected to Azure Log Analytics (OMS) for processing, storing, and dashboarding.
 
 ### Secrets Management
 
@@ -304,31 +261,28 @@ Azure [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) helps s
 * **Keys** - SQL DB Column Encryption keys (customer managed keys)
 * **Secrets** - Bitlocker keys for Azure Disk Encryption
 
-
-
 ### Identity Management
-
 
 #### Azure Active Directory
 
--	[Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) (Azure AD) is the multi-tenant cloud-based directory and identity management service from Microsoft.
+- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) (Azure AD) is the multi-tenant cloud-based directory and identity management service from Microsoft.
+- All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
 
--	All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
 #### Active Directory application
 
--	Authentication to the app is done through the [Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications) and associated service principals.
+- Authentication to the app is done through the [Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications) and associated service principals.
 
--	Also, the [SQL DB Column Encryption](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) is conducted using the AD app. Refer to [this sample](https://github.com/Microsoft/azure-sql-security-sample) from the Azure SQL DB team for more details.
--   Azure [Identity Protection] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) provides additional safeguards that can be implemented. such as detect potential vulnerabilities affecting your organization’s identities
-, configure automated responses to detected suspicious actions that are related to your organization’s identities, and investigate suspicious incidents and take appropriate action to resolve them.
+- Also, the [SQL DB Column Encryption](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) is conducted using the AD app. Refer to [this sample](https://github.com/Microsoft/azure-sql-security-sample) from the Azure SQL DB team for more details.
+
+- Azure [Identity Protection] (https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) provides additional safeguards that can be implemented. such as detect potential vulnerabilities affecting your organization’s identities, configure automated responses to detected suspicious actions that are related to your organization’s identities, and investigate suspicious incidents and take appropriate action to resolve them.
 
 #### Role-based Access Control
 
--Azure [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)(RBAC) enables precisely focused access management for Azure. Specific configurations exist for:
+- Azure [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)(RBAC) enables precisely focused access management for Azure. Specific configurations exist for:
 
--   Subscription access
+- Subscription access
 
--   Azure Key Vault access
+- Azure Key Vault access
 
 ### Web application and Compute
 
@@ -386,8 +340,6 @@ Center](https://azure.microsoft.com/en-us/services/security-center/), you get a 
 [Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)
 for Azure Cloud Services and Virtual Machines is real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems.
 
-
-
 ### Operations Management
 
 #### Application Insights
@@ -421,15 +373,9 @@ Default deployment is intended to provide for a clean chit of security center re
 
 Data Flow Diagram and sample threat model for Contoso webstore provided in the documents folder `./documents`
 
-  ![](images/Threat_Model.png)
-
-
-
-
-
+![](images/Threat_Model.png)
 
 # ACKNOWLEDGMENTS and DISCLAIMER
-
 
 *June 2017*
 
@@ -439,12 +385,9 @@ Data Flow Diagram and sample threat model for Contoso webstore provided in the d
 *NOTE: Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.*
 *The solution in this document is intended as a reference architecture pilot and should not be used as-is for production purposes.  Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.*
 
-*This solution was developed cooperatively by Microsoft and Avyan consulting.*
-
+*This solution was developed cooperatively by Microsoft and Avyan Consulting.*
 
 ### Authors of the document 
 
 * *Frank Simorjay (Microsoft)*  
 * *Gururaj Pandurangi (Avyan Consulting)*
-
-
