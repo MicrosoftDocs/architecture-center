@@ -1,7 +1,7 @@
 - name: Azure Architecture Center
   href: /azure/architecture
   
-- name: PCI DSS Guidance
+- name: Automated Foundational Architecture for PCI DSS-Compliant Environments 
   items:
   - name: Overview
     href: index.md
@@ -9,7 +9,7 @@
     href: pci-faq.md
   - name: PCI DSS Requirements
     items:
-      name: Requirements Overview
+    - name: Requirements Overview
       href: pci-requirements.md
     - name: Requirement 1 - Firewalls
       href: pci-req1.md
@@ -37,9 +37,9 @@
       href: pci-req12.md
   - name: Deployment Scripts
     items:
-      name: Script Details - Setup 
+    - name: Script Details - Setup 
       href: 0-Setup-AdministrativeAccountAndPermission.md
-      name: Script Details - Deployment
+    - name: Script Details - Deployment
       href: 1-DeployAndConfigureAzureResources.md
-      name: Script Details - Sample Dataset
+    - name: Script Details - Sample Dataset
       href: pci-sample-dataset.md

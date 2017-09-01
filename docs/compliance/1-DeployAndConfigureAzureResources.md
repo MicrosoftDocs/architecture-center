@@ -54,7 +54,7 @@ This command creates the required Azure accounts and generates a self-signed cer
     -enableADDomainPasswordPolicy
 ```
 
-This command creates the required Azure accounts and generates a self-signed certificate for ASE ILB and Application Gateway SSL endpoint, using a provided custom domain [EDIT ->] and setup password policy with 60 days.
+This command creates the required Azure accounts and generates a self-signed certificate for ASE ILB and Application Gateway SSL endpoint, using a provided custom domain and establishes a password policy for expiration in 60 days.
 
 ## Required Parameters
 

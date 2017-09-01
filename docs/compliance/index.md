@@ -79,7 +79,7 @@ For detailed usage instructions, see [Script Instructions - Payment Sample Datas
 
 The foundational architecture addresses the use case below.
 
-> This scenario illustrates how a fictitious webstore moved their payment card processing to a Azure-based solution. The solution handles collection of basic user information including payment data. ** [EDIT] -> ** The solution does not process or resolve the purchase of the card holder data (CHD).
+> This scenario illustrates how a fictitious webstore moved their payment card processing to a Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the Review and Guidance for Implementation document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
 
 ### Use Case
 A small webstore called *Contoso Webstore* is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a clerk to collect credit card payments from their customers.
@@ -137,7 +137,7 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 - Edna can modify customer information.
 - Edna can overwrite or replace credit card number, expiration, and CVV information.
 
-> In the Contoso Webstore demo website, *[EDIT] ->* you will be logged in to is configured to use **Edna** and able to test the capabilities of the deployed environment.
+> In the Contoso Webstore, the user is automatically as the **Edna** user for testing the capabilities of the deployed environment.
 
 ### Contoso Webstore - Azure pricing sample calculation
 
@@ -368,7 +368,7 @@ A data flow diagram (DFD) and sample threat model for the Contoso Webstore are a
 
 ## Disclaimer and Acknowledgements
 
-[EDIT] *June 2017*
+*September 2017*
 
 - This document is for informational purposes only. MICROSOFT AND AVYAN MAKE NO WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, AS TO THE INFORMATION IN THIS DOCUMENT. This document is provided “as-is.” Information and views expressed in this document, including URL and other Internet website references, may change without notice. Customers reading this document bear the risk of using it.  
 - This document does not provide customers with any legal rights to any intellectual property in any Microsoft or Avyan product or solutions.  
