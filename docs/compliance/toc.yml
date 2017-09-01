@@ -9,6 +9,7 @@
     href: pci-faq.md
 
   - name: PCI DSS Requirements
+    href: pci-requirements.md
     items:
     - name: Requirement 1 - Firewalls
       href: pci-req1.md
@@ -35,11 +36,11 @@
     - name: Requirement 12 - Policy
       href: pci-req12.md
 
-  -name: Deployment Scripts
+  - name: Deployment Scripts
+    items:
       name: Script Details - Setup 
       href: 0-Setup-AdministrativeAccountAndPermission.md
       name: Script Details - Deployment
       href: 1-DeployAndConfigureAzureResources.md
       name: Script Details - Sample Dataset
       href: pci-sample-dataset.md
-      

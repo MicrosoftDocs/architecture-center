@@ -179,3 +179,7 @@ If you are deploying this solution in an isolated environment which does not hav
     ` 10.10.0.73	www.contosowebstore.com	www.scm.contosowebstore.com`	
 
 Verify your connection for Kudu by browsing to your domain name, In our example, browse to: `http://www.contosowebstore.com`. Note that this verification will be limited until the post-deployment process is completed.
+
+
+
+[code-repo]: https://github.com/AvyanConsultingCorp/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
