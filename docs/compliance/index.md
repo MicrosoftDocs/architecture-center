@@ -79,7 +79,7 @@ For detailed usage instructions, see [Script Instructions - Payment Sample Datas
 
 The foundational architecture addresses the use case below.
 
-> This scenario illustrates how a fictitious webstore moved their payment card processing to a Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the Review and Guidance for Implementation document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
+> This scenario illustrates how a fictitious webstore moved their payment card processing to a Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the "Review and Guidance for Implementation" document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
 
 ### Use Case
 A small webstore called *Contoso Webstore* is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a clerk to collect credit card payments from their customers.
@@ -164,7 +164,7 @@ consist of the following items:
 | | | | | **Annual Total  $5,684.04** |
  
 Disclaimer 
-All prices shown are in US Dollars ($). This estimate was created in April 2017. [ADD GUIDANCE]
+All prices shown are in US Dollars ($). This estimate was created in April 2017. [EDIT: ADD GUIDANCE]
 
 This solution used the following Azure services (details to the deployment
 architecture are located in the [Deployment Architecture](#deployment-architecture) section).
@@ -187,7 +187,7 @@ architecture are located in the [Deployment Architecture](#deployment-architectu
 >- Azure Virtual Machine
 >- Azure Resource Group and Policies
 >- Azure Blob Storage
->- Azure Active Directory access control (RBAC)
+>- Azure Active Directory role-based access control (RBAC)
 
 ## Deployment Architecture
 
@@ -281,7 +281,7 @@ The following technologies provide identity management capabilities in the Azure
         - Subscription access is limited to the subscription administrator
         - Azure Key Vault access is restricted to all users
     
-### Web application and Compute
+### Web and Compute Resources
 
 #### Web Apps
 
@@ -292,7 +292,7 @@ The [Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) feat
 With [App
 Service](https://azure.microsoft.com/en-us/services/app-service/?b=16.52), develop powerful applications for any platform or device, faster than ever before. Meet rigorous performance, scalability, security, and compliance requirements using a single back end. [Additional reading about deploying ASE.](http://sabbour.me/how-to-run-an-app-service-behind-a-waf-enabled-application-gateway/)
 
-#### Virtual machine
+#### Virtual Machine
 
 As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases/changes that might be necessary, such as the ability to monitor WebApp using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect
 VM on port other than tcp 3389. 
@@ -323,7 +323,7 @@ Use of ASEs for this architecture allowed for the following controls/configurati
 - [WAF – Restrict Data](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Allow [SQL Database traffic](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-## Security and Malware Protection
+### Security and Malware Protection
 
 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.  
 
@@ -336,8 +336,7 @@ for Azure Cloud Services and Virtual Machines is real-time protection capability
 
 #### Application Insights
 
-Gain [actionable
-insights](https://azure.microsoft.com/en-us/services/application-insights/) through application performance management and instant analytics.
+Use [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) to gain actionable insights through application performance management and instant analytics.
 
 #### Log Analytics
 

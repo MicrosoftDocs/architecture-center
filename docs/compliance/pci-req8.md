@@ -1,8 +1,6 @@
 ﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
 ## PCI DSS Requirement 8: <br /> Identify and authenticate access to system components  
 
-### [Implement Strong Access Control Measures]
-
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Assigning a unique identification (ID) to each person with access ensures that each individual is uniquely accountable for their actions. When such accountability is in place, actions taken on critical data and systems are performed by, and can be traced to, known and authorized users and processes.

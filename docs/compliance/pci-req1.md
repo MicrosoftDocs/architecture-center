@@ -1,8 +1,6 @@
 ﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
 ## PCI DSS Requirement 1: <br /> Install and maintain a firewall configuration to protect cardholder data  
 
-### [Build and Maintain a Secure Network and Systems]
-
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
 Firewalls are devices that control computer traffic allowed between an entity’s networks (internal) and untrusted networks (external), as well as traffic into and out of more sensitive areas within an entity’s internal trusted networks. The cardholder data environment is an example of a more sensitive area within an entity’s trusted network.
