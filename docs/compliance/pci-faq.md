@@ -1,4 +1,6 @@
-# FAQ and Fixes
+# Automated Foundational Architecture for PCI DSS-Compliant Environments (v1)  
+
+## FAQ and Troubleshooting
 
 #### Why am I unable to login or run the PowerShell scripts with my Azure subscription user? 
 > You are required to create an Azure Active Directory (AAD) administrator as specified in the document. This is required because a subscription admin does not automatically receive DS or AAD credentials. This is a security feature that enables RBAC and role separation in Azure.
@@ -19,8 +21,6 @@ Microsoft offers the ability to create a domain and request an SSL certificate f
 This deployment assumes that the VIP address [ASE ILB >> Properties >> Virtual IP Address] assigned to ASE ILB is 10.0.3.8 (observed behavior). However, it might be changed to 10.0.3.9. If the application gateway backend health is listed as `unhealthy`, verify that the ASE ILB VIP address and application backend pool targets are the same. Update the application gateway backend pool targets with the ASE ILB VIP. (https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal#add-servers-to-backend-pools)
 #### How do I set up the administrator properly to use this solution?
 Review the 'Configure your global admin for the solution' section of the installation guide.
-#### I get a script failed error. User permission error. Insuficient permission error?
-Review the 'Logging Into PowerShell with Credentials' section of the installation guide.
 #### Why does the ARM template fail to run because of my password complexity?
 Strong passwords **(Minimum 15 characters, with upper and lower case letters, at least 1 number, and 1 special character)** are recommended throughout the solution.
 #### Why does the ARM template fail to deploy `xxxxxxxx` service?

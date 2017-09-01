@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 9: <br /> Restrict physical access to cardholder data  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 9: <br /> Restrict physical access to cardholder data  
 
 ### [Implement Strong Access Control Measures]
 
@@ -170,7 +171,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -183,7 +184,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -196,7 +197,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -209,7 +210,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -222,7 +223,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -235,7 +236,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -248,7 +249,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -262,7 +263,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -275,7 +276,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -288,7 +289,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** |  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -315,7 +316,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
 

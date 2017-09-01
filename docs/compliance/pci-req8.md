@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 8: <br /> Identify and authenticate access to system components  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 8: <br /> Identify and authenticate access to system components  
 
 ### [Implement Strong Access Control Measures]
 
@@ -31,7 +32,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -44,7 +45,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -76,7 +77,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 #### PCI DSS Requirement 8.1.5
 
-**8.1.5** Manage IDs used by vendors to access, support, or maintain system components via remote access as follows:
+**8.1.5** Manage IDs used by third parties to access, support, or maintain system components via remote access as follows:
 - Enabled only during the time period needed and disabled when not in use.
 - Monitored when in use.
 
@@ -85,7 +86,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published, and communicated to Microsoft Azure. The Information Security Policy requires that access to Microsoft Azure assets to be granted based on business justification, with the asset owner's authorization and limited based on "need-to-know" and "least-privilege" principles. In addition, the policy also addresses requirements for access management lifecycle including access provisioning, authentication, access authorization, removal of access rights, and periodic access reviews.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -98,7 +99,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore has implemented clear seperation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](reference.md#identity-management).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore has implemented clear seperation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 
@@ -153,7 +154,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](reference.md#encryption).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -167,7 +168,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](reference.md#encryption).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -209,7 +210,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -222,7 +223,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -273,7 +274,7 @@ authentication.
 
 ### PCI DSS Requirement 8.4
 
-**8.4** Document and communicate authentication procedures and policies to all users including:
+**8.4** Document and communicate authentication policies and procedures to all users including:
 - Guidance on selecting strong authentication credentials
 - Guidance for how users should protect their authentication credentials
 - Instructions not to reuse previously used passwords
@@ -345,7 +346,7 @@ authentication.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore protects all cardholder data with Azure Key Vault, and encryption of records is outlined in the deployment documentation. For more information, see [PCI Guidance - Encryption](reference.md#encryption).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore protects all cardholder data with Azure Key Vault, and encryption of records is outlined in the deployment documentation. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
 
 
 

@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 2: <br /> Do not use vendor-supplied defaults for system passwords and other security parameters  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 2: <br /> Do not use vendor-supplied defaults for system passwords and other security parameters  
 
 ### [Build and Maintain a Secure Network and Systems]
 
@@ -47,7 +48,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | For Microsoft Azure, the OSSC Technical Security Services team develops security configuration standards for systems in the Microsoft Azure environment that are consistent with industry-accepted hardening standards. These configurations are documented in system baselines and relevant configuration changes are communicated to impacted teams (e.g., IPAK team). Procedures are implemented to monitor for compliance against the security configuration standards. The security configuration standards for systems in the Microsoft Azure environment are consistent with industry-accepted hardening standards and are reviewed at least annually. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides hardening of all services in scope for the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides hardening of all services in scope for the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore utilizes Operations Management Suite to log all system changes. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
 
@@ -62,7 +63,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -75,7 +76,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure software and hardware configurations are reviewed at least quarterly to identify and eliminate any unnecessary functions, ports, protocols and services. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -93,7 +94,7 @@ completed.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation. The deployment also provides hardening of all services in scope of the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore services are deployed as PaaS services. All services are isolated, and segmented using network segmentation. The deployment also provides hardening of all services in scope of the CDE. <br /><br />The Contoso Webstore also deploys the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), which provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -106,7 +107,7 @@ completed.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure ensures only authorized personnel are able to configure Azure platform security controls, using multi-factor access controls and a documented business need. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes AAD and AD RBAC to manage security parameters are deployed correctly. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes AAD and AD RBAC to manage security parameters are deployed correctly. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 
@@ -134,7 +135,7 @@ completed.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure ensures the use of strong cryptography is  enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -147,7 +148,7 @@ completed.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo PaaS solution inventory can be reviewed in the provided documentation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).|
 
 
 

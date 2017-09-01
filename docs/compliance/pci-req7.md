@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 7: <br /> Restrict access to cardholder data by business need to know  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 7: <br /> Restrict access to cardholder data by business need to know  
 
 ### [Implement Strong Access Control Measures]
 
@@ -87,7 +88,7 @@ This access control system must include the following:
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory to restrict access to designated users only. For more information, see [PCI Guidance - Identity Management](reference.md#identity-management).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory to restrict access to designated users only. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 

@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 12: <br /> Maintain a policy that addresses information security for all personnel.  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 12: <br /> Maintain a policy that addresses information security for all personnel.  
 
 ### [Maintain an Information Security Policy]
 
@@ -304,7 +305,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 ### PCI DSS Requirement 12.6
 
-**12.6** Implement a formal security awareness program to make all personnel aware of the importance of cardholder data security.
+**12.6** Implement a formal security awareness program to make all personnel aware of the importance of cardholder data security policy and procedures.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 

@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 10: <br /> Track and monitor all access to network resources and cardholder data  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 10: <br /> Track and monitor all access to network resources and cardholder data  
 
 ### [Regularly Monitor and Test Networks]
 
@@ -15,7 +16,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, etc.) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -35,7 +36,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, etc.) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -255,7 +256,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure retains audit logs for one year, with the most recent 3 months immediately accessible through their internal portal. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -280,7 +281,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -304,7 +305,7 @@ remediation required to address root cause
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](reference.md#logging).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 

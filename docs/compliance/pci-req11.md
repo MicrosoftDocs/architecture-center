@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 11: <br /> Regularly test security systems and processes.  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 11: <br /> Regularly test security systems and processes.  
 
 ### [Regularly Monitor and Test Networks]
 
@@ -218,7 +219,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure maintains and notifies customers of potential changes and events that may impact security or availability of the services through an online Service Dashboard. Changes to the security commitments and security obligations of Microsoft Azure customers are updated on the Microsoft Azure website in a timely manner.<br /><br /><br /><br />Installation or changes to software on Microsoft Azure production environment is restricted to authorized administration personnel and follows change management procedures. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore demo is a PaaS service and change detection has been implemented using OMS. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore demo is a PaaS service and change detection has been implemented using OMS. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).<br /><br />|
 
 
 
@@ -231,7 +232,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Azure monitoring event rules provide an increased level of monitoring for high risk operations and assets. Azure-managed network devices are monitored for compliance with established security standards.   |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br /><br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).<br /><br /><br /><br />|
 
 
 
@@ -244,7 +245,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](reference.md#pre-installed-oms-solutions).<br /><br /><br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).<br /><br /><br /><br />|
 
 
 

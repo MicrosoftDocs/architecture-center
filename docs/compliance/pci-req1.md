@@ -1,4 +1,5 @@
-﻿## PCI DSS Requirement 1: <br /> Install and maintain a firewall configuration to protect cardholder data  
+﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+## PCI DSS Requirement 1: <br /> Install and maintain a firewall configuration to protect cardholder data  
 
 ### [Build and Maintain a Secure Network and Systems]
 
@@ -19,7 +20,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides firewalling of the CDE using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides firewalling of the CDE using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -33,7 +34,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](reference.md#operations-management-suite).<br /><br />[Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | A Contoso Webstore instance establishes a CI/CD DevOps model for ensuring that all changes are managed correctly. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.|
 
 
 
@@ -72,7 +73,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure employs boundary protection devices such as gateways, network ACLs, and application firewalls to control communications at external and internal boundaries at the platform level. The customer then configures these to their specifications and requirements. Microsoft Azure filters communication when coming into the platform. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](reference.md#app-service-environment).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a DMZ using PaaS isolation, and an App Service Environment implementation ensures that CDE ingress and egress of data is protected.<br /><br />An [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) is a Premium service plan used for compliance reasons. For more information on ASE controls and configuration, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 
 
@@ -91,7 +92,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 #### PCI DSS Requirement 1.1.6
 
-**1.1.6** Documentation and business justification for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
+**1.1.6** Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -232,7 +233,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -260,7 +261,7 @@ Other system components may provide firewall functionality, as long as they meet
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure uses network segregation and NAT to separate customer traffic from management traffic. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](reference.md#azure-sql-database).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore architecture prevents unauthorized outbound traffic from the in-scope environment to the Internet. This is accomplished by configuring outbound traffic ACLs for approved ports and protocols in Microsoft Azure. These controls include access to the CDE in the SQL Server database. <br /><br />A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -288,10 +289,10 @@ unauthorized parties.
 
 ### PCI DSS Requirement 1.4
 
-**1.4** Install personal firewall software on any mobile and/or employee-owned devices that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the network. Firewall configurations include:
-- Specific configuration settings are defined for personal firewall software.
-- Personal firewall software is actively running.
-- Personal firewall software is not alterable by users of mobile and/or employee-owned devices.
+**1.4** Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. Firewall (or equivalent) configurations include:
+-Specific configuration settings are defined.
+- Personal firewall (or equivalent functionality) is actively running.
+- Personal firewall (or equivalent functionality) is not alterable by users of the portable computing devices.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
