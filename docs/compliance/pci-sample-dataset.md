@@ -137,13 +137,11 @@ Installing the OMS Dashboard view requires deployment of the scripts located in 
 10. Repeat steps 8 through 11 for the web application monitoring solution, importing the file with OMSWebApp in the file name. In this example: 
     `\\omsDashboards\\OMSWebAppAzureMonitoringSolution.omsview`
 
-The monitoring configuration of your SQL Server, database, and web apps is now complete.
-
-You can now review your data collection in OMS.
+At this point, the monitoring configuration of your SQL Server, database, and web apps is complete. You can now review your data collection in OMS.
 
 ![](images/oms-workspace-and-solutions.png)
 
-### Upgrade Azure Security Center review Security Advisor messages
+### Upgrade Azure Security Center to review Security Advisor messages
 
 Azure Security Center was enabled in the deployment of your subscription. However, to ensure that the anti-malware and threat detection capabilities are enabled, you will need to enable the solution with a standard-tier data plan.
 
