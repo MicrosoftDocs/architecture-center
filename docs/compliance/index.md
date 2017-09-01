@@ -193,7 +193,7 @@ architecture are located in the [Deployment Architecture](#deployment-architectu
 
 The following section details the development and implementation elements. The descriptions in this document’s deployment strategies apply to the following diagram:
 
-![](images/Azure_PaaS_-_PCI_DSS_Reference_Architecture.png)
+![](images/pci-architectural-diagram.png)
 
 ### Network Segmentation and Security
 
@@ -221,7 +221,7 @@ Each of the network tiers has a dedicated network security group (NSG):
 - An NSG for management jumpbox/bastion host 
 - An NSG for the app service environment
 
-Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](reference.md#network-security-groups).
+Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
 
 Each of the NSGs have specific ports and protocols opened for the secure and
 correct working of the solution. In addition, the following configurations are enabled for each NSG

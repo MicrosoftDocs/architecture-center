@@ -21,7 +21,7 @@ This PowerShell script is used to deploy the Automated Foundational Architecture
 
 The estimated time to deploy the solution components is shown in the diagram below. The total time required is approximately 1.5 hours from when the **Purchase** button is clicked.
 
-![](images/ARM_template_deployment_timeline.png)
+![](images/arm-template-deployment-timeline.png)
  
 ## Example 1: Simple deployment 
     

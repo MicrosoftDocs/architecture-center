@@ -69,7 +69,7 @@ During the deployment step, OMS scripts were created and installed. In this conf
 
 7.  Click **Yes**
 
-    ![](images/runbook_schedule_ingestion.png)
+    ![](images/runbook-schedule-ingestion.png)
 
 8.  Return to your runbook blade
 
@@ -96,7 +96,7 @@ During the deployment step, OMS scripts were created and installed. In this conf
 3.  Click **Pricing Tier**.
 
 4.  Select the **Per Node (OMS)** plan to continue with this solution.
-    ![](images/OMS_Upgrade.png)
+    ![](images/oms-upgrade.png)
 
 5.  Click **OK**.
 
@@ -115,15 +115,15 @@ Installing the OMS Dashboard view requires deployment of the scripts located in 
 
 4.  Click **OMS Portal**.
 
-    ![](images/OMS_Portal.png)
+    ![](images/oms-portal.png)
 
 5.  The Microsoft Operations Management Suite will open in a new browser window or tab.
 
-    ![](images/OMS_workspace_open.png)
+    ![](images/oms-workspace-open.png)
 
 6.  Click **View Designer** on your Microsoft Operations Management Suite home page.
 
-    ![](images/OMS_View_Designer.png)
+    ![](images/oms-view-designer.png)
 
 7.  In the designer, select **Import**.
 
@@ -132,7 +132,7 @@ Installing the OMS Dashboard view requires deployment of the scripts located in 
 
 9.  Select **Save**.
 
-    ![](images/OMS_SQL_Azure_Analytics.png)
+    ![](images/oms-sql-azure-analytics.png)
 
 10. Repeat steps 8 through 11 for the web application monitoring solution, importing the file with OMSWebApp in the file name. In this example: 
     `\\omsDashboards\\OMSWebAppAzureMonitoringSolution.omsview`
@@ -141,7 +141,7 @@ The monitoring configuration of your SQL Server, database, and web apps is now c
 
 You can now review your data collection in OMS.
 
-![](images/OMS_Workspace_and_Solutions.png)
+![](images/oms-workspace-and-solutions.png)
 
 ### Upgrade Azure Security Center review Security Advisor messages
 
