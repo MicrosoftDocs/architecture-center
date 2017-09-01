@@ -7,10 +7,10 @@
     href: index.md
   - name: FAQ and Troubleshooting
     href: pci-faq.md
-
   - name: PCI DSS Requirements
-    href: pci-requirements.md
     items:
+      name: Requirements Overview
+      href: pci-requirements.md
     - name: Requirement 1 - Firewalls
       href: pci-req1.md
     - name: Requirement 2 - Passwords
@@ -35,7 +35,6 @@
       href: pci-req11.md
     - name: Requirement 12 - Policy
       href: pci-req12.md
-
   - name: Deployment Scripts
     items:
       name: Script Details - Setup 
