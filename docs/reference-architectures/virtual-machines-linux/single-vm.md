@@ -4,9 +4,9 @@ description: >-
   How to run a Linux VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
 
-author: MikeWasson
+author: telmosampaio
 
-ms.date: 11/22/2016
+ms.date: 09/06/2017
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-vm
@@ -15,7 +15,7 @@ pnp.series.prev: ./index
 
 # Run a Linux VM on Azure
 
-This reference architecture shows a set of proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows a set of proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single instance, and is the basis for more complex architectures such as n-tier applications. [**Deploy this solution**.](#deploy-the-solution)
 
 ![[0]][0]
 
@@ -23,13 +23,13 @@ This reference architecture shows a set of proven practices for running a Linux 
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
 
-* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
-* **VM**. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux]. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage. 
+* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on their lifetime, and who will manage the resources. For a single VM workload, you may create a single resource group for all resources.
+* **VM**. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux]. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down. The OS disk is `/dev/sda1`.
 * **Temporary disk.** The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. The temporary disk is `/dev/sdb1` and is mounted at `/mnt/resource` or `/mnt`.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
 * **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
-* **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over SSH.
+* **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example over SSH.
 * **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
@@ -38,8 +38,6 @@ You can download a [Visio file](https://aka.ms/arch-diagrams) of this architectu
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-
 
 ## Recommendations
 
@@ -54,25 +52,38 @@ If you are moving an existing workload to Azure, start with the VM size that's t
 When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
 
 ```
-azure vm sizes --location <location>
+az vm list-sizes --location <location>
 ```
 
 For information about choosing a published VM image, see [Select Linux VM images with the Azure CLI][select-vm-image].
+
+Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+
+The following CLI command enables diagnostics:
+
+```
+az vm diagnostics set <resource-group> <vm-name>
+```
+
+The following CLI command enables boot diagnostics:
+
+```
+az vm boot-diagnostics enable <resource-group> <vm-name>
+```
 
 ### Disk and storage recommendations
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-> [!IMPORTANT]
-> We recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way. Our [reference architectures](/azure/architecture/reference-architectures/) do not currently deploy managed disks but the [template building blocks](https://github.com/mspnp/template-building-blocks/wiki) will be updated to deploy managed disks in version 2.
+We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way.
 
-If you are not using managed disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts. 
+If you are not using managed disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts.
 
 Add one or more data disks. When you create a VHD, it is unformatted. Log in to the VM to format the disk. In the Linux shell, data disks are displayed as `/dev/sdc`, `/dev/sdd`, and so on. You can run `lsblk` to list the block devices, including the disks. To use a data disk, create a partition and file system, and mount the disk. For example:
 
 ```bat
 # Create a partition.
-sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.     
+sudo fdisk /dev/sdc     # Enter 'n' to partition, 'w' to write the change.
 
 # Create a file system.
 sudo mkfs -t ext3 /dev/sdc1
@@ -97,19 +108,17 @@ The public IP address can be dynamic or static. The default is dynamic.
 * Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be added to a safe list.
 * You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [create a fully qualified domain name in the Azure portal][fqdn].
 
-All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.  
+All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.
 
 To enable SSH, add a rule to the NSG that allows inbound traffic to TCP port 22.
 
 ## Scalability considerations
 
-To scale up or down, [change the VM size][vm-resize]. 
-
-To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [running multiple VMs on Azure][multi-vm].
+You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
 
 ## Availability considerations
 
-For higher availabiility, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla]  (SLA). 
+For higher availability, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla]  (SLA).
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
@@ -123,66 +132,95 @@ To protect against accidental data loss during normal operations (for example, b
 
 **SSH**. Before you create a Linux VM, generate a 2048-bit RSA public-private key pair. Use the public key file when you create the VM. For more information, see [How to Use SSH with Linux and Mac on Azure][ssh-linux].
 
-**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
-
-The following CLI command enables diagnostics:
-
-```
-azure vm enable-diag <resource-group> <vm-name>
-```
-
 **Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
 
 Use the following CLI command to deallocate a VM:
 
 ```
-azure vm deallocate <resource-group> <vm-name>
+az vm deallocate <resource-group> <vm-name>
 ```
 
 In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
-To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM. 
+To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as the VM.
 
 ## Security considerations
 
-Automate OS updates by using the [OSPatching] VM extension. Install this extension when you provision the VM. You can specify how often to install patches and whether to reboot after patching.
+Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. 
+**Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+**Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+
+**Operations.** Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
 > [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
-> 
-> 
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+**Data encryption.** Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
+A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Select **linux** in the **Os Type** drop down box.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click on the **Purchase** button.
-3. Wait for the deployment to complete.
-4. The parameter files include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** section. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+  * **VNet**. A sample virtual network with a sngle subnet named **web** used to host the VM.
+  * **NSG**. A saple NSG with two incoming rules to allow SSH and HTTP traffic to the VM.
+  * **VM**. A sample Linux VM running the latest version of Ubuntu 16.04.3 LTS.
+  * **Extension**. A sample custom script extension used to deploy apache to the Ubuntu VM, and format the two data disks.
 
+### Prerequisties
+
+Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
+
+1. Clone, fork, or download the zip file for the [AzureCAT reference architectures][ref-arch-repo] GitHub repository.
+
+2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks v2][azbb] npm package.
+
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+
+  ```bash
+  az login
+  ```
+### Deploy the solution using azbb
+
+To deploy the sample single VM workload, follow these steps:
+
+1. Navigate to the `virtual-machines\single-vm\parameters\linux` folder for the repository you downloaded in the pre-requisites step above.
+
+2. Open the `single-vm-v2.json` file and enter a username and SSH key between the quotes, as shown below, then save the file.
+
+  ```bash
+  "adminUsername": "XXX",
+  "adminsshPublicKey": "YYY",
+  ```
+
+3. Run `azbb` to deploy the sample VM as shown below.
+
+  ```bash
+  azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
+  ```
+
+For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
+
+## Next steps
+
+- Learn about our [Azure building Blocks][azbbv2].
+- Deploy [multiple VMs][multi-vm] in Azure.
 
 <!-- links -->
+[git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [multi-vm]: ../virtual-machines-linux/multi-vm.md
 [naming conventions]: ../../best-practices/naming-conventions.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Linux)
+[azbbv2]: https://github.com/mspnp/template-building-blocks
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
@@ -210,7 +248,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It i
 [Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
 [Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: /azure/resource-group-lock-resources
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [select-vm-image]: /azure/virtual-machines/virtual-machines-linux-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [ssh-linux]: /azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys

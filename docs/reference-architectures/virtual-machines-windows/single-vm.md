@@ -4,9 +4,9 @@ description: >-
   How to run a VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
 
-author: MikeWasson
+author: telmosampaio
 
-ms.date: 11/22/2016
+ms.date: 09/06/2017
 
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-vm
@@ -21,9 +21,9 @@ This reference architecture shows a set of proven practices for running a Window
 
 ## Architecture
 
-Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements.
+Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
 
-* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. Create a resource group to hold the resources for this VM.
+* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on their lifetime, and who will manage the resources. For a single VM workload, you may create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down.
 * **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
@@ -38,7 +38,6 @@ You can download a [Visio file](https://aka.ms/arch-diagrams) of this architectu
 
 > [!NOTE]
 > Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
 
 ## Recommendations
 
@@ -53,17 +52,30 @@ If you are moving an existing workload to Azure, start with the VM size that's t
 When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all regions. For details, see [services by region][services-by-region]. To see a list of the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
 
 ```
-azure vm sizes --location <location>
+az vm list-sizes --location <location>
 ```
 
 For information about choosing a published VM image, see [Navigate and select Windows virtual machine images in Azure with Powershell or CLI][select-vm-image].
+
+Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+
+The following CLI command enables diagnostics:
+
+```
+az vm diagnostics set <resource-group> <vm-name>
+```
+
+The following CLI command enables boot diagnostics:
+
+```
+az vm boot-diagnostics enable <resource-group> <vm-name>
+```
 
 ### Disk and storage recommendations
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid state drives (SSDs). Cost is based on the size of the provisioned disk. IOPS and throughput also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-> [!IMPORTANT]
-> We recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way. Our [reference architectures](/azure/architecture/reference-architectures/) do not currently deploy managed disks but the [template building blocks](https://github.com/mspnp/template-building-blocks/wiki) will be updated to deploy managed disks in version 2.
+We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way.
 
 If not using managed disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts. 
 
@@ -86,11 +98,11 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
 
 ## Availability considerations
 
-For higher availabiility, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla] (SLA). 
+For higher availability, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla] (SLA). 
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
@@ -102,20 +114,12 @@ To protect against accidental data loss during normal operations (for example, b
 
 **Resource groups.** Put tightly-coupled resources that share the same life cycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-**VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
-
-The following CLI command enables diagnostics:
-
-```
-azure vm enable-diag <resource-group> <vm-name>
-```
-
 **Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
 
 Use the following CLI command to deallocate a VM:
 
 ```
-azure vm deallocate <resource-group> <vm-name>
+az vm deallocate <resource-group> <vm-name>
 ```
 
 In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
@@ -136,14 +140,6 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 > [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
-> 
-> 
-
-To reset the local administrator password, run the `vm reset-access` Azure CLI command.
-
-```
-azure vm reset-access -u <user> -p <new-password> <resource-group> <vm-name>
-```
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
@@ -151,26 +147,56 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and a single VM. To deploy the architecture, follow these steps: 
+A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fsingle-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings: 
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-single-vm-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Select **windows** in the **Os Type** drop down box.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click on the **Purchase** button.
-3. Wait for the deployment to complete.
-4. The parameter files  include a hard-coded administrator user name and password, and it is strongly recommended that you immediately change both. Click on the VM named `ra-single-vm0 `in the Azure portal. Then, click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+  * **VNet**. A sample virtual network with a sngle subnet named **web** used to host the VM.
+  * **NSG**. A saple NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
+  * **VM**. A sample Windows VM running the latest version of Windows Server 2016 Datacenter Edition.
+  * **Extensions**. A sample custom script extension used to format the two data disks, and a PowerShell DSC script to deploy IIS.
 
-For information on additional ways to deploy this architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder. 
+### Prerequisties
 
-If you need to change the deployment to match your needs, follow the instructions in the [readme][github-folder]. 
+Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 
+1. Clone, fork, or download the zip file for the [AzureCAT reference architectures][ref-arch-repo] GitHub repository.
+
+2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks v2][azbb] npm package.
+
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+
+  ```bash
+  az login
+  ```
+### Deploy the solution using azbb
+
+To deploy the sample single VM workload, follow these steps:
+
+1. Navigate to the `virtual-machines\single-vm\parameters\windows` folder for the repository you downloaded in the pre-requisites step above.
+
+2. Open the `single-vm-v2.json` file and enter a username and SSH key between the quotes, as shown below, then save the file.
+
+  ```bash
+  "adminUsername": "XXX",
+  "adminPassword": "YYY",
+  ```
+
+3. Run `azbb` to deploy the sample VM as shown below.
+
+  ```bash
+  azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
+  ```
+
+For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
+
+## Next steps
+
+- Learn about our [Azure building Blocks][azbbv2].
+- Deploy [multiple VMs][multi-vm] in Azure.
 
 <!-- links -->
-
+[azbbv2]: https://github.com/mspnp/template-building-blocks
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-cli]: /azure/virtual-machines-command-line-tools
