@@ -65,7 +65,7 @@ The following CLI command enables diagnostics:
 az vm diagnostics set <resource-group> <vm-name>
 ```
 
-The following CLI command enables diagnostics:
+The following CLI command enables boot diagnostics:
 
 ```
 az vm boot-diagnostics enable <resource-group> <vm-name>
@@ -98,11 +98,11 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs into an availability set behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For details, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
 
 ## Availability considerations
 
-For higher availabiility, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla] (SLA). 
+For higher availability, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla] (SLA). 
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
