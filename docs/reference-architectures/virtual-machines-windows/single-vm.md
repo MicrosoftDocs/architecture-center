@@ -23,7 +23,7 @@ This reference architecture shows a set of proven practices for running a Window
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
 
-* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on the life time of the resource, and who will manage the resource. For a single VM workload, you may create a single resource group for all resources.
+* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on the life time, and who will manage the resources. For a single VM workload, you may create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down.
 * **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
