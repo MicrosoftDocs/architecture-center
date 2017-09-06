@@ -4,9 +4,9 @@ description: >-
   How to run a Linux VM on Azure, paying attention to scalability, resiliency,
   manageability, and security.
 
-author: MikeWasson
+author: telmosampaio
 
-ms.date: 11/22/2016
+ms.date: 09/06/2017
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-vm
