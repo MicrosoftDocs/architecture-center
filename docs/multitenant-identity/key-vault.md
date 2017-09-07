@@ -66,7 +66,7 @@ In this step, you will make sure that you can create a key vault while signed in
 
 Create an administrator user within the Azure AD tenant where the Surveys application is registered.
 
-1. Log into the [Azure portal][azure-management-portal].
+1. Log into the [Azure portal][azure-portal].
 2. Select the Azure AD tenant where your application is registered.
 3. Click **More service** > **SECURITY + IDENTITY** > **Azure Active Directory** > **User and groups** > **All users**.
 4. At the top of the portal, click **New user**.
