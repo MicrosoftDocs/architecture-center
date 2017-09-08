@@ -244,3 +244,7 @@ For more information on deploying this sample reference architecture, visit our 
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md
+[ref-arch-repo]: https://github.com/mspnp/reference-architectures
+[azure-cli-2]: /azure/install-azure-cli?view=azure-cli-latest
+[azbb]: [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Windows)
+[git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
