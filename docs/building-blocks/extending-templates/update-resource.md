@@ -118,7 +118,7 @@ Let's take a look at the resource object for our `firstVNet` resource first. Not
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps: <<RBC: Just wanted to point out that objects-as-parameters has 12 steps. Just want to make sure that this isn't missing something.>>
+If you would like to experiment with this template, follow these steps:
 
 1.	Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
 2.	Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
