@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments (v1)
+# Automated Foundational Architecture for PCI DSS-Compliant Environments
 ## Data set deployment
 
 This document provides details for managing the user-level experience of the deployed solution. This portion of the deployment helps illustrate how the database, users, and data records help meet the PCI DSS compliance requirements. The steps in this section illustrate how record protection requirements are enabled by encrypting customer records that contain payment card data, establishing monitoring to collect logs, and maintaining security.
@@ -96,6 +96,7 @@ During the deployment step, OMS scripts were created and installed. In this conf
 3.  Click **Pricing Tier**.
 
 4.  Select the **Per Node (OMS)** plan to continue with this solution.
+    
     ![](images/oms-upgrade.png)
 
 5.  Click **OK**.
@@ -149,7 +150,7 @@ Azure Security Center was enabled in the deployment of your subscription. Howeve
 
 2.  Click **Security Center**.
 
-3.  Click the banner that reads “Your security experience may be limited. Click here to learn more.”
+3.  Click the banner that reads, “Your security experience may be limited. Click here to learn more.”
 
 4.  Select your subscription.
 
@@ -178,7 +179,7 @@ You will also need to establish DNS resolution of the domains specific to the We
 If you are deploying this solution in an isolated environment which does not have access to  a DNS server, you can create a virtual machine that is hosted in the VNet and update its host file mapping to include the App Service Environment's Internal Load Balancer **IP address**. For example: 
     ` 10.10.0.73	www.contosowebstore.com	www.scm.contosowebstore.com`	
 
-Verify your connection for Kudu by browsing to your domain name, In our example, browse to: `http://www.contosowebstore.com`. Note that this verification will be limited until the post-deployment process is completed.
+Verify your connection for Kudu by browsing to your domain name. In our example, browse to: `http://www.contosowebstore.com`. Note that this verification will be limited until the post-deployment process is completed.
 
 
 
