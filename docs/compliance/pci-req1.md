@@ -1,4 +1,4 @@
-﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+# Automated Foundational Architecture for PCI DSS-Compliant Environments  
 ## PCI DSS Requirement 1: <br /> Install and maintain a firewall configuration to protect cardholder data  
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
@@ -10,7 +10,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 ### PCI DSS Requirement 1.1
 
-**1.1** Establish and implement firewall and router configuration standards that include the following (see 1.1.1 through 1.1.7):
+**1.1** Establish and implement firewall and router configuration standards that include the following (see 1.1.1 through 1.1.7).
 
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
