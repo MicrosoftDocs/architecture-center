@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments (v1)
+# Automated Foundational Architecture for PCI DSS-Compliant Environments
 
 ## Script Details: `0-Setup-AdministrativeAccountAndPermission.ps1`
 
