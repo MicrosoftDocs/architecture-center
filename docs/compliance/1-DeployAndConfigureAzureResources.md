@@ -1,8 +1,8 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments (v1)
+# Automated Foundational Architecture for PCI DSS-Compliant Environments
 
 ## Script Details: `1-DeployAndConfigureAzureResources.ps1`
 
-This PowerShell script is used to deploy the Automated Foundational Architecture for PCI DSS-Compliant Environments (v1). Deploying this solution requires that a subscription be configured with the proper permissions and roles. For more information, see [Script Details: 0-Setup-AdministrativeAccountAndPermission.ps1](./0-Setup-AdministrativeAccountAndPermission.md).
+This PowerShell script is used to deploy the Automated Foundational Architecture for PCI DSS-Compliant Environments. Deploying this solution requires that a subscription be configured with the proper permissions and roles. For more information, see [Script Details: 0-Setup-AdministrativeAccountAndPermission.ps1](./0-Setup-AdministrativeAccountAndPermission.md).
 
 ```powershell
 .\1-DeployAndConfigureAzureResources.ps1
@@ -64,7 +64,7 @@ Specifies the Resource Group name into which all resources will be deployed.
 
 > -globalAdminUserName <String>
 
-Specifies the AD Global admin. This user must be a *Global Administratior* that has been granted full control of the default Active Directory. The user must be in the `.onmicrosoft.com` domain namespace.
+Specifies the AD Global admin. This user must be a *Global Administrator* that has been granted full control of the default Active Directory. The user must be in the `.onmicrosoft.com` domain namespace.
 
 Role-based access control requires that an administrator grants themselves administrative rights in AAD. Refer to this blog for a detailed explanation.
 > [Delegating Admin Rights in Microsoft Azure](https://www.petri.com/delegating-admin-rights-in-microsoft-azure)
@@ -98,8 +98,8 @@ Indicates whether to enable SSL on the Application Gateway, allowing the user to
 
 | Input          | Usage |
 |----------------|-------|
-| none           | Customer can browse the application via HTTP (e.g. http://...). |
-| Switch present | Customer can browse the application via **`HTTPS`** (e.g. https://...).  When this switch is used in combination with `appGatewaySslCertPath` and `appGatewaySslCertPwd`, it enables a custom certificate on the Application Gateway. If you want to pass a custom certificate, use .pfx certificate file with the process below to create the correct file. |  
+| none           | Customer can browse the application via HTTP (for example http://...). |
+| Switch present | Customer can browse the application via **`HTTPS`** (for example https://...).  When this switch is used in combination with `appGatewaySslCertPath` and `appGatewaySslCertPwd`, it enables a custom certificate on the Application Gateway. If you want to pass a custom certificate, use the .pfx certificate file with the process below to create the correct file. |  
 
 1.  Review the instructions on [creating a website SSL certificate](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure-ssl-certificate).
 
