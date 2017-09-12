@@ -48,7 +48,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 
 **5.2** Ensure that all anti-virus mechanisms are maintained as follows:
 - Are kept current
-- Perform periodic scans
+- Perform periodic scans.
 - Generate audit logs which are retained per PCI DSS Requirement 10.7.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
