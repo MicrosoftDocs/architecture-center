@@ -183,4 +183,4 @@ Verify your connection for Kudu by browsing to your domain name. In our example,
 
 
 
-[code-repo]: https://github.com/AvyanConsultingCorp/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
+[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"

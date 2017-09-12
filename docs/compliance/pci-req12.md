@@ -34,9 +34,10 @@ A strong security policy sets the security tone for the whole entity and informs
 ### PCI DSS Requirement 12.2
 
 **12.2** Implement a risk-assessment process that:
-- Is performed at least annually and upon significant changes to the environment (for example, acquisition, merger, relocation, and so on)
+- Is performed at least annually and upon significant changes to the environment (for example, acquisition, merger, relocation, etc.)
 - Identifies critical assets, threats, and vulnerabilities
-- Results in a formal, documented analysis of risk. Examples of risk-assessment methodologies include, but are not limited to, OCTAVE, ISO 27005, and NIST SP 800-30.
+- Results in a formal, documented analysis of risk.
+- > Examples of risk-assessment methodologies include, but are not limited to, OCTAVE, ISO 27005, and NIST SP 800-30.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 

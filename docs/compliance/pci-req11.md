@@ -16,7 +16,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure does not permit or allow wireless connections in the Azure network environment. Internal security teams regularly scans for rogue wireless signals on a quarterly basis and rogue signals are investigated and removed.  Customers are not permitted to deploy wireless technology in the Azure environment. |
+| **Microsoft&nbsp;Azure** | Azure does not permit or allow wireless connections in the Azure network environment. Internal security teams regularly scans for rogue wireless signals on a quarterly basis and rogue signals are investigated and removed. Customers are not permitted to deploy wireless technology in the Azure environment. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Wireless and SNMP are not implemented in the solution.|
 
 
@@ -81,13 +81,13 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 **11.2.2** Perform quarterly external vulnerability scans, via an Approved Scanning Vendor (ASV) approved by the Payment Card Industry Security Standards Council (PCI SSC). Perform rescans as needed, until passing scans are achieved. 
 > **Note:** Quarterly external vulnerability scans must be performed by an Approved Scanning Vendor (ASV), approved by the Payment Card Industry Security Standards Council (PCI SSC).
-> Refer to the ASV Program Guide published on the PCI SSC website for scan customer responsibilities, scan preparation, and so on.
+> Refer to the ASV Program Guide published on the PCI SSC website for scan customer responsibilities, scan preparation, etc.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure performs external scans for vulnerabilities on in-scope underlying infrastructure that is accessible externally. Scans are performed by an Approved Scan Vendor (ASV).<br /><br />Microsoft Azure subscribes to MSRC/OSSC monthly patch notifications and scans for vulnerabilities at least quarterly. Identified vulnerabilities are evaluated and remediated per established  timeline based on the level of risk.<br /><br />Each quarter targeted comprehensive security vulnerability scanning against prioritized components of the Microsoft Azure environment is performed to identify security vulnerabilities.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure performs external scans for vulnerabilities on in-scope underlying infrastructure that is accessible externally. Scans are performed by an Approved Scan Vendor (ASV).<br /><br />Microsoft Azure subscribes to MSRC/OSSC monthly patch notifications and scans for vulnerabilities at least quarterly. Identified vulnerabilities are evaluated and remediated per established timeline based on the level of risk.<br /><br />Each quarter targeted comprehensive security vulnerability scanning against prioritized components of the Microsoft Azure environment is performed to identify security vulnerabilities. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | When deploying the Contoso Webstore, customers of the demo are responsible for performing quarterly external vulnerability scans and rescans as needed against all PaaS instances in their CDE, using an Approved Scanning Vendor (ASV) approved by the Payment Card Industry Security Standards Council.<br /><br />|
 
 
@@ -100,7 +100,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Results are reported to stakeholders and remediation is tracked by the Azure Security Team through closure.  Azure test results may be shared with customers under NDA. |
+| **Microsoft&nbsp;Azure** | Results are reported to stakeholders and remediation is tracked by the Azure Security Team through closure. Azure test results may be shared with customers under NDA. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for performing quarterly internal and external vulnerability scans and rescans as needed against all PaaS instances in their CDE. Scans should be performed after significant changes in the in-scope environment.<br /><br />Scans must be performed by an ASV or personnel with organizational independence.|
 
 
@@ -121,7 +121,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure validates services using third party penetration testing based upon the OWASP (Open Web Application Security Project) top ten using CREST-certified testers. The results of testing are tracked through a risk register, which is audited and reviewed on a regular basis to ensure compliance to  security practices. <br /><br />Microsoft also uses Red Teaming against Microsoft-managed infrastructure, services and applications. No end-customer data is deliberately targeted during Red Teaming and live site penetration testing. The tests are against Microsoft Azure infrastructure and platforms as well as Microsoft’s own applications and data. Customer tenants, applications and data hosted in Azure are never targeted.<br /><br />Microsoft Azure has employed an independent assessor to develop a system assessment plan and conduct a controls assessment. Controls assessments are performed annually and the results are reported to relevant parties. |
+| **Microsoft&nbsp;Azure** | Microsoft Azure validates services using third party penetration testing based upon the OWASP (Open Web Application Security Project) top ten using CREST-certified testers. The results of testing are tracked through a risk register, which is audited and reviewed on a regular basis to ensure compliance to security practices. <br /><br />Microsoft also uses Red Teaming against Microsoft-managed infrastructure, services and applications. No end-customer data is deliberately targeted during Red Teaming and live site penetration testing. The tests are against Microsoft Azure infrastructure and platforms as well as Microsoft’s own applications and data. Customer tenants, applications and data hosted in Azure are never targeted.<br /><br />Microsoft Azure has employed an independent assessor to develop a system assessment plan and conduct a controls assessment. Controls assessments are performed annually and the results are reported to relevant parties. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediation.|
 
 
@@ -147,7 +147,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure contracts with independent assessors to perform penetration testing of the  Microsoft Azure boundary. Red-Team exercises are also routinely performed and results used to make security improvements. |
+| **Microsoft&nbsp;Azure** | Microsoft Azure contracts with independent assessors to perform penetration testing of the Microsoft Azure boundary. Red-Team exercises are also routinely performed and results used to make security improvements. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has been pen tested and vulnerability scanned in an 'as is' effort. The pen test results can be duplicated by using common tools such as nmap, or pentest-tools.com. The results of the Pen test will provide inconclusive attack surface, with no exploitable items. Additionally, [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide vulnerability information and remediation.|
 
 
@@ -202,8 +202,8 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure conducts real-time analysis of events within its operational environment and IDS systems generate near real-time alerts about events that could potentially compromise the system.  |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS service, and network intrusion detection and prevention refer to Azure's responsibility.  [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide intrusion alerting and  remediation.|
+| **Microsoft&nbsp;Azure** | Microsoft Azure conducts real-time analysis of events within its operational environment and IDS systems generate near real-time alerts about events that could potentially compromise the system. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS service, and network intrusion detection and prevention refer to Azure's responsibility. [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide intrusion alerting and remediation.|
 
 
 
@@ -229,7 +229,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure monitoring event rules provide an increased level of monitoring for high risk operations and assets. Azure-managed network devices are monitored for compliance with established security standards.   |
+| **Microsoft&nbsp;Azure** | Azure monitoring event rules provide an increased level of monitoring for high risk operations and assets. Azure-managed network devices are monitored for compliance with established security standards. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore alerts for changes are provided by the OMS implementation. For more information, see [PCI Guidance - Pre-Installed OMS Solutions](index.md#oms-solutions).<br /><br /><br /><br />|
 
 

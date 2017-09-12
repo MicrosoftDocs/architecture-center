@@ -26,9 +26,10 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 ### PCI DSS Requirement 3.2
 
 **3.2** Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
->It is permissible for issuers and companies that support issuing services to store sensitive authentication data if: 
-> - There is a business justification. 
-> - The data is stored securely. Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3.
+> - There is a business justification, and 
+> - The data is stored securely.
+Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3:
+
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 

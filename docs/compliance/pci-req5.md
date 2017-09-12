@@ -47,7 +47,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 ### PCI DSS Requirement 5.2
 
 **5.2** Ensure that all anti-virus mechanisms are maintained as follows:
-- Are kept current
+- Are kept current.
 - Perform periodic scans.
 - Generate audit logs which are retained per PCI DSS Requirement 10.7.
 

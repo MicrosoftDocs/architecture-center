@@ -23,7 +23,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 **7.1.1** Define access needs for each role, including:
 - System components and data resources that each role needs to access for their job function
-- Level of privilege required (for example, user, administrator, and so on) for accessing resources
+- Level of privilege required (for example, user, administrator, etc.) for accessing resources
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 

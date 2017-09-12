@@ -80,7 +80,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 **9.3** Control physical access for onsite personnel to the sensitive areas as follows:
 - Access must be authorized and based on individual job function.
-- Access is revoked immediately upon termination, and all physical access mechanisms, (such as keys, access cards, and so on), are returned or disabled.
+- Access is revoked immediately upon termination, and all physical access mechanisms, such as keys, access cards, etc., are returned or disabled.
 
 **Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 

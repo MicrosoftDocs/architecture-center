@@ -319,7 +319,7 @@ authentication.
 
 ### PCI DSS Requirement 8.6
 
-**8.6** Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, and so on), use of these mechanisms must be assigned as follows:
+**8.6** Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
 - Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
 - Physical and/or logical controls must be in place to ensure only the intended account can use that mechanism to gain access.
 

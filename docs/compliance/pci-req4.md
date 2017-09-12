@@ -7,7 +7,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 ### PCI DSS Requirement 4.1
 
-**4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, and so on) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+**4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
 - Only trusted keys and certificates are accepted.
 - The protocol in use only supports secure versions or configurations.
 - The encryption strength is appropriate for the encryption methodology in use. 
@@ -46,7 +46,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 ### PCI DSS Requirement 4.2
 
-**4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, and so on).
+**4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 

@@ -8,7 +8,7 @@ Malicious individuals (external and internal to an entity) often use vendor defa
 ### PCI DSS Requirement 2.1
 
 **2.1** Always change vendor-supplied defaults and remove or disable unnecessary default accounts **before** installing a system on the network.
-This applies to ALL default passwords, including but not limited to those used by operating systems, software that provides security services, application and system accounts, point-of-sale (POS) terminals, Simple Network Management Protocol (SNMP) community strings, and so on.
+This applies to ALL default passwords, including but not limited to those used by operating systems, software that provides security services, application and system accounts, point-of-sale (POS) terminals, Simple Network Management Protocol (SNMP) community strings, etc.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -67,7 +67,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 #### PCI DSS Requirement 2.2.2
 
-**2.2.2** Enable only necessary services, protocols, daemons, and so on, as required for the function of the system.
+**2.2.2** Enable only necessary services, protocols, daemons, etc., as required for the function of the system.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 

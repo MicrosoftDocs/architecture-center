@@ -194,7 +194,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 - Train developers at least annually in up-to-date secure coding techniques, including how to avoid common coding vulnerabilities.
 - Develop applications based on secure coding guidelines.
 
-> **Note:** The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, and so on), the current best practices must be used for these requirements. 
+> **Note:** The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, etc.), the current best practices must be used for these requirements. 
 > 
 > **Note:** Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external). 
 

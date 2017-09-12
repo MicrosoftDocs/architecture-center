@@ -380,4 +380,4 @@ A data flow diagram (DFD) and sample threat model for the Contoso Webstore are a
 * *Gururaj Pandurangi (Avyan Consulting)*
 
 
-[code-repo]: https://github.com/AvyanConsultingCorp/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
+[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"
