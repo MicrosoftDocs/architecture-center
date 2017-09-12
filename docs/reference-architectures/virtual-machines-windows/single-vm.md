@@ -162,7 +162,7 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
 
-3. Install the [Azure building blocks v2][azbb] npm package.
+3. Install the [Azure building blocks][azbb] npm package.
 
 4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
 
@@ -178,8 +178,8 @@ To deploy the sample single VM workload, follow these steps:
 2. Open the `single-vm-v2.json` file and enter a username and SSH key between the quotes, as shown below, then save the file.
 
   ```bash
-  "adminUsername": "XXX",
-  "adminPassword": "YYY",
+  "adminUsername": "",
+  "adminPassword": "",
   ```
 
 3. Run `azbb` to deploy the sample VM as shown below.
@@ -244,3 +244,7 @@ For more information on deploying this sample reference architecture, visit our 
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md
+[ref-arch-repo]: https://github.com/mspnp/reference-architectures
+[azure-cli-2]: /azure/install-azure-cli?view=azure-cli-latest
+[azbb]: [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Windows)
+[git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
