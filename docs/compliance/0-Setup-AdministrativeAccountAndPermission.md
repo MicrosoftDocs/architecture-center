@@ -5,8 +5,8 @@
 This PowerShell script is used to verify pre-deployment requirements for the Payment Card Payment processing solution for PCI DSS enablement.
  
 # Description 
- This Powershell script automates the installation and verification of the PowerShell modules, as well as configuring the administrative user of the solution. 
- > NOTE: This script MUST be run as *Local Administrator* with elevated prividges. For more information ,see [Why do I need to run as local administrator?](https://social.technet.microsoft.com/Forums/scriptcenter/en-US/41a4ba3d-93fd-485b-be22-c877afff1bd8/how-to-run-a-powershell-script-in-admin-account?forum=ITCG)  
+ This PowerShell script automates the installation and verification of the PowerShell modules, as well as configuring the administrative user of the solution. 
+ > NOTE: This script MUST be run as *Local Administrator* with elevated privileges. For more information, see [Why do I need to run as local administrator?](https://social.technet.microsoft.com/Forums/scriptcenter/en-US/41a4ba3d-93fd-485b-be22-c877afff1bd8/how-to-run-a-powershell-script-in-admin-account?forum=ITCG)  
 
  Running this script is not required, but installation will fail if the following modules have not been properly configured:
 - AzureRM
@@ -33,9 +33,9 @@ This command will validate or install any missing PowerShell modules which are r
     -configureGlobalAdmin 
  ```
 
- This command will deploy installed modules, and setup the solution on a **new subscription**. It will create the user `adminXX@contosowebstore.onmicrosoft.com` with a randomly generated strong password (15 characters minimum, with uppercase and lowercase letters, and at least one number and and one special character.) 
+ This command will deploy installed modules, and setup the solution on a **new subscription**. It will create the user `adminXX@contosowebstore.onmicrosoft.com` with a randomly generated strong password (15 characters minimum, with uppercase and lowercase letters, and at least one number and one special character.) 
  
-# Required Parameters
+# Required parameters
 
 > -azureADDomainName <String>
 
@@ -51,15 +51,15 @@ Specifies the ID of a subscription. If you do not specify this parameter, the ac
 
 > -configureGlobalAdmin
 
-Attempt to create a administrator user configured as a subscrption administrator. An Active Directory Administrator with global privileges is required to run the installation. The local administrator must be in the `.onmicrosoft.com` domain namespace to run this solution. This step helps create the correct administrator user.
+Attempt to create an administrator user configured as a subscription administrator. An Active Directory Administrator with global privileges is required to run the installation. The local administrator must be in the `.onmicrosoft.com` domain namespace to run this solution. This step helps create the correct administrator user.
 
 > -installModules
 
 Installs and verifies all required modules. If any of the commands from the script fail, see the following references below for assistance.
 
-## Toubleshooting your tenant administrator
+## Troubleshooting your tenant administrator
 
-The following debugging and troublshooting steps can help identify common issues.
+The following debugging and troubleshooting steps can help identify common issues.
 
 To test your username and passwords with [Azure RM](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/), run the following commands in PowerShell:
 ```powershell
