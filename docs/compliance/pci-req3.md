@@ -27,9 +27,8 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 
 **3.2** Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
 >It is permissible for issuers and companies that support issuing services to store sensitive authentication data if: 
-> - There is a business justification, and 
-> - The data is stored securely.
-Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3:
+> - There is a business justification. 
+> - The data is stored securely. Sensitive authentication data includes the data as cited in the following Requirements 3.2.1 through 3.2.3.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -138,7 +137,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 ### PCI DSS Requirement 3.5
 
-**3.5** Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse: 
+**3.5** Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse. 
 
 > **Note:** This requirement applies to keys used to encrypt stored cardholder data, and also applies to key-encrypting keys used to protect data-encrypting keys—such key-encrypting keys must be at least as strong as the data-encrypting key.
 
@@ -221,7 +220,8 @@ fewest possible locations.
 
 ### PCI DSS Requirement 3.6
 
-**3.6** Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following: 
+**3.6** Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following. 
+
 > **Note:** Numerous industry standards for key management are available from various resources including NIST, which can be found at http://csrc.nist.gov.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
