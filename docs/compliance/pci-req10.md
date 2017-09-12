@@ -13,7 +13,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, etc.) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
+| **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
@@ -33,7 +33,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, etc.) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
+| **Microsoft&nbsp;Azure** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
@@ -67,7 +67,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure has established procedures to synchronize servers and network devices in the Microsoft Azure environment with NTP Stratum 1 time servers synchronized to Global Positioning System (GPS) satellites. Synchronization is performed automatically every five minutes. Microsoft Azure is responsible for ensuring service hosts properly sync time. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time syncronization for the PaaS service is performed by Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -80,7 +80,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time syncronization for the PaaS service is performed by Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -93,7 +93,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time syncronization for the PaaS service is performed by Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -106,7 +106,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time syncronization for the PaaS service is performed by Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -118,7 +118,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, etc.) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
+| **Microsoft&nbsp;Azure** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, and so on) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
@@ -197,7 +197,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, etc.) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
+| **Microsoft&nbsp;Azure** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, and so on) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
@@ -208,7 +208,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 - All security events
 - Logs of all system components that store, process, or transmit CHD and/or SAD
 - Logs of all critical system components
-- Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, etc.).
+- Logs of all servers and system components that perform security functions (for example, firewalls, intrusion-detection systems/intrusion-prevention systems (IDS/IPS), authentication servers, e-commerce redirection servers, and so on).
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -240,7 +240,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
+| **Microsoft&nbsp;Azure** | See the "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
