@@ -80,7 +80,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 **9.3** Control physical access for onsite personnel to the sensitive areas as follows:
 - Access must be authorized and based on individual job function.
-- Access is revoked immediately upon termination, and all physical access mechanisms, such as keys, access cards, etc., are returned or disabled.
+- Access is revoked immediately upon termination, and all physical access mechanisms, (such as keys, access cards, and so on), are returned or disabled.
 
 **Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
@@ -93,8 +93,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 ### PCI DSS Requirement 9.4
 
-**9.4** Implement procedures to identify and authorize visitors.
-Procedures should include the following:
+**9.4** Implement procedures to identify and authorize visitors. Procedures should include the following.
 
 **Responsibilities:&nbsp;&nbsp;`Microsoft Azure Only`**
 
@@ -188,7 +187,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 ### PCI DSS Requirement 9.6
 
-**9.6** Maintain strict control over the internal or external distribution of any kind of media, including the following:
+**9.6** Maintain strict control over the internal or external distribution of any kind of media, including the following.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -267,7 +266,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 ### PCI DSS Requirement 9.8
 
-**9.8** Destroy media when it is no longer needed for business or legal reasons as follows:
+**9.8** Destroy media when it is no longer needed for business or legal reasons as follows.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -323,7 +322,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 **9.9.1** Maintain an up-to-date list of devices. The list should include the following:
 - Make, model of device
 - Location of device (for example, the address of the site or facility where the device is located)
-- Device serial number or other method of unique identification.
+- Device serial number or other method of unique identification
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
