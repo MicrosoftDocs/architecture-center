@@ -7,7 +7,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 ### PCI DSS Requirement 4.1
 
-**4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
+**4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, and so on) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
 - Only trusted keys and certificates are accepted.
 - The protocol in use only supports secure versions or configurations.
 - The encryption strength is appropriate for the encryption methodology in use. 
@@ -27,7 +27,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)  uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li><li></li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/)  uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 
@@ -46,7 +46,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 ### PCI DSS Requirement 4.2
 
-**4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
+**4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, and so on).
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
