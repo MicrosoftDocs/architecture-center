@@ -27,17 +27,16 @@ A strong security policy sets the security tone for the whole entity and informs
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for updating their information security policy at least annually, or when the are changes to their CDE.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for updating their information security policy at least annually, or when there are changes to their CDE.|
 
 
 
 ### PCI DSS Requirement 12.2
 
 **12.2** Implement a risk-assessment process that:
-- Is performed at least annually and upon significant changes to the environment (for example, acquisition, merger, relocation, etc.),
-- Identifies critical assets, threats, and vulnerabilities, and
-- Results in a formal, documented analysis of risk. 
-> Examples of risk-assessment methodologies include but are not limited to OCTAVE, ISO 27005, and NIST SP 800-30.
+- Is performed at least annually and upon significant changes to the environment (for example, acquisition, merger, relocation, and so on)
+- Identifies critical assets, threats, and vulnerabilities
+- Results in a formal, documented analysis of risk. Examples of risk-assessment methodologies include, but are not limited to, OCTAVE, ISO 27005, and NIST SP 800-30.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -52,7 +51,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 **12.3** Develop usage policies for critical technologies and define proper use of these technologies.
 > **Note:** Examples of critical technologies include, but are not limited to, remote access and wireless technologies, laptops, tablets, removable electronic media, e-mail usage and Internet usage.
-Ensure these usage policies require the following:
+Ensure these usage policies require the following.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -212,6 +211,7 @@ Where there is an authorized business need, the usage policies must require the 
 **12.4.1** Additional requirement for service providers only: Executive management shall establish responsibility for the protection of cardholder data and a PCI DSS compliance program to include:
 - Overall accountability for maintaining PCI DSS compliance
 - Defining a charter for a PCI DSS compliance program and communication to executive management 
+
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
@@ -225,7 +225,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 ### PCI DSS Requirement 12.5
 
-**12.5** Assign to an individual or team the following information security management responsibilities:
+**12.5** Assign to an individual or team the following information security management responsibilities.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -357,7 +357,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 ### PCI DSS Requirement 12.8
 
-**12.8** Maintain and implement policies and procedures to manage service providers with whom cardholder data is shared, or that could affect the security of cardholder data, as follows:
+**12.8** Maintain and implement policies and procedures to manage service providers with whom cardholder data is shared, or that could affect the security of cardholder data, as follows.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -445,7 +445,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers which are Service Providers are responsible for acknowledging their responsibiilities for maintaining PCI compliance. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers which are Service Providers are responsible for acknowledging their responsibilities for maintaining PCI compliance. |
 
 
 
@@ -471,7 +471,7 @@ Note: The exact wording of an acknowledgement will depend on the agreement betwe
 - Data backup processes
 - Analysis of legal requirements for reporting compromises
 - Coverage and responses of all critical system components
-- Reference or inclusion of incident response procedures from the payment brands.
+- Reference or inclusion of incident response procedures from the payment brands
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -558,6 +558,7 @@ Reviews must cover the following processes:
 - Applying configuration standards to new systems
 - Responding to security alerts
 - Change management processes 
+
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
@@ -566,7 +567,7 @@ Reviews must cover the following processes:
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers who are service providers are responsbile for documenting their reviews of processes for confirming PCI compliance control performance.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
 
 
 
@@ -575,6 +576,7 @@ Reviews must cover the following processes:
 **12.11.1** Additional requirement for service providers only: Maintain documentation of quarterly review process to include:
 - Documenting results of the reviews
 - Review and sign-off of results by personnel assigned responsibility for the PCI DSS compliance program 
+
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
 
 
@@ -583,7 +585,7 @@ Reviews must cover the following processes:
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers who are service providers are responsbile for documenting their reviews of processes for confirming PCI compliance control performance.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
 
 
 
