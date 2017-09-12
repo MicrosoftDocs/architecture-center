@@ -1,12 +1,10 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments (v1)
-
-### PUBLIC PREVIEW BETA 1
+# Automated Foundational Architecture for PCI DSS-Compliant Environments
 
 > [EDIT: INSERT "AZURE CYBER BLUEPRINT" PROGRAM OVERVIEW]
 
 ## Overview
 
-The Automated Foundational Architecture for PCI DSS-compliant Environments (v1) provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture (developed jointly with [Avyan Consulting](http://www.avyanconsulting.com/azureservices), a Microsoft MVP partner) illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
+The Automated Foundational Architecture for PCI DSS-compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
 
 This foundational architecture meets the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based solution.
 
@@ -15,13 +13,13 @@ This architecture is intended to serve as a foundation for customers to adjust t
 - Achieving PCI DSS-compliance requires that an accredited Qualified Security Assessor (QSA) certify a production customer solution.
 - Customers are responsible for conducting appropriate security and compliance reviews of any solution built using this foundational architecture, as requirements may vary based on the specifics of each customer’s implementation and geography.  
 
-## Architectural Diagram
+## Architectural diagram
 
 ![](images/pci-architectural-diagram.png)
 
-## Solution Components
+## Solution components
 
-The foundational architecuture is comprised of the following components:
+The foundational architecture is comprised of the following components:
 
 - **Architectural diagram**. The diagram shows the reference architecture used for the Contoso Webstore solution.
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
@@ -29,7 +27,7 @@ The foundational architecuture is comprised of the following components:
     - A module installation and [global administrator](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
     - An installation PowerShell script is used to deploy the end-to-end solution, including [security components](https://github.com/Microsoft/azure-sql-security-sample) built by the Azure SQL Database team. 
 
-## Deploying the Solution
+## Deploying the solution
 
 The deployment of the automated foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
 A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
@@ -75,20 +73,20 @@ For detailed usage instructions, see [Script Instructions - Deploy and Configure
     
 For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](./pci-sample-dataset.md). 
 
-## User Scenario
+## User scenario
 
 The foundational architecture addresses the use case below.
 
-> This scenario illustrates how a fictitious webstore moved their payment card processing to a Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the "Review and Guidance for Implementation" document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
+> This scenario illustrates how a fictitious webstore moved their payment card processing to an Azure-based solution. The solution handles collection of basic user information including payment data. The solution does not process payments with this cardholder data; once the data is collected, customers are responsible for initiating and completing transactions with a payment processor. For more information, see the "Review and Guidance for Implementation" document at the [Microsoft Service Trust Portal](http://aka.ms/stp).
 
-### Use Case
+### Use case
 A small webstore called *Contoso Webstore* is ready to move their payment system to the cloud. They have selected Microsoft Azure to host the process for purchasing and to allow a clerk to collect credit card payments from their customers.
 
 The administrator is looking for a solution that can be quickly deployed to achieve his goals in for a cloud-born solution. He will use this proof-of-concept (POC) to discuss with his stakeholders how Azure can be used to collect, store, and retrieve payment card data while complying with stringent Payment Card Industry Data Security Standard (PCI DSS) requirements.
 
 > You will be responsible for conducting appropriate security and compliance reviews of any solution built with the architecture used by this POC, as requirements may vary based on the specifics of your implementation and geography. PCI DSS requires that you work directly with an accredited Qualified Security Assessor to certify your production-ready solution.
 
-### Elements of the Foundational Architecture
+### Elements of the foundational architecture
 
 The foundational architecture is designed with the following fictitious elements:
 
@@ -96,7 +94,7 @@ Domain site `contosowebstore.com`
 
 User roles used to illustrate the use case, and provide insight into the user interface.
 
-#### Role: Site and Subscription Admin
+#### Role: Site and subscription admin
 
 |Item      |Example|
 |----------|------|
@@ -108,7 +106,7 @@ User roles used to illustrate the use case, and provide insight into the user in
 * The admin account cannot manage or log into SQL Database.
 * The admin account can manage Active Directory and subscription.
 
-#### Role: SQL Administrator
+#### Role: SQL administrator
 
 |Item      |Example|
 |----------|------|
@@ -143,7 +141,7 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 
 The solution cost sample has a monthly fee structure and a use per hour to
 consider when sizing the solution. This example deployment **estimated** cost using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). The solution 
-consist of the following items:
+consists of the following items:
 
 | **Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost** | 
 | ----------------- | --------------- | ----------- | -------------- | ----------------- | 
@@ -159,7 +157,7 @@ consist of the following items:
 | Security Center | Security Center | East US |  | $15.00 | 
 | Key Vault | Key Vault | East US | 1000 operations, 0 certificate renewals, 0 HSM keys in the us-east region | $0.03 | 
 | Azure Active Directory | Azure Active Directory | East US | free tier, per-user MFA billing model, 10 MFA user(s), 25001-100000 directory objects, 0 hours | $14.00 | 
-| Application Gateway | Application Gateway | East US | 1 instance(s) x 1 months, 1 GB data processed, outbound transfers:: 5 GB | $93.74 | 
+| Application Gateway | Application Gateway | East US | 1 instance(s) x 1 months, 1 GB data processed, outbound transfers: 5 GB | $93.74 | 
 | | | | | **Monthly Total $473.67** |
 | | | | | **Annual Total  $5,684.04** |
  
@@ -189,13 +187,13 @@ architecture are located in the [Deployment Architecture](#deployment-architectu
 >- Azure Blob Storage
 >- Azure Active Directory role-based access control (RBAC)
 
-## Deployment Architecture
+## Deployment architecture
 
 The following section details the development and implementation elements. The descriptions in this document’s deployment strategies apply to the following diagram:
 
 ![](images/pci-architectural-diagram.png)
 
-### Network Segmentation and Security
+### Network segmentation and security
 
 #### Application Gateway
 
@@ -214,7 +212,7 @@ The foundational architecture reduces the risk of security vulnerabilities using
 
 The foundational architecture defines a private virtual network with an address space of 10.0.0.0/16.
 
-#### Network Security Groups
+#### Network security groups
 
 Each of the network tiers has a dedicated network security group (NSG):
 - A DMZ network security group for firewall and Application Gateway WAF
@@ -224,7 +222,7 @@ Each of the network tiers has a dedicated network security group (NSG):
 Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
 
 Each of the NSGs have specific ports and protocols opened for the secure and
-correct working of the solution. In addition, the following configurations are enabled for each NSG
+correct working of the solution. In addition, the following configurations are enabled for each NSG:
 - Enabled [diagnostic logs and events](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) are stored in storage account 
 - Connected OMS Log Analytics to the [NSG's diagnostics](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
@@ -234,7 +232,7 @@ correct working of the solution. In addition, the following configurations are e
 #### Custom domain SSL certificates
  HTTPS traffic is enabled using a custom domain SSL certificate.
 
-### Data at Rest
+### Data at rest
 To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:
 
 #### Azure Storage
@@ -251,7 +249,7 @@ A PaaS SQL Database instance is used to showcase database security measures:
 - Enable [Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 - Enable [Dynamic Data Masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) (using the post-deployment PowerShell script)
 
-### Logging and Auditing
+### Logging and auditing
 
 [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides the Contoso Webstore with extensive logging of all system and user activity, include cardholder data logging. Changes can be reviewed and verified for accuracy. 
 
@@ -260,7 +258,7 @@ A PaaS SQL Database instance is used to showcase database security measures:
 - **Firewall Logs:**  The Application Gateway provides full diagnostic and access logs. Firewall logs are available for Application Gateway resources that have WAF enabled.
 - **Log Archiving:**  All diagnostic logs are configured to write to a centralized and encrypted Azure storage account for archival with a defined retention period (2 days). Logs are then connected to Azure Log Analytics for processing, storing, and dashboarding. [Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics) is an OMS service that helps collect and analyze data generated by resources in your cloud and on-premises environments.
 
-### Encryption and Secrets Management
+### Encryption and secrets management
 
 The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to manage keys, preventing retrieval of CHD.
 
@@ -268,7 +266,7 @@ The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to 
 - [SQL TDE](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt all customer cardholder data, expiry date, and CVV.
 - Data is stored on disk using [Azure Disk Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) and BitLocker.
 
-### Identity Management
+### Identity management
 
 The following technologies provide identity management capabilities in the Azure environment.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/en-us/services/active-directory/) is the Microsoft's multi-tenant cloud-based directory and identity management service. All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
@@ -278,10 +276,10 @@ The following technologies provide identity management capabilities in the Azure
     - https://github.com/Microsoft/azure-sql-security-sample
     - [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities affecting your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
     - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) enables precisely focused access management for Azure. Specific configurations exist for:
-        - Subscription access is limited to the subscription administrator
-        - Azure Key Vault access is restricted to all users
+        - Subscription access is limited to the subscription administrator.
+        - Azure Key Vault access is restricted to all users.
     
-### Web and Compute Resources
+### Web and compute resources
 
 #### Web Apps
 
@@ -294,8 +292,7 @@ Service](https://azure.microsoft.com/en-us/services/app-service/?b=16.52), devel
 
 #### Virtual Machine
 
-As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases/changes that might be necessary, such as the ability to monitor WebApp using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect
-VM on port other than tcp 3389. 
+As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases/changes that might be necessary, such as the ability to monitor WebApp using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
 
 A virtual machine was stood up as a Jumpbox / Bastion host with the following configurations:
 
@@ -323,7 +320,7 @@ Use of ASEs for this architecture allowed for the following controls/configurati
 - [WAF – Restrict Data](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Allow [SQL Database traffic](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-### Security and Malware Protection
+### Security and malware protection
 
 [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) provides a centralized view of the security state of all your Azure resources. At a glance, you can verify that the appropriate security controls are in place and configured correctly, and you can quickly identify any resources that require attention.  
 
@@ -332,17 +329,17 @@ Use of ASEs for this architecture allowed for the following controls/configurati
 [Microsoft Antimalware](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware) 
 for Azure Cloud Services and Virtual Machines is real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems.
 
-### Operations Management
+### Operations management
 
 #### Application Insights
 
 Use [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) to gain actionable insights through application performance management and instant analytics.
 
-#### Log Analytics
+#### Log analytics
 
 [Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) is a service in Operations Management Suite (OMS) that helps you collect and analyze data generated by resources in your cloud and on-premises environments.
 
-#### OMS Solutions
+#### OMS solutions
 
 The following OMS solutions are pre-installed as part of the foundational architecture:
 - [Activity Log Analytics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
@@ -355,17 +352,17 @@ The following OMS solutions are pre-installed as part of the foundational archit
 - [Antimalware](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-malware?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Update Management](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-solution-update-management)
 
-### Security Center Integration
+### Security Center integration
 
 Default deployment is intended to provide a baseline of security center recommendations, indicating a healthy and secure configuration state. You can enable data collection from the Azure Security Center. For more information, see [Azure Security Center - Getting Started](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started).
 
-## Threat Model
+## Threat model
 
 A data flow diagram (DFD) and sample threat model for the Contoso Webstore are available in the Documents section of the [code repository][code-repo].
 
 ![](images/pci-threat-model.png)
 
-## Disclaimer and Acknowledgements
+## Disclaimer and acknowledgements
 
 *September 2017*
 
@@ -374,7 +371,7 @@ A data flow diagram (DFD) and sample threat model for the Contoso Webstore are a
 - Customers may copy and use this document for internal reference purposes.  
 - NOTE: Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
-- All customer names, transaction records, and any related data on this page are fictitous, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
+- All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
 - This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).  
 
 ### Document authors
