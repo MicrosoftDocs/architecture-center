@@ -92,13 +92,13 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 ### PCI DSS Requirement 6.4
 
-**6.4** Follow change control processes and procedures for all changes to system components. The processes must include the following (see Requirements 6.4.1 to 6.4.6):
+**6.4** Follow change control processes and procedures for all changes to system components. The processes must include the following (see Requirements 6.4.1 to 6.4.6).
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<br /><br /><ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including:<br /><br /><ul><li>The identification and documentation of the planned change</li><li>Identification of business goals, priorities and scenarios during product planning</li><li>Specification of feature/component design</li><li>Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact</li><li>Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate.  Customers are responsible for their own applications hosted in Microsoft Azure.</li></ul> |
+| **Microsoft&nbsp;Azure** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including:<ul><li>The identification and documentation of the planned change</li><li>Identification of business goals, priorities and scenarios during product planning</li><li>Specification of feature/component design</li><li>Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact</li><li>Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate.  Customers are responsible for their own applications hosted in Microsoft Azure.</li></ul> |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
@@ -131,7 +131,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 #### PCI DSS Requirement 6.4.3
 
-**6.4.3** Production data (live PANs) are not used for testing or development
+**6.4.3** Production data (live PANs) are not used for testing or development.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -144,7 +144,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 #### PCI DSS Requirement 6.4.4
 
-**6.4.4** Removal of test data and accounts from system components before the system becomes active / goes into production.
+**6.4.4** Removal of test data and accounts from system components before the system becomes active or goes into production.
 
 **Responsibilities:&nbsp;&nbsp;`Shared`**
 
@@ -194,18 +194,18 @@ Note: Appropriate software patches are those patches that have been evaluated an
 - Train developers at least annually in up-to-date secure coding techniques, including how to avoid common coding vulnerabilities.
 - Develop applications based on secure coding guidelines.
 
-> **Note:** The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, etc.), the current best practices must be used for these requirements 
+> **Note:** The vulnerabilities listed at 6.5.1 through 6.5.10 were current with industry best practices when this version of PCI DSS was published. However, as industry best practices for vulnerability management are updated (for example, the OWASP Guide, SANS CWE Top 25, CERT Secure Coding, and so on), the current best practices must be used for these requirements. 
 > 
-> **Note:** Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external) 
+> **Note:** Requirements 6.5.1 through 6.5.6, below, apply to all applications (internal or external). Requirements 6.5.7 through 6.5.10, below, apply to web applications and application interfaces (internal or external). 
 
 - **6.5.1** Injection flaws, particularly SQL injection. Also consider OS Command Injection, LDAP and XPath injection flaws as well as other injection flaws.
 - **6.5.2** Buffer overflows
 - **6.5.3** Insecure cryptographic storage
 - **6.5.4** Insecure communications
 - **6.5.5** Improper error handling
-- **6.5.6** All “high risk” vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1).
+- **6.5.6** All “high risk” vulnerabilities identified in the vulnerability identification process (as defined in PCI DSS Requirement 6.1)
 - **6.5.7** Cross-site scripting (XSS)
-- **6.5.8** Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions).
+- **6.5.8** Improper access control (such as insecure direct object references, failure to restrict URL access, directory traversal, and failure to restrict user access to functions)
 - **6.5.9** Cross-site request forgery (CSRF)
 - **6.5.10** Broken authentication and session management
 
