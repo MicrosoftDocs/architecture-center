@@ -10,14 +10,14 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 ### PCI DSS Requirement 8.1
 
-**8.1** Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows:
+**8.1** Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides provides a use case and a descriptionforthe correct usage of administrators for the sample deployment.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a use case and a description for the correct usage of administrators for the sample deployment.|
 
 
 
@@ -62,7 +62,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 #### PCI DSS Requirement 8.1.4
 
-**8.1.4** Remove/disable inactive user accounts within 90 days.
+**8.1.4** Remove or disable inactive user accounts within 90 days.
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -97,7 +97,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore has implemented clear seperation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](index.md#identity-management).|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore has implemented clear separation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 
@@ -132,7 +132,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 **8.2** In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:
 - Something you know, such as a password or passphrase
 - Something you have, such as a token device or smart card
-- Something you are, such as a biometric.
+- Something you are, such as a biometric
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -276,7 +276,7 @@ authentication.
 - Guidance on selecting strong authentication credentials
 - Guidance for how users should protect their authentication credentials
 - Instructions not to reuse previously used passwords
-- Instructions to change passwords if there is any suspicion the password could be compromised.
+- Instructions to change passwords if there is any suspicion the password could be compromised
 
 **Responsibilities:&nbsp;&nbsp;`Customer Only`**
 
@@ -319,7 +319,7 @@ authentication.
 
 ### PCI DSS Requirement 8.6
 
-**8.6** Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
+**8.6** Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, and so on), use of these mechanisms must be assigned as follows:
 - Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
 - Physical and/or logical controls must be in place to ensure only the intended account can use that mechanism to gain access.
 
