@@ -15,10 +15,6 @@ This architecture is intended to serve as a foundation for customers to adjust t
 
 For a quick overview of how this solution works, watch this [brief video](https://aka.ms/pciblueprintvideo) explaining and demonstrating its deployment.
 
-## Architectural diagram
-
-![](images/pci-architectural-diagram.png)
-
 ## Solution components
 
 The foundational architecture is comprised of the following components:
@@ -29,51 +25,9 @@ The foundational architecture is comprised of the following components:
     - A module installation and [global administrator](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
     - An installation PowerShell script is used to deploy the end-to-end solution, including [security components](https://github.com/Microsoft/azure-sql-security-sample) built by the Azure SQL Database team. 
 
-## Deploying the solution
+## Architectural diagram
 
-The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the automated foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
-A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
-
-It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command):
-
-1. Install required modules and set up the administrator roles correctly.
-```powershell
- .\0-Setup-AdministrativeAccountAndPermission.ps1 
-    -azureADDomainName contosowebstore.com
-    -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    -configureGlobalAdmin 
-    -installModules
-```
-For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](./0-Setup-AdministrativeAccountAndPermission.md).
-
-2. Install the solution-update-management 
- ```powershell
-.\1-DeployAndConfigureAzureResources.ps1 
-    -resourceGroupName contosowebstore
-    -globalAdminUserName adminXX@contosowebstore.com 
-    -globalAdminPassword **************
-    -azureADDomainName contosowebstore.com 
-    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-    -suffix PCIcontosowebstore
-    -customHostName contosowebstore.com
-    -sqlTDAlertEmailAddress edna@contosowebstore.com 
-    -enableSSL
-    -enableADDomainPasswordPolicy 
-```
-
-For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](./1-DeployAndConfigureAzureResources.md).
-
-3. Deploy OMS logging and resources
- ```powershell
-.\2-EnableOMSLoggingOnResources.ps1 
-    -resourceGroupName contosowebstore 
-    -globalAdminUserName adminXX@contosowebstore.com 
-    -globalAdminPassword **************
-    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-    
-For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](./pci-sample-dataset.md). 
+![](images/pci-architectural-diagram.png)
 
 ## User scenario
 
@@ -357,6 +311,53 @@ The following OMS solutions are pre-installed as part of the foundational archit
 ### Security Center integration
 
 Default deployment is intended to provide a baseline of security center recommendations, indicating a healthy and secure configuration state. You can enable data collection from the Azure Security Center. For more information, see [Azure Security Center - Getting Started](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started).
+
+## Deploying the solution
+
+The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the automated foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
+A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+
+It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command):
+
+1. Install required modules and set up the administrator roles correctly.
+```powershell
+ .\0-Setup-AdministrativeAccountAndPermission.ps1 
+    -azureADDomainName contosowebstore.com
+    -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+    -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+    -configureGlobalAdmin 
+    -installModules
+```
+For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](./0-Setup-AdministrativeAccountAndPermission.md).
+
+2. Install the solution-update-management 
+ ```powershell
+.\1-DeployAndConfigureAzureResources.ps1 
+    -resourceGroupName contosowebstore
+    -globalAdminUserName adminXX@contosowebstore.com 
+    -globalAdminPassword **************
+    -azureADDomainName contosowebstore.com 
+    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    -suffix PCIcontosowebstore
+    -customHostName contosowebstore.com
+    -sqlTDAlertEmailAddress edna@contosowebstore.com 
+    -enableSSL
+    -enableADDomainPasswordPolicy 
+```
+
+For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](./1-DeployAndConfigureAzureResources.md).
+
+3. Deploy OMS logging and resources
+ ```powershell
+.\2-EnableOMSLoggingOnResources.ps1 
+    -resourceGroupName contosowebstore 
+    -globalAdminUserName adminXX@contosowebstore.com 
+    -globalAdminPassword **************
+    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+```
+    
+For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](./pci-sample-dataset.md). 
+
 
 ## Threat model
 
