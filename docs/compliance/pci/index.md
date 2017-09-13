@@ -91,34 +91,11 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 
 > In the Contoso Webstore, the user is automatically as the **Edna** user for testing the capabilities of the deployed environment.
 
-### Contoso Webstore - Azure pricing sample calculation
+### Contoso Webstore - Estimated pricing
 
-The solution cost sample has a monthly fee structure and a use per hour to
-consider when sizing the solution. This example deployment **estimated** cost using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). The solution 
-consists of the following items:
+This foundation architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is $XXX. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
 
-| **Service type** | **Custom name** | **Region** | **Description** | **Estimated Cost** | 
-| ----------------- | --------------- | ----------- | -------------- | ----------------- | 
-| Virtual Machines | Virtual Machines | South Central US | 1 Standard virtual machine(s), 1 Standard virtual machine(s), A2 v2 (2 cores, 4 GB RAM, 20 GB disk) size: 744 hours | $101.18 | 
-| App Service | App Service | South Central US | 1 instance(s), 744 hours, size: P1, premium tier, 0 SNI connection(s), 0 IP connection(s) | $223.20 | 
-| IP Addresses | IP Addresses | East US | arm type, 2 public IP Address(es) x 744 hours | $5.95 | 
-| SQL Database | SQL Database | East US | 1 standard database(s) x 1 months, size: s0 | $15.03 | 
-| Storage | Storage | East US | 5/GB storage: Block blob type, Basic tier, LRS redundancy | $0.10 | 
-| Storage | Storage | East US | 1 GB storage Table and Queue type. Basic tier, LRS redundancy, 1 x100,000 transactions | $0.07 | 
-| Storage | Storage | East US | standard-s4 Disk type with 1 Managed disks | $0.77 | 
-| Application Insights | Application Insights | East US | basic tier in us-east region with 2 GBs and 0 multi-step web test(s). | $2.30 | 
-| Log Analytics | Log Analytics | East US | 1 GB(s), standalone tier | $2.30 | 
-| Security Center | Security Center | East US |  | $15.00 | 
-| Key Vault | Key Vault | East US | 1000 operations, 0 certificate renewals, 0 HSM keys in the us-east region | $0.03 | 
-| Azure Active Directory | Azure Active Directory | East US | free tier, per-user MFA billing model, 10 MFA user(s), 25001-100000 directory objects, 0 hours | $14.00 | 
-| Application Gateway | Application Gateway | East US | 1 instance(s) x 1 months, 1 GB data processed, outbound transfers: 5 GB | $93.74 | 
-| | | | | **Monthly Total $473.67** |
-| | | | | **Annual Total  $5,684.04** |
- 
-Disclaimer 
-All prices shown are in US Dollars ($). This estimate was created in April 2017. [EDIT: ADD GUIDANCE]
-
-This solution used the following Azure services (details of the deployment architecture are located in the [Deployment Architecture](#deployment-architecture) section).
+This solution used the following Azure services. Details of the deployment architecture are located in the [Deployment Architecture](#deployment-architecture) section.
 
 >- Application Gateway
 >- Azure Active Directory
@@ -309,8 +286,9 @@ Default deployment is intended to provide a baseline of security center recommen
 
 ## Deploying the solution
 
-The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
-A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
+
+If you encounter any issues during the deployment, see [FAQ and troubleshooting](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-faq.md]
 
 It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command):
 
@@ -323,7 +301,7 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     -configureGlobalAdmin 
     -installModules
 ```
-For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](./0-Setup-AdministrativeAccountAndPermission.md).
+For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/0-Setup-AdministrativeAccountAndPermission.md).
 
 2. Install the solution-update-management 
  ```powershell
@@ -340,7 +318,7 @@ For detailed usage instructions, see [Script Instructions - Setup Administrative
     -enableADDomainPasswordPolicy 
 ```
 
-For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](./1-DeployAndConfigureAzureResources.md).
+For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
 
 3. Deploy OMS logging and resources
  ```powershell
@@ -350,8 +328,8 @@ For detailed usage instructions, see [Script Instructions - Deploy and Configure
     -globalAdminPassword **************
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
-    
-For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](./pci-sample-dataset.md). 
+
+For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-sample-dataset.md). 
 
 
 ## Threat model
