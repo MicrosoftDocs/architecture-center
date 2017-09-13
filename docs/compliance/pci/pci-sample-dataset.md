@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments
+# Azure Solutions Blueprint for PCI DSS-Compliant Environments
 ## Data set deployment
 
 This document provides details for managing the user-level experience of the deployed solution. This portion of the deployment helps illustrate how the database, users, and data records help meet the PCI DSS compliance requirements. The steps in this section illustrate how record protection requirements are enabled by encrypting customer records that contain payment card data, establishing monitoring to collect logs, and maintaining security.

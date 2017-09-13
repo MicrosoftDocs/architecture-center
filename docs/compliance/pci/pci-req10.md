@@ -1,4 +1,4 @@
-﻿# Automated Foundational Architecture for PCI DSS-Compliant Environments  
+﻿# Azure Solutions Blueprint for PCI DSS-Compliant Environments  
 ## PCI DSS Requirement 10: <br /> Track and monitor all access to network resources and cardholder data  
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.

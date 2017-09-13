@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments
+# Azure Solutions Blueprint for PCI DSS-Compliant Environments
 
 ## Script Details: `0-Setup-AdministrativeAccountAndPermission.ps1`
 
@@ -51,7 +51,7 @@ Specifies the ID of a subscription. If you do not specify this parameter, the ac
 
 > -configureGlobalAdmin
 
-Attempt to create an administrator user configured as a subscription administrator. An Active Directory Administrator with global privileges is required to run the installation. The local administrator must be in the `.onmicrosoft.com` domain namespace to run this solution. This step helps create the correct administrator user.
+Attempt to create an administrator user configured as a subscription administrator. An Active Directory Administrator with global privileges is required to run the installation. The local administrator must be in the `contosowebstore.com` domain namespace to run this solution. This step helps create the correct administrator user.
 
 > -installModules
 

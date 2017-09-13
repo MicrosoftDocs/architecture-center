@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments
+# Azure Solutions Blueprint for PCI DSS-Compliant Environments
 
 ## FAQ and troubleshooting
 

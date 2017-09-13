@@ -1,8 +1,8 @@
-# Automated Foundational Architecture for PCI DSS-Compliant Environments
+# Azure Solutions Blueprint for PCI DSS-Compliant Environments
 
 ## Script Details: `1-DeployAndConfigureAzureResources.ps1`
 
-This PowerShell script is used to deploy the Automated Foundational Architecture for PCI DSS-Compliant Environments. Deploying this solution requires that a subscription be configured with the proper permissions and roles. For more information, see [Script Details: 0-Setup-AdministrativeAccountAndPermission.ps1](./0-Setup-AdministrativeAccountAndPermission.md).
+This PowerShell script is used to deploy the Blueprint for PCI DSS-Compliant Environments. Deploying this solution requires that a subscription be configured with the proper permissions and roles. For more information, see [Script Details: 0-Setup-AdministrativeAccountAndPermission.ps1](./0-Setup-AdministrativeAccountAndPermission.md).
 
 ```powershell
 .\1-DeployAndConfigureAzureResources.ps1
@@ -64,7 +64,7 @@ Specifies the Resource Group name into which all resources will be deployed.
 
 > -globalAdminUserName <String>
 
-Specifies the AD Global admin. This user must be a *Global Administrator* that has been granted full control of the default Active Directory. The user must be in the `.onmicrosoft.com` domain namespace.
+Specifies the AD Global admin. This user must be a *Global Administrator* that has been granted full control of the default Active Directory. The user must be in the `contosowebstore.com` domain namespace.
 
 Role-based access control requires that an administrator grants themselves administrative rights in AAD. Refer to this blog for a detailed explanation.
 > [Delegating Admin Rights in Microsoft Azure](https://www.petri.com/delegating-admin-rights-in-microsoft-azure)
