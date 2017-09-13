@@ -21,7 +21,7 @@ The foundational architecture is comprised of the following components:
 - **Deployment templates**. In this deployment, [Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment) are used to automatically deploy the components of the architecture into Microsoft Azure by specifying configuration parameters during setup.
 - **Automated deployment scripts**. These scripts help deploy the end-to-end solution. The scripts consist of:
     - A module installation and [global administrator](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-assign-admin-roles-azure-portal) setup script is used to install and verify that required PowerShell modules and global administrator roles are configured correctly.
-    - An installation PowerShell script is used to deploy the end-to-end solution, including [security components](https://github.com/Microsoft/azure-sql-security-sample) built by the Azure SQL Database team. 
+    - An installation PowerShell script is used to deploy the end-to-end solution, provided via a .zip file and a .bacpac file that contain a pre-built demo web application with SQL database sample content. The source code for this solution is available for review [here](https://github.com/Microsoft/azure-sql-security-sample).
 
 ## Architectural diagram
 
@@ -118,8 +118,7 @@ consists of the following items:
 Disclaimer 
 All prices shown are in US Dollars ($). This estimate was created in April 2017. [EDIT: ADD GUIDANCE]
 
-This solution used the following Azure services (details to the deployment
-architecture are located in the [Deployment Architecture](#deployment-architecture) section).
+This solution used the following Azure services (details of the deployment architecture are located in the [Deployment Architecture](#deployment-architecture) section).
 
 >- Application Gateway
 >- Azure Active Directory
@@ -143,11 +142,11 @@ architecture are located in the [Deployment Architecture](#deployment-architectu
 
 ## Deployment architecture
 
-The following section details the development and implementation elements. The descriptions in this document’s deployment strategies apply to the following diagram:
-
-![](images/pci-architectural-diagram.png)
+The following section details the development and implementation elements.
 
 ### Network segmentation and security
+
+![](images/pci-tiers-diagram.png)
 
 #### Application Gateway
 
@@ -246,14 +245,14 @@ Service](https://azure.microsoft.com/en-us/services/app-service/?b=16.52), devel
 
 #### Virtual Machine
 
-As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases/changes that might be necessary, such as the ability to monitor WebApp using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
+As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor the web app using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
 
 A virtual machine was stood up as a Jumpbox / Bastion host with the following configurations:
 
 -   [Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)
 -   [OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
--   [Bitlocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
+-   [BitLocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
 -   An [AutoShutDown Policy](https://azure.microsoft.com/en-us/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use.
 
 #### App Service Environment
