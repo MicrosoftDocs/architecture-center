@@ -11,7 +11,7 @@ This architecture is intended to serve as a foundation for customers to adjust t
 - Achieving PCI DSS-compliance requires that an accredited Qualified Security Assessor (QSA) certify a production customer solution.
 - Customers are responsible for conducting appropriate security and compliance reviews of any solution built using this foundational architecture, as requirements may vary based on the specifics of each customer’s implementation and geography.  
 
-For a quick overview of how this solution works, watch this [brief video](https://aka.ms/pciblueprintvideo) explaining and demonstrating its deployment.
+For a quick overview of how this solution works, watch this [video](https://aka.ms/pciblueprintvideo) explaining and demonstrating its deployment.
 
 ## Solution components
 
