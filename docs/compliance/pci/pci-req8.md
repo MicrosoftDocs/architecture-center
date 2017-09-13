@@ -328,7 +328,7 @@ authentication.
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault] (https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
 
 
 
