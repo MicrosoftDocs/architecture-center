@@ -278,7 +278,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
@@ -302,7 +302,7 @@ remediation required to address root cause
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 

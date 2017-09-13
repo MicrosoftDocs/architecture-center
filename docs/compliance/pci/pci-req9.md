@@ -99,7 +99,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
@@ -113,7 +113,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable.|
 
 
@@ -180,7 +180,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -193,7 +193,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -206,7 +206,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -219,7 +219,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -232,7 +232,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -245,7 +245,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -259,7 +259,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -272,7 +272,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -285,7 +285,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** |  |
+| **Microsoft&nbsp;Azure** | Not applicable. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
@@ -298,7 +298,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Data destruction techniques vary depending on the type of data object being destroyed, whether it be subscriptions, storage, virtual machines, or databases. In the Microsoft Azure multi-tenant environment, careful attention is taken to ensure that one customer’s data is not allowed to either “leak” into another customer’s data, or when a customer deletes data, no other customer (including, in most cases, the customer who once owned the data) can gain access to that deleted data.<br /><br />Microsoft Azure follows NIST 800-88 Guidelines on Media Sanitization, which address the  principal concern of ensuring that data is not unintentionally released.  These guidelines encompass both electronic and physical sanitization. |
+| **Microsoft&nbsp;Azure** | Data destruction techniques vary depending on the type of data object being destroyed, whether it be subscriptions, storage, virtual machines, or databases. In the Microsoft Azure multi-tenant environment, careful attention is taken to ensure that one customer’s data is not allowed to either “leak” into another customer’s data, or when a customer deletes data, no other customer (including, in most cases, the customer who once owned the data) can gain access to that deleted data.<br /><br />Microsoft Azure follows NIST 800-88 Guidelines on Media Sanitization, which address the principal concern of ensuring that data is not unintentionally released. These guidelines encompass both electronic and physical sanitization. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore can be deleted entirely by deleting the Resource Group used during deployment.|
 
 

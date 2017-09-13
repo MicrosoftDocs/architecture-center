@@ -132,7 +132,7 @@ completed.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure ensures the use of strong cryptography is  enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
+| **Microsoft&nbsp;Azure** | Microsoft Azure ensures the use of strong cryptography is enforced when accessing the hypervisor infrastructure. Microsoft Azure also ensures that customers using the Microsoft Azure Management Portal are able to access their service/IaaS consoles with strong cryptography. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore shows how strong passwords can be implemented in a solution; additionally, all tests can be performed to verify that encryption is implemented throughout the solution.<br /><br />The Contoso Webstore also uses an [App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-intro) to enforce key practices. For more information, see [PCI Guidance - App Service Environment](index.md#app-service-environment).|
 
 

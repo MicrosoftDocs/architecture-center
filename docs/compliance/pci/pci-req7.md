@@ -42,7 +42,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published and communicated to Windows Azure. The Microsoft Azure Information Security Policy requires that access to Microsoft Azure assets be granted based on business justification, with the asset owner's authorization and based on "need-to-know" and "least-privilege" principles. The policy also addresses requirements for access management lifecycle including access provisioning, access authorization, authentication removal of access rights, and periodic access reviews.  |
+| **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published and communicated to Windows Azure. The Microsoft Azure Information Security Policy requires that access to Microsoft Azure assets be granted based on business justification, with the asset owner's authorization and based on "need-to-know" and "least-privilege" principles. The policy also addresses requirements for access management lifecycle including access provisioning, access authorization, authentication removal of access rights, and periodic access reviews. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
 
 

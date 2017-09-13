@@ -146,7 +146,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service.  Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service. Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
 
 
@@ -164,7 +164,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service.  Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service. Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
 
 
@@ -180,7 +180,7 @@ necessary.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities.  |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
 
@@ -242,7 +242,7 @@ fewest possible locations.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:** <br /><br />When generating keys in Key Vault, Azure is responsible for generating keys per the customer's specifications. Keys are generated using a HSM.  |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:** <br /><br />When generating keys in Key Vault, Azure is responsible for generating keys per the customer's specifications. Keys are generated using a HSM. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
@@ -255,7 +255,7 @@ fewest possible locations.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />The bring your own key (BYOK) tool encapsulates the customer key, and targets a specific security vault which is tied to a specific Azure subscription. The key can only be imported to the defined subscription’s key vault, in the specified region. This process uses the encryption procedures provided by the hardware manufacturer.  Customers receive a notification that the transfer was successful.  |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />The bring your own key (BYOK) tool encapsulates the customer key, and targets a specific security vault which is tied to a specific Azure subscription. The key can only be imported to the defined subscription’s key vault, in the specified region. This process uses the encryption procedures provided by the hardware manufacturer. Customers receive a notification that the transfer was successful. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
@@ -268,7 +268,7 @@ fewest possible locations.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the HSMs, and are secured using the hardware manufacturer’s cryptographic security.  The metadata on keys is stored in Azure Storage in an encrypted state, which is unique to each key vault. <br /><br /> |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Keys are stored in the HSMs, and are secured using the hardware manufacturer’s cryptographic security. The metadata on keys is stored in Azure Storage in an encrypted state, which is unique to each key vault. <br /><br /> |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
@@ -281,7 +281,7 @@ fewest possible locations.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to update or roll keys, which is defined by the customer.  |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to update or roll keys, which is defined by the customer. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
@@ -324,7 +324,7 @@ fewest possible locations.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vaults are logically separated, and do not support cross-directory authorization. As a result, unauthorized substitution is prevented.  |
+| **Microsoft&nbsp;Azure** | **For customers using Key Vault:**<br /><br />Key Vaults are logically separated, and do not support cross-directory authorization. As a result, unauthorized substitution is prevented. |
 | **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
