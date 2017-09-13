@@ -33,13 +33,3 @@
       href: pci-req11.md
     - name: Requirement 12 - Policy
       href: pci-req12.md
-  - name: Deployment Scripts
-    items:
-    - name: Script Details - Setup 
-      href: 0-Setup-AdministrativeAccountAndPermission.md
-    - name: Script Details - Deployment
-      href: 1-DeployAndConfigureAzureResources.md
-    - name: Script Details - Sample Dataset
-      href: pci-sample-dataset.md
-  - name: FAQ and Troubleshooting
-    href: pci-faq.md
