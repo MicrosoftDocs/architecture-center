@@ -13,6 +13,8 @@ This architecture is intended to serve as a foundation for customers to adjust t
 - Achieving PCI DSS-compliance requires that an accredited Qualified Security Assessor (QSA) certify a production customer solution.
 - Customers are responsible for conducting appropriate security and compliance reviews of any solution built using this foundational architecture, as requirements may vary based on the specifics of each customer’s implementation and geography.  
 
+For a quick overview of how this solution works, watch this [brief video](https://aka.ms/pciblueprintvideo) explaining and demonstrating its deployment.
+
 ## Architectural diagram
 
 ![](images/pci-architectural-diagram.png)
@@ -29,7 +31,7 @@ The foundational architecture is comprised of the following components:
 
 ## Deploying the solution
 
-The deployment of the automated foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
+The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the automated foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app).
 A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
 It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command):
@@ -362,6 +364,12 @@ A data flow diagram (DFD) and sample threat model for the Contoso Webstore are a
 
 ![](images/pci-threat-model.png)
 
+For more information, see the [PCI Blueprint Threat Model](https://aka.ms/pciblueprintthreatmodel).
+
+## Customer responsibility matrix
+
+Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciblueprintcrm32), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.
+
 ## Disclaimer and acknowledgements
 
 *September 2017*
@@ -372,7 +380,8 @@ A data flow diagram (DFD) and sample threat model for the Contoso Webstore are a
 - NOTE: Certain recommendations in this paper may result in increased data, network, or compute resource usage in Azure, and may increase a customer’s Azure license or subscription costs.  
 - The solution in this document is intended as a foundational architecture and must not be used as-is for production purposes. Achieving PCI compliance requires that customers consult with their Qualified Security Assessor.  
 - All customer names, transaction records, and any related data on this page are fictitious, created for the purpose of this foundational architecture and provided for illustration only. No real association or connection is intended, and none should be inferred.  
-- This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).  
+- This solution was developed jointly by Microsoft and Avyan Consulting, and is available under the [MIT License](https://opensource.org/licenses/MIT).
+- This solution has been reviewed by Coalfire, Microsoft’s PCI-DSS auditor. The [PCI Compliance Review](https://aka.ms/pciblueprintprocessingoverview) provides an independent, third-party review of the solution, and components that need to be addressed. 
 
 ### Document authors
 

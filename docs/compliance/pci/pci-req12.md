@@ -432,7 +432,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciresponsibilitymatrix), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciblueprintcrm32), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
 
 
 
