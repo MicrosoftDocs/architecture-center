@@ -10,7 +10,7 @@ As outlined in the [overview](./index.md) you can deploy SQL encryption and moni
 ```powershell
     .\2-EnableOMSLoggingOnResources.ps1 
     -resourceGroupName contosowebstore 
-    -globalAdminUserName adminXX@contosowebstore.onmicrosoft.com 
+    -globalAdminUserName adminXX@contosowebstore.com 
     -globalAdminPassword **************
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
@@ -21,14 +21,14 @@ For detailed usage instructions, [EDIT URL -> ] review the `2-EnableOMSLoggingOn
 
 At this point, the foundational architecture is fully deployed. Two administrative user accounts can now be added using SQL Management Studio.
 
-Open SQL Server Management Studio using the Active Directory username and password. In our example, this is the `sqladmin@contosowebstore.onmicrosoft.com` account.
+Open SQL Server Management Studio using the Active Directory username and password. In our example, this is the `sqladmin@contosowebstore.com` account.
 
 The following connection information should be used to connect to your SQL
 Server Management Studio:
 - Server Type:` Database Engine`
-- Server name: Your server string. In this example, use `contosowebstore.onmicrosoft.com`.
+- Server name: Your server string. In this example, use `contosowebstore.com`.
 - Authentication: **Use Active Directory Password Authentication**
-- Username: Use the AD SQL user account you set up in pre-deployment. In this example, use: `sqladmin@contosowebstore.onmicrosoft.com`.
+- Username: Use the AD SQL user account you set up in pre-deployment. In this example, use: `sqladmin@contosowebstore.com`.
 - Password: The password for your AD SQL user account. In this example, use: `your PASSWORD`
 
 - Create a new query and run the following command to see the customer records secured:
@@ -38,7 +38,7 @@ Server Management Studio:
 
 You will need to edit the `3-GrantAccessOnDB.sql` script located in the [code repository][code-repo].
 
--   Replace `XXXX` with your AD domain name. For our example, use: `contosowebstore.onmicrosoft.com`.
+-   Replace `XXXX` with your AD domain name. For our example, use: `contosowebstore.com`.
 
 You can copy the script from the deployment file and run it in a new SQL query.
 

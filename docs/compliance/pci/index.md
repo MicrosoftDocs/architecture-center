@@ -39,7 +39,7 @@ It is highly recommended that a clean installation of PowerShell be used to depl
 1. Install required modules and set up the administrator roles correctly.
 ```powershell
  .\0-Setup-AdministrativeAccountAndPermission.ps1 
-    -azureADDomainName contosowebstore.onmicrosoft.com
+    -azureADDomainName contosowebstore.com
     -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
     -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
     -configureGlobalAdmin 
@@ -51,9 +51,9 @@ For detailed usage instructions, see [Script Instructions - Setup Administrative
  ```powershell
 .\1-DeployAndConfigureAzureResources.ps1 
     -resourceGroupName contosowebstore
-    -globalAdminUserName adminXX@contosowebstore.onmicrosoft.com 
+    -globalAdminUserName adminXX@contosowebstore.com 
     -globalAdminPassword **************
-    -azureADDomainName contosowebstore.onmicrosoft.com 
+    -azureADDomainName contosowebstore.com 
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
     -suffix PCIcontosowebstore
     -customHostName contosowebstore.com
@@ -68,7 +68,7 @@ For detailed usage instructions, see [Script Instructions - Deploy and Configure
  ```powershell
 .\2-EnableOMSLoggingOnResources.ps1 
     -resourceGroupName contosowebstore 
-    -globalAdminUserName adminXX@contosowebstore.onmicrosoft.com 
+    -globalAdminUserName adminXX@contosowebstore.com 
     -globalAdminPassword **************
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
 ```
@@ -100,7 +100,7 @@ User roles used to illustrate the use case, and provide insight into the user in
 
 |Item      |Example|
 |----------|------|
-|Username: |`adminXX@contosowebstore.onmicrosoft.com`|
+|Username: |`adminXX@contosowebstore.com`|
 | Name: |`Global Admin Azure PCI Samples`|
 |User type:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
@@ -112,7 +112,7 @@ User roles used to illustrate the use case, and provide insight into the user in
 
 |Item      |Example|
 |----------|------|
-|Username: |`sqlAdmin@contosowebstore.onmicrosoft.com`|
+|Username: |`sqlAdmin@contosowebstore.com`|
 | Name: |`SQLADAdministrator PCI Samples`|
 | First name: |`SQL AD Administrator`|
 |Last name: |`PCI Samples`|
@@ -125,7 +125,7 @@ User roles used to illustrate the use case, and provide insight into the user in
 
 |Item      |Example|
 |----------|------|
-|Username:| `receptionist_EdnaB@contosowebstore.onmicrosoft.com`|
+|Username:| `receptionist_EdnaB@contosowebstore.com`|
 | Name: |`Edna Benson`|
 | First name:| `Edna`|
 |Last name:| `Benson`|
@@ -202,11 +202,11 @@ The following section details the development and implementation elements. The d
 The foundational architecture reduces the risk of security vulnerabilities using an Application Gateway with web application firewall (WAF), and the OWASP ruleset enabled.  Additional capabilities include:
 
 - [End-to-End-SSL] (https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
-- [SSL Offload](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-portal)
-- [Disable TLS v1.0 and v1.1](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- Enable [SSL Offload](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-ssl-portal)
+- Disable [TLS v1.0 and v1.1](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web application firewall](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-webapplicationfirewall-overview)(WAF mode)
 - [Prevention mode](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-web-application-firewall-portal) with OWASP 3.0 ruleset
-- [Diagnostics logging](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
+- Enable [diagnostics logging](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
 - [Custom health probes](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal)
 - [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center) and [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provide additional protection and notifications. Azure Security Center also provides a reputation system.
 
@@ -244,7 +244,7 @@ To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.m
 
 A PaaS SQL Database instance is used to showcase database security measures:
 - Enable [AD Authentication and Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
-- Enable [auditing logging](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
+- Enable [auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
 - Enable [Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
 - Enable [SQL DB Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configureallowing) (allowing for ASE worker pools and client IP management)
 - Enable [Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started)

@@ -27,13 +27,13 @@ This command will validate or install any missing PowerShell modules which are r
 
 ```powershell
 .\0-Setup-AdministrativeAccountAndPermission.ps1 
-    -azureADDomainName contosowebstore.onmicrosoft.com
+    -azureADDomainName contosowebstore.com
     -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
     -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
     -configureGlobalAdmin 
  ```
 
- This command will deploy installed modules, and setup the solution on a **new subscription**. It will create the user `adminXX@contosowebstore.onmicrosoft.com` with a randomly generated strong password (15 characters minimum, with uppercase and lowercase letters, and at least one number and one special character.) 
+ This command will deploy installed modules, and setup the solution on a **new subscription**. It will create the user `adminXX@contosowebstore.com` with a randomly generated strong password (15 characters minimum, with uppercase and lowercase letters, and at least one number and one special character.) 
  
 # Required parameters
 

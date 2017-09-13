@@ -28,9 +28,9 @@ The estimated time to deploy the solution components is shown in the diagram bel
 ```powershell
 .\1-DeployAndConfigureAzureResources.ps1 
     -resourceGroupName contosowebstore
-    -globalAdminUserName adminXX@contosowebstore.onmicrosoft.com 
+    -globalAdminUserName adminXX@contosowebstore.com 
     -globalAdminPassword **************
-    -azureADDomainName contosowebstore.onmicrosoft.com 
+    -azureADDomainName contosowebstore.com 
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
     -suffix PCIcontosowebstore
     -sqlTDAlertEmailAddress edna@contosowebstore.com 
@@ -44,9 +44,9 @@ This command creates the required Azure accounts and generates a self-signed cer
 ```powershell
 .\1-DeployAndConfigureAzureResources.ps1
     -resourceGroupName contosowebstore
-    -globalAdminUserName adminXX@contosowebstore.onmicrosoft.com 
+    -globalAdminUserName adminXX@contosowebstore.com 
     -globalAdminPassword **************
-    -azureADDomainName contosowebstore.onmicrosoft.com 
+    -azureADDomainName contosowebstore.com 
     -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
     -suffix PCIcontosowebstore
     -sqlTDAlertEmailAddress edna@contosowebstore.com 
