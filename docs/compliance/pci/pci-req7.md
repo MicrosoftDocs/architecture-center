@@ -14,8 +14,8 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure enforces existing ISMS policies regarding Azure personnel access to Azure system components, verification of access control effectiveness, providing Just-In-Time administrative access, revoking access when no longer needed, and ensuring staff accessing the Azure platform environment have a business need. Azure access to customer environments is highly restricted and only allowed with customer approval.<br /><br />Procedures have been established to restrict physical access to the data center to authorized employees, vendors, contractors, and visitors. Security verification and check-in are required for personnel requiring temporary access to the interior data center facility. Physical access logs are reviewed every quarter by Azure teams. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for limiting access to system components and cardholder data to only those individuals whose job requires such access. This includes limiting and restricting access to the Azure Management Portal as well as specifying accounts or roles with permission to create, modify, or delete PaaS services.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure enforces existing ISMS policies regarding Azure personnel access to Azure system components, verification of access control effectiveness, providing Just-In-Time administrative access, revoking access when no longer needed, and ensuring staff accessing the Azure platform environment have a business need. Azure access to customer environments is highly restricted and only allowed with customer approval.<br /><br />Procedures have been established to restrict physical access to the data center to authorized employees, vendors, contractors, and visitors. Security verification and check-in are required for personnel requiring temporary access to the interior data center facility. Physical access logs are reviewed every quarter by Azure teams. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for limiting access to system components and cardholder data to only those individuals whose job requires such access. This includes limiting and restricting access to the Azure Management Portal as well as specifying accounts or roles with permission to create, modify, or delete PaaS services.|
 
 
 
@@ -29,8 +29,8 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for defining and documenting a User ID approval process, defining least privileges, restricting access to cardholder data, using unique IDs, providing separation of duties, and revoking user access when no longer necessary.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for defining and documenting a User ID approval process, defining least privileges, restricting access to cardholder data, using unique IDs, providing separation of duties, and revoking user access when no longer necessary.|
 
 
 
@@ -42,8 +42,8 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published and communicated to Windows Azure. The Microsoft Azure Information Security Policy requires that access to Microsoft Azure assets be granted based on business justification, with the asset owner's authorization and based on "need-to-know" and "least-privilege" principles. The policy also addresses requirements for access management lifecycle including access provisioning, access authorization, authentication removal of access rights, and periodic access reviews. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published and communicated to Windows Azure. The Microsoft Azure Information Security Policy requires that access to Microsoft Azure assets be granted based on business justification, with the asset owner's authorization and based on "need-to-know" and "least-privilege" principles. The policy also addresses requirements for access management lifecycle including access provisioning, access authorization, authentication removal of access rights, and periodic access reviews. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
 
 
 
@@ -55,8 +55,8 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). User roles are limited to duties based on the documented demo scenario.|
 
 
 
@@ -68,8 +68,8 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for limiting access to system components and cardholder data to only those individuals whose job requires such access. This includes limiting and restricting access to the Azure Management Portal as well as specifying accounts or roles with permission to create, modify, or delete PaaS services.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for limiting access to system components and cardholder data to only those individuals whose job requires such access. This includes limiting and restricting access to the Azure Management Portal as well as specifying accounts or roles with permission to create, modify, or delete PaaS services.|
 
 
 
@@ -85,8 +85,8 @@ This access control system must include the following:
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory to restrict access to designated users only. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Active Directory to restrict access to designated users only. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 
@@ -98,8 +98,8 @@ This access control system must include the following:
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore documentation provides a use case and a description regarding who uses CHD, and how CHD is used.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore documentation provides a use case and a description regarding who uses CHD, and how CHD is used.|
 
 
 

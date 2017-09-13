@@ -16,8 +16,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore provides a use case and a description for the correct usage of administrators for the sample deployment.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a use case and a description for the correct usage of administrators for the sample deployment.|
 
 
 
@@ -29,8 +29,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -42,8 +42,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore implements Azure Active Directory, and Azure Active Directory Role-Based Access Control (RBAC) to ensure all users have a unique ID. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -55,8 +55,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore utilizes Azure Active Directory for user management. Revocation of users can be done in Active Directory.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore utilizes Azure Active Directory for user management. Revocation of users can be done in Active Directory.|
 
 
 
@@ -68,8 +68,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire in 90 days.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire in 90 days.|
 
 
 
@@ -83,8 +83,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published, and communicated to Microsoft Azure. The Information Security Policy requires that access to Microsoft Azure assets to be granted based on business justification, with the asset owner's authorization and limited based on "need-to-know" and "least-privilege" principles. In addition, the policy also addresses requirements for access management lifecycle including access provisioning, authentication, access authorization, removal of access rights, and periodic access reviews. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has adopted applicable corporate and organizational security policies, including an Information Security Policy. The policies have been approved, published, and communicated to Microsoft Azure. The Information Security Policy requires that access to Microsoft Azure assets to be granted based on business justification, with the asset owner's authorization and limited based on "need-to-know" and "least-privilege" principles. In addition, the policy also addresses requirements for access management lifecycle including access provisioning, authentication, access authorization, removal of access rights, and periodic access reviews. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore demo has implemented Azure Active Directory, and Azure Active Directory Role-Based Access control to manage user access to the installation. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -96,8 +96,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Contoso Webstore has implemented clear separation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](index.md#identity-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Contoso Webstore has implemented clear separation of duties (SOD) for all users of the demo. For more information, see ""Azure Active Directory Identity Protection" at [PCI Guidance - Identity Management](index.md#identity-management).|
 
 
 
@@ -109,8 +109,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for creating, enforcing, and monitoring a password policy compliant with PCI DSS requirements.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating, enforcing, and monitoring a password policy compliant with PCI DSS requirements.|
 
 
 
@@ -122,8 +122,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for creating, enforcing, and monitoring a password policy compliant with PCI DSS requirements.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating, enforcing, and monitoring a password policy compliant with PCI DSS requirements.|
 
 
 
@@ -138,8 +138,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore implementation for multi-factor authentication has been disabled to provide ease of use for the demo. Multi-factor authentication can be implemented using [Azure Multi-Factor Authentication](https://azure.microsoft.com/en-us/services/multi-factor-authentication/).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore implementation for multi-factor authentication has been disabled to provide ease of use for the demo. Multi-factor authentication can be implemented using [Azure Multi-Factor Authentication](https://azure.microsoft.com/en-us/services/multi-factor-authentication/).|
 
 
 
@@ -151,8 +151,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -165,8 +165,8 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has established key management procedures to manage cryptographic keys throughout their lifecycle (e.g., generation, distribution, revocation). Microsoft Azure uses Microsoft's corporate PKI infrastructure. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -181,8 +181,8 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide.|
 
 
 
@@ -194,8 +194,8 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire at least once every 90 days.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Active Directory for user management. The `-enableADDomainPasswordPolicy` option can be set to ensure passwords expire at least once every 90 days.|
 
 
 
@@ -207,8 +207,8 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -220,8 +220,8 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore enforces strong passwords, documented in the deployment guide. For more information, see [PCI Guidance - Identity Management](index.md#identity-management).<br /><br />|
 
 
 
@@ -237,8 +237,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -251,8 +251,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -265,8 +265,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Azure administrators are required to use multi-factor authentication to access when performing maintenance and administration to Azure systems and servers. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -282,8 +282,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for following guidance and documenting and communicating authentication procedures and policies to all users.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for following guidance and documenting and communicating authentication procedures and policies to all users.|
 
 
 
@@ -298,8 +298,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo.|
 
 
 
@@ -312,8 +312,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable for Microsoft Azure customers. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Not applicable for Microsoft Azure customers.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable for Microsoft Azure customers. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable for Microsoft Azure customers.|
 
 
 
@@ -327,8 +327,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
 
 
 
@@ -343,8 +343,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | The Contoso Webstore protects all cardholder data with Azure Key Vault, and encryption of records is outlined in the deployment documentation. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore protects all cardholder data with Azure Key Vault, and encryption of records is outlined in the deployment documentation. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).<br /><br />|
 
 
 
@@ -356,8 +356,8 @@ authentication.
 
 |||
 |---|---|
-| **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for ensuring that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
+| **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
+| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.|
 
 
 
