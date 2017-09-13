@@ -88,7 +88,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Microsoft Azure performs external scans for vulnerabilities on in-scope underlying infrastructure that is accessible externally. Scans are performed by an Approved Scan Vendor (ASV).<br /><br />Microsoft Azure subscribes to MSRC/OSSC monthly patch notifications and scans for vulnerabilities at least quarterly. Identified vulnerabilities are evaluated and remediated per established timeline based on the level of risk.<br /><br />Each quarter targeted comprehensive security vulnerability scanning against prioritized components of the Microsoft Azure environment is performed to identify security vulnerabilities. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | When deploying the Contoso Webstore, customers of the demo are responsible for performing quarterly external vulnerability scans and rescans as needed against all PaaS instances in their CDE, using an Approved Scanning Vendor (ASV) approved by the Payment Card Industry Security Standards Council.<br /><br />|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | When deploying the Contoso Webstore, customers of the demo are responsible for performing quarterly external vulnerability scans and rescans as needed against all PaaS instances in their cardholder data environment (CDE), using an Approved Scanning Vendor (ASV) approved by the Payment Card Industry Security Standards Council.<br /><br />|
 
 
 

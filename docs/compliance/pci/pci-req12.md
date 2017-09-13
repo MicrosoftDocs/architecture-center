@@ -27,7 +27,7 @@ A strong security policy sets the security tone for the whole entity and informs
 |||
 |---|---|
 | **Microsoft&nbsp;Azure** | Not applicable. |
-| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for updating their information security policy at least annually, or when there are changes to their CDE.|
+| **Customer&nbsp;PCI<br />Blueprint&nbsp;(PaaS)** | Customers are responsible for updating their information security policy at least annually, or when there are changes to their cardholder data environment (CDE).|
 
 
 

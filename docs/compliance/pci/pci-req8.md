@@ -227,7 +227,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 ### PCI DSS Requirement 8.3
 
-**8.3** Secure all individual non-console administrative access and all remote access to the CDE using multi-factor authentication.
+**8.3** Secure all individual non-console administrative access and all remote access to the cardholder data environment (CDE) using multi-factor authentication.
 > **Note:** Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate
 passwords) is not considered multi-factor
 authentication.
