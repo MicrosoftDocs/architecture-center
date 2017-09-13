@@ -93,7 +93,7 @@ Edna Benson is the receptionist and business manager. She is responsible for ens
 
 ### Contoso Webstore - Estimated pricing
 
-This foundation architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is $XXX. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
+This foundational architecture and example web application have a monthly fee structure and a usage cost per hour which must be considered when sizing the solution. These costs can be estimated using the [Azure costing calculator](https://azure.microsoft.com/en-us/pricing/calculator/). As of September 2017, the estimated monthly cost for this solution is $XXX. These costs will vary based on the usage amount and are subject to change. It is incumbent on the customer to calculate their estimated monthly costs at the time of deployment for a more accurate estimate. 
 
 This solution used the following Azure services. Details of the deployment architecture are located in the [Deployment Architecture](#deployment-architecture) section.
 
