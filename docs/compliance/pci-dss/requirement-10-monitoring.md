@@ -7,7 +7,7 @@
 
 Logging mechanisms and the ability to track user activities are critical in preventing, detecting, or minimizing the impact of a data compromise. The presence of logs in all environments allows thorough tracking, alerting, and analysis when something does go wrong. Determining the cause of a compromise is very difficult, if not impossible, without system activity logs.
 
-### PCI DSS Requirement 10.1
+## PCI DSS Requirement 10.1
 
 **10.1** Implement audit trails to link all access to system components to each individual user.
 
@@ -20,7 +20,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.2
+## PCI DSS Requirement 10.2
 
 **10.2** Implement automated audit trails for all system components to reconstruct the following events:
 - **10.2.1** All individual user accesses to cardholder data
@@ -40,7 +40,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.3
+## PCI DSS Requirement 10.3
 
 **10.3** Record at least the following audit trail entries for all system components for each event:
 - **10.3.1** User identification
@@ -59,7 +59,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.4
+## PCI DSS Requirement 10.4
 
 **10.4** Using time-synchronization technology, synchronize all critical system clocks and times and ensure that the following is implemented for acquiring, distributing, and storing time. 
 > **Note:** One example of time synchronization technology is Network Time Protocol (NTP).
@@ -73,7 +73,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.4.1
+### PCI DSS Requirement 10.4.1
 
 **10.4.1** Critical systems have the correct and consistent time.
 
@@ -86,7 +86,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.4.2
+### PCI DSS Requirement 10.4.2
 
 **10.4.2** Time data is protected.
 
@@ -99,7 +99,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.4.3
+### PCI DSS Requirement 10.4.3
 
 **10.4.3** Time settings are received from industry-accepted time sources.
 
@@ -112,7 +112,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.5
+## PCI DSS Requirement 10.5
 
 **10.5** Secure audit trails so they cannot be altered.
 
@@ -125,7 +125,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.5.1
+### PCI DSS Requirement 10.5.1
 
 **10.5.1** Limit viewing of audit trails to those with a job-related need.
 
@@ -138,7 +138,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.5.2
+### PCI DSS Requirement 10.5.2
 
 **10.5.2** Protect audit trail files from unauthorized modifications.
 
@@ -151,7 +151,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.5.3
+### PCI DSS Requirement 10.5.3
 
 **10.5.3** Promptly back up audit trail files to a centralized log server or media that is difficult to alter.
 
@@ -164,7 +164,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.5.4
+### PCI DSS Requirement 10.5.4
 
 **10.5.4** Write logs for external-facing technologies onto a secure, centralized, internal log server or media device.
 
@@ -177,7 +177,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.5.5
+### PCI DSS Requirement 10.5.5
 
 **10.5.5** Use file-integrity monitoring or change-detection software on logs to ensure that existing log data cannot be changed without generating alerts (although new data being added should not cause an alert).
 
@@ -190,7 +190,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.6
+## PCI DSS Requirement 10.6
 
 **10.6** Review logs and security events for all system components to identify anomalies or suspicious activity. 
 >Note: Log harvesting, parsing, and alerting tools may be used to meet this Requirement.
@@ -204,7 +204,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.6.1
+### PCI DSS Requirement 10.6.1
 
 **10.6.1** Review the following at least daily:
 - All security events
@@ -221,7 +221,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.6.2
+### PCI DSS Requirement 10.6.2
 
 **10.6.2** Review logs of all other system components periodically based on the organization’s policies and risk management strategy, as determined by the organization’s annual risk assessment.
 
@@ -234,7 +234,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.6.3
+### PCI DSS Requirement 10.6.3
 
 **10.6.3** Follow up exceptions and anomalies identified during the review process.
 
@@ -247,7 +247,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.7
+## PCI DSS Requirement 10.7
 
 **10.7** Retain audit trail history for at least one year, with a minimum of three months immediately available for analysis (for example, online, archived, or restorable from backup).
 
@@ -260,7 +260,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-### PCI DSS Requirement 10.8
+## PCI DSS Requirement 10.8
 
 **10.8** **Additional requirement for service providers only:** Implement a process for the timely detection and reporting of failures of critical security control systems, including but not limited to failure of:
 - Firewalls
@@ -285,7 +285,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 
 
 
-#### PCI DSS Requirement 10.8.1
+### PCI DSS Requirement 10.8.1
 
 **10.8.1** **Additional requirement for service providers only:** Respond to failures of any critical security controls in a timely manner. Processes for responding to failures in security controls must include:
 - Restoring security functions
@@ -309,7 +309,7 @@ remediation required to address root cause
 
 
 
-### PCI DSS Requirement 10.9
+## PCI DSS Requirement 10.9
 
 **10.9** Ensure that security policies and operational procedures for monitoring all access to network resources and cardholder data are documented, in use, and known to all affected parties.
 

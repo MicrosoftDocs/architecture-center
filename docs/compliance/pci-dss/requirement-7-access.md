@@ -8,7 +8,7 @@
 To ensure critical data can only be accessed by authorized personnel, systems and processes must be in place to limit access based on need to know and according to job responsibilities.
 “Need to know” is when access rights are granted to only the least amount of data and privileges needed to perform a job.
 
-### PCI DSS Requirement 7.1
+## PCI DSS Requirement 7.1
 
 **7.1** Limit access to system components and cardholder data to only those individuals whose job requires such access.
 
@@ -21,7 +21,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-#### PCI DSS Requirement 7.1.1
+### PCI DSS Requirement 7.1.1
 
 **7.1.1** Define access needs for each role, including:
 - System components and data resources that each role needs to access for their job function
@@ -36,7 +36,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-#### PCI DSS Requirement 7.1.2
+### PCI DSS Requirement 7.1.2
 
 **7.1.2** Restrict access to privileged user IDs to least privileges necessary to perform job responsibilities.
 
@@ -49,7 +49,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-#### PCI DSS Requirement 7.1.3
+### PCI DSS Requirement 7.1.3
 
 **7.1.3** Assign access based on individual personnel’s job classification and function.
 
@@ -62,7 +62,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-#### PCI DSS Requirement 7.1.4
+### PCI DSS Requirement 7.1.4
 
 **7.1.4** Require documented approval by authorized parties specifying required privileges.
 
@@ -75,7 +75,7 @@ To ensure critical data can only be accessed by authorized personnel, systems an
 
 
 
-### PCI DSS Requirement 7.2
+## PCI DSS Requirement 7.2
 
 **7.2** Establish an access control system for systems components that restricts access based on a user’s need to know, and is set to “deny all” unless specifically allowed.
 This access control system must include the following:
@@ -92,7 +92,7 @@ This access control system must include the following:
 
 
 
-### PCI DSS Requirement 7.3
+## PCI DSS Requirement 7.3
 
 **7.3** Ensure that security policies and operational procedures for restricting access to cardholder data are documented, in use, and known to all affected parties.
 

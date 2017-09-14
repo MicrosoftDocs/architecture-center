@@ -7,7 +7,7 @@
 
 Any physical access to data or systems that house cardholder data provides the opportunity for individuals to access devices or data and to remove systems or hardcopies, and should be appropriately restricted. For the purposes of Requirement 9, “onsite personnel” refers to full-time and part-time employees, temporary employees, contractors and consultants who are physically present on the entity’s premises. A “visitor” refers to a vendor, guest of any onsite personnel, service workers, or anyone who needs to enter the facility for a short duration, usually not more than one day. “Media” refers to all paper and electronic media containing cardholder data.
 
-### PCI DSS Requirement 9.1
+## PCI DSS Requirement 9.1
 
 **9.1** Use appropriate facility entry controls to limit and monitor physical access to systems in the cardholder data environment.
 
@@ -20,7 +20,7 @@ Any physical access to data or systems that house cardholder data provides the o
 
 
 
-#### PCI DSS Requirement 9.1.1
+### PCI DSS Requirement 9.1.1
 
 **9.1.1** Use either video cameras or access control mechanisms (or both) to monitor individual physical access to sensitive areas. Review collected data and correlate with other entries. Store for at least three months, unless otherwise restricted by law.
 > **Note:** “Sensitive areas” refers to any data center, server room or any area that houses systems that store, process, or transmit cardholder data. This excludes public-facing areas where only point-of-sale terminals are present, such as the cashier areas in a retail store.
@@ -34,7 +34,7 @@ Any physical access to data or systems that house cardholder data provides the o
 
 
 
-#### PCI DSS Requirement 9.1.2
+### PCI DSS Requirement 9.1.2
 
 **9.1.2** Implement physical and/or logical controls to restrict access to publicly accessible network jacks. 
 
@@ -49,7 +49,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-#### PCI DSS Requirement 9.1.3
+### PCI DSS Requirement 9.1.3
 
 **9.1.3** Restrict physical access to wireless access points, gateways, handheld devices, networking/communications hardware, and telecommunication lines.
 
@@ -62,7 +62,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-### PCI DSS Requirement 9.2
+## PCI DSS Requirement 9.2
 
 **9.2** Develop procedures to easily distinguish between onsite personnel and visitors, to include:
 - Identifying onsite personnel and visitors (for example, assigning badges)
@@ -78,7 +78,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-### PCI DSS Requirement 9.3
+## PCI DSS Requirement 9.3
 
 **9.3** Control physical access for onsite personnel to the sensitive areas as follows:
 - Access must be authorized and based on individual job function.
@@ -93,7 +93,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-### PCI DSS Requirement 9.4
+## PCI DSS Requirement 9.4
 
 **9.4** Implement procedures to identify and authorize visitors. Procedures should include the following.
 
@@ -106,7 +106,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-#### PCI DSS Requirement 9.4.1
+### PCI DSS Requirement 9.4.1
 
 **9.4.1** Visitors are authorized before entering, and escorted at all times within, areas where cardholder data is processed or maintained.
 
@@ -120,7 +120,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-#### PCI DSS Requirement 9.4.2
+### PCI DSS Requirement 9.4.2
 
 **9.4.2** Visitors are identified and given a badge or other identification that expires and that visibly distinguishes the visitors from onsite personnel.
 
@@ -133,7 +133,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-#### PCI DSS Requirement 9.4.3
+### PCI DSS Requirement 9.4.3
 
 **9.4.3** Visitors are asked to surrender the badge or identification before leaving the facility or at the date of expiration.
 
@@ -146,7 +146,7 @@ For example, network jacks located in public areas and areas accessible to visit
 
 
 
-#### PCI DSS Requirement 9.4.4
+### PCI DSS Requirement 9.4.4
 
 **9.4.4** A visitor log is used to maintain a physical audit trail of visitor activity to the facility as well as computer rooms and data centers where cardholder data is stored or transmitted.
 Document the visitor’s name, the firm represented, and the onsite personnel authorizing physical access on the log.
@@ -161,7 +161,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.5
+## PCI DSS Requirement 9.5
 
 **9.5** Physically secure all media.
 
@@ -174,7 +174,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.5.1
+### PCI DSS Requirement 9.5.1
 
 **9.5.1** Store media backups in a secure location, preferably an off-site facility, such as an alternate or backup site, or a commercial storage facility. Review the location’s security at least annually.
 
@@ -187,7 +187,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.6
+## PCI DSS Requirement 9.6
 
 **9.6** Maintain strict control over the internal or external distribution of any kind of media, including the following.
 
@@ -200,7 +200,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.6.1
+### PCI DSS Requirement 9.6.1
 
 **9.6.1** Classify media so the sensitivity of the data can be determined.
 
@@ -213,7 +213,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.6.2
+### PCI DSS Requirement 9.6.2
 
 **9.6.2** Send the media by secured courier or other delivery method that can be accurately tracked.
 
@@ -226,7 +226,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.6.3
+### PCI DSS Requirement 9.6.3
 
 **9.6.3** Ensure management approves any and all media that is moved from a secured area (including when media is distributed to individuals).
 
@@ -239,7 +239,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.7
+## PCI DSS Requirement 9.7
 
 **9.7** Maintain strict control over the storage and accessibility of media.
 
@@ -252,7 +252,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.7.1
+### PCI DSS Requirement 9.7.1
 
 **9.7.1** Properly maintain inventory logs of all media and conduct media inventories at least annually.
 
@@ -266,7 +266,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.8
+## PCI DSS Requirement 9.8
 
 **9.8** Destroy media when it is no longer needed for business or legal reasons as follows.
 
@@ -279,7 +279,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.8.1
+### PCI DSS Requirement 9.8.1
 
 **9.8.1** Shred, incinerate, or pulp hard-copy materials so that cardholder data cannot be reconstructed. Secure storage containers used for materials that are to be destroyed.
 
@@ -292,7 +292,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.8.2
+### PCI DSS Requirement 9.8.2
 
 **9.8.2** Render cardholder data on electronic media unrecoverable so that cardholder data cannot be reconstructed.
 
@@ -305,7 +305,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.9
+## PCI DSS Requirement 9.9
 
 **9.9** Protect devices that capture payment card data via direct physical interaction with the card from tampering and substitution.
 > **Note:** These requirements apply to card-reading devices used in card-present transactions (that is, card swipe or dip) at the point of sale. This requirement is not intended to apply to manual key-entry components such as computer keyboards and POS keypads. 
@@ -319,7 +319,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.9.1
+### PCI DSS Requirement 9.9.1
 
 **9.9.1** Maintain an up-to-date list of devices. The list should include the following:
 - Make, model of device
@@ -335,7 +335,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.9.2
+### PCI DSS Requirement 9.9.2
 
 **9.9.2** Periodically inspect device surfaces to detect tampering (for example, addition of card skimmers to devices), or substitution (for example, by checking the serial number or other device characteristics to verify it has not been swapped with a fraudulent device).
 > **Note:** Examples of signs that a device might have been tampered with or substituted include unexpected attachments or cables plugged into the device, missing or changed security labels, broken or differently colored casing, or changes to the serial number or other external markings.
@@ -349,7 +349,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-#### PCI DSS Requirement 9.9.3
+### PCI DSS Requirement 9.9.3
 
 **9.9.3** Provide training for personnel to be aware of attempted tampering or replacement of devices. Training should include the following:
 - Verify the identity of any third-party persons claiming to be repair or maintenance personnel, prior to granting them access to modify or troubleshoot devices.
@@ -366,7 +366,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 
 
 
-### PCI DSS Requirement 9.10
+## PCI DSS Requirement 9.10
 
 **9.10** Ensure that security policies and operational procedures for restricting physical access to cardholder data are documented, in use, and known to all affected parties.
 

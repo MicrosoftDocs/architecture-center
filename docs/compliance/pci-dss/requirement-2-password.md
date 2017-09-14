@@ -7,7 +7,7 @@
 
 Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
 
-### PCI DSS Requirement 2.1
+## PCI DSS Requirement 2.1
 
 **2.1** Always change vendor-supplied defaults and remove or disable unnecessary default accounts **before** installing a system on the network.
 This applies to ALL default passwords, including but not limited to those used by operating systems, software that provides security services, application and system accounts, point-of-sale (POS) terminals, Simple Network Management Protocol (SNMP) community strings, etc.
@@ -21,7 +21,7 @@ This applies to ALL default passwords, including but not limited to those used b
 
 
 
-#### PCI DSS Requirement 2.1.1
+### PCI DSS Requirement 2.1.1
 
 **2.1.1** For wireless environments connected to the cardholder data environment or transmitting cardholder data, change ALL wireless vendor defaults at installation, including but not limited to default wireless encryption keys, passwords, and SNMP community strings.
 
@@ -34,7 +34,7 @@ This applies to ALL default passwords, including but not limited to those used b
 
 
 
-### PCI DSS Requirement 2.2
+## PCI DSS Requirement 2.2
 
 **2.2** Develop configuration standards for all system components. Assure that these standards address all known security vulnerabilities and are consistent with industry-accepted system hardening standards.
 Sources of industry-accepted system hardening standards may include, but are not limited to:
@@ -52,7 +52,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 
 
-#### PCI DSS Requirement 2.2.1
+### PCI DSS Requirement 2.2.1
 
 **2.2.1** Implement only one primary function per server to prevent functions that require different security levels from co-existing on the same server. (For example, web servers, database servers, and DNS should be implemented on separate servers.) 
 
@@ -67,7 +67,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 
 
-#### PCI DSS Requirement 2.2.2
+### PCI DSS Requirement 2.2.2
 
 **2.2.2** Enable only necessary services, protocols, daemons, etc., as required for the function of the system.
 
@@ -80,7 +80,7 @@ Sources of industry-accepted system hardening standards may include, but are not
 
 
 
-#### PCI DSS Requirement 2.2.3
+### PCI DSS Requirement 2.2.3
 
 **2.2.3** Implement additional security features for any required services, protocols, or daemons that are considered to be insecure. 
 
@@ -98,7 +98,7 @@ completed.
 
 
 
-#### PCI DSS Requirement 2.2.4
+### PCI DSS Requirement 2.2.4
 
 **2.2.4** Configure system security parameters to prevent misuse.
 
@@ -111,7 +111,7 @@ completed.
 
 
 
-#### PCI DSS Requirement 2.2.5
+### PCI DSS Requirement 2.2.5
 
 **2.2.5** Remove all unnecessary functionality, such as scripts, drivers, features, subsystems, file systems, and unnecessary web servers.
 
@@ -124,7 +124,7 @@ completed.
 
 
 
-### PCI DSS Requirement 2.3
+## PCI DSS Requirement 2.3
 
 **2.3** Encrypt all non-console administrative access using strong cryptography. 
 
@@ -139,7 +139,7 @@ completed.
 
 
 
-### PCI DSS Requirement 2.4
+## PCI DSS Requirement 2.4
 
 **2.4** Maintain an inventory of system components that are in scope for PCI DSS.
 
@@ -152,7 +152,7 @@ completed.
 
 
 
-### PCI DSS Requirement 2.5
+## PCI DSS Requirement 2.5
 
 **2.5** Ensure that security policies and operational procedures for managing vendor defaults and other security parameters are documented, in use, and known to all affected parties.
 
@@ -165,7 +165,7 @@ completed.
 
 
 
-### PCI DSS Requirement 2.6
+## PCI DSS Requirement 2.6
 
 **2.6** Shared hosting providers must protect each entity’s hosted environment and cardholder data. These providers must meet specific requirements as detailed in *Appendix A: Additional PCI DSS Requirements for Shared Hosting Providers.*
 

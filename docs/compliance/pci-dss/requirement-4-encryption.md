@@ -7,7 +7,7 @@
 
 Sensitive information must be encrypted during transmission over networks that are easily accessed by malicious individuals. Misconfigured wireless networks and vulnerabilities in legacy encryption and authentication protocols continue to be targets of malicious individuals who exploit these vulnerabilities to gain privileged access to cardholder data environments.
 
-### PCI DSS Requirement 4.1
+## PCI DSS Requirement 4.1
 
 **4.1** Use strong cryptography and security protocols (for example, TLS, IPSEC, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks, including the following:
 - Only trusted keys and certificates are accepted.
@@ -33,7 +33,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 
 
-#### PCI DSS Requirement 4.1.1
+### PCI DSS Requirement 4.1.1
 
 **4.1.1** Ensure wireless networks transmitting cardholder data, or connected to the cardholder data environment, use industry best practices (for example, IEEE 802.11i) to implement strong encryption for authentication and transmission.
 
@@ -46,7 +46,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 
 
-### PCI DSS Requirement 4.2
+## PCI DSS Requirement 4.2
 
 **4.2** Never send unprotected PANs by end-user messaging technologies (for example, e-mail, instant messaging, SMS, chat, etc.).
 
@@ -59,7 +59,7 @@ Sensitive information must be encrypted during transmission over networks that a
 
 
 
-### PCI DSS Requirement 4.3
+## PCI DSS Requirement 4.3
 
 **4.3** Ensure that security policies and operational procedures for encrypting transmissions of cardholder data are documented, in use, and known to all affected parties.
 

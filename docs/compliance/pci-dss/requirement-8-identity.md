@@ -10,7 +10,7 @@ The effectiveness of a password is largely determined by the design and implemen
 Note: These requirements are applicable for all accounts, including point-of-sale accounts, with administrative capabilities and all accounts used to view or access cardholder data or to access systems with cardholder data. This includes accounts used by vendors and other third parties (for example, for support or maintenance). These requirements do not apply to accounts used by consumers (e.g., cardholders). 
 However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.1.8 are not intended to apply to user accounts within a point-of-sale payment application that only have access to one card number at a time in order to facilitate a single transaction (such as cashier accounts).
 
-### PCI DSS Requirement 8.1
+## PCI DSS Requirement 8.1
 
 **8.1** Define and implement policies and procedures to ensure proper user identification management for non-consumer users and administrators on all system components as follows.
 
@@ -23,7 +23,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.1
+### PCI DSS Requirement 8.1.1
 
 **8.1.1** Assign all users a unique ID before allowing them to access system components or cardholder data.
 
@@ -36,7 +36,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.2
+### PCI DSS Requirement 8.1.2
 
 **8.1.2** Control addition, deletion, and modification of user IDs, credentials, and other identifier objects.
 
@@ -49,7 +49,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.3
+### PCI DSS Requirement 8.1.3
 
 **8.1.3** Immediately revoke access for any terminated users.
 
@@ -62,7 +62,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.4
+### PCI DSS Requirement 8.1.4
 
 **8.1.4** Remove or disable inactive user accounts within 90 days.
 
@@ -75,7 +75,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.5
+### PCI DSS Requirement 8.1.5
 
 **8.1.5** Manage IDs used by third parties to access, support, or maintain system components via remote access as follows:
 - Enabled only during the time period needed and disabled when not in use.
@@ -90,7 +90,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.6
+### PCI DSS Requirement 8.1.6
 
 **8.1.6** Limit repeated access attempts by locking out the user ID after not more than six attempts.
 
@@ -103,7 +103,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.7
+### PCI DSS Requirement 8.1.7
 
 **8.1.7** Set the lockout duration to a minimum of 30 minutes or until an administrator enables the user ID.
 
@@ -116,7 +116,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.1.8
+### PCI DSS Requirement 8.1.8
 
 **8.1.8** If a session has been idle for more than 15 minutes, require the user to re-authenticate to re-activate the terminal or session.
 
@@ -129,7 +129,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-### PCI DSS Requirement 8.2
+## PCI DSS Requirement 8.2
 
 **8.2** In addition to assigning a unique ID, ensure proper user-authentication management for non-consumer users and administrators on all system components by employing at least one of the following methods to authenticate all users:
 - Something you know, such as a password or passphrase
@@ -145,7 +145,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.2.1
+### PCI DSS Requirement 8.2.1
 
 **8.2.1** Using strong cryptography, render all authentication credentials (such as passwords/phrases) unreadable during transmission and storage on all system components.
 
@@ -158,7 +158,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.2.2
+### PCI DSS Requirement 8.2.2
 
 **8.2.2** Verify user identity before modifying any authentication credential—for example, performing password resets, provisioning new tokens, or generating new keys.
 
@@ -172,7 +172,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 
 
 
-#### PCI DSS Requirement 8.2.3
+### PCI DSS Requirement 8.2.3
 
 **8.2.3** Passwords/passphrases must meet the following:
 - Require a minimum length of at least seven characters.
@@ -188,7 +188,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 
 
-#### PCI DSS Requirement 8.2.4
+### PCI DSS Requirement 8.2.4
 
 **8.2.4** Change user passwords/passphrases at least once every 90 days.
 
@@ -201,7 +201,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 
 
-#### PCI DSS Requirement 8.2.5
+### PCI DSS Requirement 8.2.5
 
 **8.2.5** Do not allow an individual to submit a new password/passphrase that is the same as any of the last four passwords/passphrases he or she has used.
 
@@ -214,7 +214,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 
 
-#### PCI DSS Requirement 8.2.6
+### PCI DSS Requirement 8.2.6
 
 **8.2.6** Set passwords/passphrases for first-time use and upon reset to a unique value for each user, and change immediately after the first use.
 
@@ -227,7 +227,7 @@ Alternatively, the passwords/passphrases must have complexity and strength at le
 
 
 
-### PCI DSS Requirement 8.3
+## PCI DSS Requirement 8.3
 
 **8.3** Secure all individual non-console administrative access and all remote access to the cardholder data environment (CDE) using multi-factor authentication.
 > **Note:** Multi-factor authentication requires that a minimum of two of the three authentication methods (see Requirement 8.2 for descriptions of authentication methods) be used for authentication. Using one factor twice (for example, using two separate
@@ -244,7 +244,7 @@ authentication.
 
 
 
-#### PCI DSS Requirement 8.3.1
+### PCI DSS Requirement 8.3.1
 
 **8.3.1** Incorporate multi-factor authentication for all non-console access into the CDE for personnel with administrative access.
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
@@ -258,7 +258,7 @@ authentication.
 
 
 
-#### PCI DSS Requirement 8.3.2
+### PCI DSS Requirement 8.3.2
 
 **8.3.2** Incorporate multi-factor authentication for all remote network access (both user and administrator, and including third-party access for support or maintenance) originating from outside the entity’s network.
 
@@ -272,7 +272,7 @@ authentication.
 
 
 
-### PCI DSS Requirement 8.4
+## PCI DSS Requirement 8.4
 
 **8.4** Document and communicate authentication policies and procedures to all users including:
 - Guidance on selecting strong authentication credentials
@@ -289,7 +289,7 @@ authentication.
 
 
 
-### PCI DSS Requirement 8.5
+## PCI DSS Requirement 8.5
 
 **8.5** Do not use group, shared, or generic IDs, passwords, or other authentication methods as follows:
 - Generic user IDs are disabled or removed.
@@ -305,7 +305,7 @@ authentication.
 
 
 
-#### PCI DSS Requirement 8.5.1
+### PCI DSS Requirement 8.5.1
 
 **8.5.1** **Additional requirement for service providers only:** Service providers with remote access to customer premises (for example, for support of POS systems or servers) must use a unique authentication credential (such as a password/phrase) for each customer. 
 > **Note:** This requirement is not intended to apply to shared hosting providers accessing their own hosting environment, where multiple customer environments are hosted.
@@ -319,7 +319,7 @@ authentication.
 
 
 
-### PCI DSS Requirement 8.6
+## PCI DSS Requirement 8.6
 
 **8.6** Where other authentication mechanisms are used (for example, physical or logical security tokens, smart cards, certificates, etc.), use of these mechanisms must be assigned as follows:
 - Authentication mechanisms must be assigned to an individual account and not shared among multiple accounts.
@@ -334,7 +334,7 @@ authentication.
 
 
 
-### PCI DSS Requirement 8.7
+## PCI DSS Requirement 8.7
 
 **8.7** All access to any database containing cardholder data (including access by applications, administrators, and all other users) is restricted as follows:
 - All user access to, user queries of, and user actions on databases are through programmatic methods.
@@ -350,7 +350,7 @@ authentication.
 
 
 
-### PCI DSS Requirement 8.8
+## PCI DSS Requirement 8.8
 
 **8.8** Ensure that security policies and operational procedures for identification and authentication are documented, in use, and known to all affected parties.
 

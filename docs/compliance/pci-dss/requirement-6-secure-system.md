@@ -8,7 +8,7 @@
 Unscrupulous individuals use security vulnerabilities to gain privileged access to systems. Many of these vulnerabilities are fixed by vendor-provided security patches, which must be installed by the entities that manage the systems. All systems must have all appropriate software patches to protect against the exploitation and compromise of cardholder data by malicious individuals and malicious software.
 Note: Appropriate software patches are those patches that have been evaluated and tested sufficiently to determine that the patches do not conflict with existing security configurations. For in-house developed applications, numerous vulnerabilities can be avoided by using standard system development processes and secure coding techniques.
 
-### PCI DSS Requirement 6.1
+## PCI DSS Requirement 6.1
 
 **6.1** Establish a process to identify security vulnerabilities, using reputable outside sources for security vulnerability information, and assign a risk ranking (for example, as “high,” “medium,” or “low”) to newly discovered security vulnerabilities.
 
@@ -25,7 +25,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.2
+## PCI DSS Requirement 6.2
 
 **6.2** Ensure that all system components and software are protected from known vulnerabilities by installing applicable vendor-supplied security patches. Install critical security patches within one month of release.
 
@@ -40,7 +40,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.3
+## PCI DSS Requirement 6.3
 
 **6.3** Develop internal and external software applications (including web-based administrative access to applications) securely, as follows:
 - In accordance with PCI DSS (for example, secure authentication and logging)
@@ -58,7 +58,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.3.1
+### PCI DSS Requirement 6.3.1
 
 **6.3.1** Remove development, test and/or custom application accounts, user IDs, and passwords before applications become active or are released to customers.
 
@@ -71,7 +71,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.3.2
+### PCI DSS Requirement 6.3.2
 
 **6.3.2** Review custom code prior to release to production or customers in order to identify any potential coding vulnerability (using either manual or automated processes) to include at least the following:
 - Code changes are reviewed by individuals other than the originating code author, and by individuals knowledgeable about code-review techniques and secure coding practices.
@@ -92,7 +92,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.4
+## PCI DSS Requirement 6.4
 
 **6.4** Follow change control processes and procedures for all changes to system components. The processes must include the following (see Requirements 6.4.1 to 6.4.6).
 
@@ -105,7 +105,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.1
+### PCI DSS Requirement 6.4.1
 
 **6.4.1** Separate development/test environments from production environments, and enforce the separation with access controls.
 
@@ -118,7 +118,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.2
+### PCI DSS Requirement 6.4.2
 
 **6.4.2** Separation of duties between development/test and production environments
 
@@ -131,7 +131,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.3
+### PCI DSS Requirement 6.4.3
 
 **6.4.3** Production data (live PANs) are not used for testing or development.
 
@@ -144,7 +144,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.4
+### PCI DSS Requirement 6.4.4
 
 **6.4.4** Removal of test data and accounts from system components before the system becomes active or goes into production.
 
@@ -157,7 +157,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.5
+### PCI DSS Requirement 6.4.5
 
 **6.4.5** Change control procedures for the implementation of security patches and software modifications must include the following:
 - **6.5.4.1** Documentation of impact.
@@ -174,7 +174,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-#### PCI DSS Requirement 6.4.6
+### PCI DSS Requirement 6.4.6
 
 **6.4.6** Upon completion of a significant change, all relevant PCI DSS requirements must be implemented on all new or changed systems and networks, and documentation updated as applicable.
 
@@ -190,7 +190,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.5
+## PCI DSS Requirement 6.5
 
 **6.5** Address common coding vulnerabilities in software-development processes as follows:
 - Train developers at least annually in up-to-date secure coding techniques, including how to avoid common coding vulnerabilities.
@@ -220,7 +220,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.6
+## PCI DSS Requirement 6.6
 
 **6.6** For public-facing web applications, address new threats and vulnerabilities on an ongoing basis and ensure these applications are protected against known attacks by either of the following methods:
 - Reviewing public-facing web applications via manual or automated application vulnerability security assessment tools or methods, at least annually and after any changes 
@@ -238,7 +238,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 
 
 
-### PCI DSS Requirement 6.7
+## PCI DSS Requirement 6.7
 
 **6.7** Ensure that security policies and operational procedures for developing and maintaining secure systems and applications are documented, in use, and known to all affected parties.
 

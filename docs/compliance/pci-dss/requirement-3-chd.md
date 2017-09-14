@@ -8,7 +8,7 @@
 Protection methods such as encryption, truncation, masking, and hashing are critical components of cardholder data protection. If an intruder circumvents other security controls and gains access to encrypted data, without the proper cryptographic keys, the data is unreadable and unusable to that person. Other effective methods of protecting stored data should also be considered as potential risk mitigation opportunities. For example, methods for minimizing risk include not storing cardholder data unless absolutely necessary, truncating cardholder data if full PAN is not needed, and not sending unprotected PANs using end-user messaging technologies, such as e-mail and instant messaging.
 Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acronyms for definitions of “strong cryptography” and other PCI DSS terms.
 
-### PCI DSS Requirement 3.1
+## PCI DSS Requirement 3.1
 
 **3.1** Keep cardholder data storage to a minimum by implementing data retention and disposal policies, procedures and processes that include at least the following for all cardholder data (CHD) storage:
 - Limiting data storage amount and retention time to that which is required for legal, regulatory, and business requirements
@@ -25,7 +25,7 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 
 
 
-### PCI DSS Requirement 3.2
+## PCI DSS Requirement 3.2
 
 **3.2** Do not store sensitive authentication data after authorization (even if encrypted). If sensitive authentication data is received, render all data unrecoverable upon completion of the authorization process. 
 > - There is a business justification, and 
@@ -42,7 +42,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.2.1
+### PCI DSS Requirement 3.2.1
 
 **3.2.1** Do not store the full contents of any track (from the magnetic stripe located on the back of a card, equivalent data contained on a chip, or elsewhere) after authorization. This data is alternatively called full track, track, track 1, track 2, and magnetic-stripe data. 
 
@@ -63,7 +63,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.2.2
+### PCI DSS Requirement 3.2.2
 
 **3.2.2** Do not store the card verification code or value (three-digit or four-digit number printed on the front or back of a payment card used to verify card-not-present transactions) after authorization.
 
@@ -76,7 +76,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.2.3
+### PCI DSS Requirement 3.2.3
 
 **3.2.3** Do not store the personal identification number (PIN) or the encrypted PIN block after authorization.
 
@@ -89,7 +89,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-### PCI DSS Requirement 3.3
+## PCI DSS Requirement 3.3
 
 **3.3** Mask PAN when displayed (the first six and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see the full PAN. 
 
@@ -104,7 +104,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-### PCI DSS Requirement 3.4
+## PCI DSS Requirement 3.4
 
 **3.4** Render PAN unreadable anywhere it is stored (including on portable digital media, backup media, and in logs) by using any of the following approaches:
 - One-way hashes based on strong cryptography, (hash must be of the entire PAN)
@@ -123,7 +123,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.4.1
+### PCI DSS Requirement 3.4.1
 
 **3.4.1** If disk encryption is used (rather than file- or column-level database encryption), logical access must be managed separately and independently of native operating system authentication and access control mechanisms (for example, by not using local user account databases or general network login credentials). Decryption keys must not be associated with user accounts. 
 
@@ -138,7 +138,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-### PCI DSS Requirement 3.5
+## PCI DSS Requirement 3.5
 
 **3.5** Document and implement procedures to protect keys used to secure stored cardholder data against disclosure and misuse. 
 
@@ -153,7 +153,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.5.1
+### PCI DSS Requirement 3.5.1
 
 **3.5.1** *Additional requirement for service providers only:* Maintain a documented description of the cryptographic architecture that includes:
 - Details of all algorithms, protocols, and keys used for the protection of cardholder data, including key strength and expiry date
@@ -171,7 +171,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 
 
 
-#### PCI DSS Requirement 3.5.2
+### PCI DSS Requirement 3.5.2
 
 **3.5.2** Restrict access to cryptographic
 keys to the fewest number of custodians
@@ -187,7 +187,7 @@ necessary.
 
 
 
-#### PCI DSS Requirement 3.5.3
+### PCI DSS Requirement 3.5.3
 
 **3.5.3** Store secret and private keys used to encrypt/decrypt cardholder data in one (or more) of the following forms at all times:
 - Encrypted with a key-encrypting key that is at least as strong as the data-encrypting key, and that is stored separately from the data-encrypting key
@@ -206,7 +206,7 @@ stored in one of these forms.
 
 
 
-#### PCI DSS Requirement 3.5.4
+### PCI DSS Requirement 3.5.4
 
 **3.5.4** Store cryptographic keys in the
 fewest possible locations.
@@ -221,7 +221,7 @@ fewest possible locations.
 
 
 
-### PCI DSS Requirement 3.6
+## PCI DSS Requirement 3.6
 
 **3.6** Fully document and implement all key-management processes and procedures for cryptographic keys used for encryption of cardholder data, including the following. 
 
@@ -236,7 +236,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.1
+### PCI DSS Requirement 3.6.1
 
 **3.6.1** Generation of strong cryptographic keys
 
@@ -249,7 +249,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.2
+### PCI DSS Requirement 3.6.2
 
 **3.6.2** Secure cryptographic key distribution
 
@@ -262,7 +262,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.3
+### PCI DSS Requirement 3.6.3
 
 **3.6.3** Secure cryptographic key storage
 
@@ -275,7 +275,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.4
+### PCI DSS Requirement 3.6.4
 
 **3.6.4** Cryptographic key changes for keys that have reached the end of their cryptoperiod (for example, after a defined period of time has passed and/or after a certain amount of cipher-text has been produced by a given key), as defined by the associated application vendor or key owner, and based on industry best practices and guidelines (for example, NIST Special Publication 800-57).
 
@@ -288,7 +288,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.5
+### PCI DSS Requirement 3.6.5
 
 **3.6.5** Retirement or replacement (for example, archiving, destruction, and/or revocation) of keys as deemed necessary when the integrity of the key has been weakened (for example, departure of an employee with knowledge of a clear-text key component), or keys are suspected of being compromised. 
 
@@ -303,7 +303,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.6
+### PCI DSS Requirement 3.6.6
 
 **3.6.6** If manual clear-text cryptographic key-management operations are used, these operations must be managed using split knowledge and dual control. 
 
@@ -318,7 +318,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.7
+### PCI DSS Requirement 3.6.7
 
 **3.6.7** Prevention of unauthorized substitution of cryptographic keys.
 
@@ -331,7 +331,7 @@ fewest possible locations.
 
 
 
-#### PCI DSS Requirement 3.6.8
+### PCI DSS Requirement 3.6.8
 
 **3.6.8** Requirement for cryptographic key custodians to formally acknowledge that they understand and accept their key-custodian responsibilities.
 
@@ -344,7 +344,7 @@ fewest possible locations.
 
 
 
-### PCI DSS Requirement 3.7
+## PCI DSS Requirement 3.7
 
 **3.7** Ensure that security policies and operational procedures for protecting stored cardholder data are documented, in use, and known to all affected parties.
 

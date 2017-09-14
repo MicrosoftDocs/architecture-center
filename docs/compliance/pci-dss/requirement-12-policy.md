@@ -7,7 +7,7 @@
 
 A strong security policy sets the security tone for the whole entity and informs personnel what is expected of them. All personnel should be aware of the sensitivity of data and their responsibilities for protecting it. For the purposes of Requirement 12, “personnel” refers to full-time and part-time employees, temporary employees, contractors and consultants who are “resident” on the entity’s site or otherwise have access to the cardholder data environment.
 
-### PCI DSS Requirement 12.1
+## PCI DSS Requirement 12.1
 
 **12.1** Establish, publish, maintain, and disseminate a security policy.
 
@@ -20,7 +20,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 
 
-#### PCI DSS Requirement 12.1.1
+### PCI DSS Requirement 12.1.1
 
 **12.1.1** Review the security policy at least annually and update the policy when the environment changes.
 
@@ -33,7 +33,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 
 
-### PCI DSS Requirement 12.2
+## PCI DSS Requirement 12.2
 
 **12.2** Implement a risk-assessment process that:
 - Is performed at least annually and upon significant changes to the environment (for example, acquisition, merger, relocation, etc.)
@@ -50,7 +50,7 @@ A strong security policy sets the security tone for the whole entity and informs
 
 
 
-### PCI DSS Requirement 12.3
+## PCI DSS Requirement 12.3
 
 **12.3** Develop usage policies for critical technologies and define proper use of these technologies.
 > **Note:** Examples of critical technologies include, but are not limited to, remote access and wireless technologies, laptops, tablets, removable electronic media, e-mail usage and Internet usage.
@@ -65,7 +65,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.1
+### PCI DSS Requirement 12.3.1
 
 **12.3.1** Explicit approval by authorized parties
 
@@ -78,7 +78,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.2
+### PCI DSS Requirement 12.3.2
 
 **12.3.2** Authentication for use of the technology
 
@@ -91,7 +91,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.3
+### PCI DSS Requirement 12.3.3
 
 **12.3.3** A list of all such devices and personnel with access
 
@@ -104,7 +104,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.4
+### PCI DSS Requirement 12.3.4
 
 **12.3.4** A method to accurately and readily determine owner, contact information, and purpose (for example, labeling, coding, and/or inventorying of devices)
 
@@ -117,7 +117,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.5
+### PCI DSS Requirement 12.3.5
 
 **12.3.5** Acceptable uses of the technology
 
@@ -130,7 +130,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.6
+### PCI DSS Requirement 12.3.6
 
 **12.3.6** Acceptable network locations for the technologies
 
@@ -143,7 +143,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.7
+### PCI DSS Requirement 12.3.7
 
 **12.3.7** List of company-approved products
 
@@ -156,7 +156,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.8
+### PCI DSS Requirement 12.3.8
 
 **12.3.8** Automatic disconnect of sessions for remote-access technologies after a specific period of inactivity
 
@@ -169,7 +169,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.9
+### PCI DSS Requirement 12.3.9
 
 **12.3.9** Activation of remote-access technologies for vendors and business partners only when needed by vendors and business partners, with immediate deactivation after use
 
@@ -182,7 +182,7 @@ Ensure these usage policies require the following.
 
 
 
-#### PCI DSS Requirement 12.3.10
+### PCI DSS Requirement 12.3.10
 
 **12.3.10** For personnel accessing cardholder data via remote-access technologies, prohibit the copying, moving, and storage of cardholder data onto local hard drives and removable electronic media, unless explicitly authorized for a defined business need.
 Where there is an authorized business need, the usage policies must require the data be protected in accordance with all applicable PCI DSS Requirements.
@@ -196,7 +196,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.4
+## PCI DSS Requirement 12.4
 
 **12.4** Ensure that the security policy and procedures clearly define information security responsibilities for all personnel.
 
@@ -209,7 +209,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.4.1
+### PCI DSS Requirement 12.4.1
 
 **12.4.1** Additional requirement for service providers only: Executive management shall establish responsibility for the protection of cardholder data and a PCI DSS compliance program to include:
 - Overall accountability for maintaining PCI DSS compliance
@@ -226,7 +226,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.5
+## PCI DSS Requirement 12.5
 
 **12.5** Assign to an individual or team the following information security management responsibilities.
 
@@ -239,7 +239,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.5.1
+### PCI DSS Requirement 12.5.1
 
 **12.5.1** Establish, document, and distribute security policies and procedures.
 
@@ -252,7 +252,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.5.2
+### PCI DSS Requirement 12.5.2
 
 **12.5.2** Monitor and analyze security alerts and information, and distribute to appropriate personnel.
 
@@ -265,7 +265,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.5.3
+### PCI DSS Requirement 12.5.3
 
 **12.5.3** Establish, document, and distribute security incident response and escalation procedures to ensure timely and effective handling of all situations.
 
@@ -278,7 +278,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.5.4
+### PCI DSS Requirement 12.5.4
 
 **12.5.4** Administer user accounts, including additions, deletions, and modifications.
 
@@ -291,7 +291,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.5.5
+### PCI DSS Requirement 12.5.5
 
 **12.5.5** Monitor and control all access to data.
 
@@ -304,7 +304,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.6
+## PCI DSS Requirement 12.6
 
 **12.6** Implement a formal security awareness program to make all personnel aware of the importance of cardholder data security policy and procedures.
 
@@ -317,7 +317,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.6.1
+### PCI DSS Requirement 12.6.1
 
 **12.6.1** Educate personnel upon hire and at least annually. 
 > **Note:** Methods can vary depending on the role of the personnel and their level of access to the cardholder data.
@@ -331,7 +331,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.6.2
+### PCI DSS Requirement 12.6.2
 
 **12.6.2** Require personnel to acknowledge at least annually that they have read and understood the security policy and procedures.
 
@@ -344,7 +344,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.7
+## PCI DSS Requirement 12.7
 
 **12.7** Screen potential personnel prior to hire to minimize the risk of attacks from internal sources. (Examples of background checks include previous employment history, criminal record, credit history, and reference checks.) 
 > **Note:** For those potential personnel to be hired for certain positions such as store cashiers who only have access to one card number at a time when facilitating a transaction, this requirement is a recommendation only.
@@ -358,7 +358,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.8
+## PCI DSS Requirement 12.8
 
 **12.8** Maintain and implement policies and procedures to manage service providers with whom cardholder data is shared, or that could affect the security of cardholder data, as follows.
 
@@ -371,7 +371,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.8.1
+### PCI DSS Requirement 12.8.1
 
 **12.8.1** Maintain a list of service providers including a description of the service provided.
 
@@ -385,7 +385,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.8.2
+### PCI DSS Requirement 12.8.2
 
 **12.8.2** Maintain a written agreement that includes an acknowledgement that the service providers are responsible for the security of cardholder data the service providers possess or otherwise store, process or transmit on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 > **Note:** The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
@@ -399,7 +399,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.8.3
+### PCI DSS Requirement 12.8.3
 
 **12.8.3** Ensure there is an established process for engaging service providers including proper due diligence prior to engagement.
 
@@ -412,7 +412,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.8.4
+### PCI DSS Requirement 12.8.4
 
 **12.8.4** Maintain a program to monitor service providers’ PCI DSS compliance status at least annually.
 
@@ -425,7 +425,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.8.5
+### PCI DSS Requirement 12.8.5
 
 **12.8.5** Maintain information about which PCI DSS requirements are managed by each service provider, and which are managed by the entity.
 
@@ -438,7 +438,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.9
+## PCI DSS Requirement 12.9
 
 **12.9** Additional requirement for service providers only: Service providers acknowledge in writing to customers that they are responsible for the security of cardholder data the service provider possesses or otherwise stores, processes, or transmits on behalf of the customer, or to the extent that they could impact the security of the customer’s cardholder data environment. 
 > **Note:** The exact wording of an acknowledgement will depend on the agreement between the two parties, the details of the service being provided, and the responsibilities assigned to each party. The acknowledgement does not have to include the exact wording provided in this requirement.
@@ -452,7 +452,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.10
+## PCI DSS Requirement 12.10
 
 **12.10** Implement an incident response plan. Be prepared to respond immediately to a system breach.
 
@@ -465,7 +465,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.1
+### PCI DSS Requirement 12.10.1
 
 **12.10.1** Create the incident response plan to be implemented in the event of system breach. Ensure the plan addresses the following, at a minimum:
 - Roles, responsibilities, and communication and contact strategies in the event of a compromise including notification of the payment brands, at a minimum
@@ -485,7 +485,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.2
+### PCI DSS Requirement 12.10.2
 
 **12.10.2** Review and test the plan, including all elements listed in Requirement 12.10.1, at least annually.
 
@@ -499,7 +499,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.3
+### PCI DSS Requirement 12.10.3
 
 **12.10.3** Designate specific personnel to be available on a 24/7 basis to respond to alerts.
 
@@ -512,7 +512,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.4
+### PCI DSS Requirement 12.10.4
 
 **12.10.4** Provide appropriate training to staff with security breach response responsibilities.
 
@@ -525,7 +525,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.5
+### PCI DSS Requirement 12.10.5
 
 **12.10.5** Include alerts from security monitoring systems, including but not limited to intrusion-detection, intrusion-prevention, firewalls, and file-integrity monitoring systems.
 
@@ -538,7 +538,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-#### PCI DSS Requirement 12.10.6
+### PCI DSS Requirement 12.10.6
 
 **12.10.6** Develop a process to modify and evolve the incident response plan according to lessons learned and to incorporate industry developments.
 
@@ -551,7 +551,7 @@ Where there is an authorized business need, the usage policies must require the 
 
 
 
-### PCI DSS Requirement 12.11
+## PCI DSS Requirement 12.11
 
 **12.11** **Additional requirement for service providers only:** Perform reviews at least quarterly to confirm personnel are following
 security policies and operational procedures.
@@ -574,7 +574,7 @@ Reviews must cover the following processes:
 
 
 
-#### PCI DSS Requirement 12.11.1
+### PCI DSS Requirement 12.11.1
 
 **12.11.1** Additional requirement for service providers only: Maintain documentation of quarterly review process to include:
 - Documenting results of the reviews

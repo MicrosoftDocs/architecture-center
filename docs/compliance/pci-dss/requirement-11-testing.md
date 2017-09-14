@@ -7,7 +7,7 @@
 
 Vulnerabilities are being discovered continually by malicious individuals and researchers, and being introduced by new software. System components, processes, and custom software should be tested frequently to ensure security controls continue to reflect a changing environment.
 
-### PCI DSS Requirement 11.1
+## PCI DSS Requirement 11.1
 
 **11.1** Implement processes to test for the presence of wireless access points (802.11), and detect and identify all authorized and unauthorized wireless access points on a quarterly basis.
 > **Note:** Methods that may be used in the process include but are not limited to wireless network scans, physical/logical inspections of system components and infrastructure, network access control (NAC), or wireless IDS/IPS.
@@ -23,7 +23,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.1.1
+### PCI DSS Requirement 11.1.1
 
 **11.1.1** Maintain an inventory of authorized wireless access points including a documented business justification.
 
@@ -36,7 +36,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.1.2
+### PCI DSS Requirement 11.1.2
 
 **11.1.2** Implement incident response procedures in the event unauthorized wireless access points are detected.
 
@@ -50,7 +50,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-### PCI DSS Requirement 11.2
+## PCI DSS Requirement 11.2
 
 **11.2** Run internal and external network vulnerability scans at least quarterly and after any significant change in the network (such as new system component installations, changes in network topology, firewall rule modifications, product upgrades). 
 > **Note:** Multiple scan reports can be combined for the quarterly scan process to show that all systems were scanned and all applicable vulnerabilities have been addressed. Additional documentation may be required to verify non-remediated vulnerabilities are in the process of being addressed.
@@ -66,7 +66,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.2.1
+### PCI DSS Requirement 11.2.1
 
 **11.2.1** Perform quarterly internal vulnerability scans. Address vulnerabilities and perform rescans to verify all “high risk” vulnerabilities are resolved in accordance with the entity’s vulnerability ranking (per Requirement 6.1). Scans must be performed by qualified personnel.
 
@@ -79,7 +79,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.2.2
+### PCI DSS Requirement 11.2.2
 
 **11.2.2** Perform quarterly external vulnerability scans, via an Approved Scanning Vendor (ASV) approved by the Payment Card Industry Security Standards Council (PCI SSC). Perform rescans as needed, until passing scans are achieved. 
 > **Note:** Quarterly external vulnerability scans must be performed by an Approved Scanning Vendor (ASV), approved by the Payment Card Industry Security Standards Council (PCI SSC).
@@ -94,7 +94,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.2.3
+### PCI DSS Requirement 11.2.3
 
 **11.2.3** Perform internal and external scans, and rescans as needed, after any significant change. Scans must be performed by qualified personnel.
 
@@ -107,7 +107,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-### PCI DSS Requirement 11.3
+## PCI DSS Requirement 11.3
 
 **11.3** Implement a methodology for penetration testing that includes the following:
 - Is based on industry-accepted penetration testing approaches (for example, NIST SP800-115)
@@ -128,7 +128,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.3.1
+### PCI DSS Requirement 11.3.1
 
 **11.3.1** Perform *external* penetration testing at least annually and after any significant infrastructure or application upgrade or modification (such as an operating system upgrade, a sub-network added to the environment, or a web server added to the environment).
 
@@ -141,7 +141,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.3.2
+### PCI DSS Requirement 11.3.2
 
 **11.3.2** Perform *internal* penetration testing at least annually and after any significant infrastructure or application upgrade or modification (such as an operating system upgrade, a sub-network added to the environment, or a web server added to the environment).
 
@@ -154,7 +154,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.3.3
+### PCI DSS Requirement 11.3.3
 
 **11.3.3** Exploitable vulnerabilities found during penetration testing are corrected and testing is repeated to verify the corrections.
 
@@ -167,7 +167,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.3.4
+### PCI DSS Requirement 11.3.4
 
 **11.3.4** If segmentation is used to isolate the CDE from other networks, perform penetration tests at least annually and after any changes to segmentation controls/methods to verify that the segmentation methods are operational and effective, and isolate all out-of-scope systems from systems in the CDE.
 
@@ -180,7 +180,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-#### PCI DSS Requirement 11.3.4.1
+### PCI DSS Requirement 11.3.4.1
 
 **11.3.4.1** *Additional requirement for service providers only:* If segmentation is used, confirm PCI DSS scope by performing penetration testing on segmentation controls at least every six months and after any changes to segmentation controls/methods.
 > **Note:** This requirement is a best practice until January 31, 2018, after which it becomes a requirement.
@@ -195,7 +195,7 @@ Whichever methods are used, they must be sufficient to detect and identify both 
 
 
 
-### PCI DSS Requirement 11.4
+## PCI DSS Requirement 11.4
 
 **11.4** Use intrusion-detection and/or intrusion-prevention techniques to detect and/or prevent intrusions into the network. Monitor all traffic at the perimeter of the cardholder data environment as well as at critical points in the cardholder data environment, and alert personnel to suspected compromises.
 Keep all intrusion-detection and prevention engines, baselines, and signatures up to date.
@@ -209,7 +209,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 
 
-### PCI DSS Requirement 11.5
+## PCI DSS Requirement 11.5
 
 **11.5** Deploy a change-detection mechanism (for example, file-integrity monitoring tools) to alert personnel to unauthorized modification (including changes, additions, and deletions) of critical system files, configuration files, or content files; and configure the software to perform critical file comparisons at least weekly. 
 > **Note:** For change-detection purposes, critical files are usually those that do not regularly change, but the modification of which could indicate a system compromise or risk of compromise. Change-detection mechanisms such as file-integrity monitoring products usually come pre-configured with critical files for the related operating system. Other critical files, such as those for custom applications, must be evaluated and defined by the entity (that is, the merchant or service provider).
@@ -223,7 +223,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 
 
-#### PCI DSS Requirement 11.5.1
+### PCI DSS Requirement 11.5.1
 
 **11.5.1** Implement a process to respond to any alerts generated by the change-detection solution.
 
@@ -236,7 +236,7 @@ Keep all intrusion-detection and prevention engines, baselines, and signatures u
 
 
 
-### PCI DSS Requirement 11.6
+## PCI DSS Requirement 11.6
 
 **11.6** Ensure that security policies and operational procedures for security monitoring and testing are documented, in use, and known to all affected parties.
 
