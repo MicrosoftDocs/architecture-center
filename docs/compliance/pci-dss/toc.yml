@@ -20,7 +20,7 @@
     - name: Requirement 5 - Malware
       href: requirement-5-malware.md
     - name: Requirement 6 - Secure Systems
-      href: requirement-6-secure-systems.md
+      href: requirement-6-secure-system.md
     - name: Requirement 7 - Access
       href: requirement-7-access.md
     - name: Requirement 8 - Identity
