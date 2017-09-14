@@ -1,5 +1,7 @@
-# Azure Solutions Blueprint for PCI DSS-Compliant Environments  
-## PCI DSS Requirement 1: <br /> Install and maintain a firewall configuration to protect cardholder data  
+# Firewall requirements for PCI DSS-compliant environments 
+## PCI DSS Requirement 1
+
+**Install and maintain a firewall configuration to protect cardholder data**
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
@@ -8,7 +10,7 @@ A firewall examines all network traffic and blocks those transmissions that do n
 All systems must be protected from unauthorized access from untrusted networks, whether entering the system via the Internet as e-commerce, employee Internet access through desktop browsers, employee e-mail access, dedicated connections such as business-to-business connections, via wireless networks, or via other sources. Often, seemingly insignificant paths to and from untrusted networks can provide unprotected pathways into key systems. Firewalls are a key protection mechanism for any computer network.
 Other system components may provide firewall functionality, as long as they meet the minimum requirements for firewalls as defined in Requirement 1. Where other system components are used within the cardholder data environment to provide firewall functionality, these devices must be included within the scope and assessment of Requirement 1.
 
-### PCI DSS Requirement 1.1
+## PCI DSS Requirement 1.1
 
 **1.1** Establish and implement firewall and router configuration standards that include the following (see 1.1.1 through 1.1.7).
 
@@ -22,7 +24,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.1
+### PCI DSS Requirement 1.1.1
 
 **1.1.1** A formal process for approving and testing all network connections and changes to the firewall and router configurations
 
@@ -36,7 +38,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.2
+### PCI DSS Requirement 1.1.2
 
 **1.1.2** Current network diagram that identifies all connections between the cardholder data environment and other networks, including any wireless networks
 
@@ -49,7 +51,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.3
+### PCI DSS Requirement 1.1.3
 
 **1.1.3** Current diagram that shows all cardholder data flows across systems and networks
 
@@ -62,7 +64,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.4
+### PCI DSS Requirement 1.1.4
 
 **1.1.4** Requirements for a firewall at each Internet connection and between any demilitarized zone (DMZ) and the internal network zone
 
@@ -75,7 +77,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.5
+### PCI DSS Requirement 1.1.5
 
 **1.1.5** Description of groups, roles, and responsibilities for management of network components
 
@@ -88,7 +90,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.6
+### PCI DSS Requirement 1.1.6
 
 **1.1.6** Documentation of business justification and approval for use of all services, protocols, and ports allowed, including documentation of security features implemented for those protocols considered to be insecure.
 
@@ -101,7 +103,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.1.7
+### PCI DSS Requirement 1.1.7
 
 **1.1.7** Requirement to review firewall and router rule sets at least every six months
 
@@ -114,7 +116,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-### PCI DSS Requirement 1.2
+## PCI DSS Requirement 1.2
 
 **1.2** Build firewall and router configurations that restrict connections between untrusted networks and any system components in the cardholder data environment. 
 
@@ -129,7 +131,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.2.1
+### PCI DSS Requirement 1.2.1
 
 **1.2.1** Restrict inbound and outbound traffic to that which is necessary for the cardholder data environment, and specifically deny all other traffic.
 
@@ -142,7 +144,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.2.2
+### PCI DSS Requirement 1.2.2
 
 **1.2.2** Secure and synchronize router configuration files.
 
@@ -155,7 +157,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.2.3
+### PCI DSS Requirement 1.2.3
 
 **1.2.3** Install perimeter firewalls between all wireless networks and the cardholder data environment, and configure these firewalls to deny or, if traffic is necessary for business purposes, permit only authorized traffic between the wireless environment and the cardholder data environment.
 
@@ -168,7 +170,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-### PCI DSS Requirement 1.3
+## PCI DSS Requirement 1.3
 
 **1.3** Prohibit direct public access between the Internet and any system component in the cardholder data environment.
 
@@ -181,7 +183,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.1
+### PCI DSS Requirement 1.3.1
 
 **1.3.1** Implement a DMZ to limit inbound traffic to only system components that provide authorized publicly accessible services, protocols, and ports.
 
@@ -195,7 +197,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.2
+### PCI DSS Requirement 1.3.2
 
 **1.3.2** Limit inbound Internet traffic to IP addresses within the DMZ.
 
@@ -208,7 +210,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.3
+### PCI DSS Requirement 1.3.3
 
 **1.3.3** Implement anti-spoofing measures to detect and block forged source IP addresses from entering the network. (For example, block traffic originating from the Internet with an internal source address.)
 
@@ -221,7 +223,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.4
+### PCI DSS Requirement 1.3.4
 
 **1.3.4** Do not allow unauthorized outbound traffic from the cardholder data environment to the Internet.
 
@@ -235,7 +237,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.5
+### PCI DSS Requirement 1.3.5
 
 **1.3.5** Permit only “established” connections into the network.
 
@@ -249,7 +251,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.6
+### PCI DSS Requirement 1.3.6
 
 **1.3.6** Place system components that store cardholder data (such as a database) in an internal network zone, segregated from the DMZ and other untrusted networks.
 
@@ -263,7 +265,7 @@ Other system components may provide firewall functionality, as long as they meet
 
 
 
-#### PCI DSS Requirement 1.3.7
+### PCI DSS Requirement 1.3.7
 
 **1.3.7** Do not disclose private IP
 addresses and routing information to
@@ -285,7 +287,7 @@ unauthorized parties.
 
 
 
-### PCI DSS Requirement 1.4
+## PCI DSS Requirement 1.4
 
 **1.4** Install personal firewall software or equivalent functionality on any portable computing devices (including company and/or employee-owned) that connect to the Internet when outside the network (for example, laptops used by employees), and which are also used to access the CDE. Firewall (or equivalent) configurations include:
 -Specific configuration settings are defined.
@@ -301,7 +303,7 @@ unauthorized parties.
 
 
 
-### PCI DSS Requirement 1.5
+## PCI DSS Requirement 1.5
 
 **1.5** Ensure that security policies and operational procedures for managing firewalls are documented, in use, and known to all affected parties.
 

@@ -8,9 +8,9 @@
   - name: PCI DSS Requirements
     items:
     - name: Requirements Overview
-      href: pci-requirements.md
+      href: requirements-overview.md
     - name: Requirement 1 - Firewalls
-      href: pci-req1.md
+      href: requirement-1-firewall.md
     - name: Requirement 2 - Passwords
       href: pci-req2.md
     - name: Requirement 3 - CHD
