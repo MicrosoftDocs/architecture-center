@@ -14,7 +14,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
 
 
 
@@ -27,7 +27,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services, and offers Azure Antimalware for IaaS instances. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore anti-virus and anti-malware solution is designed to detect and remove malware and protect against malicious software. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore anti-virus and anti-malware solution is designed to detect and remove malware and protect against malicious software. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
 
 
 
@@ -40,7 +40,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services, and offers Azure Antimalware for IaaS instances. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
 
 
 
@@ -56,7 +56,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services, and offers Azure Antimalware for IaaS instances. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore is kept current using Azure Security Center. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is kept current using Azure Security Center. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
 
 
 
@@ -71,7 +71,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services, and offers Azure Antimalware for IaaS instances. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides protection against malware. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).<br /><br />|
 
 
 
@@ -84,7 +84,7 @@ Malicious software, commonly referred to as “malware”—including viruses, w
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure manages anti-malware for PaaS services, and offers Azure Antimalware for IaaS instances. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore documentation provides guidance for the deployment of Azure Security Center. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore documentation provides guidance for the deployment of Azure Security Center. For more information, see [PCI Guidance - Malware Protection](index.md#security-and-malware-protection).|
 
 
 

@@ -19,7 +19,7 @@ Please refer to the PCI DSS and PA-DSS Glossary of Terms, Abbreviations, and Acr
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Azure is responsible for ensuring the customer data designated for deletion are securely decommissioned using NIST 800-88 compliant protocols specified in its Secure Disposal policies. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not delete or destroy any stored CHD. However all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not delete or destroy any stored CHD. However all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
 
 
 
@@ -36,7 +36,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not delete or destroy any stored CHD; the sample data is stored for demo purposes only. However, all data is encrypted and no primary account number (PAN) data is stored.<br /><br />|
 
 
 
@@ -57,7 +57,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not store the full content of any CHD.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not store the full content of any CHD.|
 
 
 
@@ -70,7 +70,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore encrypts all data including the CVV samples.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore encrypts all data including the CVV samples.|
 
 
 
@@ -83,7 +83,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not store PIN information.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not store PIN information.|
 
 
 
@@ -98,7 +98,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore masks the primary account number (PAN) using transparent data encryption, always encrypted columns, and dynamic data masking. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore masks the primary account number (PAN) using transparent data encryption, always encrypted columns, and dynamic data masking. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -117,7 +117,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to manage keys, preventing retrieval of CHD.<br /><br />For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to manage keys, preventing retrieval of CHD.<br /><br />For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -132,7 +132,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a "jumpbox" or bastion host with the following configurations:<br /><br /><ul><li>[Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)</li><li>[OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore encrypts all stored data, and segregates traffic to prevent privileged elevation for DevOps functions.<br /><br />As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor a Web App using Kudu.<br /><br />A virtual machine is established as a "jumpbox" or bastion host with the following configurations:<br /><br /><ul><li>[Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)</li><li>[OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Bitlocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 
@@ -147,7 +147,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service. Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
 
 
 
@@ -165,7 +165,7 @@ Sensitive authentication data includes the data as cited in the following Requir
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Microsoft Azure ensures that customer key vaults are logically isolated from each other, and logically isolated from the management plane of the Key Vault service. Key Vault is designed so that Microsoft does not have any standing access to the customer’s key vault. <br /><br />Keys are safeguarded by Microsoft Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br /><br />A key stored in Microsoft Azure Key Vault may be used to protect another key. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides documentation to illustrate and help deploy a protected key solution to protect the demo CHD.|
 
 
 
@@ -181,7 +181,7 @@ necessary.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Key Vault supports granular access policies, that allow a Key Vault owner to grant access to specific functionality to perform specific operations to specific entities. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
 
 
@@ -200,7 +200,7 @@ stored in one of these forms.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Keys are stored in the specific key vaults identified by the customer.<br /><br />Key Vault can be accessed simultaneously and globally by multiple applications, which reduces the need to copy a key and store in multiple locations. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -215,7 +215,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Keys are stored in the specific key vaults identified by the customer. <br /><br />Key Vault can be accessed simultaneously and globally by multiple applications, which reduces the need to copy a key and store in multiple locations. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management.For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management.For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -230,7 +230,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -243,7 +243,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:** <br /><br />When generating keys in Key Vault, Azure is responsible for generating keys per the customer's specifications. Keys are generated using a HSM. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -256,7 +256,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />The bring your own key (BYOK) tool encapsulates the customer key, and targets a specific security vault which is tied to a specific Azure subscription. The key can only be imported to the defined subscription’s key vault, in the specified region. This process uses the encryption procedures provided by the hardware manufacturer. Customers receive a notification that the transfer was successful. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -269,7 +269,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Keys are stored in the HSMs, and are secured using the hardware manufacturer’s cryptographic security. The metadata on keys is stored in Azure Storage in an encrypted state, which is unique to each key vault. <br /><br /> |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -282,7 +282,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to update or roll keys, which is defined by the customer. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -297,7 +297,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Key Vault supports functionality to retire or replace, which is defined by the customer. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -312,7 +312,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -325,7 +325,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | **For customers using Key Vault:**<br /><br />Key Vaults are logically separated, and do not support cross-directory authorization. As a result, unauthorized substitution is prevented. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 
@@ -338,7 +338,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore key management is isolated to one user account (admin##@contosowebstore.com).|
 
 
 
@@ -351,7 +351,7 @@ fewest possible locations.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses Azure Key Vault for all key management. For more information, see [PCI Guidance - Encryption](index.md#encryption-and-secrets-management).|
 
 
 

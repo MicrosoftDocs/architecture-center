@@ -19,7 +19,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Procedures have been established and implemented to scan for vulnerabilities on hypervisor hosts in the scope boundary. Vulnerability scanning is performed on server operating systems, databases, and network devices with the appropriate vulnerability scanning tools. The vulnerability scans are performed on a quarterly basis at minimum. Microsoft Azure contracts with independent assessors to perform penetration testing of the Microsoft Azure boundary. Red-Team exercises are also routinely performed and results used to make security improvements. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
 
 
 
@@ -34,7 +34,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for ensuring all network devices and hypervisor OS software is protected from known vulnerabilities by installing applicable vendor-supplied security patches. Unless a customer requests to not use the service, a patch management process exists to ensure that operating system level vulnerabilities are prevented and remediated in a timely manner. Production servers are scanned to validate patch compliance on a monthly basis. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. Azure provides maintenance of all service patches.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. Azure provides maintenance of all service patches.|
 
 
 
@@ -52,7 +52,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure applications and endpoints are developed in accordance with the Microsoft Security Development Lifecycle (SDL) methodology which is in line with DSS requirements. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore was designed to follow industry best practices for protecting CHD. Deployment guidance provides the details of the security meassures, and logging is enabled.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore was designed to follow industry best practices for protecting CHD. Deployment guidance provides the details of the security meassures, and logging is enabled.|
 
 
 
@@ -65,7 +65,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | A Final Security Review (FSR) is performed for major releases prior to production deployment by a designated Security Advisor outside of the Azure development team to ensure only applications ready for production are released. As part of this final review it is ensured that all test accounts and test data have been removed. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
 
 
 
@@ -86,7 +86,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure applications and endpoints are developed in accordance with the Microsoft Security Development Lifecycle (SDL) methodology. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
 
 
 
@@ -99,7 +99,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft follows NIST guidance regarding security considerations in software development in that information security must be integrated into the SDLC from system inception. Continual integration of security practices in the Microsoft SDL enables:<ul><li>Early identification and mitigation of security vulnerabilities and misconfigurations</li><li>Awareness of potential software coding challenges caused by required security controls</li><li>Identification of shared security services and reuse of security best practices tools which improves security posture through proven methods and techniques</li><li>Enforcement of Microsoft's already comprehensive risk management program</li></ul>Microsoft Azure has established change and release management processes to control implementation of major changes including:<ul><li>The identification and documentation of the planned change</li><li>Identification of business goals, priorities and scenarios during product planning</li><li>Specification of feature/component design</li><li>Operational readiness review based on a pre-defined criteria/check-list to assess overall risk/impact</li><li>Testing, authorization and change management based on entry/exit criteria for DEV (development), INT (Integration Testing), STAGE (Pre-production) and PROD (production) environments as appropriate. Customers are responsible for their own applications hosted in Microsoft Azure.</li></ul> |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore demo provides a staging service that is logged and isolated. <br /><br />Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).<br /><br />Changes are logged using Operations Management Suite, and Runbooks are used to collect logs. [Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
 
@@ -112,7 +112,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
 
 
 
@@ -125,7 +125,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a staging service that is logged and isolated. Each of the network tiers has a dedicated network security group [NSG]. For more information, see [PCI Guidance - Network Security Groups](index.md#network-security-groups).|
 
 
 
@@ -138,7 +138,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has no live primary account number (PAN) data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has no live primary account number (PAN) data.|
 
 
 
@@ -151,7 +151,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not have any test accounts.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not have any test accounts.|
 
 
 
@@ -168,7 +168,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. And Azure provides maintenance of all service patches.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. And Azure provides maintenance of all service patches.|
 
 
 
@@ -184,7 +184,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. And Azure provides maintenance of all service patches.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS service solution. And Azure provides maintenance of all service patches.|
 
 
 
@@ -214,7 +214,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 6.4](#pci-dss-requirement-6-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Contoso Webstore demo provides guidance to secure development, a DFD and threat model to illustrate secure development practices.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Contoso Webstore demo provides guidance to secure development, a DFD and threat model to illustrate secure development practices.|
 
 
 
@@ -232,7 +232,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure tests public-facing web applications as part of its SDL process before applications are deployed to the production environment. Additionally, Microsoft scans all public-facing web applications in production on a regular basis to detect any possible vulnerabilities. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The reference solution reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The reference solution reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
 
 
 
@@ -245,7 +245,7 @@ Note: Appropriate software patches are those patches that have been evaluated an
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The reference solution reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The reference solution reduces the risk of security vulnerabilities using an Application Gateway with WAF, and the OWASP ruleset enabled. For more information, see [PCI Guidance - Mitigation of the Risk of Security Vulnerabilities](index.md#application-gateway).|
 
 
 

@@ -14,7 +14,7 @@ A strong security policy sets the security tone for the whole entity and informs
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for establishing and maintaining an information security policy.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for establishing and maintaining an information security policy.|
 
 
 
@@ -27,7 +27,7 @@ A strong security policy sets the security tone for the whole entity and informs
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for updating their information security policy at least annually, or when there are changes to their cardholder data environment (CDE).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for updating their information security policy at least annually, or when there are changes to their cardholder data environment (CDE).|
 
 
 
@@ -44,7 +44,7 @@ A strong security policy sets the security tone for the whole entity and informs
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for implementing a risk assessment process that addresses all threats listed in Requirement 12.2.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for implementing a risk assessment process that addresses all threats listed in Requirement 12.2.|
 
 
 
@@ -59,7 +59,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -72,7 +72,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -85,7 +85,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -98,7 +98,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -111,7 +111,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -124,7 +124,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -137,7 +137,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for determining acceptable network locations for cloud based VMs, storage and supporting services.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for determining acceptable network locations for cloud based VMs, storage and supporting services.|
 
 
 
@@ -150,7 +150,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for determining acceptable network locations for cloud based VMs, storage and supporting services.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for determining acceptable network locations for cloud based VMs, storage and supporting services.|
 
 
 
@@ -163,7 +163,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses Microsoft corporate AD session lock functionality, which enforces session lock outs after a period of inactivity. Network connections are terminated after 30 minutes of inactivity. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -176,7 +176,7 @@ Ensure these usage policies require the following.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -190,7 +190,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring that personnel accessing cardholder data via remote-access technologies are prohibited from copying, moving, and storing cardholder data on local hard drives and removable electronic media, unless explicitly authorized for a defined business need.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for ensuring that personnel accessing cardholder data via remote-access technologies are prohibited from copying, moving, and storing cardholder data on local hard drives and removable electronic media, unless explicitly authorized for a defined business need.|
 
 
 
@@ -203,7 +203,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -220,7 +220,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers who are Service Providers are responsible for documenting their PCI compliance program.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers who are Service Providers are responsible for documenting their PCI compliance program.|
 
 
 
@@ -233,7 +233,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
 
 
 
@@ -246,7 +246,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
 
 
 
@@ -259,7 +259,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for defining and assigning information security responsibilities to their employees.|
 
 
 
@@ -272,7 +272,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -285,7 +285,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -298,7 +298,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies dictating proper usage, implementation, and authentication for critical technologies within their CDE.|
 
 
 
@@ -311,7 +311,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies surrounding security awareness for staff with access to the CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for creating and maintaining policies surrounding security awareness for staff with access to the CDE.|
 
 
 
@@ -325,7 +325,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring staff receive and acknowledge information security and PCI-DSS awareness training at least annually.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for ensuring staff receive and acknowledge information security and PCI-DSS awareness training at least annually.|
 
 
 
@@ -338,7 +338,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring staff receive and acknowledge information security and PCI-DSS awareness training at least annually.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for ensuring staff receive and acknowledge information security and PCI-DSS awareness training at least annually.|
 
 
 
@@ -352,7 +352,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring staff with access to the CDE undergo thorough background checks.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for ensuring staff with access to the CDE undergo thorough background checks.|
 
 
 
@@ -365,7 +365,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for monitoring PCI compliance for service providers with whom cardholder data is shared, or could affect the security of the CDE. Customers must maintain a list of all service provides used within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for monitoring PCI compliance for service providers with whom cardholder data is shared, or could affect the security of the CDE. Customers must maintain a list of all service provides used within their CDE.|
 
 
 
@@ -379,7 +379,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for monitoring PCI compliance for service providers with whom cardholder data is shared, or could affect the security of the CDE. Customers must maintain a list of all service provides used within their CDE.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for monitoring PCI compliance for service providers with whom cardholder data is shared, or could affect the security of the CDE. Customers must maintain a list of all service provides used within their CDE.|
 
 
 
@@ -393,7 +393,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for maintaining written agreements with service providers acknowledging the responsibility for maintaining security of cardholder data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for maintaining written agreements with service providers acknowledging the responsibility for maintaining security of cardholder data.|
 
 
 
@@ -406,7 +406,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for ensuring there is an established process for engaging service providers including proper due diligence prior to engagement.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for ensuring there is an established process for engaging service providers including proper due diligence prior to engagement.|
 
 
 
@@ -419,7 +419,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers is responsible for maintaining a program to monitor service providers’ PCI DSS compliance status at least annually.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers is responsible for maintaining a program to monitor service providers’ PCI DSS compliance status at least annually.|
 
 
 
@@ -432,7 +432,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciblueprintcrm32), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciblueprintcrm32), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.|
 
 
 
@@ -446,7 +446,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers which are Service Providers are responsible for acknowledging their responsibilities for maintaining PCI compliance. |
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers which are Service Providers are responsible for acknowledging their responsibilities for maintaining PCI compliance. |
 
 
 
@@ -459,7 +459,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -479,7 +479,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -493,7 +493,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -506,7 +506,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -519,7 +519,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -532,7 +532,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -545,7 +545,7 @@ Where there is an authorized business need, the usage policies must require the 
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for developing IR plans and testing that considers any customer controls relating to shared touch points and any customer applications leveraging Azure’s infrastructure. It is the customer’s responsibility to provide accurate contact information to Azure in the event an incident needs to be reported to them which may impact their application or data.|
 
 
 
@@ -568,7 +568,7 @@ Reviews must cover the following processes:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
 
 
 
@@ -586,7 +586,7 @@ Reviews must cover the following processes:
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers who are service providers are responsible for documenting their reviews of processes for confirming PCI compliance control performance.|
 
 
 

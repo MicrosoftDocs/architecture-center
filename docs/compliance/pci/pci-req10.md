@@ -14,7 +14,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -34,7 +34,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restricts access to administrative and diagnostic tools to authorized personnel with relevant job responsibility. Microsoft Azure restricts privileged access to the tools used in the production environment based on least privilege principles. Microsoft Azure records and maintains a log of all individual user access to Microsoft Azure system components in the platform environment.<br /><br />Microsoft Azure platform components (including OS, CloudNet, Fabric, and so on) are configured to log and collect security events. Administrator activity in the Microsoft Azure platform is logged. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system and user activity, including CHD logging. For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -53,7 +53,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has established procedures to synchronize servers and network devices in the Microsoft Azure environment with NTP Stratum 1 time servers synchronized to Global Positioning System (GPS) satellites. Synchronization is performed automatically every five minutes. Microsoft Azure is responsible for ensuring service hosts properly sync time. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore records user identification, event type, date time stamp, success failed events, source of event, and name of resource as required by the 10.3 control.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore records user identification, event type, date time stamp, success failed events, source of event, and name of resource as required by the 10.3 control.|
 
 
 
@@ -67,7 +67,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure has established procedures to synchronize servers and network devices in the Microsoft Azure environment with NTP Stratum 1 time servers synchronized to Global Positioning System (GPS) satellites. Synchronization is performed automatically every five minutes. Microsoft Azure is responsible for ensuring service hosts properly sync time. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -80,7 +80,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -93,7 +93,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -106,7 +106,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.4](#pci-dss-requirement-10-4). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Time synchronization for the PaaS service is performed by Azure.|
 
 
 
@@ -119,7 +119,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, and so on) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -132,7 +132,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -145,7 +145,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.5](#pci-dss-requirement-10-5). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides for auditing of all elements to OMS. Backing up to an external source can be performed by [Azure Backup](https://azure.microsoft.com/en-us/services/backup/).|
 
 
 
@@ -198,7 +198,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | FIM and IDS tools are implemented within the Microsoft Azure environment. Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. <br /><br />Logging of service, user, and security events (web server logs, FTP server logs, and so on) is enabled and retained centrally. Azure restricts access to audit logs to authorized personnel based on job responsibilities. Event logs are archived on the Azure secure archival infrastructure and are retained for 180 days. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -215,7 +215,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -228,7 +228,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -241,7 +241,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | See the "Microsoft Azure" section for [Requirement 10.6](#pci-dss-requirement-10-6). |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore uses [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/) to monitor, report, and prevent anomalies. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations) provides a consistent, consolidated view of recommendations for all your Azure resources.|
 
 
 
@@ -254,7 +254,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure retains audit logs for one year, with the most recent 3 months immediately accessible through their internal portal. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -279,7 +279,7 @@ Logging mechanisms and the ability to track user activities are critical in prev
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -303,7 +303,7 @@ remediation required to address root cause
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uses EWS to support real-time analysis of events within its operational environment. MAs and AIMS generate near real-time alerts about events that could potentially compromise the system. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore has extensive logging of all system, and user activity (Including CHD logging). For more information, see [PCI Guidance - Logging](index.md#logging-and-auditing).|
 
 
 
@@ -317,7 +317,7 @@ remediation required to address root cause
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a use case and a description about how the CHD is managed and protected.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a use case and a description about how the CHD is managed and protected.|
 
 
 

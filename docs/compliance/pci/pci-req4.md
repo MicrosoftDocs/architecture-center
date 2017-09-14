@@ -27,7 +27,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 
@@ -40,7 +40,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Wireless and SNMP are not implemented in the solution.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Wireless and SNMP are not implemented in the solution.|
 
 
 
@@ -53,7 +53,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore does not have any messaging solutions implemented that may send unprotected primary account number (PAN) data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore does not have any messaging solutions implemented that may send unprotected primary account number (PAN) data.|
 
 
 
@@ -66,7 +66,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Customers are responsible for documenting and encrypting transmissions containing cardholder data.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Customers are responsible for documenting and encrypting transmissions containing cardholder data.|
 
 
 

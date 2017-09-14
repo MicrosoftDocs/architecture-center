@@ -14,7 +14,7 @@ Any physical access to data or systems that house cardholder data provides the o
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for implementing, enforcing, and monitoring physical access security for data centers. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -28,7 +28,7 @@ Any physical access to data or systems that house cardholder data provides the o
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for implementing, enforcing, and monitoring CCTV and biometric access control mechanisms for data centers. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -43,7 +43,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | There are no publicly accessible network jacks within the Microsoft Azure platform. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -56,7 +56,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Physical access to Microsoft Azure network hardware is tightly controlled by access lists, multiple forms of authentication, physical barriers to entry, and requirement for business need to be approved for access to equipment. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -72,7 +72,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for implementing, enforcing, and monitoring physical access security and employee or contractor identification when visiting data centers. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -87,7 +87,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Access authorizations to Microsoft data centers is controlled using an authorized access list approved by the Data Center team based on the principle of least privilege. The access control list is reviewed, verified and updated quarterly.<br /><br />Microsoft Azure data centers utilize physical access devices such as perimeter gates, electronic access badge readers, biometric readers, man-traps/portals, and anti-pass back devices. Access badge devices are continuously monitored. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -100,7 +100,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -114,7 +114,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for enforcing pre-approved deliveries are received in a secure loading bay that is physically isolated from information processing facilities and are monitored by authorized personnel. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -127,7 +127,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft data center access must be pre-approved and authorized visitors are required to check-in with physical security at the point of arrival and provide a valid proof of ID before entry. Badges clearly indicate employees. Contractors and visitors receive temporary badges that must be surrendered upon departure from the facility. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -140,7 +140,7 @@ For example, network jacks located in public areas and areas accessible to visit
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Visitors are required to surrender badges upon departure from any Microsoft facility. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -155,7 +155,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Microsoft Azure is responsible for maintaining a visitor log as a physical audit trail of visitor activity to the facility as well as computer rooms and data centers where cardholder data is stored or transmitted. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -168,7 +168,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -181,7 +181,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -194,7 +194,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -207,7 +207,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -220,7 +220,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -233,7 +233,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -246,7 +246,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -260,7 +260,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -273,7 +273,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -286,7 +286,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore stores all data in Azure SQL Database. A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).|
 
 
 
@@ -299,7 +299,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Data destruction techniques vary depending on the type of data object being destroyed, whether it be subscriptions, storage, virtual machines, or databases. In the Microsoft Azure multi-tenant environment, careful attention is taken to ensure that one customer’s data is not allowed to either “leak” into another customer’s data, or when a customer deletes data, no other customer (including, in most cases, the customer who once owned the data) can gain access to that deleted data.<br /><br />Microsoft Azure follows NIST 800-88 Guidelines on Media Sanitization, which address the principal concern of ensuring that data is not unintentionally released. These guidelines encompass both electronic and physical sanitization. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore can be deleted entirely by deleting the Resource Group used during deployment.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore can be deleted entirely by deleting the Resource Group used during deployment.|
 
 
 
@@ -313,7 +313,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
 
@@ -329,7 +329,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | The Contoso Webstore provides a reference architecture and a list of all services used in its deployment documentation.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore provides a reference architecture and a list of all services used in its deployment documentation.|
 
 
 
@@ -343,7 +343,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -360,7 +360,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
@@ -373,7 +373,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(<nobr>PCI-DSS</nobr>&nbsp;Blueprint)** | Not applicable.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | Not applicable.|
 
 
 
