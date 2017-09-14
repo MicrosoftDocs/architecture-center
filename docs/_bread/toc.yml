@@ -42,4 +42,8 @@
     - name: Compliance
       tocHref: /azure/architecture/compliance
       topicHref: /azure/architecture/compliance
+      items:
+      - name: PCI-DSS
+        tocHref: /azure/architecture/compliance/pci-dss
+        topicHref: /azure/architecture/compliance/pci-dss
     
