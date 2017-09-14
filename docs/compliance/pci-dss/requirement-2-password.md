@@ -8,7 +8,7 @@
 Malicious individuals (external and internal to an entity) often use vendor default passwords and other vendor default settings to compromise systems. These passwords and settings are well known by hacker communities and are easily determined via public information.
 
 ## PCI DSS Requirement 2.1
-
+ 
 **2.1** Always change vendor-supplied defaults and remove or disable unnecessary default accounts **before** installing a system on the network.
 This applies to ALL default passwords, including but not limited to those used by operating systems, software that provides security services, application and system accounts, point-of-sale (POS) terminals, Simple Network Management Protocol (SNMP) community strings, etc.
 
