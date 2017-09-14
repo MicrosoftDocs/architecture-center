@@ -163,21 +163,24 @@ correct working of the solution. In addition, the following configurations are e
  HTTPS traffic is enabled using a custom domain SSL certificate.
 
 ### Data at rest
-To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:
+
+The architecture protects data at rest by using encryption, database auditing, and other measures.
 
 #### Azure Storage
-- [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)
+
+To meet encrypted data-at-rest requirements, all [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses [Storage Service Encryption](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption).
 
 #### Azure SQL Database
 
-A PaaS SQL Database instance is used to showcase database security measures:
-- Enable [AD Authentication and Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
-- Enable [auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
-- Enable [Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
-- Enable [SQL DB Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configureallowing) (allowing for ASE worker pools and client IP management)
-- Enable [Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started)
-- Enable [Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
-- Enable [Dynamic Data Masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) (using the post-deployment PowerShell script)
+The Azure SQL Database instance uses the following database security measures:
+
+- [AD Authentication and Authorization](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication)
+- [SQL database auditing](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started)
+- [Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)
+- [Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure),  allowing for ASE worker pools and client IP management
+- [SQL Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started)
+- [Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [SQL Database dynamic data masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started), using the post-deployment PowerShell script
 
 ### Logging and auditing
 
@@ -200,45 +203,24 @@ The Contoso Webstore encrypts all credit card data, and uses Azure Key Vault to 
 
 The following technologies provide identity management capabilities in the Azure environment.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/en-us/services/active-directory/) is the Microsoft's multi-tenant cloud-based directory and identity management service. All users for the solution were created in Azure Active Directory, including users accessing the SQL Database.
-- Authentication to the app is performed via the [Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications) and associated service principals. Additionally, the SQL DB Column Encryption is conducted using the AD app. Refer to this sample from the Azure SQL DB team for more details.
-    - https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications
-    - https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault
-    - https://github.com/Microsoft/azure-sql-security-sample
-    - [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities affecting your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
-    - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) enables precisely focused access management for Azure. Specific configurations exist for:
-        - Subscription access is limited to the subscription administrator.
-        - Azure Key Vault access is restricted to all users.
-    
+- Authentication to the application is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications). Additionally, the database column encryption also uses Azure AD to authenticate the application to Azure SQL Database. For more information, see [Always Encrypted: Protect sensitive data in SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities affecting your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
+- [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted to all users.
+
+To learn more about using the security features of Azure SQL Database, see the [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) sample.
+   
 ### Web and compute resources
-
-#### Web Apps
-
-The [Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/) feature in Azure App Service lets developers rapidly build, deploy, and manage powerful websites and web apps. Build standards-based web apps and APIs using .NET, Node.js, PHP, Python, and Java. Deliver both web and mobile apps for employees or customers using a single back end. Securely deliver APIs that enable additional apps and devices.
-
-#### Azure App Service
-
-With [App
-Service](https://azure.microsoft.com/en-us/services/app-service/?b=16.52), develop powerful applications for any platform or device, faster than ever before. Meet rigorous performance, scalability, security, and compliance requirements using a single back end. [Additional reading about deploying ASE.](http://sabbour.me/how-to-run-an-app-service-behind-a-waf-enabled-application-gateway/)
-
-#### Virtual Machine
-
-As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor the web app using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
-
-A virtual machine was stood up as a Jumpbox / Bastion host with the following configurations:
-
--   [Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)
--   [OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)
--   [VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
--   [BitLocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
--   An [AutoShutDown Policy](https://azure.microsoft.com/en-us/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use.
 
 #### App Service Environment
 
-[Azure App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service/app-service-environment/intro) is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. it is a Premium service plan used by this foundational architecture to enable PCI DSS compliance.
+[Azure App Service](/azure/app-service/) is a managed service for deploying web apps. The Contoso Webstore application is deployed as an [App Service Web App](/azure/app-service-web/app-service-web-overview).
+
+[Azure App Service Environment (ASE)](https://docs.microsoft.com/en-us/azure/app-service/app-service-environment/intro) is an App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. it is a Premium service plan used by this foundational architecture to enable PCI DSS compliance.
 
 ASEs are isolated to running only a single customer's applications, and are always deployed into a virtual network. Customers have fine-grained control over both inbound and outbound application network traffic, and applications can establish high-speed secure connections over virtual networks to on-premises corporate resources.
 
 Use of ASEs for this architecture allowed for the following controls/configurations:
+
 - Host inside a secured Virtual Network and Network security rules
 - ASE configured with Self-signed ILB certificate for HTTPS communication
 - [Internal Load Balancing mode](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-environment-with-internal-load-balancer) (mode 3)
@@ -247,6 +229,19 @@ Use of ASEs for this architecture allowed for the following controls/configurati
 - Control [inbound traffic N/W ports](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic) 
 - [WAF – Restrict Data](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Allow [SQL Database traffic](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
+
+
+#### Jumpbox (bastion host)
+
+As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor the web app using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
+
+A virtual machine was stood up as a jumpbox / bastion host with the following configurations:
+
+-   [Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)
+-   [OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [VM Diagnostics extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
+-   [BitLocker Encrypted Disk](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
+-   An [AutoShutDown Policy](https://azure.microsoft.com/en-us/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use.
 
 ### Security and malware protection
 
@@ -284,53 +279,59 @@ The following OMS solutions are pre-installed as part of the foundational archit
 
 Default deployment is intended to provide a baseline of security center recommendations, indicating a healthy and secure configuration state. You can enable data collection from the Azure Security Center. For more information, see [Azure Security Center - Getting Started](https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started).
 
-## Deploying the solution
+## Deploy the solution
 
 The components for deploying this solution are available in the [PCI Blueprint code repository][code-repo]. The deployment of the foundational architecture requires several steps executed via Microsoft PowerShell v5. To connect to the website, you must provide a custom domain name (such as contoso.com). This is specified using the `-customHostName` switch in step 2. For more information, see [Buy a custom domain name for Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service-web/custom-dns-web-site-buydomains-web-app). A custom domain name is not required to successfully deploy and run the solution, but you will be unable to connect to the website for demonstration purposes.
 
+The scripts add domain users to the Azure AD tenant that you specify. We recommend creating a new Azure AD tenant to use as a test.
+
 If you encounter any issues during the deployment, see [FAQ and troubleshooting](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-faq.md).
 
-It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into a Windows 10 virtual machine and execute the following commands (note that this enables the custom domain command):
+It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into the jumpbox / bastion host and execute the following commands. Note that this enables the custom domain command.
+
 
 1. Install required modules and set up the administrator roles correctly.
-```powershell
- .\0-Setup-AdministrativeAccountAndPermission.ps1 
-    -azureADDomainName contosowebstore.com
-    -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    -configureGlobalAdmin 
-    -installModules
-```
-For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/0-Setup-AdministrativeAccountAndPermission.md).
-
+ 
+    ```powershell
+     .\0-Setup-AdministrativeAccountAndPermission.ps1 
+        -azureADDomainName contosowebstore.com
+        -tenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        -subscriptionId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+        -configureGlobalAdmin 
+        -installModules
+    ```
+    For detailed usage instructions, see [Script Instructions - Setup Administrative Account and Permission](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/0-Setup-AdministrativeAccountAndPermission.md).
+    
 2. Install the solution-update-management 
- ```powershell
-.\1-DeployAndConfigureAzureResources.ps1 
-    -resourceGroupName contosowebstore
-    -globalAdminUserName adminXX@contosowebstore.com 
-    -globalAdminPassword **************
-    -azureADDomainName contosowebstore.com 
-    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-    -suffix PCIcontosowebstore
-    -customHostName contosowebstore.com
-    -sqlTDAlertEmailAddress edna@contosowebstore.com 
-    -enableSSL
-    -enableADDomainPasswordPolicy 
-```
-
-For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
-
+ 
+    ```powershell
+    .\1-DeployAndConfigureAzureResources.ps1 
+        -resourceGroupName contosowebstore
+        -globalAdminUserName adminXX@contosowebstore.com 
+        -globalAdminPassword **************
+        -azureADDomainName contosowebstore.com 
+        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+        -suffix PCIcontosowebstore
+        -customHostName contosowebstore.com
+        -sqlTDAlertEmailAddress edna@contosowebstore.com 
+        -enableSSL
+        -enableADDomainPasswordPolicy 
+    ```
+    
+    For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    
 3. Deploy OMS logging and resources
- ```powershell
-.\2-EnableOMSLoggingOnResources.ps1 
-    -resourceGroupName contosowebstore 
-    -globalAdminUserName adminXX@contosowebstore.com 
-    -globalAdminPassword **************
-    -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-```
-
-For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-sample-dataset.md). 
-
+ 
+    ```powershell
+    .\2-EnableOMSLoggingOnResources.ps1 
+        -resourceGroupName contosowebstore 
+        -globalAdminUserName adminXX@contosowebstore.com 
+        -globalAdminPassword **************
+        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+    ```
+    
+    For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-sample-dataset.md). 
+    
 
 ## Threat model
 
