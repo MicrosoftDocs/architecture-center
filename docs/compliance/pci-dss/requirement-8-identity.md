@@ -1,4 +1,11 @@
-﻿# Identity requirements for PCI DSS-compliant environments 
+﻿---
+title: Identity requirements for PCI DSS-compliant environments
+description: PCI DSS Requirement 8
+author: simorjay
+ms.date: 09/14/2017
+---
+
+# Identity requirements for PCI DSS-compliant environments 
 ## PCI DSS Requirement 8
 
 **Identify and authenticate access to system components**
@@ -141,7 +148,7 @@ However, Requirements 8.1.1, 8.2, 8.5, 8.2.3 through 8.2.5, and 8.1.6 through 8.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore implementation for multi-factor authentication has been disabled to provide ease of use for the demo. Multi-factor authentication can be implemented using [Azure Multi-Factor Authentication](https://azure.microsoft.com/en-us/services/multi-factor-authentication/).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore implementation for multi-factor authentication has been disabled to provide ease of use for the demo. Multi-factor authentication can be implemented using [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/).|
 
 
 
@@ -330,7 +337,7 @@ authentication.
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore creates three accounts during deployment: admin, sqladmin, and edna (the default user logged into the web app during demo execution). Multi-factor authentication is not implemented for the demo. All access is managed via [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which helps safeguard cryptographic keys and secrets used by cloud applications and services. |
 
 
 

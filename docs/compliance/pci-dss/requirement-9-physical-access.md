@@ -1,4 +1,11 @@
-﻿# Physical access requirements for PCI DSS-compliant environments 
+﻿---
+title: Physical access requirements for PCI DSS-compliant environments
+description: PCI DSS Requirement 9
+author: simorjay
+ms.date: 09/14/2017
+---
+
+# Physical access requirements for PCI DSS-compliant environments 
 ## PCI DSS Requirement 9
 
 **Restrict physical access to cardholder data**
@@ -315,7 +322,7 @@ Retain this log for a minimum of three months, unless otherwise restricted by la
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore utilizes OMS to log all system changes.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) provides extensive logging of changes. Changes can be reviewed and verified for accuracy. For more specific guidance, see [PCI Guidance - Operations Management Suite](index.md#logging-and-auditing).|
 
 
 

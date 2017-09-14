@@ -1,4 +1,11 @@
-﻿# Policy requirements for PCI DSS-Compliant Environments  
+﻿---
+title: Policy requirements for PCI DSS-Compliant Environments 
+description: PCI DSS Requirement 12
+author: simorjay
+ms.date: 09/14/2017
+---
+
+# Policy requirements for PCI DSS-Compliant Environments  
 ## PCI DSS Requirement 12
 
 **Maintain a policy that addresses information security for all personnel**
