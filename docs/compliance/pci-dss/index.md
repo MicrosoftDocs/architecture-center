@@ -1,4 +1,4 @@
-# requirements for PCI DSS-compliant environments
+# Azure Solutions Blueprint for PCI DSS-compliant environments
 
 ## Overview
 
