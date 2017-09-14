@@ -1,5 +1,7 @@
-﻿# Azure Solutions Blueprint for PCI DSS-Compliant Environments  
-## PCI DSS Requirement 6: <br /> Develop and maintain secure systems and applications  
+﻿# Secure system requirements for PCI DSS-compliant environments 
+## PCI DSS Requirement 6
+
+**Develop and maintain secure systems and applications**
 
 > **Note:** These requirements are defined by the [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) as part of the [PCI Data Security Standard (DSS) Version 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Please refer to the PCI DSS for information on testing procedures and guidance for each requirement.
 
