@@ -146,7 +146,7 @@ The foundational architecture defines a private virtual network with an address 
 
 Each of the network tiers has a dedicated network security group (NSG):
 - A DMZ network security group for firewall and Application Gateway WAF
-- An NSG for management jumpbox/bastion host 
+- An NSG for management jumpbox (bastion host)
 - An NSG for the app service environment
 
 Each of the NSGs have specific ports and protocols opened for the secure and correct operation of the solution. For more information, see [PCI Guidance - Network Security Groups](#network-security-groups).
@@ -235,7 +235,7 @@ Use of ASEs for this architecture allowed for the following controls/configurati
 
 As the App Service Environment is secured and locked down, there needs to be a mechanism to allow for any DevOps releases or changes that might be necessary, such as the ability to monitor the web app using Kudu. Virtual machine is secured behind NAT Load Balancer which allows you to connect VM on a port other than TCP 3389. 
 
-A virtual machine was stood up as a jumpbox / bastion host with the following configurations:
+A virtual machine was created as a jumpbox (bastion host) with the following configurations:
 
 -   [Antimalware extension](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)
 -   [OMS Monitoring extension](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-extensions-oms)
@@ -287,7 +287,7 @@ The scripts add domain users to the Azure AD tenant that you specify. We recomme
 
 If you encounter any issues during the deployment, see [FAQ and troubleshooting](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-faq.md).
 
-It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into the jumpbox / bastion host and execute the following commands. Note that this enables the custom domain command.
+It is highly recommended that a clean installation of PowerShell be used to deploy the solution. Alternatively, verify that you are using the latest modules required for proper execution of the installation scripts. In this example, we log into the jumpbox (bastion host) and execute the following commands. Note that this enables the custom domain command.
 
 
 1. Install required modules and set up the administrator roles correctly.
