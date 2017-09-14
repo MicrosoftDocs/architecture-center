@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/compliance/pci
+redirect_url: /azure/architecture/compliance/pci-dss
 ---
