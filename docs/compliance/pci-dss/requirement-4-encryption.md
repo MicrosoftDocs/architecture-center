@@ -1,4 +1,11 @@
-﻿# Encryption requirements for PCI DSS-compliant environments 
+﻿---
+title: Encryption requirements for PCI DSS-compliant environments
+description: PCI DSS Requirement 4
+author: simorjay
+ms.date: 09/14/2017
+---
+
+# Encryption requirements for PCI DSS-compliant environments 
 ## PCI DSS Requirement 4
 
 **Encrypt transmission of cardholder data across open, public networks**
@@ -29,7 +36,7 @@ Sensitive information must be encrypted during transmission over networks that a
 |||
 |---|---|
 | **Provider<br />(Microsoft&nbsp;Azure)** | Not applicable. |
-| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/en-us/services/storage/) uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
+| **Customer<br />(PCI&#8209;DSS&nbsp;Blueprint)** | The Contoso Webstore is a PaaS solution that implements strong cryptography for the deployment as follows:<br /><br />To meet encrypted data-at-rest requirements, [Azure Storage](https://azure.microsoft.com/services/storage/) uses the following:<br /><br /><ul><li>[Azure Storage Service Encryption (SSE) for Data at Rest](/azure/storage/storage-service-encryption)</li><li>SQL Database: A PaaS SQL Database instance is used to showcase database security measures. For more information, see [PCI Guidance - Azure SQL Database](index.md#azure-sql-database).</li><li>[Azure Disk Encryption (Bitlocker)](/azure/security/azure-security-disk-encryption)</li></ul>Using Azure Key Vault aligns with Azure Government, PCI DSS, and HIPAA requirements.|
 
 
 

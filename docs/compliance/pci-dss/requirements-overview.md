@@ -1,3 +1,10 @@
+---
+title: PCI DSS requirements - high-level overview
+description: PCI DSS customer responsibility matrix (overview)
+author: simorjay
+ms.date: 09/14/2017
+---
+
 # PCI DSS requirements - high-level overview
 
 The Payment Card Industry Data Security Standard (PCI DSS) was developed to encourage and enhance cardholder data security and facilitate the broad adoption of consistent data security measures globally. PCI DSS provides a baseline of technical and operational requirements designed to protect account data. PCI DSS applies to all entities involved in payment card processing, including merchants, processors, acquirers, issuers, and service providers. PCI DSS also applies to all other entities that store, process, or transmit cardholder data (CHD) and/or sensitive authentication data (SAD). Below is a high-level overview of the 12 PCI DSS requirements.

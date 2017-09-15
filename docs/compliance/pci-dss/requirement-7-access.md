@@ -1,4 +1,11 @@
-﻿# Access requirements for PCI DSS-compliant environments 
+﻿---
+title: Access requirements for PCI DSS-compliant environments 
+description: PCI DSS Requirement 7
+author: simorjay
+ms.date: 09/14/2017
+---
+
+# Access requirements for PCI DSS-compliant environments 
 ## PCI DSS Requirement 7
 
 **Restrict access to cardholder data by business need to know**
