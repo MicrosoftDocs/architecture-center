@@ -26,7 +26,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on their lifetime, and who will manage the resources. For a single VM workload, you may create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down.
-* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
 * **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
 * **Public IP address.** A public IP address is needed to communicate with the VM&mdash;for example over remote desktop (RDP).
@@ -41,7 +41,7 @@ You can download a [Visio file](https://aka.ms/arch-diagrams) of this architectu
 
 ## Recommendations
 
-This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ### VM recommendations
 
@@ -49,7 +49,7 @@ Azure offers many different virtual machine sizes, but we recommend the DS- and 
 
 If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. If you require multiple NICs for your VM, be aware that the maximum number of NICs is a function of the [VM size][vm-size-tables].   
 
-When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all regions. For details, see [services by region][services-by-region]. To see a list of the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
+When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all regions. For details, see [services by region][services-by-region]. To see a list of the VM sizes available in a specific region, run the following Azure command-line interface (CLI) command:
 
 ```
 az vm list-sizes --location <location>
@@ -57,7 +57,7 @@ az vm list-sizes --location <location>
 
 For information about choosing a published VM image, see [Navigate and select Windows virtual machine images in Azure with Powershell or CLI][select-vm-image].
 
-Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
 
 The following CLI command enables diagnostics:
 
@@ -149,12 +149,12 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
 
-  * **VNet**. A sample virtual network with a sngle subnet named **web** used to host the VM.
-  * **NSG**. A saple NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
+  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VM.
+  * **NSG**. A sample NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
   * **VM**. A sample Windows VM running the latest version of Windows Server 2016 Datacenter Edition.
   * **Extensions**. A sample custom script extension used to format the two data disks, and a PowerShell DSC script to deploy IIS.
 
-### Prerequisties
+### Prerequisites
 
 Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 
