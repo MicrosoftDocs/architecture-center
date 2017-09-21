@@ -26,10 +26,10 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. You usually create resource groups for different resources in a solution based on their lifetime, and who will manage the resources. For a single VM workload, you may create a single resource group for all resources.
 * **VM**. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux]. You can provision a VM from a list of published images or from a virtual hard disk (VHD) file that you upload to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage]. That means it persists even if the host machine goes down. The OS disk is `/dev/sda1`.
-* **Temporary disk.** The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage, and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. The temporary disk is `/dev/sdb1` and is mounted at `/mnt/resource` or `/mnt`.
+* **Temporary disk.** The VM is created with a temporary disk. This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and might be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files. The temporary disk is `/dev/sdb1` and is mounted at `/mnt/resource` or `/mnt`.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
 * **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
-* **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example over SSH.
+* **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via SSH.
 * **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
@@ -41,7 +41,7 @@ You can download a [Visio file](https://aka.ms/arch-diagrams) of this architectu
 
 ## Recommendations
 
-This architecture shows the baseline recommendations for running a Linux VM in Azure. However, we don't recommend using a single VM for mission critical workloads, because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+This architecture shows the baseline recommendations for running a Linux VM in Azure. However, we don't recommend using a single VM for mission critical workloads because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
 
 ### VM recommendations
 
@@ -49,7 +49,7 @@ Azure offers many different virtual machine sizes, but we recommend the DS- and 
 
 If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size if needed. If you require multiple NICs for your VM, be aware that the maximum number of NICs is a function of the [VM size][vm-size-tables].
 
-When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a given region, run the following Azure command-line interface (CLI) command:
+When you provision the VM and other resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes may be available in all region. For details, see [Services by region][services-by-region]. To list the VM sizes available in a specific region, run the following Azure command-line interface (CLI) command:
 
 ```
 az vm list-sizes --location <location>
@@ -57,7 +57,7 @@ az vm list-sizes --location <location>
 
 For information about choosing a published VM image, see [Select Linux VM images with the Azure CLI][select-vm-image].
 
-Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a nonbootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
 
 The following CLI command enables diagnostics:
 
@@ -97,7 +97,7 @@ If you are not using [managed disks](/azure/storage/storage-managed-disks-overvi
 
 When you add a data disk, a logical unit number (LUN) ID is assigned to the disk. Optionally, you can specify the LUN ID &mdash; for example, if you're replacing a disk and want to retain the same LUN ID, or you have an application that looks for a specific LUN ID. However, remember that LUN IDs must be unique for each disk.
 
-You may want to change the I/O scheduler to optimize for performance on SSDs, because the disks for VMs with premium storage accounts are SSDs. A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat] to monitor disk I/O performance for your particular workload.
+You may want to change the I/O scheduler to optimize for performance on SSDs because the disks for VMs with premium storage accounts are SSDs. A common recommendation is to use the NOOP scheduler for SSDs, but you should use a tool such as [iostat] to monitor disk I/O performance for your workload.
 
 For best performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
@@ -167,12 +167,12 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
 
-  * **VNet**. A sample virtual network with a sngle subnet named **web** used to host the VM.
-  * **NSG**. A saple NSG with two incoming rules to allow SSH and HTTP traffic to the VM.
+  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VM.
+  * **NSG**. A sample NSG with two incoming rules to allow SSH and HTTP traffic to the VM.
   * **VM**. A sample Linux VM running the latest version of Ubuntu 16.04.3 LTS.
   * **Extension**. A sample custom script extension used to deploy apache to the Ubuntu VM, and format the two data disks.
 
-### Prerequisties
+### Prerequisites
 
 Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 

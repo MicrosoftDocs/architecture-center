@@ -33,8 +33,8 @@ The architecture has the following components:
   * **Front-end configuration**. Associates the public IP address with the load balancer.
   * **Back-end address pool**. Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 * **Load balancer rules**. Used to distribute network traffic among all the VMs in the back-end address pool.
-* **VM Scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out anually, or based on predefined rules.
-* **Availability set**. The [availability set][availability set] contains the VMs, making the VMs eligible for the [availability service level agreement (SLA) for Azure VMs][vm-sla]. In order for the SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
+* **VM scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out manually, or based on predefined rules.
+* **Availability set**. The [availability set][availability set] contains the VMs, making the VMs eligible for the [availability service level agreement (SLA) for Azure VMs][vm-sla]. For the SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
 * **Storage**. If you are not using [managed disks](/azure/storage/storage-managed-disks-overview), storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
 You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
@@ -50,7 +50,7 @@ Your requirements might differ from the architecture described here. Use these r
 
 An option for availability and scalability is to use a [virtual machine scale set][vmss]. VM scale sets help you to deploy and manage a set of identical VMs. Scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
 
-By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. If you are not using [managed disks] (/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks), we recommend no more than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.
+By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. If you are not using [managed disks](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-managed-disks), we recommend no more than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -58,10 +58,10 @@ There are two basic ways to configure VMs deployed in a scale set:
 
 - Deploy a [managed disk](/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up to date.
 
-For additional considerations, see [Designing VM Scale Sets For Scale][vmss-design].
+For additional considerations, see [Design considerations for scale sets][vmss-design].
 
 > [!TIP]
-> When using any autoscale solution, test it with production-level work loads well in advance.
+> When using any autoscale solution, test it with production-level workloads well in advance.
 
 If you do not use a scale set, consider at least using an availability set. Create at least two VMs in the availability set, to support the [availability SLA for Azure VMs][vm-sla]. The Azure load balancer also requires that load-balanced VMs belong to the same availability set.
 
@@ -71,7 +71,7 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 Place the VMs within the same subnet. Do not expose the VMs directly to the Internet, but instead give each VM a private IP address. Clients connect using the public IP address of the load balancer.
 
-If you need to log into the VMs behind the load balancer, consider adding a single VM as a bastion host/jumpbox with a public IP address you can log into. And then log into the VMs behind the load balancer from the jumpbox. Alternatevily, configure inbound NAT rules in the load balancer for the same prupose. However, having a jumpbox is a better solution when you are hosting n-tier workloads, or multiple workloads.
+If you need to log into the VMs behind the load balancer, consider adding a single VM as a bastion host/jumpbox with a public IP address you can log into. And then log into the VMs behind the load balancer from the jumpbox. Alternatively, configure inbound NAT rules in the load balancer for the same purpose. However, having a jumpbox is a better solution when you are hosting n-tier workloads, or multiple workloads.
 
 ### Load balancer recommendations
 
@@ -122,13 +122,13 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and three VMs in a scale set behind a load balancer,described below:
+A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and three VMs in a scale set behind a load balancer, described below:
 
-  * **VNet**. A sample virtual network with a sngle subnet named **web** used to host the VMs.
-  * **NSG**. A saple NSG with an incoming rules to allow HTTP traffic to the VM scale set.
+  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VMs.
+  * **NSG**. A sample NSG with incoming rules to allow HTTP traffic to the VM scale set.
   * **VMs**. Sample Linux VMs running the latest version of Windows Server 2016 Datacenter Edition in a scale set with autoscale turned on, behind a load balancer.
 
-### Prerequisties
+### Prerequisites
 
 Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 

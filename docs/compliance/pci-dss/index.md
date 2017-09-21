@@ -136,7 +136,7 @@ The following section details the development and implementation elements.
 
 The foundational architecture reduces the risk of security vulnerabilities using an Application Gateway with web application firewall (WAF), and the OWASP ruleset enabled. Additional capabilities include:
 
-- [End-to-End-SSL] (/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Enable [SSL Offload](/azure/application-gateway/application-gateway-ssl-portal)
 - Disable [TLS v1.0 and v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web application firewall](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF mode)
@@ -245,10 +245,10 @@ As the App Service Environment is secured and locked down, there needs to be a m
 A virtual machine was created as a jumpbox (bastion host) with the following configurations:
 
 -   [Antimalware extension](/azure/security/azure-security-antimalware)
--   [OMS Monitoring extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
--   [VM Diagnostics extension](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
--   [BitLocker Encrypted Disk](/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
--   An [AutoShutDown Policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use.
+-   [OMS extension](/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Azure Diagnostics extension](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
+-   [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) using Azure Key Vault (respects Azure Government, PCI DSS, HIPAA and other requirements).
+-   An [auto-shutdown policy](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) to reduce consumption of virtual machine resources when not in use.
 
 ### Security and malware protection
 
