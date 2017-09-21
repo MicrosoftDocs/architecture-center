@@ -33,7 +33,7 @@ The architecture has the following components:
   * **Front-end configuration**. Associates the public IP address with the load balancer.
   * **Back-end address pool**. Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 * **Load balancer rules**. Used to distribute network traffic among all the VMs in the back-end address pool.
-* **VM scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out annually, or based on predefined rules.
+* **VM scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out manually, or based on predefined rules.
 * **Availability set**. The [availability set][availability set] contains the VMs, making the VMs eligible for the [availability service level agreement (SLA) for Azure VMs][vm-sla]. For the SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
 * **Storage**. If you are not using [managed disks](/azure/storage/storage-managed-disks-overview), storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
