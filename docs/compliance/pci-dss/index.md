@@ -1,15 +1,15 @@
 ---
-title: Azure Solutions Blueprint for PCI DSS-compliant environments
+title: Payment Processing Blueprint for PCI DSS-compliant environments
 description: Guidance for deploying a PCI DSS-compliant environment on Microsoft Azure.
 author: simorjay
 ms.date: 09/14/2017
 ---
 
-# Azure Solutions Blueprint for PCI DSS-compliant environments
+# Payment Processing Blueprint for PCI DSS-compliant environments
 
 ## Overview
 
-The Azure Solutions Blueprint for PCI DSS-Compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
+The Payment Processing Blueprint for PCI DSS-Compliant Environments provides guidance for the deployment of a PCI DSS-compliant Platform-as-a-Service (PaaS) environment suitable for handling sensitive payment card data. It showcases a common reference architecture and is designed to simplify adoption of Microsoft Azure. This foundational architecture illustrates an end-to-end solution to meet the needs of organizations seeking a cloud-based approach to reducing the burden and cost of deployment.
 
 This foundational architecture meets the requirements of stringent Payment Card Industry Data Security Standards (PCI DSS 3.2) for the collection, storage, and retrieval of payment card data. It demonstrates the proper handling of credit card data (including card number, expiration, and verification data) in a secure, compliant multi-tier environment deployed as an end-to-end Azure-based solution. For more information about PCI DSS 3.2 requirements and this solution, see [PCI DSS Requirements - High-Level Overview](./requirements-overview.md).
 
