@@ -2,10 +2,7 @@
 title: Application roles
 description: How to perform authorization using application roles
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
-ms.date: 02/16/2016
-ms.author: pnp
+ms:date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup
@@ -86,13 +83,17 @@ The `value`  property appears in the role claim. The `id` property is the unique
 > 
 > 
 
-The following screenshot from the Azure portal shows three users. Alice was assigned directly to a role. Bob inherited a role as a member of a security group named "Surveys Admin", which is assigned to a role. Charles is not assigned to any role.
+The following screenshot from the Azure portal shows users and groups for the Survey application. Admin and Creator are groups, assigned to SurveyAdmin and SurveyCreator roles respectively. Alice is a user who was assigned directly to the SurveyAdmin role. Bob and Charles are users that have not been directly assigned to a role.
 
-![Assigned users](./images/role-assignments.png)
+![Users and Groups](./images/running-the-app/users-and-groups.png)
+
+As shown in the following screenshot, Charles is part of the Admin group, so he inherits the SurveyAdmin role. In the case of Bob, he has not been assigned a role yet.
+
+![Admin group members](./images/running-the-app/admin-members.png)
+
 
 > [!NOTE]
-> Alternatively, the application can assign roles programmatically, using the Azure AD Graph API.  However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
-> 
+> An alternative approach is for the application to assign roles programmatically, using the Azure AD Graph API. However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
 > 
 
 **Get role claims**. When a user signs in, the application receives the user's assigned role(s) in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`.  
@@ -154,7 +155,6 @@ Drawbacks:
 * Cannot use AD security groups to manage role assignments.
 * Stores user information in the application database, where it can get out of sync with the tenant's AD directory, as users are added or removed.   
 
-There are many existing examples for this approach. For example, see [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service].
 
 [**Next**][authorization]
 
@@ -163,6 +163,5 @@ There are many existing examples for this approach. For example, see [Create an 
 
 [authorization]: authorize.md
 [Securing a backend web API]: web-api.md
-[Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]: /azure/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
 [application manifest]: /azure/active-directory/active-directory-application-manifest/
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

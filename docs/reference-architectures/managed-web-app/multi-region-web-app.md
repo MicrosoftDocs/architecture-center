@@ -11,13 +11,10 @@ author: MikeWasson
 
 
 
-ms.service: guidance
 
-ms.topic: article
 
 
 ms.date: 11/23/2016
-ms.author: pnp
 cardTitle: Run in multiple regions
 ---
 # Run a web application in multiple regions

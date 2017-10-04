@@ -2,10 +2,7 @@
 title: Retry general guidance
 description: Guidance on retry for transient fault handling.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 07/13/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

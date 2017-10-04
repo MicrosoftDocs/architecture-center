@@ -11,13 +11,10 @@ author: telmosampaio
 
 pnp.series.title: Identity management
 
-ms.service: guidance
 
-ms.topic: article
 
 
 ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.next: adds-extend-domain
 pnp.series.prev: ./index
 cardTitle: Integrate on-premises AD with Azure AD

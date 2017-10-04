@@ -67,7 +67,7 @@ server {
 
 ## Related guidance
 
-- [Backends for Frontendss pattern](./backends-for-frontends.md)
+- [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
 

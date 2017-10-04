@@ -3,9 +3,6 @@ title: Materialized View
 description: Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
