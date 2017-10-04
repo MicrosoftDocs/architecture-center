@@ -352,6 +352,10 @@ For more information, see the [PCI Blueprint Threat Model](https://aka.ms/pciblu
 
 Customers are responsible for retaining a copy of the [Responsibility Summary Matrix](https://aka.ms/pciblueprintcrm32), which outlines the PCI DSS requirements that are the responsibility of the customer and those which are the responsibility of Microsoft Azure.
 
+## PCI Compliance Review 
+
+The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security Assessors). The [PCI Compliance Review and guidance for implementation](https://aka.ms/pciblueprintprocessingoverview) provides an auditors review of the solution, and considerations to transform the blueprint, to production ready.
+
 ## Disclaimer and acknowledgements
 
 *September 2017*
