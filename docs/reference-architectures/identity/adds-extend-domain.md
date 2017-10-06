@@ -7,10 +7,7 @@ description: >-
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-ms.service: guidance
-ms.topic: article
 ms.date: 11/28/2016
-ms.author: pnp
 
 pnp.series.title: Identity management
 pnp.series.prev: azure-ad

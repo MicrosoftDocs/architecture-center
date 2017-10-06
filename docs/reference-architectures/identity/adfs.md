@@ -7,18 +7,9 @@ description: >-
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-
-
+ms.date: 11/28/2016
 
 pnp.series.title: Identity management
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.prev: adds-forest
 cardTitle: Extend AD FS to Azure
 ---

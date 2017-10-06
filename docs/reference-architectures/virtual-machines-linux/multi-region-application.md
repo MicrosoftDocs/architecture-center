@@ -6,10 +6,7 @@ description: >-
 
 author: MikeWasson
 
-ms.service: guidance
-ms.topic: article
 ms.date: 11/22/2016
-ms.author: pnp
 
 pnp.series.title: Linux VM workloads
 pnp.series.prev: n-tier

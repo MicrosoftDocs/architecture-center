@@ -3,9 +3,6 @@ title: Compensating Transaction
 description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns

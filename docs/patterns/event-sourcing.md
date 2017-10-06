@@ -3,9 +3,6 @@ title: Event Sourcing
 description: Use an append-only store to record the full series of events that describe actions taken on data in a domain.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
 ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
@@ -154,7 +151,7 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Materialized View Pattern](materialized-view.md). The data store used in a system based on event sourcing is typically not well suited to efficient querying. Instead, a common approach is to generate prepopulated views of the data at regular intervals, or when the data changes. Shows how this can be done.
 
-- [Compensating Transaction Pattern](materialized-view.md). The existing data in an event sourcing store is not updated, instead new entries are added that transition the state of entities to the new values. To reverse a change, compensating entries are used because it isn't possible to simply reverse the previous change. Describes how to undo the work that was performed by a previous operation.
+- [Compensating Transaction Pattern](compensating-transaction.md). The existing data in an event sourcing store is not updated, instead new entries are added that transition the state of entities to the new values. To reverse a change, compensating entries are used because it isn't possible to simply reverse the previous change. Describes how to undo the work that was performed by a previous operation.
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). When using event sourcing with a separate read store or materialized views, the read data won't be immediately consistent, instead it'll be only eventually consistent. Summarizes the issues surrounding maintaining consistency over distributed data.
 

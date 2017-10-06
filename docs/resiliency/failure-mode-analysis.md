@@ -2,10 +2,7 @@
 title: Failure mode analysis
 description: Guidelines for performing failure mode analysis for cloud solutions based on Azure.
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
 ms.date: 03/24/2017
-ms.author: pnp
 ms.custom: resiliency
 
 pnp.series.title: Design for Resiliency
@@ -123,7 +120,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery**. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
 
-## DocumentDB API
+## Cosmos DB 
 ### Reading data fails.
 **Detection**. Catch `System.Net.Http.HttpRequestException` or `Microsoft.Azure.Documents.DocumentClientException`.
 
@@ -131,6 +128,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 * The SDK automatically retries failed attempts. To set the number of retries and the maximum wait time, configure `ConnectionPolicy.RetryOptions`. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 * If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you are getting error 429 consistently, consider increasing the throughput value of the collection.
+    * If you are using the MongoDB API, the service returns error code 16500 when throttling.
 * Replicate the Cosmos DB database across two or more regions. All replicas are readable. Using the client SDKs, specify the `PreferredLocations` parameter. This is an ordered list of Azure regions. All reads will be sent to the first available region in the list. If the request fails, the client will try the other regions in the list, in order. For more information, see [How to setup Azure Cosmos DB global distribution using the DocumentDB API][docdb-multi-region].
 
 **Diagnostics**. Log all errors on the client side.

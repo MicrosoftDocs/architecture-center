@@ -52,6 +52,8 @@ CQRS is not a top-level architecture that applies to an entire system. Apply CQR
 
 ## Best practices
 
+- For more information about implementing CQRS, see [CQRS Pattern][cqrs-pattern].
+
 - Consider using the [Event Sourcing][event-sourcing] pattern to avoid update conflicts.
 
 - Consider using the [Materialized View pattern][materialized-view] for the read model, to optimize the schema for queries.
@@ -69,6 +71,7 @@ In the following diagram, Service A writes to a data store, and Service B keeps 
 
 <!-- links -->
 
+[cqrs-pattern]: ../../patterns/cqrs.md
 [event-sourcing]: ../../patterns/event-sourcing.md
 [materialized-view]: ../../patterns/materialized-view.md
 [microservices]: ./microservices.md
