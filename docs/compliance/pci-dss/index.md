@@ -327,17 +327,20 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
     For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Deploy OMS logging and resources
+3. OMS logging and resources
+ Once the solution is installed, an [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened and the sample templates provided in the solution repository can be used to illustrate a dashboard for monitoring service of the deployed solution. 
  
-    ```powershell
-    .\2-EnableOMSLoggingOnResources.ps1 
-        -resourceGroupName contosowebstore 
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    ```
-    
-    For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-sample-dataset.md). 
+ Resources to consider monitoring include:
+ - Microsoft.Network/applicationGateways
+ - Microsoft.Network/NetworkSecurityGroups
+ - Microsoft.Web/serverFarms
+ - Microsoft.Sql/servers/databases
+ - Microsoft.Compute/virtualMachines
+ - Microsoft.Web/sites
+ - Microsoft.KeyVault/Vaults
+ - Microsoft.Automation/automationAccounts
+ 
+ For sample OMS templates refer to the [omsDashboards folder.](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
 
 ## Threat model
