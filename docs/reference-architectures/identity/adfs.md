@@ -240,7 +240,7 @@ A solution is available on [Github][github] to deploy this reference architectur
    * `Onpremise`: Deploys a simulated on-premises environment. You can use this deployment to test and experiment if you do not have an existing on-premises network, or if you want to test this reference architecture without changing the configuration of your existing on-premises network.
    * `Infrastructure`: deploys the VNet infrastructure and jump box.
    * `CreateVpn`: deploys an Azure virtual network gateway and connects it to the simulated on-premises network.
-   * `AzureADDS`: deploys the VMs acting as ACtive Directory DS servers, deploys Active Directory to these VMs, and creates the domain in Azure.
+   * `AzureADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and creates the domain in Azure.
    * `AdfsVm`: deploys the AD FS VMs and joins them to the domain in Azure.
    * `PublicDMZ`: deploys the public DMZ in Azure.
    * `ProxyVm`: deploys the AD FS proxy VMs and joins them to the domain in Azure.
