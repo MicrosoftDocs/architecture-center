@@ -359,7 +359,8 @@ Customers are responsible for retaining a copy of the [Responsibility Summary Ma
 
 ## PCI Compliance Review 
 
-The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security Assessors). The [PCI Compliance Review and guidance for implementation](https://aka.ms/pciblueprintprocessingoverview) provides an auditors review of the solution, and considerations to transform the blueprint, to a production-ready deployment.
+The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security Assessors). The [PCI Compliance Review and guidance for implementation](https://aka.ms/pciblueprintprocessingoverview) provides an auditor's review of the solution, and considerations for transforming the blueprint to a production-ready deployment.
+
 
 ## Disclaimer and acknowledgements
 
