@@ -38,5 +38,12 @@
       topicHref: /azure/architecture/guide
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns
-      topicHref: /azure/architecture/antipatterns
+      topicHref: /azure/architecture/
+    - name: Compliance
+      tocHref: /azure/architecture/compliance
+      topicHref: /azure/architecture/compliance
+      items:
+      - name: PCI-DSS
+        tocHref: /azure/architecture/compliance/pci-dss
+        topicHref: /azure/architecture/compliance/pci-dss
     

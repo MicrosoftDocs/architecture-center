@@ -122,23 +122,25 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 
 >  The examples use the Azure Redis Cache API to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Redis Cache](https://docs.microsoft.com/en-us/azure/redis-cache/cache-web-app-howto)
 
-The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. This is an example of a write-through approach. The code updates the original data store and then removes the cached item from the cache by calling the `KeyDeleteAsync` method, specifying the key.
-
->  The order of the steps in this sequence is important. If the item is removed before the cache is updated, the client application has a short period of time to fetch the data (because it isn't found in the cache) before the item in the data store has been changed, resulting in the cache containing stale data.
+The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
 ```csharp
 public async Task UpdateEntityAsync(MyEntity entity)
 {
-    // Invalidate the current cache object
+    // Update the object in the original data store.
+    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false); 
+
+    // Invalidate the current cache object.
     var cache = Connection.GetDatabase();
     var id = entity.Id;
-    var key = $"MyEntity:{id}"; // Get the correct key for the cached object.
-    await cache.KeyDeleteAsync(key).ConfigureAwait(false);
-
-    // Update the object in the original data store
-    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false); 
+    var key = $"MyEntity:{id}"; // The key for the cached object.
+    await cache.KeyDeleteAsync(key).ConfigureAwait(false); // Delete this key from the cache.
 }
 ```
+
+> [!NOTE]
+> The order of the steps is important. Update the data store *before* removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
+
 
 ## Related guidance 
 

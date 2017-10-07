@@ -33,7 +33,7 @@ However, the traditional CRUD approach has some disadvantages:
 
 - It can make managing security and permissions more complex because each entity is subject to both read and write operations, which might expose data in the wrong context.
 
-> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://msdn.microsoft.com/library/ms978509.aspx).
+> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://blogs.msdn.microsoft.com/maarten_mullender/2004/07/23/crud-only-when-you-can-afford-it-revisited/).
 
 ## Solution
 
