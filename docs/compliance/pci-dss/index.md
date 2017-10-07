@@ -191,7 +191,7 @@ The Azure SQL Database instance uses the following database security measures:
 
 ### Logging and auditing
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) provides the Contoso Webstore with extensive logging of all system and user activity, include cardholder data logging. Changes can be reviewed and verified for accuracy. 
+[Operations Management Suite (OMS)](/azure/operations-management-suite/) can provide the Contoso Webstore with extensive logging of all system and user activity, include cardholder data logging. Changes can be reviewed and verified for accuracy. 
 
 - **Activity Logs:**  [Activity logs](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
 - **Diagnostic Logs:**  [Diagnostic logs](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs include Windows event system logs, Azure Blob storage, tables, and queue logs.
@@ -327,19 +327,21 @@ It is highly recommended that a clean installation of PowerShell be used to depl
     
     For detailed usage instructions, see [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Deploy OMS logging and resources
+3. OMS logging and monitoring. Once the solution is deployed, a [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) workspace can be opened, and the sample templates provided in the solution repository can be used to illustrate how a monitoring dashboard can be configured. For the sample OMS templates refer to the [omsDashboards folder](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
  
-    ```powershell
-    .\2-EnableOMSLoggingOnResources.ps1 
-        -resourceGroupName contosowebstore 
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    ```
-    
-    For detailed usage instructions, see [Script Instructions - Payment Sample Dataset](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/pci-sample-dataset.md). 
-    
+    When setting up your OMS logging, consider including these resources:
+ 
+    - Microsoft.Network/applicationGateways
+    - Microsoft.Network/NetworkSecurityGroups
+    - Microsoft.Web/serverFarms
+    - Microsoft.Sql/servers/databases
+    - Microsoft.Compute/virtualMachines
+    - Microsoft.Web/sites
+    - Microsoft.KeyVault/Vaults
+    - Microsoft.Automation/automationAccounts
+ 
 
+    
 ## Threat model
 
 A data flow diagram (DFD) and sample threat model for the Contoso Webstore are available in the Documents section of the [code repository][code-repo].
