@@ -3,16 +3,13 @@ title: Health Endpoint Monitoring
 description: Implement functional checks in an application that external tools can access through exposed endpoints at regular intervals.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [availability, management-monitoring, resiliency]
 ---
 
-# Health Endpoint Monitoring
+# Health Endpoint Monitoring pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

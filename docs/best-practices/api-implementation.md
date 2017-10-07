@@ -2,10 +2,7 @@
 title: API implementation guidance
 description: Guidance upon how to implement an API.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 07/13/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
@@ -20,7 +17,7 @@ Consider the following points when you implement the code to handle requests.
 
 ### GET, PUT, DELETE, HEAD, and PATCH actions should be idempotent
 
-The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different. Tthe first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
+The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
 > The article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
@@ -268,7 +265,8 @@ public class OkResultWithCaching<T> : OkNegotiatedContentResult<T>
         }
         return response;
     }
-}```
+}
+```
 
 > [!NOTE]
 > The HTTP protocol also defines the *no-cache* directive for the Cache-Control header. Rather confusingly, this directive does not mean "do not cache" but rather "revalidate the cached information with the server before returning it"; the data can still be cached, but it is checked each time it is used to ensure that it is still current.

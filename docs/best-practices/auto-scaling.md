@@ -2,10 +2,7 @@
 title: Autoscaling guidance
 description: Guidance on how to autoscale to dynamically allocate resources required by an application.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 05/17/2017
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

@@ -3,16 +3,13 @@ title: Sharding
 description: Divide a data store into a set of horizontal partitions or shards.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
 ---
 
-# Sharding
+# Sharding pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

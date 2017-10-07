@@ -2,10 +2,7 @@
 title: Recover from data corruption or accidental deletion
 description: Article on understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery
 author: adamglick
-ms.service: guidance
-ms.topic: article
 ms.date: 08/18/2016
-ms.author: pnp
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # Azure resiliency technical guidance: recovery from data corruption or accidental deletion

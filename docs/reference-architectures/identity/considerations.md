@@ -93,4 +93,4 @@ Typical uses for this architecture:
 [ad-ds]: ./adds-extend-domain.md
 [ad-ds-forest]: ./adds-forest.md
 [ad-forest-defn]: https://msdn.microsoft.com/library/ms676906.aspx
-[adfs]: /adfs.md
+[adfs]: ./adfs.md

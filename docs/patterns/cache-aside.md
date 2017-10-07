@@ -3,16 +3,13 @@ title: Cache-Aside
 description: Load data on demand into a cache from a data store
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, performance-scalability]
 ---
 
-# Cache-Aside
+# Cache-Aside pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

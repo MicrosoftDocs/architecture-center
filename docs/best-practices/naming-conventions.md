@@ -2,10 +2,7 @@
 title: Naming conventions for Azure resources
 description: Naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities
 author: telmosampaio
-ms.service: guidance
-ms.topic: article
 ms.date: 05/18/2017
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---

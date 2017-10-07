@@ -2,10 +2,7 @@
 title: Authentication in multitenant applications
 description: How a multitenant application can authenticate users from Azure AD
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
-ms.date: 05/23/2016
-ms.author: pnp
+ms:date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: tailspin
@@ -32,45 +29,35 @@ To enable OpenID Connect, the SaaS provider registers the application inside the
 
 To register the application, follow the steps in [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications/), in the section [Adding an Application](/azure/active-directory/active-directory-integrating-applications/#adding-an-application).
 
-In the **Configure** page:
+See [Run the Surveys application](./run-the-app.md) for the specific steps for the Surveys application. Note the following:
 
-* Note the client ID.
-* Under **Application is Multi-Tenant**, select **Yes**.
-* Set **Reply URL** to a URL where Azure AD will send the authentication response. You can use the base URL of your app.
-  * Note: The URL path can be anything, as long as the host name matches your deployed app.
-  * You can set multiple reply URLs. During development, you can use a `localhost` address, for running the app locally.
-* Generate a client secret: Under **keys**, click on the drop down that says **Select duration** and pick either 1 or 2 years. The key will be visible when you click **Save**. Be sure to copy the value, because it's not shown again when you reload the configuration page.
+- For a multitenant application, you must configure the multi-tenanted option explicitly. This enables other organizations to to access the application.
+
+- The reply URL is the URL where Azure AD will send OAuth 2.0 responses. When using the ASP.NET Core, this needs to match the path that you configure in the authentication middleware (see next section), 
 
 ## Configure the auth middleware
 This section describes how to configure the authentication middleware in ASP.NET Core for multitenant authentication with OpenID Connect.
 
-In your startup class, add the OpenID Connect middleware:
+In your [startup class](/aspnet/core/fundamentals/startup), add the OpenID Connect middleware:
 
 ```csharp
-app.UseOpenIdConnectAuthentication(
-    new OpenIdConnectOptions {
-        ClientId = [client ID],
-        ClientSecret = [client Secret]
-        Authority = https://login.microsoftonline.com/common/,
-        ResponseType = OpenIdConnectResponseType.CodeIdToken,
-        PostLogoutRedirectUri = [application URI],
-        SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
-        TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = false
-        },
-        Events = [event callbacks]
-    });
+app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions {
+    ClientId = configOptions.AzureAd.ClientId,
+    ClientSecret = configOptions.AzureAd.ClientSecret, // for code flow
+    Authority = Constants.AuthEndpointPrefix,
+    ResponseType = OpenIdConnectResponseType.CodeIdToken,
+    PostLogoutRedirectUri = configOptions.AzureAd.PostLogoutRedirectUri,
+    SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme,
+    TokenValidationParameters = new TokenValidationParameters { ValidateIssuer = false },
+    Events = new SurveyAuthenticationEvents(configOptions.AzureAd, loggerFactory),
+});
 ```
 
-For more information about the startup class, see [Application Startup in ASP.NET Core](/aspnet/core/fundamentals/startup).
-
-Set the following middleware options:
+Notice that some of the settings are taken from runtime configuration options. Here's what the middleware options mean:
 
 * **ClientId**. The application's client ID, which you got when you registered the application in Azure AD.
 * **Authority**. For a multitenant application, set this to `https://login.microsoftonline.com/common/`. This is the URL for the Azure AD common endpoint, which enables users from any Azure AD tenant to sign in. For more information about the common endpoint, see [this blog post](http://www.cloudidentity.com/blog/2014/08/26/the-common-endpoint-walks-like-a-tenant-talks-like-a-tenant-but-is-not-a-tenant/).
 * In **TokenValidationParameters**, set **ValidateIssuer** to false. That means the app will be responsible for validating the issuer value in the ID token. (The middleware still validates the token itself.) For more information about validating the issuer, see [Issuer validation](claims.md#issuer-validation).
-* **CallbackPath**. Set this equal to the path in the Reply URL that you registered in Azure AD. For example, if the reply URL is `http://contoso.com/aadsignin`, **CallbackPath** should be `aadsignin`. If you don't set this option, the default value is `signin-oidc`.
 * **PostLogoutRedirectUri**. Specify a URL to redirect users after the sign out. This should be a page that allows anonymous requests &mdash; typically the home page.
 * **SignInScheme**. Set this to `CookieAuthenticationDefaults.AuthenticationScheme`. This setting means that after the user is authenticated, the user claims are stored locally in a cookie. This cookie is how the user stays logged in during the browser session.
 * **Events.** Event callbacks; see [Authentication events](#authentication-events).
@@ -78,11 +65,15 @@ Set the following middleware options:
 Also add the Cookie Authentication middleware to the pipeline. This middleware is responsible for writing the user claims to a cookie, and then reading the cookie during subsequent page loads.
 
 ```csharp
-app.UseCookieAuthentication(options =>
-{
-    options.AutomaticAuthenticate = true;
-    options.AutomaticChallenge = true;
-    options.AccessDeniedPath = "/Home/Forbidden";
+app.UseCookieAuthentication(new CookieAuthenticationOptions {
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    AccessDeniedPath = "/Home/Forbidden",
+    CookieSecure = CookieSecurePolicy.Always,
+
+    // The default setting for cookie expiration is 14 days. SlidingExpiration is set to true by default
+    ExpireTimeSpan = TimeSpan.FromHours(1),
+    SlidingExpiration = true
 });
 ```
 
@@ -143,59 +134,15 @@ If authentication succeeds, the OIDC middleware creates an authentication ticket
 ### Authentication events
 During the authentication process, the OpenID Connect middleware raises a series of events:
 
-* **RedirectToAuthenticationEndpoint**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](signup.md#adding-the-admin-consent-prompt) for an example.
-* **AuthorizationResponseReceived**. Called after the middleware receives the authentication response from the identity provider (IDP), but before the middleware validates the response.  
+* **RedirectToIdentityProvider**. Called right before the middleware redirects to the authentication endpoint. You can use this event to modify the redirect URL; for example, to add request parameters. See [Adding the admin consent prompt](signup.md#adding-the-admin-consent-prompt) for an example.
 * **AuthorizationCodeReceived**. Called with the authorization code.
-* **TokenResponseReceived**. Called after the middleware gets an access token from the IDP. Applies only to authorization code flow.
-* **AuthenticationValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](claims.md).
+* **TokenResponseReceived**. Called after the middleware gets an access token from the IDP, but before it is validated. Applies only to authorization code flow.
+* **TokenValidated**. Called after the middleware validates the ID token. At this point, the application has a set of validated claims about the user. You can use this event to perform additional validation on the claims, or to transform claims. See [Working with claims](claims.md).
 * **UserInformationReceived**. Called if the middleware gets the user profile from the user info endpoint. Applies only to authorization code flow, and only when `GetClaimsFromUserInfoEndpoint = true` in the middleware options.
 * **TicketReceived**. Called when authentication is completed. This is the last event, assuming that authentication succeeds. After this event is handled, the user is signed into the app.
 * **AuthenticationFailed**. Called if authentication fails. Use this event to handle authentication failures &mdash; for example, by redirecting to an error page.
 
-To provide callbacks for these events, set the **Events** option on the middleware. There are two different ways to declare the event handlers: Inline with lambdas, or in a class that derives from **OpenIdConnectEvents**.
-
-Inline with lambdas:
-
-```csharp
-app.UseOpenIdConnectAuthentication(options =>
-{
-    // Other options not shown.
-
-    options.Events = new OpenIdConnectEvents
-    {
-        OnTicketReceived = (context) =>
-        {
-             // Handle event
-             return Task.FromResult(0);
-        },
-        // other events
-    }
-});
-```
-
-Deriving from **OpenIdConnectEvents**:
-
-```csharp
-public class SurveyAuthenticationEvents : OpenIdConnectEvents
-{
-    public override Task TicketReceived(TicketReceivedContext context)
-    {
-        // Handle event
-        return base.TicketReceived(context);
-    }
-    // other events
-}
-
-// In Startup.cs:
-app.UseOpenIdConnectAuthentication(options =>
-{
-    // Other options not shown.
-
-    options.Events = new SurveyAuthenticationEvents();
-});
-```
-
-The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach.
+To provide callbacks for these events, set the **Events** option on the middleware. There are two different ways to declare the event handlers: Inline with lambdas, or in a class that derives from **OpenIdConnectEvents**. The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach.
 
 ### OpenID connect endpoints
 Azure AD supports [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), wherein the identity provider (IDP) returns a JSON metadata document from a [well-known endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The metadata document contains information such as:

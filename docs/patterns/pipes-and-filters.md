@@ -3,16 +3,13 @@ title: Pipes and Filters
 description: Break down a task that performs complex processing into a series of separate elements that can be reused.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, messaging]
 ---
 
-# Pipes and Filters
+# Pipes and Filters pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

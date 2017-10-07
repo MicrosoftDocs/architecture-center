@@ -3,10 +3,7 @@ title: Introduction to Azure for AWS experts
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms.
 keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
 author: lbrader
-ms.service: guidance
-ms.topic: article
 ms.date: 03/24/2017
-ms.author: pnp
 
 pnp.series.title: Azure for AWS Professionals
 ---

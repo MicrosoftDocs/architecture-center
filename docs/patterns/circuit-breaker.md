@@ -3,16 +3,13 @@ title: Circuit Breaker
 description: Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [resiliency]
 ---
 
-# Circuit Breaker
+# Circuit Breaker pattern
 
 Handle faults that might take a variable amount of time to recover from, when connecting to a remote service or resource. This can improve the stability and resiliency of an application.
 

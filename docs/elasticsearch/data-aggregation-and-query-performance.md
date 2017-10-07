@@ -4,10 +4,7 @@ description: >-
   A summary of considerations when optimizing query and search performance for
   Elasticsearch.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 09/22/2016
-ms.author: pnp
 
 pnp.series.title: Elasticsearch on Azure
 pnp.series.prev: data-ingestion-performance

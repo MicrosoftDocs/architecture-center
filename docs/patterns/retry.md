@@ -3,16 +3,13 @@ title: Retry
 description: Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [resiliency]
 ---
 
-# Retry
+# Retry pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

@@ -5,7 +5,6 @@ description: >-
   Azure.
 author: MikeWasson
 ms.date: 11/23/2016
-ms.author: pnp
 cardTitle: Basic web application
 ---
 # Basic web application

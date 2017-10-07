@@ -3,16 +3,13 @@ title: Federated Identity
 description: Delegate authentication to an external identity provider.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [security]
 ---
 
-# Federated Identity
+# Federated Identity pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 
