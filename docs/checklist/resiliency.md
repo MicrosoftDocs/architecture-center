@@ -2,7 +2,7 @@
 title: Resiliency checklist
 description: Checklist that provides guidance for resiliency concerns during design.
 author: petertaylor9999
-ms.date: 03/24/2017
+ms.date: 03/24/201
 ms.custom: resiliency, checklist
 ---
 # Resiliency checklist
@@ -132,7 +132,7 @@ The following checklist items apply to specific services in Azure.
 * **For Queue storage, create a backup queue in another region.** For Queue storage, a read-only replica has limited use, because you can't queue or dequeue items. Instead, create a backup queue in a storage account in another region. If there is a storage outage, the application can use the backup queue, until the primary region becomes available again. That way, the application can still process new requests.  
 
 ### Cosmos DB
-* **Replicate the database across regions.** Cosmos DB allows you to associate any number of Azure regions with a Cosmos DB database account. A Cosmos DB database ca one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB?](/azure/documentdb/documentdb-distribute-data-globally)
+* **Replicate the database across regions.** Cosmos DB allows you to associate any number of Azure regions with a Cosmos DB database account. A Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB?](/azure/documentdb/documentdb-distribute-data-globally)
 
 ### SQL Database
 * **Use Standard or Premium tier.** These tiers provide a longer point-in-time restore period (35 days). For more information, see [SQL Database options and performance](/azure/sql-database/sql-database-service-tiers/).
