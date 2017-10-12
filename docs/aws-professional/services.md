@@ -13,6 +13,8 @@ This article helps you understand how Microsoft Azure services compare to Amazon
 
 In the following tables, there are multiple Azure services listed for some AWS services. The Azure services are similar to one another, but depth and breadth of capabilities vary.
 
+[Download a PDF of the Azure & AWS Cloud Service Map](https://aka.ms/awsazureguide)
+
 ## Azure and AWS for multicloud solutions
 
 As the leading public cloud platforms, Azure and AWS each offer businesses a broad and deep set of capabilities with global coverage. Yet many organizations choose to use both platforms together for greater choice and flexibility, as well as to spread their risk and dependencies with a multicloud approach. Consulting companies and software vendors might also build on and use both Azure and AWS, as these platforms represent most of the cloud market demand.
