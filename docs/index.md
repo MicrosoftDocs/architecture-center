@@ -164,20 +164,20 @@ layout: LandingPage
             </div>
         </a>
     </li>
-    <!-- Multitenant identity -->
+    <!-- Building blocks -->
     <li>
-        <a href="/azure/architecture/multitenant-identity">
+        <a href="https://github.com/mspnp/template-building-blocks/wiki">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/multitenant-identity.svg" alt="Identity Management for Multitenant Applications" />
+                                <img src="_images/azbb.svg" alt="Azure Building Blocks" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Identity Management for Multitenant Applications</h3>
-                            <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
+                            <h3>Azure Building Blocks</h3>
+                            <p>Simplify deployment of Azure resources. With a single settings file, deploy complex architectures in Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -218,6 +218,26 @@ layout: LandingPage
                         <div class="cardText">
                             <h3>Run SAP HANA on Azure</h3>
                             <p>Deploy and run SAP NetWeaver and SAP HANA in a high availability environment on Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- Multitenant identity -->
+    <li>
+        <a href="/azure/architecture/multitenant-identity">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/multitenant-identity.svg" alt="Identity Management for Multitenant Applications" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Identity Management for Multitenant Applications</h3>
+                            <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
                         </div>
                     </div>
                 </div>
