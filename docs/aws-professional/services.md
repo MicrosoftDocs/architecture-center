@@ -13,7 +13,7 @@ This article helps you understand how Microsoft Azure services compare to Amazon
 
 In the following tables, there are multiple Azure services listed for some AWS services. The Azure services are similar to one another, but depth and breadth of capabilities vary.
 
-[Downloada PDF of the Azure & AWS Cloud Service Map](https://aka.ms/awsazureguide)
+[Download a PDF of the Azure & AWS Cloud Service Map](https://aka.ms/awsazureguide)
 
 ## Azure and AWS for multicloud solutions
 
