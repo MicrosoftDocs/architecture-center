@@ -82,7 +82,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Storage | Container name |Storage account |3-63 |Lower case |Alphanumeric and dash |`<context>` |`logs` |
 | Storage |Blob name | Container |1-1024 |Case sensitive |Any URL char |`<variable based on blob usage>` |`<variable based on blob usage>` |
 | Storage |Queue name |Storage account |3-63 |Lower case |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
-| Storage |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name>-<context>` |`awesomeservice-logs` |
+| Storage |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 | Storage |File name | Storage account |3-63 |Lower case | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 | Storage |Data Lake Store | Global |3-24 |Lower case | Alphanumeric |`<name>-dtl` |`telemetry-dtl` |
 | Networking |Virtual Network (VNet) |Resource Group |2-64 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
