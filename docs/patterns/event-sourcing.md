@@ -28,7 +28,7 @@ The CRUD approach has some limitations:
 
 - Unless there's an additional auditing mechanism that records the details of each operation in a separate log, history is lost.
 
-> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://msdn.microsoft.com/library/ms978509.aspx).
+> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://blogs.msdn.microsoft.com/maarten_mullender/2004/07/23/crud-only-when-you-can-afford-it-revisited/).
 
 ## Solution
 
