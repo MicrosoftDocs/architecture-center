@@ -52,7 +52,7 @@ For an example of using WS-Federation with ASP.NET 4, see the [active-directory-
 4. Claims flow from AD FS to the app, using OpenID Connect. This requires a protocol transition from WS-Federation.
 
 ## Limitations
-By default the relying party application receives only a fixed set of claims available in the id_token (as listed in the following table). AD FS 2016 RTM has the capability to customize the id_token in OpenID Connect scenarios. [This document describes further details](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
+By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
 | --- | --- |
