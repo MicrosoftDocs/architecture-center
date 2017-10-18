@@ -14,6 +14,9 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture*
+
+
 The benefits of this toplogy include:
 
 * **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
@@ -52,7 +55,6 @@ The architecture consists of the following components.
 > [!NOTE]
 > This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
-You can download a Visio file of this architecture from the [Microsoft download center][visio-download]. This diagram is on the "Hub Spoke" page.
 
 ## Recommendations
 
@@ -416,7 +418,7 @@ If you want to allow spokes to connect to each other, you must deploy UDRs to ea
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
 [1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
