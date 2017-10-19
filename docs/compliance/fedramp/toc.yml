@@ -8,7 +8,7 @@
   - name: FedRAMP High Security Controls
     items:
     - name: Security Controls Overview
-      href: overview.md
+      href: controls-overview.md
     - name: Access Control
       href: ac-controls.md
     - name: Audit and Accountability
