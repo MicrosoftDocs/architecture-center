@@ -19,7 +19,7 @@ This reference architecture shows a set of proven practices for running a Linux 
 
 ![[0]][0]
 
-*Download a [Visio file][visio-download] of this architecture*
+*Download a [Visio file][visio-download] of this architecture.*
 
 ## Architecture
 
@@ -199,7 +199,7 @@ For more information on deploying this sample reference architecture, visit our 
 [naming conventions]: ../../best-practices/naming-conventions.md
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Linux)
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azbbv2]: https://github.com/mspnp/template-building-blocks
 [azure-cli-2]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview

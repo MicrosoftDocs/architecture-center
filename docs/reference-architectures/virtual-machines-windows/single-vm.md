@@ -146,6 +146,7 @@ Before you can deploy the reference architecture to your own subscription, you m
   ```bash
   az login
   ```
+
 ### Deploy the solution using azbb
 
 To deploy the sample single VM workload, follow these steps:
