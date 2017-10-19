@@ -120,7 +120,7 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and three VMs in a scale set behind a load balancer, described below:
 
   * A virtual network with a single subnet named **web** used to host the VMs.
-  * A VM scale set that contains VMs running the latest version of Windows Server 2016 Datacenter Edition. Autoscale is enabled.
+  * A VM scale set that contains VMs running the latest version of Ubuntu 16.04.3 LTS. Autoscale is enabled.
   * A load balancer that sits in front of the VM scale set.
   * An NSG with incoming rules to allow HTTP traffic to the VM scale set.
 
