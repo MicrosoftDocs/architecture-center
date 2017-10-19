@@ -19,6 +19,8 @@ This reference architecture shows a set of proven practices for running a Linux 
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture*
+
 ## Architecture
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
@@ -33,11 +35,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Recommendations
 
@@ -58,18 +55,6 @@ az vm list-sizes --location <location>
 For information about choosing a published VM image, see [Select Linux VM images with the Azure CLI][select-vm-image].
 
 Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
-
-The following CLI command enables diagnostics:
-
-```
-az vm diagnostics set <resource-group> <vm-name>
-```
-
-The following CLI command enables boot diagnostics:
-
-```
-az vm boot-diagnostics enable <resource-group> <vm-name>
-```
 
 ### Disk and storage recommendations
 
@@ -132,15 +117,9 @@ To protect against accidental data loss during normal operations (for example, b
 
 **SSH**. Before you create a Linux VM, generate a 2048-bit RSA public-private key pair. Use the public key file when you create the VM. For more information, see [How to Use SSH with Linux and Mac on Azure][ssh-linux].
 
-**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
+**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. 
 
-Use the following CLI command to deallocate a VM:
-
-```
-az vm deallocate <resource-group> <vm-name>
-```
-
-In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged. 
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
@@ -165,12 +144,12 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
+A deployment for this architecture is available on [GitHub][github-folder]. It deploys the following:
 
-  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VM.
-  * **NSG**. A sample NSG with two incoming rules to allow SSH and HTTP traffic to the VM.
-  * **VM**. A sample Linux VM running the latest version of Ubuntu 16.04.3 LTS.
-  * **Extension**. A sample custom script extension used to deploy apache to the Ubuntu VM, and format the two data disks.
+  * A virtual network with a single subnet named **web** used to host the VM.
+  * An NSG with two incoming rules to allow SSH and HTTP traffic to the VM.
+  * A VM running the latest version of Ubuntu 16.04.3 LTS.
+  * A sample custom script extension that deploys Apache HTTP Server to the Ubuntu VM, and formats the two data disks.
 
 ### Prerequisites
 
@@ -187,6 +166,7 @@ Before you can deploy the reference architecture to your own subscription, you m
   ```bash
   az login
   ```
+
 ### Deploy the solution using azbb
 
 To deploy the sample single VM workload, follow these steps:
@@ -221,7 +201,6 @@ For more information on deploying this sample reference architecture, visit our 
 [availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Linux)
 [azbbv2]: https://github.com/mspnp/template-building-blocks
-[azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
 [blob-snapshot]: /azure/storage/storage-blob-snapshots
@@ -245,22 +224,18 @@ For more information on deploying this sample reference architecture, visit our 
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [resource-lock]: /azure/resource-group-lock-resources
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [select-vm-image]: /azure/virtual-machines/virtual-machines-linux-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [ssh-linux]: /azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
-[storage-account-limits]: /azure/azure-subscription-service-limits#storage-limits
-[storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-linux-sizes
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md
 [0]: ./images/single-vm-diagram.png "Single Linux VM architecture in Azure"
 
