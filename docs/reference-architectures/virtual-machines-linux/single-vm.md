@@ -127,9 +127,9 @@ To prevent accidental deletion, use a [resource lock][resource-lock] to lock the
 
 ## Security considerations
 
-Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in [Azure Security Center quick start guide][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-**Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management.** If enabled, Security Center checks whether security and critical updates are missing. 
 
 **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
@@ -201,6 +201,7 @@ For more information on deploying this sample reference architecture, visit our 
 [availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Linux)
 [azbbv2]: https://github.com/mspnp/template-building-blocks
+[azure-cli-2]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
 [blob-snapshot]: /azure/storage/storage-blob-snapshots
@@ -226,6 +227,9 @@ For more information on deploying this sample reference architecture, visit our 
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [resource-lock]: /azure/resource-group-lock-resources
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[security-center]: /azure/security-center/
+[security-center-get-started]: /azure/security-center/security-center-get-started
 [select-vm-image]: /azure/virtual-machines/virtual-machines-linux-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [ssh-linux]: /azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys
