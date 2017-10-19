@@ -206,49 +206,18 @@ Azure has several CDN products. When selecting a CDN, consider the features that
 - **[Real-time statistics](/azure/cdn/cdn-real-time-stats)**. Monitor real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile, and receive [real-time alerts](/azure/cdn/cdn-real-time-alerts). 
 
 
-## Example code
-This section contains some examples of code and techniques for working with the CDN.  
+## Rules engine URL rewriting example
 
-### URL rewriting
-The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
+The following diagram demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
 
-```XML
-<system.webServer>
-  ...
-  <rewrite>
-    <rules>
-      <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnImages" stopProcessing="true">
-        <match url="cdn/Images/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Images/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnContent" stopProcessing="true">
-        <match url="cdn/Content/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Content/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScript" stopProcessing="true">
-        <match url="cdn/Scripts/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Scripts/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScriptBundles" stopProcessing="true">
-        <match url="cdn/bundles/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/bundles/{R:1}" appendQueryString="true" />
-      </rule>
-    </rules>
-  </rewrite>
-  ...
-</system.webServer>
-```
+![Rules engine diagram](./images/cdn/rules-engine.png)
 
 These rewrite rules perform the following redirections:
 
 * The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
 * The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
-Note that using URL rewriting requires you to make some changes to the bundling of resources.   
+Note that using URL rewriting requires you to make some changes to the bundling of resources.     
 
 ## More information
 * [Azure CDN](https://azure.microsoft.com/services/cdn/)
