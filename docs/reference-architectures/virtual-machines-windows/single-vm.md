@@ -19,6 +19,8 @@ This reference architecture shows a set of proven practices for running a Window
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 Provisioning a VM in Azure involves more moving parts than just the VM itself. There are compute, networking, and storage elements that you need to consider.
@@ -33,11 +35,6 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 * **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. The [NSG][nsg] is used to allow/deny network traffic to the subnet. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Azure Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Recommendations
 
@@ -58,18 +55,6 @@ az vm list-sizes --location <location>
 For information about choosing a published VM image, see [Navigate and select Windows virtual machine images in Azure with Powershell or CLI][select-vm-image].
 
 Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
-
-The following CLI command enables diagnostics:
-
-```
-az vm diagnostics set <resource-group> <vm-name>
-```
-
-The following CLI command enables boot diagnostics:
-
-```
-az vm boot-diagnostics enable <resource-group> <vm-name>
-```
 
 ### Disk and storage recommendations
 
@@ -114,15 +99,7 @@ To protect against accidental data loss during normal operations (for example, b
 
 **Resource groups.** Put tightly-coupled resources that share the same life cycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
-
-Use the following CLI command to deallocate a VM:
-
-```
-az vm deallocate <resource-group> <vm-name>
-```
-
-In the Azure portal, the **Stop** button deallocates the VM. However, if you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 
@@ -147,12 +124,12 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, a single VM, and an extension described below:
+A deployment for this architecture is available on [GitHub][github-folder]. It deploys the following:
 
-  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VM.
-  * **NSG**. A sample NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
-  * **VM**. A sample Windows VM running the latest version of Windows Server 2016 Datacenter Edition.
-  * **Extensions**. A sample custom script extension used to format the two data disks, and a PowerShell DSC script to deploy IIS.
+  * A virtual network with a single subnet named **web** used to host the VM.
+  * An NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
+  * A VM running the latest version of Windows Server 2016 Datacenter Edition.
+  * A sample custom script extension that formats the two data disks, and a PowerShell DSC script that deploys IIS.
 
 ### Prerequisites
 
@@ -196,10 +173,10 @@ For more information on deploying this sample reference architecture, visit our 
 - Deploy [multiple VMs][multi-vm] in Azure.
 
 <!-- links -->
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azbbv2]: https://github.com/mspnp/template-building-blocks
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-storage]: /azure/storage/storage-introduction
 [blob-snapshot]: /azure/storage/storage-blob-snapshots
 [blob-storage]: /azure/storage/storage-introduction
@@ -225,8 +202,6 @@ For more information on deploying this sample reference architecture, visit our 
 [rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: /azure/virtual-machines/virtual-machines-windows-expand-os-disk
-[Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [security-center]: https://azure.microsoft.com/services/security-center/
@@ -237,14 +212,12 @@ For more information on deploying this sample reference architecture, visit our 
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Use Security Center]: /azure/security-center/security-center-get-started#use-security-center
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
-[readme]: https://github.com/mspnp/reference-architectures/blob/master/virtual-machines/single-vm/README.md
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[azure-cli-2]: /azure/install-azure-cli?view=azure-cli-latest
-[azbb]: [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Template-Building-Blocks-Version-2-(Windows)
+[azure-cli-2]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
