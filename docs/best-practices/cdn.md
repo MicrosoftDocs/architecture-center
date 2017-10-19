@@ -214,7 +214,7 @@ The following diagram demonstrates how to perform [URL rewriting](https://techne
 
 These rewrite rules perform the following redirections:
 
-* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
+* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg* is rewritten as *Filename.jpg*.
 * The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
 Note that using URL rewriting requires you to make some changes to the bundling of resources.     
