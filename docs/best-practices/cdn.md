@@ -141,6 +141,26 @@ If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL
 ### CDN fallback
 Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
 
+The example below shows the fallback mechanisms using [Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro) in a Razor view.
+
+```HTML
+...
+<link rel="stylesheet" href="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/css/bootstrap.min.css"
+      asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+      asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+...
+<script src="https://[your-cdn-endpoint].azureedge.net/lib/jquery/dist/jquery-2.2.0.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery">
+</script>
+<script src="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/js/bootstrap.min.js"
+        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+</script>
+...
+```
+
 ### Search engine optimization
 If SEO is an important consideration in your application, perform the following tasks:
 
@@ -186,49 +206,18 @@ Azure has several CDN products. When selecting a CDN, consider the features that
 - **[Real-time statistics](/azure/cdn/cdn-real-time-stats)**. Monitor real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile, and receive [real-time alerts](/azure/cdn/cdn-real-time-alerts). 
 
 
-## Example code
-This section contains some examples of code and techniques for working with the CDN.  
+## Rules engine URL rewriting example
 
-### URL rewriting
-The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
+The following diagram demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
 
-```XML
-<system.webServer>
-  ...
-  <rewrite>
-    <rules>
-      <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnImages" stopProcessing="true">
-        <match url="cdn/Images/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Images/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnContent" stopProcessing="true">
-        <match url="cdn/Content/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Content/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScript" stopProcessing="true">
-        <match url="cdn/Scripts/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Scripts/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScriptBundles" stopProcessing="true">
-        <match url="cdn/bundles/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/bundles/{R:1}" appendQueryString="true" />
-      </rule>
-    </rules>
-  </rewrite>
-  ...
-</system.webServer>
-```
+![Rules engine diagram](./images/cdn/rules-engine.png)
 
 These rewrite rules perform the following redirections:
 
-* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
+* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg* is rewritten as *Filename.jpg*.
 * The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
-Note that using URL rewriting requires you to make some changes to the bundling of resources.   
+Note that using URL rewriting requires you to make some changes to the bundling of resources.     
 
 ## More information
 * [Azure CDN](https://azure.microsoft.com/services/cdn/)
