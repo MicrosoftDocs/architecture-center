@@ -3,17 +3,7 @@ title: Multi-region web application
 description: >-
   Recommended architecture for web application with high availability, running
   in Microsoft Azure.
-
-
 author: MikeWasson
-
-
-
-
-
-
-
-
 ms.date: 11/23/2016
 cardTitle: Run in multiple regions
 ---
@@ -23,6 +13,8 @@ cardTitle: Run in multiple regions
 This reference architecture shows how to run a web application in multiple regions to achieve high availability. 
 
 ![Reference architecture: Web application with high availability](./images/multi-region-web-app-diagram.png) 
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ## Architecture 
 
@@ -169,3 +161,4 @@ If the primary database fails, perform a manual failover to the secondary databa
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
+[visio-download]: https://archcenter.azureedge.net/cdn/app-service-reference-architectures.vsdx
