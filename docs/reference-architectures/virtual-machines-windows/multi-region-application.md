@@ -18,6 +18,8 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 [![0]][0] 
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application](n-tier.md). 
@@ -33,13 +35,6 @@ This architecture builds on the one shown in [Run Windows VMs for an N-tier appl
     > 
 
 * **VPN Gateways**. Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On Availability Group.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-
 
 ## Recommendations
 
@@ -187,7 +182,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/virtual-networks-manage-dns-in-vnet
 [vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps
 [vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways

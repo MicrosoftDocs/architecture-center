@@ -19,6 +19,8 @@ This reference architecture shows a set of proven practices for running Windows 
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 There are many ways to implement an N-tier architecture. The diagram shows a typical 3-tier web application. This architecture builds on [Run load-balanced VMs for scalability and availability][multi-vm]. The web and business tiers use load-balanced VMs.
@@ -31,13 +33,6 @@ There are many ways to implement an N-tier architecture. The diagram shows a typ
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
 * **Active Directory Domain Services (AD DS) Servers**. Prior to Windows Server 2016, SQL Server Always On Availability Groups must be joined to a domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory, in which case the AD DS servers are not required for this architecture. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new].
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
- 
 
 ## Recommendations
 
@@ -208,5 +203,5 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [Icinga]: http://www.icinga.org/
 [VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"

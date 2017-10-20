@@ -17,6 +17,8 @@ This reference architecture shows a set of proven practices for running Linux vi
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 There are many ways to implement an N-tier architecture. The diagram shows a typical 3-tier web application. This architecture builds on [Run load-balanced VMs for scalability and availability][multi-vm]. The web and business tiers use load-balanced VMs.
@@ -28,13 +30,6 @@ There are many ways to implement an N-tier architecture. The diagram shows a typ
 * **Monitoring.** Monitoring software such as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system. Install the monitoring software on a VM that's placed in a separate management subnet.
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
 
 ## Recommendations
 
@@ -160,7 +155,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vnet faq]: /azure/virtual-network/virtual-networks-faq
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [Nagios]: https://www.nagios.org/
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
