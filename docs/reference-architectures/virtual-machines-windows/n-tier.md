@@ -164,14 +164,10 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [multi-vm]: multi-vm.md
 [n-tier]: n-tier.md
 
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [azure-administration]: /azure/automation/automation-intro
-[azure-audit-logs]: /azure/resource-group-audit
 [azure-availability-sets]: /azure/virtual-machines/virtual-machines-windows-manage-availability#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
-[azure-load-balancer]: /azure/load-balancer/load-balancer-overview
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
@@ -186,7 +182,6 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/library/gg509118.aspx
@@ -194,14 +189,11 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [sql-alwayson-listeners]: https://msdn.microsoft.com/library/hh213417.aspx
 [sql-alwayson-read-only-routing]: https://technet.microsoft.com/library/hh213417.aspx#ConnectToSecondary
 [sql-keyvault]: /azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault
-[vm-planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [vnet faq]: /azure/virtual-network/virtual-networks-faq
 [wsfc-whats-new]: https://technet.microsoft.com/windows-server-docs/failover-clustering/whats-new-in-failover-clustering
 [Nagios]: https://www.nagios.org/
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
-[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"

@@ -130,7 +130,6 @@ Measure the recovery times and verify they meet your business requirements. Test
 <!-- Links -->
 [hybrid-vpn]: ../hybrid-networking/vpn.md
 
-[azure-sla]: https://azure.microsoft.com/support/legal/sla/
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-replication]: http://www.planetcassandra.org/data-replication-in-nosql-databases-explained/
@@ -152,8 +151,5 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
 [visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
-[vnet-dns]: /azure/virtual-network/virtual-networks-manage-dns-in-vnet
-[vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps
-[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
 [0]: ./images/multi-region-application-diagram.png "Highly available network architecture for Azure N-tier applications"
