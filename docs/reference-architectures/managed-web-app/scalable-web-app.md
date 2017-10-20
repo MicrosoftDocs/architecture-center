@@ -143,4 +143,4 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [web-app-multi-region]: ./multi-region-web-app.md
 [webjobs-guidance]: ../../best-practices/background-jobs.md
 [webjobs]: /azure/app-service/app-service-webjobs-readme
-[0]: ../images/scalable-web-app.png "Web application in Azure with improved scalability"
+[0]: ./images/scalable-web-app.png "Web application in Azure with improved scalability"
