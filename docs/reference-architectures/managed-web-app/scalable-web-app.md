@@ -1,24 +1,15 @@
 ---
 title: Scalable web application
 description: Improving scalability in a web application running in Microsoft Azure.
-
-
 author: MikeWasson
-
-
-
 pnp.series.title: Azure App Service
 pnp.series.prev: basic-web-app
 pnp.series.next: multi-region-web-app
-
-
-
 
 ms.date: 11/23/2016
 cardTitle: Improve scalability
 ---
 # Improve scalability in a web application
-[!INCLUDE [header](../../_includes/header.md)]
 
 This reference architecture shows a set of proven practices for improving scalability and performance in a web application running on Microsoft Azure.
 
@@ -152,4 +143,4 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [web-app-multi-region]: ./multi-region-web-app.md
 [webjobs-guidance]: ../../best-practices/background-jobs.md
 [webjobs]: /azure/app-service/app-service-webjobs-readme
-[0]: ../_images/blueprints/paas-web-scalability.png "Web application in Azure with improved scalability"
+[0]: ../images/scalable-web-app.png "Web application in Azure with improved scalability"
