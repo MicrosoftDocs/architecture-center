@@ -18,6 +18,8 @@ This reference architecture shows a set of proven practices for running several 
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 This architecture builds on the one shown in [Run a Windows VM on Azure][single vm]. The recommendations there also apply to this architecture.
@@ -28,19 +30,12 @@ The architecture has the following components:
 
 * **Resource group.** [*Resource groups*][resource-manager-overview] are used to group resources so they can be managed by lifetime, owner, and other criteria.
 * **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that is further divided into subnets.
-* **Azure Load Balancer**. The [load balancer] distributes incoming Internet requests to the VM instances. The load balancer includes some related resources:
-  * **Public IP address**. A public IP address is needed for the load balancer to receive Internet traffic.
-  * **Front-end configuration**. Associates the public IP address with the load balancer.
-  * **Back-end address pool**. Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
-* **Load balancer rules**. Used to distribute network traffic among all the VMs in the back-end address pool.
+* **Azure Load Balancer**. The [load balancer] distributes incoming Internet requests to the VM instances. 
+* **Public IP address**. A public IP address is needed for the load balancer to receive Internet traffic.
 * **VM scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out manually, or based on predefined rules.
-* **Availability set**. The [availability set][availability set] contains the VMs, making the VMs eligible for the [availability service level agreement (SLA) for Azure VMs][vm-sla]. For the SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
-* **Storage**. If you are not using [managed disks](/azure/storage/storage-managed-disks-overview), storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
+* **Availability set**. The [availability set][availability set] contains the VMs, making the VMs eligible for a higher [service level agreement (SLA)][vm-sla]. For the higher SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
+* **Managed disks**. Azure Managed Disks manage the virtual hard disk (VHD) files for the VM disks. 
+* **Storage**. Create an Azure Storage acount to hold diagnostic logs for the VMs.
 
 ## Recommendations
 
@@ -122,11 +117,12 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. It includes a VNet, NSG, and three VMs in a scale set behind a load balancer, described below:
+A deployment for this architecture is available on [GitHub][github-folder]. It deploys the following:
 
-  * **VNet**. A sample virtual network with a single subnet named **web** used to host the VMs.
-  * **NSG**. A sample NSG with incoming rules to allow HTTP traffic to the VM scale set.
-  * **VMs**. Sample Windows VMs running the latest version of Windows Server 2016 Datacenter Edition in a scale set with autoscale turned on, behind a load balancer.
+  * A virtual network with a single subnet named **web** used to host the VMs.
+  * A VM scale set that contains VMs running the latest version of Windows Server 2016 Datacenter Edition. Autoscale is enabled.
+  * A load balancer that sits in front of the VM scale set.
+  * An NSG with incoming rules to allow HTTP traffic to the VM scale set.
 
 ### Prerequisites
 
@@ -157,7 +153,7 @@ To deploy the sample single VM workload, follow these steps:
   "adminPassword": "",
   ```
 
-3. Run `azbb` to deploy the sample VM as shown below.
+3. Run `azbb` to deploy the VMs as shown below.
 
   ```bash
   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p multi-vm-v2.json --deploy
@@ -191,7 +187,7 @@ For more information on deploying this sample reference architecture, visit our 
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 
 [Runbook Gallery]: /azure/automation/automation-runbook-gallery#runbooks-in-runbook-gallery
 [subscription-limits]: /azure/azure-subscription-service-limits
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_2/
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
