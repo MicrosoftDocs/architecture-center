@@ -14,6 +14,8 @@ This reference architecture shows a set of proven practices for a web applicatio
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 > [!NOTE]
@@ -238,6 +240,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
+[visio-download]: https://archcenter.azureedge.net/cdn/app-service-reference-architectures.vsdx
 [vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup

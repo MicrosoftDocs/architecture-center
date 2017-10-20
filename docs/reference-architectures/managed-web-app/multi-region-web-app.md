@@ -14,6 +14,8 @@ This reference architecture shows how to run a web application in multiple regio
 
 ![Reference architecture: Web application with high availability](./images/multi-region-web-app-diagram.png) 
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 This architecture builds on the one shown in [Improve scalability in a web application][guidance-web-apps-scalability]. The main differences are:
@@ -159,3 +161,4 @@ If the primary database fails, perform a manual failover to the secondary databa
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
+[visio-download]: https://archcenter.azureedge.net/cdn/app-service-reference-architectures.vsdx

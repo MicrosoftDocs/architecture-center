@@ -15,6 +15,8 @@ This reference architecture shows a set of proven practices for improving scalab
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture  
 
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
@@ -140,6 +142,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: https://msdn.microsoft.com/library/dn948096.aspx
 [tm]: https://azure.microsoft.com/services/traffic-manager/
+[visio-download]: https://archcenter.azureedge.net/cdn/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region-web-app.md
 [webjobs-guidance]: ../../best-practices/background-jobs.md
 [webjobs]: /azure/app-service/app-service-webjobs-readme
