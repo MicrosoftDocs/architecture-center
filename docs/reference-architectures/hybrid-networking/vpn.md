@@ -506,7 +506,7 @@ To deploy the solution, perform the following steps.
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[0]: ../_images/blueprints/hybrid-network-vpn.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
+[0]: ./images/vpn.png "Hybrid network spanning on-premises and Azure infrastructures"
 [1]: ../_images/guidance-hybrid-network-vpn/partitioned-vpn.png "Partitioning a VNet to improve scalability"
 [2]: ../_images/guidance-hybrid-network-vpn/audit-logs.png "Audit logs in the Azure portal"
 [3]: ../_images/guidance-hybrid-network-vpn/RRAS-perf-counters.png "Performance counters for monitoring VPN network traffic"
