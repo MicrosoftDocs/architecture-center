@@ -19,6 +19,8 @@ Note that if the ExpressRoute circuit is unavailable, the VPN route will only ha
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 The architecture consists of the following components.
@@ -40,13 +42,6 @@ The architecture consists of the following components.
 * **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
 * **Cloud application**. The application hosted in Azure. It might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
 
 ## Recommendations
 
@@ -138,10 +133,5 @@ To deploy the solution, perform the following steps.
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute-vpn-failover/Deploy-ReferenceArchitecture.ps1
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[0]: ../_images/blueprints/hybrid-network-expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-architectures.vsdx
+[0]: ./images/expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"

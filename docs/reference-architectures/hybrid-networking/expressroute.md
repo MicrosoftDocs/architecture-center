@@ -18,6 +18,8 @@ This reference architecture shows how to connect an on-premises network to virtu
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 The architecture consists of the following components.
@@ -36,13 +38,6 @@ The architecture consists of the following components.
 * **Office 365 services**. The publicly available Office 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
 
 * **Connectivity providers** (not shown). Companies that provide a connection either using layer 2 or layer 3 connectivity between your datacenter and an Azure datacenter.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
 
 ## Recommendations
 
@@ -270,11 +265,8 @@ To deploy the solution, perform the following steps.
 <!-- links -->
 [forced-tuneling]: ../dmz/secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
-[naming-conventions]: /azure/guidance/guidance-naming-conventions
 
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[azure-powershell]: /azure/powershell-azure-resource-manager
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
 [sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute/v1_0/
@@ -284,18 +276,12 @@ To deploy the solution, perform the following steps.
 [expressroute-peering]: /azure/expressroute/expressroute-circuit-peerings
 [expressroute-pricing]: https://azure.microsoft.com/pricing/details/expressroute/
 [expressroute-limits]: /azure/azure-subscription-service-limits#networking-limits
-[sample-script]: #sample-solution-script
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
-[arm-templates]: /azure/resource-group-authoring-templates
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/deploy-reference-architecture.sh
-[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/virtualNetwork.parameters.json
-[virtualnetworkgateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/virtualNetworkGateway.parameters.json
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-architectures.vsdx
 [er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/expressRouteCircuit.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
-[0]: ../_images/guidance-hybrid-network-expressroute/figure1.png "Hybrid network architecture using Azure ExpressRoute"
+[0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"
 [2]: ../_images/guidance-hybrid-network-expressroute/figure3.png "Adding security devices to the on-premises network"
 [3]: ../_images/guidance-hybrid-network-expressroute/figure4.png "Using forced tunneling to audit Internet-bound traffic"
