@@ -138,10 +138,5 @@ To deploy the solution, perform the following steps.
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute-vpn-failover/Deploy-ReferenceArchitecture.ps1
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[0]: ../_images/blueprints/hybrid-network-expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[0]: ../expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
