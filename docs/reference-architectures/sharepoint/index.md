@@ -11,6 +11,8 @@ This reference architecture shows a set of proven practices for setting up a hig
 
 ![](./images/sharepoint-ha.png)
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 This architecture builds on the one shown in [Run Windows VMs for an N-tier application][windows-n-tier]. It deploys a SharePoint Server 2016 farm with high availability inside an Azure virtual network (VNet). This architecture is suitable for a test or production environment, a SharePoint hybrid infrastructure with Office 365, or as the basis for a disaster recovery scenario.
@@ -314,6 +316,7 @@ The following table shows the VMs that are deployed.
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
+[visio-download]: https://archcenter.azureedge.net/cdn/Sharepoint-2016-architecture.vsdx
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../virtual-machines-windows/n-tier.md
