@@ -139,4 +139,4 @@ To deploy the solution, perform the following steps.
 [guidance-vpn]: ./vpn.md
 [best-practices-security]: /azure/best-practices-network-security
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[0]: ../expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
+[0]: ./images/expressroute-vpn-failover.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
