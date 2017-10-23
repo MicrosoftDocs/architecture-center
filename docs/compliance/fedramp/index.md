@@ -194,16 +194,14 @@ The [control implementation matrix]() lists all security controls required by th
 
 ## Deploy the solution
 
-This Azure Blueprint solution is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. 
+This Azure Blueprint solution is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo).
 
 #### Quickstart
 1. Clone [this]() GitHub repository to your local workstation.
-2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1. [Read more about pre-deployment.](#pre-deployment)
-3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**. [Read more about deployment.](#deployment)
+2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
+3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
 
 	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
-
-Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo).
 
 ## Disclaimer
 
