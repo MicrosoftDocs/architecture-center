@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security planning policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating planning policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level security planning policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -25,13 +25,13 @@
 
 #### System Security Plan
 
-**PL-2.a** The organization develops a security plan for the information system that is consistent with the organization’s enterprise architecture; explicitly defines the authorization boundary for the system; describes the operational context of the information system in terms of missions and business processes; provides the security categorization of the information system including supporting rationale; describes the operational environment for the information system and relationships with or connections to other information systems; provides an overview of the security requirements for the system; identifies any relevant overlays, if applicable; describes the security controls in place or planned for meeting those requirements including a rationale for the tailoring decisions; and is reviewed and approved by the authorizing official or designated representative prior to plan implementation.
+**PL-2.a** The organization develops a security plan for the information system that is consistent with the organizationï¿½s enterprise architecture; explicitly defines the authorization boundary for the system; describes the operational context of the information system in terms of missions and business processes; provides the security categorization of the information system including supporting rationale; describes the operational environment for the information system and relationships with or connections to other information systems; provides an overview of the security requirements for the system; identifies any relevant overlays, if applicable; describes the security controls in place or planned for meeting those requirements including a rationale for the tailoring decisions; and is reviewed and approved by the authorizing official or designated representative prior to plan implementation.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing a system security plan (SSP) that meets the criteria defined by the target authorization (e.g., FedRAMP). Customers may reference NIST Special Publication 800-18 R1, Guide for Developing Security Plans for Federal Information Systems. The customer SSP should address controls inherited from Microsoft Azure and refer to the Microsoft Azure SSP for implementation details. The customer control implementation statement should address how the SSP is developed, distributed, reviewed updated, and protected. |
+| **Customer** | The customer is responsible for developing a system security plan (SSP) that meets the criteria defined by the target authorization (e.g., FedRAMP). Customers may reference NIST Special Publication 800-18 R1, Guide for Developing Security Plans for Federal Information Systems. The customer SSP should address controls inherited from Microsoft Azure and refer to the Microsoft Azure SSP for implementation details. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for distributing the system security plan. The customer control implementation statement should address the key personnel (identified by name and/or role) and customer elements who should receive a copy of the system security plan defined in PL-02.a. |
+| **Customer** | The customer is responsible for distributing the system security plan. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing the system security plan. The customer control implementation statement should address the frequency with which the system security plan is reviewed. |
+| **Customer** | The customer is responsible for reviewing the system security plan. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for updating the system security plan. The customer control implementation statement should address how updates reflect changes to the resources or environment of operation; and the problems encountered during plan implementation or security control assessments. |
+| **Customer** | The customer is responsible for updating the system security plan. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for protecting the system security plan. The customer control implementation statement should address the process for preventing unauthorized disclosure or modification of the plan. |
+| **Customer** | The customer is responsible for protecting the system security plan. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for planning and coordinating security-related activities to reduce the impact on other organizational entities. The customer control implementation statement should address the customer-defined individuals or groups included in security-related activities (e.g., security assessments, audits, maintenance, patch management, and contingency plan testing).  |
+| **Customer** | The customer is responsible for planning and coordinating security-related activities to reduce the impact on other organizational entities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. <br /> The customer is responsible for establishing rules of behavior. The customer control implementation statement should address the process of making the rules readily available to individuals requiring access to customer-deployed resources, and should describe their responsibilities and expected behavior when accessing such resources. |
+| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. <br /> The customer is responsible for obtaining signed acknowledgment of the rules of behavior from system users. The customer control implementation statement should address the process for withholding authorization until signatures are obtained. |
+| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,8 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. <br /> The customer is responsible for reviewing and updating the rules of behavior. The customer control implementation statement should address
-the frequency with which the rules of behavior are reviewed and updated. |
+| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -158,7 +157,7 @@ the frequency with which the rules of behavior are reviewed and updated. |
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. <br /> The customer is responsible for obtaining signed acknowledgment of the updated rules of behavior from system users. The customer control implementation statement should address the process for requiring users to read and re-sign when the rules of behavior are revised/updated. |
+| **Customer** | The customer's enterprise-level rules of behavior may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -172,7 +171,7 @@ the frequency with which the rules of behavior are reviewed and updated. |
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level rules of behavior may include restrictions on social media / networking sites. <br /> The customer is responsible for including restrictions on the use of social media/networking sites and posting organizational information on public websites in the rules of behavior. The customer control implementation statement should address the explicit restrictions to be included in the rules of behavior. |
+| **Customer** | The customer's enterprise-level rules of behavior may include restrictions on social media / networking sites. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -186,8 +185,7 @@ the frequency with which the rules of behavior are reviewed and updated. |
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing an information security architecture for customer-deployed resources. The customer control implementation statement should address how the architecture describes: the overall philosophy, requirements, and approach to be taken with regard to protecting the CIA of information;
-how the information security architecture is integrated into and supports the enterprise architecture; and any information security assumptions about, and dependencies on, external services. |
+| **Customer** | The customer is responsible for developing an information security architecture for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -201,7 +199,7 @@ how the information security architecture is integrated into and supports the en
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and updating the information security architecture. The customer control implementation statement should address the frequency with which the information security architecture is reviewed and updated to reflect enterprise architecture updates. |
+| **Customer** | The customer is responsible for reviewing and updating the information security architecture. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -215,8 +213,5 @@ how the information security architecture is integrated into and supports the en
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for accounting for planned changes to the information security architecture. The customer control implementation statement should address how these changes are reflected in the security plan, the security Concept of Operations (CONOPS), and organizational procurements/acquisitions. |
+| **Customer** | The customer is responsible for accounting for planned changes to the information security architecture. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
