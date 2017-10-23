@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level  media protection policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating media protection policy and procedures. Due to there not being any customer-controlled media within the scope of systems deployed on Azure, all media protection controls will be implemented and managed by Azure. However, the customer is still responsible for the appropriate policy and procedure documents. The customer control implementation statement should address the frequency of review, the role(s) responsible, and the fact that there is no customer-controlled media within the scope of Azure and therefore the customer can inherit media protection controls from Azure.  |
+| **Customer** | The customer's enterprise-level  media protection policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,8 +31,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure has implemented media access through the implementation of the Microsoft Security Policy. Logical access to digital media is controlled via Active Directory Group Policy Objects (AD GPOs) and security groups. Physical access to all media is restricted by the datacenter access process. Access is restricted to individuals who have a legitimate business purpose for accessing the data. Please refer to PE-3, Physical Access Control, for more details on the datacenter access controls in place. The Asset Protection Standard defines the safeguards required to protect the confidentiality, integrity, and availability of information assets within Microsoft Azure datacenters. |
 
 
  ## NIST 800-53 Control MP-3.a
@@ -45,8 +45,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure marks assets within Microsoft datacenters with an HBI, MBI, or LBI (High, Moderate, or Low Business Impact) designation which requires different levels of security and handling precautions. Asset owners are required to classify their assets that are stored within a Microsoft datacenter. Refer to Asset Classification Standard and Asset Protection Standard for more information. |
 
 
  ## NIST 800-53 Control MP-3.b
@@ -59,8 +59,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure requires asset owners to assign their assets with an asset classification and no assets are exempt from this requirement. In the Microsoft datacenter environment, assets refer to servers, network devices, and magnetic tapes. Other digital media like USB flash/thumb drives, external/removable hard drives, or CD/DVDs are not used. Non-digital media is not used in the datacenter. |
 
 
  ## NIST 800-53 Control MP-4.a
@@ -73,8 +73,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure digital media assets�are physically and securely stored within datacenter colocation rooms. Microsoft datacenters have multiple layers of physical access controls (access badge, biometrics � see PE-3 for further details on physical access controls) and video surveillance in place to provide secure storage. Digital media for includes servers, network devices, and magnetic tapes used for backup. Non-digital media is not used in the datacenter environment. |
 
 
  ## NIST 800-53 Control MP-4.b
@@ -87,8 +87,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure digital media assets are protected in Microsoft datacenter colocations through physical access controls (PE-3) and logical access controls (IA-2) for the lifetime of the asset. Microsoft Azure assets are cleared, purged, or destroyed with methods consistent with NIST SP 800-88 prior to the assets disposal. For asset destruction, Microsoft Azure utilizes onsite asset destruction services. |
 
 
  ## NIST 800-53 Control MP-5.a
@@ -101,8 +101,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure digital media at Microsoft datacenters consist of servers, network devices, and magnetic backup tapes and discs, where appropriate. Microsoft datacenters do not use non-digital media. Microsoft utilizes three methods to protect media that is being transported outside the datacenter: 1) Secure Transport, 2) Encryption 3) Cleanse, Purge, or Destroy. |
 
 
  ## NIST 800-53 Control MP-5.b
@@ -115,8 +115,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure maintains accountability for assets leaving the datacenter through the use of guidance from NIST SP 800-88: consistent cleansing/purging, asset destruction, encryption, accurate inventorying, tracking, and protection of chain of custody during transport. |
 
 
  ## NIST 800-53 Control MP-5.c
@@ -129,8 +129,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure maintains records of inventory prior to transport, tracking and protection of chain of custody during transport, asset cleaning/purging, asset destruction, receipt of assets, and inventory validation after transport. |
 
 
  ## NIST 800-53 Control MP-5.d
@@ -143,8 +143,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure restricts the activities of asset transport to authorized personnel through the protection of the chain of custody. The use of locks, tamper proof seals, and requiring validation of the asset inventories ensures that only authorized personnel are involved in the asset transport. |
 
 
  ### NIST 800-53 Control MP-5 (4)
@@ -157,8 +157,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure employs Data Protection Service (DPS) to manage cryptographic keys using a FIPS 140-2 Level 3-validated encryption module (cert #1694) and HSM (cert #1178) to secure AES 256-bit encrypted data on the magnetic tapes. |
 
 
  ## NIST 800-53 Control MP-6.a
@@ -171,8 +171,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure requires digital media in the Microsoft Azure datacenter environment to be cleansed/purged using Microsoft Azure approved tools and in a manner consistent with NIST SP 800-88, Guidelines for Media Sanitization, prior to being reused or disposed of. Non-digital media is not used by Microsoft Azure in the datacenter environment. |
 
 
  ## NIST 800-53 Control MP-6.b
@@ -185,8 +185,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure uses data erasure units and processes to cleanse/purge data in a manner consistent with NIST SP 800-88 and which are commensurate with the Microsoft Azure asset classification of the asset. For assets requiring destruction, Microsoft Azure utilizes onsite asset destruction services. |
 
 
  ### NIST 800-53 Control MP-6 (1)
@@ -199,8 +199,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure has implemented media sanitization procedures in accordance with the guidance in NIST SP 800-88 for the Asset Classification Standard and Asset Protection Standard. All magnetic or electronic media is cleansed/purged by following NIST SP 800-88 specifications in accordance with its Azure asset classification. Azure utilizes data erasure units from Extreme Protocol Solutions (EPS). EPS software supports NIST SP 800-88 requirements for cleansing and purging/secure erasure. |
 
 
  ### NIST 800-53 Control MP-6 (2)
@@ -213,8 +213,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure uses data erasure units and processes to cleanse/purge data in a manner consistent with NIST SP 800-88. Every 180 days, DCS operations tests the Microsoft Azure data erasure units and the process for erasure. In the test, DCS operations verifies that the intended sanitization is being achieved through a forensic analysis of tested hard drives to confirm that the data has been sanitized by the data erasure units |
 
 
  ### NIST 800-53 Control MP-6 (3)
@@ -227,8 +227,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure ensures that Azure datacenters follow the Tools and Removable Media Security Procedure in the Data Center Services Run Book in order to prevent the infection of the Government environment by malware on portable storage devices. The procedure specifies that the following actions be taken with USB drives before use in the Government environment: <br /> (1) Format the USB drives when the drives are first purchased from the manufacturer or vendor, before the initial use or when being reused for a different tool. <br /> (2) Scan any USB drive to be used in a Government-designated area for malware, before taking the drive into the area. <br /> (3) After using a drive within a Government-designated area, format the drive before leaving the area. <br /> The Tools and Removable Media Security Procedure also requires that all lost, discarded, stolen or misplaced thumb drives never be re-introduced into Azure datacenters but that they be instead cataloged and destroyed. |
 
 
  ## NIST 800-53 Control MP-7
@@ -241,8 +241,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure requires asset owners to assign their assets with an asset classification, and no assets are exempt from this requirement. In the Microsoft Azure datacenter environment, assets refer to servers, and network devices. Other digital media like USB flash/thumb drives are managed by specific policies and procedures governing how those devices are managed.�CD/DVDs are not used. Non-digital media is not used in the datacenter.�The usage of digital media in Microsoft Azure datacenter environments is monitored 24x7 via CCTV coverage.� Please see PE-06 for more details. |
 
 
  ### NIST 800-53 Control MP-7 (1)
@@ -255,8 +255,5 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no customer-controlled media within the scope of systems deployed on Azure. |
-
-
-
+| **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft restricts the use of writable, removable media to media that has been explicitly approved by Datacenter Management via the DCS Tools and Removable Media Procedure. Media that is personally owned or has no identifiable owner is prohibited in any production area as noted in the Microsoft Datacenter Work Rules and Regulations document. |
