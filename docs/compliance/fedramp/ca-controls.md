@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating security assessment and authorization policy and procedures for the customer’s system. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level security assessment and authorization policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing a security assessment plan for the customer-deployed system. The customer control implementation statement should address the scope of the assessment, including: controls and enhancements; assessment procedures; and the assessment environment, team, and roles/responsibilities. |
+| **Customer** | The customer is responsible for developing a security assessment plan for the customer-deployed system. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for assessing the security controls defined in CA-02.a on customer-deployed resources. The customer control implementation statement should address the implementation, operation, and compliance of the controls, as well as the frequency of assessment. |
+| **Customer** | The customer is responsible for assessing the security controls defined in CA-02.a on customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for producing a security assessment report. The customer control implementation statement should address documenting the results of the assessment. |
+| **Customer** | The customer is responsible for producing a security assessment report. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for delivering the security assessment results to the required individuals/roles. The customer control implementation statement should address the individuals or roles the security assessment report (SAR) must be submitted to. |
+| **Customer** | The customer is responsible for delivering the security assessment results to the required individuals/roles. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing independent assessors or assessment teams to conduct security control assessments. The customer control implementation statement should address and the level of independence required and the chosen assessor [i.e., an accredited third-party assessment organization (3PAO)]. |
+| **Customer** | The customer is responsible for employing independent assessors or assessment teams to conduct security control assessments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,8 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for the selection of additional testing to be included as part of security control assessments. The customer control implementation statement should address the selected testing mechanisms  
-(e.g., in-depth monitoring; vulnerability scanning; malicious user testing; insider threat assessment; performance/load testing; and/or customer-defined mechanisms), the frequency of these specialized assessments and whether they are announced or unannounced. |
+| **Customer** | The customer is responsible for the selection of additional testing to be included as part of security control assessments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -116,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization procedures may address acceptance of results from assessments of cloud services offerings (e.g., Azure) performed by an external organization under FedRAMP (e.g., a third party assessment organization (3PAO) or another agency). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. <br /> The customer is responsible for accepting assessment results for customer-deployed resources. The customer control implementation statement should address the resources assessed, the external organization performing the assessment, and the requirements that, when met, will result in customer acceptance of the assessment.  |
+| **Customer** | The customer's enterprise-level security assessment and authorization procedures may address acceptance of results from assessments of cloud services offerings (e.g., Azure) performed by an external organization under FedRAMP (e.g., a third party assessment organization (3PAO) or another agency). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -130,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization procedures may address authorization of system interconnections. Note: FedRAMP does not require ISAs between a CSP and a Federal agency. <br /> The customer is responsible for authorizing connections from the customer-deployed system to external systems. The customer control implementation statement should address how connections are authorized through the use of Interconnection Security Assessments. |
+| **Customer** | The customer's enterprise-level security assessment and authorization procedures may address authorization of system interconnections. Note: FedRAMP does not require ISAs between a CSP and a Federal agency. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -144,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish requirements to establish system interconnections. <br /> The customer is responsible for documenting the details of each interconnection defined in CA-03.a. The customer control implementation statement should address each interconnection's interface characteristics, security requirements, and information communicated. |
+| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish requirements to establish system interconnections. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -158,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish ISA review and update processes. <br /> The customer is responsible for reviewing and updating Interconnection Security Agreements. The customer control implementation statement should address the review and update frequency.  |
+| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish ISA review and update processes. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -172,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish boundary protection requirements for system interconnections. <br /> The customer is responsible for prohibiting the direct connection of customer-controlled, unclassified non-national security systems to an external network without the use of appropriate boundary protection devices. The customer control implementation statement should address the unclassified non-national security resources and the boundary protection devices (e.g., routers, firewalls) in place for processing, storing, or transmitting Controlled Unclassified Information (CUI) to an external network. |
+| **Customer** | The customer's enterprise-level security assessment and authorization procedures may establish boundary protection requirements for system interconnections. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -182,25 +181,25 @@
 
 **CA-3 (5)** The organization employs [Selection: allow-all, deny-by-exception; deny-all, permit-by-exception] policy for allowing [Assignment: organization-defined information systems] to connect to external information systems.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Application Gateway and network security groups are deployed to restrict external connectivity to resources deployed by this Azure Blueprint. Rulesets applied to network security groups are configured using a deny-by-default scheme. |
+| **Customer** | Azure Application Gateway and network security groups are deployed to restrict external connectivity to resources deployed by this Azure Blueprint. Rulesets applied to network security groups are configured using a deny-by-default scheme. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CA-5.a
 
 #### Plan of Action and Milestones
 
-**CA-5.a** The organization develops a plan of action and milestones for the information system to document the organization’s planned remedial actions to correct weaknesses or deficiencies noted during the assessment of the security controls and to reduce or eliminate known vulnerabilities in the system.
+**CA-5.a** The organization develops a plan of action and milestones for the information system to document the organizationï¿½s planned remedial actions to correct weaknesses or deficiencies noted during the assessment of the security controls and to reduce or eliminate known vulnerabilities in the system.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing a plan of action and milestones (POA&M) for customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address the customer's planned remedial actions to correct deficiencies noted during the security assessment (see CA-02) and to reduce/eliminate known vulnerabilities in the system. Additionally, any vulnerabilities found as a result of regular vulnerability scanning (see RA-05) must be included in POA&M reporting. |
+| **Customer** | The customer is responsible for developing a plan of action and milestones (POA&M) for customer-deployed resources (to include applications, operating systems, databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -214,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for updating POA&M items defined in CA-05.a. The customer control implementation statement should address the frequency with which POA&M items will be updated based on findings from security assessments, impact analyses, and continuous monitoring activities. |
+| **Customer** | The customer is responsible for updating POA&M items defined in CA-05.a. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -228,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level process where authorizing officials are assigned. <br /> The customer is responsible for assigning an authorizing official (AO) for customer-deployed resources. The customer control implementation statement should address the senior-level executive or manager assigned.  |
+| **Customer** | The customer may rely on an enterprise-level process where authorizing officials are assigned. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -242,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level system authorization process. <br /> The customer is responsible for ensuring customer-deployed resources are authorized before operations commence. The customer control implementation statement should address how the AO has authorized the customer-deployed resources for processing. |
+| **Customer** | The customer may rely on an enterprise-level system authorization process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -256,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level system authorization process. <br /> The customer is responsible for updating the security authorization for customer-deployed resources. The customer control implementation statement should address the frequency in which the authorization will be updated. |
+| **Customer** | The customer may rely on an enterprise-level system authorization process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -270,8 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for developing a continuous monitoring strategy and implementing a continuous monitoring program for customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address the metrics to be monitored.
-FedRAMP Requirement: The customer is responsible for performing vulnerability scans on customer-deployed operating systems, web applications, and databases, at least monthly.  |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -285,8 +283,7 @@ FedRAMP Requirement: The customer is responsible for performing vulnerability sc
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for continuously monitoring customer-deployed resources and performing supporting assessments of that monitoring activity. The customer control implementation statement should address the frequency with which monitoring and supporting assessments will be performed. 
-FedRAMP Requirement: The customer is responsible for performing vulnerability scans on customer-deployed operating systems, web applications, and databases, at least monthly.  |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -300,8 +297,7 @@ FedRAMP Requirement: The customer is responsible for performing vulnerability sc
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for ongoing security assessments. The customer control implementation statement should address how these assessments are in accordance with the customer's continuous monitoring strategy. 
-FedRAMP Requirement: The customer is responsible for having an independent assessor perform vulnerability scans, at least annually. The customer control implementation statement should address frequency with which scans are performed. |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -315,7 +311,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for ongoing security status monitoring of the metrics defined in CA-07.a. The customer control implementation statement should address how this monitoring is in accordance with the customer's continuous monitoring strategy. |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -329,7 +325,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for correlating and analyzing security-related information generated by assessments and monitoring of customer-deployed resources. The customer control implementation statement should address how this information is correlated and analyzed. |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -343,7 +339,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for responding to the results of the analysis defined in CA-07.e. The customer control implementation statement should address under which conditions each response action should be taken (e.g., if a new vulnerability is found in the system, a POA&M item should be opened). |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -357,7 +353,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. <br /> The customer is responsible for reporting the security status of customer-deployed resources. The customer control implementation statement should address which personnel/roles will be notified of the security status and the frequency with which reporting will occur.  |
+| **Customer** | The customer's enterprise-level continuous monitoring program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -371,7 +367,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may establish a process for independent assessment of security controls. <br /> The customer is responsible for employing independent assessors or assessment teams to monitor security controls for customer-deployed resources on an ongoing basis. The customer control implementation statement should address and the level of independence required and the chosen assessor [i.e., an accredited third-party assessment organization (3PAO)]. |
+| **Customer** | The customer's enterprise-level continuous monitoring program may establish a process for independent assessment of security controls. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -385,7 +381,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level continuous monitoring program may establish a process for trend analysis. <br /> The customer is responsible for employing continuous monitoring trend analyses. The customer control implementation statement should address the process to determine if security control implementations, the frequency of continuous monitoring activities, and/or the types of activities used in the continuous monitoring process need to be modified based on empirical data obtained from trend analyses.  |
+| **Customer** | The customer's enterprise-level continuous monitoring program may establish a process for trend analysis. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -399,7 +395,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level penetration testing assessment. <br /> The customer is responsible for conducting penetration testing for customer-deployed resources. The customer control implementation statement should address the frequency of testing and the resources tested. |
+| **Customer** | The customer may rely on an enterprise-level penetration testing assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -413,7 +409,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level penetration testing assessment performed by an independent agent or team. <br /> The customer is responsible for employing an independent agent or team to perform penetration testing on customer-deployed resources (note that this may be the 3PAO used for recurring assessments, or it may be a different independent assessor). The customer control implementation statement should address the selected independent agent/team and the resources to be tested.  |
+| **Customer** | The customer may rely on an enterprise-level penetration testing assessment performed by an independent agent or team. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -427,7 +423,7 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for authorizing internal connections across customer-deployed resources (e.g., system connections to VMs). The customer control implementation statement should address the customer-deployed resources or classes of resources authorized to connect internally. |
+| **Customer** | The customer is responsible for authorizing internal connections across customer-deployed resources (e.g., system connections to VMs). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -441,8 +437,5 @@ FedRAMP Requirement: The customer is responsible for having an independent asses
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for documenting the details of each internal connection between the classes/resources defined in CA-09.a. The customer control implementation statement should address each internal connection's interface characteristics, security requirements, and information communicated. |
+| **Customer** | The customer is responsible for documenting the details of each internal connection between the classes/resources defined in CA-09.a. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
