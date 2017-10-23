@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating system maintenance policy and procedures for the customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level system maintenance policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for controlled maintenance. The customer control implementation statement should address the scheduling, performing, documenting and reviewing of remote maintenance and repair records for all customer-deployed operating systems in accordance with organizational requirements. |
+| **Customer** | The customer is responsible for controlled maintenance. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for controlled maintenance. The customer control implementation statement should address the approval and monitoring of all remote maintenance activities performed on customer-deployed operating systems. |
+| **Customer** | The customer is responsible for controlled maintenance. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,8 +59,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure requires that property assets (e.g., network device or server) requiring transfer offsite have explicit asset owner approval. |
 
 
  ## NIST 800-53 Control MA-2.d
@@ -73,8 +73,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure's Asset Protection Standard defines the asset handling precautions required for offsite transfer of assets. The Asset Protection Standard requires that data storage assets be cleared/purged in a manner consistent with NIST SP 800-88, Guidelines for Media Sanitization, prior to leaving the datacenter. |
 
 
  ## NIST 800-53 Control MA-2.e
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for controlled maintenance. The customer control implementation statement should address the  process for identifying potentially impacted security controls and the process used for verifying those controls are still functioning properly following maintenance/repair activities. |
+| **Customer** | The customer is responsible for controlled maintenance. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for controlled maintenance. The customer control implementation statement should address the inclusion of customer-defined maintenance-related information in organizational maintenance records. |
+| **Customer** | The customer is responsible for controlled maintenance. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for automating maintenance activities. The customer control implementation statement should address how automated mechanisms are used to schedule, conduct, and document maintenance and repairs of customer-deployed operating systems. |
+| **Customer** | The customer is responsible for automating maintenance activities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for automating maintenance activities. The customer control implementation statement should address the production of up-to date, accurate, and complete records of all maintenance and repair actions requested, scheduled, in process, and completed for customer-deployed operating systems. |
+| **Customer** | The customer is responsible for automating maintenance activities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,8 +143,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure utilizes several tools to complete maintenance. Software maintenance tools are approved, controlled and maintained through the Microsoft Azure change and release process. <br /> The Site Services team maintains an inventory of approved maintenance tools for use within the datacenter (see MA-3). Maintenance personnel are directed to use the provided maintenance tools. Datacenter management approval is required in order to use tools not provided by the datacenter. Physical hand tools (screwdrivers, wrenches, etc.) are exempt from this control. <br /> Each facility contains a restricted physical lock box or access-controlled room for the storage of specialized maintenance tools, such as fluke ether scopes, fluke fiber channel testers, Ethernet toners, etc. The Site Services team performs routine inventory checks to verify the status of all tools. Access to lock box or maintenance storage room is tracked in the access badge reader logs, which are available in the event of an investigation. |
 
 
  ### NIST 800-53 Control MA-3 (1)
@@ -157,8 +157,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure's Site Services team maintains an inventory of approved maintenance tools for use within the datacenter (see MA-3 for further details). Maintenance personnel are directed to use the provided maintenance tools. DCM approval is required in order to use tools not provided by the datacenter. |
 
 
  ### NIST 800-53 Control MA-3 (2)
@@ -171,8 +171,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure prohibits the use of mobile computing or storage media in the production environment of Microsoft Azure datacenters without datacenter management approval. Use of personally owned media is prohibited from being used in the production environment of Microsoft Azure datacenters. <br /> Microsoft Azure has implemented a process to inspect laptops prior to being used in the production environment of Microsoft Azure datacenters. Security officers are trained to challenge personnel using laptops in the production environment to verify that the laptops have undergone and passed inspection. |
 
 
  ### NIST 800-53 Control MA-3 (3)
@@ -185,8 +185,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure employs datacenter specific maintenance tools that are retained within the facility and are not removed. Each facility contains a restricted physical lock box or storage room that stores maintenance tools, such as fluke ether scopes, fluke fiber channel testers, Ethernet toners, etc. Access is controlled to the lock box or storage room in DCAT to prohibit unauthorized access to the maintenance tools. <br /> Organizational information is protected during maintenance by the controls in MA-4. To access organizational information, the user must have privileged accounts and authenticators. |
 
 
  ## NIST 800-53 Control MA-4.a
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. The customer control implementation statement should address the approval and monitoring of non-local maintenance and diagnostic activities. |
+| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. The customer control implementation statement should address the requirement that non-local maintenance and diagnostic tools are consistent with organizational policy and documented in the security plan. |
+| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -227,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. The customer control implementation statement should address the use of strong authenticators when establishing non-local maintenance and diagnostic sessions. |
+| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. The customer control implementation statement should address the requirement to maintain records for non-local maintenance and diagnostic activities. |
+| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. The customer control implementation statement should address the termination of session and network connections when non-local maintenance is completed. |
+| **Customer** | The customer is responsible for performing non-local maintenance on customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for documenting non-local maintenance in the security plan for customer-deployed operating systems. The customer control implementation statement should address the documentation of policies and procedures for the establishment and use of non-local maintenance and diagnostic connections. |
+| **Customer** | The customer is responsible for documenting non-local maintenance in the security plan for customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -283,7 +283,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for performing all non-local maintenance of customer-deployed operating systems from an information system that has comparable security. The customer control implementation statement should address the security capabilities of information systems used to perform non-local maintenance and diagnostic services. |
+| **Customer** | The customer is responsible for performing all non-local maintenance of customer-deployed operating systems from an information system that has comparable security. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing cryptographic mechanisms when performing non-local maintenance and diagnostics of customer-deployed operating systems. The customer control implementation statement should address the cryptographic mechanisms used to protect the integrity and confidentiality of non-local maintenance and diagnostic communications. |
+| **Customer** | The customer is responsible for implementing cryptographic mechanisms when performing non-local maintenance and diagnostics of customer-deployed operating systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. <br /> The customer is responsible for managing maintenance personnel. The customer control implementation statement should address the process for authorizing maintenance personnel and maintaining a list of authorized maintenance organizations/personnel. |
+| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. <br /> The customer is responsible for managing maintenance personnel. The customer control implementation statement should address the requirement that non-escorted personnel performing maintenance on customer-deployed operating systems have the required access authorizations. |
+| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. <br /> The customer is responsible for managing maintenance personnel. The customer control implementation statement should address the designation of organizational personnel with required access authorizations and technical competence to supervise the maintenance activities of personnel who do not possess the required access authorizations. |
+| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. <br /> The customer is responsible for managing the use of maintenance personnel that lack appropriate security clearances or are not U.S. citizens. The customer control implementation statement should address the following requirements regarding maintenance personnel who do not have needed access authorizations, clearances, or formal access approvals: such personnel are escorted and supervised during maintenance and diagnostic activities on customer-deployed operating systems by approved organizational personnel who are fully cleared, have appropriate access authorizations, and are technically qualified; and all volatile information storage media within customer-deployed operating systems are sanitized and all non-volatile storage media are removed or disconnected from customer-deployed resources and secured prior to such personnel performing maintenance and diagnostic activities. |
+| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. <br /> The customer is responsible for implementing alternate security safeguards for the use of maintenance personnel that lack appropriate security clearances or are not U.S. citizens. The customer control implementation statement should address the safeguards implemented in the event that resources identified MA-05(01).a cannot be sanitized, removed, or disconnected from customer-deployed operating systems. |
+| **Customer** | The customer's enterprise-level system maintenance personnel authorization and escort processes may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -381,8 +381,5 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customers do not have physical access to any system resources in Azure datacenters. |
-
-
-
+| **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure datacenters maintain resident maintenance personnel to support critical datacenter infrastructure systems as well as datacenter operations. The teams have identified critical security and technology system components which they maintain spares for onsite. Critical systems are designed in N+1 configurations and services are designed to be resilient. This allows the datacenter management team to meet recovery goals in the event of a service interruption or contingency plan situation. Critical information system services are provisioned from more than one datacenter to prevent an interruption in service due to an incident at one of the datacenters. Customer applications are responsible for deploying to multiple datacenters to provide for redundancy and resiliency. |
