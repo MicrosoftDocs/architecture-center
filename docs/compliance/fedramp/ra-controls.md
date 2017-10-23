@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level risk assessment policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating risk assessment policy and procedures for the customer-deployed system. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level risk assessment policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for categorizing customer-deployed resources and the information contained. The customer control implementation statement should address the applicable Federal Laws, Executive Orders, directives, policies, regulations, standards, and guidance. |
+| **Customer** | The customer is responsible for categorizing customer-deployed resources and the information contained. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for documenting the results of the security categorization defined in RA-02.a. The customer control implementation statement should address the inclusion of these documented results (including supporting rationale) in the security plan for customer-deployed resources. |
+| **Customer** | The customer is responsible for documenting the results of the security categorization defined in RA-02.a. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for ensuring the security categorization decision is reviewed and approved. The customer control implementation statement should address the authorizing official (AO) or designated representative responsible for the review and approval. |
+| **Customer** | The customer is responsible for ensuring the security categorization decision is reviewed and approved. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conducting a risk assessment. The customer control implementation statement should address the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of customer-deployed resources and the information processed, stored, or transmitted. |
+| **Customer** | The customer is responsible for conducting a risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conducting a risk assessment. The customer control implementation statement should address the documentation of risk assessment results in the security plan, risk assessment report, and/or other customer-defined document. |
+| **Customer** | The customer is responsible for conducting a risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conducting a risk assessment. The customer control implementation statement should address the frequency with which risk assessment results are reviewed. |
+| **Customer** | The customer is responsible for conducting a risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conducting a risk assessment. The customer control implementation statement should address the dissemination of risk assessment results to customer-defined personnel/roles. |
+| **Customer** | The customer is responsible for conducting a risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conducting a risk assessment. The customer control implementation statement should address the requirement to update the risk assessment at the customer-defined frequency and when there are significant changes to customer-deployed resources (including the identification of new threats and vulnerabilities) or other conditions that may impact the security state of the system. |
+| **Customer** | The customer is responsible for conducting a risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -139,12 +139,12 @@
 
 **RA-5.a** The organization scans for vulnerabilities in the information system and hosted applications [Assignment: organization-defined frequency and/or randomly in accordance with organization-defined process] and when new vulnerabilities potentially affecting the system/applications are identified and reported.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoft’s recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoftï¿½s recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control RA-5.b
@@ -153,12 +153,12 @@
 
 **RA-5.b** The organization employs vulnerability scanning tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for enumerating platforms, software flaws, and improper configurations; formatting checklists and test procedures; and measuring vulnerability impact.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Identified issues are assigned a severity rating. Common Configuration Enumeration (CCE) IDs are provided for Baseline Assessment rules.  |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Identified issues are assigned a severity rating. Common Configuration Enumeration (CCE) IDs are provided for Baseline Assessment rules.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control RA-5.c
@@ -171,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for analyzing scan reports and results from security control assessments. The customer control implementation statement should address the criteria used in performing the analysis. |
+| **Customer** | The customer is responsible for analyzing scan reports and results from security control assessments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for remediating vulnerabilities in customer-deployed resources (to include applications, operating systems, databases, and software) in accordance with the customer risk assessment. The customer control implementation statement should address customer-defined response times for remediation. |
+| **Customer** | The customer is responsible for remediating vulnerabilities in customer-deployed resources (to include applications, operating systems, databases, and software) in accordance with the customer risk assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for sharing information obtained from the vulnerability scanning process and security control assessments to help eliminate similar vulnerabilities across customer-deployed resources. The customer control implementation statement should address the customer-defined personnel/roles with which this information will be shared. |
+| **Customer** | The customer is responsible for sharing information obtained from the vulnerability scanning process and security control assessments to help eliminate similar vulnerabilities across customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -209,12 +209,12 @@
 
 **RA-5 (1)** The organization employs vulnerability scanning tools that include the capability to readily update the information system vulnerabilities to be scanned.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control RA-5 (2)
@@ -223,12 +223,12 @@
 
 **RA-5 (2)** The organization updates the information system vulnerabilities scanned [Selection (one or more): [Assignment: organization-defined frequency]; prior to a new scan; when new vulnerabilities are identified and reported].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. The criteria against which these solutions assess is automatically updated. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control RA-5 (3)
@@ -237,12 +237,12 @@
 
 **RA-5 (3)** The organization employs vulnerability scanning procedures that can identify the breadth and depth of coverage (i.e., information system components scanned and vulnerabilities checked).
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Update Assessment performs assessment against both Windows and Linux virtual machines. Baseline assessment performs assessment against Windows virtual machines using a Microsoft developed baseline based on industry best practices. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Update Assessment performs assessment against both Windows and Linux virtual machines. Baseline assessment performs assessment against Windows virtual machines using a Microsoft developed baseline based on industry best practices. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control RA-5 (4)
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for taking action in response to discoverable information. The customer control implementation statement should address the identification of customer information that is discoverable by adversaries and the customer-defined corrective actions taken subsequently. |
+| **Customer** | The customer is responsible for taking action in response to discoverable information. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -265,12 +265,12 @@
 
 **RA-5 (5)** The information system implements privileged access authorization to [Assignment: organization-identified information system components] for selected [Assignment: organization-defined vulnerability scanning activities].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The Microsoft Monitoring Agent service, which is configured on virtual machines deployed by this Azure Blueprint, is configured as an automatic service with necessary privileges for assessment activities. |
+| **Customer** | The Microsoft Monitoring Agent service, which is configured on virtual machines deployed by this Azure Blueprint, is configured as an automatic service with necessary privileges for assessment activities. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control RA-5 (6)
@@ -279,12 +279,12 @@
 
 **RA-5 (6)** The organization employs automated mechanisms to compare the results of vulnerability scans over time to determine trends in information system vulnerabilities.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | OMS provides the capability to create customized dashboard tiles to analyze data collected by Log Analytics and the Microsoft Monitoring Agent. These tiles can be customized to show trends over time. |
+| **Customer** | OMS provides the capability to create customized dashboard tiles to analyze data collected by Log Analytics and the Microsoft Monitoring Agent. These tiles can be customized to show trends over time. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control RA-5 (8)
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing historic audit logs. The customer control implementation statement should address the use of these logs to determine if a vulnerability identified within customer-deployed resources has been previously exploited. |
+| **Customer** | The customer is responsible for reviewing historic audit logs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -307,12 +307,9 @@
 
 **RA-5 (10)** The organization correlates the output from vulnerability scanning tools to determine the presence of multi-vulnerability/multi-hop attack vectors.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
-
-
-
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
