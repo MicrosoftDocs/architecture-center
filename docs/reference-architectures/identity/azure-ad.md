@@ -4,15 +4,8 @@ description: >-
   How to implement a secure hybrid network architecture using Azure Active
   Directory.
 
-
 author: telmosampaio
-
-
-
 pnp.series.title: Identity management
-
-
-
 
 ms.date: 11/28/2016
 pnp.series.next: adds-extend-domain
@@ -20,13 +13,13 @@ pnp.series.prev: ./index
 cardTitle: Integrate on-premises AD with Azure AD
 ---
 # Integrate on-premises Active Directory domains with Azure Active Directory
-[!INCLUDE [header](../../_includes/header.md)]
 
-Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and identity service. This article describes best practices for integrating on-premises Active Directory domains and forests with Azure AD to provide cloud-based identity authentication.
+Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
+
+[![0]][0] 
 
 > [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
+> For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
 > 
 
 Many organizations use [Active Directory Domain Services (AD DS)][active-directory-domain-services] to authenticate identities associated with users, computers, applications, or other resources that are included in a security boundary. Directory and identity services are typically hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, there may be latency sending authentication requests from Azure back to on-premises. Implementing directory and identity services in Azure can reduce this latency.
@@ -54,19 +47,9 @@ Typical uses for this reference architecture include:
 > 
 > 
 
-## Architecture diagram
-The following diagram highlights the important components in this architecture. This article focuses on the interaction between the Azure AD tenant and the Azure VNet. For more information on the web, business, and data tiers,  see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
+## Architecture
 
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - Azure AD" page.
-> 
-> 
-
-[![0]][0] 
-
-> [!NOTE]
-> For simplicity, this diagram only shows the connections directly related to Azure AD, and does not show protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
-> 
-> 
+The architecture has the following components.
 
 * **Azure AD tenant**. An instance of Azure AD created by your organization. It acts as a directory service for cloud applications by storing objects copied from the on-premises Active Directory and provides identity services.
 * **Web tier subnet**. This subnet holds VMs that run a web application. Azure AD can act as an identity broker for this application.
@@ -76,7 +59,8 @@ The following diagram highlights the important components in this architecture. 
   > [!NOTE]
   > For security reasons, Azure AD stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Azure AD. Azure AD Premium editions include features that can automate this task to enable users to reset their own passwords.
   > 
-  > 
+
+For more information on the web, business, and data tiers,  see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
 
 ## Recommendations
 
@@ -295,4 +279,4 @@ A deployment for a reference architecture that implements these recommendations 
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 
-[0]: ../_images/guidance-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
+[0]: ./azure-ad.png "Cloud identity architecture using Azure Active Directory"
