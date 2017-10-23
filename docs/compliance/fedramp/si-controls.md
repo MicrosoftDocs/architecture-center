@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and information integrity policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating system and information integrity policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level system and information integrity policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -27,12 +27,12 @@
 
 **SI-2.a** The organization identifies, reports, and corrects information system flaws.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
+| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-2.b
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for testing updates related to flaw remediation for effectiveness and potential side effects prior to installation on customer-deployed resources. The customer control implementation statement should address the testing process of resource updates prior to installation. |
+| **Customer** | The customer is responsible for testing updates related to flaw remediation for effectiveness and potential side effects prior to installation on customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -55,12 +55,12 @@
 
 **SI-2.c** The organization installs security-relevant software and firmware updates within [Assignment: organization-defined time period] of the release of the updates.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Windows virtual machines deployed by this Azure Blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | Windows virtual machines deployed by this Azure Blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-2.d
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for including flaw remediation in configuration management. The customer control implementation statement should address the incorporation of flaw remediation activities into the organization's configuration management process. |
+| **Customer** | The customer is responsible for including flaw remediation in configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -83,12 +83,12 @@
 
 **SI-2 (1)** The organization centrally manages the flaw remediation process.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-2 (2)
@@ -97,12 +97,12 @@
 
 **SI-2 (2)** The organization employs automated mechanisms [Assignment: organization-defined frequency] to determine the state of information system components with regard to flaw remediation.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
+| **Customer** | This Azure Blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-2 (3).a
@@ -111,12 +111,12 @@
 
 **SI-2 (3).a** The organization measures the time between flaw identification and flaw remediation.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for remediating flaws within customer-deployed resources. The customer control implementation statement should address  the mechanisms in place to measure the time between flaw identification and flaw remediation.  |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for remediating flaws within customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-2 (3).b
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on enterprise-level benchmarks for flaw remediation processes. <br /> The customer is responsible for remediating flaws within customer-deployed resources. The customer control implementation statement should address  the establishment of customer-defined benchmarks for taking corrective actions. |
+| **Customer** | The customer may rely on enterprise-level benchmarks for flaw remediation processes. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -139,12 +139,12 @@
 
 **SI-3.a** The organization employs malicious code protection mechanisms at information system entry and exit points to detect and eradicate malicious code.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-3.b
@@ -153,12 +153,12 @@
 
 **SI-3.b** The organization updates malicious code protection mechanisms whenever new releases are available in accordance with organizational configuration management policy and procedures.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-3.c
@@ -167,12 +167,12 @@
 
 **SI-3.c** The organization configures malicious code protection mechanisms to perform periodic scans of the information system [Assignment: organization-defined frequency] and real-time scans of files from external sources at [Selection (one or more); endpoint; network entry/exit points] as the files are downloaded, opened, or executed in accordance with organizational security policy; and [Selection (one or more): block malicious code; quarantine malicious code; send alert to administrator; [Assignment: organization-defined action]] in response to malicious code detection.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform both real-time and periodic scans (weekly), automatically update both the antimalware engine and protection signatures, and perform automatic remediation actions. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform both real-time and periodic scans (weekly), automatically update both the antimalware engine and protection signatures, and perform automatic remediation actions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-3.d
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for protecting against malicious code. The customer control implementation statement should address the receipt of false positives during malicious code detection and eradication, and the resulting potential impact on the availability of customer-deployed resources. |
+| **Customer** | The customer is responsible for protecting against malicious code. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -195,12 +195,12 @@
 
 **SI-3 (1)** The organization centrally manages malicious code protection mechanisms.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure OMS provides a centralized capability to review the current status of the antimalware solution. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure OMS provides a centralized capability to review the current status of the antimalware solution. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-3 (2)
@@ -209,12 +209,12 @@
 
 **SI-3 (2)** The information system automatically updates malicious code protection mechanisms.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to automatically update both the antimalware engine and protection signatures as release become available. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-3 (7)
@@ -223,12 +223,12 @@
 
 **SI-3 (7)** The information system implements nonsignature-based malicious code detection mechanisms.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform heuristic detection. |
+| **Customer** | This Azure Blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. This extension is configured to perform heuristic detection. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-4.a
@@ -237,12 +237,12 @@
 
 **SI-4.a** The organization monitors the information system to detect attacks and indicators of potential attacks in accordance with [Assignment: organization-defined monitoring objectives]; and unauthorized local, network, and remote connections.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-4.b
@@ -251,12 +251,12 @@
 
 **SI-4.b** The organization identifies unauthorized use of the information system through [Assignment: organization-defined techniques and methods].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the  OMS Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
+| **Customer** | This Azure Blueprint deploys the  OMS Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-4.c
@@ -265,12 +265,12 @@
 
 **SI-4.c** The organization deploys monitoring devices strategically within the information system to collect organization-determined essential information; and at ad hoc locations within the system to track specific types of transactions of interest to the organization.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, including insight into VM operating system monitoring data. |
+| **Customer** | This Azure Blueprint deploys the Log Analytics and the OMS Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, including insight into VM operating system monitoring data. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-4.d
@@ -279,12 +279,12 @@
 
 **SI-4.d** The organization protects information obtained from intrusion-monitoring tools from unauthorized access, modification, and deletion.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Logical access controls are used to protect monitoring information within this Azure Blueprint from unauthorized access, modification, and deletion. Azure Active Directory enforces approved logical access using role-based group memberships. The ability to view monitoring information and use monitoring tools can be limited to users that require those permissions. |
+| **Customer** | Logical access controls are used to protect monitoring information within this Azure Blueprint from unauthorized access, modification, and deletion. Azure Active Directory enforces approved logical access using role-based group memberships. The ability to view monitoring information and use monitoring tools can be limited to users that require those permissions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-4.e
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring customer-deployed resources. The customer control implementation statement should address the heightening of monitoring activity whenever there is an indication of increased risk to customer operations, assets, and individuals; other organizations; or the Nation based on law enforcement information; intelligence information, or other credible sources of information. |
+| **Customer** | The customer is responsible for monitoring customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring customer-deployed resources. The customer control implementation statement should address the requirement that the customer obtains legal opinion with regard to system monitoring activities in accordance with applicable federal laws, Executive Orders, directives, policies, or regulations. |
+| **Customer** | The customer is responsible for monitoring customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring customer-deployed resources. The customer control implementation statement should address the requirement that the customer provides selected monitoring information to customer-defined personnel/roles as needed and/or at the required frequency. |
+| **Customer** | The customer is responsible for monitoring customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -335,12 +335,12 @@
 
 **SI-4 (1)** The organization connects and configures individual intrusion detection tools into an information system-wide intrusion detection system.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring customer-deployed resources. The customer control implementation statement should address the connection and configuration of individual intrusion detection tools into a system-wide intrusion detection system. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for monitoring customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (2)
@@ -349,12 +349,12 @@
 
 **SI-4 (2)** The organization employs automated tools to support near real-time analysis of events.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. OMS can be configured to generate alerts based on defined criteria. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (4)
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring customer-deployed resources. The customer control implementation statement should address how the system monitors inbound and outbound communications traffic at the customer-defined frequency for unusual or unauthorized activities/conditions. |
+| **Customer** | The customer is responsible for monitoring customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -377,12 +377,12 @@
 
 **SI-4 (5)** The information system alerts [Assignment: organization-defined personnel or roles] when the following indications of compromise or potential compromise occur: [Assignment: organization-defined compromise indicators].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This Azure Blueprint deploys various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS can be configured to generate alerts based on defined criteria. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (11)
@@ -391,12 +391,12 @@
 
 **SI-4 (11)** The organization analyzes outbound communications traffic at the external boundary of the information system and selected [Assignment: organization-defined interior points within the system (e.g., subnetworks, subsystems)] to discover anomalies.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for analyzing communications traffic anomalies for customer-deployed resources. The customer control implementation statement should address the analysis of outbound communications traffic at the external boundary and at customer-defined interior points within the system to discover anomalies. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for analyzing communications traffic anomalies for customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (14)
@@ -409,8 +409,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | No customer-controlled hardware, including wireless devices, is allowed in Azure datacenters. |
+| **Customer** | No customer-controlled hardware, including wireless devices, is allowed in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure regularly monitors for rogue wireless signals on a quarterly basis as discussed in AC-18. <br /> Microsoft Azure implements this control on behalf of both PaaS and IaaS customers. |
 
 
  ### NIST 800-53 Control SI-4 (16)
@@ -419,12 +419,12 @@
 
 **SI-4 (16)** The organization correlates information from monitoring tools employed throughout the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This Azure Blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (18)
@@ -433,12 +433,12 @@
 
 **SI-4 (18)** The organization analyzes outbound communications traffic at the external boundary of the information system (i.e., system perimeter) and at [Assignment: organization-defined interior points within the system (e.g., subsystems, subnetworks)] to detect covert exfiltration of information.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for analyzing communications traffic for customer-deployed resources. The customer control implementation statement should address the analysis of outbound communications traffic at the external boundary and at customer-defined interior points within the system to detect covert exfiltration of information. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for analyzing communications traffic for customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (19)
@@ -451,7 +451,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring individuals who pose a greater risk. The customer control implementation statement should address the customer-defined additional mechanisms used to monitor individuals who have been identified by customer-defined sources as posing an elevated level of risk. |
+| **Customer** | The customer is responsible for monitoring individuals who pose a greater risk. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -461,12 +461,12 @@
 
 **SI-4 (20)** The organization implements [Assignment: organization-defined additional monitoring] of privileged users.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring privileged users. The customer control implementation statement should address the customer-defined mechanisms used to monitor privileged users. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for monitoring privileged users. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (22)
@@ -479,7 +479,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for detecting unauthorized network services. The customer control implementation statement should address the mechanisms used to: detect network services that have not been authorized or approved by customer-defined processes; and audit and/or alert customer-defined personnel/roles. |
+| **Customer** | The customer is responsible for detecting unauthorized network services. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -489,12 +489,12 @@
 
 **SI-4 (23)** The organization implements [Assignment: organization-defined host-based monitoring mechanisms] at [Assignment: organization-defined information system components].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other OMS solutions. |
+| **Customer** | This Azure Blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other OMS solutions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-4 (24)
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for discovering, collecting, distributing, and using indicators of compromise to customer-deployed resources. The customer control implementation statement should address the process for discovering, collecting, distributing, and using indicators of compromise. |
+| **Customer** | The customer is responsible for discovering, collecting, distributing, and using indicators of compromise to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address the requirement that the customer receives system security alerts, advisories, and directives from customer-defined external organizations on an ongoing basis. |
+| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources (to include applications, operating systems, databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. The customer control implementation statement should address how the customer generates internal security alerts, advisories, and directives as deemed necessary. |
+| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -549,7 +549,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. The customer control implementation statement should address how the customer disseminates security alerts, advisories, and directives to: customer-defined personnel/roles, organizational elements, and/or external organizations. |
+| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -563,7 +563,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. The customer control implementation statement should address how the customer implements security directives in accordance with established time frames, or notifies the issuing organization of the degree of noncompliance. |
+| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -577,7 +577,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. The customer control implementation statement should address the automated mechanisms used to make security alert and advisory information available throughout the organization. |
+| **Customer** | The customer is responsible for managing security alerts, advisories and directives for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -591,7 +591,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for security function verification for customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address the mechanisms used to verify the correct operation of customer-defined security functions. |
+| **Customer** | The customer is responsible for security function verification for customer-deployed resources (to include applications, operating systems, databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -605,7 +605,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for security function verification for customer-deployed resources. The customer control implementation statement should address the performance of security function verification at customer-defined system transitional states (e.g., startup, restart, shutdown, abort) and/or upon command by a user with appropriate privilege, including the customer-defined frequency with which verification is performed. |
+| **Customer** | The customer is responsible for security function verification for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -619,7 +619,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for security function verification for customer-deployed resources. The customer control implementation statement should address the notification of customer-defined personnel/roles of failed security verification tests. |
+| **Customer** | The customer is responsible for security function verification for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -633,7 +633,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for security function verification for customer-deployed resources. The customer control implementation statement should address whether shutdown, restart, and/or an alternative customer-defined action is taken when anomalies are discovered. |
+| **Customer** | The customer is responsible for security function verification for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -643,12 +643,12 @@
 
 **SI-7** The organization employs integrity verification tools to detect unauthorized changes to [Assignment: organization-defined software, firmware, and information].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-7 (1)
@@ -657,12 +657,12 @@
 
 **SI-7 (1)** The information system performs an integrity check of [Assignment: organization-defined software, firmware, and information] [Selection (one or more): at startup; at [Assignment: organization-defined transitional states or security-relevant events]; [Assignment: organization-defined frequency]].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. WRP enables real-time integrity checking. |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability. WRP enables real-time integrity checking. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-7 (2)
@@ -671,12 +671,12 @@
 
 **SI-7 (2)** The organization employs automated tools that provide notification to [Assignment: organization-defined personnel or roles] upon discovering discrepancies during integrity verification.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability.  |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows provides real-time file integrity validation, protection, and recovery of core system files that are installed as part of Windows or authorized Windows system updates through the Windows Resource Protection (WRP) capability.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-7 (5)
@@ -689,7 +689,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for automatically responding to integrity violations within customer-deployed resources. The customer control implementation statement should address the mechanisms used to automatically shutdown or restart customer-deployed resources, and/or implement customer-defined security safeguards, when integrity violations are discovered. |
+| **Customer** | The customer is responsible for automatically responding to integrity violations within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -703,7 +703,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for protecting software and information integrity for customer-deployed resources. The customer control implementation statement should address how the customer incorporates the detection of unauthorized customer-defined security-relevant changes to customer-deployed resources into the incident response capability. |
+| **Customer** | The customer is responsible for protecting software and information integrity for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -717,7 +717,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and information integrity procedures may establish requirements to obtain the source code of binary or machine executable code from some sources. <br /> The customer is responsible for protecting software and information integrity for customer-deployed resources. The customer control implementation statement should address the mechanisms used to prohibit binary/machine-executable code from sources with limited or no warranty and without source code. These restrictions only occur for compelling mission/operational requirements and with the approval of the authorizing official. |
+| **Customer** | The customer's enterprise-level system and information integrity procedures may establish requirements to obtain the source code of binary or machine executable code from some sources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -727,12 +727,12 @@
 
 **SI-8.a** The organization employs spam protection mechanisms at information system entry and exit points to detect and take action on unsolicited messages.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-8.b
@@ -741,12 +741,12 @@
 
 **SI-8.b** The organization updates spam protection mechanisms when new releases are available in accordance with organizational configuration management policy and procedures.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-8 (1)
@@ -755,12 +755,12 @@
 
 **SI-8 (1)** The organization centrally manages spam protection mechanisms.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SI-8 (2)
@@ -769,12 +769,12 @@
 
 **SI-8 (2)** The information system automatically updates spam protection mechanisms.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Customer** | There are no mail servers deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-10
@@ -787,7 +787,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for information input validation for customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address the mechanisms used to check the validity of customer-defined information inputs. |
+| **Customer** | The customer is responsible for information input validation for customer-deployed resources (to include applications, operating systems, databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -797,12 +797,12 @@
 
 **SI-11.a** The information system generates error messages that provide information necessary for corrective actions without revealing information that could be exploited by adversaries.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to ensure sensitive information is not revealed in error messages. |
+| **Customer** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to ensure sensitive information is not revealed in error messages. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-11.b
@@ -811,12 +811,12 @@
 
 **SI-11.b** The information system reveals error messages only to [Assignment: organization-defined personnel or roles].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to provide error messages that are appropriate in the context of the uses receiving the message. |
+| **Customer** | The resources deployed by this Azure Blueprint employ commercial operating systems and software applications. This software uses industry best practices to provide error messages that are appropriate in the context of the uses receiving the message. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SI-12
@@ -829,7 +829,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for handling and retaining information within customer-deployed resources (to include applications, operating systems, databases, and software) and information output from those resources. The customer control implementation statement should address how information handling and retention is performed in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and operational requirements. |
+| **Customer** | The customer is responsible for handling and retaining information within customer-deployed resources (to include applications, operating systems, databases, and software) and information output from those resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -839,12 +839,9 @@
 
 **SI-16** The information system implements [Assignment: organization-defined security safeguards] to protect its memory from unauthorized code execution.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
-
-
-
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows has protections in place for preventing code execution in restricted memory locations: No Execute (NX), Address Space Layout Randomization (ASLR), and Data Execution Prevention (DEP). |
+| **Provider (Microsoft Azure)** | Not Applicable |
