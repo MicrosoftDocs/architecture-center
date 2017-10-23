@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel security policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating personnel security policy and procedures for the personnel associated with the customer-deployed system. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level personnel security policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. <br /> The customer is responsible for assigning a risk designation. The customer control implementation statement should address the criteria used in risk designation assignments (e.g., specific responsibilities, access to certain types of data). |
+| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. <br /> The customer is responsible for establishing screening criteria. The customer control implementation statement should address the criteria used to screen individuals filling the positions identified in PS-02.a. |
+| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. <br /> The customer is responsible for reviewing and updating risk designations. The customer control implementation statement should address the frequency with which position risk designations are  reviewed and updated. |
+| **Customer** | The customer's enterprise-level position risk designations may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. <br /> The customer is responsible for screening individuals prior to authorizing access to customer-deployed resources. The customer control implementation statement should address how the screening requirements defined in PS-02 occur prior to authorizing access. |
+| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. <br /> The customer is responsible for rescreening individuals. The customer control implementation statement should address the customer-defined frequency and conditions under which rescreening will occur. |
+| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. <br /> The customer is responsible for controlling access to protected information. The customer control implementation statement should address the requirement that individuals accessing customer-deployed resources which process, store, or transmit information requiring special protection have been assigned official government duties that demonstrate valid access authorizations. |
+| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. <br /> The customer is responsible for controlling access to protected information. The customer control implementation statement should address the requirement that individuals accessing customer-deployed resources which process, store, or transmit information requiring special protection satisfy any additional customer-defined personnel screening criteria. |
+| **Customer** | The customer's enterprise-level personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to ensure information system access is promptly terminated. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the time period within which system access must be disabled after termination. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to ensure information system access is promptly terminated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to terminate/revoke authenticators/credentials. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the termination/revocation of any authenticators/credentials associated with terminated individuals. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to terminate/revoke authenticators/credentials. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may include an exit interview. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the requirement to conduct exit interviews which include customer-defined information security topics upon termination. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may include an exit interview. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to retrieve security-related information and property from terminated employees. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the retrieval of all security- and system-related  property upon termination. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to retrieve security-related information and property from terminated employees. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to ensure access to information systems is retained. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the requirement that the customer retains access to resources formally controlled by terminated individuals. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may establish a process to ensure access to information systems is retained. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may include a notification process. <br /> The customer is responsible for appropriately terminating customer personnel. The customer control implementation statement should address the requirement that customer-defined personnel/roles are notified of terminations within an customer-defined time period. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may include a notification process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel termination procedures may employ an automated mechanisms to provide termination notification as appropriate to organization personnel or roles. <br /> The customer is responsible for employing automated mechanisms to notify the appropriate personnel upon termination of a customer employee. The customer control implementation statement should address the mechanisms used when customer personnel are terminated, and the customer-defined personnel/roles to be notified. |
+| **Customer** | The customer's enterprise-level personnel termination procedures may employ an automated mechanisms to provide termination notification as appropriate to organization personnel or roles. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -227,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel transfer procedures may address logical and physical access authorization review. <br /> The customer is responsible for appropriately transferring personnel. The customer control implementation statement should address the review of current logical and physical access authorizations to customer-deployed resources/facilities when individuals are reassigned or transferred. |
+| **Customer** | The customer's enterprise-level personnel transfer procedures may address logical and physical access authorization review. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel transfer procedures may be sufficient to address this control. <br /> The customer is responsible for appropriately transferring personnel. The customer control implementation statement should address the time period following formal transfer/reassignment within which customer-defined actions must be taken. |
+| **Customer** | The customer's enterprise-level personnel transfer procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel transfer procedures may establish a process to modify access authorizations as needed. <br /> The customer is responsible for appropriately transferring personnel. The customer control implementation statement should address the modification of access authorizations as needed as a result of the review performed in PS-05.a. |
+| **Customer** | The customer's enterprise-level personnel transfer procedures may establish a process to modify access authorizations as needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level personnel transfer procedures may establish a notification process. <br /> The customer is responsible for appropriately transferring personnel. The customer control implementation statement should address the notification of customer-defined personnel/roles within the specified time period following personnel/transfer reassignment. |
+| **Customer** | The customer's enterprise-level personnel transfer procedures may establish a notification process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -283,7 +283,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. <br /> The customer is responsible for developing and documenting access agreements for customer-deployed resources. The customer control implementation statement should address the contents of these agreements. |
+| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. <br /> The customer is responsible for reviewing and updating access agreements. The customer control implementation statement should address the frequency with which access agreements are reviewed and updated. |
+| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. <br /> The customer is responsible for ensuring that individuals requiring access to customer-deployed resources review and sign access agreements. The customer control implementation statement should address the requirements to sign access agreements prior to being granted access, and re-sign when the agreements have been updated and/or at a customer-defined frequency. |
+| **Customer** | The customer's enterprise-level access agreements (e.g., nondisclosure agreements, acceptable use agreements) may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. <br /> The customer is responsible for third-party personnel security. The customer control implementation statement should address the establishment of personnel security requirements for third-party providers (e.g., security roles and responsibilities). |
+| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. <br /> The customer is responsible for third-party personnel security. The customer control implementation statement should address the requirement that third-part providers comply with customer-defined personnel security policies and procedures. |
+| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. <br /> The customer is responsible for third-party personnel security. The customer control implementation statement should address the documentation of personnel security requirements defined in PS-07.a. |
+| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. <br /> The customer is responsible for third-party personnel security. The customer control implementation statement should address the requirement that third-part providers notify customer-defined personnel/roles of any transfers/terminations of third-party personnel who possess customer credentials and/or badges within a customer-defined period of time. |
+| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -381,7 +381,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. <br /> The customer is responsible for third-party personnel security. The customer control implementation statement should address the monitoring of third-party provider compliance. |
+| **Customer** | The customer's enterprise-level third-party personnel screening process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -395,7 +395,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level employee sanctions process may be sufficient to address this control. <br /> The customer is responsible for establishing a sanctions process for customer employees failing to comply with  information security policies and procedures. The customer control implementation statement should address the sanctions imposed for non-compliance. |
+| **Customer** | The customer's enterprise-level employee sanctions process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -409,8 +409,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level employee sanctions process may be sufficient to address this control. <br /> The customer is responsible for providing notifications when a formal employee sanctions process is initiated. The customer control implementation statement should address the customer-defined personnel/roles to be notified, the time period within which notification must occur, the identification of the sanctioned individual, and the reason for the sanction. |
+| **Customer** | The customer's enterprise-level employee sanctions process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
