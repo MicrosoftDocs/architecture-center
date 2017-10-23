@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and service acquisition policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating system and services acquisition policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level system and service acquisition policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. <br /> The customer is responsible for allocating resources for information security. The customer control implementation statement should address the security requirements for customer-deployed resources in mission/business process planning. |
+| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. <br /> The customer is responsible for allocating resources for information security. The customer control implementation statement should address the documentation and allocation of resources required to protect customer-deployed resources as part of capital planning and investment control. |
+| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. <br /> The customer is responsible for allocating resources for information security. The customer control implementation statement should address the inclusion of a discrete line item for information security in programming and budgeting documentation. |
+| **Customer** | The customer's enterprise-level resource allocation process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing customer-deployed resources (to include applications, operating systems, databases, and software) using a system development life cycle (SDLC). The customer control implementation statement should address how the customer-defined SDLC process incorporates information security considerations. |
+| **Customer** | The customer is responsible for managing customer-deployed resources (to include applications, operating systems, databases, and software) using a system development life cycle (SDLC). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). The customer control implementation statement should address the definition and documentation of information security roles and responsibilities throughout the SDLC. |
+| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). The customer control implementation statement should address the  identification of individuals having information security roles and responsibilities defined in SA-03.b. |
+| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). The customer control implementation statement should address the integration of the customer's information security risk management process into SDLC activities. |
+| **Customer** | The customer is responsible for managing customer-deployed resources using a system development life cycle (SDLC). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level acquisition process may be sufficient to address this control. <br /> The customer is responsible for implementing an acquisition process for customer-deployed resources (to include applications, operating systems, databases, and software) in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, guidelines, and any customer-defined mission/business needs. The customer control implementation statement should address the inclusion of security-related functional, strength,  assurance, and documentation requirements in the acquisition contract. The acquisition contract should also address the requirements for protecting security-related documentation, a description of the customer's development and operating environments, and the acceptance criteria for the contract. |
+| **Customer** | The customer's enterprise-level acquisition process may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided information system documentation of security controls. <br /> The customer is responsible for obtaining a description of the security controls to be employed from the developer of the corresponding customer-deployed resource(s). The customer control implementation statement should address the functional properties of the security controls referenced above. Note: Microsoft Azure hosts the customer-deployed system. The customer can find a description of the security controls employed by Azure in the "IaaS Implementation" column. |
+| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided information system documentation of security controls. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level acquisition process may establish requirements for security controls to be implemented by information system developers. <br /> The customer is responsible for obtaining design and implementation information for the security controls to be employed from the developer of the corresponding customer-deployed resource(s). The customer control implementation statement should address the inclusion of security-relevant external system interfaces; high-level design; low-level design; source code schematics; and any customer-defined design/implementation information at an organization-defined level of detail in the design and implementation information. Note: Microsoft Azure hosts the customer-deployed system. The customer can find a description of the security controls employed by Azure in the "IaaS Implementation" column. |
+| **Customer** | The customer's enterprise-level acquisition process may establish requirements for security controls to be implemented by information system developers. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided continuous monitoring documentation. <br /> The customer is responsible for obtaining a plan for continuously monitoring security control effectiveness from the developer of the corresponding customer-deployed resource(s). The customer control implementation statement should address the customer-defined level of detail required in the plan. Note: Microsoft Azure hosts the customer-deployed system. The customer can find a description of the security controls employed by Azure in the "IaaS Implementation" column. |
+| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided continuous monitoring documentation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided system functionality continuous documentation. <br /> The customer is responsible for obtaining a description of the identified ports, protocols, and services intended for use from the developer of the corresponding customer-deployed resource(s). The customer control implementation statement should address the fact that the developer must identify such ports, protocols, and services early in the SDLC. Note: Microsoft Azure hosts the customer-deployed system. The customer can find a description of the security controls employed by Azure in the "IaaS Implementation" column. |
+| **Customer** | The customer's enterprise-level acquisition process may establish requirements for developer-provided system functionality continuous documentation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and service acquisition policy may address requirements for PIV products. <br /> The customer is responsible for employing FIPS 201-approved technology products, in order to support Personal Identity Verification (PIV) capability. The customer control implementation statement should address the technology employed in the customer-deployed system ensuring that it appears on the FIPS 201-approved products list for Personal Identity Verification (PIV) capability. Note: if the customer does not deploy PIV credentials this control is not applicable. |
+| **Customer** | The customer's enterprise-level system and service acquisition policy may address requirements for PIV products. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for obtaining administrator documentation for customer-deployed resources (to include applications, operating systems databases, and software). The customer control implementation statement should address the requirement that the documentation describes: secure configuration, installation, and operation of the customer-deployed resources; effective use and maintenance of security functions/mechanisms; known vulnerabilities regarding configuration and use of administrative (i.e., privileged) functions. |
+| **Customer** | The customer is responsible for obtaining administrator documentation for customer-deployed resources (to include applications, operating systems databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -227,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for obtaining user documentation for customer-deployed resources. The customer control implementation statement should address the requirement that the documentation describes: user-accessible security functions/mechanisms and how to effectively use them; methods for user interaction, which enables individuals to use the customer-deployed resources in a more secure manner; user responsibilities in maintaining the security of the customer-deployed resources. |
+| **Customer** | The customer is responsible for obtaining user documentation for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for documenting attempts to obtain administrator and/or user documentation for customer-deployed resources when such documentation is not available/nonexistent. The customer control implementation statement should address the customer-defined actions taken in response to these attempts. |
+| **Customer** | The customer is responsible for documenting attempts to obtain administrator and/or user documentation for customer-deployed resources when such documentation is not available/nonexistent. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for protecting administrator and user documentation for customer-deployed resources. The customer control implementation statement should address the protection mechanisms used in accordance in with the organization’s risk management strategy. |
+| **Customer** | The customer is responsible for protecting administrator and user documentation for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for distributing documentation for customer-deployed resources. The customer control implementation statement should address the means by which the documents identified in SA-05.a, SA-05.b and SA-05.c are distributed to customer-defined personnel/roles. |
+| **Customer** | The customer is responsible for distributing documentation for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -283,7 +283,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for applying security engineering principles to customer-deployed resources. The customer control implementation statement should address how these principles are applied in the specification, design, development, implementation, and modification of customer-deployed resources. |
+| **Customer** | The customer is responsible for applying security engineering principles to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP defines security requirements with which CSPs must comply. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. <br /> The customer is responsible for requiring that external service providers comply with the customer's information security requirements and employ customer-defined security controls. The customer control implementation statement should address how the security controls are used in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP defines security requirements with which CSPs must comply. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. <br /> The customer is responsible for defining and documenting government oversight and user responsibilities and roles with regard to external system services. The customer control implementation statement should address all parties involved in assuring the external service provider is compliant and document their roles and responsibilities. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. <br /> The customer is responsible for continuously monitoring external service providers. The customer control implementation statement should address the customer-defined process, methods, and techniques used to monitor security control compliance by external service providers on an ongoing basis. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements.  <br /> The customer is responsible for conducting a risk assessment prior to acquiring or outsourcing dedicated information security services. The customer control implementation statement should address the risk assessment process used. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model.  Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. <br /> The customer is responsible for obtaining approval of acquisitions or outsourcing of dedicated information security services. The customer control implementation statement should address the customer-defined personnel/roles responsible for approval. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model.  Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. An SSP that documents the Azure security architecture is available to customers through FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). The Azure management portal can be access using a web browser. <br /> The customer is responsible for requiring external service providers to identify the functions, ports, protocols and other services required for the use of that service. The customer control implementation statement should address external providers of system services and the functions, ports, protocols and services leveraged in order to utilize those external services. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. An SSP that documents the Azure security architecture is available to customers through FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). The Azure management portal can be access using a web browser. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -381,7 +381,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  <br /> The customer is responsible for employing safeguards to ensure the interests of external service providers are consistent with and reflect those of the customer. The customer control implementation statement should address the external service providers selected and the customer-defined security safeguards employed. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -395,7 +395,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer’s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure Government datacenters are located within the United States. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  <br /> The customer is responsible for restricting the location of information processing, storage, and service. The customer control implementation statement should address how the customer restricts information process, information/data, and information system services to customer-defined locations based on customer-defined requirements/conditions. |
+| **Customer** | The customerï¿½s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure Government datacenters are located within the United States. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -409,7 +409,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to utilize configuration management. The customer control implementation statement should address the requirement that the developer perform configuration management during the design, development, implementation, and operation of the resources provided. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -423,7 +423,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. The customer control implementation statement should address the requirement that the developer document, manage, and control the integrity of changes to customer-defined configuration items. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -437,7 +437,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. The customer control implementation statement should address the requirement that the developer implements only organization-approved changes to the resources provided. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -451,7 +451,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. The customer control implementation statement should address the requirement that the developer to document approved changes to the resources provided and the potential security impacts of such changes. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -465,7 +465,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. The customer control implementation statement should address the requirement that the developer track security flaws and flaw resolution within the resources provided and report findings to customer-defined personnel. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -479,7 +479,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to utilize configuration management. The customer control implementation statement should address the requirement that the developer enables integrity verification of resources provided. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to utilize configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -493,7 +493,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer create and implement a security assessment plan. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer perform unit, integration, system, and/or regression testing/evaluation at the customer-defined depth and coverage. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer produce evidence of the execution of the security assessment plan and the results of  testing/evaluation. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer implement a verifiable flaw remediation process. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -549,7 +549,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer correct flaws identified during security testing/evaluation. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -563,7 +563,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer employ static code analysis tools to identify common flaws and document the results of the analysis. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -577,7 +577,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer perform threat and vulnerability analyses and subsequent testing/evaluation of the as-built resources provided. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -591,7 +591,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. The customer control implementation statement should address the requirement that the developer employ dynamic code analysis tools to identify common flaws and document the results of the analysis. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to perform testing and evaluation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -605,7 +605,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level supply change protections may be sufficient to address this control. <br /> The customer is responsible for protecting customer-deployed resources (to include applications, operating systems, databases, and software) against supply chain threats. The customer control implementation statement should address the customer-defined security safeguards employed to protect against supply chain threats as part of a comprehensive, defense-in-breadth information security strategy. |
+| **Customer** | The customer's enterprise-level supply change protections may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -619,7 +619,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring developers of customer-deployed resources (to include applications, operating systems, databases, and software) to follow a documented development process. The customer control implementation statement should address how the development process: explicitly addresses security requirements; identifies standards and tools used; documents the specific tool options and configurations used; documents, manages, and ensures the integrity of changes to the process and/or tools used in development. |
+| **Customer** | The customer is responsible for requiring developers of customer-deployed resources (to include applications, operating systems, databases, and software) to follow a documented development process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -633,7 +633,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing the development process, standards, tools, and tool options/configurations as needed to determine if they can satisfy requirements. The customer control implementation statement should address the frequency of the review and the customer-defined security requirements which they are compared to. |
+| **Customer** | The customer is responsible for reviewing the development process, standards, tools, and tool options/configurations as needed to determine if they can satisfy requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -647,7 +647,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to provide training. The customer control implementation statement should address the requirement that the developer provide customer-defined training on the correct use and operation of the implemented security functions, controls, and/or mechanisms for the resources provided. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to provide training. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -655,13 +655,13 @@
 
 #### Developer Security Architecture and Design
 
-**SA-17.a** The organization requires the developer of the information system, system component, or information system service to produce a design specification and security architecture that is consistent with and supportive of the organization’s security architecture which is established within and is an integrated part of the organization’s enterprise architecture.
+**SA-17.a** The organization requires the developer of the information system, system component, or information system service to produce a design specification and security architecture that is consistent with and supportive of the organizationï¿½s security architecture which is established within and is an integrated part of the organizationï¿½s enterprise architecture.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to produce a design specification and security architecture. The customer control implementation statement should address the requirement that the design specification and security architecture is consistent with and supportive of the customer's security architecture. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources (to include applications, operating systems, databases, and software) to produce a design specification and security architecture. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -675,7 +675,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. The customer control implementation statement should address the requirement that the design specification and security architecture accurately and completely describes the required security functionality, and the allocation of security controls among logical resources. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -689,8 +689,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. The customer control implementation statement should address the requirement that the design specification and security architecture expresses how individual security functions, mechanisms, and services work together to provide required security capabilities and a unified approach to protection. |
+| **Customer** | The customer is responsible for requiring the developer of customer-deployed resources to produce a design specification and security architecture. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
