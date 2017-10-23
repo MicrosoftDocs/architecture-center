@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and communications protection policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating system and communications protection policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level system and communications protection policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -27,12 +27,12 @@
 
 **SC-2** The information system separates user functionality (including user interface services) from information system management functionality.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint separates user functionality from system management functionality through enforcement of logical access controls and system architecture. User functionality is limited to customer-deployed web application interfaces. Interfaces for system management functionality are separate from user interfaces. All management connectivity is through a secure bastion host (jumpbox) located in a management subnet with network security group rules to limit access to production resources as appropriate. |
+| **Customer** | This Azure Blueprint separates user functionality from system management functionality through enforcement of logical access controls and system architecture. User functionality is limited to customer-deployed web application interfaces. Interfaces for system management functionality are separate from user interfaces. All management connectivity is through a secure bastion host (jumpbox) located in a management subnet with network security group rules to limit access to production resources as appropriate. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-3
@@ -41,12 +41,12 @@
 
 **SC-3** The information system isolates security functions from nonsecurity functions.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. Additionally, the solution implements an architecture and access controls designed to isolate security functionality where necessary. |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. Additionally, the solution implements an architecture and access controls designed to isolate security functionality where necessary. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-4
@@ -55,12 +55,12 @@
 
 **SC-4** The information system prevents unauthorized and unintended information transfer via shared system resources.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. The operating system manages resources (e.g., memory, storage) such that information is accessible only to users and roles with appropriate permissions. |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. The operating system manages resources (e.g., memory, storage) such that information is accessible only to users and roles with appropriate permissions. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-5
@@ -69,12 +69,12 @@
 
 **SC-5** The information system protects against or limits the effects of the following types of denial of service attacks: [Assignment: organization-defined types of denial of service attacks or references to sources for such information] by employing [Assignment: organization-defined security safeguards].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys an Application Gateway that include a web application firewall and load balancing capabilities. Deployed virtual machines supporting the web tier, database tier, and Active Directory are deployed in a scalable availability set. |
+| **Customer** | This Azure Blueprint deploys an Application Gateway that include a web application firewall and load balancing capabilities. Deployed virtual machines supporting the web tier, database tier, and Active Directory are deployed in a scalable availability set. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-6
@@ -83,12 +83,12 @@
 
 **SC-6** The information system protects the availability of resources by allocating [Assignment: organization-defined resources] by [Selection (one or more); priority; quota; [Assignment: organization-defined security safeguards]].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Each Windows process provides the resources needed to execute a program. Resource priority is managed by the operating system. |
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Each Windows process provides the resources needed to execute a program. Resource priority is managed by the operating system. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-7.a
@@ -97,12 +97,12 @@
 
 **SC-7.a** The information system monitors and controls communications at the external boundary of the system and at key internal boundaries within the system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys an Application Gateway, load balancer, and configures network security group rules to control commutations at external boundaries and between internal subnets. Application Gateway, load balancer, and network security group event and diagnostic logs are collected by OMS Log Analytics to allow customer monitoring. |
+| **Customer** | This Azure Blueprint deploys an Application Gateway, load balancer, and configures network security group rules to control commutations at external boundaries and between internal subnets. Application Gateway, load balancer, and network security group event and diagnostic logs are collected by OMS Log Analytics to allow customer monitoring. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-7.b
@@ -111,12 +111,12 @@
 
 **SC-7.b** The information system implements subnetworks for publicly accessible system components that are [Selection: physically; logically] separated from internal organizational networks.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality (e.g., external traffic cannot access the database, management, or Active Directory subnets). |
+| **Customer** | This Azure Blueprint deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality (e.g., external traffic cannot access the database, management, or Active Directory subnets). |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-7.c
@@ -125,12 +125,12 @@
 
 **SC-7.c** The information system connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys an Application Gateway to manage external connections to a customer-deployed web application. External connections for management access are restricted to a bastion host / jumpbox deployed in a management subnet with network security rules applied to restrict external connections to authorized IP addresses. |
+| **Customer** | This Azure Blueprint deploys an Application Gateway to manage external connections to a customer-deployed web application. External connections for management access are restricted to a bastion host / jumpbox deployed in a management subnet with network security rules applied to restrict external connections to authorized IP addresses. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (3)
@@ -139,12 +139,12 @@
 
 **SC-7 (3)** The organization limits the number of external network connections to the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. |
+| **Customer** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (4).a
@@ -153,12 +153,12 @@
 
 **SC-7 (4).a** The organization implements a managed interface for each external telecommunication service.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. Management of these interfaces is enabled through software-defined networking. |
+| **Customer** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. Management of these interfaces is enabled through software-defined networking. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (4).b
@@ -167,12 +167,12 @@
 
 **SC-7 (4).b** The organization establishes a traffic flow policy for each managed interface.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. Management of these interfaces is enabled through software-defined networking. |
+| **Customer** | This Azure Blueprint deploys two public IP addresses: one associated with the Application Gateway; one associated with the management bastion host / jumpbox. Management of these interfaces is enabled through software-defined networking. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (4).c
@@ -181,12 +181,12 @@
 
 **SC-7 (4).c** The organization protects the confidentiality and integrity of the information being transmitted across each interface.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The web application gateway deployed by this Azure Blueprint is configured with an HTTPS listener, ensuing confidentiality and integrity of communications sessions. Remote Desktop connections to the jumpbox are also encrypted providing confidentiality and integrity. |
+| **Customer** | The web application gateway deployed by this Azure Blueprint is configured with an HTTPS listener, ensuing confidentiality and integrity of communications sessions. Remote Desktop connections to the jumpbox are also encrypted providing confidentiality and integrity. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (4).d
@@ -223,12 +223,12 @@
 
 **SC-7 (5)** The information system at managed interfaces denies network communications traffic by default and allows network communications traffic by exception (i.e., deny all, permit by exception).
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Rulesets applied to network security groups deployed by this Azure Blueprint are configured using a deny-by-default scheme. |
+| **Customer** | Rulesets applied to network security groups deployed by this Azure Blueprint are configured using a deny-by-default scheme. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (7)
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level remote device configuration policy may address split-tunneling. <br /> The customer is responsible for preventing split tunneling for remote devices connecting to the customer-deployed system. The customer control implementation statement should address the methods used for preventing split tunneling at the system as well as the remote device. |
+| **Customer** | The customer's enterprise-level remote device configuration policy may address split-tunneling. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -251,12 +251,12 @@
 
 **SC-7 (8)** The information system routes [Assignment: organization-defined internal communications traffic] to [Assignment: organization-defined external networks] through authenticated proxy servers at managed interfaces.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for routing customer-defined information through an authenticated proxy to an external network. The customer control implementation statement should address the information which requires routing via proxy as well as the external network that information is routed to. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for routing customer-defined information through an authenticated proxy to an external network. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (10)
@@ -265,12 +265,12 @@
 
 **SC-7 (10)** The organization prevents the unauthorized exfiltration of information across managed interfaces.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for preventing unauthorized exfiltration of information across managed interfaces. The customer control implementation statement should address the mechanisms in place to prevent the unauthorized exfiltration of data. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for preventing unauthorized exfiltration of information across managed interfaces. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (12)
@@ -279,12 +279,12 @@
 
 **SC-7 (12)** The organization implements [Assignment: organization-defined host-based boundary protection mechanisms] at [Assignment: organization-defined information system components].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Virtual machines deployed by this Azure Blueprint are configured with a host-based firewall enabled. |
+| **Customer** | Virtual machines deployed by this Azure Blueprint are configured with a host-based firewall enabled. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (13)
@@ -293,12 +293,12 @@
 
 **SC-7 (13)** The organization isolates [Assignment: organization-defined information security tools, mechanisms, and support components] from other internal information system components by implementing physically separate subnetworks with managed interfaces to other components of the system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys resources in an architecture with a separate management subnet for customer deployment of information security tools and support components. Subnets are logically separated by network security group rules. |
+| **Customer** | This Azure Blueprint deploys resources in an architecture with a separate management subnet for customer deployment of information security tools and support components. Subnets are logically separated by network security group rules. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-7 (18)
@@ -311,8 +311,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no physical boundary protection devices within the scope of systems deployed on Azure. |
+| **Customer** | There are no physical boundary protection devices within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure deploys geographically separate and redundant Gateway servers and SSL VPN. When a Gateway system fails, it fails securely and access is restricted to the environment. In order to establish a connection to the Microsoft Azure environment, a user must establish a separate connection to an active Gateway server managed by Microsoft Azure. <br /> Additionally, if Microsoft Azure network devices (including edge routers, access routers, load balancers, aggregation switches, and TORS) fail, the affected circuit becomes disconnected, thereby failing securely. A failure of a Microsoft Azure network device cannot lead to, or cause information external to the system to enter the device, nor can a failure permit unauthorized information release. The built in redundancy allows Microsoft Azure assets to fail without impacting availability. |
 
 
  ### NIST 800-53 Control SC-7 (20)
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for ensuring that the system has the capability to dynamically isolate customer-deployed resources. The customer control implementation statement should address the mechanisms used to dynamically isolate/segregate customer-defined resources from other resources within the system. |
+| **Customer** | The customer is responsible for ensuring that the system has the capability to dynamically isolate customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -335,12 +335,12 @@
 
 **SC-7 (21)** The organization employs boundary protection mechanisms to separate [Assignment: organization-defined information system components] supporting [Assignment: organization-defined missions and/or business functions].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality. |
+| **Customer** | This Azure Blueprint deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-8
@@ -349,12 +349,12 @@
 
 **SC-8** The information system protects the [Selection (one or more): confidentiality; integrity] of transmitted information.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | SI-8 (1) implementation satisfies this control requirement. |
+| **Customer** | SI-8 (1) implementation satisfies this control requirement. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-8 (1)
@@ -363,12 +363,12 @@
 
 **SC-8 (1)** The information system implements cryptographic mechanisms to [Selection (one or more): prevent unauthorized disclosure of information; detect changes to information] during transmission unless otherwise protected by [Assignment: organization-defined alternative physical safeguards].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint configures resources to communicate using only secure protocols. The WAF component of the Application Gateway is configured to accept communicators from external uses over HTTPS/TLS and communicate with the backend pool only over HTTPS/TLS. SQL Server is configured to communicate only over HTTPS/TLS. Remote Desktop services are configured to use secure connections. |
+| **Customer** | This Azure Blueprint configures resources to communicate using only secure protocols. The WAF component of the Application Gateway is configured to accept communicators from external uses over HTTPS/TLS and communicate with the backend pool only over HTTPS/TLS. SQL Server is configured to communicate only over HTTPS/TLS. Remote Desktop services are configured to use secure connections. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-10
@@ -377,12 +377,12 @@
 
 **SC-10** The information system terminates the network connection associated with a communications session at the end of the session or after [Assignment: organization-defined time period] of inactivity.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Authentication for Remote Desktop sessions is managed by Active Directory. Once access is disabled for a user in Active Directory, remote sessions are immediately terminated. |
+| **Customer** | Authentication for Remote Desktop sessions is managed by Active Directory. Once access is disabled for a user in Active Directory, remote sessions are immediately terminated. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-12
@@ -391,12 +391,12 @@
 
 **SC-12** The organization establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with [Assignment: organization-defined requirements for key generation, distribution, storage, access, and destruction].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys an Azure Key Vault. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Azure Key Vault can generate keys using a FIPS 140-2 level 2 hardware security module (HSM) key generation capability. |
+| **Customer** | This Azure Blueprint deploys an Azure Key Vault. Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Azure Key Vault can generate keys using a FIPS 140-2 level 2 hardware security module (HSM) key generation capability. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-12 (1)
@@ -405,12 +405,12 @@
 
 **SC-12 (1)** The organization maintains availability of information in the event of the loss of cryptographic keys by users.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Key Vault is used to store cryptographic keys and secrets used in this Azure Blueprint. Key Vault streamlines the key management process for keys that access and encrypt data. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
+| **Customer** | Azure Key Vault is used to store cryptographic keys and secrets used in this Azure Blueprint. Key Vault streamlines the key management process for keys that access and encrypt data. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-12 (2)
@@ -419,25 +419,25 @@
 
 **SC-12 (2)** The organization produces, controls, and distributes symmetric cryptographic keys using [Selection: NIST FIPS-compliant; NSA-approved] key management technology and processes.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Key Vault is used to produce, control, and distribute cryptographic keys. Azure Key Vault can generate keys using a FIPS 140-2 level 2 hardware security module (HSM) key generation capability. Keys are stored and managed within securely encrypted containers within Azure Key Vault. |
+| **Customer** | Azure Key Vault is used to produce, control, and distribute cryptographic keys. Azure Key Vault can generate keys using a FIPS 140-2 level 2 hardware security module (HSM) key generation capability. Keys are stored and managed within securely encrypted containers within Azure Key Vault. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-12 (3)
 
 #### Cryptographic Key Establishment and Management | Asymmetric Keys
 
-**SC-12 (3)** The organization produces, controls, and distributes asymmetric cryptographic keys using [Selection: NSA-approved key management technology and processes; approved PKI Class 3 certificates or prepositioned keying material; approved PKI Class 3 or Class 4 certificates and hardware security tokens that protect the user’s private key].
+**SC-12 (3)** The organization produces, controls, and distributes asymmetric cryptographic keys using [Selection: NSA-approved key management technology and processes; approved PKI Class 3 certificates or prepositioned keying material; approved PKI Class 3 or Class 4 certificates and hardware security tokens that protect the userï¿½s private key].
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for producing, controlling, and distributing asymmetric cryptographic keys (if they are used within customer-deployed resources). The customer control implementation statement should address the requirement that asymmetric cryptographic keys are managed using one or more of the following: NSA-approved key management technology and processes; approved PKI Class 3 certificates or prepositioned keying material; approved PKI Class 3 or Class 4 certificates and hardware security tokens that protect the user’s private key. |
+| **Customer** | The customer is responsible for producing, controlling, and distributing asymmetric cryptographic keys (if they are used within customer-deployed resources). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -447,12 +447,12 @@
 
 **SC-13** The information system implements [Assignment: organization-defined cryptographic uses and type of cryptography required for each use] in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Windows authentication, remote desktop, and BitLocker are employed by this Azure Blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
+| **Customer** | Windows authentication, remote desktop, and BitLocker are employed by this Azure Blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-15.a
@@ -461,12 +461,12 @@
 
 **SC-15.a** The information system prohibits remote activation of collaborative computing devices with the following exceptions: [Assignment: organization-defined exceptions where remote activation is to be allowed].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no collaborative computing devices deployed as part of this Azure Blueprint. Note: There are physical collaborative computing devices within the scope of systems deployed on Azure. |
+| **Customer** | There are no collaborative computing devices deployed as part of this Azure Blueprint. Note: There are physical collaborative computing devices within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-15.b
@@ -475,12 +475,12 @@
 
 **SC-15.b** The information system provides an explicit indication of use to users physically present at the devices.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no collaborative computing devices deployed as part of this Azure Blueprint. Note: There are physical collaborative computing devices within the scope of systems deployed on Azure. |
+| **Customer** | There are no collaborative computing devices deployed as part of this Azure Blueprint. Note: There are physical collaborative computing devices within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-17
@@ -493,7 +493,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level public key infrastructure for certificate issuance. <br /> The customer is responsible for defining and enforcing a policy for issuing public key certificates. The customer control implementation statement should address the requirement that public key certificates are issued under a customer-defined policy or obtained from an approved service provider. |
+| **Customer** | The customer may rely on an enterprise-level public key infrastructure for certificate issuance. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and communications protection procedures may define acceptable and unacceptable mobile code. <br /> The customer is responsible for defining acceptable and unacceptable mobile code technologies. The customer control implementation statement should address the types of mobile code allowed in customer-deployed resources. |
+| **Customer** | The customer's enterprise-level system and communications protection procedures may define acceptable and unacceptable mobile code. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level system and communications protection procedures may establish restrictions on the use of mobile code. <br /> The customer is responsible for establishing code restrictions and guidance. The customer control implementation statement should address how the customer establishes usage restrictions and implementation guidance for acceptable mobile code and mobile code technologies. |
+| **Customer** | The customer's enterprise-level system and communications protection procedures may establish restrictions on the use of mobile code. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on an enterprise-level process for authorization, monitoring, and control of the use of mobile code. <br /> The customer is responsible for authorizing, monitoring, and controlling the use of mobile code within customer-deployed resources. The customer control implementation statement should address how the customer authorizes, monitors and controls the use of mobile code. |
+| **Customer** | The customer may rely on an enterprise-level process for authorization, monitoring, and control of the use of mobile code. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -545,12 +545,12 @@
 
 **SC-19.a** The organization establishes usage restrictions and implementation guidance for Voice over Internet Protocol (VoIP) technologies based on the potential to cause damage to the information system if used maliciously.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no voice over internet protocol technologies deployed as part of this Azure Blueprint. |
+| **Customer** | There are no voice over internet protocol technologies deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-19.b
@@ -559,12 +559,12 @@
 
 **SC-19.b** The organization authorizes, monitors, and controls the use of VoIP within the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no voice over internet protocol technologies deployed as part of this Azure Blueprint. |
+| **Customer** | There are no voice over internet protocol technologies deployed as part of this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-20.a
@@ -577,7 +577,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for a secure name and address resolution service. The customer control implementation statement should address the mechanisms in place for providing data origin authentication and integrity verification as well as authoritative name resolution data in response to name and address resolution queries. Note: this control is only applicable to the customer if hosting DNS and resolving .gov domains. |
+| **Customer** | The customer is responsible for a secure name and address resolution service. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -591,7 +591,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for a secure name and address resolution service. The customer control implementation statement should address the customer-deployed system's ability to provide the security status of child zones, in order to verify chain of trust among parent and child domains. Note: this control is only applicable to the customer if hosting DNS and resolving .gov domains. |
+| **Customer** | The customer is responsible for a secure name and address resolution service. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -605,7 +605,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for configuring customer-deployed resources to request and perform data origin authentication and data integrity verification on name/address resolution responses received from authoritative sources. The customer control implementation statement should address the DNS implementation in place for validating and authenticating DNS requests. |
+| **Customer** | The customer is responsible for configuring customer-deployed resources to request and perform data origin authentication and data integrity verification on name/address resolution responses received from authoritative sources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -619,7 +619,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for ensuring that the  systems providing address resolution services for customer-deployed resources are fault-tolerant and implement internal/external role separation. The customer control implementation statement should address the systems providing name/address resolution, and how they are fault-tolerant and implement internal/external role separation. Note: if customers configure their Domain Name Server (DNS) settings to use Microsoft Azure servers, Microsoft Azure DNS can support fault tolerance. |
+| **Customer** | The customer is responsible for ensuring that the systems providing address resolution services for customer-deployed resources are fault-tolerant and implement internal/external role separation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -629,12 +629,12 @@
 
 **SC-23** The information system protects the authenticity of communications sessions.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Remote access to resources deployed by this Azure Blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. TLS provides authenticity for communications at the session level. |
+| **Customer** | Remote access to resources deployed by this Azure Blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. TLS provides authenticity for communications at the session level. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-23 (1)
@@ -643,12 +643,12 @@
 
 **SC-23 (1)** The information system invalidates session identifiers upon user logout or other session termination.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Remote access to resources deployed by this Azure Blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. The Azure portal and remote desktop sessions invalidate session identifiers upon logout. Web session invalidation is enforced through Azure Application Gateway - Web Application Firewall (WAF) rules. The WAF applies cookie affinity per session and performs session timeout after 30 minutes (configurable post deployment to organization specific rules) of inactivity from the client. |
+| **Customer** | Remote access to resources deployed by this Azure Blueprint, including the Azure portal, remote desktop connection, and web application gateway, are secured using TLS. The Azure portal and remote desktop sessions invalidate session identifiers upon logout. Web session invalidation is enforced through Azure Application Gateway - Web Application Firewall (WAF) rules. The WAF applies cookie affinity per session and performs session timeout after 30 minutes (configurable post deployment to organization specific rules) of inactivity from the client. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-24
@@ -661,7 +661,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for ensuring customer-deployed resources fail in a known-state. The customer control implementation statement should address the customer-defined known-state the system fails to, the types of failures this applies to, as well as how it preserves the system state information in failure. |
+| **Customer** | The customer is responsible for ensuring customer-deployed resources fail in a known-state. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -671,12 +671,12 @@
 
 **SC-28** The information system protects the [Selection (one or more): confidentiality; integrity] of [Assignment: organization-defined information at rest].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | SC-28 (1) implementation satisfies this control requirement. |
+| **Customer** | SC-28 (1) implementation satisfies this control requirement. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control SC-28 (1)
@@ -685,12 +685,12 @@
 
 **SC-28 (1)** The information system implements cryptographic mechanisms to prevent unauthorized disclosure and modification of [Assignment: organization-defined information] on [Assignment: organization-defined information system components].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Virtual machines deployed by this Azure Blueprint implement disk encryption to protect the confidentiality and integrity of information at rest. Azure disk encryption for Windows is implemented using the BitLocker feature of Windows. SQL Server is configured to use Transparent Data Encryption (TDE), which performs real-time encryption and decryption of data and log files to protect information at rest. TDE provides assurance that stored data has not been subject to unauthorized access. Customer may elect to implement additional application-level controls to protect the integrity of stored information. Confidentiality and integrity of all storage blobs deployed by this Azure Blueprint are protected through use of Azure Storage Service Encryption (SSE). SSE safeguards data at rest within Azure storage accounts using 256-bit AES encryption. |
+| **Customer** | Virtual machines deployed by this Azure Blueprint implement disk encryption to protect the confidentiality and integrity of information at rest. Azure disk encryption for Windows is implemented using the BitLocker feature of Windows. SQL Server is configured to use Transparent Data Encryption (TDE), which performs real-time encryption and decryption of data and log files to protect information at rest. TDE provides assurance that stored data has not been subject to unauthorized access. Customer may elect to implement additional application-level controls to protect the integrity of stored information. Confidentiality and integrity of all storage blobs deployed by this Azure Blueprint are protected through use of Azure Storage Service Encryption (SSE). SSE safeguards data at rest within Azure storage accounts using 256-bit AES encryption. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control SC-39
@@ -699,12 +699,9 @@
 
 **SC-39** The information system maintains a separate execution domain for each executing process.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. |
-
-
-
+| **Customer** | The virtual machines deployed by this Azure Blueprint run Windows operating systems. Windows maintains separate execution domains for each executing process by assigning a private virtual address space to each process. |
+| **Provider (Microsoft Azure)** | Not Applicable |
