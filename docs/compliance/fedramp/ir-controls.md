@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating incident response policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level incident response policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. <br /> The customer is responsible for providing incident response training to users of customer-deployed resources in accordance with assigned roles and responsibilities. The customer control implementation statement should address the time period within which personnel assuming a incident response role/responsibility must be trained. |
+| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. <br /> The customer is responsible for providing incident response retraining to users of customer-deployed resources, when changes occur, in accordance with assigned roles and responsibilities. The customer control implementation statement should address the types of changes to customer-deployed resources that necessitate retraining. |
+| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. <br /> The customer is responsible for providing incident response retraining to users of customer-deployed resources, as required, in accordance with assigned roles and responsibilities. The customer control implementation statement should address the customer-defined frequency with which retraining is required. |
+| **Customer** | The customer's enterprise-level incident response training may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may include simulated events. <br /> The customer is responsible for providing incident response training, which incorporates simulated events, to users of customer-deployed resources in accordance with assigned roles and responsibilities. The customer control implementation statement should address the simulated events included in incident response training. |
+| **Customer** | The customer's enterprise-level incident response training may include simulated events. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may employ an automated training environment. <br /> The customer is responsible for providing incident response training, which employs automated mechanisms, to users of customer-deployed resources in accordance with assigned roles and responsibilities. The customer control implementation statement should address the automated mechanisms that provide a more through and realistic training environment. |
+| **Customer** | The customer's enterprise-level incident response training may employ an automated training environment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability testing may be sufficient to address this control. <br /> The customer is responsible for testing the incident response capability of customer-deployed resources. The customer control implementation statement should address the frequency within which testing occurs, the customer-defined tests used to determine incident response effectiveness, and the documentation of testing results. |
+| **Customer** | The customer's enterprise-level incident response capability testing may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability testing may include coordination with tests of related plans. <br /> The customer is responsible for coordinating incident response testing with related plans. The customer control implementation statement should address the coordination of incident response testing with organizational elements responsible for related plans (e.g., business continuity, contingency, disaster recovery). |
+| **Customer** | The customer's enterprise-level incident response capability testing may include coordination with tests of related plans. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. <br /> The customer is responsible for implementing an incident handling capability. The customer control implementation statement should address key incident handling capabilities including preparation, detection and analysis, containment, eradication, and recovery. |
+| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. <br /> The customer is responsible for implementing an incident handling capability. The customer control implementation statement should address coordination of incident handling activities with contingency planning activities.  |
+| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. <br /> The customer is responsible for implementing an incident handling capability. The customer control implementation statement should address lessons learned from ongoing incident handling activities; their incorporation into incident response procedures, training, and testing going forward; and the implementation of the resulting changes. |
+| **Customer** | The customer's enterprise-level incident handling capability may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may employ automation to support the incident handling process. <br /> The customer is responsible for employing automated incident handling mechanisms. The customer control implementation statement should address the mechanisms in place to support the incident handling process (e.g., ticketing systems and incident tracking/reporting systems).  |
+| **Customer** | The customer's enterprise-level incident handling capability may employ automation to support the incident handling process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for including dynamic reconfiguration of all customer-deployed resources as part of the incident response capability (e.g., filter rules to firewalls and gateways, access control lists). The customer control implementation statement should address the customer-defined resources capable of dynamic reconfiguration. |
+| **Customer** | The customer is responsible for including dynamic reconfiguration of all customer-deployed resources as part of the incident response capability (e.g., filter rules to firewalls and gateways, access control lists). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may  address continuation of organizational missions and business functions during an incident. <br /> The customer is responsible for identifying classes of incidents and the actions taken in response to those incidents. The customer control implementation statement should address the customer-defined classes of incidents, and the actions taken in response to each class to ensure continuation of organizational missions and business functions. |
+| **Customer** | The customer's enterprise-level incident handling capability may  address continuation of organizational missions and business functions during an incident. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -215,7 +215,7 @@
 |---|---|
 | **Customer** | The customer's enterprise-level incident handling capability may include incident information correlation.
 
- <br /> The customer is responsible for correlating incident information and individual incident responses across the customer organization in order to achieve perspective on incident awareness and response. The customer control implementation statement should address the correlation of incident information and individual responses which provide a organization-wide perspective on incident awareness. |
+ |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -229,7 +229,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may address insider threats. <br /> The customer is responsible for implementing an incident handling capability for insider threats. The customer control implementation statement should address the customer's capability to handle insider threats. |
+| **Customer** | The customer's enterprise-level incident handling capability may address insider threats. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -243,7 +243,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident handling capability may include capability to correlate with external organizations. <br /> The customer is responsible for coordinating with external organizations to achieve a cross-organizational perspective on incident awareness and more effective incident responses. The customer control implementation statement should address the customer-defined external organizations and incident information to be shared. |
+| **Customer** | The customer's enterprise-level incident handling capability may include capability to correlate with external organizations. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -257,7 +257,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident monitoring capability may be sufficient to address this control. <br /> The customer is responsible for incident monitoring. The customer control implementation statement should address the mechanisms used for tracking and documenting security incidents for customer-deployed resources. |
+| **Customer** | The customer's enterprise-level incident monitoring capability may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -271,7 +271,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident monitoring capability may employ automated tracking, collection, and analysis mechanisms. <br /> The customer is responsible for employing automated mechanisms to assist in incident monitoring. The customer control implementation statement should address the mechanisms employed for tracking security incidents and collecting/analyzing incident information. |
+| **Customer** | The customer's enterprise-level incident monitoring capability may employ automated tracking, collection, and analysis mechanisms. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -285,7 +285,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response procedures may address personnel reporting requirements. <br /> The customer is responsible for requiring personnel to report suspected security incidents to the organizational incident response capability. The customer control implementation statement should address the timeframe within which incidents must be reported. |
+| **Customer** | The customer's enterprise-level incident response procedures may address personnel reporting requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -299,7 +299,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response procedures may address personnel reporting requirements. <br /> The customer is responsible for reporting security incident information. The customer control implementation statement should address the customer-defined authorities to be notified. Note: in cases where customer security incidents may affect the security status of Microsoft Azure, the customer is responsible for notifying Microsoft Azure. Additionally, customers who are classified as a government agency is responsible to designate US-CERT as a notification contact.  |
+| **Customer** | The customer's enterprise-level incident response procedures may address personnel reporting requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -313,7 +313,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident reporting capability may include automation reporting mechanisms. <br /> The customer is responsible for employing automated mechanisms to support incident reporting. The customer control implementation statement should address the mechanisms used (e.g., ticketing and incident tracking/reporting systems) to assist in the reporting of security incidents. |
+| **Customer** | The customer's enterprise-level incident reporting capability may include automation reporting mechanisms. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -327,7 +327,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability may include incident response support resources. <br /> The customer is responsible for providing incident response support resources that are integral to the organizational incident response capability. The customer control implementation statement should address the customer's capability to offer advice and assistance to users for the handling and reporting of security incidents.  |
+| **Customer** | The customer's enterprise-level incident response capability may include incident response support resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -341,7 +341,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability may employ automated mechanisms to make available incident response support and resources. <br /> The customer is responsible for using automated mechanisms to increase the availability of incident response support resources. The customer control implementation statement should address the support mechanisms used. |
+| **Customer** | The customer's enterprise-level incident response capability may employ automated mechanisms to make available incident response support and resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -355,7 +355,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability may address coordination with external providers. <br /> The customer is responsible for establishing relationships between its incident response capability and external providers. The customer control implementation statement should address the external relationships which provide resource protection. Note: it is the customer’s responsibility to provide accurate and current contact information to Microsoft Azure in order to receive notifications of security incidents involving the potential breach of customer data. |
+| **Customer** | The customer's enterprise-level incident response capability may address coordination with external providers. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -369,7 +369,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response capability may address coordination with external providers. <br /> The customer is responsible for identifying incident response team members to Microsoft Azure and any other external providers. The customer control implementation statement should address the team members. |
+| **Customer** | The customer's enterprise-level incident response capability may address coordination with external providers. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -383,7 +383,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response plan may be sufficient to address this control. <br /> The customer is responsible for developing an incident response plan for customer-deployed resources. The customer control implementation statement should address the inclusion of following in the incident response plan: a roadmap for implementing its incident response capability; the structure and organization of the incident response capability; a high-level approach for how incident response fits into the customer's organization; how the plan meets unique customer requirements which relate to mission, size, structure and functions; a definition of reportable incidents; metrics for measuring incident response capability; resources and management support needed to effectively maintain and mature the incident response capability; and the personnel/roles responsible for reviewing and approving the plan. |
+| **Customer** | The customer's enterprise-level incident response plan may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -397,7 +397,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. <br /> The customer is responsible for distributing the incident response plan. The customer control implementation statement should address the key personnel (identified by name and/or role) and customer elements who should receive a copy of the incident response plan defined in IR-08.a. |
+| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -411,7 +411,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. <br /> The customer is responsible for reviewing the incident response plan. The customer control implementation statement should address the frequency with which the incident response plan is reviewed. |
+| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -425,7 +425,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. <br /> The customer is responsible for updating the incident response plan. The customer control implementation statement should address how updates reflect changes to the organization, resources, or environment of operation; and the problems encountered during implementation, execution, or testing of incident response activities. |
+| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -439,7 +439,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. <br /> The customer is responsible for communicating changes made to the incident response plan. The customer control implementation statement should address the means by which the customer communicates changes to the key personnel defined in IR-08.b. |
+| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -453,7 +453,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. <br /> The customer is responsible for protecting the incident response plan. The customer control implementation statement should address the process for preventing unauthorized disclosure or modification of the plan. |
+| **Customer** | The customer's enterprise-level incident response program may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -467,7 +467,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address the specific information involved in the information contamination. |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -481,7 +481,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address the personnel/roles to be alerted of the information spill and the usage of a communication method that is not associated with the spill.  |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -495,7 +495,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address how the contaminated customer-deployed resources are isolated.  |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -509,7 +509,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address the eradication of information from the contaminated resources. |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -523,7 +523,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address the identification of other resources which may have been subsequently contaminated.  |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -537,7 +537,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  <br /> The customer is responsible for responding to information spills. The customer control implementation statement should address any other customer-defined actions to be performed.  |
+| **Customer** | The customer's enterprise-level information spillage response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -551,7 +551,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response procedures may establish personnel or roles with information spillage response responsibilities. <br /> The customer is responsible for assigning individuals for responding to information spills. The customer control implementation statement should address the personnel/roles tasked with responding to information spills. |
+| **Customer** | The customer's enterprise-level incident response procedures may establish personnel or roles with information spillage response responsibilities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -565,7 +565,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response training may include information spillage response. <br /> The customer is responsible for providing information spillage response training. The customer control implementation statement should address the frequency with which information spillage training is provided. |
+| **Customer** | The customer's enterprise-level incident response training may include information spillage response. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -579,7 +579,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information spillage post-spill response capability may be sufficient to address this control.  <br /> The customer is responsible for ensuring customer personnel impacted by information spills can continue carrying out assigned tasks. The customer control implementation statement should address the customer-defined procedures to be implemented while contaminated resources are undergoing corrective actions.  |
+| **Customer** | The customer's enterprise-level information spillage post-spill response capability may be sufficient to address this control.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -593,8 +593,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level incident response procedures may address safeguards for personnel inadvertently exposed to information not within assigned access authorizations. <br /> The customer is responsible for managing exposure of spilled information to unauthorized personnel. The customer control implementation statement should address the customer-defined security safeguards employed for personnel exposed to information not within assigned access authorizations. |
+| **Customer** | The customer's enterprise-level incident response procedures may address safeguards for personnel inadvertently exposed to information not within assigned access authorizations. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
