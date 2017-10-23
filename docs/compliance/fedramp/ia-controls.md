@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level identification and authentication policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating identification and authentication policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level identification and authentication policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -27,12 +27,12 @@
 
 **IA-2** The information system uniquely identifies and authenticates organizational users (or processes acting on behalf of organizational users).
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Accounts created by this Azure Blueprint have unique identifiers. Built-in accounts with non-unique identifiers are disabled or removed. |
+| **Customer** | Accounts created by this Azure Blueprint have unique identifiers. Built-in accounts with non-unique identifiers are disabled or removed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-2 (1)
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing multifactor authentication for network access to privileged accounts. The customer control implementation statement should address privileged account types and how multifactor authentication is enforced. |
+| **Customer** | The customer is responsible for implementing multifactor authentication for network access to privileged accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing multifactor authentication for network access to non-privileged accounts. The customer control implementation statement should address non-privileged account types and how multifactor authentication is enforced. |
+| **Customer** | The customer is responsible for implementing multifactor authentication for network access to non-privileged accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,8 +73,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customer do not have local access to any system resources in Azure datacenters. |
+| **Customer** | Customer do not have local access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not permit local access unless physical access is required. Local Administrator access must only be used to troubleshoot issues in instances where the member server is experiencing network issues and domain authentication is not working. <br /> Azure implements multifactor authentication for local access via access control mechanisms required for physical access to the environment. Rooms within the Azure datacenters that contain all Azure Infrastructure systems within the system boundary are restricted through various physical security mechanisms, including the requirement for corporate smart card badging access and biometric devices. Both forms of authentication are required for physical access at the ingress point to Azure datacenter colocations. |
 
 
  ### NIST 800-53 Control IA-2 (4)
@@ -87,8 +87,8 @@
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Customer do not have local access to any system resources in Azure datacenters. |
+| **Customer** | Customer do not have local access to any system resources in Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure considers all Microsoft Azure Government accounts used by Microsoft Azure Government personnel as privileged. Multifactor authentication is implemented for all Microsoft Azure Government personnel accounts using smartcards and pins, which includes local access. |
 
 
  ### NIST 800-53 Control IA-2 (5)
@@ -97,12 +97,12 @@
 
 **IA-2 (5)** The organization requires individuals to be authenticated with an individual authenticator when a group authenticator is employed.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-2 (8)
@@ -111,12 +111,12 @@
 
 **IA-2 (8)** The information system implements replay-resistant authentication mechanisms for network access to privileged accounts.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Customer** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-2 (9)
@@ -125,12 +125,12 @@
 
 **IA-2 (9)** The information system implements replay-resistant authentication mechanisms for network access to non-privileged accounts.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Customer** | Access to resources deployed by this Azure Blueprint is protected from replay attacks by the built-in Kerberos functionality of Azure Active Directory, Active Directory, and the Windows operating system. In Kerberos authentication, the authenticator sent by the client contains additional data, such as an encrypted IP list, client timestamps, and ticket lifetime. If a packet is replayed, the timestamp is checked. If the timestamp is earlier than, or the same as a previous authenticator, the packet is rejected. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-2 (11)
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing multifactor authentication to access customer-deployed resources remotely. The customer control implementation statement should address how multifactor authentication is implemented for remote access, the requirement that one of the factors is provided by a device separate from the customer-deployed resources gaining access, and the customer-defined strength of mechanism requirements for the separate device. |
+| **Customer** | The customer is responsible for implementing multifactor authentication to access customer-deployed resources remotely. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for accepting and verifying Personal Identity Verification (PIV) credentials. The customer control implementation statement should address the mechanisms for accepting and verifying PIV credentials. Note: if the customer does not deploy PIV credentials this control is not applicable. |
+| **Customer** | The customer is responsible for accepting and verifying Personal Identity Verification (PIV) credentials. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -167,12 +167,12 @@
 
 **IA-3** The information system uniquely identifies and authenticates [Assignment: organization-defined specific and/or types of devices] before establishing a [Selection (one or more): local; remote; network] connection.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing device identification and authentication. The customer control implementation statement should address customer-defined specific and/or types of devices and connections, as well as how devices are uniquely identified and authenticated prior to establishing a connection.  |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for implementing device identification and authentication. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-4.a
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing  identifiers (i.e., individuals, groups, roles, and devices) for customer resources. The customer control implementation statement should address the requirement that authorization is provided by customer-defined personnel/roles prior to assigning identifiers.   |
+| **Customer** | The customer is responsible for managing identifiers (i.e., individuals, groups, roles, and devices) for customer resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -195,12 +195,12 @@
 
 **IA-4.b** The organization manages information system identifiers by selecting an identifier that identifies an individual, group, role, or device.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint prompts during deployment for customer-specified identifiers for individual accounts.  |
+| **Customer** | This Azure Blueprint prompts during deployment for customer-specified identifiers for individual accounts.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-4.c
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing  identifiers (i.e., individuals, groups, roles, and devices) for customer resources. The customer control implementation statement should address the assignment of identifiers.  |
+| **Customer** | The customer is responsible for managing identifiers (i.e., individuals, groups, roles, and devices) for customer resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -223,12 +223,12 @@
 
 **IA-4.d** The organization manages information system identifiers by preventing reuse of identifiers for [Assignment: organization-defined time period].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Active Directory and local Windows operating system accounts are assigned a unique security identifier (SID). Azure Active Directory accounts are assigned a globally unique Object ID. These unique IDs are not subject to reuse. |
+| **Customer** | Active Directory and local Windows operating system accounts are assigned a unique security identifier (SID). Azure Active Directory accounts are assigned a globally unique Object ID. These unique IDs are not subject to reuse. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-4.e
@@ -237,12 +237,12 @@
 
 **IA-4.e** The organization manages information system identifiers by disabling the identifier after [Assignment: organization-defined time period of inactivity].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint implements a scheduled task for Active Directory to automatically disable accounts after 35 days of inactivity. |
+| **Customer** | This Azure Blueprint implements a scheduled task for Active Directory to automatically disable accounts after 35 days of inactivity. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-4 (4)
@@ -251,12 +251,12 @@
 
 **IA-4 (4)** The organization manages individual identifiers by uniquely identifying each individual as [Assignment: organization-defined characteristic identifying individual status].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Active Directory and Active Directory support denoting contractors, vendors, and other user types using naming conventions applied to their identifiers. |
+| **Customer** | Azure Active Directory and Active Directory support denoting contractors, vendors, and other user types using naming conventions applied to their identifiers. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.a
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing authenticators. The customer control implementation statement should address verifying, as part of the initial authenticator distribution, the identity of the individual, group, role, or device receiving the authenticator (e.g., verifying an individual’s identity with a government-issued identification card). |
+| **Customer** | The customer is responsible for managing authenticators. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -279,12 +279,12 @@
 
 **IA-5.b** The organization manages information system authenticators by establishing initial authenticator content for authenticators defined by the organization.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | All initial authenticator content for accounts created by this Azure Blueprint meet the requirements stated in IA-5 (1) verified when specified by the customer during deployment.  |
+| **Customer** | All initial authenticator content for accounts created by this Azure Blueprint meet the requirements stated in IA-5 (1) verified when specified by the customer during deployment.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.c
@@ -293,12 +293,12 @@
 
 **IA-5.c** The organization manages information system authenticators by ensuring that authenticators have sufficient strength of mechanism for their intended use.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Authenticators used by this Azure Blueprint meet requirements for strength as required by FedRAMP. |
+| **Customer** | Authenticators used by this Azure Blueprint meet requirements for strength as required by FedRAMP. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.d
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing authenticators. The customer control implementation statement should address the requirement that the customer implements administrative procedures for initial authenticator distribution, for lost/compromised or damaged authenticators, and for revoking authenticators. |
+| **Customer** | The customer is responsible for managing authenticators. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -321,12 +321,12 @@
 
 **IA-5.e** The organization manages information system authenticators by changing default content of authenticators prior to information system installation.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | All authenticators for components of this Azure Blueprint have been changed from their defaults. Authenticators are customer-specified during deployment of this solution. |
+| **Customer** | All authenticators for components of this Azure Blueprint have been changed from their defaults. Authenticators are customer-specified during deployment of this solution. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.f
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for managing authenticators. The customer control implementation statement should address the establishment of minimum and maximum lifetime restrictions and reuse conditions for authenticators.  |
+| **Customer** | The customer is responsible for managing authenticators. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -349,12 +349,12 @@
 
 **IA-5.g** The organization manages information system authenticators by changing/refreshing authenticators [Assignment: organization-defined time period by authenticator type].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to implement password lifetime restrictions (60 days). |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to implement password lifetime restrictions (60 days). |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.h
@@ -363,12 +363,12 @@
 
 **IA-5.h** The organization manages information system authenticators by protecting authenticator content from unauthorized disclosure and modification.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
+| **Customer** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.i
@@ -377,12 +377,12 @@
 
 **IA-5.i** The organization manages information system authenticators by requiring individuals to take, and having devices implement, specific security safeguards to protect authenticators.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. Key Vault encrypts keys and secrets (such as authentication keys, storage account keys, data encryption keys, and passwords) by using keys that are protected by hardware security modules (HSMs). |
+| **Customer** | This Azure Blueprint implements Key Vault to protect authenticator content from unauthorized disclosure and modification. The following authenticators are stored in Key Vault: Azure password for deploy account, virtual machine administrator password, SQL Server service account password. Key Vault encrypts keys and secrets (such as authentication keys, storage account keys, data encryption keys, and passwords) by using keys that are protected by hardware security modules (HSMs). |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-5.j
@@ -391,12 +391,12 @@
 
 **IA-5.j** The organization manages information system authenticators by Changing authenticators for group/role accounts when membership to those accounts changes.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Customer** | No shared/group accounts are enabled on resources deployed by this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (1).a
@@ -405,12 +405,12 @@
 
 **IA-5 (1).a** The information system, for password-based authentication enforces minimum password complexity of [Assignment: organization-defined requirements for case sensitivity, number of characters, mix of upper-case letters, lower-case letters, numbers, and special characters, including minimum requirements for each type].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce password complexity requirements for virtual machine local accounts and AD accounts.  |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce password complexity requirements for virtual machine local accounts and AD accounts.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (1).b
@@ -423,7 +423,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing password-based authentication within customer-deployed resources. The customer control implementation statement should address the customer-defined number of characters to be changed when new passwords are created.  |
+| **Customer** | The customer is responsible for employing password-based authentication within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -433,12 +433,12 @@
 
 **IA-5 (1).c** The information system, for password-based authentication stores and transmits only cryptographically-protected passwords.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Directory is used to ensure that all passwords are cryptographically protected while stored and transmitted. Passwords stored by Active Directory and locally on deployed Windows virtual machines are automatically hashed as part of built-in security functionality. Remote desktop authentication sessions are secured using TLS to ensure authenticators are protected when transmitted. |
+| **Customer** | Azure Directory is used to ensure that all passwords are cryptographically protected while stored and transmitted. Passwords stored by Active Directory and locally on deployed Windows virtual machines are automatically hashed as part of built-in security functionality. Remote desktop authentication sessions are secured using TLS to ensure authenticators are protected when transmitted. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (1).d
@@ -447,12 +447,12 @@
 
 **IA-5 (1).d** The information system, for password-based authentication enforces password minimum and maximum lifetime restrictions of [Assignment: organization-defined numbers for lifetime minimum, lifetime maximum].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on passwords that enforce minimum (1 day) and maximum (60 days) lifetime restrictions for local accounts and AD accounts. |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on passwords that enforce minimum (1 day) and maximum (60 days) lifetime restrictions for local accounts and AD accounts. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (1).e
@@ -461,12 +461,12 @@
 
 **IA-5 (1).e** The information system, for password-based authentication prohibits password reuse for [Assignment: organization-defined number] generations.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on reuse conditions (24 passwords) for local accounts and AD accounts. |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy is established and configured to enforce restrictions on reuse conditions (24 passwords) for local accounts and AD accounts. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (1).f
@@ -475,12 +475,12 @@
 
 **IA-5 (1).f** The information system, for password-based authentication allows the use of a temporary password for system logons with an immediate change to a permanent password.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Active Directory is used to manage control access to the information system. Whenever an account is initially created, or a temporary password is generated, Azure Active Directory is employed to require that the user change the password at the next login. |
+| **Customer** | Azure Active Directory is used to manage control access to the information system. Whenever an account is initially created, or a temporary password is generated, Azure Active Directory is employed to require that the user change the password at the next login. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (2).a
@@ -493,7 +493,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. The customer control implementation statement should address the requirement to validate certifications by constructing and verifying a certification path to an accepted trust anchor, including checking certificate status information. |
+| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. The customer control implementation statement should address the enforcement of authorized access to private keys.  |
+| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. The customer control implementation statement should address the mapping of each authenticated identity to the account of the corresponding individual or group. |
+| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. The customer control implementation statement should address the implementation of a local cache of private key data to support path discovery and validation when unable to access this information via the network. |
+| **Customer** | The customer is responsible for employing PKI-based authentication within customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -549,7 +549,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for registering authenticators. The customer control implementation statement should address the types of and/or specific authenticators requiring in-person registration, customer-defined registration authority, and personnel/roles assigned to authorize registration.  |
+| **Customer** | The customer is responsible for registering authenticators. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -559,12 +559,12 @@
 
 **IA-5 (4)** The organization employs automated tools to determine if password authenticators are sufficiently strong to satisfy [Assignment: organization-defined requirements].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | User accounts deployed with this Azure Blueprint include AD and local user accounts. Both of these provide mechanisms that force compliance with established password requirements in order to create an initial password and during password changes. Azure Active Directory is the automated tool employed to determine if password authenticators are sufficiently strong to satisfy the password length, complexity, rotation, and lifetime restrictions established in IA-5 (1). Azure Active Directory ensures that password authenticator strength at creation meets these standards. Customer-specified passwords used to deploy this solution are checked to meet password strength requirements. |
+| **Customer** | User accounts deployed with this Azure Blueprint include AD and local user accounts. Both of these provide mechanisms that force compliance with established password requirements in order to create an initial password and during password changes. Azure Active Directory is the automated tool employed to determine if password authenticators are sufficiently strong to satisfy the password length, complexity, rotation, and lifetime restrictions established in IA-5 (1). Azure Active Directory ensures that password authenticator strength at creation meets these standards. Customer-specified passwords used to deploy this solution are checked to meet password strength requirements. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (6)
@@ -577,7 +577,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for protecting authenticators. The customer control implementation statement should address the mechanisms used to protect authenticators commensurate with the security category of the information to be accessed. |
+| **Customer** | The customer is responsible for protecting authenticators. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -587,12 +587,12 @@
 
 **IA-5 (7)** The organization ensures that unencrypted static authenticators are not embedded in applications or access scripts or stored on function keys.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no use of unencrypted static authenticators embedded in applications, access scripts, or function keys deployed by this Azure Blueprint. Any script or application that uses an authenticator makes a call to an Azure Key Vault container prior to each use. Access to Azure Key Vault containers is audited, which allows detection of violations of this prohibition if a service account is used to access a system without a corresponding call to the Azure Key Vault container. |
+| **Customer** | There is no use of unencrypted static authenticators embedded in applications, access scripts, or function keys deployed by this Azure Blueprint. Any script or application that uses an authenticator makes a call to an Azure Key Vault container prior to each use. Access to Azure Key Vault containers is audited, which allows detection of violations of this prohibition if a service account is used to access a system without a corresponding call to the Azure Key Vault container. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control IA-5 (8)
@@ -605,7 +605,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely on enterprise-level security safeguards to manage risk associated with individuals having accounts on multiple systems. <br /> The customer is responsible for managing the risk imposed by users with multiple accounts on customer-deployed resources. The customer control implementation statement should address the security safeguards used to manage the risk of compromise due to individuals having accounts on multiple information systems (e.g., having different authenticators on all systems, employing some form of single sign-on mechanism, or including some form of one-time passwords on all systems). |
+| **Customer** | The customer may rely on enterprise-level security safeguards to manage risk associated with individuals having accounts on multiple systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -619,7 +619,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing mechanisms to satisfy hardware token-based authentication quality requirements. The customer control implementation statement should address the customer-defined quality requirements in place. |
+| **Customer** | The customer is responsible for employing mechanisms to satisfy hardware token-based authentication quality requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -629,12 +629,12 @@
 
 **IA-5 (13)** The information system prohibits the use of cached authenticators after [Assignment: organization-defined time period].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | No resources deployed by this Azure Blueprint are configured to allow the use of cached authenticators. Authentication to deployed virtual machines requires that an authenticator is entered at the time of authentication. |
+| **Customer** | No resources deployed by this Azure Blueprint are configured to allow the use of cached authenticators. Authentication to deployed virtual machines requires that an authenticator is entered at the time of authentication. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-6
@@ -643,12 +643,12 @@
 
 **IA-6** The information system obscures feedback of authentication information during the authentication process to protect the information from possible exploitation/use by unauthorized individuals.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Access to resources deployed by this Azure Blueprint is through Remote Desktop and relies on Windows authentication. The default behavior of Windows authentication sessions masks passwords when input during an authentication session.  |
+| **Customer** | Access to resources deployed by this Azure Blueprint is through Remote Desktop and relies on Windows authentication. The default behavior of Windows authentication sessions masks passwords when input during an authentication session.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-7
@@ -657,12 +657,12 @@
 
 **IA-7** The information system implements mechanisms for authentication to a cryptographic module that meet the requirements of applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance for such authentication.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Windows authentication, remote desktop, and BitLocker are employed by this Azure Blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
+| **Customer** | Windows authentication, remote desktop, and BitLocker are employed by this Azure Blueprint. These components can be configured to rely on FIPS 140 validated cryptographic modules. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control IA-8
@@ -675,7 +675,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for identifying and authenticating non-organizational users accessing customer-deployed resources. The customer control implementation statement should address how non-organizational users (or processes acting on their behalf) are uniquely identified and authenticated (e.g., database for non-organizational users to log into a web application). |
+| **Customer** | The customer is responsible for identifying and authenticating non-organizational users accessing customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -689,7 +689,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for accepting and verifying Personal Identity Verification (PIV) credentials issued by other federal agencies. The customer control implementation statement should address the mechanisms for accepting and verifying PIV credentials that have been issued by other government agencies. Note: if the customer does not deploy PIV credentials this control is not applicable. |
+| **Customer** | The customer is responsible for accepting and verifying Personal Identity Verification (PIV) credentials issued by other federal agencies. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -703,7 +703,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for only accepting third-party credentials that have been approved by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. The customer control implementation statement should address the mechanisms for accepting FICAM-approved credentials. Note: if the customer’s deployed resources do not allow third-party credentials this control is not applicable. |
+| **Customer** | The customer is responsible for only accepting third-party credentials that have been approved by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -717,7 +717,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing only Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative approved resources for accepting third-party credentials. The customer control implementation statement should address the resources used in the customer-defined system for accepting FICAM-approved credentials. Note: if the customer’s deployed resources do not allow third-party credentials this control is not applicable. |
+| **Customer** | The customer is responsible for employing only Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative approved resources for accepting third-party credentials. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -731,8 +731,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for conforming to the profiles issued by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. The customer control implementation statement should address how customer deployed resources conform to FICAM-issued profiles. Note: if the customer’s deployed resources do not allow third-party credentials this control is not applicable. |
+| **Customer** | The customer is responsible for conforming to the profiles issued by the Federal Identity, Credential, and Access Management (FICAM) Trust Framework Solutions initiative. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
