@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness and training policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating security awareness training policy and procedures. The customer security awareness training addresses the security around the customer-deployed resources for the customer’s users. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level security awareness and training policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may provide initial training to all system users. <br /> The customer is responsible for providing basic security awareness training to all users of customer-deployed resources as part of initial training. The customer control implementation statement should address the content of the training and the process for ensuring all users undergo the initial described training. |
+| **Customer** | The customer's enterprise-level security awareness training program may provide initial training to all system users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may provide need-based training to all system users. <br /> The customer is responsible for providing updated basic security awareness training to all users when required by changes to customer-deployed resources. The customer control implementation statement should address the system changes that require updated training and the process which ensures all employees receive retraining. |
+| **Customer** | The customer's enterprise-level security awareness training program may provide need-based training to all system users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may provide ongoing training to all system users. <br /> The customer is responsible for providing ongoing, periodic basic security awareness training to all users. The customer control implementation statement should address the frequency at which retraining will occur and the process which ensures all employees receive retraining. |
+| **Customer** | The customer's enterprise-level security awareness training program may provide ongoing training to all system users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training content may cover insider threat awareness. <br /> The customer is responsible for providing training on insider threats. The customer control implementation statement should address the indicators of insider threats, and the process of recognizing and reporting them. |
+| **Customer** | The customer's enterprise-level security awareness training content may cover insider threat awareness. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level training program may provide role-based security training. <br /> The customer is responsible for providing role-based security training to users before authorizing access to customer-deployed resources or performing assigned duties. The customer control implementation statement should address the content of the training for each identified role, and the process for ensuring all identified roles receive training prior to accessing the system or performing assigned duties. |
+| **Customer** | The customer's enterprise-level training program may provide role-based security training. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level training program may provide need-based role-based security training. <br /> The customer is responsible for providing role-based security training to all identified roles when required by changes to customer-deployed resources. The customer control implementation statement should address the system changes that require updated training and the process which ensures all employees receive retraining. |
+| **Customer** | The customer's enterprise-level training program may provide need-based role-based security training. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level training program may provide ongoing role-based security training. <br /> The customer is responsible for providing ongoing, periodic role-based security training to all identified roles. The customer control implementation statement should address the frequency at which retraining will occur and the process which ensures all employees receive retraining.  |
+| **Customer** | The customer's enterprise-level training program may provide ongoing role-based security training. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level role-based security training may include practical exercises. <br /> The customer is responsible for providing role-based practical exercises to reinforce training objectives established in AT-03. The customer control implementation statement should address the training exercises included for identified roles. |
+| **Customer** | The customer's enterprise-level role-based security training may include practical exercises. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level role-based security training may include recognition of suspicious communications and anomalous system behavior. <br /> The customer is responsible for providing role-based training on suspicious communications and anomalous behavior within customer-deployed resources. The customer control implementation statement should address the indicators of malicious code and the process for recognizing suspicious communications and anomalous behavior. |
+| **Customer** | The customer's enterprise-level role-based security training may include recognition of suspicious communications and anomalous system behavior. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may include documentation and monitoring of training activity. <br /> The customer is responsible for documenting and monitoring all system security training activities for customer-deployed resources. The customer control implementation statement should address the process used to monitor and document training. |
+| **Customer** | The customer's enterprise-level security awareness training program may include documentation and monitoring of training activity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,8 +171,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may meet training record retention requirements. <br /> The customer is responsible for retaining individual training records for users of customer-deployed resources. The customer control implementation statement should address the retention period for individual training records. |
+| **Customer** | The customer's enterprise-level security awareness training program may meet training record retention requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
-
-
-
