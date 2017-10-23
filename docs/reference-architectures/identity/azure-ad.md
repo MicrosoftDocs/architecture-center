@@ -279,4 +279,4 @@ A deployment for a reference architecture that implements these recommendations 
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 
-[0]: ./azure-ad.png "Cloud identity architecture using Azure Active Directory"
+[0]: ./images/azure-ad.png "Cloud identity architecture using Azure Active Directory"
