@@ -1,4 +1,4 @@
-# Automated Foundational Architecture for NIST 800-53-Compliant Environments
+# IaaS Web Application Blueprint for FedRAMP-Compliant Environments
 
 
 > **Note:** These controls are defined by NIST and the U.S. Department of Commerce as part of the NIST Special Publication 800-53 Revision 4. Please refer to NIST 800-53 Rev. 4 for information on testing procedures and guidance for each control.
@@ -17,7 +17,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level configuration management policy and procedures may be sufficient to address this control. <br /> The customer is responsible for developing, documenting, reviewing, updating, and disseminating configuration management policy and procedures for customer-deployed resources. The customer control implementation statement should address the content of the policy (which must include purpose, scope, roles, responsibilities, management commitment, coordination, and compliance), procedures (which must facilitate the implementation of the policies and associated controls), the frequency of review, and the role(s) responsible. |
+| **Customer** | The customer's enterprise-level configuration management policy and procedures may be sufficient to address this control. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -27,12 +27,12 @@
 
 **CM-2** The organization develops, documents, and maintains under configuration control, a current baseline configuration of the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. The solution includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. |
+| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. The solution includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-2 (1).a
@@ -45,7 +45,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources (to include applications, operating systems, databases, and software). The customer control implementation statement should address how often the baseline configuration is reviewed and updated. |
+| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources (to include applications, operating systems, databases, and software). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources when required. The customer control implementation statement should address any organization-defined circumstances that necessitate a baseline configuration review or update. The Joint Authorization Board (JAB) or USCYBERCOM may influence organization-defined circumstances. |
+| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources when required. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -73,7 +73,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources when required. The customer control implementation statement should address how the baseline configuration is reviewed and updated when installations and upgrades occur. |
+| **Customer** | The customer is responsible for reviewing and updating the baseline configuration of customer-deployed resources when required. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -83,12 +83,12 @@
 
 **CM-2 (2)** The organization employs automated mechanisms to maintain an up-to-date, complete, accurate, and readily available baseline configuration of the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. In the Azure portal, an automation script is available for all deployed resources and provides an always up-to-date representation of those resources.  |
+| **Customer** | The Azure Resource Manager templates and accompanying resources that comprise this Azure Blueprint represent a "configuration as code" baseline for the deployed architecture. The solution is provided though GitHub, which can be used for configuration control. In the Azure portal, an automation script is available for all deployed resources and provides an always up-to-date representation of those resources.  |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-2 (3)
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for retaining previous versions of baseline configurations for customer-deployed resources. The customer control implementation statement should address the number of previous configuration versions to retain and the required retention period. |
+| **Customer** | The customer is responsible for retaining previous versions of baseline configurations for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -111,12 +111,12 @@
 
 **CM-2 (7).a** The organization issues [Assignment: organization-defined information systems, system components, or devices] with [Assignment: organization-defined configurations] to individuals traveling to locations that the organization deems to be of significant risk.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Not Applicable`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no customer-controlled physical devices within the scope of systems deployed on Azure. |
+| **Customer** | There are no customer-controlled physical devices within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure customer content is never stored outside of Microsoft Azure, which is physically located within the continental United States. Microsoft Azure personnel do not travel with devices contained within the Microsoft Azure inventory. As such, this control is not applicable to Microsoft Azure. |
 
 
  ### NIST 800-53 Control CM-2 (7).b
@@ -125,12 +125,12 @@
 
 **CM-2 (7).b** The organization applies [Assignment: organization-defined security safeguards] to the devices when the individuals return.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Not Applicable`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There are no customer-controlled physical devices within the scope of systems deployed on Azure. |
+| **Customer** | There are no customer-controlled physical devices within the scope of systems deployed on Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure customer content is never stored outside of Microsoft Azure and Microsoft Azure personnel do not travel with devices contained within the Microsoft Azure inventory, thus this control is not applicable. |
 
 
  ## NIST 800-53 Control CM-3.a
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for determining what types of changes to customer-deployed resources (to include applications, operating systems, databases, and software) are configuration-controlled. The customer control implementation statement should address the changes that are controlled by a configuration. |
+| **Customer** | The customer is responsible for determining what types of changes to customer-deployed resources (to include applications, operating systems, databases, and software) are configuration-controlled. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing proposed configuration-controlled changes to customer-deployed resources. The customer control implementation statement should address the approval/rejection process for configuration changes, and how security impact is taken into consideration for proposed changes.  |
+| **Customer** | The customer is responsible for reviewing proposed configuration-controlled changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,7 +171,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for documenting configuration-controlled changes associated with customer-deployed resources (see CM-03.b). The customer control implementation statement should address the documentation of configuration change decisions.  |
+| **Customer** | The customer is responsible for documenting configuration-controlled changes associated with customer-deployed resources (see CM-03.b). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for implementing configuration-controlled changes approved in CM-03.b. The customer control implementation statement should address how approved changes are implemented to customer-deployed resources. |
+| **Customer** | The customer is responsible for implementing configuration-controlled changes approved in CM-03.b. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for retaining a record of configuration-controlled changes to customer-deployed resources. The customer control implementation statement should address the retention period for these records. |
+| **Customer** | The customer is responsible for retaining a record of configuration-controlled changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for auditing and reviewing configuration changes. The customer control implementation statement should address the process for auditing and reviewing activities associated with configuration-controlled changes to customer-deployed resources. |
+| **Customer** | The customer is responsible for auditing and reviewing configuration changes. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -227,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for coordinating and providing oversight for configuration change control activities. The customer control implementation statement should address the change control element assigned (e.g., committee, board), and the frequency and/or change condition(s) under which the change control element convenes.  |
+| **Customer** | The customer is responsible for coordinating and providing oversight for configuration change control activities. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing automated mechanisms to document proposed changes (see CM-03.b). The customer control implementation statement should address the mechanism(s) in place to document proposed changes to customer-deployed resources. |
+| **Customer** | The customer is responsible for employing automated mechanisms to document proposed changes (see CM-03.b). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing an automated mechanism to route and request approval for proposed changes to customer-deployed resources. The customer control implementation statement should address the  mechanism to notify the approval authorities identified in CM-03.g that a change request is awaiting approval. |
+| **Customer** | The customer is responsible for employing an automated mechanism to route and request approval for proposed changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing an automated mechanism to highlight unreviewed change proposals. The customer control implementation statement should address the mechanism in place to highlight requests, as well as the time period at which unreviewed changes to customer-deployed resources will be highlighted.  |
+| **Customer** | The customer is responsible for employing an automated mechanism to highlight unreviewed change proposals. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -283,7 +283,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing an automated mechanism to prohibit the implementation of unapproved changes to customer-deployed resources. The customer control implementation statement should address the mechanism in place to prevent changes from being deployed until approval is received.  |
+| **Customer** | The customer is responsible for employing an automated mechanism to prohibit the implementation of unapproved changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing an automated mechanism to document all implemented changes to customer-deployed resources. The customer control implementation statement should address the mechanism in place to document changes. |
+| **Customer** | The customer is responsible for employing an automated mechanism to document all implemented changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing an automated mechanism to provide notifications when approved changes to customer-deployed resources are completed. The customer control implementation statement should address the notification mechanism in place, and the personnel to be notified. |
+| **Customer** | The customer is responsible for employing an automated mechanism to provide notifications when approved changes to customer-deployed resources are completed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for testing, validating, and documenting changes to customer-deployed resources before implementation. The customer control implementation statement should address the process used to test, validate, and document changes before they are deployed. |
+| **Customer** | The customer is responsible for testing, validating, and documenting changes to customer-deployed resources before implementation. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for assigning an information security representative to be a member of the change control element defined in CM-03.g. The customer control implementation statement should address the assigned security representative. |
+| **Customer** | The customer is responsible for assigning an information security representative to be a member of the change control element defined in CM-03.g. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for ensuring that cryptographic mechanisms are under configuration management. The customer control implementation statement should address the cryptographic mechanisms, the organization-defined security safeguards they provide, and how the processes and procedures in place to effectively manage changes to those mechanisms.  |
+| **Customer** | The customer is responsible for ensuring that cryptographic mechanisms are under configuration management. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for analyzing proposed changes to customer-deployed resources. The customer control implementation statement should address the process used to analyze changes to determine potential security impacts prior to implementation.  |
+| **Customer** | The customer is responsible for analyzing proposed changes to customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -381,7 +381,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for analyzing proposed changes to customer-deployed resources in a test environment before implementation in an operational environment. The customer control implementation statement should address how the test environment analysis looks for security impacts due to flaws, weaknesses, incompatibility, or intentional malice. |
+| **Customer** | The customer is responsible for analyzing proposed changes to customer-deployed resources in a test environment before implementation in an operational environment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -391,12 +391,12 @@
 
 **CM-5** The organization defines, documents, approves, and enforces physical and logical access restrictions associated with changes to the information system.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles providing strict control over which users can view and control deployed resources. Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These security groups control the actions that users can take with respect to operating system configuration. These role-based schemes can be extended by the customer to meet mission needs. |
+| **Customer** | Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles providing strict control over which users can view and control deployed resources. Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These security groups control the actions that users can take with respect to operating system configuration. These role-based schemes can be extended by the customer to meet mission needs. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-5 (1)
@@ -405,12 +405,12 @@
 
 **CM-5 (1)** The information system enforces access restrictions and supports auditing of the enforcement actions.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles providing strict control over which users can view and control deployed resources. Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These security groups control the actions that users can take with respect to operating system configuration. All accesses and access attempts are audited. |
+| **Customer** | Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles providing strict control over which users can view and control deployed resources. Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These security groups control the actions that users can take with respect to operating system configuration. All accesses and access attempts are audited. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-5 (2)
@@ -423,7 +423,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing changes to customer-deployed resources to determine whether unauthorized changes have occurred. The customer control implementation statement should address the frequency and circumstances that would necessitate a review. |
+| **Customer** | The customer is responsible for reviewing changes to customer-deployed resources to determine whether unauthorized changes have occurred. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -433,12 +433,12 @@
 
 **CM-5 (3)** The information system prevents the installation of [Assignment: organization-defined software and firmware components] without verification that the component has been digitally signed using a certificate that is recognized and approved by the organization.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Virtual machines deployed by this Azure Blueprint implement Windows AppLocker to specify which users can install and/or run particular applications. Further, all Windows operating system updates are digitally singed. |
+| **Customer** | Virtual machines deployed by this Azure Blueprint implement Windows AppLocker to specify which users can install and/or run particular applications. Further, all Windows operating system updates are digitally singed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-5 (5).a
@@ -451,7 +451,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for limiting privileges to make changes within customer-deployed production or operational environments. The customer control implementation statement should address how privileges to change production/operation environments are limited. This can include defining who has access to which privileges and how privileges are separated. |
+| **Customer** | The customer is responsible for limiting privileges to make changes within customer-deployed production or operational environments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -465,7 +465,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and reevaluating privileges defined in CM-05(05).a. The customer control implementation statement should address how often privileges are reviewed and re-evaluated. |
+| **Customer** | The customer is responsible for reviewing and reevaluating privileges defined in CM-05(05).a. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -475,12 +475,12 @@
 
 **CM-6.a** The organization establishes and documents configuration settings for information technology products employed within the information system using [Assignment: organization-defined security configuration checklists] that reflect the most restrictive mode consistent with operational requirements.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to meet mission needs. |
+| **Customer** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to meet mission needs. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-6.b
@@ -489,12 +489,12 @@
 
 **CM-6.b** The organization implements the configuration settings.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. The baselines is automatically applied to virtual machines during deployment using the custom script virtual machine extension. |
+| **Customer** | This Azure Blueprint includes a Desired State Configuration (DSC) baseline for each deployed virtual machine. The baselines is automatically applied to virtual machines during deployment using the custom script virtual machine extension. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-6.c
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for identifying, documenting, and approving any deviations from established configuration settings for customer-deployed resources. The customer control implementation statement should address the resources requiring deviation and the operational requirements on which the deviations are based. |
+| **Customer** | The customer is responsible for identifying, documenting, and approving any deviations from established configuration settings for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -517,12 +517,12 @@
 
 **CM-6.d** The organization monitors and controls changes to the configuration settings in accordance with organizational policies and procedures.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys the Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration. |
+| **Customer** | This Azure Blueprint deploys the Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-6 (1)
@@ -531,12 +531,12 @@
 
 **CM-6 (1)** The organization employs automated mechanisms to centrally manage, apply, and verify configuration settings for [Assignment: organization-defined information system components].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys Azure Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration and continually monitors for changes. |
+| **Customer** | This Azure Blueprint deploys Azure Automation DSC. Automation DSC aligns machine configurations with a specific organization-defined configuration and continually monitors for changes. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-6 (2)
@@ -545,12 +545,12 @@
 
 **CM-6 (2)** The organization employs [Assignment: organization-defined security safeguards] to respond to unauthorized changes to [Assignment: organization-defined configuration settings].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys Azure Automation DSC. Part of Azure's Operations Management Suite (OMS), Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
+| **Customer** | This Azure Blueprint deploys Azure Automation DSC. Part of Azure's Operations Management Suite (OMS), Automation DSC can be configured to generate an alert or to remedy misconfigurations when detected. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-7.a
@@ -559,12 +559,12 @@
 
 **CM-7.a** The organization configures the information system to provide only essential capabilities.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | The resources deployed by this Azure Blueprint are configured to provide the least functionality for their intended purpose. A Desired State Configuration (DSC) baseline is included for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to further limit functionality to meet mission needs. |
+| **Customer** | The resources deployed by this Azure Blueprint are configured to provide the least functionality for their intended purpose. A Desired State Configuration (DSC) baseline is included for each deployed virtual machine. These declarative PowerShell scripts define and configure the resources to which they are applied. The baseline DSC included for resources deployed by this solution can be extended by the customer to further limit functionality to meet mission needs. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-7.b
@@ -573,12 +573,12 @@
 
 **CM-7.b** The organization prohibits or restricts the use of the following functions, ports, protocols, and/or services: [Assignment: organization-defined prohibited or restricted functions, ports, protocols, and/or services].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys Azure Application Gateway and network security groups to restrict the use of ports and protocols to only those necessary. Application Gateway, network security groups, and DSC baselines for virtual machines can be further configured by the customer to restrict the use of functions, ports, protocols, and services to provide only the functionality intended. |
+| **Customer** | This Azure Blueprint deploys Azure Application Gateway and network security groups to restrict the use of ports and protocols to only those necessary. Application Gateway, network security groups, and DSC baselines for virtual machines can be further configured by the customer to restrict the use of functions, ports, protocols, and services to provide only the functionality intended. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-7 (1).a
@@ -587,12 +587,12 @@
 
 **CM-7 (1).a** The organization reviews the information system [Assignment: organization-defined frequency] to identify unnecessary and/or nonsecure functions, ports, protocols, and services.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing customer-deployed resources (to include applications, operating systems, databases, and software) to identify unnecessary and/or unsecure functions, ports, protocols, and services. The customer control implementation statement should address the frequency of review. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for reviewing customer-deployed resources (to include applications, operating systems, databases, and software) to identify unnecessary and/or unsecure functions, ports, protocols, and services. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-7 (1).b
@@ -601,12 +601,12 @@
 
 **CM-7 (1).b** The organization disables [Assignment: organization-defined functions, ports, protocols, and services within the information system deemed to be unnecessary and/or nonsecure].
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for disabling functions, ports, protocols, and services that have been deemed to be unnecessary or unsecure. The customer control implementation statement should address how functions, ports, protocols, and services found during the review process defined in CM-07(01).a are disabled. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for disabling functions, ports, protocols, and services that have been deemed to be unnecessary or unsecure. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-7 (2)
@@ -615,12 +615,12 @@
 
 **CM-7 (2)** The information system prevents program execution in accordance with [Selection (one or more): [Assignment: organization-defined policies regarding software program usage and restrictions]; rules authorizing the terms and conditions of software program usage].
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for preventing program execution in accordance with customer-defined software program usage policies. The customer control implementation statement should address the requirement that program execution is prevented in accordance with organization-defined policies regarding software program usage and restrictions, and/or rules authorizing the terms and conditions of software program usage. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for preventing program execution in accordance with customer-defined software program usage policies. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-7 (5).a
@@ -633,7 +633,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for identifying authorized software programs. The customer control implementation statement should address the software programs (e.g., whitelisted software) authorized to execute on customer-deployed resources. |
+| **Customer** | The customer is responsible for identifying authorized software programs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -643,12 +643,12 @@
 
 **CM-7 (5).b** The organization employs a deny-all, permit-by-exception policy to allow the execution of authorized software programs on the information system.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing a deny-all, permit-by-exception policy to allow the execution of authorized software programs on customer-deployed resources. The customer control implementation statement should address the employed policy.  |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for employing a deny-all, permit-by-exception policy to allow the execution of authorized software programs on customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-7 (5).c
@@ -661,7 +661,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing and updating the list of authorized software programs. The customer control implementation statement should address the frequency with which the authorized software list is reviewed and updated. |
+| **Customer** | The customer is responsible for reviewing and updating the list of authorized software programs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -671,12 +671,12 @@
 
 **CM-8.a** The organization develops and documents an inventory of information system components that accurately reflects the current information system; includes all components within the authorization boundary of the information system; is at the level of granularity deemed necessary for tracking and reporting; and includes [Assignment: organization-defined information deemed necessary to achieve effective information system component accountability].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources and can be customized to tag and group resources for inventory management. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources and can be customized to tag and group resources for inventory management. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-8.b
@@ -685,12 +685,12 @@
 
 **CM-8.b** The organization reviews and updates the information system component inventory [Assignment: organization-defined frequency].
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources available for review in the Azure portal. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources available for review in the Azure portal. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (1)
@@ -699,12 +699,12 @@
 
 **CM-8 (1)** The organization updates the inventory of information system components as an integral part of component installations, removals, and information system updates.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (2)
@@ -713,12 +713,12 @@
 
 **CM-8 (2)** The organization employs automated mechanisms to help maintain an up-to-date, complete, accurate, and readily available inventory of information system components.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. The resources blade in the Azure portal lists all deployed resources, providing an always up-to-date inventory as resources are deployed and removed. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (3).a
@@ -727,12 +727,12 @@
 
 **CM-8 (3).a** The organization employs automated mechanisms [Assignment: organization-defined frequency] to detect the presence of unauthorized hardware, software, and firmware components within the information system.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for employing automated mechanisms to detect the presence of unauthorized software within customer-deployed resources. The customer control implementation statement should address the mechanisms in place to detect unauthorized software and the frequency with which these mechanisms will be employed.  |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for employing automated mechanisms to detect the presence of unauthorized software within customer-deployed resources. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (3).b
@@ -741,12 +741,12 @@
 
 **CM-8 (3).b** The organization takes the following actions when unauthorized components are detected: [Selection (one or more): disables network access by such components; isolates the components; notifies [Assignment: organization-defined personnel or roles]].
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for taking action when unauthorized software is detected. The customer control implementation statement should address the selected action(s) to be taken (e.g., notifying personnel, isolating resources, and disabling network access), as well as the personnel/roles to be notified (if applicable). |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for taking action when unauthorized software is detected. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (4)
@@ -755,12 +755,12 @@
 
 **CM-8 (4)** The organization includes in the information system component inventory information, a means for identifying by [Selection (one or more): name; position; role], individuals responsible/accountable for administering those components.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure resource tags are key / value pairs that can be employed to categorize resources for accountability and/or management purposes. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure resource tags are key / value pairs that can be employed to categorize resources for accountability and/or management purposes. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-8 (5)
@@ -769,12 +769,12 @@
 
 **CM-8 (5)** The organization verifies that all components within the authorization boundary of the information system are not duplicated in other information system component inventories.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Customer** | This Azure Blueprint deploys all resources to an Azure Resource Manager resource group. Azure Resource Manager provides an always up-to-date list of deployed resources. Resources deployed by this solution are given a specific resource tag that can be associated with the system boundary. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-9.a
@@ -787,7 +787,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. The customer control implementation statement should address how the configuration management plan addresses roles, responsibilities, and configuration management processes and procedures. |
+| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -801,7 +801,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. The customer control implementation statement should address how the configuration management plan establishes a process for identifying configuration items throughout the system development life cycle and for managing the configuration of the configuration items.  |
+| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -815,7 +815,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. The customer control implementation statement should address how the configuration management plan defines the configuration items for the customer-deployed resources and places the configuration items under configuration management. |
+| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -829,7 +829,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. The customer control implementation statement should address how the configuration management plan protects the configuration management plan from unauthorized disclosure and modification.  |
+| **Customer** | The customer is responsible for developing, documenting, and implementing a configuration management plan for customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -839,12 +839,12 @@
 
 **CM-10.a** The organization uses software and associated documentation in accordance with contract agreements and copyright laws.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. This is a built-in feature of Azure. Organizations with existing software license agreements may consider deploying alternative license models. |
+| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. This is a built-in feature of Azure. Organizations with existing software license agreements may consider deploying alternative license models. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-10.b
@@ -853,12 +853,12 @@
 
 **CM-10.b** The organization tracks the use of software and associated documentation protected by quantity licenses to control copying and distribution.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. The user is not required to separately track use of the licenses. |
+| **Customer** | Windows and SQL Server licenses are included for the resources deployed by this Azure Blueprint. The user is not required to separately track use of the licenses. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-10.c
@@ -867,12 +867,12 @@
 
 **CM-10.c** The organization controls and documents the use of peer-to-peer file sharing technology to ensure that this capability is not used for the unauthorized distribution, display, performance, or reproduction of copyrighted work.
 
-**Responsibilities:** `Azure Only`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Not Applicable |
-| **Provider (Microsoft Azure)** | There is no peer-to-peer file sharing capability deployed by this Azure Blueprint. |
+| **Customer** | There is no peer-to-peer file sharing capability deployed by this Azure Blueprint. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-10 (1)
@@ -885,7 +885,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level configuration management policy may address restrictions on the use of open source software. <br /> The customer is responsible for restricting the use of open source software. The customer control implementation statement should address the customer-defined restrictions that govern the use of open source software.  |
+| **Customer** | The customer's enterprise-level configuration management policy may address restrictions on the use of open source software. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -899,7 +899,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for establishing a policy governing the installation of software on customer-deployed resources by users. The customer control implementation statement should address the customer-defined policy governing user-installed software.  |
+| **Customer** | The customer is responsible for establishing a policy governing the installation of software on customer-deployed resources by users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -909,12 +909,12 @@
 
 **CM-11.b** The organization enforces software installation policies through [Assignment: organization-defined methods].
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for enforcing software installation policies. The customer control implementation statement should address the customer-defined methods through which software installation policies are enforced.  |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for enforcing software installation policies. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ## NIST 800-53 Control CM-11.c
@@ -923,12 +923,12 @@
 
 **CM-11.c** The organization monitors policy compliance at [Assignment: organization-defined frequency].
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for monitoring the compliance of customer-deployed resources with the policies identified in CM-11.a. The customer control implementation statement should address the frequency at which policy compliance is monitored. |
-| **Provider (Microsoft Azure)** | Future Availability |
+| **Customer** | The customer is responsible for monitoring the compliance of customer-deployed resources with the policies identified in CM-11.a. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
 
  ### NIST 800-53 Control CM-11 (1)
@@ -937,12 +937,10 @@
 
 **CM-11 (1)** The information system alerts [Assignment: organization-defined personnel or roles] when the unauthorized installation of software is detected.
 
-**Responsibilities:** `Shared`
+**Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for providing alerts when the unauthorized installation of software is detected. The customer control implementation statement should address the personnel/roles to be alerted.  |
-| **Provider (Microsoft Azure)** | Future Availability |
-
-
+| **Customer** | The customer is responsible for providing alerts when the unauthorized installation of software is detected. |
+| **Provider (Microsoft Azure)** | Not Applicable |
 
