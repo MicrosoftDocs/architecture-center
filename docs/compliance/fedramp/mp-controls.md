@@ -74,7 +74,7 @@
 |||
 |---|---|
 | **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure digital media assets�are physically and securely stored within datacenter colocation rooms. Microsoft datacenters have multiple layers of physical access controls (access badge, biometrics � see PE-3 for further details on physical access controls) and video surveillance in place to provide secure storage. Digital media for includes servers, network devices, and magnetic tapes used for backup. Non-digital media is not used in the datacenter environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure digital media assets are physically and securely stored within datacenter colocation rooms. Microsoft datacenters have multiple layers of physical access controls (access badge, biometrics; see PE-3 for further details on physical access controls) and video surveillance in place to provide secure storage. Digital media for includes servers, network devices, and magnetic tapes used for backup. Non-digital media is not used in the datacenter environment. |
 
 
  ## NIST 800-53 Control MP-4.b
@@ -242,7 +242,7 @@
 |||
 |---|---|
 | **Customer** | There is no customer-controlled media within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure requires asset owners to assign their assets with an asset classification, and no assets are exempt from this requirement. In the Microsoft Azure datacenter environment, assets refer to servers, and network devices. Other digital media like USB flash/thumb drives are managed by specific policies and procedures governing how those devices are managed.�CD/DVDs are not used. Non-digital media is not used in the datacenter.�The usage of digital media in Microsoft Azure datacenter environments is monitored 24x7 via CCTV coverage.� Please see PE-06 for more details. |
+| **Provider (Microsoft Azure)** | Microsoft Azure requires asset owners to assign their assets with an asset classification, and no assets are exempt from this requirement. In the Microsoft Azure datacenter environment, assets refer to servers, and network devices. Other digital media like USB flash/thumb drives are managed by specific policies and procedures governing how those devices are managed. CD/DVDs are not used. Non-digital media is not used in the datacenter. The usage of digital media in Microsoft Azure datacenter environments is monitored 24x7 via CCTV coverage. Please see PE-06 for more details. |
 
 
  ### NIST 800-53 Control MP-7 (1)
