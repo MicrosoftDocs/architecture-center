@@ -14,16 +14,14 @@ pnp.series.prev: adds-forest
 cardTitle: Extend AD FS to Azure
 ---
 # Active Directory Federation Services (AD FS) 
-[!INCLUDE [header](../../_includes/header.md)]
 
 This article describes how to implement a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure].
 
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
 
-AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. Typical uses for this architecture include:
+[![0]][0]
+
+Typical uses for this architecture include:
 
 * Hybrid applications where workloads run partly on-premises and partly in Azure.
 * Solutions that use federated authorization to expose web applications to partner organizations.
@@ -34,7 +32,7 @@ For more information about how AD FS works, see [Active Directory Federation Ser
 
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
-## Architecture diagram
+## Architecture
 
 The following diagram highlights the important components in this architecture. 
 
@@ -44,11 +42,6 @@ The diagram shows the following scenarios:
 * An external, registered user with credentials stored inside Active Directory Domain Services (DS) accesses a web application hosted inside your Azure VNet.
 * A user connected to your VNet using an authorized device executes a web application hosted inside your Azure VNet.
 
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - ADFS" page.
-> 
-> 
-
-[![0]][0]
 
 * **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 
@@ -330,4 +323,4 @@ A solution is available on [Github][github] to deploy this reference architectur
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[0]: ../_images/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+[0]: ./images/adds-forest.png "Secure hybrid network architecture with Active Directory"

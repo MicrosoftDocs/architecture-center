@@ -13,14 +13,8 @@ pnp.series.next: adfs
 cardTitle: Create an AD DS forest in Azure
 ---
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
-[!INCLUDE [header](../../_includes/header.md)]
 
 This article describes how to create an Active Directory domain in Azure that is separate from, but trusted by, domains in your on-premises forest.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
 
 Active Directory Domain Services (AD DS) is a distributed database service that stores identity information about users, devices, and other resources in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects.
 
@@ -30,15 +24,12 @@ This reference architecture shows how to create an AD DS forest in Azure with a 
 
 Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud.
 
-## Architecture diagram
+[![0]][0] 
+
+
+## Architecture
 
 The following diagram highlights the important components in this architecture. 
-
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - AADS (resource forest)" page.
-> 
-> 
-
-[![0]][0] 
 
 * **On-premises network**. The on-premises network contains its own Active Directory forest and domains.
 * **Active Directory servers**. These are domain controllers implementing domain services running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.
