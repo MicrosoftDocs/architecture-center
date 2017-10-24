@@ -298,7 +298,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure�s SIM team uses the related physical monitoring data and correlates it with audit records to determine if there was any associated logical breach or suspicious behavior when physical incidents are detected. |
+| **Provider (Microsoft Azure)** | Microsoft Azure's SIM team uses the related physical monitoring data and correlates it with audit records to determine if there was any associated logical breach or suspicious behavior when physical incidents are detected. |
 
 
  ### NIST 800-53 Control AU-6 (7)
