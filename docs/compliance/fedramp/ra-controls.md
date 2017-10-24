@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoft�s recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. Within the solution, two security domains, Update Assessment and Baseline Assessment, are available. Baseline Assessment assesses a set of registry keys, audit policy settings, and security policy settings along with Microsoft's recommended values for these settings. Update Assessment assesses the status of available updates on all deployed virtual machines. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
