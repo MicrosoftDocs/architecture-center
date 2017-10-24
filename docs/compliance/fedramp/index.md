@@ -149,6 +149,7 @@ The solution deploys database tier virtual machines in an Availability Set as an
 
 All virtual machines deployed by the solution are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. Active Directory virtual machines are deployed in an Availability Set.
 
+
 #### Jumpbox (bastion host)
 
 A management jumpbox (bastion host) provides a secure connection for administrators to access deployed resources. The NSG associated with the management subnet where the jumpbox virtual machine is located allows connections only on TCP port 3389 for RDP. 
@@ -196,7 +197,9 @@ This Azure Blueprint solution is comprised of JSON configuration files and Power
 
 #### Quickstart
 1. Clone [this]() GitHub repository to your local workstation.
+
 2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
+
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
 	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
 
