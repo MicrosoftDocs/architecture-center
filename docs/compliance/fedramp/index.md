@@ -201,6 +201,7 @@ This Azure Blueprint solution is comprised of JSON configuration files and Power
 2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
 
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
+
 	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
 
 ## Disclaimer
