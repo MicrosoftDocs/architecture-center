@@ -129,7 +129,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control procedures may establish a process to notify the appropriate account manager when an account is no longer needed. |
+| **Customer** | The customer's enterprise-level access control procedures may establish a process to notify the appropriate account manager when an account is no longer needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control procedures may establish an access authorization process. |
+| **Customer** | The customer's enterprise-level access control procedures may establish an access authorization process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -241,7 +241,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may establish a policy that users log out when they anticipate to be inactive for a period of time (or other factors). |
+| **Customer** | The customer's enterprise-level access control policy may establish a policy that users log out when they anticipate to be inactive for a period of time (or other factors). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -493,7 +493,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control procedures may establish an access authorization process that includes access to security functions. |
+| **Customer** | The customer's enterprise-level access control procedures may establish an access authorization process that includes access to security functions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may require users to use non-privileged accounts when accessing nonsecurity functions. |
+| **Customer** | The customer's enterprise-level access control policy may require users to use non-privileged accounts when accessing nonsecurity functions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may define privileged commands that may be accessed over a network. Note: Customers have no physical access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed over a network. Note: Customers have no physical access to Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may define restrictions for the use of privileged accounts. |
+| **Customer** | The customer's enterprise-level access control policy may define restrictions for the use of privileged accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -829,7 +829,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may define remote access usage restrictions. |
+| **Customer** | The customer's enterprise-level access control policy may define remote access usage restrictions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -843,7 +843,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control procedures may establish a remote access authorization process. |
+| **Customer** | The customer's enterprise-level access control procedures may establish a remote access authorization process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -899,7 +899,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -913,7 +913,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1067,7 +1067,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
+| **Customer** | The customer's enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1081,7 +1081,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
+| **Customer** | The customer's enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1089,13 +1089,13 @@
 
 #### Use of External Information Systems | Limits on Authorized Use
 
-**AC-20 (1)** The organization permits authorized individuals to use an external information system to access the information system or to process, store, or transmit organization-controlled information only when the organization verifies the implementation of required security controls on the external system as specified in the organization�s information security policy and security plan; or retains approved information system connection or processing agreements with the organizational entity hosting the external information system.
+**AC-20 (1)** The organization permits authorized individuals to use an external information system to access the information system or to process, store, or transmit organization-controlled information only when the organization verifies the implementation of required security controls on the external system as specified in the organization's information security policy and security plan; or retains approved information system connection or processing agreements with the organizational entity hosting the external information system.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level information technology group may verify cloud service provider compliance with organization information security requirements and grant enterprise-wide approval to use associated cloud service offerings. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level information technology group may verify cloud service provider compliance with organization information security requirements and grant enterprise-wide approval to use associated cloud service offerings. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
