@@ -174,4 +174,4 @@ A solution is available on [Github][github] to deploy this reference architectur
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 
-[0]: ../_images/guidance-iaas-ra-secure-vnet-ad/figure1.png "Secure hybrid network architecture with Active Directory"
+[0]: ./images/adds-extend-domain.png "Secure hybrid network architecture with Active Directory"
