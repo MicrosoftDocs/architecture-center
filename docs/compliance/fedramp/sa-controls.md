@@ -297,7 +297,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP defines security requirements with which CSPs must comply. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP defines security requirements with which CSPs must comply. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -325,7 +325,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP provides an oversight process for  compliance with FedRAMP security requirements. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -339,7 +339,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements.  |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model.  Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. FedRAMP is designed to address the risk associated with a shared security responsibility model.  Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. An SSP that documents the Azure security architecture is available to customers through FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). The Azure management portal can be access using a web browser. |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. An SSP that documents the Azure security architecture is available to customers through FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). The Azure management portal can be access using a web browser. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -381,7 +381,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -395,7 +395,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer�s enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure Government datacenters are located within the United States. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
+| **Customer** | The customer's enterprise-level external information system services acquisition policy include a provision regarding the use of cloud service offerings under FedRAMP. Azure Government datacenters are located within the United States. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB).  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -655,7 +655,7 @@
 
 #### Developer Security Architecture and Design
 
-**SA-17.a** The organization requires the developer of the information system, system component, or information system service to produce a design specification and security architecture that is consistent with and supportive of the organization�s security architecture which is established within and is an integrated part of the organization�s enterprise architecture.
+**SA-17.a** The organization requires the developer of the information system, system component, or information system service to produce a design specification and security architecture that is consistent with and supportive of the organization's security architecture which is established within and is an integrated part of the organization's enterprise architecture.
 
 **Responsibilities:** `Customer Only`
 
