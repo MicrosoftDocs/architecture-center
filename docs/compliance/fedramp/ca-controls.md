@@ -193,7 +193,7 @@
 
 #### Plan of Action and Milestones
 
-**CA-5.a** The organization develops a plan of action and milestones for the information system to document the organization�s planned remedial actions to correct weaknesses or deficiencies noted during the assessment of the security controls and to reduce or eliminate known vulnerabilities in the system.
+**CA-5.a** The organization develops a plan of action and milestones for the information system to document the organization's planned remedial actions to correct weaknesses or deficiencies noted during the assessment of the security controls and to reduce or eliminate known vulnerabilities in the system.
 
 **Responsibilities:** `Customer Only`
 
