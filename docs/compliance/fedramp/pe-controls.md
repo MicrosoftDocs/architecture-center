@@ -46,7 +46,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. The datacenter access tool is the authoritative source listing all personnel with authorized access to a specific datacenter. The tool is linked with the datacenter�s physical security access control devices and authorizes access based on access levels that are approved by the DCM team. Access levels are assigned in the tool to either a user�s Microsoft issued badge or a temporary access badge that is assigned at the datacenter by the Control Room Supervisor (CRS). Access levels are approved by the DCM team. In addition to credentials assigned to physical badges, some areas of the datacenter require enrollment of the user�s biometric data (hand geometry or fingerprint). |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. The datacenter access tool is the authoritative source listing all personnel with authorized access to a specific datacenter. The tool is linked with the datacenter's physical security access control devices and authorizes access based on access levels that are approved by the DCM team. Access levels are assigned in the tool to either a user's Microsoft issued badge or a temporary access badge that is assigned at the datacenter by the Control Room Supervisor (CRS). Access levels are approved by the DCM team. In addition to credentials assigned to physical badges, some areas of the datacenter require enrollment of the user's biometric data (hand geometry or fingerprint). |
 
 
  ## NIST 800-53 Control PE-2.c
@@ -130,7 +130,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. All visitors that have approved access to the datacenter (See PE-2) are designated as �Escort Only� on their badges or through other visual cue (e.g., colored badges)�and are required to remain with their escorts at all times. Escorted visitors do not have any access levels granted to them and can only travel on the access of their escorts. Escorts monitor all activities of their visitor while in the datacenter. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. All visitors that have approved access to the datacenter (See PE-2) are designated as 'Escort Only' on their badges or through other visual cue (e.g., colored badges)and are required to remain with their escorts at all times. Escorted visitors do not have any access levels granted to them and can only travel on the access of their escorts. Escorts monitor all activities of their visitor while in the datacenter. |
 
 
  ## NIST 800-53 Control PE-3.e
@@ -144,7 +144,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Physical keys and temporary access badges are secured within the security operations center (SOC). Security officers are staffed 24x7. Keys are checked out to specific personnel by matching the person�s access badge to the physical key. Key inventories are conducted during each shift and keys are not allowed to be taken offsite. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Physical keys and temporary access badges are secured within the security operations center (SOC). Security officers are staffed 24x7. Keys are checked out to specific personnel by matching the person's access badge to the physical key. Key inventories are conducted during each shift and keys are not allowed to be taken offsite. |
 
 
  ## NIST 800-53 Control PE-3.f
@@ -172,7 +172,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure datacenters have procedures to implement in cases when an access badge or key is lost or a person is terminated or transferred. In the event of a termination or transfer, the person�s access is immediately removed from the system and their access badge removed. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure datacenters have procedures to implement in cases when an access badge or key is lost or a person is terminated or transferred. In the event of a termination or transfer, the person's access is immediately removed from the system and their access badge removed. |
 
 
  ### NIST 800-53 Control PE-3 (1)
@@ -228,7 +228,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Physical access is monitored by implementing security devices and processes at the datacenters. Examples include 24x7 electronic monitoring of access control, alarm and video systems as well as 24x7 on site security patrols of the�facility and grounds. A Control Room Supervisor is located in the SOC at all times to provide monitoring of physical access in the datacenter. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Physical access is monitored by implementing security devices and processes at the datacenters. Examples include 24x7 electronic monitoring of access control, alarm and video systems as well as 24x7 on site security patrols of the facility and grounds. A Control Room Supervisor is located in the SOC at all times to provide monitoring of physical access in the datacenter. |
 
 
  ## NIST 800-53 Control PE-6.b
@@ -270,7 +270,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. In addition to the 24x7 onsite security, Microsoft Azure datacenters (leased and fully managed)�also utilize�alarm monitoring systems and CCTV. Alarms are monitored and responded to by the Control Room Supervisor stationed 24x7 in the SOC. During a response situation, the Control Room Supervisor utilizes cameras in the area of the incident being investigated to give the responder real-time information. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. In addition to the 24x7 onsite security, Microsoft Azure datacenters (leased and fully managed) also utilize alarm monitoring systems and CCTV. Alarms are monitored and responded to by the Control Room Supervisor stationed 24x7 in the SOC. During a response situation, the Control Room Supervisor utilizes cameras in the area of the incident being investigated to give the responder real-time information. |
 
 
  ### NIST 800-53 Control PE-6 (4)
@@ -284,7 +284,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure monitors physical access to the facilities as well as the information systems within the datacenters. All Microsoft�s online services� equipment is placed in locations within datacenters where physical access is monitored. All of the colocation and MDF rooms are protected by access control, alarms, and video. |
+| **Provider (Microsoft Azure)** | Microsoft Azure monitors physical access to the facilities as well as the information systems within the datacenters. All Microsoft's online services' equipment is placed in locations within datacenters where physical access is monitored. All of the colocation and MDF rooms are protected by access control, alarms, and video. |
 
 
  ## NIST 800-53 Control PE-8.a
@@ -298,7 +298,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Datacenter access records are maintained in the datacenter access tool in the form of approved requests. As described in PE-3, visitors are required to be escorted at all times. The escort�s access within the datacenter is logged and if necessary can be correlated to the visitor for future review. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Datacenter access records are maintained in the datacenter access tool in the form of approved requests. As described in PE-3, visitors are required to be escorted at all times. The escort's access within the datacenter is logged and if necessary can be correlated to the visitor for future review. |
 
 
  ## NIST 800-53 Control PE-8.b
@@ -326,7 +326,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure maintains datacenter access records in DCAT in the form of approved DCAT requests. DCAT requests can only be approved by the DCM team. Access levels within the datacenter are assigned and managed within DCAT. Datacenter access is reviewed quarterly. All access to Azure datacenters is recorded in DCAT and is available for future possible investigations. Visitors are required to be escorted at all times. The escort�s access within the datacenter is logged within�the alarm monitoring system and if necessary can be correlated to the visitor for future review.� Visitor access is being reviewed continuously by the assigned escort and by the control room supervisor via CCTV and the alarm monitoring system.� Visitors are not provided with access and must be accompanied by their escorts at all times. |
+| **Provider (Microsoft Azure)** | Microsoft Azure maintains datacenter access records in DCAT in the form of approved DCAT requests. DCAT requests can only be approved by the DCM team. Access levels within the datacenter are assigned and managed within DCAT. Datacenter access is reviewed quarterly. All access to Azure datacenters is recorded in DCAT and is available for future possible investigations. Visitors are required to be escorted at all times. The escort's access within the datacenter is logged within the alarm monitoring system and if necessary can be correlated to the visitor for future review. Visitor access is being reviewed continuously by the assigned escort and by the control room supervisor via CCTV and the alarm monitoring system. Visitors are not provided with access and must be accompanied by their escorts at all times. |
 
 
  ## NIST 800-53 Control PE-9
@@ -340,7 +340,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure provides protective spaces and appropriate labeling for cables. Microsoft Azure infrastructure equipment�for example, cables, electrical lines, and backup generators�must be placed in environments which have been engineered to be protected from environmental risks such as theft, fire, explosives, smoke, water, dust, vibration, earthquake, harmful chemicals, electrical interference, power outages, electrical disturbances (spikes). All portable online services� assets (e.g., racks, servers, network devices) must be locked or fastened in place in order to provide protection against theft or movement damage. Power and information system cables within any Microsoft Azure environment are labeled appropriately and protected against interception or damage. Power and information system cables are separated from each other at all points within an environment to avoid interference. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure provides protective spaces and appropriate labeling for cables. Microsoft Azure infrastructure equipment, for example, cables, electrical lines, and backup generators must be placed in environments which have been engineered to be protected from environmental risks such as theft, fire, explosives, smoke, water, dust, vibration, earthquake, harmful chemicals, electrical interference, power outages, electrical disturbances (spikes). All portable online services assets (e.g., racks, servers, network devices) must be locked or fastened in place in order to provide protection against theft or movement damage. Power and information system cables within any Microsoft Azure environment are labeled appropriately and protected against interception or damage. Power and information system cables are separated from each other at all points within an environment to avoid interference. |
 
 
  ## NIST 800-53 Control PE-10.a
@@ -354,7 +354,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure has installed Emergency Power Off (EPO) buttons in locations within the datacenter as�required by local fire code.�In some Microsoft Azure managed datacenters, the datacenter design no longer requires EPO buttons. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure has installed Emergency Power Off (EPO) buttons in locations within the datacenter as required by local fire code. In some Microsoft Azure managed datacenters, the datacenter design no longer requires EPO buttons. |
 
 
  ## NIST 800-53 Control PE-10.b
@@ -382,7 +382,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. To prevent accidental activation, EPO buttons may have a protective enclosure, require dual activation,�or utilize an audible alarm as a warning before activation. Additionally, EPO buttons are under video surveillance. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. To prevent accidental activation, EPO buttons may have a protective enclosure, require dual activation, or utilize an audible alarm as a warning before activation. Additionally, EPO buttons are under video surveillance. |
 
 
  ## NIST 800-53 Control PE-11
@@ -424,7 +424,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure datacenters (leased and fully managed)�implement emergency lighting in the form of overhead emergency lighting on dedicated circuits backed up by UPS and generator systems (See PE-11). Automatic emergency lighting is implemented along all evacuation routes, emergency exits, and inside the colocations in accordance with the National Fire and Protection Association (NFPA) Life Safety Code. In the event that utility power is lost, the emergency lighting will automatically switch to power provided by the UPS and generator systems. The emergency lighting systems within Microsoft Azure datacenters undergo routine maintenance to ensure that they remain in proper working order. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure datacenters (leased and fully managed) implement emergency lighting in the form of overhead emergency lighting on dedicated circuits backed up by UPS and generator systems (See PE-11). Automatic emergency lighting is implemented along all evacuation routes, emergency exits, and inside the colocations in accordance with the National Fire and Protection Association (NFPA) Life Safety Code. In the event that utility power is lost, the emergency lighting will automatically switch to power provided by the UPS and generator systems. The emergency lighting systems within Microsoft Azure datacenters undergo routine maintenance to ensure that they remain in proper working order. |
 
 
  ## NIST 800-53 Control PE-13
@@ -438,7 +438,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure has implemented fire protection by installing fire detection and fire suppression systems at the Microsoft Azure datacenters. <br /> Microsoft Azure datacenters implement robust fire detection mechanisms. The Microsoft Azure fire protection approach includes the use of photoelectric smoke detectors installed below the floor and on the ceiling which are integrated with the fire protection sprinkler system. Additionally, there are Xtralis VESDA (Very Early Smoke Detection Apparatus) systems in each colocation which monitor the air. VESDA units are highly-sensitive air sampling systems installed throughout multiple high-value spaces. VESDA units allow for an investigative response prior to an actual fire detection alarm. <br /> �Pull station� fire alarm boxes are installed throughout the datacenters for manual fire alarm notification. Fire extinguishers are located throughout the datacenters and are properly inspected, serviced, and tagged annually. The security staff patrols all building areas multiple times every shift. Datacenter personnel perform a daily site walk-through ensuring all fire watch requirements are being met. <br /> Areas containing sensitive electrical equipment (colocations, MDFs, etc.) are protected by double interlock pre-action (dry pipe) sprinkler systems. Dry pipe sprinklers are a two-stage pre-action system that requires both a sprinkler head activation (due to heat) as well as smoke detection to release water. The sprinkler head activation releases the air pressure in the pipes which allows the pipes to fill with water. Water is released when a smoke or heat detector is also activated. <br /> Fire detection/suppression and emergency lighting systems are wired into the datacenter UPS and generator systems providing for a redundant power source. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure has implemented fire protection by installing fire detection and fire suppression systems at the Microsoft Azure datacenters. <br /> Microsoft Azure datacenters implement robust fire detection mechanisms. The Microsoft Azure fire protection approach includes the use of photoelectric smoke detectors installed below the floor and on the ceiling which are integrated with the fire protection sprinkler system. Additionally, there are Xtralis VESDA (Very Early Smoke Detection Apparatus) systems in each colocation which monitor the air. VESDA units are highly-sensitive air sampling systems installed throughout multiple high-value spaces. VESDA units allow for an investigative response prior to an actual fire detection alarm. <br /> 'Pull station' fire alarm boxes are installed throughout the datacenters for manual fire alarm notification. Fire extinguishers are located throughout the datacenters and are properly inspected, serviced, and tagged annually. The security staff patrols all building areas multiple times every shift. Datacenter personnel perform a daily site walk-through ensuring all fire watch requirements are being met. <br /> Areas containing sensitive electrical equipment (colocations, MDFs, etc.) are protected by double interlock pre-action (dry pipe) sprinkler systems. Dry pipe sprinklers are a two-stage pre-action system that requires both a sprinkler head activation (due to heat) as well as smoke detection to release water. The sprinkler head activation releases the air pressure in the pipes which allows the pipes to fill with water. Water is released when a smoke or heat detector is also activated. <br /> Fire detection/suppression and emergency lighting systems are wired into the datacenter UPS and generator systems providing for a redundant power source. |
 
 
  ### NIST 800-53 Control PE-13 (1)
@@ -466,7 +466,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. In the event that one of the fire suppression systems is activated at the datacenter, the local fire department is automatically notified through the fire alarm system. In addition, the fire protection and fire detection systems are tied into the security system notifying the local facility and�security staff. |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. In the event that one of the fire suppression systems is activated at the datacenter, the local fire department is automatically notified through the fire alarm system. In addition, the fire protection and fire detection systems are tied into the security system notifying the local facility and security staff. |
 
 
  ### NIST 800-53 Control PE-13 (3)
@@ -494,7 +494,7 @@
 |||
 |---|---|
 | **Customer** | Customers do not have physical access to any system resources in Azure datacenters. |
-| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure maintains the temperature and humidity levels in accordance with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) guidelines. The temperature and humidity levels are monitored continuously by the datacenter�s Building Management System (BMS). |
+| **Provider (Microsoft Azure)** | Microsoft Azure implements this requirement on behalf of customers. Microsoft Azure maintains the temperature and humidity levels in accordance with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) guidelines. The temperature and humidity levels are monitored continuously by the datacenter's Building Management System (BMS). |
 
 
  ## NIST 800-53 Control PE-14.b
