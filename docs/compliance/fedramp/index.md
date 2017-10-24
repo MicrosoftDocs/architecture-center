@@ -196,7 +196,7 @@ The [control implementation matrix]() (Excel Workbook) lists all security contro
 This Azure Blueprint solution is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo).
 
 #### Quickstart
-1. Clone [this]() GitHub repository to your local workstation.
+1. Clone [this](https://aka.ms/fedrampblueprintrepo) GitHub repository to your local workstation.
 
 2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1.
 
