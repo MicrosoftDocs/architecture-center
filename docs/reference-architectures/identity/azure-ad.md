@@ -14,27 +14,15 @@ cardTitle: Integrate on-premises AD with Azure AD
 ---
 # Integrate on-premises Active Directory domains with Azure Active Directory
 
-Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication.
+Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 > [!NOTE]
 > For simplicity, this diagram only shows the connections directly related to Azure AD, and not protocol-related traffic that may occur as part of authentication and identity federation. For example, a web application may redirect the web browser to authenticate the request through Azure AD. Once authenticated, the request can be passed back to the web application, with the appropriate identity information.
 > 
-
-Many organizations use [Active Directory Domain Services (AD DS)][active-directory-domain-services] to authenticate identities associated with users, computers, applications, or other resources that are included in a security boundary. Directory and identity services are typically hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, there may be latency sending authentication requests from Azure back to on-premises. Implementing directory and identity services in Azure can reduce this latency.
-
-Azure provides two solutions for implementing directory and identity services in Azure: 
-
-* Use [Azure AD][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with Azure AD.
-
-   The Azure AD directory is not an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises are copied to Azure AD, but changes made in Azure AD are not replicated back to the on-premises domain.
-
-   You can also use Azure AD without using an on-premises directory. In this case, Azure AD acts as the primary source of all identity information, rather than containing data replicated from an on-premises directory.
-
-* Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a domain controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. 
-
-This article describes the first option, an on-premises network synchronizing with Azure AD. For information about the second option, see [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
 
 Typical uses for this reference architecture include:
 
@@ -45,22 +33,23 @@ Typical uses for this reference architecture include:
 > [!NOTE]
 > Azure AD currently supports user authentication only. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
 > 
-> 
+
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
 
 ## Architecture
 
 The architecture has the following components.
 
-* **Azure AD tenant**. An instance of Azure AD created by your organization. It acts as a directory service for cloud applications by storing objects copied from the on-premises Active Directory and provides identity services.
+* **Azure AD tenant**. An instance of [Azure AD][azure-active-directory] created by your organization. It acts as a directory service for cloud applications by storing objects copied from the on-premises Active Directory and provides identity services.
 * **Web tier subnet**. This subnet holds VMs that run a web application. Azure AD can act as an identity broker for this application.
 * **On-premises AD DS server**. An on-premise directory and identity service. The AD DS directory can be synchronized with Azure AD to enable it to authenticate on-premise users.
-* **Azure AD Connect sync server**. An on-premises computer that runs the Azure AD Connect sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD. For example, if you provision or deprovision groups and users on-premises, these changes propagate to Azure AD. 
+* **Azure AD Connect sync server**. An on-premises computer that runs the [Azure AD Connect][azure-ad-connect] sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD. For example, if you provision or deprovision groups and users on-premises, these changes propagate to Azure AD. 
   
   > [!NOTE]
   > For security reasons, Azure AD stores user's passwords as a hash. If a user requires a password reset, this must be performed on-premises and the new hash must be sent to Azure AD. Azure AD Premium editions include features that can automate this task to enable users to reset their own passwords.
   > 
 
-For more information on the web, business, and data tiers,  see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure]:
+* **VMs for N-tier application**. The deployment includes infrastructure for an N-tier application. For more information about these resources, see [Run VMs for an N-tier architecture][implementing-a-multi-tier-architecture-on-Azure].
 
 ## Recommendations
 
@@ -223,7 +212,7 @@ Use conditional access control to deny authentication requests from unexpected s
 
 For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
-## Solution deployment
+## Deploy the solution
 
 A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premise network in Azure that you can use to test and experiment. The reference architecture can be deployed with either with Windows or Linux VMs by following the directions below: 
 
@@ -270,11 +259,11 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/active-directory-aadconnect-topologies
 [aad-user-sign-in]: /azure/active-directory/active-directory-aadconnect-user-signin
-[active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/active-directory-aadconnect
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
+[considerations]: ./considerations.md
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx

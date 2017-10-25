@@ -15,11 +15,13 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This article describes best practices for extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends the architectures described in  [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
+This article describes best practices for extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends the architectures described in  [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. [**Deploy this solution**.](#deploy-the-solution)
 
 AD DS is used to authenticate user, computer, application, or other identities that are included in a security domain. It can be hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate this functionality in Azure. This can reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
 [![0]][0] 
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 There are two ways to host your directory services in Azure: 
 
@@ -105,7 +107,7 @@ Consider implementing an additional security perimeter around servers with a pai
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 

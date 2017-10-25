@@ -15,11 +15,13 @@ cardTitle: Extend AD FS to Azure
 ---
 # Active Directory Federation Services (AD FS) 
 
-This article describes how to implement a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure].
+This article describes how to implement a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure]. [**Deploy this solution**.](#deploy-the-solution)
 
 AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
 
 [![0]][0]
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 Typical uses for this architecture include:
 
@@ -210,7 +212,7 @@ AD FS utilizes the HTTPS protocol, so make sure that the NSG rules for the subne
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-cli] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 

@@ -22,9 +22,11 @@ You can use AD DS to create trust relationships between top level forest objects
 
 This reference architecture shows how to create an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises, but because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.  
 
-Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud.
+Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 
 ## Architecture
@@ -85,7 +87,7 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the Azure CLI to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
