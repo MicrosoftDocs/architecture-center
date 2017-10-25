@@ -227,13 +227,7 @@ A deployment for a reference architecture that implements these recommendations 
 3. Wait for the deployment to complete.
 4. The parameter files include a hard-coded administrator user names and passwords, and it is strongly recommended that you immediately change both on all the VMs. Click each VM in the Azure Portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
-## Next steps 
-* Learn the best practices for [extending your on-premises ADDS domain to Azure][adds-extend-domain].
-* Learn the best practices for [creating an ADDS resource forest][adds-resource-forest] in Azure.
-
 <!-- links -->
-[adds-extend-domain]: adds-extend-domain.md
-[adds-resource-forest]: adds-forest.md
 
 [implementing-a-multi-tier-architecture-on-Azure]: ../virtual-machines-windows/n-tier.md
 
@@ -259,7 +253,6 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-sync-requirements]: /azure/active-directory/active-directory-hybrid-identity-design-considerations-directory-sync-requirements
 [aad-topologies]: /azure/active-directory/active-directory-aadconnect-topologies
 [aad-user-sign-in]: /azure/active-directory/active-directory-aadconnect-user-signin
-[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
 [azure-ad-connect]: /azure/active-directory/active-directory-aadconnect
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
