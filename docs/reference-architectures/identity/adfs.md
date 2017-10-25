@@ -291,24 +291,18 @@ A solution is available on [Github][github] to deploy this reference architectur
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
 
-[naming-conventions]: /azure/guidance/guidance-naming-conventions
-
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
-[domain_and_forests]: https://technet.microsoft.com/library/cc759073(v=ws.10).aspx
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
-[import_server_authentication_certificate]: https://technet.microsoft.com/library/dd807088.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
 [active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
 [security-considerations]: #security-considerations
 [recommendations]: #recommendations
-[claims-aware applications]: https://msdn.microsoft.com/library/windows/desktop/bb736227(v=vs.85).aspx
 [active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
 [Deploying_a_federation_server_farm]:  https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-azure-adfs/
@@ -323,4 +317,4 @@ A solution is available on [Github][github] to deploy this reference architectur
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[0]: ../_images/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+[0]: ./images/adfs.png "Secure hybrid network architecture with Active Directory"
