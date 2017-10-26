@@ -13,7 +13,7 @@ pnp.series.title: Identity management
 pnp.series.prev: adds-forest
 cardTitle: Extend AD FS to Azure
 ---
-# Active Directory Federation Services (AD FS) 
+# Extend Active Directory Federation Services (AD FS) to Azure
 
 This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution**.](#deploy-the-solution)
 
@@ -29,8 +29,6 @@ Typical uses for this architecture include:
 * Solutions that use federated authorization to expose web applications to partner organizations.
 * Systems that support access from web browsers running outside of the organizational firewall.
 * Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
-
-For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview]. Also, the article [AD FS deployment in Azure][adfs-intro] contains a detailed step-by-step introduction to implementation.
 
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
@@ -62,6 +60,8 @@ The diagram shows the following scenarios:
   * Authenticating and authorizing incoming requests from external users running a web browser or device that needs access to web applications, by using AD DS and the [Active Directory Device Registration Service][ADDRS].
     
   The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers are not exposed directly to the Internet. All Internet traffic is filtered through AD FS web application proxy servers and a DMZ (also referred to as a perimeter network).
+
+  For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview]. Also, the article [AD FS deployment in Azure][adfs-intro] contains a detailed step-by-step introduction to implementation.
 
 * **AD FS proxy subnet**. The AD FS proxy servers can be contained within their own subnet, with NSG rules providing protection. The servers in this subnet are exposed to the Internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the Internet.
 
