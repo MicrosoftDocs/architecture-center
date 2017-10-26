@@ -14,20 +14,15 @@ cardTitle: Create an AD DS forest in Azure
 ---
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
 
-This article describes how to create an Active Directory domain in Azure that is separate from, but trusted by, domains in your on-premises forest.
-
-Active Directory Domain Services (AD DS) is a distributed database service that stores identity information about users, devices, and other resources in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects.
-
-You can use AD DS to create trust relationships between top level forest objects, in order to provide interoperability between domains. That is, logons in one domain can be trusted to provide access to resources in other domains.
-
-This reference architecture shows how to create an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises, but because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.  
-
-Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud. [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
 *Download a [Visio file][visio-download] of this architecture.*
 
+Active Directory Domain Services (AD DS) stores identity information in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects. This reference architecture creates an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises. Because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain. 
+
+Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud. 
 
 ## Architecture
 

@@ -15,13 +15,13 @@ cardTitle: Extend AD FS to Azure
 ---
 # Active Directory Federation Services (AD FS) 
 
-This article describes how to implement a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure]. [**Deploy this solution**.](#deploy-the-solution)
-
-AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
+This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0]
 
 *Download a [Visio file][visio-download] of this architecture.*
+
+AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
 
 Typical uses for this architecture include:
 
@@ -35,6 +35,8 @@ For more information about how AD FS works, see [Active Directory Federation Ser
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
 ## Architecture
+
+This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure].
 
 The following diagram highlights the important components in this architecture. 
 

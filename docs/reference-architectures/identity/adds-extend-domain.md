@@ -15,7 +15,7 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This reference architecture shows how to extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services].  [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services].  [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
