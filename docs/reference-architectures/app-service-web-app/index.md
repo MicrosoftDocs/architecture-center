@@ -48,7 +48,7 @@ These reference architectures show proven practices for web applications that us
         </a>
     </li>
     <li>
-        <a href="./multi-region-web-app.md">
+        <a href="./multi-region.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
