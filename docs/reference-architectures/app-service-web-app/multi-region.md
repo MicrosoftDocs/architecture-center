@@ -10,7 +10,7 @@ cardTitle: Run in multiple regions
 # Run a web application in multiple regions
 [!INCLUDE [header](../../_includes/header.md)]
 
-This reference architecture shows how to run a web application in multiple regions to achieve high availability. 
+This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability. 
 
 ![Reference architecture: Web application with high availability](./images/multi-region-web-app-diagram.png) 
 
