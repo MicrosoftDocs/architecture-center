@@ -112,17 +112,17 @@ Our reference architectures are arranged by scenario, with related architectures
     </li>
     <!-- Managed web app -->
     <li>
-        <a href="./managed-web-app/index.md">
+        <a href="./app-service-web-app/index.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="./managed-web-app/images/scalable-web-app.svg" height="140px" />
+                                <img src="./app-service-web-app/images/scalable-web-app.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Managed web application</h3>
+                            <h3>App Service web application</h3>
                             <p>This series shows best practices for web applications that use Azure App Service.</p>
                         </div>
                     </div>

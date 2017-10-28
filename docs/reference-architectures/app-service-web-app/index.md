@@ -1,10 +1,10 @@
 ---
-title: Managed web application
+title: App Service web application
 description: Recommended architectures for a web applications running in Microsoft Azure.
 layout: LandingPage
 ---
 
-# Managed web application
+# App Service web application
 
 These reference architectures show proven practices for web applications that use Azure App Service and other managed services in Azure.
 

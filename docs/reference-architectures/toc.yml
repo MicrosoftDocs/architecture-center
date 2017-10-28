@@ -42,15 +42,15 @@
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
 
-  - name: Managed web application
-    href: managed-web-app/index.md
+  - name: App Service web application
+    href: app-service-web-app/index.md
     items:
     - name: Basic web application
-      href: managed-web-app/basic-web-app.md
+      href: app-service-web-app/basic-web-app.md
     - name: Improved scalability
-      href: managed-web-app/scalable-web-app.md
+      href: app-service-web-app/scalable-web-app.md
     - name: Multi-region deployment
-      href: managed-web-app/multi-region-web-app.md
+      href: app-service-web-app/multi-region-web-app.md
 
   - name: VM workloads (Linux)
     href: virtual-machines-linux/index.md
