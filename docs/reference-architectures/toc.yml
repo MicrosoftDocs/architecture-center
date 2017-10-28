@@ -52,12 +52,6 @@
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
 
-  - name: SAP NetWeaver and SAP HANA
-    href: sap/index.md
-
-  - name: SharePoint Server 2016
-    href: sharepoint/index.md
-
   - name: VM workloads (Linux)
     href: virtual-machines-linux/index.md
     items:
@@ -81,3 +75,9 @@
       href: virtual-machines-windows/n-tier.md  
     - name: Multi-region application
       href: virtual-machines-windows/multi-region-application.md
+
+  - name: SAP NetWeaver and SAP HANA
+    href: sap/index.md
+
+  - name: SharePoint Server 2016
+    href: sharepoint/index.md
