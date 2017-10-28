@@ -259,6 +259,7 @@ A deployment for a reference architecture that implements these recommendations 
 [considerations]: ./considerations.md
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
+
 
 [0]: ./images/azure-ad.png "Cloud identity architecture using Azure Active Directory"

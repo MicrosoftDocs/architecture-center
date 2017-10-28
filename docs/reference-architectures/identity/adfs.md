@@ -317,8 +317,8 @@ A solution is available on [Github][github] to deploy this reference architectur
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/active-directory-aadconnect-azure-adfs
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./considerations.md
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
 [0]: ./images/adfs.png "Secure hybrid network architecture with Active Directory"

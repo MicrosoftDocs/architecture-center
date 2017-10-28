@@ -16,7 +16,7 @@ Azure provides two solutions for implementing directory and identity services in
 
 * Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a domain controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. Several variations of this architecture are possible: 
 
-    - Create a domain in Azure and join it to your on-premises AD forest
+    - Create a domain in Azure and join it to your on-premises AD forest.
     - Create a separate forest in Azure that is trusted by domains in your on-premises forest.
     - Replicate an Active Directory Federation Services (AD FS) deployment to Azure. 
 

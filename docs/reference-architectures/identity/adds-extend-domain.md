@@ -151,7 +151,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [security-considerations]: #security-considerations
 [set-a-static-ip-address]: https://azure.microsoft.com/documentation/articles/virtual-networks-static-private-ip-arm-pportal/
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 
 [0]: ./images/adds-extend-domain.png "Secure hybrid network architecture with Active Directory"

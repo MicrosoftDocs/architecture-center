@@ -159,7 +159,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/Deploy-ReferenceArchitecture.ps1
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/extensions/outgoing-trust.ps1
 [verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
 [0]: ./images/adds-forest.png "Secure hybrid network architecture with separate Active Directory domains"
