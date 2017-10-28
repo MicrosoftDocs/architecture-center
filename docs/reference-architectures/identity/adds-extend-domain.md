@@ -29,9 +29,7 @@ For additional considerations, see [Choose a solution for integrating on-premise
 
 ## Architecture 
 
-This architecture extends the architecture shown in [DMZ between Azure and the Internet][implementing-a-secure-hybrid-network-architecture-with-internet-access], which shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic.
-
-The following diagram highlights the important components in this architecture. 
+This architecture extends the architecture shown in [DMZ between Azure and the Internet][implementing-a-secure-hybrid-network-architecture-with-internet-access]. It has the following components.
 
 * **On-premises network**. The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
 * **Active Directory servers**. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.

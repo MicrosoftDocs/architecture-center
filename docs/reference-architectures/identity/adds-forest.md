@@ -24,9 +24,11 @@ Active Directory Domain Services (AD DS) stores identity information in a hierar
 
 Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud. 
 
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
+
 ## Architecture
 
-The following diagram highlights the important components in this architecture. 
+The architecture has the following components.
 
 * **On-premises network**. The on-premises network contains its own Active Directory forest and domains.
 * **Active Directory servers**. These are domain controllers implementing domain services running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.
@@ -147,6 +149,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
+[considerations]: ./considerations.md
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-forest

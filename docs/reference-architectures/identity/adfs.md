@@ -23,6 +23,12 @@ This reference architecture implements a secure hybrid network that extends your
 
 AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
 
+The diagram shows the following scenarios:
+
+* Application code from a partner organization accesses a web application hosted inside your Azure VNet.
+* An external, registered user with credentials stored inside Active Directory Domain Services (DS) accesses a web application hosted inside your Azure VNet.
+* A user connected to your VNet using an authorized device executes a web application hosted inside your Azure VNet.
+
 Typical uses for this architecture include:
 
 * Hybrid applications where workloads run partly on-premises and partly in Azure.
@@ -32,18 +38,11 @@ Typical uses for this architecture include:
 
 This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
 
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
+
 ## Architecture
 
-This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure].
-
-The following diagram highlights the important components in this architecture. 
-
-The diagram shows the following scenarios:
-
-* Application code from a partner organization accesses a web application hosted inside your Azure VNet.
-* An external, registered user with credentials stored inside Active Directory Domain Services (DS) accesses a web application hosted inside your Azure VNet.
-* A user connected to your VNet using an authorized device executes a web application hosted inside your Azure VNet.
-
+This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the followign components.
 
 * **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 
@@ -321,4 +320,5 @@ A solution is available on [Github][github] to deploy this reference architectur
 [visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
+[considerations]: ./considerations.md
 [0]: ./images/adfs.png "Secure hybrid network architecture with Active Directory"
