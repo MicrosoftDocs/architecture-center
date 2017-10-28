@@ -4,6 +4,16 @@
 - name: Reference Architectures
   href: index.md
   items:
+  - name: App Service web application
+    href: app-service-web-app/index.md
+    items:
+    - name: Basic web application
+      href: app-service-web-app/basic-web-app.md
+    - name: Improved scalability
+      href: app-service-web-app/scalable-web-app.md
+    - name: Multi-region deployment
+      href: app-service-web-app/multi-region.md
+
   - name: Identity management
     href: identity/index.md
     items:
@@ -41,16 +51,6 @@
       href: dmz/secure-vnet-dmz.md
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
-
-  - name: Managed web application
-    href: managed-web-app/index.md
-    items:
-    - name: Basic web application
-      href: managed-web-app/basic-web-app.md
-    - name: Improved scalability
-      href: managed-web-app/scalable-web-app.md
-    - name: Multi-region deployment
-      href: managed-web-app/multi-region-web-app.md
 
   - name: VM workloads (Linux)
     href: virtual-machines-linux/index.md

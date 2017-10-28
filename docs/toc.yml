@@ -23,8 +23,8 @@
     href: reference-architectures/identity/index.md
   - name: Hybrid network
     href: reference-architectures/hybrid-networking/index.md
-  - name: Managed web application
-    href: reference-architectures/managed-web-app/index.md
+  - name: App Service web application
+    href: reference-architectures/app-service-web-app/index.md
   - name: Network DMZ
     href: reference-architectures/dmz/index.md
   - name: SAP NetWeaver and SAP HANA

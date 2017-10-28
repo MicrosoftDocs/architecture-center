@@ -71,7 +71,7 @@ Azure CDN is used to cache static content such as images, CSS, or HTML.
 
 For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.  
 
-For more details, see [Managed web application reference architecture][scalable-web-app].
+For more details, see [App Service web application reference architecture][scalable-web-app].
 
 ### Additional considerations
 
@@ -93,4 +93,4 @@ For more details, see [Managed web application reference architecture][scalable-
 [cdn]: ../../best-practices/cdn.md
 [data-partition]: ../../best-practices/data-partitioning.md
 [polyglot]: ../design-principles/use-the-best-data-store.md
-[scalable-web-app]: ../../reference-architectures/managed-web-app/scalable-web-app.md
+[scalable-web-app]: ../../reference-architectures/app-service-web-app/scalable-web-app.md
