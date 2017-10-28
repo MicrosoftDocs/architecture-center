@@ -15,42 +15,26 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This article describes best practices for extending your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services]. This architecture extends the architectures described in  [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture] and [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services].  [**Deploy this solution**.](#deploy-the-solution)
 
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+[![0]][0] 
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 AD DS is used to authenticate user, computer, application, or other identities that are included in a security domain. It can be hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate this functionality in Azure. This can reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises. 
 
-There are two ways to host your directory services in Azure: 
-
-* Use [Azure Active Directory][azure-active-directory] (Azure AD) to create an Active Directory domain, using [Azure AD Connect][azure-ad-connect] to integrate your on-premises AD directories with Azure AD. This approach is described in [Integrating on-premises Active Directory domains with Azure AD][guidance-identity-aad].
-
-* Extend your existing on-premises Active Directory infrastructure to Azure by deploying a VM that runs AD DS as a domain controller. Depending on your security requirements, the AD installation in the cloud can be part of the same domain as that held on-premises, a new domain within a shared forest, or a separate forest.
-
-This article describes the second option, extending an on-premises infrastructure by deploying an AD DS domain controller to Azure, with both using the same domain. 
-
 This architecture is commonly used when the on-premises network and the Azure virtual network are connected by a VPN or ExpressRoute connection. This architecture also supports bidirectional replication, meaning changes can be made either on-premises or in the cloud, and both sources will be kept consistent. Typical uses for this architecture include hybrid applications in which functionality is distributed between on-premises and Azure, and applications and services that perform authentication using Active Directory.
 
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
 
-## Architecture diagram
+## Architecture 
 
-The following diagram highlights the important components in this architecture. 
-
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - ADDS (same domain)" page.
-> 
-> 
-
-[![0]][0] 
+This architecture extends the architecture shown in [DMZ between Azure and the Internet][implementing-a-secure-hybrid-network-architecture-with-internet-access]. It has the following components.
 
 * **On-premises network**. The on-premises network includes local Active Directory servers that can perform authentication and authorization for components located on-premises.
 * **Active Directory servers**. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.
 * **Active Directory subnet**. The AD DS servers are hosted in a separate subnet. Network security group (NSG) rules protect the AD DS servers and provide a firewall against traffic from unexpected sources.
 * **Azure Gateway and Active Directory synchronization**. The Azure gateway provides a connection between the on-premises network and the Azure VNet. This can be a [VPN connection][azure-vpn-gateway] or [Azure ExpressRoute][azure-expressroute]. All synchronization requests between the Active Directory servers in the cloud and on-premises pass through the gateway. User-defined routes (UDRs) handle routing for on-premises traffic that passes to Azure. Traffic to and from the Active Directory servers does not pass through the network virtual appliances (NVAs) used in this scenario.
-
-For more information about the parts of the architecture that are not related to AD DS, read [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access].
 
 For more information about configuring UDRs and the NVAs, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]. 
 
@@ -115,7 +99,7 @@ Consider implementing an additional security perimeter around servers with a pai
 
 Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD DS database.
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
@@ -147,31 +131,27 @@ A solution is available on [Github][github] to deploy this reference architectur
 <!-- links -->
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
-[guidance-identity-aad]: azure-ad.md
 
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 
 [active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
-[ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
-[azure-ad-connect]: /azure/active-directory/active-directory-aadconnect
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
+[considerations]: ./considerations.md
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [security-considerations]: #security-considerations
 [set-a-static-ip-address]: https://azure.microsoft.com/documentation/articles/virtual-networks-static-private-ip-arm-pportal/
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 
-[0]: ../_images/guidance-iaas-ra-secure-vnet-ad/figure1.png "Secure hybrid network architecture with Active Directory"
+[0]: ./images/adds-extend-domain.png "Secure hybrid network architecture with Active Directory"

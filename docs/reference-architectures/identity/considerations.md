@@ -8,9 +8,28 @@ ms.date: 04/06/2017
 
 This article compares options for integrating your on-premises Active Directory (AD) environment with an Azure network. We provide a reference architecture and a deployable solution for each option.
 
+Many organizations use [Active Directory Domain Services (AD DS)][active-directory-domain-services] to authenticate identities associated with users, computers, applications, or other resources that are included in a security boundary. Directory and identity services are typically hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, there may be latency sending authentication requests from Azure back to on-premises. Implementing directory and identity services in Azure can reduce this latency.
+
+Azure provides two solutions for implementing directory and identity services in Azure: 
+
+* Use [Azure AD][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with Azure AD.
+
+* Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a domain controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. Several variations of this architecture are possible: 
+
+    - Create a domain in Azure and join it to your on-premises AD forest.
+    - Create a separate forest in Azure that is trusted by domains in your on-premises forest.
+    - Replicate an Active Directory Federation Services (AD FS) deployment to Azure. 
+
+The next sections describe each of these options in more detail.
+
 ## Integrate your on-premises domains with Azure AD
 
 Use Azure Active Directory (Azure AD) to create a domain in Azure and link it to an on-premises AD domain. 
+
+The Azure AD directory is not an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises are copied to Azure AD, but changes made in Azure AD are not replicated back to the on-premises domain.
+
+You can also use Azure AD without using an on-premises directory. In this case, Azure AD acts as the primary source of all identity information, rather than containing data replicated from an on-premises directory.
+
 
 **Benefits**
 
@@ -94,3 +113,7 @@ Typical uses for this architecture:
 [ad-ds-forest]: ./adds-forest.md
 [ad-forest-defn]: https://msdn.microsoft.com/library/ms676906.aspx
 [adfs]: ./adfs.md
+
+[active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
+[azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
+[azure-ad-connect]: /azure/active-directory/active-directory-aadconnect
