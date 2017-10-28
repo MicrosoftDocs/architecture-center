@@ -11,7 +11,7 @@ cardTitle: Improve scalability
 ---
 # Improve scalability in a web application
 
-This reference architecture shows a set of proven practices for improving scalability and performance in a web application running on Azure App Service.
+This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
 ![[0]][0]
 
