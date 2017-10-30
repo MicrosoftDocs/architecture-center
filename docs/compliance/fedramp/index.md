@@ -83,7 +83,7 @@ The architecture defines a private virtual network with an address space of 10.2
 
 This solution deploys resources in an architecture with a separate web subnet, database subnet, Active Directory subnet, and management subnet inside of a virtual network. Subnets are logically separated by network security group rules applied to the individual subnets to restrict traffic between subnets to only that necessary for system and management functionality.
 
-See the configuration for [Network Security Groups]() deployed with this solution. Organizations can configure Network Security groups by editing the file above using [this documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) as a guide.
+See the configuration for [Network Security Groups](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) deployed with this solution. Organizations can configure Network Security groups by editing the file above using [this documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) as a guide.
 
 Each of the subnets has a dedicated network security group (NSG):
 - 1 NSG for Application Gateway (LBNSG)
@@ -189,7 +189,7 @@ The [customer responsibilities matrix](https://aka.ms/blueprinthighcrm) (Excel W
 
 ### Control implementation matrix
 
-The [control implementation matrix]() (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the Blueprint Automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](./controls-overview.md).
+The [control implementation matrix](https://aka.ms/blueprintwacim) (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the Blueprint Automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](./controls-overview.md).
 
 ## Deploy the solution
 
