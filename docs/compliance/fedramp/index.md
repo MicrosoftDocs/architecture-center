@@ -202,7 +202,7 @@ This Azure Blueprint solution is comprised of JSON configuration files and Power
 
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**.
 
-	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
+	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
 
 ## Disclaimer
 
