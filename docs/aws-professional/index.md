@@ -264,7 +264,7 @@ similar way, there are differences in the RAM, CPU, and storage capabilities.
 -   [Sizes for virtual machines in Azure
     (Linux)](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)
 
-Unlike AWS' hourly billing, Azure on-demand VMs are billed by the minute.
+Unlike AWS' per second billing, Azure on-demand VMs are billed by the minute.
 
 Azure has no equivalent to EC2 Spot Instances, Reserved Instances, or Dedicated
 Hosts.
