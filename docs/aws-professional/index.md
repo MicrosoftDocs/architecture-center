@@ -130,9 +130,9 @@ Azure offers several ways to manage your resources:
 
 -   [Command
     Line](https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/).
-    The Azure CLI tool provides a command-line interface capable of creating and
+    The Azure CLI 2.0 tool provides a command-line interface capable of creating and
     managing Azure resources. Azure CLI is available for [Windows, Linux, and
-    Mac OS](https://github.com/azure/azure-xplat-cli).
+    Mac OS](https://aka.ms/azurecli2).
 
 -   [PowerShell](https://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
     The Azure modules for PowerShell allow you to execute automated management
