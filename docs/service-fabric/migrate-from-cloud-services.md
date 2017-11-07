@@ -285,7 +285,7 @@ Porting the Surveys application to Service Fabric was fairly straightforward. To
 
 In addition, the deployment changed from Cloud Services to a Service Fabric cluster running in a VM Scale Set.
 
-However, at this point the application does not get all the benefits of microservices, such as independent service deployment and versioning. To take full advantage of Service Fabric, Tailspin needs to optimize a bit further. That will be the subject of another article.
+However, at this point the application does not get all the benefits of microservices, such as independent service deployment and versioning. To take full advantage of Service Fabric, Tailspin needs to optimize a bit further.
 
 
 
