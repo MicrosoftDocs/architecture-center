@@ -31,7 +31,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint relies on and implements the following system account types: Azure Active Directory users (used to deploy the solution and manage access to Azure resources), Windows OS users (managed by Active Directory), SQL Server service account. |
+| **Customer** | This Azure Blueprint relies on and implements the following system account types: Azure Active Directory users (used to deploy the solution and manage access to Azure resources), Windows OS users (managed by Active Directory), and SQL Server service account. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -67,7 +67,7 @@
 
 #### Account Management
 
-**AC-2.d** The organization specifies authorized users of the information system, group and role membership, and access authorizations (i.e., privileges) and other attributes (as required) for each account.
+**AC-2.d** The organization specifies authorized users of the information system, group and role membership, and access authorizations (such as privileges) and other attributes (as required) for each account.
 
 **Responsibilities:** `Customer Only`
 
@@ -115,7 +115,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor use of information system accounts. |
+| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor the use of information system accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -123,7 +123,7 @@
 
 #### Account Management
 
-**AC-2.h** The organization notifies account managers when accounts are no longer required; when users are terminated or transferred; and when individual information system usage or need-to-know changes.
+**AC-2.h** The organization notifies account managers when accounts are no longer required; when users are terminated or transferred; and when individual information system usage or need-to-know information changes.
 
 **Responsibilities:** `Customer Only`
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for reviewing customer-controlled accounts at the required frequency to determine if accounts are compliant with all organization requirements. |
+| **Customer** | The customer is responsible for reviewing customer-controlled accounts at the required frequency to determine if accounts are compliant with all the organization requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor the use of information system accounts. OMS can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint does not deploy temporary or emergency accounts. If not manually disabled, the deployed domain controller automatically disables all inactive accounts after 35 days. |
+| **Customer** | This Azure Blueprint does not deploy temporary or emergency accounts. If it is not manually disabled, the deployed domain controller automatically disables all the inactive accounts after 35 days. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -213,7 +213,7 @@
 
 |||
 |---|---|
-| **Customer** | The domain controller deployed by this Azure Blueprint is configured to disable all user accounts after 35 days of inactivity. |
+| **Customer** | The domain controller deployed by this Azure Blueprint is configured to disable all the user accounts after 35 days of inactivity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -227,7 +227,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs collected by Log Analytics and stored in the OMS repository. OMS can be configured to send alerts when predefined events occur.  |
+| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, and SQL Server service account. Azure Active Directory account management actions generate an event in the Azure activity log; OS-level account management actions generate an event in the system log. These logs are collected by Log Analytics and stored in the OMS repository. OMS can be configured to send alerts when predefined events occur.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -255,7 +255,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, SQL Server service account. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These role-based schemes can be extended by the customer to meet mission needs. |
+| **Customer** | This Azure Blueprint implements the following system account types: Azure Active Directory users, Windows OS users, and SQL Server service account. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. These role-based schemes can be extended by the customer to meet mission needs. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -269,7 +269,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor use of information system accounts. This solution can be queried to report privileged role assignments. |
+| **Customer** | This Azure Blueprint implements the OMS Security and Audit Solution's Identity and Access Dashboard. This dashboard enables account managers to monitor the use of information system accounts. This solution can be queried to report privileged role assignments. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -277,7 +277,7 @@
 
 #### Account Management | Role-Based Schemes
 
-**AC-2 (7).c** The organization takes [assignment: organization-defined actions] when privileged role assignments are no longer appropriate.
+**AC-2 (7).c** The organization takes [Assignment: organization-defined actions] when privileged role assignments are no longer appropriate.
 
 **Responsibilities:** `Customer Only`
 
@@ -353,7 +353,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enable account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
+| **Customer** | This Azure Blueprint implements the OMS Security and Audit solution's Identity and Access dashboard. This dashboard enables account managers to monitor access attempts against deployed resources. This solution can be configured to send alerts when atypical activity is suspected or other predefined events occur. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
