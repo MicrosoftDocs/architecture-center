@@ -185,11 +185,11 @@ The following OMS solutions are pre-installed as part of this solution:
 
 ### Customer responsibility matrix
 
-The [customer responsibilities matrix](https://aka.ms/blueprinthighcrm) (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart), whether implementation responsibly for the control is the responsibility of Microsoft, the customer, or shared between the two. 
+The [customer responsibilities matrix](https://aka.ms/blueprinthighcrm) (Excel workbook) lists all the security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart), whether implementation responsibly for the control is the responsibility of Microsoft, the customer, or shared between the two. 
 
 ### Control implementation matrix
 
-The [control implementation matrix](https://aka.ms/blueprintwacim) (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the Blueprint Automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](./controls-overview.md).
+The [control implementation matrix](https://aka.ms/blueprintwacim) (Excel workbook) lists all the security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the Blueprint Automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](./controls-overview.md).
 
 ## Deploy the solution
 
