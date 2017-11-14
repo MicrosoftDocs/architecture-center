@@ -39,7 +39,7 @@
 
 #### Audit Events
 
-**AU-2.b** The organization coordinates the security audit function with other organizational entities requiring audit-related information to enhance mutual support and to help guide the selection of auditable events.
+**AU-2.b** The organization coordinates the security audit function with other organizational entities that require audit-related information to enhance mutual support and to help guide the selection of auditable events.
 
 **Responsibilities:** `Customer Only`
 
@@ -59,7 +59,7 @@
 
 |||
 |---|---|
-| **Customer** | Events audited by this Azure Blueprint include information sufficient to determine when events occur, the source of the event, the outcome of the event, and other detailed information that supports investigation of security incidents. |
+| **Customer** | Events audited by this Azure Blueprint include information sufficient to determine when events occur, the source of the event, the outcome of the event, and other detailed information that supports the investigation of security incidents. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -87,7 +87,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer may rely an established enterprise-level periodic review and update process for the defined set of audited events. |
+| **Customer** | The customer may rely on an established enterprise-level periodic review and update process for the defined set of audited events. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -95,7 +95,7 @@
 
 #### Content of Audit Records
 
-**AU-3** The information system generates audit records containing information that establishes what type of event occurred, when the event occurred, where the event occurred, the source of the event, the outcome of the event, and the identity of any individuals or subjects associated with the event.
+**AU-3** The information system generates audit records that contain information that establishes what type of event occurred, when the event occurred, where the event occurred, the source of the event, the outcome of the event, and the identity of any individuals or subjects associated with the event.
 
 **Responsibilities:** `Customer Only`
 
@@ -109,13 +109,13 @@
 
 #### Content of Audit Records | Additional Audit Information
 
-**AU-3 (1)** The information system generates audit records containing the following additional information: [Assignment: organization-defined additional, more detailed information].
+**AU-3 (1)** The information system generates audit records that contain the following additional information: [Assignment: organization-defined additional, more detailed information].
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | Azure Activity Log events use a detailed schema that contains fields for more than 20 types of audit information. In addition to Activity Log, this Azure Blueprint deploys the Log Analytics solution in OMS which supports a diverse set of data sources including Windows logs, Linux logs, Azure Diagnostics logs, and customer logs.  |
+| **Customer** | Azure Activity Log events use a detailed schema that contains fields for more than 20 types of audit information. In addition to Activity Log, this Azure Blueprint deploys the Log Analytics solution in OMS, which supports a diverse set of data sources, including Windows logs, Linux logs, Azure Diagnostics logs, and customer logs.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint allocates sufficient storage capacity to retain audit records for a period of one year. All audit records are collected by Log Analytics which is configured for one year retention. |
+| **Customer** | This Azure Blueprint allocates sufficient storage capacity to retain audit records for a period of one year. All audit records are collected by Log Analytics, which is configured for one-year retention. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -157,7 +157,7 @@
 
 |||
 |---|---|
-| **Customer** | Service status for Azure Monitor and Log Analytics is available on the Azure status website and the service health blade in the Azure portal. Alerts can be configured through Log Analytics to provide notification of other types of audit processing failures. |
+| **Customer** | Service status for Azure Monitor and Log Analytics is available on the Azure status website and the service health blade in the Azure portal. Alerts can be configured through Log Analytics to provide a notification of other types of audit processing failures. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -165,13 +165,13 @@
 
 #### Response to Audit Processing Failures
 
-**AU-5.b** The information system takes the following additional actions: [Assignment: organization-defined actions to be taken (e.g., shut down information system, overwrite oldest audit records, stop generating audit records)].
+**AU-5.b** The information system takes the following additional actions: [Assignment: organization-defined actions to be taken (such as shut down the information system, overwrite oldest audit records, or stop generating audit records)].
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | All audit records generated by resources deployed by this Azure Blueprint are collected by Log Analytics and retained for a period of one year. The storage allocation for this audit record storage is dynamically allocated ensuring sufficient capacity is available. |
+| **Customer** | All audit records generated by the resources deployed by this Azure Blueprint are collected by Log Analytics and retained for a period of one year. The storage allocation for this audit record storage is dynamically allocated, ensuring sufficient capacity is available. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -185,7 +185,7 @@
 
 |||
 |---|---|
-| **Customer** | All audit records generated by resources deployed by this Azure Blueprint are collected by Log Analytics and retained for a period of one year. The storage allocation for this audit record storage is dynamically allocated ensuring sufficient capacity is available. |
+| **Customer** | All audit records generated by resources deployed by this Azure Blueprint are collected by Log Analytics and retained for a period of one year. The storage allocation for this audit record storage is dynamically allocated, ensuring sufficient capacity is available. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -199,7 +199,7 @@
 
 |||
 |---|---|
-| **Customer** | Service status for Azure is available on the service health blade in the Azure portal. Alerts can be configured through Log Analytics to provide notification of other types of audit processing failures. |
+| **Customer** | Service status for Azure is available on the service health blade in the Azure portal. Alerts can be configured through Log Analytics to provide a notification of other types of audit processing failures. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -277,13 +277,13 @@
 
 #### Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
-**AU-6 (5)** The organization integrates analysis of audit records with analysis of [Selection (one or more): vulnerability scanning information; performance data; information system monitoring information; [Assignment: organization-defined data/information collected from other sources]] to further enhance the ability to identify inappropriate or unusual activity.
+**AU-6 (5)** The organization integrates an analysis of audit records with analysis of [Selection (one or more): vulnerability scanning information; performance data; information system monitoring information; [Assignment: organization-defined data/information collected from other sources]] to further enhance the ability to identify inappropriate or unusual activity.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, integrating log data and vulnerability data from baseline and patch assessment. |
+| **Customer** | This Azure Blueprint deploys the OMS Security and Audit solution. This solution provides a comprehensive view of security posture. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data that is available across deployed OMS solutions, integrating log data and vulnerability data from the baseline and patch assessment. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -311,7 +311,7 @@
 
 |||
 |---|---|
-| **Customer** | Windows virtual machines deployed by this Azure Blueprint implement OS-level permissions that restrict the actions a user can take with respect audit information. Within Azure, users or groups of users can be assigned to roles (e.g., owner, contributor, reader, or a custom role) to restrict the actions available with respect to any resources or deployed solutions, including Log Analytics.  |
+| **Customer** | Windows virtual machines deployed by this Azure Blueprint implement OS-level permissions that restrict the actions a user can take with respect audit information. Within Azure, users or groups of users can be assigned to roles (such as owner, contributor, reader, or a custom role) to restrict the actions that are available, with respect to any resources or deployed solutions, including Log Analytics.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -333,7 +333,7 @@
 
 #### Audit Reduction and Report Generation
 
-**AU-7.a** The information system provides an audit reduction and report generation capability that supports on-demand audit review, analysis, and reporting requirements and after-the-fact investigations of security incidents.
+**AU-7.a** The information system provides an audit reduction and report generation capability that supports an on-demand audit review, analysis, and reporting requirements and after-the-fact investigations of security incidents.
 
 **Responsibilities:** `Customer Only`
 
@@ -367,7 +367,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics solution in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. Log Analytics includes a powerful query language to extract data stored in the repository. |
+| **Customer** | This Azure Blueprint implements the Log Analytics solution in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data is available for alerting, analysis, and export. Log Analytics includes a powerful query language to extract data that is stored in the repository. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -445,13 +445,13 @@
 
 #### Protection of Audit Information | Audit Backup on Separate Physical Systems / Components
 
-**AU-9 (2)** The information system backs up audit records [Assignment: organization-defined frequency] onto a physically different system or system component than the system or component being audited.
+**AU-9 (2)** The information system backs up audit records [Assignment: organization-defined frequency] onto a physically different system or system component other than the system or component being audited.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics and retained separately from their origin. Data is collected by OMS in near real-time. |
+| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics and are retained separately from their origin. Data is collected by OMS in near real-time. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -473,7 +473,7 @@
 
 #### Protection of Audit Information | Access by Subset of Privileged Users
 
-**AU-9 (4)** The organization authorizes access to management of audit functionality to only [Assignment: organization-defined subset of privileged users].
+**AU-9 (4)** The organization authorizes access to the management of audit functionality to only [Assignment: organization-defined subset of privileged users].
 
 **Responsibilities:** `Customer Only`
 
@@ -494,7 +494,7 @@
 
 |||
 |---|---|
-| **Customer** | Audit capability for this Azure Blueprint is provided by Azure Monitor and the Log Analytics service in OMS. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the OMS repository. These logs contained detailed records of information system events and can help protect against non-repudiation. Further, access to log data is restricted using role-based access control to prevent unauthored modification or deletion of log data. |
+| **Customer** | Audit capability for this Azure Blueprint is provided by Azure Monitor and the Log Analytics service in OMS. Azure Monitor provides detailed audit logs about activity associated with deployed resources. These and OS-level logs are collected by Log Analytics and stored in the OMS repository. These logs contain detailed records of information system events and can help protect against non-repudiation. Further, access to log data is restricted using role-based access control to prevent unauthored modification or deletion of log data. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -508,7 +508,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data retained for one year per Log Analytics configuration. |
+| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Once collected, the data is retained for one year per Log Analytics configuration. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -516,7 +516,7 @@
 
 #### Audit Generation
 
-**AU-12.a** The information system provides audit record generation capability for the auditable events defined in AU-2 a. at [Assignment: organization-defined information system components].
+**AU-12.a** The information system provides an audit record generation capability for the auditable events defined in AU-2.a at [Assignment: organization-defined information system components].
 
 **Responsibilities:** `Customer Only`
 
@@ -536,7 +536,7 @@
 
 |||
 |---|---|
-| **Customer** | Access to audit functions is restricted using role-based access control within Azure and at the virtual machine OS-level. The configuration of events selected to be audited by resources deployed by this Azure Blueprint can be configured by users with appropriate role-based authorization. |
+| **Customer** | Access to audit functions is restricted using role-based access control within Azure and at the virtual machine OS-level. The configuration of events selected to be audited by the resources that are deployed by this Azure Blueprint can be configured by users with appropriate role-based authorization. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -544,7 +544,7 @@
 
 #### Audit Generation
 
-**AU-12.c** The information system generates audit records for the events defined in AU-2.d. with the content defined in AU-3.
+**AU-12.c** The information system generates audit records for the events defined in AU-2.d with the content defined in AU-3.
 
 **Responsibilities:** `Customer Only`
 
@@ -564,7 +564,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Audit record time stamps are not altered, therefore the audit trail is time-correlated. |
+| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Log Analytics provides monitoring services for OMS by collecting data from managed resources into a central repository. Audit record time stamps are not altered. Therefore the audit trail is time-correlated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
