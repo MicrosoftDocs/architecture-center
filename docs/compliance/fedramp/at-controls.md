@@ -25,7 +25,7 @@
 
 #### Security Awareness Training
 
-**AT-2.a** The organization provides basic security awareness training to information system users (including managers, senior executives, and contractors) as part of initial training for new users.
+**AT-2.a** The organization provides basic security awareness training to information system users (including managers, senior executives, and contractors) as part of the initial training for new users.
 
 **Responsibilities:** `Customer Only`
 
@@ -101,7 +101,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level training program may provide need-based role-based security training. |
+| **Customer** | The customer's enterprise-level training program may provide need-based, role-based security training. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -143,7 +143,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level role-based security training may include recognition of suspicious communications and anomalous system behavior. |
+| **Customer** | The customer's enterprise-level role-based security training may include a recognition of suspicious communications and anomalous system behavior. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -151,13 +151,13 @@
 
 #### Security Training Records
 
-**AT-4.a** The organization documents and monitors individual information system security training activities including basic security awareness training and specific information system security training.
+**AT-4.a** The organization documents and monitors individual information system security training activities, including basic security awareness training and specific information system security training.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may include documentation and monitoring of training activity. |
+| **Customer** | The customer's enterprise-level security awareness training program may include the documentation and monitoring of training activity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -171,5 +171,5 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level security awareness training program may meet training record retention requirements. |
+| **Customer** | The customer's enterprise-level security awareness training program may meet the training record retention requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
