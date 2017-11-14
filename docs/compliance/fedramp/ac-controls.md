@@ -445,7 +445,7 @@
 
 #### Separation of Duties
 
-**AC-5.b** The organization documents separation of duties of individuals.
+**AC-5.b** The organization documents the separation of duties of individuals.
 
 **Responsibilities:** `Customer Only`
 
@@ -459,13 +459,13 @@
 
 #### Separation of Duties
 
-**AC-5.c** The organization defines information system access authorizations to support separation of duties.
+**AC-5.c** The organization defines information system access authorizations to support the separation of duties.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control which can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
+| **Customer** | This Azure Blueprint implements role-based access control, which can be configured to separate duties according to organization requirements. Azure Active Directory account privileges are implemented using role-based access control by assigning users to roles; Active Directory account privileges are implemented using role-based access control by assigning users to security groups. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -473,7 +473,7 @@
 
 #### Least Privilege
 
-**AC-6** The organization employs the principle of least privilege, allowing only authorized accesses for users (or processes acting on behalf of users) which are necessary to accomplish assigned tasks in accordance with organizational missions and business functions.
+**AC-6** The organization employs the principle of least privilege, allowing only authorized accesses for users (or processes acting on behalf of users) that are necessary to accomplish assigned tasks in accordance with organizational missions and business functions.
 
 **Responsibilities:** `Customer Only`
 
@@ -493,7 +493,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control procedures may establish an access authorization process that includes access to security functions. |
+| **Customer** | The customer's enterprise-level access control procedures might establish an access authorization process that includes access to security functions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -507,7 +507,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may require users to use non-privileged accounts when accessing nonsecurity functions. |
+| **Customer** | The customer's enterprise-level access control policy might require users to use non-privileged accounts when accessing nonsecurity functions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -521,7 +521,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed over a network. Note: Customers have no physical access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy might define privileged commands that might be accessed over a network. Note: Customers have no physical access to the Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -535,7 +535,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may define restrictions for the use of privileged accounts. |
+| **Customer** | The customer's enterprise-level access control policy might define restrictions for the use of privileged accounts. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -591,7 +591,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics ensuring that execution of privileged functions is audited. |
+| **Customer** | This Azure Blueprint implements the Log Analytics service in OMS. Deployed VMs and Azure diagnostics storage accounts are connected sources to Log Analytics, ensuring that the execution of privileged functions is audited. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -605,7 +605,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint implements role-based access control to restrict users to only privileges explicitly assigned.  |
+| **Customer** | This Azure Blueprint implements role-based access control to restrict users to only privileges that are explicitly assigned.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -619,7 +619,7 @@
 
 |||
 |---|---|
-| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this Azure Blueprint. The policy limits consecutive invalid logon attempts by users to not more than three within a 15 minute period. |
+| **Customer** | The Azure portal limits consecutive invalid logon attempts by users. A group policy is applied at the operating-system level for all virtual machines that are deployed by this Azure Blueprint. The policy limits the consecutive invalid logon attempts by users to not more than three within a 15-minute period. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -633,7 +633,7 @@
 
 |||
 |---|---|
-| **Customer** | The Azure portal locks accounts after consecutive invalid logon attempts by users. A group policy is applied at the operating system level for all virtual machines deployed by this Azure Blueprint. The policy locks accounts for three hours after three consecutive invalid logon attempts by users. |
+| **Customer** | The Azure portal locks accounts after consecutive invalid logon attempts by users. A group policy is applied at the operating-system level for all the virtual machines deployed by this Azure Blueprint. The policy locks the accounts for three hours after three consecutive, invalid logon attempts by users. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -647,7 +647,7 @@
 
 |||
 |---|---|
-| **Customer** | Mobile devices are not within the scope of systems deployed on Azure. |
+| **Customer** | Mobile devices are not within the scope of systems that are deployed on Azure. |
 | **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Microsoft Azure. |
 
 
@@ -655,13 +655,13 @@
 
 #### System Use Notification
 
-**AC-8.a** The information system displays to users [Assignment: organization-defined system use notification message or banner] before granting access to the system that provides privacy and security notices consistent with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance and states that users are accessing a U.S. Government information system; information system usage may be monitored, recorded, and subject to audit; unauthorized use of the information system is prohibited and subject to criminal and civil penalties; and use of the information system indicates consent to monitoring and recording.
+**AC-8.a** The information system displays to users [Assignment: organization-defined system use notification message or banner] before granting access to the system that provides privacy and security notices that are consistent with applicable federal laws, executive orders, directives, policies, regulations, standards, and guidance, and it states that users are accessing a U.S. Government information system; information system usage might be monitored, recorded, and subject to audit; unauthorized use of the information system is prohibited and subject to criminal and civil penalties; and use of the information system indicates consent to monitoring and recording.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to login. Note: The Azure Blueprint implements an example system use notification. The customer must edit this text to meet organization and/or regulatory body requirements. |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all the deployed virtual machines are joined. A group policy implements a system use notification that is displayed to users prior to login. Note: This Azure Blueprint implements an example system use notification. The customer must edit this text to meet organization and/or regulatory body requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -669,7 +669,7 @@
 
 #### System Use Notification
 
-**AC-8.b** The information system retains the notification message or banner on the screen until users acknowledge the usage conditions and take explicit actions to log on to or further access the information system.
+**AC-8.b** The information system retains the notification message or banner on the screen until the users acknowledge the usage conditions and take explicit actions to log on to or further access the information system.
 
 **Responsibilities:** `Customer Only`
 
@@ -689,7 +689,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for displaying a system use notification on all publicly accessible customer-deployed resources. |
+| **Customer** | The customer is responsible for displaying a system use notification on all the publicly accessible customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -703,7 +703,7 @@
 
 |||
 |---|---|
-| **Customer** | An operating system policy is implemented for virtual machines deployed by this Azure Blueprint. The policy implements concurrent session restrictions (two sessions). |
+| **Customer** | An operating system policy is implemented for virtual machines that are deployed by this Azure Blueprint. The policy implements concurrent session restrictions (two sessions). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -725,13 +725,13 @@
 
 #### Session Lock
 
-**AC-11.b** The information system retains the session lock until the user reestablishes access using established identification and authentication procedures.
+**AC-11.b** The information system retains the session lock until the user reestablishes access by using established identification and authentication procedures.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users must reauthenticate to unlock the session.  |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all the deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. Users must reauthenticate to unlock the session.  |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -745,7 +745,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. The session lock conceals information previously visible. |
+| **Customer** | This Azure Blueprint deploys a domain controller to which all deployed virtual machines are joined. A group policy implements an inactivity lock for RDP sessions. The session lock conceals information that was previously visible. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -753,13 +753,13 @@
 
 #### Session Termination
 
-**AC-12** The information system automatically terminates a user session after [Assignment: organization-defined conditions or trigger events requiring session disconnect].
+**AC-12** The information system automatically terminates a user session after [Assignment: organization-defined conditions or trigger events that require a session disconnect].
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The Remote Desktop session host configuration for the Windows virtual machines deployed by this Azure Blueprint can be configured to meet organization session termination requirements. |
+| **Customer** | The Remote Desktop session host configuration for the Windows virtual machines that are deployed by this Azure Blueprint can be configured to meet the organization session termination requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -801,7 +801,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for identifying actions that can be performed on the customer-deployed resources without identification or authentication (e.g., such as viewing a publicly accessible web page). |
+| **Customer** | The customer is responsible for identifying actions that can be performed on the customer-deployed resources without identification or authentication (such as viewing a publicly accessible web page). |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -815,7 +815,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer is responsible for providing documentation for user actions not requiring identification or authentication on customer-deployed resources. |
+| **Customer** | The customer is responsible for providing documentation for user actions that do not require identification or authentication on customer-deployed resources. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -829,7 +829,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may define remote access usage restrictions. |
+| **Customer** | The customer's enterprise-level access control policy might define remote access usage restrictions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -843,7 +843,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control procedures may establish a remote access authorization process. |
+| **Customer** | The customer's enterprise-level access control procedures might establish a remote access authorization process. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -899,7 +899,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy might define privileged commands that can be accessed remotely and include a rationale. Note: Customers have no direct network access to the Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -913,7 +913,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may define privileged commands that may be accessed remotely and include a rationale. Note: Customers have no direct network access to Azure infrastructure. |
+| **Customer** | The customer's enterprise-level access control policy might define privileged commands that can be accessed remotely and include a rationale. Note: Customers have no direct network access to the Azure infrastructure. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -927,7 +927,7 @@
 
 |||
 |---|---|
-| **Customer** | This Azure Blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a web application. If an Azure Active Directory account is disabled or removed, Azure portal access is disconnected immediately. Similarly, if a virtual machine OS-level account is disabled or removed, remote desktop access via the jumpbox is disconnected immediately. Customers must implement remote access disconnect for the web application. |
+| **Customer** | This Azure Blueprint provides remote access to the information system through the Azure portal, through remote desktop connection via a jumpbox, and through a web application. If an Azure Active Directory account is disabled or removed, the Azure portal access is disconnected immediately. Similarly, if a virtual machine OS-level account is disabled or removed, remote desktop access via the jumpbox is disconnected immediately. Customers must implement remote access disconnect for the web application. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -942,7 +942,7 @@
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure establishes usage restrictions, configuration/connection requirements, and implementation guidance for wireless access via the Network Security Standard, which explicitly prohibits the use of wireless in the Microsoft Azure environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure establishes usage restrictions, configuration/connection requirements, and implementation guidance for wireless access via the Network Security Standard, which explicitly prohibits the use of wireless in the Azure environment. |
 
 
  ## NIST 800-53 Control AC-18.b
@@ -956,7 +956,7 @@
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within Microsoft Azure datacenters. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within Azure datacenters. |
 
 
  ### NIST 800-53 Control AC-18 (1)
@@ -970,21 +970,21 @@
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Microsoft Azure environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Azure environment. |
 
 
  ### NIST 800-53 Control AC-18 (3)
 
 #### Wireless Access | Disable Wireless Networking
 
-**AC-18 (3)** The organization disables, when not intended for use, wireless networking capabilities internally embedded within information system components prior to issuance and deployment.
+**AC-18 (3)** The organization disables, when not intended for use, wireless networking capabilities that are internally embedded within information system components prior to issuance and deployment.
 
 **Responsibilities:** `Azure Only`
 
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Microsoft Azure environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Azure environment. |
 
 
  ### NIST 800-53 Control AC-18 (4)
@@ -998,7 +998,7 @@
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Microsoft Azure environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Azure environment. |
 
 
  ### NIST 800-53 Control AC-18 (5)
@@ -1012,7 +1012,7 @@
 |||
 |---|---|
 | **Customer** | There is no wireless access within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Microsoft Azure environment. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow wireless access within the Azure environment. |
 
 
  ## NIST 800-53 Control AC-19.a
@@ -1026,7 +1026,7 @@
 |||
 |---|---|
 | **Customer** | There are no customer-controlled mobile devices within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Azure. |
 
 
  ## NIST 800-53 Control AC-19.b
@@ -1040,7 +1040,7 @@
 |||
 |---|---|
 | **Customer** | There are no customer-controlled mobile devices within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Azure. |
 
 
  ### NIST 800-53 Control AC-19 (5)
@@ -1054,20 +1054,20 @@
 |||
 |---|---|
 | **Customer** | There are no customer-controlled mobile devices within the scope of systems deployed on Azure. |
-| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Microsoft Azure. |
+| **Provider (Microsoft Azure)** | Microsoft Azure does not allow mobile devices within the Azure boundary. As such, this control is not applicable to Azure. |
 
 
  ## NIST 800-53 Control AC-20.a
 
 #### Use of External Information Systems
 
-**AC-20.a** The organization establishes terms and conditions, consistent with any trust relationships established with other organizations owning, operating, and/or maintaining external information systems, allowing authorized individuals to access the information system from external information systems.
+**AC-20.a** The organization establishes terms and conditions, consistent with any trust relationships established with other organizations that own, operate, and/or maintain external information systems, allowing authorized individuals to access the information system from external information systems.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
+| **Customer** | The customer's enterprise-level access control policy might include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB), enabling acquisition use of Azure cloud services by government agencies. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1075,13 +1075,13 @@
 
 #### Use of External Information Systems
 
-**AC-20.b** The organization establishes terms and conditions, consistent with any trust relationships established with other organizations owning, operating, and/or maintaining external information systems, allowing authorized individuals to process, store, or transmit organization-controlled information using external information systems.
+**AC-20.b** The organization establishes terms and conditions, consistent with any trust relationships established with other organizations that own, operate, and/or maintain external information systems, allowing authorized individuals to process, store, or transmit organization-controlled information using external information systems.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control policy may include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB) enabling acquisition use of Azure cloud services by government agencies. |
+| **Customer** | The customer's enterprise-level access control policy might include a provision regarding the use of cloud service offerings under FedRAMP. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB), enabling acquisition use of Azure cloud services by government agencies. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1089,13 +1089,13 @@
 
 #### Use of External Information Systems | Limits on Authorized Use
 
-**AC-20 (1)** The organization permits authorized individuals to use an external information system to access the information system or to process, store, or transmit organization-controlled information only when the organization verifies the implementation of required security controls on the external system as specified in the organization's information security policy and security plan; or retains approved information system connection or processing agreements with the organizational entity hosting the external information system.
+**AC-20 (1)** The organization permits authorized individuals to use an external information system to access the information system or to process, store, or transmit organization-controlled information only when the organization verifies the implementation of required security controls on the external system, as specified in the organization's information security policy and security plan; or retains approved information system connection or processing agreements with the organizational entity hosting the external information system.
 
 **Responsibilities:** `Customer Only`
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level information technology group may verify cloud service provider compliance with organization information security requirements and grant enterprise-wide approval to use associated cloud service offerings. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
+| **Customer** | The customer's enterprise-level information technology group might verify cloud service provider compliance with organization information security requirements and grant enterprise-wide approval to use associated cloud service offerings. Azure has been granted a provisional authorization to operate (P-ATO) by the FedRAMP Joint Authorization Board (JAB). Azure is assessed by a FedRAMP-approved third-party assessment organization (3PAO) to verify compliance with FedRAMP security control and other requirements. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1123,7 +1123,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level  access control policy may include provisions regarding information sharing. |
+| **Customer** | The customer's enterprise-level  access control policy might include provisions regarding information sharing. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1179,7 +1179,7 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control procedures may establish a review process for content proposed to be posted a publicly accessible system. |
+| **Customer** | The customer's enterprise-level access control procedures may establish a review process for content proposed to be posted to a publicly accessible system. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -1193,6 +1193,6 @@
 
 |||
 |---|---|
-| **Customer** | The customer's enterprise-level access control procedures may establish a process for periodic review of content posted to publicly accessible systems. |
+| **Customer** | The customer's enterprise-level access control procedures may establish a process for periodic review of content that is posted to publicly accessible systems. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
