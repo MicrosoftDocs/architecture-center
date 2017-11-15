@@ -158,6 +158,7 @@ For more information on deploying this sample reference architecture using Azure
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-administration]: /azure/automation/automation-intro
 [azure-availability-sets]: /azure/virtual-machines/virtual-machines-linux-manage-availability
+[azure-cli-2]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://docs.datastax.com/en/datastax_enterprise/4.5/datastax_enterprise/install/installAzure.html
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
