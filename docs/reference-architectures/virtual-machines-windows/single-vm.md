@@ -25,15 +25,15 @@ This reference architecture shows a set of proven practices for running a Window
 
 Provisioning an Azure VM requires additional components, such as compute, networking, and storage resources.
 
-* **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. In general, you should group resources in a solution based on their lifetime and who will manage the resources. For a single VM workload, you may want to create a single resource group for all resources.
+* **Resource group.** A [resource group][resource-manager-overview] is a container that holds related resources. In general, you should group resources in a solution based on their lifetime and who will manage the resources. For a single VM workload, you may want to create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down.
-* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is **not** saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
 * **Virtual network (VNet) and subnet.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
 * **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP).
 * **Network interface (NIC)**. An assigned NIC enables the VM to communicate with the virtual network.
-* **Network security group (NSG)**. [NSGs][nsg] are used to allow or deny network traffic to a network resource. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
+* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to a network resource. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## Recommendations
@@ -87,7 +87,7 @@ You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out
 
 ## Availability considerations
 
-For higher availability, deploy multiple VMs in an availability set. This also provides a higher [service level agreement][vm-sla](SLA).
+For higher availability, deploy multiple VMs in an availability set. This also provides a higher [service level agreement (SLA)][vm-sla].
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
@@ -101,7 +101,7 @@ To protect against accidental data loss during normal operations (for example, b
 
 **Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
 
-In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but *not* deallocated, so you will still be charged.
+In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
 **Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
 

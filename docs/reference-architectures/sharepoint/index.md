@@ -165,7 +165,7 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 
 ## Deploy the solution
 
-The deployment scripts for this reference architecture are available on [Github][github]. 
+The deployment scripts for this reference architecture are available on [GitHub][github]. 
 
 You can deploy this architecture incrementally or all at once. The first time, we recommend an incremental deployment, so that you can see what each deployment does. Specify the increment using one of the following *mode* parameters.
 
