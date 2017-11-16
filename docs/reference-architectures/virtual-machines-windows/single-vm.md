@@ -30,7 +30,7 @@ Provisioning a VM in Azure involves more components than only the VM. There are 
 * **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down.
 * **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
-* **Virtual network (VNet) and subnet.** Every VM in Azure is deployed into a VNet that can be segmented into multiple subnets.
+* **Virtual network (VNet) and subnet.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
 * **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP).
 * **Network interface (NIC)**. An assigned NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. [NSGs][nsg] are used to allow or deny network traffic to a network resource. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
@@ -62,7 +62,7 @@ For best disk I/O performance, we recommend [Premium Storage][premium-storage], 
 
 We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
 
-If you are not using managed disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs) in order to avoid hitting the IOPS limits for storage accounts.
+If you are using unmanaged disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the [(IOPS) limits][vm-disk-limits] for storage accounts.
 
 Add one or more data disks. When you create a VHD, it is unformatted. Log into the VM to format the disk. If you are not using managed disks and have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
