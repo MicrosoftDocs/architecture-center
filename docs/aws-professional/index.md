@@ -266,8 +266,7 @@ similar way, there are differences in the RAM, CPU, and storage capabilities.
 
 Unlike AWS' per second billing, Azure on-demand VMs are billed by the minute.
 
-Azure has no equivalent to EC2 Spot Instances, Reserved Instances, or Dedicated
-Hosts.
+Azure has no equivalent to EC2 Spot Instances or Dedicated Hosts.
 
 #### EBS and Azure Storage for VM disks
 
