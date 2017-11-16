@@ -379,15 +379,6 @@ allow you to create and manage the following storage services:
     message block (SMB) protocol. File storage is used in a similar manner to
     EFS in the AWS platform.
 
-#### Glacier and Azure Storage
-
-Azure Storage does not offer a direct equivalent to AWS' long-term archival
-Glacier storage. For data that is infrequently accessed and long-lived Azure
-offers the [Azure cool blob storage
-tier](https://azure.microsoft.com/documentation/articles/storage-blob-storage-tiers/).
-Cool storage provides cheaper, lower performance storage than standard blob
-storage and is comparable to AWS' S3 - Infrequent Access.
-
 #### See also
 
 -   [Microsoft Azure Storage Performance and Scalability
