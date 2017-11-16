@@ -383,10 +383,10 @@ allow you to create and manage the following storage services:
 
  
 #### Glacier and Azure Storage 
-[Azure Storage Standard Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers) offers a direct equivalent to AWS' long-term archival
+[Azure Storage Standard Archive](/azure/storage/blobs/storage-blob-storage-tiers) offers a direct equivalent to AWS' long-term archival
 Glacier storage. For data that is infrequently accessed and long-lived Azure
 offers the [Azure cool blob storage
-tier](https://azure.microsoft.com/documentation/articles/storage-blob-storage-tiers/).
+tier](/azure/storage/blobs/storage-blob-storage-tiers).
 Cool storage provides cheaper, lower performance storage than standard blob
 storage and is comparable to AWS' S3 - Infrequent Access.
 
