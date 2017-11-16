@@ -18,7 +18,7 @@ You'll learn:
 * How available solutions are structured in Azure.
 * How the major Azure services differ from AWS services.
 
- Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
+Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
@@ -96,7 +96,7 @@ compute instance, storage object, networking device, or other entity you can
 create or configure within the platform.
 
 Azure resources are deployed and managed using one of two models: [Azure
-Resource Manager, or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model).
+Resource Manager](/azure/azure-resource-manager/resource-group-overview), or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model).
 Any new resources are created using the Resource Manager model.
 
 ### Resource groups
