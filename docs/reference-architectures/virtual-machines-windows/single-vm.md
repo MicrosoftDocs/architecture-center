@@ -15,7 +15,7 @@ pnp.series.prev: ./index
 
 # Run a Windows VM on Azure
 
-This reference architecture follows a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single VM instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single VM instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution.**](#deploy-the-solution)
 
 ![[0]][0]
 
@@ -23,7 +23,7 @@ This reference architecture follows a set of proven practices for running a Wind
 
 ## Architecture
 
-Provisioning a VM in Azure involves more components than only the VM. There are compute, networking, and storage components that you need to consider.
+Provisioning an Azure VM requires additional components, such as compute, networking, and storage resources.
 
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. In general, you should group resources in a solution based on their lifetime and who will manage the resources. For a single VM workload, you may want to create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
@@ -58,7 +58,7 @@ Enable monitoring and diagnostics, including basic health metrics, diagnostics i
 
 ### Disk and storage recommendations
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
 We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
 
@@ -216,12 +216,10 @@ For more information on deploying this sample reference architecture, visit our 
 [select-vm-image]: /azure/virtual-machines/virtual-machines-windows-cli-ps-findimage
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
-[storage-account-limits]: /azure/azure-subscription-service-limits#storage-limits
-[storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
-[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes#size-tables
+[vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"

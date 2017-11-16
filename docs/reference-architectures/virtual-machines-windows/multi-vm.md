@@ -66,7 +66,7 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 Deploy the VMs within the same subnet. Do not expose the VMs directly to the Internet, but instead give each VM a private IP address. Clients connect using the public IP address of the load balancer.
 
-If you need to log into the VMs behind the load balancer, consider adding a single VM as a jumpbox (i.e., bastion host) with a public IP address you can log into. And then log into the VMs behind the load balancer from the jumpbox. Alternatively, you can configure the load balancer's inbound network address translation (NAT) rules. However, having a jumpbox is a better solution when you are hosting n-tier workloads or multiple workloads.
+If you need to log into the VMs behind the load balancer, consider adding a single VM as a jumpbox (also called a bastion host) with a public IP address you can log into. And then log into the VMs behind the load balancer from the jumpbox. Alternatively, you can configure the load balancer's inbound network address translation (NAT) rules. However, having a jumpbox is a better solution when you are hosting n-tier workloads or multiple workloads.
 
 ### Load balancer recommendations
 
@@ -167,10 +167,8 @@ For more information on deploying this sample reference architecture, visit our 
 [availability-set-ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-automation]: /azure/automation/automation-intro
-[azure-automation]: https://azure.microsoft.com/documentation/services/automation/
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-cli-2]: /azure/install-azure-cli?view=azure-cli-latest
-[bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
@@ -178,11 +176,9 @@ For more information on deploying this sample reference architecture, visit our 
 [health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-features
-[naming-conventions]: /azure/guidance/guidance-naming-conventions
+[naming-conventions]: ../../best-practices/naming-conventions.md
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
-[n-tier-linux]: /azure/architecture/reference-architectures/virtual-machines-linux/n-tier.md
-[n-tier-windows]: /azure/architecture/reference-architectures/virtual-machines-windows/n-tier.md
 [premium]: /azure/storage/common/storage-premium-storage
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 

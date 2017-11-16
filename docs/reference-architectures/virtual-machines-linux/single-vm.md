@@ -15,7 +15,7 @@ pnp.series.prev: ./index
 
 # Run a Linux VM on Azure
 
-This reference architecture follows a set of proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single VM instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows a set of proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single VM instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution.**](#deploy-the-solution)
 
 ![[0]][0]
 
@@ -23,7 +23,7 @@ This reference architecture follows a set of proven practices for running a Linu
 
 ## Architecture
 
-Provisioning a VM in Azure involves more components than only the VM. There are compute, networking, and storage components that you need to consider.
+Provisioning an Azure VM requires additional components, such as compute, networking, and storage resources.
 
 * **Resource group.** A [*resource group*][resource-manager-overview] is a container that holds related resources. In general, you should group resources in a solution based on their lifetime and who will manage the resources. For a single VM workload, you may want to create a single resource group for all resources.
 * **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage. Azure supports running various popular Linux distributions, including CentOS, Debian, Red Hat Enterprise, Ubuntu, and FreeBSD. For more information, see [Azure and Linux][azure-linux].
@@ -58,7 +58,7 @@ Enable monitoring and diagnostics, including basic health metrics, diagnostics i
 
 ### Disk and storage recommendations
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (i.e., data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
 We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
 
