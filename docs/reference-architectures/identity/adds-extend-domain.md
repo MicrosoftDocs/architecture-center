@@ -101,9 +101,9 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Deploy the solution
 
-A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
+A solution is available on [GitHub][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
-1. Download or clone the solution folder from [Github][github] to your local machine.
+1. Download or clone the solution folder from [GitHub][github] to your local machine.
 
 2. Open the Azure CLI and navigate to the local solution folder.
 

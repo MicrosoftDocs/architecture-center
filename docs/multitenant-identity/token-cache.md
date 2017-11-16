@@ -14,7 +14,7 @@ pnp.series.next: adfs
 
 It's relatively expensive to get an OAuth access token, because it requires an HTTP request to the token endpoint. Therefore, it's good to cache tokens whenever possible. The [Azure AD Authentication Library][ADAL] (ADAL)  automatically caches tokens obtained from Azure AD, including refresh tokens.
 
-ADAL provides a default token cache implementation. However, this token cache is intended for native client apps, and is *not* suitable for web apps:
+ADAL provides a default token cache implementation. However, this token cache is intended for native client apps, and is **not** suitable for web apps:
 
 * It is a static instance, and not thread safe.
 * It doesn't scale to large numbers of users, because tokens from all users go into the same dictionary.
