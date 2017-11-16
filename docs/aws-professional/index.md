@@ -363,7 +363,6 @@ allow you to create and manage the following storage services:
     application installer. You can set Blob storage for private access or share
     contents publicly to the Internet. Blob storage serves the same purpose as
     both AWS S3 and EBS.
-
 -   [Table
     storage](https://azure.microsoft.com/documentation/articles/storage-nodejs-how-to-use-table-storage/) - stores structured datasets. Table storage is a NoSQL key-attribute data
     store that allows for rapid development and fast access to large quantities
@@ -378,12 +377,15 @@ allow you to create and manage the following storage services:
     message block (SMB) protocol. File storage is used in a similar manner to
     EFS in the AWS platform.
 
-#### Glacier and Azure Storage
 
-Azure Storage does not offer a direct equivalent to AWS' long-term archival
+
+
+ 
+#### Glacier and Azure Storage 
+[Azure Storage Standard Archive](/azure/storage/blobs/storage-blob-storage-tiers) offers a direct equivalent to AWS' long-term archival
 Glacier storage. For data that is infrequently accessed and long-lived Azure
 offers the [Azure cool blob storage
-tier](https://azure.microsoft.com/documentation/articles/storage-blob-storage-tiers/).
+tier](/azure/storage/blobs/storage-blob-storage-tiers).
 Cool storage provides cheaper, lower performance storage than standard blob
 storage and is comparable to AWS' S3 - Infrequent Access.
 
