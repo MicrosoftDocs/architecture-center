@@ -448,9 +448,9 @@ at a lower cost.
 
 ### Database services
 
-#### RDS and Azure Database services
+#### RDS and Azure relational database services
 
-Azure provides several different database services that are the equivalent of AWS' Relational Database Service (RDS).
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS).
 
 -   [SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
 -   [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)
