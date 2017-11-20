@@ -99,5 +99,5 @@ The following guidelines will help you to design a suitable transient fault hand
 * [The Transient Fault Handling Application Block](http://msdn.microsoft.com/library/hh680934.aspx)
 * [Circuit Breaker Pattern](http://msdn.microsoft.com/library/dn589784.aspx)
 * [Compensating Transaction Pattern](http://msdn.microsoft.com/library/dn589804.aspx)
-* [Idempotency Patterns](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
+* [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/)
 
