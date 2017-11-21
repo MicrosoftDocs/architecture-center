@@ -5,49 +5,30 @@ description: How to create a trusted Active Directory domain in Azure.
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-
-
+ms.date: 11/28/2016
 
 pnp.series.title: Identity management
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.prev: adds-extend-domain
 pnp.series.next: adfs
 cardTitle: Create an AD DS forest in Azure
 ---
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
-[!INCLUDE [header](../../_includes/header.md)]
 
-This article describes how to create an Active Directory domain in Azure that is separate from, but trusted by, domains in your on-premises forest.
-
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
-
-Active Directory Domain Services (AD DS) is a distributed database service that stores identity information about users, devices, and other resources in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects.
-
-You can use AD DS to create trust relationships between top level forest objects, in order to provide interoperability between domains. That is, logons in one domain can be trusted to provide access to resources in other domains.
-
-This reference architecture shows how to create an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises, but because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain.  
-
-Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud.
-
-## Architecture diagram
-
-The following diagram highlights the important components in this architecture. 
-
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - AADS (resource forest)" page.
-> 
-> 
+This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
+
+*Download a [Visio file][visio-download] of this architecture.*
+
+Active Directory Domain Services (AD DS) stores identity information in a hierarchical structure. The top node in the hierarchical structure is known as a forest. A forest contains domains, and domains contain other types of objects. This reference architecture creates an AD DS forest in Azure with a one-way outgoing trust relationship with an on-premises domain. The forest in Azure contains a domain that does not exist on-premises. Because of the trust relationship, logons made against on-premises domains can be trusted for access to resources in the separate Azure domain. 
+
+Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud. 
+
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
+
+## Architecture
+
+The architecture has the following components.
 
 * **On-premises network**. The on-premises network contains its own Active Directory forest and domains.
 * **Active Directory servers**. These are domain controllers implementing domain services running as VMs in the cloud. These servers host a forest containing one or more domains, separate from those located on-premises.
@@ -103,7 +84,7 @@ Forest level trusts are transitive. If you establish a forest level trust betwee
 
 For Active Directory-specific security considerations, see the security considerations section in [Extending Active Directory to Azure][adds-extend-domain].
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the Azure CLI to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
@@ -168,6 +149,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
 [azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
+[considerations]: ./considerations.md
 [creating-external-trusts]: https://technet.microsoft.com/library/cc816837(v=ws.10).aspx
 [creating-forest-trusts]: https://technet.microsoft.com/library/cc816810(v=ws.10).aspx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-forest
@@ -177,7 +159,7 @@ A solution is available on [Github][github] to deploy this reference architectur
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/Deploy-ReferenceArchitecture.ps1
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/extensions/outgoing-trust.ps1
 [verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
-[0]: ../_images/guidance-identity-aad-resource-forest/figure1.png "Secure hybrid network architecture with separate Active Directory domains"
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
+[0]: ./images/adds-forest.png "Secure hybrid network architecture with separate Active Directory domains"

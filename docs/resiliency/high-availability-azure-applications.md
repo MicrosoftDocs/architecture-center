@@ -2,11 +2,7 @@
 title: High availability for Azure applications
 description: Technical overview and in-depth information about designing and building applications for high availability on Microsoft Azure.
 author: adamglick
-ms.service: guidance
-ms.topic: article
 ms.date: 05/31/2017
-ms.author: pnp
-
 ---
 [!INCLUDE [header](../_includes/header.md)]
 # High availability for applications built on Microsoft Azure

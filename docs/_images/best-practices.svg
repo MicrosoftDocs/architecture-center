@@ -1,1 +1,16 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><style>.cls-1{fill:#ffd214;}.cls-2{fill:#eaeaea;}.cls-3{fill:#dedede;}.cls-4{fill:#fff;opacity:0.5;}</style></defs><title>Artboard 1 copy 3</title><path class="cls-1" d="M32,0A20,20,0,0,0,12,20c0,16,12,16,12,28H40c0-12,12-12,12-28A20,20,0,0,0,32,0Z"/><polygon class="cls-2" points="24 60 28.5 64 36 64 40 60 24 60"/><rect class="cls-2" x="24" y="56" width="16" height="4"/><polygon class="cls-3" points="24 56 24 60 40 56 40 52 24 56"/><rect class="cls-3" x="24" y="48" width="16" height="4"/><polygon class="cls-2" points="24 52 24 56 40 52 40 48 24 52"/><ellipse class="cls-4" cx="32" cy="6" rx="8" ry="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="42.41" height="65" viewBox="0 0 42.41 65">
+  <title>Best Practices for Cloud Applications</title>
+  <g id="_1180_Grids" data-name="1180 Grids">
+    <g>
+      <g>
+        <path d="M42.375,19.029h0v-.391C42.375,8.61,33.78.276,23.231.145c-.26-.391-6.251.13-6.251.13h0C7.473,1.448.05,9.392.05,18.638c0,.26-1.042,7.553,6.381,13.674,3.386,3,6.9,11.07,7.423,13.414l.391.781h13.8l.391-.781c.521-2.344,4.167-10.418,7.423-13.283C43.287,26.191,42.375,19.289,42.375,19.029Z" fill="#5db4d7"/>
+        <rect x="14.506" y="51.196" width="13.804" height="4.428" fill="#7a7a7a"/>
+        <polygon points="18.803 65 23.882 65 28.18 60.442 14.506 60.442 18.803 65" fill="#7a7a7a"/>
+        <g opacity="0.15" style="isolation: isolate">
+          <path d="M23.231.145c-.26-.391-6.251.13-6.251.13C7.473,1.448.05,9.392.05,18.638c0,.26-.912,6.642,5.079,12.5L33.259,3.01A19.127,19.127,0,0,0,23.231.145Z" fill="#fff"/>
+        </g>
+      </g>
+      <path d="M11.367,14.213a4.824,4.824,0,0,1,.5.026,4.823,4.823,0,1,1,9.113-2.709,4.823,4.823,0,0,1,8.4,2.98,4.823,4.823,0,1,1,1.67,9.348H11.367a4.823,4.823,0,0,1,0-9.646Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>

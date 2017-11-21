@@ -3,16 +3,13 @@ title: CQRS
 description: Segregate operations that read data from operations that update data by using separate interfaces.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.date: 03/24/2017
-ms.author: pnp
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
 ---
 
-# Command and Query Responsibility Segregation (CQRS)
+# Command and Query Responsibility Segregation (CQRS) pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 
@@ -36,7 +33,7 @@ However, the traditional CRUD approach has some disadvantages:
 
 - It can make managing security and permissions more complex because each entity is subject to both read and write operations, which might expose data in the wrong context.
 
-> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://msdn.microsoft.com/library/ms978509.aspx).
+> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://blogs.msdn.microsoft.com/maarten_mullender/2004/07/23/crud-only-when-you-can-afford-it-revisited/).
 
 ## Solution
 
@@ -193,7 +190,7 @@ public class ProductsCommandHandler :
     var product = repository.Find(command.ProductId);
     if (product != null)
     {
-      product.RateProuct(command.UserId, command.Rating);
+      product.RateProduct(command.UserId, command.Rating);
       repository.Save(product);
     }
   }
@@ -233,6 +230,8 @@ Also notice how the `IProductsDomain` interface contains methods that have a mea
 ## Related patterns and guidance
 
 The following patterns and guidance are useful when implementing this pattern:
+
+- For a comparison of CQRS with other architectural styles, see [Architecture styles](/azure/architecture/guide/architecture-styles/) and [CQRS architecture style](/azure/architecture/guide/architecture-styles/cqrs).
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 

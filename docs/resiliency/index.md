@@ -2,10 +2,7 @@
 title: Designing resilient applications for Azure
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 author: MikeWasson
-ms.service: guidance
-ms.topic: article
 ms.date: 05/26/2017
-ms.author: pnp
 ms.custom: resiliency
 
 pnp.series.title: Design for Resiliency
@@ -345,7 +342,7 @@ Here are the major points to take away from this article:
 [jmeter]: http://jmeter.apache.org/
 [load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
 [monitoring-guidance]: ../best-practices/monitoring.md
-[ra-basic-web]: ../reference-architectures/managed-web-app/basic-web-app.md
+[ra-basic-web]: ../reference-architectures/app-service-web-app/basic-web-app.md
 [ra-multi-vm]: ../reference-architectures/virtual-machines-windows/multi-vm.md
 [checklist]: ../checklist/resiliency.md
 [retry-pattern]: ../patterns/retry.md

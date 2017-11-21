@@ -14,6 +14,9 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture*
+
+
 The benefits of this toplogy include:
 
 * **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
@@ -52,7 +55,6 @@ The architecture consists of the following components.
 > [!NOTE]
 > This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
 
-You can download a Visio file of this architecture from the [Microsoft download center][visio-download]. This diagram is on the "Hub Spoke" page.
 
 ## Recommendations
 
@@ -79,14 +81,9 @@ A hub-spoke topology can also be used without a gateway, if you don't need conne
 
 VNet peering is a non-transitive relationship between two VNets. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to the gateway at the hub VNet. This will allow the spokes to connect to each other, as shown below. Be aware that the bandwidth limits of your gateway will apply to all traffic going through the gateway, including traffic between spokes.
+However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to an NVA acting as a router at the hub VNet. This will allow the spokes to connect to each other.
 
-![[1]][1]
-
-> [!NOTE]
-> You can use the sample deployment provided in this document to add these UDRs and make the peering connections transitive. 
-
-To allow traffic to flow through the hub from one spoke to another, you must:
+You can also configure spokes to use the hub VNet gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub, and connect to remote networks, you must:
 
   - Configure the VNet peering connection in the hub to **allow gateway transit**.
   - Configure the VNet peering connection in each spoke to **use remote gateways**.
@@ -96,7 +93,7 @@ To allow traffic to flow through the hub from one spoke to another, you must:
 
 ### Spoke connectivity
 
-If there is no gateway in the hub VNet, and you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
+If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
 
 ![[2]][2]
 
@@ -421,7 +418,7 @@ If you want to allow spokes to connect to each other, you must deploy UDRs to ea
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
 [1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"

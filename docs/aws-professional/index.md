@@ -1,17 +1,14 @@
 ---
-title: Introduction to Azure for AWS experts
-description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms.
+title: Azure for AWS Professionals
+description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Leverage your AWS experience in Azure. 
 keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
 author: lbrader
-ms.service: guidance
-ms.topic: article
 ms.date: 03/24/2017
-ms.author: pnp
 
 pnp.series.title: Azure for AWS Professionals
 ---
 
-# Introduction to Microsoft Azure accounts, platform, and services for AWS experts
+# Azure for AWS Professionals
 
 This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
 
@@ -21,7 +18,7 @@ You'll learn:
 * How available solutions are structured in Azure.
 * How the major Azure services differ from AWS services.
 
- Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
+Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
@@ -99,7 +96,7 @@ compute instance, storage object, networking device, or other entity you can
 create or configure within the platform.
 
 Azure resources are deployed and managed using one of two models: [Azure
-Resource Manager, or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model).
+Resource Manager](/azure/azure-resource-manager/resource-group-overview), or the older Azure [classic deployment model](/azure/azure-resource-manager/resource-manager-deployment-model).
 Any new resources are created using the Resource Manager model.
 
 ### Resource groups
@@ -133,9 +130,9 @@ Azure offers several ways to manage your resources:
 
 -   [Command
     Line](https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/).
-    The Azure CLI tool provides a command-line interface capable of creating and
+    The Azure CLI 2.0 tool provides a command-line interface capable of creating and
     managing Azure resources. Azure CLI is available for [Windows, Linux, and
-    Mac OS](https://github.com/azure/azure-xplat-cli).
+    Mac OS](https://aka.ms/azurecli2).
 
 -   [PowerShell](https://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
     The Azure modules for PowerShell allow you to execute automated management
@@ -267,10 +264,9 @@ similar way, there are differences in the RAM, CPU, and storage capabilities.
 -   [Sizes for virtual machines in Azure
     (Linux)](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)
 
-Unlike AWS' hourly billing, Azure on-demand VMs are billed by the minute.
+Unlike AWS' per second billing, Azure on-demand VMs are billed by the minute.
 
-Azure has no equivalent to EC2 Spot Instances, Reserved Instances, or Dedicated
-Hosts.
+Azure has no equivalent to EC2 Spot Instances or Dedicated Hosts.
 
 #### EBS and Azure Storage for VM disks
 
@@ -367,7 +363,6 @@ allow you to create and manage the following storage services:
     application installer. You can set Blob storage for private access or share
     contents publicly to the Internet. Blob storage serves the same purpose as
     both AWS S3 and EBS.
-
 -   [Table
     storage](https://azure.microsoft.com/documentation/articles/storage-nodejs-how-to-use-table-storage/) - stores structured datasets. Table storage is a NoSQL key-attribute data
     store that allows for rapid development and fast access to large quantities
@@ -382,12 +377,15 @@ allow you to create and manage the following storage services:
     message block (SMB) protocol. File storage is used in a similar manner to
     EFS in the AWS platform.
 
-#### Glacier and Azure Storage
 
-Azure Storage does not offer a direct equivalent to AWS' long-term archival
+
+
+ 
+#### Glacier and Azure Storage 
+[Azure Storage Standard Archive](/azure/storage/blobs/storage-blob-storage-tiers) offers a direct equivalent to AWS' long-term archival
 Glacier storage. For data that is infrequently accessed and long-lived Azure
 offers the [Azure cool blob storage
-tier](https://azure.microsoft.com/documentation/articles/storage-blob-storage-tiers/).
+tier](/azure/storage/blobs/storage-blob-storage-tiers).
 Cool storage provides cheaper, lower performance storage than standard blob
 storage and is comparable to AWS' S3 - Infrequent Access.
 

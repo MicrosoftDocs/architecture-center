@@ -23,14 +23,18 @@
     href: reference-architectures/identity/index.md
   - name: Hybrid network
     href: reference-architectures/hybrid-networking/index.md
+  - name: App Service web application
+    href: reference-architectures/app-service-web-app/index.md
   - name: Network DMZ
     href: reference-architectures/dmz/index.md
+  - name: SAP NetWeaver and SAP HANA
+    href: reference-architectures/sap/index.md
+  - name: SharePoint Server 2016
+    href: reference-architectures/sharepoint/index.md
   - name: VM workloads (Linux)
     href: reference-architectures/virtual-machines-linux/index.md
   - name: VM workloads (Windows)
     href: reference-architectures/virtual-machines-windows/index.md
-  - name: Web application with managed services
-    href: reference-architectures/managed-web-app/index.md
 
 - name: Cloud Design Patterns
   href: patterns/index.md
@@ -127,9 +131,13 @@
     href: service-fabric/migrate-from-cloud-services.md
   - name: Run Elasticsearch on Azure
     href: elasticsearch/index.md
+  - name: Extend Azure Resource Manager Template Functionality
+    href: building-blocks/extending-templates/index.md
 
 - name: Resources
   items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Trust Center for Azure
     href: https://www.microsoft.com/en-us/trustcenter/cloudservices/azure
   - name: Icons and diagrams

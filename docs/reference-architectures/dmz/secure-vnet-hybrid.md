@@ -2,42 +2,31 @@
 title: Implementing a secure hybrid network architecture in Azure
 description: How to implement a secure hybrid network architecture in Azure.
 author: telmosampaio
-ms.service: guidance
-ms.topic: article
 ms.date: 11/23/2016
-ms.author: pnp
 
 pnp.series.title: Network DMZ
 pnp.series.prev: ./index
 pnp.series.next: secure-vnet-dmz
 cardTitle: DMZ between Azure and on-premises
+
 ---
 # DMZ between Azure and your on-premises datacenter
-[!INCLUDE [header](../../_includes/header.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends an on-premises network to Azure. This reference architecture implements a DMZ (also called a perimeter network) between an on-premises network and an Azure virtual network. The DMZ includes highly available network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited.
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited.
 
-This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn] or an [ExpressRoute][ra-expressroute] connection.
+[![0]][0] 
 
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+*Download a [Visio file][visio-download] of this architecture.*
 
-Typical uses for this architecture include:
+This architecture requires a connection to your on-premises datacenter, using either a [VPN gateway][ra-vpn] or an [ExpressRoute][ra-expressroute] connection. Typical uses for this architecture include:
 
 * Hybrid applications where workloads run partly on-premises and partly in Azure.
 * Infrastructure that requires granular control over traffic entering an Azure VNet from an on-premises datacenter.
 * Applications that must audit outgoing traffic. This is often a regulatory requirement of many commercial systems and can help to prevent public disclosure of private information.
 
-## Architecture diagram
-The following diagram highlights the important components in this architecture:
+## Architecture
 
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "DMZ - Private" page.
-> 
-> 
-
-[![0]][0] 
+The architecture consists of the following components.
 
 * **On-premises network**. A  private local-area network implemented in an organization.
 * **Azure virtual network (VNet)**. The VNet hosts the application and other resources running in Azure.
@@ -75,7 +64,7 @@ Azure resources such as VMs, VNets, and load balancers can be easily managed by 
 
 We recommend creating the following resource groups:
 
-* A resource group containing the subnets (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
+* A resource group containing the VNet (excluding the VMs), NSGs, and the gateway resources for connecting to the on-premises network. Assign the centralized IT administrator role to this resource group.
 * A resource group containing the VMs for the NVAs (including the load balancer), the jumpbox and other management VMs, and the UDR for the gateway subnet that forces all traffic through the NVAs. Assign the security IT administrator role to this resource group.
 * Separate resource groups for each application tier that contain the load balancer and VMs. Note that this resource group shouldn't include the subnets for each tier. Assign the DevOps role to this resource group.
 
@@ -215,10 +204,9 @@ A deployment for a reference architecture that implements these recommendations 
 [ra-vpn-failover]: ../hybrid-networking/expressroute-vpn-failover.md
 [rbac]: /azure/active-directory/role-based-access-control-configure
 [rbac-custom-roles]: /azure/active-directory/role-based-access-control-custom-roles
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/dmz-reference-architectures.vsdx
 [wireshark]: https://www.wireshark.org/
-[0]: ../_images/blueprints/hybrid-network-secure-vnet.png "Secure hybrid network architecture"
+[0]: ./images/dmz-private.png "Secure hybrid network architecture"

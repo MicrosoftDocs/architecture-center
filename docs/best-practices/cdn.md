@@ -2,10 +2,7 @@
 title: Content Delivery Network guidance
 description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 09/30/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
@@ -37,13 +34,13 @@ The following list shows examples of the median time to first byte from various 
 
 |  | Time (ms) to First Byte (Origin) | Time (ms) to First (CDN) | %CDN time improvement |
 | --- | --- | --- | --- |
-| \*San Jose, CA |47.5 |46.5 |2 % |
+| \*San Jose, CA |47.5 |46.5 |2% |
 | \*\*Dulles, VA |109 |40.5 |169% |
 | Buenos Aires, AR |210 |151 |39% |
 | \*London, UK |195 |44 |343% |
 | Shanghai, CN |242 |206 |17% |
-| \*Singapore |214 |74 |189 % |
-| \*Tokyo, JP |163 |48 |204 % |
+| \*Singapore |214 |74 |189% |
+| \*Tokyo, JP |163 |48 |204% |
 | Seoul, KR |190 |190 |0% |
 
 \* Has an Azure CDN node in the same city.  
@@ -52,42 +49,42 @@ The following list shows examples of the median time to first byte from various 
 ## Challenges
 There are several challenges to take into account when planning to use the CDN:  
 
-* **Deployment**. You must decide the origin from which the CDN will fetch the content, and whether you need to deploy the content in more than one storage system (such as in the CDN and an alternative location).
+* **Deployment**. Decide the origin from which the CDN fetches the content, and whether you need to deploy the content in more than one storage system (such as in the CDN and an alternative location).
 
   Your application deployment mechanism must take into account the process for deploying static content and resources as well as deploying the application files, such as ASPX pages. For example, you may need to implement a separate step to load content into Azure blob storage.
-* **Versioning and cache-control**. You must consider how you will update static content and deploy new versions. The CDN content may be [purged](/azure/cdn/cdn-purge-endpoint/) using the Azure Portal when new versions of your assets are available. This is a similar challenge to managing client side caching, such as that which occurs in a web browser.
+* **Versioning and cache-control**. Consider how you will update static content and deploy new versions. The CDN content may be [purged](/azure/cdn/cdn-purge-endpoint/) using the Azure portal when new versions of your assets are available. This is a similar challenge to managing client-side caching, such as that which occurs in a web browser.
 * **Testing**. It can be difficult to perform local testing of your CDN settings when developing and testing an application locally or in a staging environment.
-* **Search engine optimisation (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
+* **Search engine optimization (SEO)**. Content such as images and documents are served from a different domain when you use the CDN. This can have an effect on SEO for this content.
 * **Content security**. Many CDN services such as Azure CDN do not currently offer any type of access control for the content.
 * **Client security**. Clients might connect from an environment that does not allow access to resources on the CDN. This could be a security-constrained environment that limits access to only a set of known sources, or one that prevents loading of resources from anything other than the page origin. A fallback implementation is required to handle these cases.
 * **Resilience**. The CDN is a potential single point of failure for an application. It has a lower availability SLA than blob storage (which can be used to deliver content directly) so you may need to consider implementing a fallback mechanism for critical content.
 
-  You can monitor your CDN content availability, bandwidth, data transferred, hits, cache hit ratio and cache metrics from the Azure Portal in [real-time](/azure/cdn/cdn-real-time-stats/) and [aggregate reports](/azure/cdn/cdn-analyze-usage-patterns/).
+  You can monitor your CDN content availability, bandwidth, data transferred, hits, cache hit ratio, and cache metrics from the Azure portal in [real-time](/azure/cdn/cdn-real-time-stats/) and [aggregate reports](/azure/cdn/cdn-analyze-usage-patterns/).
 
 Scenarios where CDN may be less useful include:  
 
-* If the content has a low hit rate it might be accessed only few times while it is valid (determined by its time-to-live setting). The first time an item is downloaded you incur two transaction charges from the origin to the CDN, and then from the CDN to the customer.
+* If the content has a low hit rate, it might be accessed only few times while it is valid (determined by its time-to-live setting). The first time an item is downloaded you incur two transaction charges from the origin to the CDN, and then from the CDN to the customer.
 * If the data is private, such as for large enterprises or supply chain ecosystems.
 
 ## General guidelines and good practices
-Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. You should consider adopting this strategy for all of the appropriate content and resources you application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
+Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. Consider adopting this strategy for all of the appropriate content and resources your application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
 ### Origin
 Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS endpoint that the CDN service will use to access and cache the content.
 
-The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access will be available through the CDN.
+The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access are available through the CDN.
 
-The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period will prevent the content from being deployed to the CDN (see the heading *Cache control* below for more information).
+The endpoint can specify a folder named **cdn** in the root of one of application’s compute layers (such as a web role or a virtual machine). The results from requests for resources, including dynamic resources such as ASPX pages, will be cached on the CDN. The minimum cache period is 300 seconds. Any shorter period prevents the content from being deployed to the CDN (for more information, see the following heading *Cache control* below).
 
 If you are using Azure Web Apps, the endpoint is set to the root folder of the site by selecting the site when creating the CDN instance. All of the content for the site will be available through the CDN.
 
-In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application will offer more flexibility and control. For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.
+In most cases, pointing your CDN endpoint at a folder within one of the compute layers of your application offers more flexibility and control. For instance, it makes it easier to manage current and future routing requirements, and dynamically generate static content such as image thumbnails.
 
-You can use [query strings](/azure/cdn/cdn-query-string/) to differentiate objects in the cache when content is delivered from dynamic sources, such as ASPX pages. However, this behavior can be disabled by a setting in the Azure Portal when you specify the CDN endpoint. When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings will be stored as separate items on the CDN.
+You can use [query strings](/azure/cdn/cdn-query-string/) to differentiate objects in the cache when content is delivered from dynamic sources, such as ASPX pages. However, this behavior can be disabled by a setting in the Azure portal when you specify the CDN endpoint. When delivering content from blob storage, query strings are treated as string literals so two items that have the same name but different query strings are stored as separate items on the CDN.
 
 You can utilize URL rewriting for resources, such as scripts and other content, to avoid moving your files to the CDN origin folder.
 
-When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case sensitive for the container and blob name.
+When using Azure storage blobs to hold content for the CDN, the URL of the resources in blobs is case-sensitive for the container and blob name.
 
 When using custom origins or Azure Web Apps, you specify the path to the CDN instance in the links to resources. For example, the following specifies an image file in the **Images** folder of the site that will be delivered through the CDN:
 
@@ -110,7 +107,7 @@ Consider which compression approach you want your CDN to support:
 * You can enable compression directly on CDN edge servers, in which case the CDN will compress the files and serve it to end users. For more information, see [Azure CDN Compression](/azure/cdn/cdn-improve-performance/).
 
 ### Routing and versioning
-You may need to use different CDN instances at various times. For example, when you deploy a new version of the application you may want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can simply create a separate storage account or a separate container and point the CDN endpoint to it. If you use the *cdn* root folder within the application as the CDN endpoint you can use URL rewriting techniques to direct requests to a different folder.
+You may need to use different CDN instances at various times. For example, when you deploy a new version of the application you may want to use a new CDN and retain the old CDN (holding content in an older format) for previous versions. If you use Azure blob storage as the content origin, you can create a separate storage account or a separate container and point the CDN endpoint to it. If you use the cdn root folder within the application as the CDN endpoint, you can use URL rewriting techniques to direct requests to a different folder.
 
 Do not use the query string to denote different versions of the application in links to resources on the CDN because, when retrieving content from Azure blob storage, the query string is part of the resource name (the blob name). This approach can also affect how the client caches resources.
 
@@ -121,19 +118,20 @@ Consider restricting the CDN content access by country. Azure CDN allows you to 
 ### Cache control
 Consider how to manage caching within the system. For example, when using a folder as the CDN origin you can specify the cacheability of pages that generate the content, and the content expiry time for all the resources in a specific folder. You can also specify cache properties for the CDN, and for the client using standard HTTP headers. Although you should already be managing caching on the server and client, using the CDN will help to make you more aware of how your content is cached, and where.
 
-To prevent objects from being available on the CDN you can delete them from the origin (blob container or application *cdn* root folder), remove or delete the CDN endpoint, or, in the case of blob storage, make the container or blob private. However, items will be removed from the CDN only when their time-to-live expires. If no cache expiry period is specified (such as when content is loaded from blob storage), it will be cached on the CDN for up to 7 days.  You can also manually [purge a CDN endpoint](/azure/cdn/cdn-purge-endpoint/).
+To prevent objects from being available on the CDN you can delete them from the origin (blob container or application *cdn* root folder), remove or delete the CDN endpoint, or, in the case of blob storage, make the container or blob private. However, items will be removed from the CDN only when their time-to-live expires. If no cache expiry period is specified (such as when content is loaded from blob storage), it is cached on the CDN for up to seven days.  You can also manually [purge a CDN endpoint](/azure/cdn/cdn-purge-endpoint/).
 
 In a web application, you can set the caching and expiry for all content by using the *clientCache* element in the *system.webServer/staticContent* section of the web.config file. Remember that when you place a web.config file in a folder it affects the files in that folder and all subfolders.
 
 If you create the content for the CDN dynamically (in your application code for example), ensure that you specify the *Cache.SetExpires* property on each page. The CDN will not cache the output from pages that use the default cacheability setting of *public*.  Set the cache expiry period to a suitable value to ensure that the content is not discarded and reloaded from the application at very short intervals.  
 
 ### Security
-The CDN can deliver content over HTTPS (SSL) using the certificate provided by the CDN, but it will also be available over HTTP as well. You cannot block HTTP access to items in the CDN. You may need to use HTTPS to request static content that is displayed in pages loaded through HTTPS (such as a shopping cart) to avoid browser warnings about mixed content.
+The CDN can deliver content over HTTPS (SSL), by using the certificate provided by the CDN, as well as over standard HTTP. To avoid browser warnings about mixed content, you might need to use HTTPS to request static content that is displayed in pages loaded through HTTPS.
 
-If you deliver client-side scripts using the CDN, you may encounter issues if these scripts use an *XMLHttpRequest* call to make HTTP requests for other resources such as data, images, or fonts in a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS:
+If you deliver static assets such as font files by using the CDN, you might encounter same-origin policy issues if you use an *XMLHttpRequest* call to request these resources from a different domain. Many web browsers prevent cross-origin resource sharing (CORS) unless the web server is configured to set the appropriate response headers. You can configure the CDN to support CORS by using one of the following methods:
 
-* If the origin from which you are delivering content is Azure blob storage, you can add a *CorsRule* to the service properties. The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content). For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
-* If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module).
+* Use the CDN rules engine to add CORS headers to the responses. This method is usually the best one to use because both wildcard and multiple specific-allowed origins are supported. For more information, see [Using Azure CDN with CORS](https://docs.microsoft.com/en-us/azure/cdn/cdn-cors). 
+* Add a *CorsRule* to the service properties. You can use this method if the origin from which you are delivering content is Azure blob storage. The rule can specify the allowed origins for CORS requests, the allowed methods such as GET, and the maximum age in seconds for the rule (the period within which the client must request the linked resources after loading the original content). When you set CORS on Storage to use with CDN, only the ‘*’ wildcard is supported for the allowed origins list. For more information, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](http://msdn.microsoft.com/library/azure/dn535601.aspx).
+* Configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. You can use this method if the origin server is running IIS. When you use this method with CDN, only the ‘*’ wildcard is supported for the allowed origins list. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module).
 
 ### Custom domains
 The Azure CDN allows you to specify a [custom domain name](/azure/cdn/cdn-map-content-to-custom-domain/) and use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
@@ -141,9 +139,29 @@ The Azure CDN allows you to specify a [custom domain name](/azure/cdn/cdn-map-co
 If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL certificate, and this certificate will not match your custom domain/subdomain names.
 
 ### CDN fallback
-You should consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
+Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
 
-### Search engine optimisation
+The example below shows the fallback mechanisms using [Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro) in a Razor view.
+
+```HTML
+...
+<link rel="stylesheet" href="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/css/bootstrap.min.css"
+      asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+      asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
+...
+<script src="https://[your-cdn-endpoint].azureedge.net/lib/jquery/dist/jquery-2.2.0.min.js"
+        asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+        asp-fallback-test="window.jQuery">
+</script>
+<script src="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/js/bootstrap.min.js"
+        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+</script>
+...
+```
+
+### Search engine optimization
 If SEO is an important consideration in your application, perform the following tasks:
 
 * Include a *Rel* canonical header in each page or resource.
@@ -152,7 +170,7 @@ If SEO is an important consideration in your application, perform the following 
 * When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
 
 ### Monitoring and logging
-Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site
+Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site.
 
 Enable logging for the CDN and monitor this log as part of your daily operations.
 
@@ -168,7 +186,7 @@ Consider analyzing the CDN traffic for usage patterns. The Azure portal provides
 For more information, see [Analyze CDN usage patterns](/azure/cdn/cdn-analyze-usage-patterns/).
 
 ### Cost implications
-You are charged for outbound data transfers from the CDN.  Additionally, if you're using blob storage to host your assets, you are charged for storage transactions when the CDN loads data from your application. You should set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.
+You are charged for outbound data transfers from the CDN.  Additionally, if you're using blob storage to host your assets, you are charged for storage transactions when the CDN loads data from your application. Set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.
 
 Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.
 
@@ -188,56 +206,24 @@ Azure has several CDN products. When selecting a CDN, consider the features that
 - **[Real-time statistics](/azure/cdn/cdn-real-time-stats)**. Monitor real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile, and receive [real-time alerts](/azure/cdn/cdn-real-time-alerts). 
 
 
-## Example code
-This section contains some examples of code and techniques for working with the CDN.  
+## Rules engine URL rewriting example
 
-### URL rewriting
-The following excerpt from a Web.config file in the root of a Cloud Services hosted application demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
+The following diagram demonstrates how to perform [URL rewriting](https://technet.microsoft.com/library/ee215194.aspx) when using the CDN. Requests from the CDN for content that is cached are redirected to specific folders within the application root based on the type of the resource (such as scripts and images).  
 
-```XML
-<system.webServer>
-  ...
-  <rewrite>
-    <rules>
-      <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnImages" stopProcessing="true">
-        <match url="cdn/Images/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Images/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnContent" stopProcessing="true">
-        <match url="cdn/Content/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Content/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScript" stopProcessing="true">
-        <match url="cdn/Scripts/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/Scripts/{R:1}" appendQueryString="true" />
-      </rule>
-      <rule name="CdnScriptBundles" stopProcessing="true">
-        <match url="cdn/bundles/(.*)" ignoreCase="true" />
-        <action type="Rewrite" url="/bundles/{R:1}" appendQueryString="true" />
-      </rule>
-    </rules>
-  </rewrite>
-  ...
-</system.webServer>
-```
+![Rules engine diagram](./images/cdn/rules-engine.png)
 
 These rewrite rules perform the following redirections:
 
-* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg *is rewritten as *Filename.jpg*.
+* The first rule allows you to embed a version in the file name of a resource, which is then ignored. For example, *Filename_v123.jpg* is rewritten as *Filename.jpg*.
 * The next four rules show how to redirect requests if you do not want to store the resources in a folder named *cdn** in the root of the web role. The rules map the *cdn/Images*, *cdn/Content*, *cdn/Scripts*, and *cdn/bundles* URLs to their respective root folders in the web role.
 
-Note that using URL rewriting requires you to make some changes to the bundling of resources.   
+Note that using URL rewriting requires you to make some changes to the bundling of resources.     
 
 ## More information
 * [Azure CDN](https://azure.microsoft.com/services/cdn/)
-* [Azure Content Delievery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
+* [Azure Content Delivery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
 * [Using Azure CDN](/azure/cdn/cdn-create-new-endpoint/)
-* [Integrate a cloud service with Azure CDN](/azure/cdn/cdn-cloud-service-with-cdn/)
-* [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
+* [Integrate a cloud service with Azure CDN](/azure/cdn/cdn-cloud-service-with-cdn/)(https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
 
 <!-- links -->

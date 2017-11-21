@@ -3,17 +3,14 @@ title: Valet Key
 description: Use a token or key that provides clients with restricted direct access to a specific resource or service.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, security]
 
 ---
 
-# Valet Key
+# Valet Key pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

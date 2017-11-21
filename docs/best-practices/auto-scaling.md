@@ -2,10 +2,7 @@
 title: Autoscaling guidance
 description: Guidance on how to autoscale to dynamically allocate resources required by an application.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 05/17/2017
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
@@ -20,7 +17,7 @@ Autoscaling takes advantage of the elasticity of cloud-hosted environments while
 There are two main ways that an application can scale: 
 
 * **Vertical scaling**, also called scaling up and down, means changing the capacity of a resource. For example, you could move an application to a larger VM size. Vertical scaling often requires making the system temporarily unavailable while it is being redeployed. Therefore, it's less common to automate vertical scaling.
-* **Horizontal scaling**, also called scaling out and in, means means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
+* **Horizontal scaling**, also called scaling out and in, means adding or removing instances of a resource. The application continues running without interruption as new resources are provisioned. When the provisioning process is complete, the solution is deployed on these additional resources. If demand drops, the additional resources can be shut down cleanly and deallocated. 
 
 Many cloud-based systems, including Microsoft Azure, support automatic horizontal scaling. The rest of this article focuses on horizontal scaling.
 

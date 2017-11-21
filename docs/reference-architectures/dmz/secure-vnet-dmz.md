@@ -4,44 +4,32 @@ description: >-
   How to implement a secure hybrid network architecture with Internet access in
   Azure.
 author: telmosampaio
-ms.service: guidance
-ms.topic: article
 ms.date: 11/23/2016
-ms.author: pnp
 
 pnp.series.title: Network DMZ
 pnp.series.next: nva-ha
 pnp.series.prev: secure-vnet-hybrid
 cardTitle: DMZ between Azure and the Internet
+
 ---
 # DMZ between Azure and the Internet
-[!INCLUDE [header](../../_includes/header.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends your on-premises network and also accepts Internet traffic to Azure. 
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic. 
 
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager](/azure/azure-resource-manager/resource-group-overview) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments. 
-> 
-> 
+[![0]][0] 
 
-This reference architecture extends the architecture described in [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture]. This reference architecture adds a public DMZ that handles Internet traffic, in addition to the private DMZ that handles traffic from the on-premises network 
+*Download a [Visio file][visio-download] of this architecture.*
+
+This reference architecture extends the architecture described in [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture]. It adds a public DMZ that handles Internet traffic, in addition to the private DMZ that handles traffic from the on-premises network 
 
 Typical uses for this architecture include:
 
 * Hybrid applications where workloads run partly on-premises and partly in Azure.
 * Azure infrastructure that routes incoming traffic from on-premises and the Internet.
 
-## Architecture diagram
+## Architecture
 
-The following diagram highlights the important components in this architecture:
-
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "DMZ - Public" page.
-> 
-> 
-
-[![0]][0] 
-
-To enable Internet traffic to Azure, the architecture includes the following components:
+The architecture consists of the following components.
 
 * **Public IP address (PIP)**. The IP address of the public endpoint. External users connected to the Internet can access the system through this address.
 * **Network virtual appliance (NVA)**. This architecture includes a separate pool of NVAs for traffic originating on the Internet.
@@ -124,14 +112,13 @@ A deployment for a reference architecture that implements these recommendations 
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-dmz
 
-[implementing-a-multi-tier-architecture-on-Azure]: ./guidance-compute-3-tier-vm.md
 [implementing-a-secure-hybrid-network-architecture]: ./secure-vnet-hybrid.md
 [iptables]: https://help.ubuntu.com/community/IptablesHowTo
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview
 [load-balancer]: /azure/load-balancer/load-balancer-Internet-overview
 [network-security-group]: /azure/virtual-network/virtual-networks-nsg
 
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
+[visio-download]: https://archcenter.azureedge.net/cdn/dmz-reference-architectures.vsdx
 
-[0]: ../_images/blueprints/hybrid-network-secure-vnet-dmz.png "Secure hybrid network architecture"
+
+[0]: ./images/dmz-public.png "Secure hybrid network architecture"

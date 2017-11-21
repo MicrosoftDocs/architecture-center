@@ -2,10 +2,7 @@
 title: Availability checklist
 description: Checklist that provides guidance for availability concerns during design.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 03/24/2017
-ms.author: pnp
 ms.custom: checklist
 
 ---
@@ -37,7 +34,7 @@ ms.custom: checklist
 
 ## Data management
 
-* **Geo-replicate data in Azure Storage**. Data in Azure Storage is automatically replicated within in a datacenter. For even higher availability, use Read-access geo-redundant storage (-RAGRS), which replicates your data to a secondary region and provides read-only access to the data in the secondary location. The data is durable even in the case of a complete regional outage or a disaster. For more information, see [Azure Storage replication(/azure/storage/storage-redundancy)].
+* **Geo-replicate data in Azure Storage**. Data in Azure Storage is automatically replicated within in a datacenter. For even higher availability, use Read-access geo-redundant storage (-RAGRS), which replicates your data to a secondary region and provides read-only access to the data in the secondary location. The data is durable even in the case of a complete regional outage or a disaster. For more information, see [Azure Storage replication](/azure/storage/storage-redundancy).
 * **Geo-replicate databases**. 
 Azure SQL Database and Cosmos DB both support geo-replication, which enables you to configure secondary database replicas in other regions. Secondary databases are available for querying and for failover in the case of a data center outage or the inability to connect to the primary database. For more information, see [Failover groups and active geo-replication](/azure/sql-database/sql-database-geo-replication-overview) (SQL Database) and [How to distribute data globally with Azure Cosmos DB?](/azure/cosmos-db/distribute-data-globally).
 * **Use optimistic concurrency and eventual consistency** where possible. Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability. These problems can become especially acute in distributed systems. In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring. Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent. But the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.

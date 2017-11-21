@@ -2,10 +2,7 @@
 title: Get started with Elasticsearch on Azure
 description: 'How to install, configure, and run Elasticsearch on Azure.'
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 09/22/2016
-ms.author: pnp
 ms.custom: elasticsearch
 
 pnp.series.title: Elasticsearch on Azure

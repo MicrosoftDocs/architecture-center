@@ -3,16 +3,13 @@ title: Static Content Hosting
 description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
 keywords: design pattern
 author: dragon119
-ms.service: guidance
-ms.topic: article
-ms.author: pnp
-ms.date: 03/24/2017
+ms.date: 06/23/2017
 
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
 ---
 
-# Static Content Hosting
+# Static Content Hosting pattern
 
 [!INCLUDE [header](../_includes/header.md)]
 

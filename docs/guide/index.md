@@ -1,5 +1,4 @@
 ---
-ms.topic: article
 layout: LandingPage
 ---
 

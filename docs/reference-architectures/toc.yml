@@ -4,6 +4,16 @@
 - name: Reference Architectures
   href: index.md
   items:
+  - name: App Service web application
+    href: app-service-web-app/index.md
+    items:
+    - name: Basic web application
+      href: app-service-web-app/basic-web-app.md
+    - name: Improved scalability
+      href: app-service-web-app/scalable-web-app.md
+    - name: Multi-region deployment
+      href: app-service-web-app/multi-region.md
+
   - name: Identity management
     href: identity/index.md
     items:
@@ -66,12 +76,8 @@
     - name: Multi-region application
       href: virtual-machines-windows/multi-region-application.md
 
-  - name: Managed web application
-    href: managed-web-app/index.md
-    items:
-    - name: Basic web application
-      href: managed-web-app/basic-web-app.md
-    - name: Improved scalability
-      href: managed-web-app/scalable-web-app.md
-    - name: Multi-region deployment
-      href: managed-web-app/multi-region-web-app.md
+  - name: SAP NetWeaver and SAP HANA
+    href: sap/index.md
+
+  - name: SharePoint Server 2016
+    href: sharepoint/index.md

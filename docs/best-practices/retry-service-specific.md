@@ -2,10 +2,7 @@
 title: Retry service specific guidance
 description: Service specific guidance for setting the retry mechanism.
 author: dragon119
-ms.service: guidance
-ms.topic: article
 ms.date: 07/13/2016
-ms.author: pnp
 
 pnp.series.title: Best Practices
 ---
@@ -454,20 +451,13 @@ public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlComm
 
 ```
 
-> [!NOTE]
-> This code is slightly modified from a sample located at the [Polly GitHub repo](https://github.com/App-vNext/Polly-Samples/blob/master/PollyTestClient/Samples/AsyncDemo02_WaitAndRetryNTimes.cs).
->
->
-
 This asynchronous extension method can be used as follows.
 
 ```csharp
 var sqlCommand = sqlConnection.CreateCommand();
 sqlCommand.CommandText = "[some query]";
 
-var retryPolicy =
-    RetryManager.Instance.GetRetryPolicy<SqlDatabaseTransientErrorDetectionStrategy>("alt sql");
-using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
+using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync())
 {
     // Do something with the values
 }

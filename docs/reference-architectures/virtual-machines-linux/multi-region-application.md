@@ -6,10 +6,7 @@ description: >-
 
 author: MikeWasson
 
-ms.service: guidance
-ms.topic: article
 ms.date: 11/22/2016
-ms.author: pnp
 
 pnp.series.title: Linux VM workloads
 pnp.series.prev: n-tier
@@ -21,6 +18,8 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 ![[0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture 
 
 This architecture builds on the one shown in [Run Linux VMs for an N-tier application](n-tier.md). 
@@ -30,8 +29,6 @@ This architecture builds on the one shown in [Run Linux VMs for an N-tier applic
 * **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
 * **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap.
 * **Apache Cassandra**. Deploy Cassandra in data centers across Azure regions for high availability. Within each region, nodes are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
-
-You can download a [Visio file](https://aka.ms/arch-diagrams) of this architecture.
 
 ## Recommendations
 
@@ -133,7 +130,6 @@ Measure the recovery times and verify they meet your business requirements. Test
 <!-- Links -->
 [hybrid-vpn]: ../hybrid-networking/vpn.md
 
-[azure-sla]: https://azure.microsoft.com/support/legal/sla/
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-replication]: http://www.planetcassandra.org/data-replication-in-nosql-databases-explained/
@@ -154,9 +150,6 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
-[vnet-dns]: /azure/virtual-network/virtual-networks-manage-dns-in-vnet
-[vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps
-[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
+[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
 [0]: ./images/multi-region-application-diagram.png "Highly available network architecture for Azure N-tier applications"

@@ -7,45 +7,21 @@ description: >-
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-
-
+ms.date: 11/28/2016
 
 pnp.series.title: Identity management
-
-ms.service: guidance
-
-ms.topic: article
-
-
-ms.date: 11/28/2016
-ms.author: pnp
 pnp.series.prev: adds-forest
 cardTitle: Extend AD FS to Azure
 ---
-# Active Directory Federation Services (AD FS) 
-[!INCLUDE [header](../../_includes/header.md)]
+# Extend Active Directory Federation Services (AD FS) to Azure
 
-This article describes how to implement a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. This architecture extends the implementation described in [Extending Active Directory to Azure][extending-ad-to-azure].
+This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution**.](#deploy-the-solution)
 
-> [!NOTE]
-> Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+[![0]][0]
 
-AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. Typical uses for this architecture include:
+*Download a [Visio file][visio-download] of this architecture.*
 
-* Hybrid applications where workloads run partly on-premises and partly in Azure.
-* Solutions that use federated authorization to expose web applications to partner organizations.
-* Systems that support access from web browsers running outside of the organizational firewall.
-* Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
-
-For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview]. Also, the article [AD FS deployment in Azure][adfs-intro] contains a detailed step-by-step introduction to implementation.
-
-This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
-
-## Architecture diagram
-
-The following diagram highlights the important components in this architecture. 
+AD FS can be hosted on-premises, but if your application is a hybrid in which some parts are implemented in Azure, it may be more efficient to replicate AD FS in the cloud. 
 
 The diagram shows the following scenarios:
 
@@ -53,11 +29,20 @@ The diagram shows the following scenarios:
 * An external, registered user with credentials stored inside Active Directory Domain Services (DS) accesses a web application hosted inside your Azure VNet.
 * A user connected to your VNet using an authorized device executes a web application hosted inside your Azure VNet.
 
-> A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Identity - ADFS" page.
-> 
-> 
+Typical uses for this architecture include:
 
-[![0]][0]
+* Hybrid applications where workloads run partly on-premises and partly in Azure.
+* Solutions that use federated authorization to expose web applications to partner organizations.
+* Systems that support access from web browsers running outside of the organizational firewall.
+* Systems that enable users to access to web applications by connecting from authorized external devices such as remote computers, notebooks, and other mobile devices. 
+
+This reference architecture focuses on *passive federation*, in which the federation servers decide how and when to authenticate a user. The user provides sign in information when the application is started. This mechanism is most commonly used by web browsers and involves a protocol that redirects the browser to a site where the user authenticates. AD FS also supports *active federation*, where an application takes on responsibility for supplying credentials without further user interaction, but that scenario is outside the scope of this architecture.
+
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
+
+## Architecture
+
+This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the followign components.
 
 * **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 
@@ -74,6 +59,8 @@ The diagram shows the following scenarios:
   * Authenticating and authorizing incoming requests from external users running a web browser or device that needs access to web applications, by using AD DS and the [Active Directory Device Registration Service][ADDRS].
     
   The AD FS servers are configured as a farm accessed through an Azure load balancer. This implementation improves availability and scalability. The AD FS servers are not exposed directly to the Internet. All Internet traffic is filtered through AD FS web application proxy servers and a DMZ (also referred to as a perimeter network).
+
+  For more information about how AD FS works, see [Active Directory Federation Services Overview][active-directory-federation-services-overview]. Also, the article [AD FS deployment in Azure][adfs-intro] contains a detailed step-by-step introduction to implementation.
 
 * **AD FS proxy subnet**. The AD FS proxy servers can be contained within their own subnet, with NSG rules providing protection. The servers in this subnet are exposed to the Internet through a set of network virtual appliances that provide a firewall between your Azure virtual network and the Internet.
 
@@ -226,7 +213,7 @@ AD FS utilizes the HTTPS protocol, so make sure that the NSG rules for the subne
 
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
-## Solution deployment
+## Deploy the solution
 
 A solution is available on [Github][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-cli] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
 
@@ -249,7 +236,7 @@ A solution is available on [Github][github] to deploy this reference architectur
    * `Onpremise`: Deploys a simulated on-premises environment. You can use this deployment to test and experiment if you do not have an existing on-premises network, or if you want to test this reference architecture without changing the configuration of your existing on-premises network.
    * `Infrastructure`: deploys the VNet infrastructure and jump box.
    * `CreateVpn`: deploys an Azure virtual network gateway and connects it to the simulated on-premises network.
-   * `AzureADDS`: deploys the VMs acting as ACtive Directory DS servers, deploys Active Directory to these VMs, and creates the domain in Azure.
+   * `AzureADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and creates the domain in Azure.
    * `AdfsVm`: deploys the AD FS VMs and joins them to the domain in Azure.
    * `PublicDMZ`: deploys the public DMZ in Azure.
    * `ProxyVm`: deploys the AD FS proxy VMs and joins them to the domain in Azure.
@@ -307,24 +294,18 @@ A solution is available on [Github][github] to deploy this reference architectur
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
 
-[naming-conventions]: /azure/guidance/guidance-naming-conventions
-
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [DRS]: https://technet.microsoft.com/library/dn280945.aspx
 [where-to-place-an-fs-proxy]: https://technet.microsoft.com/library/dd807048.aspx
 [ADDRS]: https://technet.microsoft.com/library/dn486831.aspx
 [plan-your-adfs-deployment]: https://msdn.microsoft.com/library/azure/dn151324.aspx
 [ad_network_recommendations]: #network_configuration_recommendations_for_AD_DS_VMs
-[domain_and_forests]: https://technet.microsoft.com/library/cc759073(v=ws.10).aspx
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
-[import_server_authentication_certificate]: https://technet.microsoft.com/library/dd807088.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
 [active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
 [security-considerations]: #security-considerations
 [recommendations]: #recommendations
-[claims-aware applications]: https://msdn.microsoft.com/library/windows/desktop/bb736227(v=vs.85).aspx
 [active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
 [establishing-federation-trust]: https://blogs.msdn.microsoft.com/alextch/2011/06/27/establishing-federation-trust/
 [Deploying_a_federation_server_farm]:  https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-azure-adfs/
@@ -336,7 +317,8 @@ A solution is available on [Github][github] to deploy this reference architectur
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/active-directory-aadconnect-azure-adfs
-[visio-download]: http://download.microsoft.com/download/1/5/6/1569703C-0A82-4A9C-8334-F13D0DF2F472/RAs.vsdx
 [github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
-[0]: ../_images/guidance-iaas-ra-secure-vnet-adfs/figure1.png "Secure hybrid network architecture with Active Directory"
+[considerations]: ./considerations.md
+[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
+[0]: ./images/adfs.png "Secure hybrid network architecture with Active Directory"
