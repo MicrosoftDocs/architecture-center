@@ -449,27 +449,24 @@ at a lower cost.
 
 ### Database services
 
-#### RDS and Azure SQL Database service
+#### RDS and Azure relational database services
 
-AWS and Azure have different approaches on relational database offerings in the
-cloud. AWS' Relational Database Service (RDS) supports creating instances using
-several different database engines, such as Oracle and MySQL.
+Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS).
 
-[SQL
-Database](https://azure.microsoft.com/documentation/articles/sql-database-technical-overview/)
-is Azure's cloud database offering. It provides highly scalable relational data
-storage, through a managed service. SQL Database uses its own engine, and does
-not support the creation of other database types. Other database engines such as
+-   [SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
+-   [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)
+-   [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview)
+
+Other database engines such as 
 [SQL
 Server](https://azure.microsoft.com/services/virtual-machines/sql-server/),
-[Oracle](https://azure.microsoft.com/campaigns/oracle/), or
+[Oracle](https://azure.microsoft.com/campaigns/oracle/), and
 [MySQL](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-classic-mysql-2008r2/)
 can be deployed using Azure VM Instances.
 
 Costs for AWS RDS are determined by the amount of hardware resources that your
-instance uses, like CPU, RAM, storage, and network bandwidth. In the SQL
-Database service, cost depends on your database size, concurrent connections,
-and throughput levels.
+instance uses, like CPU, RAM, storage, and network bandwidth. In the Azure database services,
+cost depends on your database size, concurrent connections, and throughput levels.
 
 #### See also
 
