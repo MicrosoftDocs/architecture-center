@@ -13,12 +13,12 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Container Service | Cloud Services | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| Application composition | Agnostic | Applications, Linux Containers | Services, guest executables, containers | Functions | Linux Containers, Windows Containers (preview) | Roles | Scheduled jobs  |
+| Application composition | Agnostic | Applications | Services, guest executables, containers | Functions | Containers | Roles | Scheduled jobs  |
 | Density | Agnostic | Multiple apps per instance via app plans | Multiple services per VM | No dedicated instances <a href="#note1"><sup>1</sup></a> | Multiple containers per VM | One role instance per VM | Multiple apps per VM |
 | Minimum number of nodes | 1 <a href="#note2"><sup>2</sup></a>  | 1 | 5 <a href="#note3"><sup>3</sup></a> | No dedicated nodes <a href="#note1"><sup>1</sup></a> | 3 | 2 | 1 <a href="#note4"><sup>4</sup></a> |
 | State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
-| Web hosting | Agnostic | Built in | Self-host, IIS | Not applicable | Agnostic | Built-in (IIS) | No |
-| OS | Windows, Linux | Windows, Linux  | Windows, Linux | Not applicable | Windows,  Linux | Windows (preview) | Windows, Linux |
+| Web hosting | Agnostic | Built in | Agnostic | Not applicable | Agnostic | Built-in (IIS) | No |
+| OS | Windows, Linux | Windows, Linux  | Windows, Linux | Not applicable | Windows (preview),  Linux | Windows | Windows, Linux |
 | Can be deployed to dedicated VNet? | Supported | Supported <a href="#note5"><sup>5</sup></a> | Supported | Not supported | Supported | Supported <a href="#note6"><sup>6</sup></a> | Supported |
 | Hybrid connectivity | Supported | Supported <a href="#note1"><sup>7</sup></a>  | Supported | Not supported | Supported | Supported <a href="#note8"><sup>8</sup></a> | Supported |
 
