@@ -9,6 +9,24 @@ layout: LandingPage
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 <section class="series">
+    <style scoped type="text/css">
+    .panelContent li {
+        display: flex;
+        flex-direction: column;
+    }
+    .panelContent li a {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+    }
+    .cardSize {
+        flex: 1 0 auto;
+        display: flex;
+    }
+    .cardPadding {
+        display: flex;
+    }
+    </style>
     <ul class="panelContent">
     <!--Windows VM -->
     <li>
