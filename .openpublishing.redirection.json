@@ -1,0 +1,14 @@
+{ 
+    "redirections": [ 
+      {
+         "source_path": "compliance/fedramp/index.md",
+         "redirect_url": "/azure/security/blueprints/fedramp",
+         "redirect_document_id": true
+      }, 
+      { 
+          "source_path": "compliance/pci-dss/index.md",
+          "redirect_url": "/azure/security/blueprints/payment-processing-blueprint", 
+          "redirect_document_id": false 
+      } 
+    ] 
+  } 
