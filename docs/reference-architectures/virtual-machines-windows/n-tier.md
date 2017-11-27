@@ -25,7 +25,7 @@ This reference architecture shows a set of proven practices for running Windows 
 
 There are many ways to implement an N-tier architecture. The diagram shows a typical 3-tier web application. This architecture builds on [Run load-balanced VMs for scalability and availability][multi-vm]. The web and business tiers use load-balanced VMs.
 
-* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla] for VMs.
+* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla] for VMs. You can deploy a single VM in an availability set, but the single VM will not qualify for an SLA guarantee unless the single VM is using Azure Premium Storage for all OS and data disks.  
 * **Subnets.** Create a separate subnet for each tier. Specify the address range and subnet mask using [CIDR] notation. 
 * **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
@@ -129,33 +129,50 @@ Simplify management of the entire system by using centralized administration too
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github-folder]. The architecture is deployed in three stages. To deploy the architecture, follow these steps: 
+A deployment for this reference architecture is available on [GitHub][github-folder]. 
 
-1. Click the button below to begin the first stage of deployment:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fn-tier-windows%2FvirtualNetwork.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, enter the follow values: 
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-network-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click on the **Purchase** button.
-3. Check Azure portal notification for a message that the first stage of the deployment is complete.
-4. Click the button below to begin the second stage of the deployment:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fn-tier-windows%2Fworkload.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-5. Once the link has opened in the Azure portal, enter the follow values: 
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-ntier-sql-workload-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click on the **Purchase** button.
-6. Check Azure portal notification for a message that the second stage of deployment is complete.
-7. Click the button below to begin the third stage of the deployment:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fvirtual-machines%2Fn-tier-windows%2Fsecurity.azuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-8. Once the link has opened in the Azure portal, enter the follow values: 
-   * The **Resource group** name is already defined in the parameter file, so select **Use Existing** and enter `ra-ntier-sql-network-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click on the **Purchase** button.
-9. Check Azure portal notification for a message that the third stage of the deployment is complete.
-10. The parameter files include a hard-coded administrator user names and passwords, and it is strongly recommended that you immediately change both on all the VMs. Click on each VM in the Azure portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to save the new user name and password. 
+### Prerequisites
+
+Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
+
+1. Clone, fork, or download the zip file for the [AzureCAT reference architectures][ref-arch-repo] GitHub repository.
+
+2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks][azbb] npm package.
+
+  ```bash
+  npm install -g @mspnp/azure-building-blocks
+  ```
+
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+
+  ```bash
+  az login
+  ```
+
+### Deploy the solution using azbb
+
+To deploy the Windows VMs for an N-tier application reference architecture, follow these steps:
+
+1. Navigate to the `virtual-machines\n-tier-windows` folder for the repository you cloned in step 1 of the pre-requisites above.
+
+2. The parameter file specifies a default adminstrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-windows.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.
+  
+  > [!NOTE]
+  > There are multiple scripts that run during this deployment both in the  **VirtualMachineExtension** objects and in the **extensions** settings for some of the **VirtualMachine** objects. Some of these scripts require the administrator user name and password that you have just changed. It's recommended that you review these scripts to ensure that you specified the correct credentials. The deployment may fail if you have not specified the correct credentials.
+  > 
+  > 
+
+Save the file.
+
+3. Deploy the reference architecture using the **azbb** command line tool as shown below.
+
+  ```bash
+  azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
+  ```
+
+For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
 
 
 <!-- links -->
@@ -163,14 +180,16 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [multi-dc]: multi-region-application.md
 [multi-vm]: multi-vm.md
 [n-tier]: n-tier.md
-
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-administration]: /azure/automation/automation-intro
 [azure-availability-sets]: /azure/virtual-machines/virtual-machines-windows-manage-availability#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: /azure/virtual-machines-command-line-tools
+[azure-cli-2]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
+[git]: https://github.com/mspnp/template-building-blocks
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-windows
 [lb-external-create]: /azure/load-balancer/load-balancer-get-started-internet-portal
 [lb-internal-create]: /azure/load-balancer/load-balancer-get-started-ilb-arm-portal
@@ -182,6 +201,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. The 
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
+[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/library/gg509118.aspx
