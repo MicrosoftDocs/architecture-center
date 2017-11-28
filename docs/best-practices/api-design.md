@@ -1,80 +1,85 @@
 ---
 title: API design guidance
-description: Guidance upon how to create a well designed API.
+description: Guidance on how to create a well designed web API.
 author: dragon119
 ms.date: 07/13/2016
 
 pnp.series.title: Best Practices
 ---
 # API design
-[!INCLUDE [header](../_includes/header.md)]
 
-Many modern web-based solutions make the use of web services, hosted by web servers, to provide functionality for remote client applications. The operations that a web service exposes constitute a web API. A well-designed web API should aim to support:
+Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:
 
-* **Platform independence**. Client applications should be able to utilize the API that the web service provides without requiring how the data or operations that API exposes are physically implemented. This requires that the API abides by common standards that enable a client application and web service to agree on which data formats to use, and the structure of the data that is exchanged between client applications and the web service.
-* **Service evolution**. The web service should be able to evolve and add (or remove) functionality independently from client applications. Existing client applications should be able to continue to operate unmodified as the features provided by the web service change. All functionality should also be discoverable, so that client applications can fully utilize it.
+* **Platform independence**. Any client should be able to call the API, regardless of how the API is implemented internally. This requires using standard protocols, and having a mechanism whereby the client and the web service can agree on the format of the data to exchange.
+
+* **Service evolution**. The web API should be able to evolve and add functionality independently from client applications. As the API evolves, existing client applications should continue to function without modification. All functionality should be discoverable, so that client applications can fully utilize it.
 
 The purpose of this guidance is to describe the issues that you should consider when designing a web API.
 
-## Introduction to Representational State Transfer (REST)
-In his dissertation in 2000, Roy Fielding proposed an alternative architectural approach to structuring the operations exposed by web services; REST. REST is an architectural style for building distributed systems based on hypermedia. A primary advantage of the REST model is that it is based on open standards and does not bind the implementation of the model or the client applications that access it to any specific implementation. For example, a REST web service could be implemented by using the Microsoft ASP.NET Web API, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.
+## Introduction to REST
 
-> [!NOTE]
-> REST is actually independent of any underlying protocol and is not necessarily tied to HTTP. However, most common implementations of systems that are based on REST utilize HTTP as the application protocol for sending and receiving requests. This document focuses on mapping REST principles to systems designed to operate using HTTP.
->
->
+In his dissertation in 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
 
-The REST model uses a navigational scheme to represent objects and services over a network (referred to as *resources*). Many systems that implement REST typically use the HTTP protocol to transmit requests to access these resources. In these systems, a client application submits a request in the form of a URI that identifies a resource, and an HTTP method (the most common being GET, POST, PUT, or DELETE) that indicates the operation to be performed on that resource.  The body of the HTTP request contains the data required to perform the operation. The important point to understand is that REST defines a stateless request model. HTTP requests should be independent and may occur in any order, so attempting to retain transient state information between requests is not feasible.  The only place where information is stored is in the resources themselves, and each request should be an atomic operation. Effectively, a REST model implements a finite state machine where a request transitions a resource from one well-defined non-transient state to another.
+A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the model or the client applications that access it to any specific implementation. For example, a REST web service could be implemented with ASP.NET, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.
 
-> [!NOTE]
-> The stateless nature of individual requests in the REST model enables a system constructed by following these principles to be highly scalable. There is no need to retain any affinity between a client application making a series of requests and the specific web servers handling those requests.
->
->
+- REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. 
 
-Another crucial point in implementing an effective REST model is to understand the relationships between the various resources to which the model provides access. These resources are typically organized as collections and relationships. For example, suppose that a quick analysis of an ecommerce system shows that there are two collections in which client applications are likely to be interested: orders and customers. Each order and customer should have its own unique key for identification purposes. The URI to access the collection of orders could be something as simple as */orders*, and similarly the URI for retrieving all customers could be */customers*. Issuing an HTTP GET request to the */orders* URI should return a list representing all orders in the collection encoded as an HTTP response:
+- A resource has an *identifier*, which is a URI that uniquely identifies that resource. For example, the URI for a particular customer order might be: 
+ 
+    ```http
+    http://adventure-works.com/orders/1
+    ```
+ 
+- Clients interact with a service by exchanging *representations* of resources. Many web APIs use JSON as the exchange format. For example, a GET request to the URI listed above might return this response body:
 
-```HTTP
-GET http://adventure-works.com/orders HTTP/1.1
-...
-```
+    ```json
+    {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
+    ```
 
-The response shown below encodes the orders as a JSON list structure:
+- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, one aspect of the uniform interface is the use of standard HTTP verbs and status codes to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE. 
 
-```HTTP
-HTTP/1.1 200 OK
-...
-Date: Fri, 22 Aug 2014 08:49:02 GMT
-Content-Length: ...
-[{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
-```
-To fetch an individual order requires specifying the identifier for the order from the *orders* resource, such as */orders/2*:
+- REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. (The article [Data Partitioning](./data-partitioning.md) describes strategies to scale out a data store.)
 
-```HTTP
-GET http://adventure-works.com/orders/2 HTTP/1.1
-...
-```
+- REST APIs are driven by hypermedia links that are contained in the representation. For example, the following shows a JSON representation of an order. It contains links to get or update the customer associated with the order. 
+ 
+    ```json
+    {
+        "orderID":3,
+        "productID":2,
+        "quantity":4,
+        "orderValue":16.60,
+        "links": [
+            {"rel":"product","href":"http://adventure-works.com/customers/3", "action":"GET" },
+            {"rel":"product","href":"http://adventure-works.com/customers/3", "action":"PUT" } 
+        ]
+    } 
+    ```
 
-```HTTP
-HTTP/1.1 200 OK
-...
-Date: Fri, 22 Aug 2014 08:49:02 GMT
-Content-Length: ...
-{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
-```
+- Often, resources are organized as collections and relationships. For example, the following URL might represent the collection of orders: 
 
-> [!NOTE]
-> For simplicity, these examples show the information in responses being returned as JSON text data. However, there is no reason why resources should not contain any other type of data supported by HTTP, such as binary or encrypted information; the content-type in the HTTP response should specify the type. Also, a REST model may be able to return the same data in different formats, such as XML or JSON. In this case, the web service should be able to perform content negotiation with the client making the request. The request can include an *Accept* header which specifies the preferred format that the client would like to receive and the web service should attempt to honor this format if at all possible.
->
->
+    ```HTTP
+    http://adventure-works.com/orders
+    ```
 
-Notice that the response from a REST request makes use of the standard HTTP status codes. For example, a request that returns valid data should include the HTTP response code 200 (OK), while a request that fails to find or delete a specified resource should return a response that includes the HTTP status code 404 (Not Found).
+### API maturity model
 
+ In 2008, Leonard Richardson proposed a [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
+
+- Level 0: Define one URI, and all operations are POST requests to this URI.
+- Level 1: Create separate URIs for individual resources.
+- Level 2: Use HTTP methods to define operations on resources.
+- Level 3: Use hypermedia.
+
+Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2. In this guidance, we assume a pragmatic approach. 
+
+<!--
 ## Design and structure of a RESTful web API
 The keys to designing a successful web API are simplicity and consistency. A Web API that exhibits these two factors makes it easier to build client applications that need to consume the API.
 
 A RESTful web API is focused on exposing a set of connected resources, and providing the core operations that enable an application to manipulate these resources and easily navigate between them. For this reason, the URIs that constitute a typical RESTful web API should be oriented towards the data that it exposes, and use the facilities provided by HTTP to operate on this data. This approach requires a different mindset from that typically employed when designing a set of classes in an object-oriented API which tends to be more motivated by the behavior of objects and classes. Additionally, a RESTful web API should be stateless and not depend on operations being invoked in a particular sequence. The following sections summarize the points you should consider when designing a RESTful web API.
+-->
+## Organize the API around resources
 
-### Organizing the web API around resources
 > [!TIP]
 > The URIs exposed by a REST web service should be based on nouns (the data to which the web API provides access) and not verbs (what an application can do with the data).
 >
@@ -114,7 +119,7 @@ Avoid introducing dependencies between the web API to the structure, type, or lo
 
 Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP GET requests that invoke a piece of functionality and return the results as an HTTP response message. A web API that implements simple calculator-style operations such as add and subtract could provide URIs that expose these operations as pseudo resources and utilize the query string to specify the parameters required. For example a GET request to the URI */add?operand1=99&operand2=1* could return a response message with the body containing the value 100, and GET request to the URI */subtract?operand1=50&operand2=20* could return a response message with the body containing the value 30. However, only use these forms of URIs sparingly.
 
-### Defining operations in terms of HTTP methods
+## Define operations in terms of HTTP methods
 The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:
 
 * **GET**, to retrieve a copy of the resource at the specified URI. The body of the response message contains the details of the requested resource.
@@ -151,7 +156,7 @@ A PUT request is intended to modify an existing resource. If the specified resou
 >
 >
 
-### Processing HTTP requests
+## Processing HTTP requests
 The data included by a client application in many HTTP requests, and the corresponding response messages from the web server, could be presented in a variety of formats (or media types). For example, the data that specifies the details for a customer or order could be provided as XML, JSON, or some other encoded and compressed format. A RESTful web API should support different media types as requested by the client application that submits a request.
 
 When a client application sends a request that returns data in the body of a message, it can specify the media types it can handle in the Accept header of the request. The following code illustrates an HTTP GET request that retrieves the details of order 2 and requests the result to be returned as JSON (the client should still examine the media type of the data in the response to verify the format of the data returned):
@@ -289,7 +294,7 @@ If the resource is not found, the web server should return a 404 (Not Found) mes
 >
 >
 
-### Filtering and paginating data
+## Filtering and paginating data
 You should endeavor to keep the URIs simple and intuitive. Exposing a collection of resources through a single URI assists in this respect, but it can lead to applications fetching large amounts of data when only a subset of the information is required. Generating a large volume of traffic impacts not only the performance and scalability of the web server but also adversely affect the responsiveness of client applications requesting the data.
 
 For example, if orders contain the price paid for the order, a client application that needs to retrieve all orders that have a cost over a specific value might need to retrieve all orders from the */orders* URI and then filter these orders locally. Clearly this process is highly inefficient; it wastes network bandwidth and processing power on the server hosting the web API.
@@ -309,7 +314,7 @@ You can extend this approach to limit (project) the fields returned if a single 
 >
 >
 
-### Handling large binary resources
+## Handling large binary resources
 A single resource may contain large binary fields, such as files or images. To overcome the transmission problems caused by unreliable and intermittent connections and to improve response times, consider providing operations that enable such resources to be retrieved in chunks by the client application. To do this, the web API should support the Accept-Ranges header for GET requests for large resources, and ideally implement HTTP HEAD requests for these resources. The Accept-Ranges header indicates that the GET operation supports partial results, and that a client application can submit GET requests that return a subset of a resource specified as a range of bytes. A HEAD request is similar to a GET request except that it only returns a header that describes the resource and an empty message body. A client application can issue a HEAD request to determine whether to fetch a resource by using partial GET requests. The following example shows a HEAD request that obtains information about a product image:
 
 ```HTTP
