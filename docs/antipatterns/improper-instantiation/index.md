@@ -125,7 +125,7 @@ The following sections apply these steps to the sample application described ear
 
 ### Identify points of slow down or failure
 
-The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller are worth investigating further. Notice that the error rate also increases these operations are running. 
+The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller are worth investigating further. Notice that the error rate also increases when these operations are running. 
 
 ![The New Relic monitor dashboard showing the sample application creating a new instance of an HttpClient object for each request][dashboard-new-HTTPClient-instance]
 
