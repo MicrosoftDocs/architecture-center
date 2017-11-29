@@ -14,7 +14,7 @@ Most modern web applications expose APIs that clients can use to interact with t
 
 * **Service evolution**. The web API should be able to evolve and add functionality independently from client applications. As the API evolves, existing client applications should continue to function without modification. All functionality should be discoverable, so that client applications can fully utilize it.
 
-The purpose of this guidance is to describe the issues that you should consider when designing a web API.
+This guidance describes issues that you should consider when designing a web API.
 
 ## Introduction to REST
 
@@ -36,7 +36,7 @@ A primary advantage of REST over HTTP is that it uses open standards, and does n
     {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
     ```
 
-- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, one aspect of the uniform interface is the use of standard HTTP verbs and status codes to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE. 
+- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface included using standard HTTP verbs and status codes to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE. 
 
 - REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. (The article [Data Partitioning](./data-partitioning.md) describes strategies to scale out a data store.)
 
@@ -61,16 +61,14 @@ A primary advantage of REST over HTTP is that it uses open standards, and does n
     http://adventure-works.com/orders
     ```
 
-### API maturity model
-
- In 2008, Leonard Richardson proposed a [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
+**API maturity model**. In 2008, Leonard Richardson proposed a [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
 - Level 0: Define one URI, and all operations are POST requests to this URI.
 - Level 1: Create separate URIs for individual resources.
 - Level 2: Use HTTP methods to define operations on resources.
 - Level 3: Use hypermedia.
 
-Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2. In this guidance, we assume a pragmatic approach. 
+Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2.  
 
 <!--
 ## Design and structure of a RESTful web API
@@ -80,27 +78,25 @@ A RESTful web API is focused on exposing a set of connected resources, and provi
 -->
 ## Organize the API around resources
 
-> [!TIP]
-> The URIs exposed by a REST web service should be based on nouns (the data to which the web API provides access) and not verbs (what an application can do with the data).
->
->
+Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource). 
 
-Focus on the business entities that the web API exposes. For example, in a web API designed to support the ecommerce system described earlier, the primary entities are customers and orders. Processes such as the act of placing an order can be achieved by providing an HTTP POST operation that takes the order information and adds it to the list of orders for the customer. Internally, this POST operation can perform tasks such as checking stock levels, and billing the customer. The HTTP response can indicate whether the order was placed successfully or not. Also note that a resource does not have to be based on a single physical data item. As an example, an order resource might be implemented internally by using information aggregated from many rows spread across several tables in a relational database but presented to the client as a single entity.
+```HTTP
+http://adventure-works.com/orders // Good
 
-> [!TIP]
-> Avoid designing a REST interface that mirrors or depends on the internal structure of the data that it exposes. REST is about more than implementing simple CRUD (Create, Retrieve, Update, Delete) operations over separate tables in a relational database. The purpose of REST is to map business entities and the operations that an application can perform on these entities to the physical implementation of these entities, but a client should not be exposed to these physical details.
->
->
+http://adventure-works.com/create-order // Avoid
+```
 
-Individual business entities rarely exist in isolation (although some singleton objects may exist), but instead tend to be grouped together into collections. In REST terms, each entity and each collection are resources. In a RESTful web API, each collection has its own URI within the web service, and performing an HTTP GET request over a URI for a collection retrieves a list of items in that collection. Each individual item also has its own URI, and an application can submit another HTTP GET request using that URI to retrieve the details of that item. You should organize the URIs for collections and items in a hierarchical manner. In the ecommerce system, the URI */customers* denotes the customer’s collection, and */customers/5* retrieves the details for the single customer with the ID 5 from this collection. This approach helps to keep the web API intuitive.
+A resource does not have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. 
 
-> [!TIP]
-> Adopt a consistent naming convention in URIs; in general it helps to use plural nouns for URIs that reference collections.
->
->
+Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
 
-You also need to consider the relationships between different types of resources and how you might expose these associations. For example, customers may place zero or more orders. A natural way to represent this relationship would be through a URI such as */customers/5/orders* to find all the orders for customer 5. You might also consider representing the association from an order back to a specific customer through a URI such as */orders/99/customer* to find the customer for order 99, but extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources, such as the customer, in the body of the HTTP response message returned when the order is queried. This mechanism is described in more detail in the section Using the HATEOAS Approach to Enable Navigation To Related Resources later in this guidance.
+Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item. 
 
+Adopt a consistent naming convention in URIs. In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URL paths, so you could define a route for the path `/customers/{id}`.
+
+Also consider the relationships between different types of resources and how you might expose these associations. For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Using the HATEOAS Approach to Enable Navigation To Related Resources later](#using-the-hateoas-approach-to-enable-navigation-to-related-resources).
+
+<!-- start-->
 In more complex systems there may be many more types of entity, and it can be tempting to provide URIs that enable a client application to navigate through several levels of relationships, such as */customers/1/orders/99/products* to obtain the list of products in order 99 placed by customer 1. However, this level of complexity can be difficult to maintain and is inflexible if the relationships between resources change in the future. Rather, you should seek to keep URIs relatively simple. Bear in mind that once an application has a reference to a resource, it should be possible to use this reference to find items related to that resource. The preceding query can be replaced with the URI */customers/1/orders* to find all the orders for customer 1, and then query the URI */orders/99/products* to find the products in this order (assuming order 99 was placed by customer 1).
 
 > [!TIP]
