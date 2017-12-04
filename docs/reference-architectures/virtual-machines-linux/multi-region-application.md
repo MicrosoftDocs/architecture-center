@@ -5,8 +5,7 @@ description: >-
   resiliency.
 
 author: MikeWasson
-
-ms.date: 11/22/2016
+ms.date: 12/04/2017
 
 pnp.series.title: Linux VM workloads
 pnp.series.prev: n-tier

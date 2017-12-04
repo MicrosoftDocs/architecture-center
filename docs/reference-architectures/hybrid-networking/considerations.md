@@ -2,7 +2,7 @@
 title: Choose a solution for connecting an on-premises network to Azure
 description: Compares reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
-ms.date: 04/06/2017
+ms.date: 12/04/2017
 ---
 
 # Choose a solution for connecting an on-premises network to Azure

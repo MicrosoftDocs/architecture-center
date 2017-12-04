@@ -4,7 +4,7 @@ description: >-
   Recommended architecture for a basic web application running in Microsoft
   Azure.
 author: MikeWasson
-ms.date: 11/23/2016
+ms.date: 12/04/2017
 cardTitle: Basic web application
 ---
 # Basic web application

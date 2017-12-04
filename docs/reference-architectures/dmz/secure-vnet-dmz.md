@@ -4,7 +4,7 @@ description: >-
   How to implement a secure hybrid network architecture with Internet access in
   Azure.
 author: telmosampaio
-ms.date: 11/23/2016
+ms.date: 12/04/2017
 
 pnp.series.title: Network DMZ
 pnp.series.next: nva-ha
