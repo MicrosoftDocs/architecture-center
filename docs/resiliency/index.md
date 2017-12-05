@@ -29,6 +29,10 @@ When you design an application to be resilient, you have to understand your avai
 
 Another common term is **business continuity** (BC), which is the ability to perform essential business functions during and after adverse conditions, such as a natural disaster or a downed service. BC covers the entire operation of the business, including physical facilities, people, communications, transportation, and IT. This article focuses on cloud applications, but resilience planning must be done in the context of overall BC requirements. For more information, see the [Contingency Planning Guide][capacity-planning-guide] from the National Institute of Science and Technology (NIST).
 
+
+
+
+
 ## Process to achieve resiliency
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
@@ -130,6 +134,30 @@ Also, failing over is not instantaneous and can result in some downtime during a
 
 The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
+## Redundancy and designing for failure
+
+Failures can vary in the scope of their impact. Some hardware failures affect a single host machine, such as a failed disk. A failed network switch could affect a whole server rack. Less common are failures that disrupt an entire data center, such as loss of power in a data center.  Rarely, an entire region could become unavailable.
+
+In Azure, there are ways to make an application redundant at every level of failure, from the individal VM to an entire region. However, you must plan for them ahead of time, when you design and deploy your application. The right approach depends on your business requirements - not every application needs to be redundant across regions. In general, there is a tradeoff between greater redundancy versus higher cost and complexity.  
+
+**Single VM**.  Azure provides an uptime SLA for single VMs. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, we recommend using two or more VMs for redundancy. 
+
+**Availability Set**. Deploy two or more VMs in an availability set to protect against localized hardware failures, such as a disk or network switch failing. The VMs in an availability set are distributed across fault domains that share a common power source and network switch. By default, the VMs in an availability set are separated across up to three fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+
+**Availability Zone (preview)**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
+
+**Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+
+When you design a multi-region application, take into account the fact that network latency between regions is higher than latency within a region. For example, configure databases to use sychronous data replication within a region, but asychronous data replication across regions.
+
+| &nbsp; | Availability Set | Availability Zone | Paired region |
+|--------|------------------|-------------------|---------------|
+| Scope of failure | Rack | Datacenter | Region |
+| Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
+| Network latency | Very low | Low | Mid to high |
+| Virtual network  | VNet | VNet | Cross-region VNet peering (preview) |
+
+
 ## Designing for resiliency
 During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
 
@@ -169,7 +197,6 @@ For example:
 * Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Run load-balanced VMs for scalability and availability][ra-multi-vm].
 * Scale out an Azure App Service app to multiple instances. App Service automatically balances load across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
-
 
 ### Replicate data
 Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
