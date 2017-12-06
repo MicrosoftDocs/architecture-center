@@ -136,19 +136,21 @@ The calculated SLA number is a useful baseline, but it doesn't tell the whole st
 
 ## Redundancy and designing for failure
 
-Failures can vary in the scope of their impact. Some hardware failures affect a single host machine, such as a failed disk. A failed network switch could affect a whole server rack. Less common are failures that disrupt an entire data center, such as loss of power in a data center.  Rarely, an entire region could become unavailable.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
 
-In Azure, there are ways to make an application redundant at every level of failure, from the individal VM to an entire region. However, you must plan for them ahead of time, when you design and deploy your application. The right approach depends on your business requirements - not every application needs to be redundant across regions. In general, there is a tradeoff between greater redundancy versus higher cost and complexity.  
+One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements &mdash; not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.  
 
-**Single VM**.  Azure provides an uptime SLA for single VMs. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, we recommend using two or more VMs for redundancy. 
+Azure provides ways to make an application redundant at every level of failure, from an individal VM to an entire region. 
 
-**Availability Set**. Deploy two or more VMs in an availability set to protect against localized hardware failures, such as a disk or network switch failing. The VMs in an availability set are distributed across fault domains that share a common power source and network switch. By default, the VMs in an availability set are separated across up to three fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+**Single VM**. Azure provides an uptime SLA for single VMs. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, we recommend using two or more VMs for redundancy. 
 
-**Availability Zone (preview)**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
+**Availability sets**. Deploy two or more VMs in an availability set to protect against localized hardware failures, such as a disk or network switch failing. The VMs in an availability set are distributed across fault domains that share a common power source and network switch. By default, the VMs in an availability set are separated across up to three fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+
+**Availability zones (preview)**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
 
 **Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-When you design a multi-region application, take into account the fact that network latency between regions is higher than latency within a region. For example, configure databases to use sychronous data replication within a region, but asychronous data replication across regions.
+When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asychronous data replication across regions.
 
 | &nbsp; | Availability Set | Availability Zone | Paired region |
 |--------|------------------|-------------------|---------------|
@@ -156,7 +158,6 @@ When you design a multi-region application, take into account the fact that netw
 | Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
 | Network latency | Very low | Low | Mid to high |
 | Virtual network  | VNet | VNet | Cross-region VNet peering (preview) |
-
 
 ## Designing for resiliency
 During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
