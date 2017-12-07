@@ -141,11 +141,13 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements &mdash; not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.  
 
-Azure provides ways to make an application redundant at every level of failure, from an individal VM to an entire region. 
+Azure has a number of features to make an application redundant at every level of failure, from an individal VM to an entire region. 
+
+![](./images/redundancy.png)
 
 **Single VM**. Azure provides an uptime SLA for single VMs. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, we recommend using two or more VMs for redundancy. 
 
-**Availability sets**. Deploy two or more VMs in an availability set to protect against localized hardware failures, such as a disk or network switch failing. The VMs in an availability set are distributed across fault domains that share a common power source and network switch. By default, the VMs in an availability set are separated across up to three fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+**Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
 **Availability zones (preview)**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
 
