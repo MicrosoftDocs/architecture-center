@@ -141,7 +141,7 @@ Failures can vary in the scope of their impact. Some hardware failures, such as 
 
 One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements &mdash; not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.  
 
-Azure has a number of features to make an application redundant at every level of failure, from an individal VM to an entire region. 
+Azure has a number of features to make an application redundant at every level of failure, from an individual VM to an entire region. 
 
 ![](./images/redundancy.svg)
 
@@ -153,7 +153,7 @@ Azure has a number of features to make an application redundant at every level o
 
 **Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asychronous data replication across regions.
+When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asynchronous data replication across regions.
 
 | &nbsp; | Availability Set | Availability Zone | Paired region |
 |--------|------------------|-------------------|---------------|
@@ -332,7 +332,7 @@ Application logs are an important source of diagnostics data. Best practices for
 * Log events at service boundaries. Include a correlation ID that flows across service boundaries. If a transaction flows through multiple services and one of them fails, the correlation ID will help you pinpoint why the transaction failed.
 * Use semantic logging, also known as structured logging. Unstructured logs make it hard to automate the consumption and analysis of the log data, which is needed at cloud scale.
 * Use asynchronous logging. Otherwise, the logging system itself can cause the application to fail by causing requests to back up, as they block while waiting to write a logging event.
-* Application logging is not the same as auditing. Auditing may be done for compliance or regulatory reasons. As such, audit records must be complete, and it's not acceptible to drop any while processing transactions. If an application requires auditing, this should be kept separate from diagnostics logging. 
+* Application logging is not the same as auditing. Auditing may be done for compliance or regulatory reasons. As such, audit records must be complete, and it's not acceptable to drop any while processing transactions. If an application requires auditing, this should be kept separate from diagnostics logging. 
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics guidance][monitoring-guidance].
 
