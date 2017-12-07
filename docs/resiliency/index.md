@@ -143,7 +143,7 @@ One of the main ways to make an application resilient is through redundancy. But
 
 Azure has a number of features to make an application redundant at every level of failure, from an individal VM to an entire region. 
 
-![](./images/redundancy.svg)
+![](./images/resiliency3.svg)
 
 **Single VM**. Azure provides an uptime SLA for single VMs. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, we recommend using two or more VMs for redundancy. 
 
