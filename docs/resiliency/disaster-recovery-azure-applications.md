@@ -4,15 +4,25 @@ description: Technical overview and in-depth information about designing applica
 author: adamglick
 ms.date: 05/26/2017
 ---
-[!INCLUDE [header](../_includes/header.md)]
+
 # Disaster recovery for Azure applications
-Resiliency and high availability strategies are intended to handling temporary failure conditions. Disaster recovery (DR) is focused on recovering from a catastrophic loss of application functionality. For example, if an Azure region hosting your application becomes unavailable, you need a plan for running your application or accessing your data in another region. Executing this plan involves people, processes, and supporting applications that allow the system to continue functioning. Your plan should include rehearsing failures and testing the recovery of databases to ensure the plan is sound. The business and technology owners who define the system's operational mode for a disaster also determine the level of service functionality required during a disaster. This level of functionality can take a few forms: completely unavailable, partially available via reduced functionality or delayed processing, or fully available.
+
+Disaster recovery (DR) is focused on recovering from a catastrophic loss of application functionality. For example, if an Azure region hosting your application becomes unavailable, you need a plan for running your application or accessing your data in another region. 
+
+Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: completely unavailable, partially available via reduced functionality or delayed processing, or fully available.
+
+Resiliency and high availability strategies are intended to handling temporary failure conditions.  Executing this plan involves people, processes, and supporting applications that allow the system to continue functioning. Your plan should include rehearsing failures and testing the recovery of databases to ensure the plan is sound. 
 
 ## Azure disaster recovery features
+
 As with availability considerations, Azure provides [resiliency technical guidance](./index.md) designed to support disaster recovery. There is also a relationship between availability features of Azure and disaster recovery. For example, the management of roles across fault domains increases the availability of an application. Without that management, an unhandled hardware failure would become a “disaster” scenario. Leveraging these availability features and strategies is an important part of disaster-proofing your application. However, this article goes beyond general availability issues to more serious (and rarer) disaster events.
 
 ## Multiple datacenter regions
 Azure maintains datacenters in many regions around the world. This infrastructure supports several disaster recovery scenarios, such as system-provided geo-replication of Azure Storage to secondary regions. You can also easily and inexpensively deploy a cloud service to multiple locations around the world. Compare this with the cost and difficulty of building and maintaining your own datacenters in multiple regions. Deploying data and services to multiple regions helps protect your application from a major outage in a single region. As you design your disaster recovery plan, it’s important to understand the concept of paired regions. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+
+## Azure Site Recovery
+
+[Azure Site Recovery](/azure/site-recovery/) provides a simple way to replicate Azure VMs between regions. It has minimumal management overhead, because you don't need to provision any additional resources in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on the source VM settings. It provides automated continuous replication, and enables you to perform application failover with a single click. You can also run disaster recovery drills by testing failover, without affecting your production workloads or ongoing replication. 
 
 ## Azure Traffic Manager
 When a region-specific failure occurs, you must redirect traffic to services or deployments in another region. It is most effective to handle this via services such as Azure Traffic Manager, which automates the failover of user traffic to another region if the primary region fails. Understanding the fundamentals of Traffic Manager is important when designing an effective DR strategy.
@@ -64,9 +74,7 @@ With each dependent service, you should understand the implications of a service
 The previous failures have primarily been failures that can be managed within the same Azure region. However, you must also prepare for the possibility that there is a service disruption of the entire region. If a region-wide service disruption occurs, the locally redundant copies of your data are not available. If you have enabled geo-replication, there are three additional copies of your blobs and tables in a different region. If Microsoft declares the region lost, Azure remaps all of the DNS entries to the geo-replicated region.
 
 > [!NOTE]
-> Be aware that you don't have any control over this process, and it will occur only for region-wide service disruption. Because of this, you must rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [data strategies for disaster recovery](#data-strategies-for-disaster-recovery).
-> 
-> 
+> Be aware that you don't have any control over this process, and it will occur only for region-wide service disruption. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Site Recovery allows application to decide what is an acceptable outage, and when to fail over to the replicated VMs.
 
 ### Azure-wide service disruption
 In disaster planning, you must consider the entire range of possible disasters. One of the most severe service disruptions would involve all Azure regions simultaneously. As with other service disruptions, you might decide to accept the risk of temporary downtime in that event. Widespread service disruptions that span regions are much rarer than isolated service disruptions involving dependent services or single regions.
@@ -172,7 +180,19 @@ In this scenario, the database is a single point of failure. Though Azure replic
 
 For all but the least critical applications, you must devise a plan to deploy your applications across multiple regions. You should also consider RTO and cost constraints in considering which deployment topology to use.
 
-Let’s take a look now at specific approaches to supporting failover across different regions. These examples all use two regions to describe the process.
+Let's take a look now at specific approaches to supporting failover across different regions. These examples all use two regions to describe the process.
+
+### Failover using Azure Site Recovery
+
+When you enable Azure VM replication using Azure Site Recovery, it creates several resources in the secondary region:
+
+- Resource group.
+- Virtual network (VNet).
+- Storage account. 
+- Availability sets to hold VMs after failover.
+
+Data writes on the VM disks in the primary region are continuously transferred to the storage account in the secondary region. Recovery points are generated in the target storage account every few minutes. When you initiate a failover, the recovered VMs are created in the target resource group, VNet, and availability set. During a failover, you can choose any available recovery point.
+
 
 ### Redeployment to a secondary Azure region
 For the approach of redeployment to a secondary region, only the primary region has applications and databases running. The secondary region is not set up for an automatic failover. So when a disaster occurs, you must spin up all the parts of the service in the new region. This includes uploading a cloud service to Azure, deploying the cloud service, restoring the data, and changing DNS to reroute the traffic.
@@ -263,6 +283,8 @@ Simulation testing involves creating small real-life situations on the work floo
 Consider architecting a type of “switchboard” in the application to manually simulate availability issues. For instance, through a soft switch, trigger database access exceptions for an ordering module by causing it to malfunction. You can take similar lightweight approaches for other modules at the network interface level.
 
 The simulation highlights any issues that were inadequately addressed. The simulated scenarios must be completely controllable. This means that, even if the recovery plan seems to be failing, you can restore the situation back to normal without causing any significant damage. It’s also important that you inform higher-level management about when and how the simulation exercises will be executed. This plan should detail the time or resources affected during the simulation. Also define the measures of success when testing your disaster recovery plan.
+
+If you are using Azure Site Recovery, you can execute a test failover to Azure, to validate your replication strategy or perform a disaster recovery drill without any data loss or downtime. A test failover does not affect on the ongoing VM replication or your production environment.
 
 Several other techniques can test disaster recovery plans. However, most of them are simply variations of these basic techniques. The intent of this testing is to evaluate the feasibility of the recovery plan. Disaster recovery testing focuses on the details to discover gaps in the basic recovery plan.
 
