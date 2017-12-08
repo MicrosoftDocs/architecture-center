@@ -69,7 +69,7 @@ These benefits don't come for free. This series of articles is designed to addre
 
 - **Continuous integration and delivery (CI/CD)**. One of the main goals of microservices is agility. To achieve this, you must have automated and robust [CI/CD](./ci-cd.md), so that you can quickly and reliably deploy individual services into test and production environments.
 
-## The drone delivery application
+## The Drone Delivery application
 
 To explore these issues, and to illustrate some of the best practices for a microservices architecture, we created a reference implementation that we call the Drone Delivery application. You can find the reference implementation on [GitHub][drone-ri].
 
