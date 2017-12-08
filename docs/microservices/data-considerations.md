@@ -73,13 +73,13 @@ The other scenario is enabling users to look up the history of a delivery after 
 
 ### Package service
 
-The Package service stores information about all of the packages. This service has two basic requirements: 
+The Package service stores information about all of the packages. The storage requirements for the Package are: 
 
-- Able to handle a high volume of packages, requiring high write throughput.
-- Simple queries by package ID.
 - Long-term storage.
+- Able to handle a high volume of packages, requiring high write throughput.
+- Support simple queries by package ID. No complex joins or requirements for referential integrity.
 
-The package data is not relational, so a document oriented database is appropriate, and Cosmos DB can achieve high throughput by using sharded collections. The team that works on the Package service is familiar with the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js), so they select the [MongoDB API](/azure/cosmos-db/mongodb-introduction) for Cosmos DB. That lets them leverage their existing experience with MongoDB, while getting the benefits of Cosmos DB.
+Because the package data is not relational, a document oriented database is appropriate, and Cosmos DB can achieve very high throughput by using sharded collections. The team that works on the Package service is familiar with the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js), so they select the [MongoDB API](/azure/cosmos-db/mongodb-introduction) for Cosmos DB. That lets them leverage their existing experience with MongoDB, while getting the benefits of Cosmos DB, which is a managed Azure service.
 
 > [!div class="nextstepaction"]
 > [Interservice communication](./interservice-communication.md)
