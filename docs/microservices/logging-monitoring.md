@@ -31,15 +31,15 @@ To make sense of what's happening, the application must emit telemetry events. Y
 
 The article [Monitoring and diagnostics](../best-practices/monitoring.md) describes general best practices for monitoring an application. Here are some particular things to think about in the context of a microservices architecture.
 
-**Configuration and management**. Is logging and monitoring performed by a managed service, or by services deployed in the cluster? [Application Insights][app-insights] is Microsoft's managed Application Performance Management (APM) service. It has the advantage of being easy to deploy and configure, and provides an end-to-end solution for telemetry, monitoring, and analysis. Another option is to collect and store telemetry inside the cluster. This approach can have performance and cost benefits, especially at high scale. For more discussion of these options, see the section [Technology Options](#technology-options), below.
+**Configuration and management**. Will you use a managed service for logging and monitoring, or deploy logging and monitoring components as containers inside the cluster? For more discussion of these options, see the section [Technology Options](#technology-options) below.
 
 **Ingestion rate**. What is the throughput at which the system can ingest telemetry events? What happens if that rate is exceeded? For example, the system may throttle clients, in which case telemetry data is lost, or it may downsample the data. Sometimes you can mitigate this problem by reducing the amount of data that you collect:
 
   - Aggregate metrics by calculating statistics, such as average and standard deviation, and send that statistical data to the monitoring system.  
 
-  - Downsample the data &mdash; that is, process only a percentage of the events.   
+  - Downsample the data &mdash; that is, process only a percentage of the events.
 
-  - Batch to reduce the number of network calls to the monitoring service
+  - Batch the data to reduce the number of network calls to the monitoring service.
 
 **Cost**. The cost of ingesting and storing telemetry data may be high, especially at high volumes. In some cases it could even exceed the cost of running the application. In that case, you may need to reduce the volume of telemetry by aggregating, downsampling, or batching the data, as described above. 
         
@@ -56,25 +56,6 @@ The article [Monitoring and diagnostics](../best-practices/monitoring.md) descri
 - System metrics correlated with containers.
 - Service errors and outliers.
     
-<!--
-    - Approaches to reduce the load on the telemetry system:
-        - Aggregation of metrics (statistical data)
-        - Sampling - process only a percentage of the events
-        - Batching - to reduce the number of calls to the telemetry service
-
-    - What is the granularity of the data. 
-
-    - Avoid any blocking calls to write logs or telemetry data. 
-
-
-Structured logging. It's good for logs to be structured (JSON) rather than raw text - however you may not control all of the logging, other components in the system (Nginx, IIS, whatever) may be creating unstructured logs. One challengs is how to aggregate them.
-
-Separate monitoring components from services as much as possible
-
-Use a logging abstraction that you can plug in a pipeline by configuration. 
-
-Handle batching and aggregation in the pipeline, not directly in the app code. Pipeline can also enrich the events with extra information (e.g. correlation ID)
--->
 
 ## Distributed tracing
 
@@ -82,17 +63,17 @@ As mentioned, one challenge in microservices is understanding the flow of events
 
 The first service that receives a client request should generate the correlation ID. If the service makes an HTTP call to another service, it puts the correlation ID in a request header. Similarly, if the service sends an asynchronous message, it puts the correlation ID into the message. Downstream services continue to propagate the correlation ID, so that it flows through the entire system. In addition, all code that writes application metrics or log events should include the correlation ID.
 
-When service calls are correlated, it lets you calculate operational metrics such as the end-to-end latency for a complete transaction, the number of successful transactions per second, and the percentage of failed transactions. Including correlation IDs in application logs makes it possible to perform root cause analysis. If an operation fails, you can find the log statements for all of the service calls that were part of the same operation. 
+When service calls are correlated, you can calculate operational metrics such as the end-to-end latency for a complete transaction, the number of successful transactions per second, and the percentage of failed transactions. Including correlation IDs in application logs makes it possible to perform root cause analysis. If an operation fails, you can find the log statements for all of the service calls that were part of the same operation. 
 
 Here are some considerations when implementing distributed tracing:
 
-- There is currently no standard HTTP header for correlation IDs. Your team should standardize on a custom header value. The choice may be decided by your logging/monitoring framework or the service mesh.
+- There is currently no standard HTTP header for correlation IDs. Your team should standardize on a custom header value. The choice may be decided by your logging/monitoring framework or choice of service mesh.
 
 - For asynchronous messages, if your messaging infrastructure supports adding metadata to messages, you should include the correlation ID as metadata. Otherwise, include it as part of the message schema.
 
-- Rather than a single opaque identifier, you might send a *correlation context* that includes richer information, such the caller-callee relationships. 
+- Rather than a single opaque identifier, you might send a *correlation context* that includes richer information, such as caller-callee relationships. 
 
-- The Azure Application Insights SDK will automatically inject correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. If you decide to use the correlation features built into Application Insights, some services may still need to explicitly propagate the correlation headers, depending on the libraries being used. For more information, see [Telemetry correlation in Application Insights](/azure/application-insights/application-insights-correlation).
+- The Azure Application Insights SDK automatically injects correlation context into HTTP headers, and includes the correlation ID in Application Insights logs. If you decide to use the correlation features built into Application Insights, some services may still need to explicitly propagate the correlation headers, depending on the libraries being used. For more information, see [Telemetry correlation in Application Insights](/azure/application-insights/application-insights-correlation).
    
 - If you are using Istio or linkerd as a service mesh, these technologies automatically generate correlation headers when HTTP calls are routed through the service mesh proxies. Services should forward the relevant headers. 
 
@@ -120,12 +101,11 @@ For system and container metrics, consider exporting metrics to a time-series da
 
 - Use a dashboard tool such as **Kibana** or **Grafana** to visualize and monitor the data. The dashboard service can also run inside a container in the cluster.
 
-For application logs, consider using **Fluentd** and **Elasticsearch**. Fluentd is an open source data collector, and Elasticsearch is a document database that is highly optimized to act as a search engine. In this approach, each service sends logs to `stdout` and `stderr`, and Kubernetes writes these streams to the local file system. Fluentd collects the logs, optionally enriches them with additional metadata from Kubernetes, and sends the logs to Elasticsearch. Use Kibana, Grafana, or a similar tool to create a dashboard for Elasticsearch. Fluentd runs as a daemonset in the cluster, which ensures that one Fluentd pod is assigned to each node. You can configure Fluentd to collect kubelet logs as well as container logs. At high volumes, writing logs to the local file system could become a performance bottleneck, especially when multiple services are running on the same node. Monitor disk latency and file system utilization in production.
+For application logs, consider using **Fluentd** and **Elasticsearch**. Fluentd is an open source data collector, and Elasticsearch is a document database that is optimized to act as a search engine. Using this approach, each service sends logs to `stdout` and `stderr`, and Kubernetes writes these streams to the local file system. Fluentd collects the logs, optionally enriches them with additional metadata from Kubernetes, and sends the logs to Elasticsearch. Use Kibana, Grafana, or a similar tool to create a dashboard for Elasticsearch. Fluentd runs as a daemonset in the cluster, which ensures that one Fluentd pod is assigned to each node. You can configure Fluentd to collect kubelet logs as well as container logs. At high volumes, writing logs to the local file system could become a performance bottleneck, especially when multiple services are running on the same node. Monitor disk latency and file system utilization in production.
 
-One advantage of using Fluentd with Elasticsearch for logs is that services do not require any additional library dependencies. Each service just writes to `stdout` and `stderr`, and Fluentd handles exporting the logs into Elasticsearch. (It's still a good practice to use some kind of logging library or abstraction, to keep your code clean and modularized.) Also, the teams writing services don't need to understand how to configure the logging infrastructure. One challenge is to configure the Elasticsearch cluster for a production deployment, so that it scales to handle your traffic. 
+One advantage of using Fluentd with Elasticsearch for logs is that services do not require any additional library dependencies. Each service just writes to `stdout` and `stderr`, and Fluentd handles exporting the logs into Elasticsearch. Also, the teams writing services don't need to understand how to configure the logging infrastructure. One challenge is to configure the Elasticsearch cluster for a production deployment, so that it scales to handle your traffic. 
 
 Another option is to send logs to Operations Management Suite (OMS) Log Analytics. The [Log Analytics][log-analytics] service collects log data into a central repository, and can also consolidate data from other Azure services that your application uses. For more information, see [Monitor an Azure Container Service cluster with Microsoft Operations Management Suite (OMS)][k8s-to-oms].
-
 
 ## Example: Logging with correlation IDs
 

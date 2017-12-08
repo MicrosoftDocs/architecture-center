@@ -7,24 +7,22 @@ ms.date: 12/08/2017
 
 # Designing microservices: API gateways
 
-When there are many backend services, how does a client know where they're located and how to reach them? What happens when new services are created, or an existing service is modified? 
-
-An API gateway sits between clients and services, routing requests from clients to the right services. Gateways can also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting, that would otherwise need to be implemented inside each public-facing microservice. 
+In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? When happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges. 
 
 ![](./images/gateway.png)
 
 ## What is an API gateway?
 
-In a microservices architecture, how should a client communicate with the various services that compose the application? One option is for services to expose public endpoints and have clients make direct HTTP calls to them. There are potential problems with this approach, however. 
+An API gateway sits between clients and services. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. If you don't deploy a gateway, clients must send requests directly to front-end services. However, there are some potential problems with exposing services directly to clients:
 
-- A single operation might require calls to multiple services. That can result in multiple network round trips between the client and the server, adding significant latency. 
 - It can result in complex client code. The client must keep track of multiple endpoints, and handle failures in a resilient way. 
 - It creates coupling between the client and the backend. The client needs to know how the individual services are decomposed. That makes it harder to maintain the client and also harder to refactor services.
-- Each individual service must handle concerns such as authentication, SSL, and client rate limiting. 
+- A single operation might require calls to multiple services. That can result in multiple network round trips between the client and the server, adding significant latency. 
+- Each public-facing service must handle concerns such as authentication, SSL, and client rate limiting. 
 - Services must expose a client-friendly protocol such as HTTP or WebSocket. This limits the choice of [communication protocols](./interservice-communication.md). 
 - Services with public endpoints are a potential attack surface, and must be hardened.
 
-To address these problems, an API gateway sits between the clients and the backend services. A gateway can perform a number of functions. Depending on your scenario, you may not need all of them. These functions can be grouped into the following patterns:
+A gateway helps to address these issues by decoupling clients from services. Gateways can perform a number of different functions, and you may not need all of them. The functions can be grouped into the following design patterns:
 
 [Gateway Routing](../patterns/gateway-routing.md). Use the gateway as a reverse proxy to route requests to one or more backend services, using layer 7 routing. The gateway provides a single endpoint for clients, and helps to decouple clients from services. 
 
