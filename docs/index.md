@@ -84,20 +84,20 @@ layout: LandingPage
             </div>
         </a>
     </li>
-    <!-- Performance anti-practices -->
+    <!-- Microservices -->
     <li>
-        <a href="/azure/architecture/antipatterns">
+        <a href="/azure/architecture/microservices">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/performance.svg" alt="Performance antipatterns" />
+                                <img src="_images/acs.svg" alt="Building microservices on Azure" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Performance antipatterns</h3>
-                            <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
+                            <h3>Building microservices on Azure with Kubernetes</h3>
+                            <p>How to design, build, and operate a microservices architecture on Azure, using Kubernetes as a container orchestrator.</p>
                         </div>
                     </div>
                 </div>
@@ -184,6 +184,26 @@ layout: LandingPage
             </div>
         </a>
     </li>
+    <!-- Performance anti-practices -->
+    <li>
+        <a href="/azure/architecture/antipatterns">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/performance.svg" alt="Performance antipatterns" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Performance antipatterns</h3>
+                            <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
     <!-- Sharepoint -->
     <li>
         <a href="/azure/architecture/reference-architectures/sharepoint">
@@ -238,26 +258,6 @@ layout: LandingPage
                         <div class="cardText">
                             <h3>Identity Management for Multitenant Applications</h3>
                             <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- ElasticSearch -->
-    <li>
-        <a href="/azure/architecture/elasticsearch">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/elasticsearch.svg" alt="Run Elasticsearch on Azure" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Run Elasticsearch on Azure</h3>
-                            <p>Learn how to deploy, manage, and tune an Elasticsearch cluster on Azure.</p>
                         </div>
                     </div>
                 </div>
