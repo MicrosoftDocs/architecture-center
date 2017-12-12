@@ -58,7 +58,7 @@ When the code is ready, open a pull request and merge into master. This will sta
 1. Build the code assets. 
 2. Run unit tests against the code.
 3. Build the container image.
-4. Test the container image by running functional tests on a running container. This step can catch errors in the Docker file, such as a bad entrypoint.
+4. Test the container image by running functional tests on a running container. This step can catch errors in the Docker file, such as a bad entry point.
 5. Push the image to a container registry.
 6. Update the test cluster with the new image to run integration tests.
 
