@@ -91,7 +91,7 @@ To maximize performance, create a separate storage account to hold diagnostic lo
 The public IP address can be dynamic or static. The default is dynamic.
 
 * Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be added to a safe list.
-* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
+* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn]. You can use [Azure DNS][azure-dns] or another DNS service.
 
 All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.
 
@@ -208,6 +208,7 @@ For more information on deploying this sample reference architecture, visit our 
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
+[azure-dns]: /azure/dns/dns-overview
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
