@@ -28,7 +28,7 @@ Here are some things to think about when choosing how to implement an API.
 
 - RPC is more oriented around operations or commands. Because RPC interfaces look like local method calls, it may lead you to design overly chatty APIs. However, that doesn't mean RPC must be chatty. It just means you need to use care when designing the interface.
 
-For a RESTful interface, the most common choice is REST over HTTP using JSON. For an RPC-style interface, there are several popular frameworks, including gRPC, Apache  Avro, and Apache Thrift.
+For a RESTful interface, the most common choice is REST over HTTP using JSON.
 
 **Efficiency**. Consider efficiency in terms of speed, memory, and payload size. Typically a gRPC-based interface is faster than REST over HTTP.
 
