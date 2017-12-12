@@ -47,7 +47,7 @@ Done correctly, microservices can provide a number of useful benefits:
 
 - **Resiliency**. If an individual microservice becomes unavailable, it won't disrupt the entire application, as long as any upstream microserves are designed to handle faults correctly (for example, by implementing circuit breaking). 
 
-- **Scalability**. A microservices architecture allows each microservice to be scaled independently of the thers. That lets you scale out subsystems that require more resources, without scaling out the entire application. If you deploy services inside containers, you can also pack a higher density of microservices onto a single host, which allows for more efficient utilization of resources. 
+- **Scalability**. A microservices architecture allows each microservice to be scaled independently of the others. That lets you scale out subsystems that require more resources, without scaling out the entire application. If you deploy services inside containers, you can also pack a higher density of microservices onto a single host, which allows for more efficient utilization of resources. 
 
 - **Data isolation**. It is much easier to perform schema updates, because only a single microservice is impacted. In a monolithic application, schema updates can become very challenging, because different parts of the application may all touch the same data, making any alterations to the schema risky.
  
