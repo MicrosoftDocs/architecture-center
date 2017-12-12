@@ -6,7 +6,7 @@ description: >-
 
 author: telmosampaio
 
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-vm
