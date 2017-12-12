@@ -82,7 +82,7 @@ In the drone application, a batch of messages can be processed in parallel. But 
 
 Akka Streams is also a very natural programming model for streaming events from Event Hubs. Instead of looping through a batch of events, you define a set of operations that will be applied to each event, and let Akka Streams handle the streaming. Akka Streams defines a streaming pipeline in terms of *Sources*, *Flows*, and *Sinks*. A source generates an output stream, a flow processes an input stream and produces an output stream, and a sink consumes a stream without producing any output.
 
-Here is the code in the Scheduler service that sets up tha Akka Streams pipeline:
+Here is the code in the Scheduler service that sets up the Akka Streams pipeline:
 
 ```java
 IoTHub iotHub = new IoTHub();
@@ -95,7 +95,7 @@ messages.map(msg -> DeliveryRequestEventProcessor.parseDeliveryRequest(msg))
 
 This code configures Event Hubs as a source. The `map` statement deserializes each event message into a Java class that represents a delivery request. The `filter` statement removes any `null` objects from the stream; this guards against the case where a message can't be deserialized. The `via` statement joins the source to a flow that processes each delivery request. The `to` method joins the flow to the checkpoint sink, which is built into IoTHub React.
 
-IoTHub React uses a different checkpointing strategy than Event Host Processor. Checkpoints are written by the checkoint sink, which is the terminating stage in the pipeline. The design of Akka Streams allows the pipeline to continue streaming data while the sink is writing the checkpoint. That means the upstream processing stages don't need to wait for checkpointing to happen. You can configure checkpointing to occur after a timeout or after a certain number of messages have been processed. 
+IoTHub React uses a different checkpointing strategy than Event Host Processor. Checkpoints are written by the checkpoint sink, which is the terminating stage in the pipeline. The design of Akka Streams allows the pipeline to continue streaming data while the sink is writing the checkpoint. That means the upstream processing stages don't need to wait for checkpointing to happen. You can configure checkpointing to occur after a timeout or after a certain number of messages have been processed.
 
 The `deliveryProcessor` method creates the Akka Streams flow:  
 
