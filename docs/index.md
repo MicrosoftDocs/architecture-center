@@ -92,12 +92,12 @@ layout: LandingPage
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/acs.svg" alt="Building microservices on Azure" />
+                                <img src="_images/new-content.svg" alt="Designing, building, and operating microservices on Azure" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Building microservices on Azure with Kubernetes</h3>
-                            <p>How to design, build, and operate a microservices architecture on Azure, using Kubernetes as a container orchestrator.</p>
+                            <h3>Building microservices on Azure</h3>
+                            <p>This multi-part series takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
                         </div>
                     </div>
                 </div>

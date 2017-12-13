@@ -1,17 +1,17 @@
 ---
 title: Designing, building, and operating microservices on Azure with Kubernetes
-description: Designing, building, and operating microservices on Azure with Kubernetes
+description: Designing, building, and operating microservices on Azure
 author: MikeWasson
 ms.date: 12/08/2017
 ---
 
-# Designing, building, and operating microservices on Azure with Kubernetes
+# Designing, building, and operating microservices on Azure
 
 ![](./images/drone.svg)
 
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications. 
 
-In this set of articles, we explore how to build and run a microservices architecture on Azure, using Kubernetes as a container orchestrator. Topics include:
+In this set of articles, we explore how to build and run a microservices architecture on Azure. Topics include:
 
 - Using Domain Driven Design (DDD) to design a microservices architecture. 
 - Choosing the right Azure technologies for compute, storage, messaging, and other elements of the design.
@@ -80,7 +80,7 @@ This scenario involves a fairly complicated domain. Some of the business concern
 > [!NOTE]
 > For help in choosing between a microservices architecture and other architectural styles, see the [Azure Application Architecture Guide](../guide/index.md).
 
-Our reference implementation uses Kubernetes with [Azure Container Service (ACS)](/azure/container-service/kubernetes/). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator. 
+Our reference implementation uses Kubernetes with [Azure Container Service (ACS)](/azure/container-service/kubernetes/). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator, including [Azure Service Fabric](/azure/service-fabric/). 
 
 > [!div class="nextstepaction"]
 > [Domain analysis](./domain-analysis.md)
