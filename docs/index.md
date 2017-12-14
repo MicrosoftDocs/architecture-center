@@ -126,7 +126,7 @@ layout: LandingPage
     </li>
     <!-- Azure Virtual Datacenter -->
     <li>
-        <a href="/azure/architecture/aws-professional">
+        <a href="https://aka.ms/vdc">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
