@@ -2,7 +2,7 @@
 title: Implementing a secure hybrid network architecture in Azure
 description: How to implement a secure hybrid network architecture in Azure.
 author: telmosampaio
-ms.date: 11/23/2016
+ms.date: 12/04/2017
 
 pnp.series.title: Network DMZ
 pnp.series.prev: ./index

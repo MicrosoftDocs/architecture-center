@@ -4,7 +4,7 @@ description: >-
   Recommended architecture for web application with high availability, running
   in Microsoft Azure.
 author: MikeWasson
-ms.date: 11/23/2016
+ms.date: 12/04/2017
 cardTitle: Run in multiple regions
 ---
 # Run a web application in multiple regions

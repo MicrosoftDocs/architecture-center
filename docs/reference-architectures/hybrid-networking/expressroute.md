@@ -5,7 +5,7 @@ description: >-
   Azure virtual network and an on-premises network connected using Azure
   ExpressRoute.
 author: telmosampaio
-ms.date: 11/28/2016
+ms.date: 12/04/2017
 
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute-vpn-failover

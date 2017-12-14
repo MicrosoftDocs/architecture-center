@@ -1,7 +1,7 @@
 ---
 title: Choose a solution for integrating on-premises Active Directory with Azure.
 description: Compares reference architectures for integrating on-premises Active Directory with Azure.
-ms.date: 04/06/2017
+ms.date: 12/04/2017
 ---
 
 # Choose a solution for integrating on-premises Active Directory with Azure

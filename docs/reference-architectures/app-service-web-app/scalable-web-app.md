@@ -6,7 +6,7 @@ pnp.series.title: Azure App Service
 pnp.series.prev: basic-web-app
 pnp.series.next: multi-region-web-app
 
-ms.date: 11/23/2016
+ms.date: 12/04/2017
 cardTitle: Improve scalability
 ---
 # Improve scalability in a web application
