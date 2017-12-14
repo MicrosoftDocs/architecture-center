@@ -137,7 +137,7 @@ layout: LandingPage
                         </div>
                         <div class="cardText">
                             <h3>Azure Virtual Datacenter e-book</h3>
-                            <p>This e-book shows you how to deploy enterprise workloads to the Azure cloud platform, while respecting your existing security and networking policies..</p>
+                            <p>This e-book shows you how to deploy enterprise workloads to the Azure cloud platform, while respecting your existing security and networking policies.</p>
                         </div>
                     </div>
                 </div>
