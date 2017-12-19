@@ -7,7 +7,7 @@ ms.date: 12/08/2017
 
 # Designing microservices: API gateways
 
-In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? When happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges. 
+In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges. 
 
 ![](./images/gateway.png)
 
