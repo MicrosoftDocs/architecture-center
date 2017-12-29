@@ -125,7 +125,7 @@ See the earlier section [Triggers](#triggers) for more information about how you
 Consider the following points when you are deciding whether to deploy background tasks in an Azure virtual machine:
 
 * Hosting background tasks in a separate Azure virtual machine provides flexibility and allows precise control over initiation, execution, scheduling, and resource allocation. However, it will increase runtime cost if a virtual machine must be deployed just to run background tasks.
-* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/en-us/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/en-us/download/details.aspx?id=50013).
+* There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
 * You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](http://msdn.microsoft.com/library/dn589789.aspx).
 
 #### More information
@@ -318,9 +318,9 @@ Background tasks must offer sufficient performance to ensure they do not block t
 * [Executing Background Tasks](http://msdn.microsoft.com/library/ff803365.aspx)
 * [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 * [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
-* [What is the Azure WebJobs SDK](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk)
-* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
-* [Run Background tasks with WebJobs](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-create-web-jobs)
-* [Azure Queues and Service Bus Queues - Compared and Contrasted](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
-* [How to Enable Diagnostics in a Cloud Service](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics)
+* [What is the Azure WebJobs SDK](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk)
+* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
+* [Run Background tasks with WebJobs](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs)
+* [Azure Queues and Service Bus Queues - Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
+* [How to Enable Diagnostics in a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 
