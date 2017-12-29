@@ -150,7 +150,7 @@ There are two domain events:
 
 - While a drone is in flight, the Drone entity sends DroneStatus events that describe the drone's location and status (in-flight, landed).
 
-- The Delivery entity sends DeliveryStatus events whenever the status of a delivery changes. These include DeliveryCreated, DeliveryRescheduled, DeliveryInTransit, and DeliveryComplete. 
+- The Delivery entity sends DeliveryTracking events whenever the stage of a delivery changes. These include DeliveryCreated, DeliveryRescheduled, DeliveryHeadedToDropoff, and DeliveryCompleted. 
 
 Notice that these events describe things that are meaningful within the domain model. They describe something about the domain, and aren't tied to a particular programming language construct.
 
