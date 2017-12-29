@@ -128,8 +128,8 @@ An example of some common tagging approaches:
 | --- | --- | --- | --- |
 | Bill To / Internal Chargeback ID |billTo |`IT-Chargeback-1234` |An internal I/O or billing code |
 | Operator or Directly Responsible Individual (DRI) |managedBy |`joe@contoso.com` |Alias or email address |
-| Project Name |project-name |`myproject` |Name of the project or product line |
-| Project Version |project-version |`3.4` |Version of the project or product line |
+| Project Name |projectName |`myproject` |Name of the project or product line |
+| Project Version |projectVersion |`3.4` |Version of the project or product line |
 | Environment |environment |`<Production, Staging, QA >` |Environmental identifier |
 | Tier |tier |`Front End, Back End, Data` |Tier or role/context identification |
 | Data Profile |dataProfile |`Public, Confidential, Restricted, Internal` |Sensitivity of data stored in the resource |
