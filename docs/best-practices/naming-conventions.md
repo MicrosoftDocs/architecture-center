@@ -64,44 +64,59 @@ Affixes can refer to different aspects that describe the particular resources. T
 
 When developing a specific naming convention for your company or projects, it is importantly to choose a common set of affixes and their position (suffix or prefix).
 
-## Naming Rules and Restrictions
+## Naming rules and restrictions
 
 Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope.  For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 
-| Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Resource Group |Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, and period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
-| Resource Group |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
+### General
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, and period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
+|Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 | General |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric |`"key" : "value"` |`"department" : "Central IT"` |
-| Compute |Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
-| Compute |Function App | Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
-| Storage |Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
-| Storage |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
-| Storage | Container name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<context>` |`logs` |
-| Storage |Blob name | Container |1-1024 |Case sensitive |Any URL char |`<variable based on blob usage>` |`<variable based on blob usage>` |
-| Storage |Queue name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
-| Storage |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
-| Storage |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
-| Storage |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>-dtl` |`telemetry-dtl` |
-| Networking |Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
-| Networking |Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, underscore, dash, and period |`<descriptive context>` |`web` |
-| Networking |Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
-| Networking |Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
-| Networking |Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`sql-allow` |
-| Networking |Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
-| Networking |Load Balancer |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-lb` |`profx-lb` |
-| Networking |Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`http` |
-| Networking |Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-agw` |`profx-agw` |
-| Networking |Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
+
+### Compute
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
+|Function App | Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
 
 > [!NOTE]
 > Virtual machines in Azure have two distinct names: virtual machine name, and host name. When you create a VM in the portal, the same name is used for both the host name, and the virtual machine resource name. The restrictions above are for the host name. The actual resource name can have up to 64 characters.
 
-Microsoft adds new services to Azure frequently. The table above covers the most commonly used services in Networking, Compute, and Storage. For other services, consider an appropriate 3-letter suffix.
+### Storage
 
-## Organizing resources with tags
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
+|Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
+| Container name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<context>` |`logs` |
+|Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
+|Queue name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
+|Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
+|File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
+|Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>-dtl` |`telemetry-dtl` |
+
+### Networking
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
+|Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, underscore, dash, and period |`<descriptive context>` |`web` |
+|Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
+|Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
+|Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`sql-allow` |
+|Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
+|Load Balancer |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-lb` |`profx-lb` |
+|Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`http` |
+|Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-agw` |`profx-agw` |
+|Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
+
+## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary
 text strings to identify context and streamline automation.  For example, the tag `"sqlVersion: "sql2014ee"` could identify VMs in a deployment running SQL Server 2014 Enterprise Edition for running an automated script against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
