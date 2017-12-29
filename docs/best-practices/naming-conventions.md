@@ -88,14 +88,14 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 > [!NOTE]
 > Virtual machines in Azure have two distinct names: virtual machine name, and host name. When you create a VM in the portal, the same name is used for both the host name, and the virtual machine resource name. The restrictions above are for the host name. The actual resource name can have up to 64 characters.
 
-### General
+### Storage
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
 |Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
 |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
 | Container name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<context>` |`logs` |
-|Blob name | Container |1-1024 |Case sensitive |Any URL char |`<variable based on blob usage>` |`<variable based on blob usage>` |
+|Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Queue name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
