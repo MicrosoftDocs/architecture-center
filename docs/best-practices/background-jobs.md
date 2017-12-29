@@ -319,7 +319,6 @@ Background tasks must offer sufficient performance to ensure they do not block t
 * [Azure Role Startup Life Cycle](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (blog post)
 * [Azure Cloud Services Role Lifecycle](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (video)
 * [What is the Azure WebJobs SDK](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk)
-* [Create a .NET WebJob in Azure App Service](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started)
 * [Run Background tasks with WebJobs](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs)
 * [Azure Queues and Service Bus Queues - Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
 * [How to Enable Diagnostics in a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
