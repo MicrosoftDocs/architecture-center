@@ -64,7 +64,7 @@ Affixes can refer to different aspects that describe the particular resources. T
 
 When developing a specific naming convention for your company or projects, it is importantly to choose a common set of affixes and their position (suffix or prefix).
 
-## Naming Rules and Restrictions
+## Naming rules and restrictions
 
 Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope.  For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
 
@@ -116,7 +116,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-agw` |`profx-agw` |
 |Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
 
-## Organizing resources with tags
+## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary
 text strings to identify context and streamline automation.  For example, the tag `"sqlVersion: "sql2014ee"` could identify VMs in a deployment running SQL Server 2014 Enterprise Edition for running an automated script against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
