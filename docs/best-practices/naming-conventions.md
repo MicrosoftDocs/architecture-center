@@ -72,19 +72,18 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Resource Group |Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, an period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
-| Resource Group |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
-| General |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric |`"key" : "value"` |`"department" : "Central IT"` |
-| Compute |Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
-| Compute |Function App | Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
-| Storage |Storage account name (data) |Global |3-24 |Lower case |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
-| Storage |Storage account name (disks) |Global |3-24 |Lower case |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
-| Storage | Container name |Storage account |3-63 |Lower case |Alphanumeric and dash |`<context>` |`logs` |
-| Storage |Blob name | Container |1-1024 |Case sensitive |Any URL char |`<variable based on blob usage>` |`<variable based on blob usage>` |
-| Storage |Queue name |Storage account |3-63 |Lower case |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
-| Storage |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
-| Storage |File name | Storage account |3-63 |Lower case | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
-| Storage |Data Lake Store | Global |3-24 |Lower case | Alphanumeric |`<name>-dls` |`telemetry-dls` |
+| Resource Group |Resource Group |Global |1-64 |Case-insensitive |Alphanumeric, underscore, parentheses, hyphen, an period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
+| Resource Group |Availability Set |Resource Group |1-80 |Case-insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
+| Compute |Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case-insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
+| Compute |Function App | Global |1-60 |Case-insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
+| Storage |Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
+| Storage |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
+| Storage | Container name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<context>` |`logs` |
+| Storage |Blob name | Container |1-1024 |Case-sensitive |Any URL char |`<variable based on blob usage>` |`<variable based on blob usage>` |
+| Storage |Queue name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
+| Storage |Table name | Storage account |3-63 |Case-insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
+| Storage |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
+| Storage |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>-dls` |`telemetry-dls` |
 | Networking |Virtual Network (VNet) |Resource Group |2-64 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
 | Networking |Subnet |Parent VNet |2-80 |Case-insensitive |Alphanumeric, underscore, dash, and period |`<descriptive context>` |`web` |
 | Networking |Network Interface |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
