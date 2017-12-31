@@ -141,8 +141,9 @@ PUT requests must be idempotent. If a client submits the same PUT request multip
 
 <!-- include examples -->
 
+## Conform to HTTP semantics
 
-## Apply the HTTP specification
+This section describes some typical considerations for designing an API that conforms to the HTTP specification. However, it doesn't cover every possible detail or scenario. When in doubt, consult the HTTP specifications.
 
 ### Media types
 
@@ -181,13 +182,25 @@ If a POST method creates a new resource, it returns HTTP status code 201 (Create
 
 If the method does some processing but does not create a new resource, the method can return HTTP status code 200 and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return HTTP status code 204 (No Content) with no response body.
 
+If the data provided by in the request is invalid, the web server should return HTTP status code 400 (Bad Request). The response body can contain additional information about the error or a link to a URL that provides more details.
+
 ### PUT methods
 
 If a PUT method creates a new resource, it returns HTTP status code 201 (Created), as with a POST method. If the method updates an existing resource, it returns either 200 (OK) or 204 (No Content). In some cases, it might not be possible to update an existing resource. In that case, consider returning HTTP status code 409 (Conflict). 
 
+Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
+
 ### PATCH methods
 
 With a PATCH request, the client sends a set of updates to an existing resource, in the form of a *patch document*. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method ([RFC 5789](https://tools.ietf.org/html/rfc5789)) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.
+
+<!--
+400: Malformed patch document.
+415: The patch document format isn't supported.
+422: The patch document is valid, but the changes can't be applied (for example, they would leave the resouce in an inconsistent state).
+-->
+
+
 
 JSON is probably the most common data format for web APIs. There are two main JSON-based patch document formats, called *JSON patch* and *JSON merge patch*.
 
@@ -214,106 +227,17 @@ Here is a possible JSON merge patch for this resource:
 }
 ```
 
-This tells the server to update "price", delete "color", and add "size". For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396).
+This tells the server to update "price", delete "color", and add "size". For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is "application/merge-patch+json".
 
 Limitations of merge patch: Merge patch not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document does not specify the order that the server should apply the updates. 
 
+JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is "application/json-patch+json".
 
+### DELETE methods
 
-<!--
-400: Malformed patch document.
-415: The patch document format isn't supported.
-422: The patch document is valid, but the changes can't be applied (for example, they would leave the resouce in an inconsistent state).
--->
+If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. 
 
-
-<!-- start -->
-Order 222 does not exist, so the response message looks like this:
-
-```HTTP
-HTTP/1.1 404 Not Found
-...
-Content-Type: application/json; charset=utf-8
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-Content-Length: ...
-{"message":"No such order"}
-```
-
-
-If the modification is successful, it should ideally respond with an HTTP 204 status code, indicating that the process has been successfully handled, but that the response body contains no further information. The Location header in the response contains the URI of the newly updated resource:
-
-```HTTP
-HTTP/1.1 204 No Content
-...
-Location: http://adventure-works.com/orders/1
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-```
-
-> [!TIP]
-> If the data in an HTTP PUT request message includes date and time information, make sure that your web service accepts dates and times formatted following the ISO 8601 standard.
->
->
-
-If the resource to be updated does not exist, the web server can respond with a Not Found response as described earlier. Alternatively, if the server actually creates the object itself it could return the status codes HTTP 200 (OK) or HTTP 201 (Created) and the response body could contain the data for the new resource. If the Content-Type header of the request specifies a data format that the web server cannot handle, it should respond with HTTP status code 415 (Unsupported Media Type).
-
-> [!TIP]
-> Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
->
->
-
-The format of an HTTP POST requests that create new resources are similar to those of PUT requests; the message body contains the details of the new resource to be added. However, the URI typically specifies the collection to which the resource should be added. The following example creates a new order and adds it to the orders collection:
-
-```HTTP
-POST http://adventure-works.com/orders HTTP/1.1
-...
-Content-Type: application/x-www-form-urlencoded
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-Content-Length: ...
-productID=5&quantity=15&orderValue=400
-```
-
-If the request is successful, the web server should respond with a message code with HTTP status code 201 (Created). The Location header should contain the URI of the newly created resource, and the body of the response should contain a copy of the new resource; the Content-Type header specifies the format of this data:
-
-```HTTP
-HTTP/1.1 201 Created
-...
-Content-Type: application/json; charset=utf-8
-Location: http://adventure-works.com/orders/99
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-Content-Length: ...
-{"orderID":99,"productID":5,"quantity":15,"orderValue":400}
-```
-
-> [!TIP]
-> If the data provided by a PUT or POST request is invalid, the web server should respond with a message with HTTP status code 400 (Bad Request). The body of this message can contain additional information about the problem with the request and the formats expected, or it can contain a link to a URL that provides more details.
->
->
-
-To remove a resource, an HTTP DELETE request simply provides the URI of the resource to be deleted. The following example attempts to remove order 99:
-
-```HTTP
-DELETE http://adventure-works.com/orders/99 HTTP/1.1
-...
-```
-
-If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information (this is the same response returned by a successful PUT operation, but without a Location header as the resource no longer exists.) It is also possible for a DELETE request to return HTTP status code 200 (OK) or 202 (Accepted) if the deletion is performed asynchronously.
-
-```HTTP
-HTTP/1.1 204 No Content
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-```
-
-If the resource is not found, the web server should return a 404 (Not Found) message instead.
-
-> [!TIP]
-> If all the resources in a collection need to be deleted, enable an HTTP DELETE request to be specified for the URI of the collection rather than forcing an application to remove each resource in turn from the collection.
->
->
+If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
 
 ## Filtering and paginating data
 You should endeavor to keep the URIs simple and intuitive. Exposing a collection of resources through a single URI assists in this respect, but it can lead to applications fetching large amounts of data when only a subset of the information is required. Generating a large volume of traffic impacts not only the performance and scalability of the web server but also adversely affect the responsiveness of client applications requesting the data.
