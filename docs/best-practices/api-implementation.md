@@ -7,11 +7,10 @@ ms.date: 07/13/2016
 pnp.series.title: Best Practices
 ---
 # API implementation
-[!INCLUDE [header](../_includes/header.md)]
 
 A carefully-designed RESTful web API defines the resources, relationships, and navigation schemes that are accessible to client applications. When you implement and deploy a web API, you should consider the physical requirements of the environment hosting the web API and the way in which the web API is constructed rather than the logical structure of the data. This guidance focusses on best practices for implementing a web API and publishing it to make it available to client applications. For detailed information about web API design, see [API Design Guidance](/azure/architecture/best-practices/api-design).
 
-## Considerations for processing requests
+## Processing requests
 
 Consider the following points when you implement the code to handle requests.
 
@@ -122,7 +121,7 @@ The HATEOAS links shown in the example HTTP response indicate that a client appl
 * An HTTP GET request to the URI `http://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
 * An HTTP PUT request to the URI `http://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
 
-## Considerations for handling exceptions
+## Handling exceptions
 
 Consider the following points if an operation throws an uncaught exception.
 
@@ -186,7 +185,7 @@ To handle exceptions in a consistent manner, consider implementing a global erro
 
 The HTTP protocol distinguishes between errors that occur due to the client application (the HTTP 4xx status codes), and errors that are caused by a mishap on the server (the HTTP 5xx status codes). Make sure that you respect this convention in any error response messages.
 
-## Considerations for optimizing client-side data access
+## Optimizing client-side data access
 In a distributed environment such as that involving a web server and client applications, one of the primary sources of concern is the network. This can act as a considerable bottleneck, especially if a client application is frequently sending requests or receiving data. Therefore you should aim to minimize the amount of traffic that flows across the network. Consider the following points when you implement the code to retrieve and maintain data:
 
 ### Support client-side caching
@@ -537,7 +536,7 @@ public class OrdersController : ApiController
 >
 >
 
-## Considerations for handling large requests and responses
+## Handling large requests and responses
 There may be occasions when a client application needs to issue requests that send or receive data that may be several megabytes (or bigger) in size. Waiting while this amount of data is transmitted could cause the client application to become unresponsive. Consider the following points when you need to handle requests that include significant amounts of data:
 
 ### Optimize requests and responses that involve large objects
@@ -604,7 +603,7 @@ A client application can issue a request to retrieve 30 orders starting at offse
 >
 >
 
-## Considerations for maintaining responsiveness, scalability, and availability
+## Maintaining responsiveness, scalability, and availability
 The same web API might be utilized by many client applications running anywhere in the world. It is important to ensure that the web API is implemented to maintain responsiveness under a heavy load, to be scalable to support a highly varying workload, and to guarantee availability for clients that perform business-critical operations. Consider the following points when determining how to meet these requirements:
 
 ### Provide asynchronous support for long-running requests
@@ -648,7 +647,7 @@ Keeping a connection open can help to improve responsiveness by reducing latency
 >
 >
 
-## Considerations for publishing and managing a web API
+## Publishing and managing a web API
 To make a web API available for client applications, the web API must be deployed to a host environment. This environment is typically a web server, although it may be some other type of host process. You should consider the following points when publishing a web API:
 
 * All requests must be authenticated and authorized, and the appropriate level of access control must be enforced.
@@ -664,7 +663,7 @@ It is useful to be able to decouple these issues from the technical issues conce
 * Transforming messages and translating communications protocols for clients built by using varying technologies.
 * Caching requests and responses to reduce load on the server hosting the web API.
 
-## Considerations for testing a web API
+## Testing a web API
 A web API should be tested as thoroughly as any other piece of software. You should consider creating unit tests to validate the functionality of 
 The nature of a web API brings its own additional requirements to verify that it operates correctly. You should pay particular attention to the following aspects:
 
@@ -696,7 +695,7 @@ Watch out for unexpected response status codes in the 5xx range. These messages 
 
 You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate. For more information, see [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx).
 
-## Publish and manage a web API using the Azure API Management Service
+## Use the Azure API Management Service
 Azure provides the [API Management Service](https://azure.microsoft.com/documentation/services/api-management/) which you can use to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
