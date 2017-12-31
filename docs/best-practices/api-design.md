@@ -101,88 +101,75 @@ In more complex systems, it can be tempting to provide URIs that enable a client
 > [!TIP]
 > Avoid requiring resource URIs more complex than *collection/item/collection*.
 
-Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](./antipatterns/chatty-io.md) and [Extraneous Fetching](./antipatterns/extraneous-fetching.md).
+Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching.md).
 
-Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is located in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
+Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
 
-Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP GET requests that invoke a piece of functionality and return the results as an HTTP response message. A web API that implements simple calculator-style operations such as add and subtract could provide URIs that expose these operations as pseudo resources and utilize the query string to specify the parameters required. For example a GET request to the URI */add?operand1=99&operand2=1* could return a response message with the body containing the value 100, and GET request to the URI */subtract?operand1=50&operand2=20* could return a response message with the body containing the value 30. However, only use these forms of URIs sparingly.
+Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and ue the query string to specify the parameters required. For example a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
 ## Define operations in terms of HTTP methods
+
 The HTTP protocol defines a number of methods that assign semantic meaning to a request. The common HTTP methods used by most RESTful web APIs are:
 
-* **GET**, to retrieve a copy of the resource at the specified URI. The body of the response message contains the details of the requested resource.
-* **POST**, to create a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.
-* **PUT**, to replace or update the resource at the specified URI. The body of the request message specifies the resource to be modified and the values to be applied.
-* **DELETE**, to remove the resource at the specified URI.
+* **GET** retrieves a representation of the resource at the specified URI. The body of the response message contains the details of the requested resource.
+* **POST** creates a new resource at the specified URI. The body of the request message provides the details of the new resource. Note that POST can also be used to trigger operations that don't actually create resources.
+* **PUT** either creates or replaces the resource at the specified URI. The body of the request message specifies the resource to be created or updated.
+* **PATCH** performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
+* **DELETE** removes the resource at the specified URI.
 
-> [!NOTE]
-> The HTTP protocol also defines other less commonly-used methods, such as PATCH which is used to request selective updates to a resource, HEAD which is used to request a description of a resource, OPTIONS which enables a client information to obtain information about the communication options supported by the server, and TRACE which allows a client to request information that it can use for testing and diagnostics purposes.
->
->
 
 The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 | --- | --- | --- | --- | --- |
 | /customers |Create a new customer |Retrieve all customers |Bulk update of customers (*if implemented*) |Remove all customers |
-| /customers/1 |Error |Retrieve the details for customer 1 |Update the details of customer 1 if it exists, otherwise return an error |Remove customer 1 |
+| /customers/1 |Error |Retrieve the details for customer 1 |Update the details of customer 1 if it exists |Remove customer 1 |
 | /customers/1/orders |Create a new order for customer 1 |Retrieve all orders for customer 1 |Bulk update of orders for customer 1 (*if implemented*) |Remove all orders for customer 1(*if implemented*) |
 
-The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST and PUT requests.
+The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST, PUT, and PATCH requests.
 
-A POST request should create a new resource with data provided in the body of the request. In the REST model, you frequently apply POST requests to resources that are collections; the new resource is added to the collection.
+- A POST request creates a resource. The server assigns a URL for the new resource, and returns the URL to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection.
 
-> [!NOTE]
-> You can also define POST requests that trigger some functionality (and that don't necessarily return data), and these types of request can be applied to collections. For example you could use a POST request to pass a timesheet to a payroll processing service and get the calculated taxes back as a response.
->
->
+    A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
-A PUT request is intended to modify an existing resource. If the specified resource does not exist, the PUT request could return an error (in some cases, it might actually create the resource). PUT requests are most frequently applied to resources that are individual items (such as a specific customer or order), although they can be applied to collections, although this is less-commonly implemented. Note that PUT requests are idempotent whereas POST requests are not; if an application submits the same PUT request multiple times the results should always be the same (the same resource will be modified with the same values), but if an application repeats the same POST request the result will be the creation of multiple resources.
+- A PUT request creates a resource *or* updates an existing resource. The client specifies the URL for the resource. The request body contains a complete representation of the resource. If a resource with this URL already exists, it is replaced. 
 
-> [!NOTE]
-> Strictly speaking, an HTTP PUT request replaces an existing resource with the resource specified in the body of the request. If the intention is to modify a selection of properties in a resource but leave other properties unchanged, then this should be implemented by using an HTTP PATCH request. However, many RESTful implementations relax this rule and use PUT for both situations.
->
->
+    PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URL to a resource before it exists. If not, then POST must be used to create the resource. 
 
-## Processing HTTP requests
-The data included by a client application in many HTTP requests, and the corresponding response messages from the web server, could be presented in a variety of formats (or media types). For example, the data that specifies the details for a customer or order could be provided as XML, JSON, or some other encoded and compressed format. A RESTful web API should support different media types as requested by the client application that submits a request.
+- A PATCH requests updates an existing resource. The client specifies the URL for the resource. The request body specifies a set of *changes* to apply to the resource. Use PATCH requests to peform partial updates to existing resources.
 
-When a client application sends a request that returns data in the body of a message, it can specify the media types it can handle in the Accept header of the request. The following code illustrates an HTTP GET request that retrieves the details of order 2 and requests the result to be returned as JSON (the client should still examine the media type of the data in the response to verify the format of the data returned):
+PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
+
+### Media types
+
+As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.
+
+In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`). 
+
+The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
+
+```HTTP
+POST http://adventure-works.com/orders HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Content-Length: 57
+
+{"Id":1,"Name":"Gizmo","Category":"Widgets","Price":1.99}
+```
+
+If the server doesn't support the media type in the rquest, it should return HTTP status code 415 (Unsupported Media Type).
+
+A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
 
 ```HTTP
 GET http://adventure-works.com/orders/2 HTTP/1.1
-...
 Accept: application/json
-...
 ```
 
-If the web server supports this media type, it can reply with a response that includes Content-Type header that specifies the format of the data in the body of the message:
+If the server cannot match any of the media type(s) listed, it should return HTTP status code 406 (Not Acceptable). 
 
-> [!NOTE]
-> For maximum interoperability, the media types referenced in the Accept and Content-Type headers should be recognized MIME types rather than some custom media type.
->
->
+## Processing HTTP requests
 
-```HTTP
-HTTP/1.1 200 OK
-...
-Content-Type: application/json; charset=utf-8
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-Content-Length: ...
-{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
-```
 
-If the web server does not support the requested media type, it can send the data in a different format. IN all cases it must specify the media type (such as *application/json*) in the Content-Type header. It is the responsibility of the client application to parse the response message and interpret the results in the message body appropriately.
-
-Note that in this example, the web server successfully retrieves the requested data and indicates success by passing back a status code of 200 in the response header. If no matching data is found, it should instead return a status code of 404 (not found) and the body of the response message can contain additional information. The format of this information is specified by the Content-Type header, as shown in the following example:
-
-```HTTP
-GET http://adventure-works.com/orders/222 HTTP/1.1
-...
-Accept: application/json
-...
-```
 
 Order 222 does not exist, so the response message looks like this:
 
@@ -196,17 +183,6 @@ Content-Length: ...
 {"message":"No such order"}
 ```
 
-When an application sends an HTTP PUT request to update a resource, it specifies the URI of the resource and provides the data to be modified in the body of the request message. It should also specify the format of this data by using the Content-Type header. A common format used for text-based information is *application/x-www-form-urlencoded*, which comprises a set of name/value pairs separated by the & character. The next example shows an HTTP PUT request that modifies the information in order 1:
-
-```HTTP
-PUT http://adventure-works.com/orders/1 HTTP/1.1
-...
-Content-Type: application/x-www-form-urlencoded
-...
-Date: Fri, 22 Aug 2014 09:18:37 GMT
-Content-Length: ...
-ProductID=3&Quantity=5&OrderValue=250
-```
 
 If the modification is successful, it should ideally respond with an HTTP 204 status code, indicating that the process has been successfully handled, but that the response body contains no further information. The Location header in the response contains the URI of the newly updated resource:
 
