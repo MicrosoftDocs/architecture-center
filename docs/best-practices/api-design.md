@@ -200,8 +200,6 @@ With a PATCH request, the client sends a set of updates to an existing resource,
 422: The patch document is valid, but the changes can't be applied (for example, they would leave the resouce in an inconsistent state).
 -->
 
-
-
 JSON is probably the most common data format for web APIs. There are two main JSON-based patch document formats, called *JSON patch* and *JSON merge patch*.
 
 JSON merge patch is somewhat simpler. In essence, the patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. A field can also be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)
@@ -229,7 +227,7 @@ Here is a possible JSON merge patch for this resource:
 
 This tells the server to update "price", delete "color", and add "size". For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is "application/merge-patch+json".
 
-Limitations of merge patch: Merge patch not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document does not specify the order that the server should apply the updates. 
+Limitations of merge patch: Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain.
 
 JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is "application/json-patch+json".
 
