@@ -101,7 +101,7 @@ In more complex systems, it can be tempting to provide URIs that enable a client
 > [!TIP]
 > Avoid requiring resource URIs more complex than *collection/item/collection*.
 
-Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching.md).
+Another factor is that all web requests impose a load on the web server. The more requests, the bigger the load. Therefore, try to avoid "chatty" web APIs that expose a large number of small resources. Such an API may require a client application to send multiple requests to find all of the data that it requires. Instead, you might want to denormalize the data and combine related information into bigger resources that can be retrieved with a single request. However, you need to balance this approach against the overhead of fetching data that the client doesn't need. Retrieving large objects can increase the latency of a request and incur additional bandwidth costs. For more information about these performance antipatterns, see [Chatty I/O](../antipatterns/chatty-io/index.md) and [Extraneous Fetching](../antipatterns/extraneous-fetching/index.md).
 
 Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
 
@@ -117,7 +117,6 @@ The HTTP protocol defines a number of methods that assign semantic meaning to a 
 * **PATCH** performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
 * **DELETE** removes the resource at the specified URI.
 
-
 The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
@@ -126,19 +125,24 @@ The effect of a specific request should depend on whether the resource to which 
 | /customers/1 |Error |Retrieve the details for customer 1 |Update the details of customer 1 if it exists |Remove customer 1 |
 | /customers/1/orders |Create a new order for customer 1 |Retrieve all orders for customer 1 |Bulk update of orders for customer 1 (*if implemented*) |Remove all orders for customer 1(*if implemented*) |
 
-The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST, PUT, and PATCH requests.
+The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST, PUT, and PATCH.
 
 - A POST request creates a resource. The server assigns a URL for the new resource, and returns the URL to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection.
 
     A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
-- A PUT request creates a resource *or* updates an existing resource. The client specifies the URL for the resource. The request body contains a complete representation of the resource. If a resource with this URL already exists, it is replaced. 
+- A PUT request creates a resource *or* updates an existing resource. The client specifies the URL for the resource. The request body contains a complete representation of the resource. If a resource with this URL already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so.
 
-    PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URL to a resource before it exists. If not, then POST must be used to create the resource. 
+    PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URL to a resource before it exists. If not, then use POST mustto create resources and PUT or PATCH to update.
 
-- A PATCH requests updates an existing resource. The client specifies the URL for the resource. The request body specifies a set of *changes* to apply to the resource. Use PATCH requests to peform partial updates to existing resources.
+- A PATCH request performs a *partial update* to an existing resource. The client specifies the URL for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specificying a set of updates to a "null" resource), if the server supports this. 
 
 PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
+
+<!-- include examples -->
+
+
+## Apply the HTTP specification
 
 ### Media types
 
@@ -167,10 +171,63 @@ Accept: application/json
 
 If the server cannot match any of the media type(s) listed, it should return HTTP status code 406 (Not Acceptable). 
 
-## Processing HTTP requests
+### GET methods
+
+A successful GET method typically returns HTTP status code 200 (OK) and incldues the requested resource in the response body. If the resource cannot be found, the method should return 404 (Not Found).
+
+### POST methods
+
+If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URL of the new resource is included in the Location header of the response. The response body contains a representation of the resource.
+
+If the method does some processing but does not create a new resource, the method can return HTTP status code 200 and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return HTTP status code 204 (No Content) with no response body.
+
+### PUT methods
+
+If a PUT method creates a new resource, it returns HTTP status code 201 (Created), as with a POST method. If the method updates an existing resource, it returns either 200 (OK) or 204 (No Content). In some cases, it might not be possible to update an existing resource. In that case, consider returning HTTP status code 409 (Conflict). 
+
+### PATCH methods
+
+With a PATCH request, the client sends a set of updates to an existing resource, in the form of a *patch document*. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method ([RFC 5789](https://tools.ietf.org/html/rfc5789)) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.
+
+JSON is probably the most common data format for web APIs. There are two main JSON-based patch document formats, called *JSON patch* and *JSON merge patch*.
+
+JSON merge patch is somewhat simpler. In essence, the patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. A field can also be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)
+
+For example, suppose a resource has the following JSON representation:
+
+```json
+{ 
+    "name":"gizmo",
+    "category":"widgets",
+    "color":"blue",
+    "price":10
+}
+```
+
+Here is a possible JSON merge patch for this resource:
+
+```json
+{ 
+    "price":12,
+    "color":null,
+    "size":"small"
+}
+```
+
+This tells the server to update "price", delete "color", and add "size". For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396).
+
+Limitations of merge patch: Merge patch not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document does not specify the order that the server should apply the updates. 
 
 
 
+<!--
+400: Malformed patch document.
+415: The patch document format isn't supported.
+422: The patch document is valid, but the changes can't be applied (for example, they would leave the resouce in an inconsistent state).
+-->
+
+
+<!-- start -->
 Order 222 does not exist, so the response message looks like this:
 
 ```HTTP
