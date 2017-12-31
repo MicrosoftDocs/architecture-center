@@ -338,7 +338,8 @@ Content-Range: bytes 2500-4580/4580
 ...
 ```
 
-## Using the HATEOAS approach to enable navigation to related resources
+## Use HATEOAS to enable navigation to related resources
+
 One of the primary motivations behind REST is that it should be possible to navigate the entire set of resources without requiring prior knowledge of the URI scheme. Each HTTP GET request should return the information necessary to find the resources related directly to the requested object through hyperlinks included in the response, and it should also be provided with information that describes the operations available on each of these resources. This principle is known as HATEOAS, or Hypertext as the Engine of Application State. The system is effectively a finite state machine, and the response to each request contains the information necessary to move from one state to another; no other information should be necessary.
 
 > [!NOTE]
