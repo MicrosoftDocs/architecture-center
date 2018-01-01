@@ -306,39 +306,57 @@ One of the primary motivations behind REST is that it should be possible to navi
 >
 >
 
-As an example, to handle the relationship between customers and orders, the data returned in the response for a specific order should contain URIs in the form of a hyperlink identifying the customer that placed the order, and the operations that can be performed on that customer.
+Fo example, to handle the relationship between an order and a customer, the data for an order could include links that identify the available operations for the customer.
 
-```HTTP
-GET http://adventure-works.com/orders/3 HTTP/1.1
-Accept: application/json
-...
+```json
+{
+  "orderID":3,
+  "productID":2,
+  "quantity":4,
+  "orderValue":16.60,
+  "links":[
+    {
+      "rel":"customer",
+      "href":" http://adventure-works.com/customers/3", 
+      "action":"GET",
+      "types":["text/xml","application/json"] 
+    },
+    {
+      "rel":"customer",
+      "href":" http://adventure-works.com/customers/3", 
+      "action":"PUT",
+      "types":["application/x-www-form-urlencoded"]
+    },
+    {
+      "rel":"customer",
+      "href":" http://adventure-works.com/customers/3",
+      "action":"DELETE",
+      "types":[]
+    },
+    {
+      "rel":"self",
+      "href":" http://adventure-works.com/orders/3", 
+      "action":"GET",
+      "types":["text/xml","application/json"]
+    },
+    {
+      "rel":" self",
+      "href":" http://adventure-works.com /orders/3", 
+      "action":"PUT",
+      "types":["application/x-www-form-urlencoded"]
+    },
+    {
+      "rel":"self",
+      "href":" http://adventure-works.com /orders/3", 
+      "action":"DELETE",
+      "types":[]
+    }]
+}
 ```
 
-The body of the response message contains a `links` array (highlighted in the code example) that specifies the nature of the relationship (*Customer*), the URI of the customer (*http://adventure-works.com/customers/3*), how to retrieve the details of this customer (*GET*), and the MIME types that the web server supports for retrieving this information (*text/xml* and *application/json*). This is all the information that a client application needs to be able to fetch the details of the customer. Additionally, the Links array also includes links for the other operations that can be performed, such as PUT (to modify the customer, together with the format that the web server expects the client to provide), and DELETE.
+In this example, the `links` array specifies the nature of the relationship (*Customer*), the URI of the customer (*http://adventure-works.com/customers/3*), how to retrieve the details of this customer (*GET*), and the MIME types that the web server supports for retrieving this information (*text/xml* and *application/json*). This is all the information that a client application needs to be able to fetch the details of the customer. Additionally, the Links array also includes links for the other operations that can be performed, such as PUT to modify the customer, together with the format that the web server expects the client to provide.
 
-```HTTP
-HTTP/1.1 200 OK
-...
-Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
-{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[(some links omitted){"rel":"customer","href":" http://adventure-works.com/customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":"
-customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
-```
-
-For completeness, the Links array should also include self-referencing information pertaining to the resource that has been retrieved. These links have been omitted from the previous example, but are highlighted in the following code. Notice that in these links, the relationship *self* has been used to indicate that this is a reference to the resource being returned by the operation:
-
-```HTTP
-HTTP/1.1 200 OK
-...
-Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
-{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[{"rel":"self","href":" http://adventure-works.com/orders/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" self","href":" http://adventure-works.com /orders/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"self","href":" http://adventure-works.com /orders/3", "action":"DELETE","types":[]},{"rel":"customer",
-"href":" http://adventure-works.com /customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" customer" (customer links omitted)}]}
-```
-
-For this approach to be effective, client applications must be prepared to retrieve and parse this additional information.
+The `links` array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship *self*.
 
 ## Versioning a RESTful web API
 It is highly unlikely that in all but the simplest of situations that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.
