@@ -306,7 +306,7 @@ One of the primary motivations behind REST is that it should be possible to navi
 >
 >
 
-Fo example, to handle the relationship between an order and a customer, the data for an order could include links that identify the available operations for the customer.
+Fo example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation: 
 
 ```json
 {
@@ -341,25 +341,28 @@ Fo example, to handle the relationship between an order and a customer, the data
     },
     {
       "rel":" self",
-      "href":" http://adventure-works.com /orders/3", 
+      "href":" http://adventure-works.com/orders/3", 
       "action":"PUT",
       "types":["application/x-www-form-urlencoded"]
     },
     {
       "rel":"self",
-      "href":" http://adventure-works.com /orders/3", 
+      "href":" http://adventure-works.com/orders/3", 
       "action":"DELETE",
       "types":[]
     }]
 }
 ```
 
-In this example, the `links` array specifies the nature of the relationship (*Customer*), the URI of the customer (*http://adventure-works.com/customers/3*), how to retrieve the details of this customer (*GET*), and the MIME types that the web server supports for retrieving this information (*text/xml* and *application/json*). This is all the information that a client application needs to be able to fetch the details of the customer. Additionally, the Links array also includes links for the other operations that can be performed, such as PUT to modify the customer, together with the format that the web server expects the client to provide.
+In this example, the `links` array has a set of links. Each link repesents an operation on a related entity. The data for each link includes the relationship ("customer"), the URI (`http://adventure-works.com/customers/3`), the HTTP method, and the supporred MIME types. This is all the information that a client application needs to be able to invoke the operation. 
 
 The `links` array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship *self*.
 
+The set of links that are returned may change, depending on the state of the resource. This is what is meant by hypertext being the "engine of application state."
+
 ## Versioning a RESTful web API
-It is highly unlikely that in all but the simplest of situations that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.
+
+It is highly unlikely that a web API will remain static. As business requirements change new collections of resources may be added, the relationships between resources might change, and the structure of the data in resources might be amended. While updating a web API to handle new or differing requirements is a relatively straightforward process, you must consider the effects that such changes will have on client applications consuming the web API. The issue is that although the developer designing and implementing a web API has full control over that API, the developer does not have the same degree of control over client applications which may be built by third party organizations operating remotely. The primary imperative is to enable existing client applications to continue functioning unchanged while allowing new client applications to take advantage of new features and resources.
 
 Versioning enables a web API to indicate the features and resources that it exposes, and a client application can submit requests that are directed to a specific version of a feature or resource. The following sections describe several different approaches, each of which has its own benefits and trade-offs.
 
@@ -378,7 +381,7 @@ Content-Length: ...
 ```
 
 > [!NOTE]
-> For the purposes of simplicity and clarity, the example responses shown in this section do not include HATEOAS links.
+> For simplicity, the example responses shown in this section do not include HATEOAS links.
 >
 >
 
