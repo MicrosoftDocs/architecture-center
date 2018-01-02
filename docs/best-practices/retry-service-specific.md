@@ -55,7 +55,7 @@ TableRequestOptions interactiveRequestOption = new TableRequestOptions()
   // For Read-access geo-redundant storage, use PrimaryThenSecondary.
   // Otherwise set this to PrimaryOnly.
   LocationMode = LocationMode.PrimaryThenSecondary,
-  // Maximum execution time based on the business use case. Maximum value up to 10 seconds.
+  // Maximum execution time based on the business use case. 
   MaximumExecutionTime = TimeSpan.FromSeconds(2)
 };
 ```
@@ -90,13 +90,32 @@ You use an **OperationContext** instance to specify the code to execute when a r
 
 In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more details, see [IExtendedRetryPolicy.Evaluate Method](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx).
 
-The following table shows the default settings for the built-in retry policies.
+The following tables show the default settings for the built-in retry policies.
 
-| **Context** | **Setting** | **Default value** | **Meaning** |
-| --- | --- | --- | --- |
-| Table / Blob / File<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120 seconds<br /><br />None<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |Maximum execution time for the request, including all potential retry attempts.<br />Server timeout interval for the request (value is rounded to seconds). If not specified, it will use the default value for all requests to the server. Usually, the best option is to omit this setting so that the server default is used.<br />If the storage account is created with the Read access geo-redundant storage (RA-GRS) replication option, you can use the location mode to indicate which location should receive the request. For example, if **PrimaryThenSecondary** is specified, requests are always sent to the primary location first. If a request fails, it is sent to the secondary location.<br />See below for details of each option. |
-| Exponential policy |maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff |3<br />4 seconds<br /><br /><br />3 seconds<br /><br />120 seconds |Number of retry attempts.<br />Back-off interval between retries. Multiples of this timespan, including a random element, will be used for subsequent retry attempts.<br />Added to all retry intervals computed from deltaBackoff. This value cannot be changed.<br />MaxBackoff is used if the computed retry interval is greater than MaxBackoff. This value cannot be changed. |
-| Linear policy |maxAttempt<br />deltaBackoff |3<br />30 seconds |Number of retry attempts.<br />Back-off interval between retries. |
+**Request options**
+
+| **Setting** | **Default value** | **Meaning** |
+| --- | --- | --- |
+| MaximumExecutionTime | 120 seconds | Maximum execution time for the request, including all potential retry attempts. |
+| ServerTimeout | None | Server timeout interval for the request (value is rounded to seconds). If not specified, it will use the default value for all requests to the server. Usually, the best option is to omit this setting so that the server default is used. | 
+| LocationMode | None | If the storage account is created with the Read access geo-redundant storage (RA-GRS) replication option, you can use the location mode to indicate which location should receive the request. For example, if **PrimaryThenSecondary** is specified, requests are always sent to the primary location first. If a request fails, it is sent to the secondary location. |
+| RetryPolicy | ExponentialPolicy | See below for details of each option. |
+
+**Exponential policy** 
+
+| **Setting** | **Default value** | **Meaning** |
+| --- | --- | --- |
+| maxAttempt | 3 | Number of retry attempts. |
+| deltaBackoff | 4 seconds | Back-off interval between retries. Multiples of this timespan, including a random element, will be used for subsequent retry attempts. |
+| MinBackoff | 3 seconds | Added to all retry intervals computed from deltaBackoff. This value cannot be changed.
+| MaxBackoff | 120 seconds | MaxBackoff is used if the computed retry interval is greater than MaxBackoff. This value cannot be changed. |
+
+**Linear policy**
+
+| **Setting** | **Default value** | **Meaning** |
+| --- | --- | --- |
+| maxAttempt | 3 | Number of retry attempts. |
+| deltaBackoff | 30 seconds | Back-off interval between retries. |
 
 ### Retry usage guidance
 Consider the following guidelines when accessing Azure storage services using the storage client API:
@@ -145,7 +164,7 @@ namespace RetryCodeSamples
                 // For Read-access geo-redundant storage, use PrimaryThenSecondary.
                 // Otherwise set this to PrimaryOnly.
                 LocationMode = LocationMode.PrimaryThenSecondary,
-                // Maximum execution time based on the business use case. Maximum value up to 10 seconds.
+                // Maximum execution time based on the business use case. 
                 MaximumExecutionTime = TimeSpan.FromSeconds(2)
             };
 
@@ -266,7 +285,14 @@ For more information, see [Code-Based Configuration (EF6 onwards)](http://msdn.m
 
 The following table shows the default settings for the built-in retry policy when using EF6.
 
-![Retry guidance table](./images/retry-service-specific/RetryServiceSpecificGuidanceTable4.png)
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| Policy | Exponential | Exponential back-off. |
+| MaxRetryCount | 5 | The maximum number of retries. |
+| MaxDelay | 30 seconds | The maximum delay between retries. This value does not affect how the series of delays are computed. It only defines an upper bound. |
+| DefaultCoefficient | 1 second | The coefficient for the exponential back-off computation. This value cannot be changed. |
+| DefaultRandomFactor | 1.1 | The multiplier used to add a random delay for each entry. This value cannot be changed. |
+| DefaultExponentialBase | 2 | The multiplier used to calculate the next delay. This value cannot be changed. |
 
 ### Retry usage guidance
 Consider the following guidelines when accessing SQL Database using EF6:
@@ -506,7 +532,15 @@ client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 The retry policy cannot be set at the individual operation level. It applies to all operations for the messaging client.
 The following table shows the default settings for the built-in retry policy.
 
-![Retry guidance table](./images/retry-service-specific/RetryServiceSpecificGuidanceTable7.png)
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| Policy | Exponential | Exponential back-off. |
+| MinimalBackoff | 0 | Minimum back-off interval. This is added to the retry interval computed from deltaBackoff. |
+| MaximumBackoff | 30 seconds | Maximum back-off interval. MaximumBackoff is used if the computed retry interval is greater than MaxBackoff. |
+| DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan will be used for subsequent retry attempts. |
+| TimeBuffer | 5 seconds | The termination time buffer associated with the retry. Retry attempts will be abandoned if the remaining time is less than TimeBuffer. |
+| MaxRetryCount | 10 | The maximum number of retries. |
+| ServerBusyBaseSleepTime | 10 seconds | If the last exception encountered was **ServerBusyException**, this value will be added to the computed retry interval. This value cannot be changed. |
 
 ### Retry usage guidance
 Consider the following guidelines when using Service Bus:
@@ -516,7 +550,12 @@ Consider the following guidelines when using Service Bus:
 
 Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
 
-![Retry guidance table](./images/retry-service-specific/RetryServiceSpecificGuidanceTable8.png)
+| Context | Example maximum latency | Retry policy | Settings | How it works |
+|---------|---------|---------|---------|---------|
+| Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 300 msec. <br/> TimeBuffer = 300 msec. <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec. <br/> Attempt 2: Delay ~300 msec. <br/> Attempt 3: Delay ~900 msec. |
+| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 msec. <br/> Attempt 4: Delay ~13 msec. |
+
+\* Not including additional delay that is added if a Server Busy response is received.
 
 ### Telemetry
 Service Bus logs retries as ETW events using an **EventSource**. You must attach an **EventListener** to the event source to capture the events and view them in Performance Viewer, or write them to a suitable destination log. You could use the [Semantic Logging Application Block](http://msdn.microsoft.com/library/dn775006.aspx) to do this. The retry events are of the following form:
