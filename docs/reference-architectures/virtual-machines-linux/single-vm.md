@@ -6,7 +6,7 @@ description: >-
 
 author: telmosampaio
 
-ms.date: 11/16/2017
+ms.date: 12/12/2017
 
 pnp.series.title: Linux VM workloads
 pnp.series.next: multi-vm
@@ -32,6 +32,7 @@ Provisioning an Azure VM requires additional components, such as compute, networ
 * **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
 * **Virtual network (VNet) and subnet.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
 * **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via SSH.
+* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.  
 * **Network interface (NIC)**. An assigned NIC enables the VM to communicate with the virtual network.
 * **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to a network resource. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
@@ -91,7 +92,7 @@ To maximize performance, create a separate storage account to hold diagnostic lo
 The public IP address can be dynamic or static. The default is dynamic.
 
 * Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create an A record in DNS, or need the IP address to be added to a safe list.
-* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
+* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn]. You can use [Azure DNS][azure-dns] or another DNS service.
 
 All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.
 
@@ -208,6 +209,7 @@ For more information on deploying this sample reference architecture, visit our 
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
+[azure-dns]: /azure/dns/dns-overview
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
