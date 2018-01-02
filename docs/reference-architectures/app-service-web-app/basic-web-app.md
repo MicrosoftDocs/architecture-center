@@ -26,16 +26,23 @@ This reference architecture shows a set of proven practices for a web applicatio
 The architecture has the following components:
 
 * **Resource group**. A [resource group](/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+
 * **App Service app**. [Azure App Service][app-service] is a fully managed platform for creating and deploying cloud applications.     
+
 * **App Service plan**. An [App Service plan][app-service-plans] provides the managed virtual machines (VMs) that host your app. All apps associated with a plan run on the same VM instances.
 
 * **Deployment slots**.  A [deployment slot][deployment-slots] lets you stage a deployment and then swap it with the production deployment. That way, you avoid deploying directly into production. See the [Manageability](#manageability-considerations) section for specific recommendations.
 
 * **IP address**. The App Service app has a public IP address and a domain name. The domain name is a subdomain of `azurewebsites.net`, such as `contoso.azurewebsites.net`.  
-* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create domain name service (DNS) records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].  
+
+* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].  
+
 * **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud.
+
 * **Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
+
 * **Azure Storage**. Create an Azure storage account with a blob container to store diagnostic logs.
+
 * **Azure Active Directory** (Azure AD). Use Azure AD or another identity provider for authentication.
 
 ## Recommendations
