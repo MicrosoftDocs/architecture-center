@@ -2,7 +2,7 @@
 title: API design guidance
 description: Guidance on how to create a well designed web API.
 author: dragon119
-ms.date: 07/13/2016
+ms.date: 01/12/2018
 
 pnp.series.title: Best Practices
 ---
@@ -18,7 +18,7 @@ This guidance describes issues that you should consider when designing a web API
 
 ## Introduction to REST
 
-In his dissertation in 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
+In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
 
 A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the model or the client applications that access it to any specific implementation. For example, a REST web service could be implemented with ASP.NET, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.
 
@@ -61,21 +61,15 @@ A primary advantage of REST over HTTP is that it uses open standards, and does n
     http://adventure-works.com/orders
     ```
 
-**API maturity model**. In 2008, Leonard Richardson proposed a [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
+In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
 - Level 0: Define one URI, and all operations are POST requests to this URI.
 - Level 1: Create separate URIs for individual resources.
 - Level 2: Use HTTP methods to define operations on resources.
 - Level 3: Use hypermedia.
 
-Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2.  
+Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2. In general, we advocate a pragmatic approach. 
 
-<!--
-## Design and structure of a RESTful web API
-The keys to designing a successful web API are simplicity and consistency. A Web API that exhibits these two factors makes it easier to build client applications that need to consume the API.
-
-A RESTful web API is focused on exposing a set of connected resources, and providing the core operations that enable an application to manipulate these resources and easily navigate between them. For this reason, the URIs that constitute a typical RESTful web API should be oriented towards the data that it exposes, and use the facilities provided by HTTP to operate on this data. This approach requires a different mindset from that typically employed when designing a set of classes in an object-oriented API which tends to be more motivated by the behavior of objects and classes. Additionally, a RESTful web API should be stateless and not depend on operations being invoked in a particular sequence. The following sections summarize the points you should consider when designing a RESTful web API.
--->
 ## Organize the API around resources
 
 Focus on the business entities that the web API exposes. For example, in an e-commerce system, the primary entities might be customers and orders. Creating an order can be achieved by sending an HTTP POST request that contains the order information. The HTTP response indicates whether the order was placed successfully or not. When possible, resource URIs should be based on nouns (the resource) and not verbs (the operations on the resource). 
@@ -139,8 +133,6 @@ The purpose of GET and DELETE requests are relatively straightforward, but there
 
 PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
 
-<!-- include examples -->
-
 ## Conform to HTTP semantics
 
 This section describes some typical considerations for designing an API that conforms to the HTTP specification. However, it doesn't cover every possible detail or scenario. When in doubt, consult the HTTP specifications.
@@ -194,12 +186,6 @@ Consider implementing bulk HTTP PUT operations that can batch updates to multipl
 
 With a PATCH request, the client sends a set of updates to an existing resource, in the form of a *patch document*. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method ([RFC 5789](https://tools.ietf.org/html/rfc5789)) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.
 
-<!--
-400: Malformed patch document.
-415: The patch document format isn't supported.
-422: The patch document is valid, but the changes can't be applied (for example, they would leave the resouce in an inconsistent state).
--->
-
 JSON is probably the most common data format for web APIs. There are two main JSON-based patch document formats, called *JSON patch* and *JSON merge patch*.
 
 JSON merge patch is somewhat simpler. In essence, the patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. A field can also be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)
@@ -231,9 +217,49 @@ Limitations of merge patch: Merge patch is not suitable if the original resource
 
 JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is "application/json-patch+json".
 
+Here are some typical error conditions that might be encountered when processing a PATCH request, along with the appropriate HTTP status code.
+
+| Error condition | HTTP status code |
+|-----------|------------|
+| The patch document format isn't supported. | 415 (Unsupported Media Type) |
+| Malformed patch document. | 400 (Bad Request) |
+| The patch document is valid, but the changes can't be applied to the resource in its current state. | 409 (Conflict)
+
 ### DELETE methods
 
 If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+
+### Asynchronous operations
+
+Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes awhile to complete. If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed. 
+
+You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URL of the status endpoint in the Location header of the 202 response. For example:
+
+```http
+HTTP/1.1 202 Accepted
+Location: /api/status/12345
+```
+
+If the client sends a GET request to this endpoint, the response should contain the current status of the request. Optionally, it could also include an estimated time to completion or a link to cancel the operation. 
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "status: "In progress"
+    "link" { "rel": "cancel", "method": "delete", href="/api/status/12345"
+}
+```
+
+If the asynchronous operation creates a new resource, the status endpoint should return a 303 (See Other) after the operation completes. In the 303 response, include a Location header that gives the URL of the new resource:
+
+```http
+HTTP/1.1 303 See Other
+Location: /api/orders/12345
+```
+
+For more information, see [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/).
 
 ## Filter and paginate data
 
