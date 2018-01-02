@@ -224,4 +224,4 @@ For more information on deploying this sample reference architecture, visit our 
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[0]: ./images/single-vm-diagram.svg "Single Windows VM architecture in Azure"
+[0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"
