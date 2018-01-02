@@ -285,10 +285,9 @@ For more information, see [Code-Based Configuration (EF6 onwards)](http://msdn.m
 
 The following table shows the default settings for the built-in retry policy when using EF6.
 
-**Exponential with randomization**
-
 | Setting | Default value | Meaning |
 |---------|---------------|---------|
+| Policy | Exponential | Exponential back-off. |
 | MaxRetryCount | 5 | The maximum number of retries. |
 | MaxDelay | 30 seconds | The maximum delay between retries. This value does not affect how the series of delays are computed. It only defines an upper bound. |
 | DefaultCoefficient | 1 second | The coefficient for the exponential back-off computation. This value cannot be changed. |
@@ -533,10 +532,9 @@ client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 The retry policy cannot be set at the individual operation level. It applies to all operations for the messaging client.
 The following table shows the default settings for the built-in retry policy.
 
-**Exponential**
-
 | Setting | Default value | Meaning |
 |---------|---------------|---------|
+| Policy | Exponential | Exponential back-off. |
 | MinimalBackoff | 0 | Minimum back-off interval. This is added to the retry interval computed from deltaBackoff. |
 | MaximumBackoff | 30 seconds | Maximum back-off interval. MaximumBackoff is used if the computed retry interval is greater than MaxBackoff. |
 | DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan will be used for subsequent retry attempts. |
@@ -552,10 +550,10 @@ Consider the following guidelines when using Service Bus:
 
 Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
 
-| Context | Sample target end-to-end maximum latency | Retry policy | Settings | How it works |
+| Context | Example maximum latency | Retry policy | Settings | How it works |
 |---------|---------|---------|---------|---------|
 | Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 300 msec. <br/> TimeBuffer = 300 msec. <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec. <br/> Attempt 2: Delay ~300 msec. <br/> Attempt 3: Delay ~900 msec. |
-| Background or batch | 30 seconds. | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 msec. <br/> Attempt 4: Delay ~13 msec. |
+| Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 msec. <br/> Attempt 4: Delay ~13 msec. |
 
 * Not including additional delay that is added if a Server Busy response is received.
 
