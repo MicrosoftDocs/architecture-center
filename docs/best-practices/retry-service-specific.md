@@ -555,7 +555,7 @@ Consider starting with following settings for retrying operations. These are gen
 | Interactive, UI, or foreground | 2 seconds*  | Exponential | MinimumBackoff = 0 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 300 msec. <br/> TimeBuffer = 300 msec. <br/> MaxRetryCount = 2 | Attempt 1: Delay 0 sec. <br/> Attempt 2: Delay ~300 msec. <br/> Attempt 3: Delay ~900 msec. |
 | Background or batch | 30 seconds | Exponential | MinimumBackoff = 1 <br/> MaximumBackoff = 30 sec. <br/> DeltaBackoff = 1.75 sec. <br/> TimeBuffer = 5 sec. <br/> MaxRetryCount = 3 | Attempt 1: Delay ~1 sec. <br/> Attempt 2: Delay ~3 sec. <br/> Attempt 3: Delay ~6 msec. <br/> Attempt 4: Delay ~13 msec. |
 
-* Not including additional delay that is added if a Server Busy response is received.
+\* Not including additional delay that is added if a Server Busy response is received.
 
 ### Telemetry
 Service Bus logs retries as ETW events using an **EventSource**. You must attach an **EventListener** to the event source to capture the events and view them in Performance Viewer, or write them to a suitable destination log. You could use the [Semantic Logging Application Block](http://msdn.microsoft.com/library/dn775006.aspx) to do this. The retry events are of the following form:
