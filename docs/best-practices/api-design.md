@@ -81,9 +81,9 @@ A resource does not have to be based on a single physical data item. For example
 
 Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders: 
 
-    ```HTTP
-    http://adventure-works.com/orders
-    ```
+```HTTP
+http://adventure-works.com/orders
+```
 
 Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item. 
 
@@ -242,7 +242,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "status":"In progress"
+    "status":"In progress",
     "link": { "rel":"cancel", "method":"delete", "href":"/api/status/12345"
 }
 ```
