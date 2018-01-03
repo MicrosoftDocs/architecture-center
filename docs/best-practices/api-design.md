@@ -20,7 +20,9 @@ This guidance describes issues that you should consider when designing a web API
 
 In 2000, Roy Fielding proposed Representational State Transfer (REST) as an architectural approach to designing web services. REST is an architectural style for building distributed systems based on hypermedia. REST is independent of any underlying protocol and is not necessarily tied to HTTP. However, most common REST implementations use HTTP as the application protocol, and this guide focuses on designing REST APIs for HTTP.
 
-A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the model or the client applications that access it to any specific implementation. For example, a REST web service could be implemented with ASP.NET, and client applications could be developed by using any language and toolset that can generate HTTP requests and parse HTTP responses.
+A primary advantage of REST over HTTP is that it uses open standards, and does not bind the implementation of the API or the client applications any specific implementation. For example, a REST web service could be written in ASP.NET, and client applications can use any language or toolset that can generate HTTP requests and parse HTTP responses.
+
+Here are some of the main design principles of RESTful APIs using HTTP:
 
 - REST APIs are designed around *resources*, which are any kind of object, data, or service that can be accessed by the client. 
 
@@ -36,7 +38,7 @@ A primary advantage of REST over HTTP is that it uses open standards, and does n
     {"orderId":1,"orderValue":99.90,"productId":1,"quantity":1}
     ```
 
-- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface included using standard HTTP verbs and status codes to perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE. 
+- REST APIs use a uniform interface, which helps to decouple the client and service implementations. For REST APIs built on HTTP, the uniform interface includes using standard HTTP verbs perform operations on resources. The most common operations are GET, POST, PUT, PATCH, and DELETE. 
 
 - REST APIs use a stateless request model. HTTP requests should be independent and may occur in any order, so keeping transient state information between requests is not feasible. The only place where information is stored is in the resources themselves, and each request should be an atomic operation. This constraint enables web services to be highly scalable, because there is no need to retain any affinity between clients and specific servers. Any server can handle any request from any client. That said, other factors can limit scalability. For example, many web services write to a backend data store, which may be hard to scale out. (The article [Data Partitioning](./data-partitioning.md) describes strategies to scale out a data store.)
 
@@ -55,20 +57,15 @@ A primary advantage of REST over HTTP is that it uses open standards, and does n
     } 
     ```
 
-- Often, resources are organized as collections and relationships. For example, the following URL might represent the collection of orders: 
-
-    ```HTTP
-    http://adventure-works.com/orders
-    ```
 
 In 2008, Leonard Richardson proposed the following [maturity model](https://martinfowler.com/articles/richardsonMaturityModel.html) for web APIs:
 
 - Level 0: Define one URI, and all operations are POST requests to this URI.
 - Level 1: Create separate URIs for individual resources.
 - Level 2: Use HTTP methods to define operations on resources.
-- Level 3: Use hypermedia.
+- Level 3: Use hypermedia (HATEOAS, described below).
 
-Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2. In general, we advocate a pragmatic approach. 
+Level 3 corresponds to a truly RESTful API according to Fielding's definition. In practice, many  published web APIs fall somewhere around level 2.  
 
 ## Organize the API around resources
 
@@ -80,13 +77,17 @@ http://adventure-works.com/orders // Good
 http://adventure-works.com/create-order // Avoid
 ```
 
-A resource does not have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. 
+A resource does not have to be based on a single physical data item. For example, an order resource might be implemented internally as several tables in a relational database, but presented to the client as a single entity. Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
 
-Avoid creating APIs that simply mirror the internal structure of a database. The purpose of REST is to model entities and the operations that an application can perform on those entities. A client should not be exposed to the internal implementation.
+Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. For example, the following URI might represent the collection of orders: 
 
-Entities are often grouped together into collections (orders, customers). A collection is a separate resource from the item within the collection, and should have its own URI. Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item. 
+    ```HTTP
+    http://adventure-works.com/orders
+    ```
 
-Adopt a consistent naming convention in URIs. In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URL paths, so you could define a route for the path `/customers/{id}`.
+Sending an HTTP GET request to the collection URI retrieves a list of items in the collection. Each item in the collection also has its own unique URI. An HTTP GET request to the item's URI returns the details of that item. 
+
+Adopt a consistent naming convention in URIs. In general, it helps to use plural nouns for URIs that reference collections. It's a good practice to organize URIs for collections and items into a hierarchy. For example, `/customers` is the path to the customers collection, and `/customers/5` is the path to the customer with ID equal to 5. This approach helps to keep the web API intuitive. Also, many web API frameworks can route requests based on parameterized URI paths, so you could define a route for the path `/customers/{id}`.
 
 Also consider the relationships between different types of resources and how you might expose these associations. For example, the `/customers/5/orders` might represent all of the orders for customer 5. You could also go in the other direction, and represent the association from an order back to a customer with a URI such as `/orders/99/customer`. However, extending this model too far can become cumbersome to implement. A better solution is to provide navigable links to associated resources in the body of the HTTP response message. This mechanism is described in more detail in the section [Using the HATEOAS Approach to Enable Navigation To Related Resources later](#using-the-hateoas-approach-to-enable-navigation-to-related-resources).
 
@@ -111,25 +112,21 @@ The HTTP protocol defines a number of methods that assign semantic meaning to a 
 * **PATCH** performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
 * **DELETE** removes the resource at the specified URI.
 
-The effect of a specific request should depend on whether the resource to which it is applied is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
+The effect of a specific request should depend on whether the resource is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 | --- | --- | --- | --- | --- |
-| /customers |Create a new customer |Retrieve all customers |Bulk update of customers (*if implemented*) |Remove all customers |
+| /customers |Create a new customer |Retrieve all customers |Bulk update of customers |Remove all customers |
 | /customers/1 |Error |Retrieve the details for customer 1 |Update the details of customer 1 if it exists |Remove customer 1 |
-| /customers/1/orders |Create a new order for customer 1 |Retrieve all orders for customer 1 |Bulk update of orders for customer 1 (*if implemented*) |Remove all orders for customer 1(*if implemented*) |
+| /customers/1/orders |Create a new order for customer 1 |Retrieve all orders for customer 1 |Bulk update of orders for customer 1 |Remove all orders for customer 1 |
 
-The purpose of GET and DELETE requests are relatively straightforward, but there is scope for confusion concerning the purpose and effects of POST, PUT, and PATCH.
+The differences between POST, PUT, and PATCH can be confusing.
 
-- A POST request creates a resource. The server assigns a URL for the new resource, and returns the URL to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection.
+- A POST request creates a resource. The server assigns a URI for the new resource, and returns that URI to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
-    A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
+- A PUT request creates a resource *or* updates an existing resource. The client specifies the URI for the resource. The request body contains a complete representation of the resource. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST mustto create resources and PUT or PATCH to update.
 
-- A PUT request creates a resource *or* updates an existing resource. The client specifies the URL for the resource. The request body contains a complete representation of the resource. If a resource with this URL already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so.
-
-    PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URL to a resource before it exists. If not, then use POST mustto create resources and PUT or PATCH to update.
-
-- A PATCH request performs a *partial update* to an existing resource. The client specifies the URL for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specificying a set of updates to a "null" resource), if the server supports this. 
+- A PATCH request performs a *partial update* to an existing resource. The client specifies the URI for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specificying a set of updates to a "null" resource), if the server supports this. 
 
 PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
 
@@ -141,7 +138,7 @@ This section describes some typical considerations for designing an API that con
 
 As mentioned earlier, clients and servers exchange representations of resources. For example, in a POST request, the request body contains a representation of the resource to create. In a GET request, the response body contains a representation of the fetched resource.
 
-In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = `application/json`) and possibly XML (media type = `application/xml`). 
+In the HTTP protocol, formats are specified through the use of *media types*, also called MIME types. For non-binary data, most web APIs support JSON (media type = application/json) and possibly XML (media type = application/xml). 
 
 The Content-Type header in a request or response specifies the format of the representation. Here is an example of a POST request that includes JSON data:
 
@@ -153,7 +150,7 @@ Content-Length: 57
 {"Id":1,"Name":"Gizmo","Category":"Widgets","Price":1.99}
 ```
 
-If the server doesn't support the media type in the rquest, it should return HTTP status code 415 (Unsupported Media Type).
+If the server doesn't support the media type, it should return HTTP status code 415 (Unsupported Media Type).
 
 A client request can include an Accept header that contains a list of media types the client will accept from the server in the response message. For example:
 
@@ -166,15 +163,15 @@ If the server cannot match any of the media type(s) listed, it should return HTT
 
 ### GET methods
 
-A successful GET method typically returns HTTP status code 200 (OK) and incldues the requested resource in the response body. If the resource cannot be found, the method should return 404 (Not Found).
+A successful GET method typically returns HTTP status code 200 (OK). If the resource cannot be found, the method should return 404 (Not Found).
 
 ### POST methods
 
-If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URL of the new resource is included in the Location header of the response. The response body contains a representation of the resource.
+If a POST method creates a new resource, it returns HTTP status code 201 (Created). The URI of the new resource is included in the Location header of the response. The response body contains a representation of the resource.
 
 If the method does some processing but does not create a new resource, the method can return HTTP status code 200 and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return HTTP status code 204 (No Content) with no response body.
 
-If the data provided by in the request is invalid, the web server should return HTTP status code 400 (Bad Request). The response body can contain additional information about the error or a link to a URL that provides more details.
+If the client puts invalid data into the request, the server should return HTTP status code 400 (Bad Request). The response body can contain additional information about the error or a link to a URI that provides more details.
 
 ### PUT methods
 
@@ -186,11 +183,11 @@ Consider implementing bulk HTTP PUT operations that can batch updates to multipl
 
 With a PATCH request, the client sends a set of updates to an existing resource, in the form of a *patch document*. The server processes the patch document to perform the update. The patch document doesn't describe the whole resource, only a set of changes to apply. The specification for the PATCH method ([RFC 5789](https://tools.ietf.org/html/rfc5789)) doesn't define a particular format for patch documents. The format must be inferred from the media type in the request.
 
-JSON is probably the most common data format for web APIs. There are two main JSON-based patch document formats, called *JSON patch* and *JSON merge patch*.
+JSON is probably the most common data format for web APIs. There are two main JSON-based patch formats, called *JSON patch* and *JSON merge patch*.
 
-JSON merge patch is somewhat simpler. In essence, the patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. A field can also be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)
+JSON merge patch is somewhat simpler. The patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. In addition, a field can be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit null values.)
 
-For example, suppose a resource has the following JSON representation:
+For example, suppose the original resource has the following JSON representation:
 
 ```json
 { 
@@ -211,11 +208,9 @@ Here is a possible JSON merge patch for this resource:
 }
 ```
 
-This tells the server to update "price", delete "color", and add "size". For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is "application/merge-patch+json".
+This tells the server to update "price", delete "color", and add "size". "Name" and "category" are not modified. For the exact details of JSON merge patch, see [RFC 7396](https://tools.ietf.org/html/rfc7396). The media type for JSON merge patch is "application/merge-patch+json".
 
-Limitations of merge patch: Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain.
-
-JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is "application/json-patch+json".
+Merge patch is not suitable if the original resource can contain explicit null values, due to the special meaning of `null` in the patch document. Also, the patch document doesn't specify the order that the server should apply the updates. That may or may not matter, depending on the data and the domain. JSON patch, defined in [RFC 6902](https://tools.ietf.org/html/rfc6902), is more flexible. It specifies the changes as a sequence of operations to apply. Operations include add, remove, replace, copy, and test (to validate values). The media type for JSON patch is "application/json-patch+json".
 
 Here are some typical error conditions that might be encountered when processing a PATCH request, along with the appropriate HTTP status code.
 
@@ -233,7 +228,7 @@ If the delete operation is successful, the web server should respond with HTTP s
 
 Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes awhile to complete. If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous. Return HTTP status code 202 (Accepted) to indicate the request was accepted for processing but is not completed. 
 
-You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URL of the status endpoint in the Location header of the 202 response. For example:
+You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response. For example:
 
 ```http
 HTTP/1.1 202 Accepted
@@ -247,12 +242,12 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
-    "status: "In progress"
-    "link" { "rel": "cancel", "method": "delete", href="/api/status/12345"
+    "status":"In progress"
+    "link": { "rel":"cancel", "method":"delete", "href":"/api/status/12345"
 }
 ```
 
-If the asynchronous operation creates a new resource, the status endpoint should return a 303 (See Other) after the operation completes. In the 303 response, include a Location header that gives the URL of the new resource:
+If the asynchronous operation creates a new resource, the status endpoint should return status code 303 (See Other) after the operation completes. In the 303 response, include a Location header that gives the URI of the new resource:
 
 ```http
 HTTP/1.1 303 See Other
@@ -318,7 +313,7 @@ Content-Type: image/jpeg
 Content-Length: 2500
 Content-Range: bytes 0-2499/4580
 
-(binary data not shown)
+[...]
 ```
 
 A subsequent request from the client application can retrieve the remainder of the resource.
@@ -343,37 +338,37 @@ Fo example, to handle the relationship between an order and a customer, the repr
   "links":[
     {
       "rel":"customer",
-      "href":" http://adventure-works.com/customers/3", 
+      "href":"http://adventure-works.com/customers/3", 
       "action":"GET",
       "types":["text/xml","application/json"] 
     },
     {
       "rel":"customer",
-      "href":" http://adventure-works.com/customers/3", 
+      "href":"http://adventure-works.com/customers/3", 
       "action":"PUT",
       "types":["application/x-www-form-urlencoded"]
     },
     {
       "rel":"customer",
-      "href":" http://adventure-works.com/customers/3",
+      "href":"http://adventure-works.com/customers/3",
       "action":"DELETE",
       "types":[]
     },
     {
       "rel":"self",
-      "href":" http://adventure-works.com/orders/3", 
+      "href":"http://adventure-works.com/orders/3", 
       "action":"GET",
       "types":["text/xml","application/json"]
     },
     {
-      "rel":" self",
-      "href":" http://adventure-works.com/orders/3", 
+      "rel":"self",
+      "href":"http://adventure-works.com/orders/3", 
       "action":"PUT",
       "types":["application/x-www-form-urlencoded"]
     },
     {
       "rel":"self",
-      "href":" http://adventure-works.com/orders/3", 
+      "href":"http://adventure-works.com/orders/3", 
       "action":"DELETE",
       "types":[]
     }]
@@ -399,10 +394,8 @@ For example, a request to the URI *http://adventure-works.com/customers/3* shoul
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
@@ -415,10 +408,8 @@ If the `DateCreated` field is added to the schema of the customer resource, then
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
@@ -431,10 +422,8 @@ Extending the previous example, if the `address` field is restructured into sub-
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
@@ -446,7 +435,7 @@ Rather than providing multiple URIs, you can specify the version of the resource
 This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.
 
 > [!NOTE]
-> Some older web browsers and web proxies will not cache responses for requests that include a query string in the URL. This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.
+> Some older web browsers and web proxies will not cache responses for requests that include a query string in the URI. This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.
 >
 >
 
@@ -457,17 +446,13 @@ Version 1:
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
-...
 Custom-Header: api-version=1
-...
 ```
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
@@ -475,17 +460,13 @@ Version 2:
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
-...
 Custom-Header: api-version=2
-...
 ```
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
@@ -496,19 +477,15 @@ When a client application sends an HTTP GET request to a web server it should st
 
 ```HTTP
 GET http://adventure-works.com/customers/3 HTTP/1.1
-...
 Accept: application/vnd.adventure-works.v1+json
-...
 ```
 
 The code handling the request is responsible for processing the *Accept* header and honoring it as far as possible (the client application may specify multiple formats in the *Accept* header, in which case the web server can choose the most appropriate format for the response body). The web server confirms the format of the data in the response body by using the Content-Type header:
 
 ```HTTP
 HTTP/1.1 200 OK
-...
 Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
-...
-Content-Length: ...
+
 {"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
