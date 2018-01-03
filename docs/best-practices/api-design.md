@@ -100,7 +100,7 @@ Another factor is that all web requests impose a load on the web server. The mor
 
 Avoid introducing dependencies between the web API and the underlying data sources. For example, if your data is stored in a relational database, the web API doesn't need to expose each table as a collection of resources. In fact, that's probably a poor design. Instead, think of the web API as an abstraction of the database. If necessary, introduce a mapping layer between the database and the web API. That way, client applications are isolated from changes to the underlying database scheme.
 
-Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and ue the query string to specify the parameters required. For example a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
+Finally, it might not be possible to map every operation implemented by a web API to a specific resource. You can handle such *non-resource* scenarios through HTTP requests that invoke a function and return the results as an HTTP response message. For example, a web API that implements simple calculator operations such as add and subtract could provide URIs that expose these operations as pseudo resources and use the query string to specify the parameters required. For example a GET request to the URI */add?operand1=99&operand2=1* would return a response message with the body containing the value 100. However, only use these forms of URIs sparingly.
 
 ## Define operations in terms of HTTP methods
 
@@ -124,9 +124,9 @@ The differences between POST, PUT, and PATCH can be confusing.
 
 - A POST request creates a resource. The server assigns a URI for the new resource, and returns that URI to the client. In the REST model, you frequently apply POST requests to collections. The new resource is added to the collection. A POST request can also be used to submit data for processing to an existing resource, without any new resource being created.
 
-- A PUT request creates a resource *or* updates an existing resource. The client specifies the URI for the resource. The request body contains a complete representation of the resource. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST mustto create resources and PUT or PATCH to update.
+- A PUT request creates a resource *or* updates an existing resource. The client specifies the URI for the resource. The request body contains a complete representation of the resource. If a resource with this URI already exists, it is replaced. Otherwise a new resource is created, if the server supports doing so. PUT requests are most frequently applied to resources that are individual items, such as a specific customer, rather than collections. A server might support updates but not creation via PUT. Whether to support creation via PUT depends on whether the client can meaningfully assign a URI to a resource before it exists. If not, then use POST to create resources and PUT or PATCH to update.
 
-- A PATCH request performs a *partial update* to an existing resource. The client specifies the URI for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specificying a set of updates to a "null" resource), if the server supports this. 
+- A PATCH request performs a *partial update* to an existing resource. The client specifies the URI for the resource. The request body specifies a set of *changes* to apply to the resource. This can be more efficient than using PUT, because the client only sends the changes, not the entire representation of the resource. Technically PATCH can also create a new resource (by specifying a set of updates to a "null" resource), if the server supports this. 
 
 PUT requests must be idempotent. If a client submits the same PUT request multiple times, the results should always be the same (the same resource will be modified with the same values). POST and PATCH requests are not guaranteed to be idempotent.
 
@@ -327,7 +327,7 @@ One of the primary motivations behind REST is that it should be possible to navi
 >
 >
 
-Fo example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation: 
+For example, to handle the relationship between an order and a customer, the representation of an order could include links that identify the available operations for the customer of the order. Here is a possible representation: 
 
 ```json
 {
@@ -375,7 +375,7 @@ Fo example, to handle the relationship between an order and a customer, the repr
 }
 ```
 
-In this example, the `links` array has a set of links. Each link repesents an operation on a related entity. The data for each link includes the relationship ("customer"), the URI (`http://adventure-works.com/customers/3`), the HTTP method, and the supporred MIME types. This is all the information that a client application needs to be able to invoke the operation. 
+In this example, the `links` array has a set of links. Each link represents an operation on a related entity. The data for each link includes the relationship ("customer"), the URI (`http://adventure-works.com/customers/3`), the HTTP method, and the supported MIME types. This is all the information that a client application needs to be able to invoke the operation. 
 
 The `links` array also includes self-referencing information about the resource itself that has been retrieved. These have the relationship *self*.
 
@@ -505,12 +505,12 @@ The [Open API Initiative](https://www.openapis.org/) was created by an industry 
 
 You may want to adopt OpenAPI for your web APIs. Some points to consider:
 
-- The OpenAPI Specification comes with with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
+- The OpenAPI Specification comes with a set of opinionated guidelines on how a REST API should be designed. That has advantages for interoperability, but requires more care when designing your API to conform to the specification.
 - OpenAPI promotes a contract-first approach, rather than an implementation-first approach. Contract-first means you design the API contract (the interface) first and then write code that implements the contract. 
 - Tools like Swagger can generate client libraries or documentation from API contracts. For example, see [ASP.NET Web API Help Pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger).
 
 ## More information
-* The [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md) contain detailed recommendations for designing public REST APIs.
-* The [RESTful Cookbook](http://restcookbook.com/) contains an introduction to building RESTful APIs.
-* The [Web API Checklist](https://mathieu.fenniak.net/the-api-checklist/) contains a useful list of items to consider when designing and implementing a web API.
-* The [Open API Initiative](https://www.openapis.org/) site, contains all related documentation and implementation details on Open API.
+* [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Detailed recommendations for designing public REST APIs.
+* [The REST Cookbook](http://restcookbook.com/). Introduction to building RESTful APIs.
+* [Web API Checklist](https://mathieu.fenniak.net/the-api-checklist/). A useful list of items to consider when designing and implementing a web API.
+* [Open API Initiative](https://www.openapis.org/). Documentation and implementation details on Open API.
