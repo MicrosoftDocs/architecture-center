@@ -7,7 +7,7 @@ ms.date: 06/23/2017
 
 # Anti-Corruption Layer pattern
 
-Implement a façade or adapter layer between a modern application and a legacy system that it depends on. This layer translates requests between the modern application and the legacy system. Use this pattern to ensure that an application's design is not limited by dependencies on legacy systems.
+Implement a façade or adapter layer between a modern application and a legacy system that it depends on. This layer translates requests between the modern application and the legacy system. Use this pattern to ensure that an application's design is not limited by dependencies on legacy systems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
 

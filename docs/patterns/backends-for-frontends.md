@@ -7,7 +7,7 @@ ms.date: 06/23/2017
 
 # Backends for Frontends pattern
 
-Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you want to avoid customizing a single backend for multiple interfaces.
+Create separate backend services to be consumed by specific frontend applications or interfaces. This pattern is useful when you want to avoid customizing a single backend for multiple interfaces. This pattern was first described by Sam Newman.
 
 ## Context and problem
 
@@ -28,6 +28,8 @@ Create one backend per user interface. Fine tune the behavior and performance of
 ![](./_images/backend-for-frontend-example.png) 
 
 Because each backend is specific to one interface, it can be optimized for that interface. As a result, it will be smaller, less complex, and likely faster than a generic backend that tries to satisfy the requirements for all interfaces. Each interface team has autonomy to control their own backend and doesn't rely on a centralized backend development team. This gives the interface team flexibility in language selection, release cadence, prioritization of workload, and feature integration in their backend.
+
+For more information, see [Pattern: Backends For Frontends](http://samnewman.io/patterns/architectural/bff/).
 
 ## Issues and considerations
 
