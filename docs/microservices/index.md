@@ -9,7 +9,7 @@ ms.date: 12/08/2017
 
 ![](./images/drone.svg)
 
-Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications. 
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications. 
 
 In this set of articles, we explore how to build and run a microservices architecture on Azure. Topics include:
 
