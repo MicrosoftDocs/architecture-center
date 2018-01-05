@@ -106,7 +106,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
 |Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
-|Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, underscore, dash, and period |`<descriptive context>` |`web` |
+|Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`web` |
 |Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
 |Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
 |Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`sql-allow` |
