@@ -32,6 +32,7 @@ The architecture has the following components:
 * **Virtual network (VNet) and subnet.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
 * **Azure Load Balancer**. The [load balancer][load-balancer] distributes incoming Internet requests to the VM instances. 
 * **Public IP address**. A public IP address is needed for the load balancer to receive Internet traffic.
+* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 * **VM scale set**. A [VM scale set][vm-scaleset] is a set of identical VMs used to host a workload. Scale sets allow the number of VMs to be scaled in or out manually, or automatically based on predefined rules.
 * **Availability set**. The [availability set][availability-set] contains the VMs, making the VMs eligible for a higher [service level agreement (SLA)][vm-sla]. For the higher SLA to apply, the availability set must include a minimum of two VMs. Availability sets are implicit in scale sets. If you create VMs outside a scale set, you need to create the availability set independently.
 * **Managed disks**. Azure Managed Disks manage the virtual hard disk (VHD) files for the VM disks. 
@@ -169,6 +170,7 @@ For more information on deploying this sample reference architecture, visit our 
 [azure-automation]: /azure/automation/automation-intro
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-cli-2]: /azure/install-azure-cli?view=azure-cli-latest
+[azure-dns]: /azure/dns/dns-overview
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/multi-vm
 [health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
