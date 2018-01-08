@@ -31,7 +31,7 @@ But first, let's start with fundamentals. What are microservices, and what are t
 In a microservices architecture, the application is composed of small, independent services. Here are some of the defining characteristics of microservices:
 
 - Each microservice implements a single business capability.
-- A microservice is small enough that a single small team of developers, typically 5 &ndash; 10 people, can write and maintain it.
+- A microservice is small enough that a single small team of developers can write and maintain it.
 - Microservices run in separate processes, communicating through well-defined APIs or messaging patterns. 
 - Microservices do not share data stores or data schemas. Each microservice is responsible for managing its own data. 
 - Microservices have separate code bases, and do not share source code. They may use common utility libraries, however.
