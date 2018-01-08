@@ -160,60 +160,43 @@ Spinnaker](http://www.spinnaker.io/), are also available on Azure.
 
 ## Regions and zones (high availability)
 
-In AWS, availability centers around the concept of Availability Zones. In Azure,
-fault domains and availability sets are all involved in building highly
-available solutions. Paired regions provide additional disaster recovery
-capabilities.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
 
-### Availability Zones, Azure fault domains, and availability sets
+One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements &mdash; not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.  
 
-In AWS, a region is divided into two or more Availability Zones. An Availability
-Zone corresponds with a physically isolated datacenter in the geographic region.
-If you deploy your application servers to separate Availability Zones, a
-hardware or connectivity outage affecting one zone does not impact any servers
-hosted in other zones.
+In AWS, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has a number of features to make an application redundant at every level of failure, including **availability sets**, **availability zones**, and **paired regions**. 
 
-In Azure, a [fault
-domain](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-manage-availability/)
-defines a group of VMs that shares a physical power source and network switch.
-You use [availability
-sets](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/)
-to spread VMs across multiple fault domains. When instances are assigned to the
-same availability set, Azure distributes them evenly across several fault
-domains. If a power failure or network outage occurs in one fault domain, at
-least some of the set's VMs are in another fault domain and unaffected by the
-outage.
+![](../resiliency/images/redundancy.svg)
 
-![AWS Availability Zones comparison to Azure fault domains and availability sets](./images/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
-<br/>*AWS Availability Zones compared with Azure fault domains and availability sets*
-<br/><br/>
+The following table summarizes each option.
 
-Availability sets should be organized by the instance's role in your application
-to ensure one instance in each role is operational. For example, in a standard
-three-tier web application, you would want to create a separate availability set
-for front-end, application, and data instances.
+| &nbsp; | Availability Set | Availability Zone | Paired region |
+|--------|------------------|-------------------|---------------|
+| Scope of failure | Rack | Datacenter | Region |
+| Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
+| Network latency | Very low | Low | Mid to high |
+| Virtual networking  | VNet | VNet | Cross-region VNet peering (preview) |
+
+### Availability sets 
+
+To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
+
+When VM instances are added to availability sets, they are also assigned an [update domain](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-manage-availability/). An update domain is a group of VMs that are set for planned maintenance events at the same time. Distributing VMs across multiple update domains ensures that planned update and patching events affect only a subset of these VMs at any given time.
+
+Availability sets should be organized by the instance's role in your application to ensure one instance in each role is operational. For example, in a three-tier web application, create separate availability sets
+for the front-end, application, and data tiers.
 
 ![Azure availability sets for each application role](./images/three-tier-example.png "Availability sets for each application role")
-<br/>*Azure availability sets for each application role*
-<br/><br/>
 
-When VM instances are added to availability sets, they are also assigned an
-[update
-domain](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-manage-availability/).
-An update domain is a group of VMs that are set for planned maintenance events
-at the same time. Distributing VMs across multiple update domains ensures that
-planned update and patching events affect only a subset of these VMs at any
-given time.
+### Availability zones (preview)
+
+An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
 
 ### Paired regions
 
-In Azure, you use [paired
-regions](https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/)
-to support redundancy across two predefined geographic regions, ensuring that
-even if an outage affects an entire Azure region, your solution is still
-available.
+To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike AWS Availability Zones, which are physically separate datacenters but may
+Unlike Availability Zones, which are physically separate datacenters but may
 be in relatively nearby geographic areas, paired regions are usually separated
 by at least 300 miles. This is intended to ensure larger scale disasters only impact one of the regions in the pair. Neighboring pairs can be set to sync
 database and storage service data, and are configured so that platform updates
@@ -224,6 +207,7 @@ storage](https://azure.microsoft.com/documentation/articles/storage-redundancy/#
 is automatically backed up to the appropriate paired region. For all other
 resources, creating a fully redundant solution using paired regions means
 creating a full copy of your solution in both regions.
+
 
 ### See also
 
@@ -414,10 +398,10 @@ The Azure equivalents of the two Elastic Load Balancing services are:
 In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 and failover services. In Azure this is handled through two services:
 
--   [Azure DNS](https://azure.microsoft.com/documentation/services/dns/) - provides domain and DNS management.
+-   [Azure DNS](https://azure.microsoft.com/documentation/services/dns/) provides domain and DNS management.
 
 -   [Traffic
-    Manager](https://azure.microsoft.com/documentation/articles/traffic-manager-overview/) - provides DNS level traffic routing, load balancing, and failover
+    Manager][traffic-manager] provides DNS level traffic routing, load balancing, and failover
     capabilities.
 
 #### Direct Connect and Azure ExpressRoute
@@ -659,3 +643,9 @@ services are needed for those delivery types.
 
 -   [Free Online Course: Microsoft Azure for AWS
     Experts](http://aka.ms/azureforaws)
+
+
+<!-- links -->
+
+[paired-regions]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
+[traffic-manager]: /azure/traffic-manager/
