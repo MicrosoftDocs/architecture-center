@@ -6,7 +6,7 @@ author: MikeWasson
 
 # Microservices architecture style
 
-A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. 
+A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
 
 ![](./images/microservices-logical.svg)
  
@@ -107,7 +107,7 @@ Consider this architecture style for:
 
 ## Microservices using Azure Container Service 
 
-You can use Azure Container Service to configure and provision a Docker cluster. Azure Container Services supports several popular container orchestrators, including Kubernetes, DC/OS, and Docker Swarm.
+You can use [Azure Container Service](/azure/container-service/) to configure and provision a Docker cluster. Azure Container Services supports several popular container orchestrators, including Kubernetes, DC/OS, and Docker Swarm.
 
 ![](./images/microservices-acs.png)
  
@@ -129,11 +129,11 @@ The following diagram shows three nodes running four different services (indicat
 
 ## Microservices using Azure Service Fabric
 
-The following diagram shows a microservices architecture using Azure Service Fabric.
+The following diagram shows a microservices architecture using [Azure Service Fabric](/azure/service-fabric/).
 
 ![](./images/service-fabric.png)
 
-The Service Fabric Cluster is deployed to one or more VM scale sets. You might have more than one VM scale set in the cluster, in order to have a mix of VM types. An API Gateway is placed in front of the Service Fabric cluster, with an external load balancer to receive client requests.
+The Service Fabric cluster is deployed to one or more VM scale sets. You might have more than one VM scale set in the cluster, in order to have a mix of VM types. An API Gateway is placed in front of the Service Fabric cluster, with an external load balancer to receive client requests.
 
 The Service Fabric runtime performs cluster management, including service placement, node failover, and health monitoring. The runtime is deployed on the cluster nodes themselves. There isn't a separate set of cluster management VMs.
 
