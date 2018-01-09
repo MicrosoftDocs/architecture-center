@@ -8,6 +8,8 @@ ms.custom: checklist
 ---
 # Availability checklist
 
+Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint. 
+
 ## Application design
 
 **Avoid any single point of failure.** All components, services, resources, and compute instances should be deployed as multiple instances to prevent a single point of failure from affecting availability. This includes authentication mechanisms. Design the application to be configurable to use multiple instances, and to automatically detect failures and redirect requests to non-failed instances where the platform does not do this automatically.

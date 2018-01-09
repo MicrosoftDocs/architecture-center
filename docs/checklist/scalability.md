@@ -7,6 +7,8 @@ ms.custom: checklist
 ---
 # Scalability checklist
 
+Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from a scalability standpoint. 
+
 ## Service design
 
 **Partition the workload**. Design parts of the process to be discrete and decomposable. Minimize the size of each part, while following the usual rules for separation of concerns and the single responsibility principle. This allows the component parts to be distributed in a way that maximizes use of each compute unit (such as a role or database server). It also makes it easier to scale the application by adding instances of specific resources. For more information, see [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx).

@@ -7,7 +7,7 @@ ms.custom: resiliency, checklist
 ---
 # Resiliency checklist
 
-Designing your application for resiliency requires planning for and mitigating a variety of failure modes that could occur. Review the items in this checklist against your application design to improve its resiliency.
+Resiliency is the ability of a system to recover from failures and continue to function, and is one of the [pillars of software quality](../guide/pillars.md). Designing your application for resiliency requires planning for and mitigating a variety of failure modes that could occur. Use this checklist to review your application architecture from a resiliency standpoint. 
 
 ## Requirements
 
@@ -260,6 +260,7 @@ The following checklist items apply to specific services in Azure.
 **Don't block the health probe.** The Load Balancer Health probe is sent from a known IP address, 168.63.129.16. Don't block traffic to or from this IP in any firewall policies or network security group (NSG) rules. Blocking the health probe would cause the load balancer to remove the VM from rotation.
 
 **Enable Load Balancer logging.** The logs show how many VMs on the back-end are not receiving network traffic due to failed probe responses. For more information, see [Log analytics for Azure Load Balancer](/azure/load-balancer/load-balancer-monitor-log/).
+
 
 <!-- links -->
 [app-service-autoscale]: /azure/monitoring-and-diagnostics/insights-how-to-scale/
