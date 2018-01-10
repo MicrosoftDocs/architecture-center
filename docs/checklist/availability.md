@@ -2,7 +2,7 @@
 title: Availability checklist
 description: Checklist that provides guidance for availability concerns during design.
 author: dragon119
-ms.date: 03/24/2017
+ms.date: 01/10/2018
 ms.custom: checklist
 
 ---

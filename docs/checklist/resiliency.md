@@ -2,7 +2,7 @@
 title: Resiliency checklist
 description: Checklist that provides guidance for resiliency concerns during design.
 author: petertaylor9999
-ms.date: 03/24/2017
+ms.date: 01/10/2018
 ms.custom: resiliency, checklist
 ---
 # Resiliency checklist
