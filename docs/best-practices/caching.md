@@ -400,7 +400,8 @@ requires a TCP or HTTP connection over a public network (such
 as the Internet), consider implementing SSL.
 
 ## Considerations for implementing caching with Microsoft Azure
-Azure provides the Azure Redis Cache. This is an implementation
+
+[Azure Redis Cache](/azure/redis-cache/) is an implementation
 of the open source Redis cache that runs as a service in an
 Azure datacenter. It provides a caching service that can be
 accessed from any Azure application, whether the application
@@ -422,37 +423,6 @@ applications that already use Azure Redis Cache running on-premises, the
 Azure Redis Cache provides a quick migration path to caching
 in the cloud.
 
-> [!NOTE]
-> Azure also provides the Managed Cache Service. This
-> service is based on the Azure Service Fabric Cache engine. It
-> enables you to create a distributed cache that can be shared
-> by loosely-coupled applications. The cache is hosted on
-> high-performance servers running in an Azure datacenter.
-> However, this option is no longer recommended and is only
-> provided to support existing applications that have been built
-> to use it. For all new development, use Azure Redis
-> Cache instead.
-> 
-> Additionally, Azure supports in-role caching. This feature
-> enables you to create a cache that's specific to a cloud service.
-> The cache is hosted by instances of a web or worker role, and
-> can only be accessed by roles that are operating as part of the same
-> cloud service deployment unit. (A deployment unit is the set
-> of role instances that are deployed as a cloud service to a specific
-> region.) The cache is clustered, and all instances of the
-> role within the same deployment unit that hosts the cache
-> become part of the same cache cluster. However, this option is
-> no longer recommended and is only provided to support existing
-> applications that have been built to use it. For all new
-> development, use Azure Redis Cache instead.
-> 
-> Both Azure Managed Cache Service and Azure In-Role Cache
-> are currently slated for retirement on November 16th, 2016.
-> It is recommended that you migrate to Azure Redis Cache in
-> preparation for this retirement. For more information, see
-> [What is Azure Redis Cache offering and what size should I use?](/azure/redis-cache/cache-faq#what-redis-cache-offering-and-size-should-i-use).
-> 
-> 
 
 ### Features of Redis
  Redis is more than a simple cache server. It provides a distributed in-memory
