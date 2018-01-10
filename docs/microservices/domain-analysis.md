@@ -23,7 +23,7 @@ In this chapter and the next, we'll walk through the following steps, applying t
 
 3. Within a bounded context, apply tactical DDD patterns to define entities, aggregates, and domain services. 
  
-4. Use the results from the previous step to identity the microservices in your application.
+4. Use the results from the previous step to identify the microservices in your application.
 
 In this chapter, we cover the first three steps, which are primarily concerned with DDD. In the next chapter, we will identify the microservices. However, it's important to remember that DDD is an iterative, ongoing process. Service boundaries aren't fixed in stone. As an application evolves, you may decide to break apart a service into several smaller services.
 
