@@ -1,8 +1,6 @@
 # DevOps Checklist
 
-DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software. 
-
-Use this checklist as a starting point to assess your DevOps culture and process.
+DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software. Use this checklist as a starting point to assess your DevOps culture and process.
 
 ## Culture
 
