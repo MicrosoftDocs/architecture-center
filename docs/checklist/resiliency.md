@@ -154,6 +154,18 @@ Resiliency is the ability of a system to recover from failures and continue to f
 ## Azure Services
 The following checklist items apply to specific services in Azure.
 
+- [App Service](#app-service)
+- [Application Gateway](#application-gateway)
+- [Cosmos DB](#cosmos-db)
+- [Redis Cache](#redis-cache)
+- [Search](#search)
+- [Storage](#storage)
+- [SQL Database](#sql-database)
+- [SQL Server running in a VM](#sql-server-running-in-a-vm)
+- [Traffic Manager](#traffic-manager)
+- [Virtual Machines](#virtual-machines)
+- [Virtual Network](#virtual-network)
+
 ### App Service
 
 **Use Standard or Premium tier.** These tiers support staging slots and automated backups. For more information, see [Azure App Service plans in-depth overview](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/)
@@ -184,7 +196,19 @@ The following checklist items apply to specific services in Azure.
 
 **Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_0/), you must provision two or more medium or larger instances.
 
-### Azure Search
+### Cosmos DB
+
+**Replicate the database across regions.** Cosmos DB allows you to associate any number of Azure regions with a Cosmos DB database account. A Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB?](/azure/documentdb/documentdb-distribute-data-globally)
+
+### Redis Cache
+
+**Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure Geo-replication for Azure Redis Cache](/azure/redis-cache/cache-how-to-geo-replication)
+
+**Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](/azure/redis-cache/cache-how-to-premium-persistence)
+
+If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply. 
+
+### Search
 
 **Provision more than one replica.** Use at least two replicas for read high-availability, or three for read-write high-availability.
 
@@ -193,17 +217,13 @@ The following checklist items apply to specific services in Azure.
   * If the data source is geo-replicated, you should generally point each indexer of each regional Azure Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Search indexers at the new primary replica.  
   * If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
 
-### Azure Storage
+### Storage
 
 **For application data, use read-access geo-redundant storage (RA-GRS).** RA-GRS storage replicates the data to a secondary region, and provides read-only access from the secondary region. If there is a storage outage in the primary region, the application can read the data from the secondary region. For more information, see [Azure Storage replication](/azure/storage/storage-redundancy/).
 
 **For VM disks, use Managed Disks.** [Managed Disks][managed-disks] provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, Managed Disks aren't subject to the IOPS limits of VHDs created in a storage account. For more information, see [Manage the availability of Windows virtual machines in Azure][vm-manage-availability].
 
 **For Queue storage, create a backup queue in another region.** For Queue storage, a read-only replica has limited use, because you can't queue or dequeue items. Instead, create a backup queue in a storage account in another region. If there is a storage outage, the application can use the backup queue, until the primary region becomes available again. That way, the application can still process new requests.  
-
-### Cosmos DB
-
-**Replicate the database across regions.** Cosmos DB allows you to associate any number of Azure regions with a Cosmos DB database account. A Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB?](/azure/documentdb/documentdb-distribute-data-globally)
 
 ### SQL Database
 
@@ -219,7 +239,7 @@ The following checklist items apply to specific services in Azure.
 
 **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
-### SQL Server (running in a VM)
+### SQL Server running in a VM
 
 **Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
 
