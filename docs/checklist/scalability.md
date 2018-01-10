@@ -9,9 +9,9 @@ ms.custom: checklist
 
 Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from a scalability standpoint. 
 
-## Service design
+## Application design
 
-**Partition the workload**. Design parts of the process to be discrete and decomposable. Minimize the size of each part, while following the usual rules for separation of concerns and the single responsibility principle. This allows the component parts to be distributed in a way that maximizes use of each compute unit (such as a role or database server). It also makes it easier to scale the application by adding instances of specific resources. For more information, see [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx).
+**Partition the workload**. Design parts of the process to be discrete and decomposable. Minimize the size of each part, while following the usual rules for separation of concerns and the single responsibility principle. This allows the component parts to be distributed in a way that maximizes use of each compute unit (such as a role or database server). It also makes it easier to scale the application by adding instances of specific resources. For complex domains, consider adopting a [microservices architecture](..//guide/architecture-styles/microservices.md).
 
 **Design for scaling**. Scaling allows applications to react to variable load by increasing and decreasing the number of instances of roles, queues, and other services they use. However, the application must be designed with this in mind. For example, the application and the services it uses must be stateless, to allow requests to be routed to any instance. This also prevents the addition or removal of specific instances from adversely impacting current users. You should also implement configuration or auto-detection of instances as they are added and removed, so that code in the application can perform the necessary routing. For example, a web application might use a set of queues in a round-robin approach to route requests to background services running in worker roles. The web application must be able to detect changes in the number of queues, to successfully route requests and balance the load on the application.
 
@@ -57,9 +57,11 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Consider de-normalizing data**. Data normalization helps to avoid duplication and inconsistency. However, maintaining multiple indexes, checking for referential integrity, performing multiple accesses to small chunks of data, and joining tables to reassemble the data imposes an overhead that can affect performance. Consider if some additional storage volume and duplication is acceptable in order to reduce the load on the data store. Also, consider if the application itself (which is typically easier to scale) can be relied upon to take over tasks such as managing referential integrity in order to reduce the load on the data store. For more information, see [Data partitioning guidance](../best-practices/data-partitioning.md).
 
-## Service implementation
+## Implementation
 
-**Use asynchronous calls**. Use asynchronous code wherever possible when accessing resources or services that may be limited by I/O or network bandwidth, or that have a noticeable latency, in order to avoid locking the calling thread. To implement asynchronous operations, use the [Task-based Asynchronous Pattern (TAP)](https://msdn.microsoft.com/library/hh873175.aspx).
+**Review the performance antipatterns**. See [Performance antipatterns for cloud applications](../antipatterns/index.md) for common practices that are likely to cause scalability problems when an application is under pressure.
+
+**Use asynchronous calls**. Use asynchronous code wherever possible when accessing resources or services that may be limited by I/O or network bandwidth, or that have a noticeable latency, in order to avoid locking the calling thread. 
 
 **Avoid locking resources, and use an optimistic approach instead**. Never lock access to resources such as storage or other services that have noticeable latency, because this is a primary cause of poor performance. Always use optimistic approaches to managing concurrent operations, such as writing to storage. Use features of the storage layer to manage conflicts. In distributed applications, data may be only eventually consistent.
 
@@ -70,7 +72,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 **Minimize the number of connections required**. Service connections absorb resources. Limit the number that are required and ensure that existing connections are reused whenever possible. For example, after performing authentication, use impersonation where appropriate to run code as a specific identity. This can help to make best use of the connection pool by reusing connections.
   
 > [!NOTE]
-> : APIs for some services automatically reuse connections, provided service-specific guidelines are followed. It's important that you understand the conditions that enable connection reuse for each service that your application uses.
+> APIs for some services automatically reuse connections, provided service-specific guidelines are followed. It's important that you understand the conditions that enable connection reuse for each service that your application uses.
 > 
 > 
 
@@ -80,9 +82,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Optimize table storage schemas**. When using table stores that require the table and column names to be passed and processed with every query, such as Azure table storage, consider using shorter names to reduce this overhead. However, do not sacrifice readability or manageability by using overly compact names.
 
-**Use the Task Parallel Library (TPL) to perform asynchronous operations**. The TPL makes it easy to write asynchronous code that performs I/O-bound operations. Use *ConfigureAwait(false)* wherever possible to eliminate the dependency of a continuation on a specific synchronization context. This reduces the chances of thread-deadlock occurring.
-
-**Create resource dependencies during deployment or at application startup**. Avoid repeated calls to methods that test the existence of a resource and then create the resource if it does not exist. (Methods such as *CloudTable.CreateIfNotExists* and *CloudQueue.CreateIfNotExists* in the Azure Storage Client Library follow this pattern). These methods can impose considerable overhead if they are invoked before each access to a storage table or storage queue. Instead:
+**Create resource dependencies during deployment or at application startup**. Avoid repeated calls to methods that test the existence of a resource and then create the resource if it does not exist. Methods such as *CloudTable.CreateIfNotExists* and *CloudQueue.CreateIfNotExists* in the Azure Storage Client Library follow this pattern. These methods can impose considerable overhead if they are invoked before each access to a storage table or storage queue. Instead:
 
 * Create the required resources when the application is deployed, or when it first starts (a single call to *CreateIfNotExists* for each resource in the startup code for a web or worker role is acceptable). However, be sure to handle exceptions that may arise if your code attempts to access a resource that doesn't exist. In these situations, you should log the exception, and possibly alert an operator that a resource is missing.
 * Under some circumstances, it may be appropriate to create the missing resource as part of the exception handling code. But you should adopt this approach with caution as the non-existence of the resource might be indicative of a programming error (a misspelled resource name for example), or some other infrastructure-level issue.
