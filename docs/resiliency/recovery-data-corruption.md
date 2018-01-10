@@ -17,11 +17,11 @@ To protect Azure Virtual Machines (VMs) from application errors or accidental de
 
 Azure Storage provides data resiliency through automated replicas. However, this does not prevent application code or users from corrupting data, whether accidentally or maliciously. Maintaining data fidelity in the face of application or user error requires more advanced techniques, such as copying the data to a secondary storage location with an audit log. 
 
-- Block blobs. Create a point-in-time snapshot of each block blob. See [Creating a Snapshot of a Blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob). For each snapshot, you are only charged for the storage required to store the differences within the blob since the last snapshot state. The snapshots are dependent on the existence of the original blob they are based on, so a copy operation to another blob or even another storage account is advisable. This ensures that backup data is properly protected against accidental deletion. You can use [AzCopy](/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
+- **Block blobs**. Create a point-in-time snapshot of each block blob. For more information, see [Creating a Snapshot of a Blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob). For each snapshot, you are only charged for the storage required to store the differences within the blob since the last snapshot state. The snapshots are dependent on the existence of the original blob they are based on, so a copy operation to another blob or even another storage account is advisable. This ensures that backup data is properly protected against accidental deletion. You can use [AzCopy](/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
 
-- Files. Use [share snapshots (preview)](/azure/storage/files/storage-how-to-use-files-snapshots), or use AzCopy or PowerShell to copy your files to another storage account.
+- **Files**. Use [share snapshots (preview)](/azure/storage/files/storage-how-to-use-files-snapshots), or use AzCopy or PowerShell to copy your files to another storage account.
 
-- Tables. Use AzCopy to export the table data into another storage account in another region.
+- **Tables**. Use AzCopy to export the table data into another storage account in another region.
 
 ## Database
 
