@@ -272,7 +272,7 @@ prepared to detect the availability of the cache service and fall back
 to the original data store if the cache is inaccessible. The
 [Circuit-Breaker pattern](http://msdn.microsoft.com/library/dn589784.aspx) is useful for handling this scenario. The
 service that provides the cache can be recovered, and once it becomes
-available, the cache can be repopulated as data is read form the
+available, the cache can be repopulated as data is read from the
 original data store, following a strategy such as the [Cache-aside pattern](http://msdn.microsoft.com/library/dn589799.aspx).
 
 However, there might be a scalability impact on the system if the application falls back to the original data store when the cache is
