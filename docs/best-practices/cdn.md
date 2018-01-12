@@ -9,7 +9,7 @@ pnp.series.title: Best Practices
 # Content Delivery Network
 [!INCLUDE [header](../_includes/header.md)]
 
-The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
+The Microsoft Azure [Content Delivery Network (CDN)](https://docs.microsoft.com/en-us/azure/cdn/cdn-overview) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
 
 You can also use the CDN as a cache for serving dynamic content, such as a PDF report or graph based on specified inputs; if the same input values are provided by different users the result should be the same.
 
@@ -70,7 +70,7 @@ Scenarios where CDN may be less useful include:
 Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. Consider adopting this strategy for all of the appropriate content and resources your application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
 ### Origin
-Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS endpoint that the CDN service will use to access and cache the content.
+Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS [endpoint](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint) that the CDN service will use to access and cache the content.
 
 The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access are available through the CDN.
 
