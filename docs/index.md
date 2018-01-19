@@ -92,7 +92,7 @@ layout: LandingPage
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/new-content.svg" alt="Designing, building, and operating microservices on Azure" />
+                                <img src="_images/microservices.svg" alt="Designing, building, and operating microservices on Azure" />
                             </div>
                         </div>
                         <div class="cardText">
