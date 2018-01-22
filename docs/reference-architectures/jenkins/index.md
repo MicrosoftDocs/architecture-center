@@ -1,7 +1,6 @@
----
+ ---
 title: Run a Jenkins server on Azure
-description:  This reference architecture shows shows how to deploy and operate a scalable,
-enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).
+description:  This reference architecture shows shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).
 author: njray
 ms.date: 01/21/18
 ---
@@ -14,7 +13,6 @@ This architecture supports disaster recovery with Azure services but does not co
 
 
 ![[0]][0]
-Figure 1. Jenkins architecture on Azure.
 
 
 > [!NOTE]
@@ -34,10 +32,11 @@ The architecture consists of the following components:
 
 -   **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 14.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
 
-> [!NOTE]
->  Nginx is installed on the Microsoft Jenkin server as a reverse proxy and can be configured to run SSL on your server.
->
->
+
+    > [!NOTE]
+    > Nginx is installed on the Microsoft Jenkin server as a reverse proxy and can be configured to run SSL on your server.
+    > 
+    > 
 
 
 -   **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
@@ -151,12 +150,11 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 
 -   Set up a way to secure logon to the Jenkin server. HTTP is not secure By default, this architecture uses HTTP and has a public IP. Consider setting up [HTTPS on the nginx server][nginx] being used for a secure logon.
 
-> [!NOTE]
->  When adding SSL to your server, create an NSG rule for the Jenkins subnet to [open port 443][port443].
->
->
 
-
+    > [!NOTE]
+    > When adding SSL to your server, create an NSG rule for the Jenkins subnet to [open port 443][port443].
+    > 
+   
 
 -   Ensure that the Jenkins configuration prevents cross site request forgery (Manage Jenkins \> Configure Global Security). This is the default for Microsoft Jenkins Server.
 
@@ -228,7 +226,7 @@ The step is run by the Jenkins administrator to set up the Azure Credential plug
 
 ### Step 6: Provision Jenkins server for monitoring by the Azure Monitor Service
 
-To set up monitoring for your Jenkins server, follow the instructions to [create metric alerts in Azure Monitor for Azure services—Azure portal.][create-metric].
+To set up monitoring for your Jenkins server, follow the instructions to [create metric alerts in Azure Monitor for Azure services—Azure portal][create-metric].
 
 ### Step 7: Provision Jenkins server with Managed Disks for disaster recovery
 
