@@ -4,7 +4,7 @@
 - name: Reference Architectures
   href: index.md
   items:
-  - name: App Service web application
+  - name: App Service web applications
     href: app-service-web-app/index.md
     items:
     - name: Basic web application
@@ -13,6 +13,20 @@
       href: app-service-web-app/scalable-web-app.md
     - name: Multi-region deployment
       href: app-service-web-app/multi-region.md
+
+  - name: Hybrid networks
+    href: hybrid-networking/index.md
+    items:
+    - name: Which should I choose?
+      href: hybrid-networking/considerations.md
+    - name: VPN
+      href: hybrid-networking/vpn.md
+    - name: ExpressRoute
+      href: hybrid-networking/expressroute.md
+    - name: ExpressRoute with VPN failover
+      href: hybrid-networking/expressroute-vpn-failover.md
+    - name: Hub-spoke topology
+      href: hybrid-networking/hub-spoke.md
 
   - name: Identity management
     href: identity/index.md
@@ -27,20 +41,6 @@
       href: identity/adds-forest.md
     - name: Extend AD FS to Azure
       href: identity/adfs.md
-
-  - name: Hybrid network
-    href: hybrid-networking/index.md
-    items:
-    - name: Which should I choose?
-      href: hybrid-networking/considerations.md
-    - name: VPN
-      href: hybrid-networking/vpn.md
-    - name: ExpressRoute
-      href: hybrid-networking/expressroute.md
-    - name: ExpressRoute with VPN failover
-      href: hybrid-networking/expressroute-vpn-failover.md
-    - name: Hub-spoke topology
-      href: hybrid-networking/hub-spoke.md
 
   - name: Network DMZ
     href: dmz/index.md
@@ -75,6 +75,9 @@
       href: virtual-machines-windows/n-tier.md  
     - name: Multi-region application
       href: virtual-machines-windows/multi-region-application.md
+
+  - name: Jenkins server
+    href: jenkins/index.md
 
   - name: SAP NetWeaver and SAP HANA
     href: sap/index.md
