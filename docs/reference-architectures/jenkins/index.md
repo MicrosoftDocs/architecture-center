@@ -228,7 +228,7 @@ The step is run by the Jenkins administrator to set up the Azure Credential plug
 
 ### Step 6: Provision Jenkins server for monitoring by the Azure Monitor Service
 
-To set up monitoring for your Jenkins server, follow the instructions to [create metric alerts in Azure Monitor for Azure services—Azure portal.][create-metric].
+To set up monitoring for your Jenkins server, follow the instructions to [create metric alerts in Azure Monitor for Azure services—Azure portal][create-metric].
 
 ### Step 7: Provision Jenkins server with Managed Disks for disaster recovery
 
