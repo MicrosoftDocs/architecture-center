@@ -160,7 +160,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 
 For more best practices from the Jenkins community, visit [Jenkins best practices][jenkins-best].
 
-## Solution deployment
+## Deploy the solution
 
 To deploy this architecture, follow the steps below to install the [solution template for Jenkins on Azure][azure-market], then install the scripts that set up monitoring and disaster recovery in the steps below.
 
