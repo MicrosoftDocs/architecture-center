@@ -144,7 +144,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                 </div>
                 <div class="cardText">
-                    <h3>Jenkins server</h3>
+                    <h3>Jenkins Server</h3>
                     <p>Deploy and operate a scalable, enterprise-grade Jenkins server on Azure.</p>
                 </div>
             </div>
