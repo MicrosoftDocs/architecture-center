@@ -11,6 +11,8 @@ This reference architecture shows how to deploy and operate a scalable, enterpri
 
 ![Jenkins server running on Azure][0]
 
+*Download a [Visio file](https://arch-center.azureedge.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on  Azure][jenkins-on-azure].
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
