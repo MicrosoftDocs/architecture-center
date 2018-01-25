@@ -134,6 +134,26 @@ Our reference architectures are arranged by scenario, with related architectures
 
 <ul class="panelContent cardsI">
 <li>
+    <a href="./jenkins/index.md">
+    <div class="cardSize">
+        <div class="cardPadding">
+            <div class="card">
+                <div class="cardImageOuter">
+                    <div class="cardImage">
+                        <img src="./jenkins/images/logo.svg" alt="Jenkins" height="100%" />
+                    </div>
+                </div>
+                <div class="cardText">
+                    <h3>Jenkins build server</h3>
+                    <p>Deploy and operate a scalable, enterprise-grade Jenkins server on Azure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+</li>
+
+<li>
     <a href="./sharepoint/index.md">
     <div class="cardSize">
         <div class="cardPadding">
