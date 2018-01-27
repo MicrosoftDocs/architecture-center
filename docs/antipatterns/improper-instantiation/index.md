@@ -67,7 +67,7 @@ public class ExpensiveToCreateService
 
 If the class that wraps the external resource is shareable and thread-safe, create a shared singleton instance or a pool of reusable instances of the class.
 
-The following following example uses a static `HttpClient` instance, thus sharing the connection across all requests.
+The following example uses a static `HttpClient` instance, thus sharing the connection across all requests.
 
 ```csharp
 public class SingleHttpClientInstanceController : ApiController
