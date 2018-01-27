@@ -70,7 +70,7 @@ Scenarios where CDN may be less useful include:
 Using the CDN is a good way to minimize the load on your application, and maximize availability and performance. Consider adopting this strategy for all of the appropriate content and resources your application uses. Consider the points in the following sections when designing your strategy to use the CDN:  
 
 ### Origin
-Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS [endpoint](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint) that the CDN service will use to access and cache the content.
+Deploying content through the CDN simply requires you to specify an HTTP and/or HTTPS [endpoint](/azure/cdn/cdn-create-new-endpoint) that the CDN service will use to access and cache the content.
 
 The endpoint can specify an Azure blob storage container that holds the static content you want to deliver through the CDN. The container must be marked as public. Only blobs in a public container that have public read access are available through the CDN.
 
