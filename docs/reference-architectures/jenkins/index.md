@@ -23,7 +23,7 @@ The architecture consists of the following components:
 
 -   **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
--   **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 14.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
+-   **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 16.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
 
     > [!NOTE]
     > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
