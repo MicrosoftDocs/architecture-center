@@ -1,0 +1,49 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+  
+- name: Azure Cloud Adoption Guide
+  href: index.md
+
+  items:
+  - name: Foundational Azure adoption
+    href: adoption-intro/overview.md
+    items:
+      - name: Explainer - How does Azure work?
+        href: adoption-intro/azure-explainer.md
+      - name: Explainer - What is an Azure Active Directory Tenant?
+        href: adoption-intro/aad-tenant-explainer.md
+      - name: Guidance - Azure AD tenant design guide
+        href: adoption-intro/tenant.md
+      - name: How to - Add a user to an Azure AD tenant
+        href: https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory
+      - name: Explainer - What is an Azure subscription?
+        href:
+      - name: Guidance - Azure subscription design guide
+        href:
+      - name: Explainer - What is Azure resource manager?
+        href: adoption-intro/resource-manager-explainer.md
+      - name: Explainer - Understanding resource access in Azure
+        href: https://docs.microsoft.com/azure/active-directory/active-directory-understanding-resource-access
+      - name: Explainer - What is an Azure resource group?
+        href: 
+      - name: Guidance - Azure resource group design guide
+        href: 
+      - name: Guidance - tracking resource usage and cost
+        href: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions
+      - name: How to - deploy a basic web application to Azure
+        href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+      - name: How to - deploy a single Windows VM IaaS workload to Azure
+        href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/single-vm
+      - name: How to - deploy a single Linux VM IasS workload to Azure
+        href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-linux/single-vm
+  - name: Intermediate Azure adoption - coming soon
+    href:
+    items:
+  - name: Advanced Azure adoption - coming soon
+    href: 
+  - name: Modernizing legacy on-premises applications - coming soon
+    href: 
+  - name: Optimizing migrated applications for the cloud - coming soon
+    href:
+  - name: Innovating in the cloud - coming soon
+    href:
