@@ -23,17 +23,17 @@ Adopting Azure is the first level of organizational maturity for an enterprise. 
     - **Explainer**: [What is a resource group?]()
     - **Guidance**: [resource group design guide]()
 5. Understanding tracking resources and resource costs in Azure
-    - Guidance: [resource naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)
+    - Guidance: [resource naming conventions](/azure/architecture/best-practices/naming-conventions)
 6. Basic Azure architecture:
     - PaaS: Introduction to Platform as a Service:
         - **Explainer**: How does platform as a service work?
-        - How to: deploy a [basic web application](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app) to Azure
+        - How to: deploy a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app) to Azure
     - IaaS: Introduction to Virtual Networking
-        - **Explainer**: [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-        - **How to**: [Deploy a Virtual Network to Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-vnet-arm-pportal)
+        - **Explainer**: [Azure virtual network](/azure/virtual-network/virtual-networks-overview)
+        - **How to**: [Deploy a Virtual Network to Azure](/azure/virtual-network/virtual-networks-create-vnet-arm-portal)
     - IasS: Deploy a single VM workload (Windows and Linux):
-        - How to: [Run a Windows VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/single-vm)
-        - How to: [Run a Linux VM on Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-linux/single-vm)
+        - How to: [Run a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm)
+        - How to: [Run a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm)
 
 # Next steps 
 

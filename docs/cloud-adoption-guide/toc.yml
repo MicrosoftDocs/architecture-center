@@ -15,7 +15,7 @@
       - name: Guidance - Azure AD tenant design guide
         href: adoption-intro/tenant.md
       - name: How to - Add a user to an Azure AD tenant
-        href: https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory
+        href: /azure/active-directory/add-users-azure-active-directory
       - name: Explainer - What is an Azure subscription?
         href:
       - name: Guidance - Azure subscription design guide
@@ -23,19 +23,23 @@
       - name: Explainer - What is Azure resource manager?
         href: adoption-intro/resource-manager-explainer.md
       - name: Explainer - Understanding resource access in Azure
-        href: https://docs.microsoft.com/azure/active-directory/active-directory-understanding-resource-access
+        href: /azure/active-directory/active-directory-understanding-resource-access
       - name: Explainer - What is an Azure resource group?
         href: 
       - name: Guidance - Azure resource group design guide
         href: 
       - name: Guidance - tracking resource usage and cost
-        href: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions
+        href: /azure/architecture/best-practices/naming-conventions
       - name: How to - deploy a basic web application to Azure
-        href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+        href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+      - name: Explainer - What is an Azure virtual network?
+        href: /azure/virtual-network/virtual-networks-overview
+      - name: How to - deploy a virtual network to Azure
+        href: /azure/virtual-network/virtual-networks-create-vnet-arm-portal
       - name: How to - deploy a single Windows VM IaaS workload to Azure
-        href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/single-vm
+        href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm
       - name: How to - deploy a single Linux VM IasS workload to Azure
-        href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-linux/single-vm
+        href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm
   - name: Intermediate Azure adoption - coming soon
     href:
     items:
