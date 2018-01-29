@@ -22,7 +22,7 @@ The following table summarizes the retry features for the Azure services describ
 | **[SQL Database with ADO.NET](#sql-database-using-adonet-retry-guidelines)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
 | **[Service Bus](#service-bus-retry-guidelines)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Native in client |Programmatic |Client |TextWriter |
-| **[DocumentDB API](#documentdb-api-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
+| **[Cosmos DB](#cosmos-db-retry-guidelines)** |Native in service |Non-configurable |Global |TraceSource |
 | **[Azure Search](#azure-storage-retry-guidelines)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Azure Active Directory](#azure-active-directory-retry-guidelines)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Service Fabric](#service-fabric-retry-guidelines)** |Native in client |Programmatic |Client |None | 
@@ -854,9 +854,9 @@ For more examples, see [Configuration](http://github.com/StackExchange/StackExch
 ### More information
 * [Redis website](http://redis.io/)
 
-## DocumentDB API retry guidelines
+## Cosmos DB retry guidelines
 
-Cosmos DB is a fully-managed multi-model database that supports schema-less JSON data by using the [DocumentDB API][documentdb-api]. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
+Cosmos DB is a fully-managed multi-model database that supports schema-less JSON data. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
 
 ### Retry mechanism
 The `DocumentClient` class automatically retries failed attempts. To set the number of retries and the maximum wait time, configure [ConnectionPolicy.RetryOptions]. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
@@ -893,7 +893,7 @@ For example, if you add the following to your App.config file, traces will be ge
     <sources>
       <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
         <listeners>
-          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="DocumentDBTrace.txt"></add>
+          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="CosmosDBTrace.txt"></add>
         </listeners>
       </source>
     </sources>
@@ -1032,7 +1032,6 @@ The following are the typical types of retry strategy intervals:
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [circuit-breaker]: ../patterns/circuit-breaker.md
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
-[documentdb-api]: /azure/documentdb/documentdb-introduction
 [dotnet-foundation]: https://dotnetfoundation.org/
 [polly]: http://www.thepollyproject.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot

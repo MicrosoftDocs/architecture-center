@@ -455,7 +455,7 @@ cost depends on your database size, concurrent connections, and throughput level
     portal](https://azure.microsoft.com/documentation/articles/sql-database-geo-replication-portal/)
 
 -   [Introduction to Cosmos DB: A NoSQL JSON
-    Database](https://azure.microsoft.com/documentation/articles/documentdb-introduction/)
+    Database](/azure/cosmos-db/sql-api-introduction
 
 -   [How to use Azure Table storage from
     Node.js](https://azure.microsoft.com/documentation/articles/storage-nodejs-how-to-use-table-storage/)
