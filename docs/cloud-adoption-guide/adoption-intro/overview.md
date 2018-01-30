@@ -6,34 +6,36 @@ author: petertay
 
 # Adopting Azure: Foundational
 
-Adopting Azure is the first level of organizational maturity for an enterprise. This section includes all the learning content and artifacts necessary to achieve:
+Adopting Azure is the first stage of organizational maturity for an enterprise. By the end of the this stage, people in your organization will be able to deploy simple workloads to Azure.
+
+The following list of documents is progressive. If you have already read or are familiar with the subject matter in a document, move on to the next in the list. 
 
 1. Understanding Azure internals:
     - **Explainer:** [how does Azure work?](azure-explainer.md)
 2. Understanding enterprise digital identity in Azure:
-    - **Explainer**: [What is an Azure Active Directory Tenant?](aad-tenant-explainer.md)
+    - **Explainer**: [what is an Azure Active Directory Tenant?](aad-tenant-explainer.md)
     - **Guidance**: [Azure AD tenant design guide](tenant.md)
-    - **How to**: [add new users to Azure Active Directory]()https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory
+    - **How to**: [add new users to Azure Active Directory](azure/active-directory/add-users-azure-active-directory)
 3. Understanding subscriptions:
-    - **Explainer**: [What is a subscription?]()
+    - **Explainer**: [what is a subscription?]()
     - **Guidance**: [Azure subscription design guide]()
-4. Understanding Azure Resource Management: 
-    - **Explainer**: [What is Azure Resource Manager and how does it work?](resource-manager-explainer.md)
-    - **Explainer**: [Understanding resource access in Azure](https://docs.microsoft.com/azure/active-directory/active-directory-understanding-resource-access)
-    - **Explainer**: [What is a resource group?]()
-    - **Guidance**: [resource group design guide]()
+4. Understanding Resource Management in Azure: 
+    - **Explainer**: [what is Azure Resource Manager?](resource-manager-explainer.md)
+    - **Explainer**: [what is an Azure resource group?](resource-group-explainer.md)
+    - **Explainer**: [understanding resource access in Azure](azure/active-directory/active-directory-understanding-resource-access)
+    - **Guidance**: [resource group design guide](resource-group.md)
 5. Understanding tracking resources and resource costs in Azure
-    - Guidance: [resource naming conventions](/azure/architecture/best-practices/naming-conventions)
+    - **Guidance**: [resource naming conventions](/azure/architecture/best-practices/naming-conventions)
 6. Basic Azure architecture:
     - PaaS: Introduction to Platform as a Service:
-        - **Explainer**: How does platform as a service work?
-        - How to: deploy a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app) to Azure
+        - **How to**: [deploy a basic web application to Azure](/azure/app-service)
+        - **Guidance**: best practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app) to Azure
     - IaaS: Introduction to Virtual Networking
         - **Explainer**: [Azure virtual network](/azure/virtual-network/virtual-networks-overview)
-        - **How to**: [Deploy a Virtual Network to Azure](/azure/virtual-network/virtual-networks-create-vnet-arm-portal)
-    - IasS: Deploy a single VM workload (Windows and Linux):
-        - How to: [Run a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm)
-        - How to: [Run a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm)
-
-# Next steps 
+        - **How to**: [deploy a Virtual Network to Azure using the portal](/azure/virtual-network/virtual-networks-create-vnet-arm-portal)
+    - IasS: Deploy a single virtual machine(VM) workload (Windows and Linux):
+        - **How to**: [deploy a Windows VM to Azure with the portal](azure/virtual-machines/windows/quick-create-portal)
+        - **Guidance**: [best practices for running a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm)
+        - **How to**: [deploy a Linux VM to Azure with the portal](azure/virtual-machines/linux/quick-create-portal)
+        - **Guidance**: [best practices for running a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm)
 
