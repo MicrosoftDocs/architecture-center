@@ -18,3 +18,4 @@ Once a valid RESTful API call has been received, Azure Resource Manager is respo
 
 # Next steps
 
+* Now that you understand the internal functioning of Azure Resource Manager, learn [about resource groups](resource-group-explainer.md) to assist you in creating your first resource group.

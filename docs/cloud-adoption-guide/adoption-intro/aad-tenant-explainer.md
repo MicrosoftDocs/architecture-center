@@ -1,6 +1,6 @@
 ---
-title: Explainer - Enterprise identity in Azure
-description: Explains how user identity works in Azure
+title: Explainer - What is an Azure Active Directory tenant?
+description: Explains the internal functioning of Azure Active Directory to provide identity as a service (IDaaS) in Azure
 author: petertay
 ---
 
@@ -22,5 +22,5 @@ Most enterprises already have at least one identity management service - typical
 
 ## Next steps
 
-Learn more about privileged accounts in Azure and the best practices for managing them. 
+* Now that you have learned about Azure Active Directory tenants, the first step in the foundational adoption stage is to [create your first user in Azure AD](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json). 
 
