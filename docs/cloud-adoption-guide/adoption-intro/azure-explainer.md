@@ -3,9 +3,6 @@ title: Explainer - How does Azure work?
 description: Explanation of the internal functioning of Azure
 author: petertay
 ---
-<!-->
-prerequisites: none
-<-->
 
 # Explainer: How does Azure work?
 
