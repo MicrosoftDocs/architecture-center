@@ -27,7 +27,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 * **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function in the WebJob. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 * **Cache**. Store semi-static data in [Azure Redis Cache][azure-redis].  
 * **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
-* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as [Cosmos DB][documentdb].
+* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as [Cosmos DB][cosmosdb].
 * **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.  
 * **Email/SMS**. Use a third-party service such as SendGrid or Twilio to send email or SMS messages instead of building this functionality directly into the application.
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -136,7 +136,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [cdn-storage-account]: /azure/cdn/cdn-create-a-storage-account-with-cdn
 [cdn-guidance]: ../../best-practices/cdn.md
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
-[documentdb]: https://azure.microsoft.com/documentation/services/documentdb/
+[cosmosdb]: /azure/cosmos-db/
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [resource-group]: /azure/azure-resource-manager/resource-group-overview#resource-groups

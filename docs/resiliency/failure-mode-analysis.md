@@ -129,7 +129,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 * The SDK automatically retries failed attempts. To set the number of retries and the maximum wait time, configure `ConnectionPolicy.RetryOptions`. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 * If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you are getting error 429 consistently, consider increasing the throughput value of the collection.
     * If you are using the MongoDB API, the service returns error code 16500 when throttling.
-* Replicate the Cosmos DB database across two or more regions. All replicas are readable. Using the client SDKs, specify the `PreferredLocations` parameter. This is an ordered list of Azure regions. All reads will be sent to the first available region in the list. If the request fails, the client will try the other regions in the list, in order. For more information, see [How to setup Azure Cosmos DB global distribution using the DocumentDB API][docdb-multi-region].
+* Replicate the Cosmos DB database across two or more regions. All replicas are readable. Using the client SDKs, specify the `PreferredLocations` parameter. This is an ordered list of Azure regions. All reads will be sent to the first available region in the list. If the request fails, the client will try the other regions in the list, in order. For more information, see [How to setup Azure Cosmos DB global distribution using the SQL API][cosmosdb-multi-region].
 
 **Diagnostics**. Log all errors on the client side.
 
@@ -141,7 +141,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 * The SDK automatically retries failed attempts. To set the number of retries and the maximum wait time, configure `ConnectionPolicy.RetryOptions`. Exceptions that the client raises are either beyond the retry policy or are not transient errors.
 * If Cosmos DB throttles the client, it returns an HTTP 429 error. Check the status code in the `DocumentClientException`. If you are getting error 429 consistently, consider increasing the throughput value of the collection.
 * Replicate the Cosmos DB database across two or more regions. If the primary region fails, another region will be promoted to write. You can also trigger a failover manually. The SDK does automatic discovery and routing, so application code continues to work after a failover. During the failover period (typically minutes), write operations will have higher latency, as the SDK finds the new write region.
-  For more information, see [How to setup Azure Cosmos DB global distribution using the DocumentDB API][docdb-multi-region].
+  For more information, see [How to setup Azure Cosmos DB global distribution using the SQL API][cosmosdb-multi-region].
 * As a fallback, persist the document to a backup queue, and process the queue later.
 
 **Diagnostics**. Log all errors on the client side.
@@ -449,7 +449,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
 [cassandra-error-handling]: http://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
-[docdb-multi-region]: /azure/documentdb/documentdb-developing-with-multiple-regions/
+[cosmosdb-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [elasticsearch-azure]: ../elasticsearch/index.md
 [elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
