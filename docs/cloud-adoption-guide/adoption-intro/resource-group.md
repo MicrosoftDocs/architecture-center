@@ -15,12 +15,9 @@ In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-man
 - All the resources in a resource group must be deployed to a single subscription. That is, a first resource deployed to a first subscription cannot be placed in a resource group that includes a second resource deployed to a second description. 
 - A resource can be moved between resource groups, but resources cannot be moved into a resource group that contains a resource deployed to a different subscription.
 - A resource does not affect the connectivity or interaction with resource groups in other resource groups. For example, a virtual machine deployed to a first resource group is capable of connecting to a database deployed to a second resource group as long as there is network connectivity between them.
-- A resource group can be used to scope access control for administrative actions. You can apply RBAC permissions at the subscription level or at the resource group level. Anything assigned at the subscription level will be inherited at the resource group level.
+- A resource group can be used to scope access control for administrative actions. You can apply role-based access control (RBAC) permissions at the subscription level or at the resource group level. Anything assigned at the subscription level will be inherited at the resource group level.
 
 ## Best practices
 
-- Your resource group design can follow the architecture of your workload. For example, if you are deploying an n-tier architecture, you can create a separate resource group for the web tier, application tier, data tier, and management tier resources.
-- Assign permissions at the resource group level as opposed to assigning them at the subscription level.
-- Use tagging within your resource groups to ensure categorization of resources for billing and security purposes.
-- Use a cohesive and consistent naming standard of your security groups across your subscriptions.
-- When creating resource groups, ensure that specific tiers (web, app, data, management) of the workload are assigned to the same region. 
+- At this foundational stage, you are most likely managing a small number of proof-of-concept projects with a small number of resources. Because the lifecycle of the resources for proof-of-concept projects are managed together, you can create a single resource group for each of these projects. 
+- In the intermediate adoption stage, you will be managing multiple projects and different types of projects can benefit from other resource group designs. If you plan for any of your initial proof-of-concept projects to be promoted to production, as noted above you can move resources from one resource group to another as long as they are in the same subscription. Therefore, at this foundational stage, plan to deploy these resources to the same subscription to enable future resource group refactoring.

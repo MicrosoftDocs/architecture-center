@@ -25,9 +25,8 @@ The following list of documents is progressive. If you have already read or are 
     - **Explainer**: [understanding resource access in Azure](azure/active-directory/active-directory-understanding-resource-access)
     - **How to**: [create an Azure resource group with the portal](azure/azure-resource-manager/resource-group-portal)
     - **Guidance**: [resource group design guide](resource-group.md)
-5. Understanding tracking resources and resource costs in Azure
     - **Guidance**: [resource naming conventions](/azure/architecture/best-practices/naming-conventions)
-6. Basic Azure architecture:
+5. Basic Azure architecture:
     - PaaS: Introduction to Platform as a Service:
         - **How to**: [deploy a basic web application to Azure](/azure/app-service)
         - **Guidance**: best practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app) to Azure
