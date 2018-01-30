@@ -21,7 +21,7 @@
         - name: Guidance - Azure AD tenant design guide
           href: adoption-intro/tenant.md
         - name: How to - add a user to an Azure AD tenant
-          href: /azure/active-directory/add-users-azure-active-directory
+          href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Understanding Azure subscriptions
         items: 
         - name: Explainer - what is an Azure subscription?
