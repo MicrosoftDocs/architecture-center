@@ -38,11 +38,13 @@
           href: /azure/active-directory/active-directory-understanding-resource-access
         - name: How to - create a resource group with the portal
           href: azure/azure-resource-manager/resource-group-portal
+        - name: Guidance - resource manager design guide
+          href: /adoption-intro/resource-manager
         - name: Guidance - tracking resource usage and cost
           href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Deploying basic architectures to Azure
         items:
-        - name: Plaform as a Service (PaaS) architecture
+        - name: Platform as a Service (PaaS) architecture
           items: 
           - name: How to - deploy a basic web application to Azure
             href: /azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json
