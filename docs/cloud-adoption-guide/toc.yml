@@ -18,10 +18,10 @@
         items:
         - name: Explainer - what is an Azure Active Directory Tenant?
           href: adoption-intro/aad-tenant-explainer.md
-        - name: Guidance - Azure AD tenant design guide
-          href: adoption-intro/tenant.md
         - name: How to - add a user to an Azure AD tenant
           href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
+        - name: Guidance - Azure AD tenant design guide
+          href: adoption-intro/tenant.md
       - name: Understanding Azure subscriptions
         items: 
         - name: Explainer - what is an Azure subscription?
@@ -32,31 +32,33 @@
         items:
         - name: Explainer - what is Azure resource manager?
           href: adoption-intro/resource-manager-explainer.md
-        - name: Explainer - understanding resource access in Azure
-          href: /azure/active-directory/active-directory-understanding-resource-access
         - name: Explainer - what is an Azure resource group?
           href: adoption-intro/resource-group-explainer.md
+        - name: Explainer - understanding resource access in Azure
+          href: /azure/active-directory/active-directory-understanding-resource-access
+        - name: How to - create a resource group with the portal
+          href: azure/azure-resource-manager/resource-group-portal
         - name: Guidance - tracking resource usage and cost
-          href: /azure/architecture/best-practices/naming-conventions
+          href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Deploying basic architectures to Azure
-        items: 
-        - name: How to - deploy a basic web application to Azure
-          href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
-        - name: Explainer - what is an Azure virtual network?
-          href: /azure/virtual-network/virtual-networks-overview
-        - name: How to - deploy a virtual network to Azure
-          href: /azure/virtual-network/virtual-networks-create-vnet-arm-portal
-        - name: How to - deploy a single Windows VM IaaS workload to Azure
-          href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm
-        - name: How to - deploy a single Linux VM IasS workload to Azure
-          href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm
-  - name: Intermediate Azure adoption - coming soon
-    href:
-  - name: Advanced Azure adoption - coming soon
-    href: 
-  - name: Modernizing legacy on-premises applications - coming soon
-    href: 
-  - name: Optimizing migrated applications for the cloud - coming soon
-    href:
-  - name: Innovating in the cloud - coming soon
-    href:
+        items:
+        - name: Plaform as a Service (PaaS) architecture
+          items: 
+          - name: How to - deploy a basic web application to Azure
+            href: /azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json
+          - name: Guidance - best practices for web applications in Azure
+            href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json
+        - name: Infrastructure as a service (IaaS)
+          items:
+          - name: Explainer - what is an Azure virtual network?
+            href: /azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json
+          - name: How to - deploy a virtual network to Azure
+            href: /azure/virtual-network/virtual-networks-create-vnet-arm-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
+          - name: How to - deploy a single Windows VM IaaS workload to Azure
+            href: azure/virtual-machines/windows/quick-create-portal
+          - name: Guidance - best practices for deploying a Windows VM to Azure
+            href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
+          - name: How to - deploy a single Linux VM IasS workload to Azure
+            href: azure/virtual-machines/linux/quick-create-portal
+          - name: Guidance - best practices for deploying a Linux VM to Azure
+            href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
