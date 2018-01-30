@@ -448,17 +448,13 @@ cost depends on your database size, concurrent connections, and throughput level
 
 #### See also
 
--   [Azure SQL Database
-    Tutorials](https://azure.microsoft.com/documentation/articles/sql-database-explore-tutorials/)
+-   [Azure SQL Database Tutorials](https://azure.microsoft.com/documentation/articles/sql-database-explore-tutorials/)
 
--   [Configure geo-replication for Azure SQL Database with the Azure
-    portal](https://azure.microsoft.com/documentation/articles/sql-database-geo-replication-portal/)
+-   [Configure geo-replication for Azure SQL Database with the Azure portal](https://azure.microsoft.com/documentation/articles/sql-database-geo-replication-portal/)
 
--   [Introduction to Cosmos DB: A NoSQL JSON
-    Database](/azure/cosmos-db/sql-api-introduction
+-   [Introduction to Cosmos DB: A NoSQL JSON Database](/azure/cosmos-db/sql-api-introduction)
 
--   [How to use Azure Table storage from
-    Node.js](https://azure.microsoft.com/documentation/articles/storage-nodejs-how-to-use-table-storage/)
+-   [How to use Azure Table storage from Node.js](https://azure.microsoft.com/documentation/articles/storage-nodejs-how-to-use-table-storage/)
 
 ### Security and identity
 
