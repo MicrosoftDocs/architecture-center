@@ -240,7 +240,7 @@ Consider the following points if you are implementing background tasks in a web 
     }
     ```
     
-    * Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
+  * Add the definition of the **Freeze** setting as a Boolean value to the ServiceDefinition.csdef and ServiceConfiguration.\*.cscfg files for the role and set it to **false**. If the role goes into a repeated restart mode, you can change the setting to **true** to freeze role execution and allow it to be swapped with a previous version.
 
 #### More information
 * [Compute Resource Consolidation Pattern](http://msdn.microsoft.com/library/dn589778.aspx)
