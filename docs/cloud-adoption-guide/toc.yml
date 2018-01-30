@@ -25,9 +25,9 @@
       - name: Understanding Azure subscriptions
         items: 
         - name: Explainer - what is an Azure subscription?
-          href:
+          href: adoption-intro/subscription-explainer.md
         - name: Guidance - Azure subscription design guide
-          href:
+          href: adoption-intro/subscription.md
       - name: Understanding resource management in Azure
         items:
         - name: Explainer - what is Azure resource manager?
@@ -39,7 +39,7 @@
         - name: How to - create a resource group with the portal
           href: azure/azure-resource-manager/resource-group-portal
         - name: Guidance - resource manager design guide
-          href: /adoption-intro/resource-manager
+          href: adoption-intro/resource-manager
         - name: Guidance - tracking resource usage and cost
           href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Deploying basic architectures to Azure
