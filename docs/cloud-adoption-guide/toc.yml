@@ -25,9 +25,9 @@
       - name: Understanding Azure subscriptions
         items: 
         - name: Explainer - what is an Azure subscription?
-          href:
+          href: adoption-intro/subscription-explainer.md
         - name: Guidance - Azure subscription design guide
-          href:
+          href: adoption-intro/subscription.md
       - name: Understanding resource management in Azure
         items:
         - name: Explainer - what is Azure resource manager?
