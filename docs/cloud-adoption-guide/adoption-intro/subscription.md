@@ -8,7 +8,7 @@ author: alexbuckgit
 
 ## Overview
 
-An Azure subscription is an agreement with Microsoft that provides access to Microsoft's Platform-as-a-Service (PaaS) and Infrastructure-as-a-Service (IaaS) capabilities. Subscriptions grant users access to available Azure services and to the Azure management portal. Subscriptions are the first thing a user establishes when starting to use Azure. 
+An Azure subscription is an agreement with Microsoft that provides access to Microsoft's Platform-as-a-Service (PaaS) and Infrastructure-as-a-Service (IaaS) capabilities. Subscriptions grant users access to available Azure services and to the [Azure management portal][azure-portal]. Subscriptions are the first thing a user establishes when adopting Azure. 
 
 Subscriptions provide a logical boundary of scale, administration, and billing for users who are consuming Azure services. Subscriptions help you organize access to cloud service resources, and also help you control how resource usage is reported, billed, and paid for. A subscription is a top-level billing unit, and each subscription can have a different billing and payment setup, so you can have different subscription offers as needed by department, project, regional office, and so on. Every Azure resource belongs to an Azure subscription.
 
@@ -18,17 +18,17 @@ Initially, Azure provided the Azure Service Model (ASM) for management of cloud 
 
 In 2014, Azure introduced the Azure Resource Management (ARM) model. ARM provides [Role-Based Access Control (RBAC)][docs-rbac], which enables fine-grained control for assigning administrative privileges to Azure resources. In this model, the subscription is no longer required to serve as the primary security boundary. As a result, the proliferation of subscriptions that was common in the Classic model is no longer necessary. In general, security considerations should be [managed through RBAC and policy][docs-manage-access], and billing considerations should be managed via resource groups and tagging.
 
-> NOTE: Because of its more robust security and billing capabilities, the ARM model should be used for all new Azure deployments. This guidance focuses solely on deploying and managing Azure resources via the ARM model.
+[!NOTE] Because of its more robust security and billing capabilities, the ARM model should be used for all new Azure deployments. This guidance focuses solely on deploying and managing Azure resources via the ARM model.
 
 ## Scale and subscription limits
 
-A subscription is a logical limit of scale by which resources can be allocated. These limits include quotas of various Azure resource types. Organizations often have multiple multiple Azure subscriptions in order to avoid these limits. For more information, see [Azure subscription limits][docs-subscription-limits].
+A subscription is a logical limit of scale by which resources can be allocated. These limits include quotas of various Azure resource types. Organizations often have multiple Azure subscriptions in order to avoid these limits. For more information, see [Azure subscription limits][docs-subscription-limits].
 
 ## Ownership and administration
 
-Each Azure subscription belongs to an account. The owner of this account is known as the Account Adminstrator (AA). The AA is authorized to access the Account Center and perform various management tasks, such as creating new subscriptions, canceling subscriptions, changing the billing for a subscription, [transfering a subscription](/azure/billing/billing-subscription-transfer) to another account, and [reassigning the Service Administrator](/azure/billing/billing-add-change-azure-subscription-administrator). Conceptually, the AA is the billing owner of the subscription. In RBAC, the AA isn't assigned a role.
+Each Azure subscription is assigned to an account. The owner of this account is known as the Account Adminstrator (AA). The AA is authorized to access the [Azure Account Center][azure-accounts-center] and perform various management tasks, such as creating new subscriptions, canceling subscriptions, changing the billing for a subscription, [transfering a subscription](/azure/billing/billing-subscription-transfer) to another account, and [reassigning the Service Administrator]. Conceptually, the AA is the billing owner of the subscription. In RBAC, the AA isn't assigned a role.
 
-Each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the Azure portal. The default Service Administrator of a new subscription is the Account Administrator, but the AA can change the SA in the [Azure Accounts Center](https://account.azure.com/).
+Each subscription has a Service Administrator (SA) who can add, remove, and modify Azure resources in that subscription by using the Azure portal. The default Service Administrator of a new subscription is the Account Administrator, but the AA can [reassign the SA](/azure/billing/billing-add-change-azure-subscription-administrator) in the Account Center.
 
 Each Azure subscription is associated with exactly one Azure Active Directory (AAD) [tenant](/azure/active-directory/develop/active-directory-howto-tenant). Users, groups, and applications from that directory are assigned to RBAC roles that have permissions to manage resources in the Azure subscription. The scope of a role assignment can be a subscription, a resource group, or a single resource. A role assigned at a parent scope also grants access to the children contained within it. For more information, see [Understanding resource access in Azure][docs-understanding-resource-access].
 
@@ -64,13 +64,18 @@ As stated previously, each Azure subscription is associated with a single Azure 
 4. Begin creating subscriptions required for your workloads in alignment with your chosen subscription design pattern. Within this pattern, you will still need to decide when to create additional subscriptions to support your needs. Review the [guidance for multiple subscriptions](./subscription-multiple.md). For each subscription, change the Service Administrator role to a different user account if the person responsible for managing access to Azure resources in that subscription is different from the person responsible as the billing owner of the subscription. 
 
 <!-- links -->
-[onboarding-guide]: https://eaportalonboardingvideos.blob.core.windows.net/onboardingvideos/AzureDirectEACustomerOnboardingGuide_En.pdf
-[enable-dev-test]: https://channel9.msdn.com/blogs/EA.Azure.com/Enabling-and-Creating-EA-DevTest-Subscriptions-through-the-EA-Portal
-[azure-change-subscription-offer]: /azure/billing/billing-how-to-switch-azure-offer
-[azure-licensing]: https://azure.microsoft.com/en-us/pricing/enterprise-agreement/
+[azure-get-started]: https://azure.microsoft.com/en-us/get-started/
+[azure-offers]: https://azure.microsoft.com/en-us/support/legal/offer-details/
+[azure-portal]: https://portal.azure.com
+[azure-accounts-center]: https://account.azure.com/
+
 [docs-manage-access]: /azure/active-directory/manage-access-to-azure-resources
 [docs-rbac]: /azure/active-directory/role-based-access-control-what-is
 [docs-subscription-limits]: /azure/azure-subscription-service-limits
 [docs-subscriptions-licenses-accounts-tenants]: https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings
 [docs-understanding-resource-access]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-understanding-resource-access
 
+[onboarding-guide]: https://eaportalonboardingvideos.blob.core.windows.net/onboardingvideos/AzureDirectEACustomerOnboardingGuide_En.pdf
+[enable-dev-test]: https://channel9.msdn.com/blogs/EA.Azure.com/Enabling-and-Creating-EA-DevTest-Subscriptions-through-the-EA-Portal
+[azure-change-subscription-offer]: /azure/billing/billing-how-to-switch-azure-offer
+[azure-licensing]: https://azure.microsoft.com/en-us/pricing/enterprise-agreement/
