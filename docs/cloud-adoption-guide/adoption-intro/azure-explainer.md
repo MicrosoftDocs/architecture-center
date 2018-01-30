@@ -3,9 +3,6 @@ title: Explainer - How does Azure work?
 description: Explanation of the internal functioning of Azure
 author: petertay
 ---
-<!-->
-prerequisites: none
-<-->
 
 # Explainer: How does Azure work?
 
@@ -27,4 +24,4 @@ So the cloud really is just a very large collection of servers and networking ha
 
 # Next steps
 
-In the explainer above, you learned that the front end validates a user and authorizes they are allowed to perform the operation they have requested. Learn more about how validation and authorization work in the cloud by reading about enterprise digital identity in Azure.
+* Now that you have an understanding of the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](aad-tenant-explainer.md). Understanding digital identity will assist you in your first adoption task of [adding new users to Azure Active Directory (AAD)](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json).

@@ -21,4 +21,5 @@ Each of these different teams requires different approaches to adopting the clou
 
 ## Next Steps
 
-If you are new to Azure, begin with the [foundational Azure adopter]() section to learn what your organization needs to know to successfully onboard and deploy your first resources to Azure.
+* Learn [how to use this guide](how-to-use-guide.md).
+* If you are new to Azure, start with the [foundational Azure adoption](adoption-intro/overview.md) section of this guide.

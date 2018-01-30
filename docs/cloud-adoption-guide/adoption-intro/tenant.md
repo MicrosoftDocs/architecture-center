@@ -16,6 +16,10 @@ An Azure AD tenant provides a security boundary for identity services and namesp
 
 - **Existing subscriptions**. When you create a new Azure subscription using a Microsoft account instead of an account from your own organization, Azure creates a tenant for you under the onmicrosoft.com namspace. IN a bottom-up and opportunistic scenario, yuou encounter different people in the organization creating their own subscroptions, which leads to multiple tenants. You want to avoid scenarios like this, but it is almost impossible to do so. THerefore, you can [transfer a subscriptiont][transfer] to a different tenant at ay point in time.
 
+# Next Steps
+
+* You now understand digital identity in Azure, and you have added a new user to your Azure AD tenant. The next step in the adoption process is to create a subscription.
+
 [azure-ad]: azure/active-directory/active-directory-administer
 [add-azure-ad]: /azure/active-directory/develop/active-directory-howto-tenant
 [subscription]: ./subscription.md
