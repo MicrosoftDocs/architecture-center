@@ -17,17 +17,17 @@ As discussed in the previous article, [migrating an Azure Cloud Services applica
 ![](./images/surveys_01.png)
 
 The **Tailspin.Web** web role hosts an ASP.NET MVC site that Tailspin customers use to:
-* sign up for the Surveys application
-* create or delete a survey
-* view results for a survey
-* request that survey results be exported to SQL
-* view survey results and analysis
+* sign up for the Surveys application,
+* create or delete a survey,
+* view results for a survey,
+* request that survey results be exported to SQL, and
+* view survey results and analysis.
 
 The **Tailspin.Web.Survey.Public** web role also hosts an ASP.NET MVC site that the public visits to fill out the surveys. Their responses are put in a queue to be saved.
 
 The **Tailspin.Workers.Survey** worker role performs background processing by picking up requests from multiple queues.
 
-Last year, the patterns & practices team created a new project to port this application to Azure Service Fabric. The goal of this project was to make only the necessary code changes to get the application running in an Azure Service Fabric cluster. As a result, the original web and worker roles were not decomposed into a more granular architecture and the resulting architecture is very similar to the Cloud Service version of the application:
+Last year, the patterns & practices team created a new project to port this application to Azure Service Fabric. The goal of this project was to make only the necessary code changes to get the application running in an Azure Service Fabric cluster. As a result, the original web and worker roles were not decomposed into a more granular architecture. The resulting architecture is very similar to the Cloud Service version of the application:
 
 ![](./images/surveys_02.png)
 
@@ -40,7 +40,7 @@ The **Tailspin.AnswerAnalysisService** service is ported from the original *Tail
 > [!NOTE] 
 > While minimal code changes were made to each of the web and worker roles, **Tailspin.Web** and **Tailspin.Web.Survey.Public** were modified to self-host a Kestrel web server. 
 
-Now, Tailspin is refactoring the Surveys application to a more granular architecture. Tailspin's motivation for refactoring the Surveys application is to make it easier to develop, build, and deploy the Surveys application. By decomposing the existing web and worker roles to a more granular architecture, Tailspin wants to remove the existing tightly coupled communication and data dependencies between these roles.
+Now, Tailspin is refactoring the Surveys application to a more granular architecture. Tailspin's motivation for refactoring is to make it easier to develop, build, and deploy the Surveys application. By decomposing the existing web and worker roles to a more granular architecture, Tailspin wants to remove the existing tightly coupled communication and data dependencies between these roles.
 
 Tailspin sees other benefits in moving the Surveys application to a more granular architecture:
 * Each service can be packaged into independent projects with a scope small enough to be managed by a small team.
@@ -88,7 +88,7 @@ Each service in the Surveys application communicates using a RESTful web API. RE
 * Security: While each service does not require SSL, Tailspin could require each service to do so. 
 * Versioning: clients can be written and tested against a specific version of a web API.
 
-Services in the Survey application make use of the reverse proxy implemented by Service Fabric. Reverse proxy is a service that runs on each node in the Service Fabric cluster and provides endpoint resolution, automatic retry, and handles other types of connection failures. To use the reverse proxy, each REST Api call to a specific service is made using a predefined reverse proxy port.  For example, if the reverse proxy port has been set to **19081**, a call to the *Tailspin.SurveyAnswerService* can be made as follows:
+Services in the Survey application make use of the [reverse proxy][reverse-proxy] implemented by Service Fabric. Reverse proxy is a service that runs on each node in the Service Fabric cluster and provides endpoint resolution, automatic retry, and handles other types of connection failures. To use the reverse proxy, each RESTful API call to a specific service is made using a predefined reverse proxy port.  For example, if the reverse proxy port has been set to **19081**, a call to the *Tailspin.SurveyAnswerService* can be made as follows:
 
 ```csharp
 static SurveyAnswerService()
@@ -122,18 +122,18 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 ```
 
 > [!NOTE]
-> Note that these lines may be conditionally excluded when Visual Studio is set to “release” when publishing.
+> These lines may be conditionally excluded when Visual Studio is set to “release” when publishing.
 
-When Tailspin deploys the Tailspin application to production, they switch Visual Studio to **Release** mode.
+Finally, when Tailspin deploys the Tailspin application to production, they switch Visual Studio to **release** mode.
 
 ## Deployment considerations
 
-The refactored Surveys application is composed of five stateless services and one stateful service, so cluster planning is limited to determining the correct VM size and number of nodes. In the applicationmanifest.xml file that describes the cluster, Tailspin sets the *InstanceCount* attribute of the *StatelessService* tag to -1 for each of the services. A value of -1 directs Service Fabric to create an instance of the service on each node in the cluster.
+The refactored Surveys application is composed of five stateless services and one stateful service, so cluster planning is limited to determining the correct VM size and number of nodes. In the *applicationmanifest.xml* file that describes the cluster, Tailspin sets the *InstanceCount* attribute of the *StatelessService* tag to -1 for each of the services. A value of -1 directs Service Fabric to create an instance of the service on each node in the cluster.
 
 > [!NOTE]
 > Stateful services require the additional step of planning the correct number of partitions and replicas for their data.
 
-Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster resource type deploys all of the infrastructure necessary, including VM scale sets and a load balancer. The recommended VM sizes are displayed in the Azure portal during the provisioning process for the Service Fabric cluster. Note that because the VMs are deployed in a VM scale set, they can be both scaled up and out as user load increases.
+Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster resource type deploys all of the necessary infrastructure, including VM scale sets and a load balancer. The recommended VM sizes are displayed in the Azure portal during the provisioning process for the Service Fabric cluster. Note that because the VMs are deployed in a VM scale set, they can be both scaled up and out as user load increases.
 
 > [!NOTE]
 > As discussed earlier, in the migrated version of the Surveys application the two web front ends were self-hosted using ASP.Net Core and Kestrel as a web server. While the migrated version of the Survey application does not use a reverse proxy, it is strongly recommended to use a reverse proxy such as IIS, Nginx, or Apache. In the refactored Surveys application, the two web front ends are self-hosted using ASP.Net Core with WebListener as a web server so a reverse proxy is not necessary.
