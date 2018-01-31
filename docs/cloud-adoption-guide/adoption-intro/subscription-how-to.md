@@ -15,7 +15,7 @@ You can establish your subscription by following the guide to [licensing Azure f
 
 ## Next steps
 
-* Now that you've created your [Azure subscription](subscription-explainer.md), review the [guidance for working with Azure subscriptions](subscription.md).
+* Now that you've created your [Azure subscription](subscription-explainer.md), review the [design guidance for Azure subscriptions](subscription.md).
 
 
 <!-- links -->
