@@ -17,7 +17,7 @@
       - name: Understanding digital identity in Azure
         items:
         - name: Explainer - what is an Azure Active Directory Tenant?
-          href: adoption-intro/aad-tenant-explainer.md
+          href: adoption-intro/tenant-explainer.md
         - name: How to - add a user to an Azure AD tenant
           href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: Guidance - Azure AD tenant design guide

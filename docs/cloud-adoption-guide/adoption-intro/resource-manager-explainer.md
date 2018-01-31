@@ -6,7 +6,7 @@ author: petertay
 
 # Explainer: what is Azure Resource Manager?
 
-In the [how does Azure work?](azure-explainer.md) explainer, you learned that the internal architecture of Azure includes a front end that hosts all of the distributed applications that manage internal Azure services.
+In the "[how does Azure work?](azure-explainer.md)" explainer, you learned that the internal architecture of Azure includes a front end that hosts all of the distributed applications that manage internal Azure services.
 
 The Azure front end includes a service called Azure Resource Manager. Azure Resource Manager is responsible for the lifecycle of resources hosted in Azure from creation to deletion. There are many ways to interact with Azure Resource Manager - using Powershell, the Azure command line interface, SDKs - but each of these is simply a wrapper on top of a RESTful API hosted by Azure Resource Manager.
 
@@ -16,6 +16,6 @@ The RESTful API requires an access token for the user, a **subscription ID**, an
 
 Once a valid RESTful API call has been received, Azure Resource Manager is responsible for locating capacity in the specified region and copying any necessary files to a staging location. The request is then sent to the fabric controller in the rack, and the fabric controller allocates the resources. The fabric controller responds to the request with a success or failure notification along with a **resource ID** for the newly created resource. The tenant ID, subscription ID, resource group ID, and resource ID are stored internally in Azure and uniquely identify a deployed resource.
 
-# Next steps
+## Next steps
 
 * Now that you understand the internal functioning of Azure Resource Manager, learn [about resource groups](resource-group-explainer.md) to assist you in creating your first resource group.

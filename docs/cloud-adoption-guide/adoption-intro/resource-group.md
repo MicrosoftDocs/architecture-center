@@ -22,6 +22,6 @@ In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-man
 - At this foundational stage, you are most likely managing a small number of proof-of-concept projects with a small number of resources. Because the lifecycle of the resources for proof-of-concept projects are managed together, you can create a single resource group for each of these projects. 
 - In the intermediate adoption stage, you will be managing multiple projects and different types of projects can benefit from other resource group designs. If you plan for any of your initial proof-of-concept projects to be promoted to production, as noted above you can move resources from one resource group to another as long as they are in the same subscription. Therefore, at this foundational stage, plan to deploy these resources to the same subscription to enable future resource group refactoring.
 
-# Next steps
+## Next steps
 
 * Now that you have learned the best practices for the foundational adoption stage, you are able to create resource groups and add resources to them. While at this foundational stage you will be managing a small number of resources, as that number increases the task of managing them becomes more complex. Learn about [Azure naming conventions and tagging](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json) to name and tag your resources in preparation for the intermediate adoption stage. 

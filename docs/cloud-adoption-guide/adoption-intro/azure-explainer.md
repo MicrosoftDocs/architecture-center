@@ -8,7 +8,7 @@ author: petertay
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
-Azure, as with all other cloud platforms, relies on a technology known as virtualization. The term virtualization refers to the fact that most computer hardware can be emulated in software. This is possible because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. With the aid of an emulation layer that knows how to map software instructions to hardware instructions, virtual hardware can execute in software just as though it were the actual hardware itself.
+Azure, like other cloud platforms, relies on a technology known as virtualization. The term virtualization refers to the fact that most computer hardware can be emulated in software. This is possible because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. With the aid of an emulation layer that knows how to map software instructions to hardware instructions, virtual hardware can execute in software just as though it were the actual hardware itself.
 
 Put simply, the cloud is a set of physical servers in a datacenter or multiple datacenters that are executing virtualized hardware on behalf of customers. So how does the cloud manage creating, starting, stopping, and deleting millions of pieces of virtualized hardware on behalf of millions of customers, all at the same time?
 
@@ -22,6 +22,6 @@ For example, the front end hosts the services that respond to customer requests 
 
 So the cloud really is just a very large collection of servers and networking hardware with a very large and complex set of distributed applications that orchestrate the configuration and operation of the virtualized hardware and software running within it.  
 
-# Next steps
+## Next steps
 
-* Now that you have an understanding of the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](aad-tenant-explainer.md). Understanding digital identity will assist you in your first adoption task of [adding new users to Azure Active Directory (AAD)](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json).
+* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). This will assist you in your first adoption task of [adding new users to Azure Active Directory (Azure AD)](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json).

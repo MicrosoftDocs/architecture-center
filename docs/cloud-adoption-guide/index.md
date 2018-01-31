@@ -19,7 +19,7 @@ Each of these different teams requires different approaches to adopting the clou
 5. **Optimizing migrated applications for the cloud**: for enterprises at the modernizing stage who want to efficiently use cloud resources. At the end of this stage, an enterprise is capable of evaluating Azure usage to identify unused or underutilized resources, scaling workloads, and scheduling workloads with instance reservation.
 6. **Innovating in the cloud**: for enterprises with intermediate to advanced experience in Azure who want to develop native cloud applications from scratch. At the end of this stage, an enterprise is capable of developing and deploying resilient, highly available workloads that use native cloud services, microservices, and other cutting edge Azure services. 
 
-## Next Steps
+# Next Steps
 
 * Learn [how to use this guide](how-to-use-guide.md).
 * If you are new to Azure, start with the [foundational Azure adoption](adoption-intro/overview.md) section of this guide.

@@ -13,12 +13,12 @@ The following list of documents is progressive. If you have already read or are 
 1. Understanding Azure internals:
     - **Explainer:** [how does Azure work?](azure-explainer.md)
 2. Understanding enterprise digital identity in Azure:
-    - **Explainer**: [what is an Azure Active Directory Tenant?](aad-tenant-explainer.md)
+    - **Explainer**: [what is an Azure Active Directory Tenant?](tenant-explainer.md)
     - **How to**: [add new users to Azure Active Directory](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - **Guidance**: [Azure AD tenant design guide](tenant.md)
 3. Understanding subscriptions:
-    - **Explainer**: [what is a subscription?]()
-    - **Guidance**: [Azure subscription design guide]()
+    - **Explainer**: [what is a subscription?](subscription-explainer.md)
+    - **Guidance**: [Azure subscription design guide](subscription.md)
 4. Understanding Resource Management in Azure: 
     - **Explainer**: [what is Azure Resource Manager?](resource-manager-explainer.md)
     - **Explainer**: [what is an Azure resource group?](resource-group-explainer.md)
