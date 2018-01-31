@@ -3,10 +3,9 @@
   
 - name: Azure Cloud Adoption Guide
   href: index.md
-- name: How to use the Azure Cloud Adoption Guide
-  href: how-to-use-guide.md
-
-  items:
+- items:
+  - name: How to use the Azure Cloud Adoption Guide
+    href: how-to-use-guide.md
   - name: Foundational Azure adoption
     href: adoption-intro/overview.md
     items:
