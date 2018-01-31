@@ -21,7 +21,7 @@ The **Tailspin.Web** web role hosts an ASP.NET MVC site that Tailspin customers 
 * create or delete a survey,
 * view results for a survey,
 * request that survey results be exported to SQL, and
-* view survey results and analysis.
+* view aggregated survey results and analysis.
 
 The **Tailspin.Web.Survey.Public** web role also hosts an ASP.NET MVC site that the public visits to fill out the surveys. Their responses are put in a queue to be saved.
 
