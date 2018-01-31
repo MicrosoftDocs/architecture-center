@@ -10,7 +10,7 @@ Now that you understand [digital identity](tenant-explainer.md) and [subscriptio
 
 You can establish your subscription by following the guide to [licensing Azure for the enterprise][azure-enterprise-licensing].
 
-> [!NOTE:]
+> [!NOTE]
 > The Azure Cloud Adoption Guide is designed for enterprises that are adopting Azure for their organization. While much of this guidance is specific to large enterprises, individuals and smaller organizations will find much of this guidance helpful for their Azure adoption as well. If this is your situation, you can create your own Azure subscription via a [free trial][azure-free-trial] or [other available Azure offers][azure-offers].
 
 ## Next steps
