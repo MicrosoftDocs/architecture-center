@@ -6,7 +6,7 @@ author: alexbuckgit
 
 # Azure subscription design guidance
 
-An [Azure subscription](subscription.md) provides access to available Azure services. Starting with a single subscription, you can begin to deploy your first workloads to Azure. You'll want to be aware of other aspects of Azure subscriptions as your organization's cloud adoption grows. 
+An Azure subscription provides access to available Azure services. Starting with a single subscription, you can begin to deploy your first workloads to Azure. You'll want to be aware of other aspects of Azure subscriptions as your organization's cloud adoption grows. 
 
 ## Administration and access control
 
