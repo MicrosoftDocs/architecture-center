@@ -40,8 +40,8 @@
           href: /azure/active-directory/active-directory-understanding-resource-access?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: How to - create a resource group with the portal
           href: /azure/azure-resource-manager/resource-group-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: Guidance - resource manager design guidance
-          href: /adoption-intro/resource-manager.md
+        - name: Guidance - resource group design guidance
+          href: /adoption-intro/resource-group.md
         - name: Guidance - tracking resource usage and cost
           href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Deploying basic architectures to Azure
