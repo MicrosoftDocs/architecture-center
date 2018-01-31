@@ -14,7 +14,7 @@ An Azure AD tenant provides a security boundary for identity services and namesp
 
 - **Active Directory integration**. Azure AD uses a flat directory model. You can only have one domain, without a parent or child. And you can only synchronize accounts from a single Active Directory domain to an Azure AD tenant. If you have a multi-domain or multi-forest AD environment, you should consider whether you need to synchronize all domains. If so, you need to create different Azure AD tenants. TODO: validate this
 
-- **Existing subscriptions**. When you create a new Azure subscription using a Microsoft account instead of an account from your own organization, Azure creates a tenant for you in the onmicrosoft.com namespace. In a bottom-up and opportunistic scenario, you encounter different people in the organization creating their own subscriptions, which leads to multiple tenants. You want to avoid scenarios like this, but it is almost impossible to do so. However, you can [transfer a subscription][transfer] to a different tenant at any time.
+- **Existing subscriptions**. The early stages of an organization's Azure adoption often leads different individuals to create different subscriptions, each using a Microsoft account instead of an organizational account. When using a Microsoft account to create a subscription, Azure creates a new tenant for you in the onmicrosoft.com namespace. To consolidate these subscriptions as your Azure adoption matures, you can [transfer a subscription][transfer] to a different tenant.
 
 ## Next Steps
 

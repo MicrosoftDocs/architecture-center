@@ -6,7 +6,7 @@ author: petertay
 
 # Azure resource group design guide
 
-In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources are grouped. Each resource deployed in Azure must be deployed into a resource group. Each resource can only be deployed into a single resource group.
+In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources are grouped. Each resource deployed in Azure must be deployed into a single resource group.
 
 ## Design considerations
 
