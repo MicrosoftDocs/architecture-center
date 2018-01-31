@@ -18,7 +18,7 @@ The following list of documents is progressive. If you have already read or are 
     - **Guidance:** [Azure AD tenant design guidance](tenant.md)
 3. Understanding subscriptions in Azure:
     - **Explainer:** [what is a subscription?](subscription-explainer.md)
-    - **How to:** [create an Azure subscription](subscription-howto.md)
+    - **How to:** [create an Azure subscription](subscription-how-to.md)
     - **Guidance:** [Azure subscription design guidance](subscription.md)
 4. Understanding resource management in Azure: 
     - **Explainer:** [what is Azure Resource Manager?](resource-manager-explainer.md)
