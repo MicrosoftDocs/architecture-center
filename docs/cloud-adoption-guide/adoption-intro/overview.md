@@ -1,5 +1,5 @@
 ---
-title: Organizational Maturity - Adopt
+title: Adopting Azure - Foundational 
 description: Describes the baseline level of knowledge that an enterprise requires to adopt Azure
 author: petertay
 ---

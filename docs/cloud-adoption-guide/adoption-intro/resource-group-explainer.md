@@ -1,10 +1,10 @@
 ---
-title: Explainer - what is Azure resource group?
+title: Explainer - what is an Azure resource group?
 description: Explains the internal Azure function of a resource group
 author: petertay
 ---
 
-# What is a resource group?
+# What is an Azure resource group?
 
 In the "[what is Azure Resource Manager?](resource-manager-explainer.md)" explainer, you learned that Azure Resource Manager requires a **resource group identifier** when a call is made to create, read, update, or delete a resource. The resource group ID refers to a **resource group**. A resource group is simply an identifier that Azure Resource Manager applies to resources to group them together. This allows Azure Resource Manager to apply operations to a group of resources that share a common resource group ID.
 

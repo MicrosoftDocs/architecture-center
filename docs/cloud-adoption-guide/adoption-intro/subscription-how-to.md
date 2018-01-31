@@ -1,6 +1,6 @@
 ---
-title: How to - Create an Azure subscription
-description: Explanation of Azure subscriptions
+title: How to create an Azure subscription
+description: How to create an enterprise Azure subscription
 author: abuck
 ---
 
