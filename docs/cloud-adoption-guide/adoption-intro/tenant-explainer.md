@@ -22,4 +22,8 @@ Most enterprises already have at least one identity management service, typicall
 
 ## Next steps
 
-* Now that you have learned about Azure Active Directory tenants, the first step in the foundational adoption stage is to [create your first user in Azure AD](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json).
+* Now that you have learned about Azure AD tenants, the first step in the foundational adoption stage is to [create your first user in Azure AD][docs-add-users-to-aad]. Then review the [design guidance for Azure AD tenants](tenant.md).
+
+<!-- Links -->
+
+[docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json

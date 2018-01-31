@@ -1,6 +1,6 @@
 ---
 title: Explainer - what is Azure Resource Manager?
-description: Explanation of the internal functioning of Azure Resource Manager
+description: Explains the internal functioning of Azure Resource Manager
 author: petertay
 ---
 

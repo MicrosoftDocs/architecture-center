@@ -1,10 +1,10 @@
 ---
-title: Azure subscription design guide
-description: Guidance for Azure subscription design as part of a cloud adoption strategy
+title: Azure subscription design guidance
+description: Guidance for Azure subscription design as part of a foundational cloud adoption strategy
 author: alexbuckgit
 ---
 
-# Azure subscription design guide
+# Azure subscription design guidance
 
 An [Azure subscription](subscription.md) provides access to available Azure services. Starting with a single subscription, you can begin to deploy your first workloads to Azure. You'll want to be aware of other aspects of Azure subscriptions as your organization's cloud adoption grows. 
 
@@ -36,6 +36,9 @@ Subscriptions determine how resource usage is reported and billed. Each subscrip
 As an organization accelerates its Azure adoption, it will often create multiple subscriptions for a variety of reasons. While each additional Azure subscription does not incur a direct cost, it can increase the complexity of managing your Azure resources. Azure provides a number of capabilities to help larger enterprises and organizations manage deployments across multiple Azure subscriptions. This will become important in the intermediate adoption stage.
 
 ## Next steps
+
+* You now understand Azure subscriptions, and you have created your Azure subscription. Your next step is learning about [resource management in Azure](resource-manager-explainer.md).
+
 
 <!-- links -->
 [azure-account-center]: https://account.azure.com/

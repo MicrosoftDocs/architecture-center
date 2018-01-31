@@ -1,6 +1,6 @@
 ---
 title: Explainer - How does Azure work?
-description: Explanation of the internal functioning of Azure
+description: Explains the internal functioning of Azure
 author: petertay
 ---
 
@@ -24,4 +24,8 @@ So the cloud really is just a very large collection of servers and networking ha
 
 ## Next steps
 
-* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). This will assist you in your first adoption task of [adding new users to Azure Active Directory (Azure AD)](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json).
+* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). This will assist you with your first adoption task: [creating your first user in Azure AD][docs-add-users-to-aad].
+
+<!-- Links -->
+
+[docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json

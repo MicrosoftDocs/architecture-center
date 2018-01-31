@@ -1,10 +1,10 @@
 ---
-title: Azure resource group design guide
+title: Azure resource group design guidance
 description: Guidance for Azure resource group design as part of a foundational cloud adoption strategy
 author: petertay
 ---
 
-# Azure resource group design guide
+# Azure resource group design guidance
 
 In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container in which resources are grouped. Each resource deployed in Azure must be deployed into a single resource group.
 
@@ -24,4 +24,4 @@ In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-man
 
 ## Next steps
 
-* Now that you have learned the best practices for the foundational adoption stage, you are able to create resource groups and add resources to them. While at this foundational stage you will be managing a small number of resources, as that number increases the task of managing them becomes more complex. Learn about [Azure naming conventions and tagging](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json) to name and tag your resources in preparation for the intermediate adoption stage. 
+* Now that you have learned the best practices for the foundational adoption stage, you are able to create resource groups and add resources to them. While at this foundational stage you will be managing a small number of resources, managing them becomes more complex as you add more resources. Learn about [Azure naming conventions and tagging](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json) to name and tag your resources in preparation for the intermediate adoption stage.
