@@ -21,7 +21,7 @@
           href: adoption-intro/tenant-explainer.md
         - name: How to - add a user to an Azure AD tenant
           href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: Guidance - Azure AD tenant design guidance
+        - name: Guidance - Azure AD tenant design 
           href: adoption-intro/tenant.md
       - name: Understanding Azure subscriptions
         items: 
@@ -29,7 +29,7 @@
           href: adoption-intro/subscription-explainer.md
         - name: How to - create an Azure subscription
           href: adoption-intro/subscription-how-to.md
-        - name: Guidance - Azure subscription design guidance
+        - name: Guidance - Azure subscription design
           href: adoption-intro/subscription.md
       - name: Understanding resource management in Azure
         items:
@@ -41,8 +41,8 @@
           href: /azure/active-directory/active-directory-understanding-resource-access?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: How to - create a resource group with the portal
           href: /azure/azure-resource-manager/resource-group-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: Guidance - resource group design guidance
-          href: /adoption-intro/resource-group.md
+        - name: Guidance - resource group design 
+          href: adoption-intro/resource-group.md
         - name: Guidance - tracking resource usage and cost
           href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Deploying basic architectures to Azure
