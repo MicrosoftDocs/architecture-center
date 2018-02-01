@@ -6,7 +6,7 @@ author: petertay
 
 # Adopting Azure: Foundational
 
-Adopting Azure is the first stage of organizational maturity for an enterprise. By the end of the this stage, people in your organization will be able to deploy simple workloads to Azure.
+Adopting Azure is the first stage of organizational maturity for an enterprise. By the end of this stage, people in your organization can deploy simple workloads to Azure.
 
 The following list of documents is progressive. If you have already read or are familiar with the subject matter in a document, move on to the next in the list. 
 
@@ -30,12 +30,12 @@ The following list of documents is progressive. If you have already read or are 
 5. Basic Azure architecture:
     - PaaS: Introduction to Platform as a Service:
         - **How to:** [deploy a basic web application to Azure](/azure/app-service)
-        - **Guidance:** best practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure
+        - **Guidance:** proven practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure
     - IaaS: Introduction to Virtual Networking
         - **Explainer:** [Azure virtual network](/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **How to:** [deploy a Virtual Network to Azure using the portal](/azure/virtual-network/virtual-networks-create-vnet-arm-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - IasS: Deploy a single virtual machine(VM) workload (Windows and Linux):
         - **How to:** [deploy a Windows VM to Azure with the portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
-        - **Guidance:** [best practices for running a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+        - **Guidance:** [proven practices for running a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **How to:** [deploy a Linux VM to Azure with the portal](/azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
-        - **Guidance:** [best practices for running a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+        - **Guidance:** [proven practices for running a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
