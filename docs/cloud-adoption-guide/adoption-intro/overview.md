@@ -17,16 +17,16 @@ The following list of documents is progressive. If you have already read or are 
     - **How to:** [add new users to Azure Active Directory](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - **Guidance:** [Azure AD tenant design guidance](tenant.md)
 3. Understanding subscriptions in Azure:
-    - **Explainer:** [what is a subscription?](subscription-explainer.md)
+    - **Explainer:** [what is an Azure subscription?](subscription-explainer.md)
     - **How to:** [create an Azure subscription](subscription-how-to.md)
     - **Guidance:** [Azure subscription design guidance](subscription.md)
 4. Understanding resource management in Azure: 
     - **Explainer:** [what is Azure Resource Manager?](resource-manager-explainer.md)
     - **Explainer:** [what is an Azure resource group?](resource-group-explainer.md)
     - **Explainer:** [understanding resource access in Azure](/azure/active-directory/active-directory-understanding-resource-access?toc=/azure/architecture/cloud-adoption-guide/toc.json)
-    - **How to:** [create an Azure resource group with the portal](/azure/azure-resource-manager/resource-group-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
-    - **Guidance:** [resource group design guidance](resource-group.md)
-    - **Guidance:** [resource naming conventions](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+    - **How to:** [create an Azure resource group using the Azure portal](/azure/azure-resource-manager/resource-group-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+    - **Guidance:** [Azure resource group design guidance](resource-group.md)
+    - **Guidance:** [naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json)
 5. Basic Azure architecture:
     - PaaS: Introduction to Platform as a Service:
         - **How to:** [deploy a basic web application to Azure](/azure/app-service)
