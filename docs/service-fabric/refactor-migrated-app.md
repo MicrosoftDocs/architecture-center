@@ -14,7 +14,7 @@ This article describes refactoring an existing Azure Service Fabric application 
 
 As discussed in the previous article, [migrating an Azure Cloud Services application to Azure Service Fabric][migrate-from-cloud-services], the patterns & practices team authored a book in 2012 that documented the process for designing and implementing a Cloud Services application in Azure. The book describes a fictitious company named Tailspin that wants to create a Cloud Services application named **Surveys**. The Surveys application allows users to create and publish surveys that can be answered by the public. The following diagram shows the architecture of this version of the Surveys application:
 
-![](./images/surveys_01.png)
+![](./images/tailspin01.png)
 
 The **Tailspin.Web** web role hosts an ASP.NET MVC site that Tailspin customers use to:
 * sign up for the Surveys application,
@@ -29,7 +29,7 @@ The **Tailspin.Workers.Survey** worker role performs background processing by pi
 
 The patterns & practices team then created a new project to port this application to Azure Service Fabric. The goal of this project was to make only the necessary code changes to get the application running in an Azure Service Fabric cluster. As a result, the original web and worker roles were not decomposed into a more granular architecture. The resulting architecture is very similar to the Cloud Service version of the application:
 
-![](./images/surveys_02.png)
+![](./images/tailspin02.png)
 
 The **Tailspin.Web** service is ported from the original *Tailspin.Web* web role.
 
