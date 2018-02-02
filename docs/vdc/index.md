@@ -45,4 +45,11 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
 
 Deploying workloads to the cloud introduces the need to develop and maintain trust in the cloud to the same degree you trust your existing datacenters. The first model of Azure Virtual Datacenter guidance is designed to bridge that need through a locked-down approach to virtual infrastructures. This approach isn’t for everyone. It’s specifically designed to guide enterprise IT groups in extending their on-premises infrastructure to the Azure public cloud. We call this approach the trusted datacenter extension model. Over time, several other models will be offered, including those that allow secure Internet access directly from a virtual datacenter.
 
-Continue reading the <a href="http://aka.ms/VDC">Azure Virtual Datacenter eBook</a>.
+<img src="./images/vdc-components.png">
+
+These four components make the Azure Virtual Datacenter possible: identity, encryption, software-defined networking, and compliance.
+
+In the Azure Virtual Datacenter model, you can apply isolation policies, make the cloud more like the physical datacenters you know, and achieve the levels of security and trust you need. Four components any enterprise IT team would recognize make it possible: software-defined networking, encryption, identity management, and the Azure platform's underlying compliance standards and certifications. These four are key to making a virtual datacenter a trusted extension of your existing infrastructure investment.
+
+
+Continue reading the <a href="http://aka.ms/VDC/eBook">Azure Virtual Datacenter eBook</a>.
