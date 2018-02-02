@@ -29,7 +29,7 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
     <td style="width: 64px; vertical-align: middle;"><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Lift and Shift Guide" /></a></td>
     <td>
         <h3><a href="./category/design-implementation.md">Azure Virtual Datacenter: Lift and Shift Guide </a></h3>
-        <p>This paper discusses the process enterprise IT staff and decision makers can use to identify and plan the migration of applications and servers to Azure using the lift and shift method, minimizing any additional development costs while optimizing cloud hosting options.</p>
+        <p>This paper discusses the process that enterprise IT staff and decision makers can use to identify and plan the migration of applications and servers to Azure using the lift and shift method, minimizing any additional development costs while optimizing cloud hosting options.</p>
     </td>
 </tr>
 <tr>
