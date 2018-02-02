@@ -19,23 +19,23 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="/azure/networking/networking-virtual-datacenter"><img src="_images/category/data-management.svg" alt="Networking Perspective" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="/azure/networking/networking-virtual-datacenter"><img src="./images/vdc-network.png" alt="Network Perspective" /></a></td>
     <td>
         <h3><a href="https://docs.microsoft.com/en-us/azure/networking/networking-virtual-datacenter">Azure Virtual Datacenter: A Network Perspective</a></h3>
         <p>This online article provides an overview of networking patterns and designs that can be used to solve the architectural scale, performance, and security concerns that many customers face when thinking about moving en masse to the cloud.</p>
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Lift and Shift Guide" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="http://aka.ms/VDC/Lift"><img src="./images/vdc-lift-and-shift.png" alt="Lift and Shift Guide" /></a></td>
     <td>
-        <h3><a href="./category/design-implementation.md">Azure Virtual Datacenter: Lift and Shift Guide </a></h3>
+        <h3><a href="http://aka.ms/VDC/Lift">Azure Virtual Datacenter: Lift and Shift Guide </a></h3>
         <p>This whitepaper discusses the process that enterprise IT staff and decision makers can use to identify and plan the migration of applications and servers to Azure using the lift and shift method, minimizing any additional development costs while optimizing cloud hosting options.</p>
     </td>
 </tr>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Presentation Deck" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="http://aka.ms/vdc-deck"><img src="./images/vdc-deck.png" alt="Presentation Deck" /></a></td>
     <td>
-        <h3><a href="./category/design-implementation.md">Azure Virtual Datacenter: Presentation Deck </a></h3>
+        <h3><a href="http://aka.ms/vdc-deck">Azure Virtual Datacenter: Presentation Deck </a></h3>
         <p>This presentation deck explores the Azure Virtual Datacenter guidance and tools. It covers the VDC goals, customer drivers, Azure Regions, the elements of a VDC automation, industrialized and trusted Azure VDCs, and it ends with an action plan around CIO guidance. Support and training information is also provided.</p>
     </td>
 </tr>
