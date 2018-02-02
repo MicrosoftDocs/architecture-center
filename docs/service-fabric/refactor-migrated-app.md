@@ -45,10 +45,8 @@ Now, Tailspin is refactoring the Surveys application to a more granular architec
 Tailspin sees other benefits in moving the Surveys application to a more granular architecture:
 * Each service can be packaged into independent projects with a scope small enough to be managed by a small team.
 * Each service can be independently versioned and deployed.
-* Each service can be implemented using the best technology for that service.
+* Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
 * Each service can be independently scaled to respond to increases and decreases in load.
-
-For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
 
 > [!NOTE] 
 > Multitenancy is out of scope for the refactoring of this application. Tailspin has several options to support multitenancy and can make these design decisions later without affecting the initial design. For example, Tailspin can create separate instances of the services for each tenant within a cluster or create a separate cluster for each tenant.
@@ -63,11 +61,11 @@ The following diagram shows the architecture of the Surveys application refactor
 
 **Tailspin.Web.Surveys.Public** is a stateless service also self-hosting an ASP.NET MVC site. Users visit this site to select surveys from a list and then fill them out. This service shares most of its code with the *Tailspin.Web.Survey.Public* service from the ported Service Fabric application. This service also uses ASP.NET Core and also switches from using Kestrel as web frontend to implementing a WebListener.
 
-**Tailspin.SurveyResponseService** is a stateful service that stores survey answers in Azure Blob Storage. It also merges answers into the survey analysis data. The service is implemented as a stateful service because it uses a reliable queue to process survey answers in batches. This functionality was originally implemented in the *Tailspin.Web.Survey.Public* service in the ported Service Fabric application. Tailspin refactored the original functionality into this service to allow it to scale independently.
+**Tailspin.SurveyResponseService** is a stateful service that stores survey answers in Azure Blob Storage. It also merges answers into the survey analysis data. The service is implemented as a stateful service because it uses a [ReliableConcurrentQueue][reliable-concurrent-queue] to process survey answers in batches. This functionality was originally implemented in the *Tailspin.Web.Survey.Public* service in the ported Service Fabric application. Tailspin refactored the original functionality into this service to allow it to scale independently.
 
 **Tailspin.SurveyManagementService** is a stateless service that stores and retrieves surveys and survey questions. The service uses Azure Blob storage. This functionality was also originally implemented in the *Tailspin.AnswerAnalysisService* service in the ported Service Fabric application. Tailspin refactored the original functionality into this service to also allow it to scale independently.
 
-**Tailspin.SurveyAnswerService** is a stateless service that retrieves survey answers and survey analysis. The service also uses Azure Blob storage. This functionality was also originally implemented in the *Tailspin.AnswerAnalysisService* service in the ported Service Fabric application. Tailspin refactored the original functionality into this service because it expects less load and wants to run this service in the few instances possible.
+**Tailspin.SurveyAnswerService** is a stateless service that retrieves survey answers and survey analysis. The service also uses Azure Blob storage. This functionality was also originally implemented in the *Tailspin.AnswerAnalysisService* service in the ported Service Fabric application. Tailspin refactored the original functionality into this service because it expects less load and wants to use fewer instances to conserve resources.
 
 **Tailspin.SurveyAnalysisService** is a stateless service that persists survey answer summary data in a Redis cache for quick retrieval. This service is called by the *Tailspin.SurveyResponseService* each time a survey is answered and the new survey answer data is merged in the summary data. This service includes the functionality remaining in the *Tailspin.SurveyAnalysisService* service from the ported Service Fabric application.
 
@@ -75,11 +73,11 @@ The following diagram shows the architecture of the Surveys application refactor
 
 Azure Service Fabric supports the following programming models:
 * The guest executable model allows any executable to be packaged as a service and deployed to a Service Fabric cluster. Service Fabric orchestrates and manages execution of the guest executable.
-* The container model allow for deployment of services in container images. Service Fabric supports creation and and management of containers on top of Linux kernel contains as well as Windows Server containers. 
+* The container model allows for deployment of services in container images. Service Fabric supports creation and and management of containers on top of Linux kernel contains as well as Windows Server containers. 
 * The reliable services programming model allows for the creation of stateless or stateful services that integrate with all Service Fabric platform features. Stateful services allow for replicated state to be stored in the Service Fabric cluster. Stateless services do not.
 * The reliable actors programming model allows for the creation of services that implement the virtual actor pattern.
 
-All the services in the Surveys application are stateless reliable services, except for the *Tailspin.SurveyResponseService* service. This service implements a [ReliableConcurrentQueue][reliable-concurrent-queue] to process survey answers when they are received. Responses placed in the ReliableConcurrentQueue are saved into Azure Blob Storage and passed to the *Tailspin.SurveyAnalysisService* for analysis. Tailspin chooses a ReliableConcurrentQueue based because responses do not require strict first-in-first-out (FIFO) ordering provided by a queue such as Azure Service Bus. A ReliableConcurrentQueue is also designed to deliver high throughput and low latency for queue and dequeue operations.
+All the services in the Surveys application are stateless reliable services, except for the *Tailspin.SurveyResponseService* service. This service implements a [ReliableConcurrentQueue][reliable-concurrent-queue] to process survey answers when they are received. Responses in the ReliableConcurrentQueue are saved into Azure Blob Storage and passed to the *Tailspin.SurveyAnalysisService* for analysis. Tailspin chooses a ReliableConcurrentQueue based because responses do not require strict first-in-first-out (FIFO) ordering provided by a queue such as Azure Service Bus. A ReliableConcurrentQueue is also designed to deliver high throughput and low latency for queue and dequeue operations.
 
 Note that operations to persist dequeued items from a ReliableConcurrentQueue should ideally be idempotent. If an exception is thrown during the processing of an item from the queue, the same item may be processed more than once. In the Surveys application, the operation to merge survey answers to the *Tailspin.SurveyAnalysisService* is not idempotent because Tailspin decided that the survey analysis data is only a current snapshot of the analysis data and does not need to be consistent. The survey answers saved to Azure Blob Storage are eventually consistent, so the survey final analysis can always be recalculated correctly from this data.
 
@@ -145,7 +143,7 @@ Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster 
 
 The Surveys application code is available on [GitHub][sample-code].
 
-If you are just getting started with [Azure Service Fabric][service-fabric], set up your development environment and download the latest [Azure SDK][azure-sdk] and the [Azure Service Fabric SDK][service-fabric-sdk]. The SDK includes the OneBox cluster manager so you can deploy and test the Surveys application locally with full F5 debugging.
+If you are just getting started with [Azure Service Fabric][service-fabric], first set up your development environment then download the latest [Azure SDK][azure-sdk] and the [Azure Service Fabric SDK][service-fabric-sdk]. The SDK includes the OneBox cluster manager so you can deploy and test the Surveys application locally with full F5 debugging.
 
 <!-- links -->
 [azure-sdk]: https://azure.microsoft.com/en-us/downloads/archive-net-downloads/
