@@ -47,7 +47,7 @@ Deploying workloads to the cloud introduces the need to develop and maintain tru
 
 <img src="./images/vdc-components.png">
 
-These four components make the Azure Virtual Datacenter possible: identity, encryption, software-defined networking, and compliance.
+These four components make the Azure Virtual Datacenter possible: identity, encryption, software-defined networking, and compliance (including logs and reporting).
 
 In the Azure Virtual Datacenter model, you can apply isolation policies, make the cloud more like the physical datacenters you know, and achieve the levels of security and trust you need. Four components any enterprise IT team would recognize make it possible: software-defined networking, encryption, identity management, and the Azure platform's underlying compliance standards and certifications. These four are key to making a virtual datacenter a trusted extension of your existing infrastructure investment.
 
