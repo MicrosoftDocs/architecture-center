@@ -12,9 +12,9 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
 ## Resources
 <table>
 <tr>
-    <td style="width: 64px; vertical-align: middle;"><a href="./category/availability.md"><img src="../_images/virtual-datacenter.svg" alt="Virtual Datacenter eBook" /></a></td>
+    <td style="width: 64px; vertical-align: middle;"><a href="http://aka.ms/VDC/eBook"><img src="../_images/virtual-datacenter.svg" alt="Virtual Datacenter eBook" /></a></td>
     <td>
-        <h3><a href="http://aka.ms/VDC">Azure Virtual Datacenter eBook</a></h3>
+        <h3><a href="http://aka.ms/VDC/eBook">Azure Virtual Datacenter eBook</a></h3>
         <p>This eBook shows you how to deploy enterprise workloads to the Azure cloud platform, while respecting your existing security and networking policies.</p>
     </td>
 </tr>
