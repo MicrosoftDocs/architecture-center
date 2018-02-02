@@ -36,7 +36,7 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
     <td style="width: 64px; vertical-align: middle;"><a href="./category/design-implementation.md"><img src="_images/category/design-implementation.svg" alt="Presentation Deck" /></a></td>
     <td>
         <h3><a href="./category/design-implementation.md">Azure Virtual Datacenter: Presentation Deck </a></h3>
-        <p>This presentation deck explores the Azure Virtual Datacenter guidance and tools. It covers the VDC goals, customer drivers, Azure Regions, the elements of a VDC automation, industrialized and trusted Azure VDCs, and it ends with an action plan around CIO guidance. Support and training are available.</p>
+        <p>This presentation deck explores the Azure Virtual Datacenter guidance and tools. It covers the VDC goals, customer drivers, Azure Regions, the elements of a VDC automation, industrialized and trusted Azure VDCs, and it ends with an action plan around CIO guidance. Support and training information is also provided.</p>
     </td>
 </tr>
 </table>
