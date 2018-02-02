@@ -22,7 +22,7 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
     <td style="width: 64px; vertical-align: middle;"><a href="/azure/networking/networking-virtual-datacenter"><img src="_images/category/data-management.svg" alt="Networking Perspective" /></a></td>
     <td>
         <h3><a href="https://docs.microsoft.com/en-us/azure/networking/networking-virtual-datacenter">Azure Virtual Datacenter: A Network Perspective</a></h3>
-        <p>This article provides an overview of patterns and designs that can be used to solve the architectural scale, performance, and security concerns that many customers face when thinking about moving en masse to the cloud.</p>
+        <p>This article provides an overview of networking patterns and designs that can be used to solve the architectural scale, performance, and security concerns that many customers face when thinking about moving en masse to the cloud.</p>
     </td>
 </tr>
 <tr>
