@@ -145,7 +145,7 @@ Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster 
 
 The Surveys application code is available on [GitHub][sample-code].
 
-If you are just getting started with [Azure Service Fabric][service-fabric], set up your development environment and download the latest[Azure SDK][azure-sdk] and the [Azure Service Fabric SDK][service-fabric-sdk]. The SDK includes the OneBox cluster manager so you can deploy and test the Surveys application locally with full F5 debugging.
+If you are just getting started with [Azure Service Fabric][service-fabric], set up your development environment and download the latest [Azure SDK][azure-sdk] and the [Azure Service Fabric SDK][service-fabric-sdk]. The SDK includes the OneBox cluster manager so you can deploy and test the Surveys application locally with full F5 debugging.
 
 <!-- links -->
 [azure-sdk]: https://azure.microsoft.com/en-us/downloads/archive-net-downloads/

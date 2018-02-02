@@ -285,9 +285,9 @@ Porting the Surveys application to Service Fabric was fairly straightforward. To
 
 In addition, the deployment changed from Cloud Services to a Service Fabric cluster running in a VM Scale Set.
 
-However, at this point the application does not get all the benefits of microservices, such as independent service deployment and versioning. To take full advantage of Service Fabric, Tailspin needs to optimize a bit further.
+## Next steps
 
-
+Now that the Surveys application has been successfully ported, Tailspin wants to take advantage of Service Fabric features such as independent service deployment and versioning. Learn how Tailspin decomposed these services to a more granular architecture to take advantage of these Service Fabric features in [Refactoring an Azure Service Fabric Application migrated from Azure Cloud Services][refactor-surveys]
 
 <!-- links -->
 
@@ -304,6 +304,7 @@ However, at this point the application does not get all the benefits of microser
 [kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
 [lb-probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [owin]: https://www.asp.net/aspnet/overview/owin-and-katana
+[refactor-surveys]: refactor-migrated-app.md
 [sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric
 [sf-application-model]: /azure/service-fabric/service-fabric-application-model
 [sf-aspnet-core]: /azure/service-fabric/service-fabric-add-a-web-frontend
