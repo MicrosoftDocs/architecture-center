@@ -287,7 +287,7 @@ In addition, the deployment changed from Cloud Services to a Service Fabric clus
 
 ## Next steps
 
-Now that the Surveys application has been successfully ported, Tailspin wants to take advantage of Service Fabric features such as independent service deployment and versioning. Learn how Tailspin decomposed these services to a more granular architecture to take advantage of these Service Fabric features in [Refactoring an Azure Service Fabric Application migrated from Azure Cloud Services][refactor-surveys]
+Now that the Surveys application has been successfully ported, Tailspin wants to take advantage of Service Fabric features such as independent service deployment and versioning. Learn how Tailspin decomposed these services to a more granular architecture to take advantage of these Service Fabric features in [Refactor an Azure Service Fabric Application migrated from Azure Cloud Services][refactor-surveys]
 
 <!-- links -->
 

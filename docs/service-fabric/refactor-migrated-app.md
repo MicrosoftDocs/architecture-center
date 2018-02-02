@@ -1,10 +1,10 @@
 ---
-title: Refactoring an Azure Service Fabric Application migrated from Azure Cloud Services 
+title: Refactor an Azure Service Fabric Application migrated from Azure Cloud Services 
 description: How to refactor an existing Azure Service Fabric Application migrated from Azure Cloud Services
 author: petertay
 ms.date: 01/30/2018
 ---
-# Refactoring an Azure Service Fabric Application migrated from Azure Cloud Services
+# Refactor an Azure Service Fabric Application migrated from Azure Cloud Services
 
 [![GitHub](../_images/github.png) Sample code][sample-code]
 
@@ -12,7 +12,7 @@ This article describes refactoring an existing Azure Service Fabric application 
 
 ## Scenario
 
-As discussed in the previous article, [migrating an Azure Cloud Services application to Azure Service Fabric][migrate-from-cloud-services], the patterns & practices team authored a book in 2012 that documented the process for designing and implementing a Cloud Services application in Azure. The book describes a fictitious company named Tailspin that wants to create a Cloud Services application named **Surveys**. The Surveys application allows users to create and publish surveys that can be answered by the public. The following diagram shows the architecture of this version of the Surveys application:
+As discussed in the previous article, [Migrating an Azure Cloud Services application to Azure Service Fabric][migrate-from-cloud-services], the patterns & practices team authored a book in 2012 that documented the process for designing and implementing a Cloud Services application in Azure. The book describes a fictitious company named Tailspin that wants to create a Cloud Services application named **Surveys**. The Surveys application allows users to create and publish surveys that can be answered by the public. The following diagram shows the architecture of this version of the Surveys application:
 
 ![](./images/tailspin01.png)
 
