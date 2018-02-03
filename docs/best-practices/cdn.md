@@ -2,7 +2,7 @@
 title: Content Delivery Network guidance
 description: Guidance on Content Delivery Network (CDN) to deliver high bandwidth content hosted in Azure.
 author: dragon119
-ms.date: 09/30/2016
+ms.date: 02/02/2018
 
 pnp.series.title: Best Practices
 ---
@@ -92,44 +92,4 @@ If you deliver static assets such as font files by using the CDN, you might enco
 ### CDN fallback
 Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
 
-The following example shows a fallback mechanisms using the [Tag Helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro) feature in ASP.NET Core.
-
-```HTML
-<link rel="stylesheet" href="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/css/bootstrap.min.css"
-      asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-      asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
-<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
-
-<script src="https://[your-cdn-endpoint].azureedge.net/lib/bootstrap/dist/js/bootstrap.min.js"
-        asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-        asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-</script>
-```
-
-### Search engine optimization
-If SEO is an important consideration in your application, perform the following tasks:
-
-* Include a *Rel* canonical header in each page or resource.
-* Use a *CNAME* subdomain record and access the resources using this name.
-* Consider the impact of the fact that the IP address of the CDN may be a country or region that differs from that of the application itself.
-* When using Azure blob storage as the origin, maintain the same file structure for resources on the CDN as in the application folders.
-
-### Monitoring and logging
-Include the CDN as part of your application monitoring strategy to detect and measure failures or extended latency occurrences.  Monitoring is available from the CDN profile manager located on the Azure portal site.
-
-Enable logging for the CDN and monitor this log as part of your daily operations.
-
-Consider analyzing the CDN traffic for usage patterns. For more information, see [Analyze CDN usage patterns](/azure/cdn/cdn-log-analysis).
-
-### Cost implications
-You are charged for outbound data transfers from the CDN.  Additionally, if you're using blob storage to host your assets, you are charged for storage transactions when the CDN loads data from your application. Set realistic cache expiry periods for content to ensure freshness, but not so short as to cause repeated reloading of content from the application or blob storage to the CDN.
-
-Items that are rarely downloaded will incur the two transaction charges without providing any significant reduction in server load.
-
-### Features
-
-Azure has several CDN products. When selecting a CDN, consider the features that each product supports. See [Azure CDN Features](/azure/cdn/cdn-overview#azure-cdn-features) for details. Premium features that you may wish to consider include:
-
-- **[Rules engine](/azure/cdn/cdn-rules-engine)**. The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. 
-
-- **[Real-time statistics](/azure/cdn/cdn-real-time-stats)**. Monitor real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile, and receive [real-time alerts](/azure/cdn/cdn-real-time-alerts). 
+The following example shows a fallback mecha
