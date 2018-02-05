@@ -17,9 +17,20 @@ Each of these different teams requires different approaches to adopting the clou
 3. **Advanced Azure adopters:** for enterprises with intermediate experience in Azure. At the end of this stage, an enterprise is capable of managing multiple devops environments, implementing complex hybrid networking scenarios for increased security, making workloads highly available to multiple regions around the globe. 
 4. **Modernizing on-premises applications:** for enterprises with intermediate to advanced experience in Azure who want to integrate Azure technologies with on-premises work loads. At the end of this stage, an enterprise is capable of enumerating and stack-ranking on-premises workloads for migration, performing the migration, and integrating migrated workloads into on-premises IT management and monitoring processes.
 5. **Optimizing migrated applications for the cloud:** for enterprises at the modernizing stage who want to efficiently use cloud resources. At the end of this stage, an enterprise is capable of evaluating Azure usage to identify unused or underutilized resources, scaling workloads, and scheduling workloads with instance reservation.
-6. **Innovating in the cloud:** for enterprises with intermediate to advanced experience in Azure who want to develop native cloud applications from scratch. At the end of this stage, an enterprise is capable of developing and deploying resilient, highly available workloads that use native cloud services, microservices, and other cutting edge Azure services. 
+6. **Innovating in the cloud:** for enterprises with intermediate to advanced experience in Azure who want to develop native cloud applications from scratch. At the end of this stage, an enterprise is capable of developing and deploying resilient, highly available workloads that use native cloud services, microservices, and other cutting edge Azure services.
 
-# Next Steps
+## How to use the Azure Cloud Adoption Guide
 
-* Learn [how to use this guide](how-to-use-guide.md).
+The Azure Cloud Adoption Guide is organized into a series of stages. Each stage includes a list of articles. The articles fall into one of three categories: articles that **explain** how something works, articles that describe **how to** accomplish a specific task, or articles that provide **guidance** to assist you in making technology choices and design decisions. 
+
+The explainer articles provide background knowledge that makes it easier to understand how to accomplish a specific task. Some of the articles include a short explainer video that you can watch instead of reading the articles. As you work through the list of articles, when you reach a 'how to' document, follow the steps to accomplish the task before proceeding. The guidance articles provide best practice recommendations for the task. 
+
+The articles are listed in order, and they are progressive. If you are already familiar with the subject matter in a article, you can move on to the next article in the list. 
+
+### Audience
+
+The audience for the Azure Cloud Adoption Guide includes Enterprise Administrators, Finance, IT operations, IT security and compliance, workload development owners, and workload operations owners.
+
+## Next steps
+
 * If you are new to Azure, start with the [foundational Azure adoption](adoption-intro/overview.md) section of this guide.

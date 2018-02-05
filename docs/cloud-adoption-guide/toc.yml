@@ -5,15 +5,12 @@
   href: index.md
 
   items:
-  - name: How to use the Azure Cloud Adoption Guide
-    href: how-to-use-guide.md
-
   - name: Foundational Azure adoption
     href: adoption-intro/overview.md
     items:
       - name: Understanding Azure internals
         items:
-        - name: Explainer - how does Azure work?
+        - name: Explainer: how does Azure work?
           href: adoption-intro/azure-explainer.md
       - name: Understanding digital identity in Azure
         items:
