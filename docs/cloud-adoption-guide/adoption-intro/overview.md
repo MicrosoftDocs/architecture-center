@@ -8,14 +8,15 @@ author: petertay
 
 Adopting Azure is the first stage of organizational maturity for an enterprise. By the end of this stage, people in your organization can deploy simple workloads to Azure.
 
-The following list of documents is progressive. If you have already read or are familiar with the subject matter in a document, move on to the next in the list. 
+The following list of articles is progressive. If you have already read or are familiar with the subject matter in an article, move on to the next in the list. 
 
 1. Understanding Azure internals:
     - **Explainer:** [how does Azure work?](azure-explainer.md)
 2. Understanding enterprise digital identity in Azure:
     - **Explainer:** [what is an Azure Active Directory Tenant?](tenant-explainer.md)
-    - **How to:** [add new users to Azure Active Directory](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+    - **How to:** [get an Azure Active Directory Tenant](/azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - **Guidance:** [Azure AD tenant design guidance](tenant.md)
+    - **How to:** [add new users to Azure Active Directory](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json)    
 3. Understanding subscriptions in Azure:
     - **Explainer:** [what is an Azure subscription?](subscription-explainer.md)
     - **How to:** [create an Azure subscription](subscription-how-to.md)
