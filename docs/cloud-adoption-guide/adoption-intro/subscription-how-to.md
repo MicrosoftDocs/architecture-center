@@ -1,10 +1,10 @@
 ---
-title: How to create an Azure subscription
+title: "How to: create an Azure subscription"
 description: How to create an enterprise Azure subscription
 author: abuck
 ---
 
-# How to create an Azure subscription
+# How to: create an Azure subscription
 
 You've learned about [digital identity](tenant-explainer.md) and [subscriptions](subscription-explainer.md) in Azure, and you've created a user account in your organization's Azure AD tenant. You're now ready to create your Azure subscription.
 
@@ -16,7 +16,6 @@ You can establish your subscription by following the guide to [licensing Azure f
 ## Next steps
 
 * Now that you've created your [Azure subscription](subscription-explainer.md), review the [design guidance for Azure subscriptions](subscription.md).
-
 
 <!-- links -->
 

@@ -20,7 +20,7 @@ The following list of articles is progressive. If you have already read or are f
 3. Understanding subscriptions in Azure:
     - **Explainer:** [what is an Azure subscription?](subscription-explainer.md)
     - **How to:** [create an Azure subscription](subscription-how-to.md)
-    - **Guidance:** [Azure subscription design guidance](subscription.md)
+    - **Guidance:** [Azure subscription design](subscription.md)
 4. Understanding resource management in Azure: 
     - **Explainer:** [what is Azure Resource Manager?](resource-manager-explainer.md)
     - **Explainer:** [what is an Azure resource group?](resource-group-explainer.md)
