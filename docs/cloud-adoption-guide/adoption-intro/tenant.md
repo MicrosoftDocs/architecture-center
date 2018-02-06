@@ -1,27 +1,26 @@
 ---
-title: Azure AD tenant design guidance
+title: "Guidance: Azure AD tenant design"
 description: Guidance for Azure tenant design as part of a foundational cloud adoption strategy
 author: telmosampaio
 ---
 
-# Azure AD tenant design guidance
+# Guidance: Azure AD tenant design
 
-An Azure AD tenant provides a security boundary for identity services and namespace used for one or more [Azure subscriptions](subscription-explainer.md). While you should maintain as few tenants as possible, there are specific scenarios where multiple tenants may be required. They are:
+An Azure AD tenant provides digital identity services and namespaces used for one or more [Azure subscriptions](subscription-explainer.md). If you are following the foundational adoption outline, you have already learned [how to get an Azure AD tenant][how-to-get-aad-tenant]. 
 
-- **Resources in different Azure regions**. Azure provides four distinct types of cloud environments today: public, sovereign, government, and private. In the public cloud, you can use a single tenant to host services in any public region. However, to use sovereign and government clouds you need a specific tenant just for that cloud environment.
+## Design considerations
 
-- **Applications that require management level access to Azure AD**. Certain applications may require access to Azure AD to create service principals and subscriptions. To avoid unnecessary changes to your production Azure AD tenant, do not test those applications in a production environment. Instead, consider using a separate Azure AD tenant to develop and test such applications.
-
-- **Active Directory integration**. Azure AD uses a flat directory model. You can only have one domain, without a parent or child. And you can only synchronize accounts from a single Active Directory domain to an Azure AD tenant. If you have a multi-domain or multi-forest AD environment, you should consider whether you need to synchronize all domains. If so, you need to create different Azure AD tenants. **TODO: validate**
-
-- **Existing subscriptions**. The early stages of an organization's Azure adoption often leads different individuals to create different subscriptions, each using a Microsoft account instead of an organizational account. When using a Microsoft account to create a subscription, Azure creates a new tenant for you in the onmicrosoft.com namespace. To consolidate these subscriptions as your Azure adoption matures, you can [transfer a subscription][docs-associate-subscription] to a different tenant.
+- At the foundational adoption stage, you can begin with a single Azure AD tenant. If your organization has an existing Office 365 subscription or an Azure subscription, you already have an Azure AD tenant that you can use. If you do not have either or of these, you can learn more about [how to get an Azure AD tenant][how-to-get-aad-tenant]. 
+- In the intermediate and advanced adoption stages, you will learn how to synchronize or federate on-premises directories with Azure AD. This will allow you to use on-premises digital identity in Azure AD. However, at the foundational stage, you will be adding new users that only have identity your single Azure AD tenant. You are be responsible for managing those identities. For example, you will have to on-board new Azure AD users, off-board Azure AD users that you no longer wish to have access to Azure resources, and other changes to user permissions.
 
 ## Next Steps
 
-* You now understand digital identity in Azure, and you have added a new user to your Azure AD tenant. Your next step is learning about [Azure subscriptions](subscription-explainer.md).
+* Now that you have an Azure AD tenant, learn [how to add a user][azure-ad-add-user]. After you have added one or more new users to your Azure AD tenant, your next step is learning about [Azure subscriptions](subscription-explainer.md).
 
 <!-- Links -->
 
-[docs-manage-azure-ad]: /azure/active-directory/active-directory-administer
-[docs-tenant]: /azure/active-directory/develop/active-directory-howto-tenant
-[docs-associate-subscription]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
+[azure-ad-add-user]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
+[docs-manage-azure-ad]: /azure/active-directory/active-directory-administer?toc=/azure/architecture/cloud-adoption-guide/toc.json
+[docs-tenant]: /azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json
+[docs-associate-subscription]: /azure/active-directory/active-directory-how-subscriptions-associated-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
+[how-to-get-aad-tenant]: /azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json

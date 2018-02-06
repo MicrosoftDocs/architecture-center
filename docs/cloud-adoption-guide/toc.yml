@@ -16,10 +16,12 @@
         items:
         - name: "Explainer: what is an Azure Active Directory Tenant?"
           href: adoption-intro/tenant-explainer.md
-        - name: "How to: add a user to an Azure AD tenant"
-          href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
+        - name: "How to: get an Azure Active Directory tenant"
+          href: /azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: "Guidance: Azure AD tenant design"
           href: adoption-intro/tenant.md
+        - name: "How to: add a user to an Azure AD tenant"
+          href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
       - name: Understanding Azure subscriptions
         items: 
         - name: "Explainer: what is an Azure subscription?"
