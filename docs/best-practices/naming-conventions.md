@@ -93,10 +93,10 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
 |Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
-|Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without dashes>st<number>` |`profxsql001st0` |
-| Container name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<context>` |`logs` |
+|Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without hyphens>st<number>` |`profxsql001st0` |
+| Container name |Storage account |3-63 |Lowercase |Alphanumeric and hyphen |`<context>` |`logs` |
 |Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
-|Queue name |Storage account |3-63 |Lowercase |Alphanumeric and dash |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
+|Queue name |Storage account |3-63 |Lowercase |Alphanumeric and hyphen |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>-dls` |`telemetry-dls` |
@@ -105,16 +105,16 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
-|Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`web` |
-|Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
-|Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
-|Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`sql-allow` |
-|Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
-|Load Balancer |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-lb` |`profx-lb` |
-|Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<descriptive context>` |`http` |
-|Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-agw` |`profx-agw` |
-|Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
+|Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
+|Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`web` |
+|Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
+|Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
+|Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`sql-allow` |
+|Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
+|Load Balancer |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-lb` |`profx-lb` |
+|Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`http` |
+|Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-agw` |`profx-agw` |
+|Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, hyphen, and period |`<descriptive context>` |`app1` |
 
 ## Organize resources with tags
 
