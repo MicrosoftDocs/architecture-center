@@ -1,6 +1,12 @@
 - name: Azure Architecture Center
   href: index.md
 
+- name: Azure Cloud Adoption Guide
+  href: cloud-adoption-guide/index.md
+  items:
+  - name: Foundational Adoption Stage
+    href: cloud-adoption-guide/adoption-intro/overview.md
+    
 - name: Application Architecture Guide
   href: guide/index.md
   items:
