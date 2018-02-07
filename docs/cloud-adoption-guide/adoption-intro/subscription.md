@@ -13,3 +13,5 @@ However, in the foundational adoption stage, the strategy of creating a single s
 ## Next steps
 
 * Now that you've learned about subscriptions and created your first one, learn more about creating and managing resources in the [resource management in Azure](resource-manager-explainer.md) explainer article.
+
+[azure-enterprise-licensing]: https://azure.microsoft.com/pricing/enterprise-agreement
