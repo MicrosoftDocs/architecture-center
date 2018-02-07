@@ -6,7 +6,7 @@ author: petertay
 
 # Explainer: What is an Azure Active Directory tenant?
 
-In the "[how does Azure work?](azure-explainer.md)" explainer, you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. You also learned that some of these servers run a distributed orchestration application to manage creating, reading, updating, and deleting Azure resources.
+In the [how does Azure work?](azure-explainer.md) explainer article, you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. You also learned that some of these servers run a distributed orchestration application to manage creating, reading, updating, and deleting Azure resources.
 
 However, as you would expect - Azure doesn't allow just anyone to perform one of these operations on a resource. Azure restricts access to these operations using a trusted digital identity service called **Azure Active Directory** (Azure AD). Azure AD stores user name, passwords, profile data, and other information. Azure AD users are segmented into **tenants**. A tenant is a logical construct that represents a secure, dedicated instance of Azure AD typically associated with an organization.
 
