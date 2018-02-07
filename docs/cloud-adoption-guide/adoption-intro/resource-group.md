@@ -1,5 +1,5 @@
 ---
-title: Guidance: Azure resource group design
+title: "Guidance: Azure resource group design"
 description: Guidance for Azure resource group design as part of a foundational cloud adoption strategy
 author: petertay
 ---
