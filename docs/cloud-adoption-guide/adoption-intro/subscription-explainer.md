@@ -16,7 +16,7 @@ Organizations can use subscriptions to manage costs and creation of resource by 
 
 ## Next steps
 
-* Now that you have learned about Azure subscriptions, learn [how to create your an Azure subscription](subscription-how-to.md). Then review the [design guidance for Azure subscriptions](subscription.md).
+* Now that you have learned about Azure subscriptions, learn more about [creating a subscription](subscription.md) before you create your first Azure resources..
 
 <!-- Links -->
 [azure-get-started]: https://azure.microsoft.com/en-us/get-started/
