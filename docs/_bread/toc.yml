@@ -33,11 +33,11 @@
     - name: Resources
       tocHref: /azure/architecture/resources
       topicHref: /azure/architecture/resources
-    - name: Guide
-      tocHref: /azure/architecture/cloud-adoption-guide
-      topicHref: /azure/architecture/cloud-adoption-guide
     - name: Adoption Guide
-      tocHref: /azure/architecture/guide/
+      tocHref: /azure/architecture/cloud-adoption-guide/
+      topicHref: /azure/architecture/cloud-adoption-guide
+    - name: Guide
+      tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
 
     - name: Performance Antipatterns
