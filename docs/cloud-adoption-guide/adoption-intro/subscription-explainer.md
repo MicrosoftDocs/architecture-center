@@ -8,9 +8,11 @@ author: abuck
 
 In the [what is an Azure Active Directory tenant?](tenant-explainer.md) explainer article, you learned that digital identity for your organization is stored in an Azure Active Directory tenant. You also learned that Azure trusts Azure Active Directory to authenticate user requests to create, read, update, or delete a resource. 
 
-We fundamentally understand why it's necessary to restrict access to these operations on a resource - to prevent unauthenticated and unauthorized users from accessing our resources. But this is a binary operation, either authenticated user are authorized to access a resource or they aren't. Does this mean that authorized users within an organization can create an unlimited number of resources in Azure? 
+We fundamentally understand why it's necessary to restrict access to these operations on a resource - to prevent unauthenticated and unauthorized users from accessing our resources. Howeveer, these resource operations have other properties that an organization would like to control, such as the number of resources a user or group of users is allowed to created, and, the cost to run those resources. 
 
-You might expect that allowing all users to create resources without limits can lead to problems tracking and managing costs. However, Azure has a control to limit the number of resources and amount of money an organization spends on resources - named a **subscription**. A subscription groups together users and the resources that have been created by those users. Each of those resources contributes to an [overall limit][subscription-service-limits] on that particular resource. 
+Azure implements this control, and it is named a **subscription**. A subscription groups together users and the resources that have been created by those users. Each of those resources contributes to an [overall limit][subscription-service-limits] on that particular resource.
+
+Organizations can use subscriptions to manage costs and creation of resource by users, teams, projects, or using many other strategies. These strategies will be discussed in the intermediate and advanced adoption stage articles. 
 
 ## Next steps
 

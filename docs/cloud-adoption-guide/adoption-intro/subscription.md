@@ -6,9 +6,7 @@ author: alexbuckgit
 
 # Guidance: Azure subscription design 
 
-In Azure, a subscription is a logical container linking users and the resources the users have created. A subscription also applies limits on the number of each resources that can be created. In the foundational adoption stage, a single subscription is sufficient for a relatively small number of resources. 
-
-As your organization's Azure adoption grows, the number of subscriptions and strategies for organizing subscriptions will also grow. This will be covered in the intermediate and advanced adoption stages. 
+In the [what is an Azure subscription](subscription-explainer.md) explainer article, you learned that organizations can use subscriptions to manage costs and creation of resource by users, teams, projects, or using many other strategies. These strategies will be discussed in more detail in the intermediate and advanced adoption stage articles. However, in the foundational adoption stage, the strategy of creating a single subscription is sufficient to contain a relatively small number of resources. 
 
 ## Next steps
 

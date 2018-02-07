@@ -27,7 +27,7 @@ The explainer articles provide background knowledge that makes it easier to unde
 
 The articles are listed in order, and they are progressive. If you are already familiar with the subject matter in a article, you can move on to the next article in the list. 
 
-### Audience
+## Audience
 
 The audience for the Azure Cloud Adoption Guide includes Enterprise Administrators, Finance, IT operations, IT security and compliance, workload development owners, and workload operations owners.
 

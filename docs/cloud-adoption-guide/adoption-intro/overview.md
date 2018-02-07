@@ -8,7 +8,7 @@ author: petertay
 
 Adopting Azure is the first stage of organizational maturity for an enterprise. By the end of this stage, people in your organization can deploy simple workloads to Azure.
 
-The list below includes the tasks for completing the foundational adoption stage. The list is progressive; complete each task in order. If you have previously completed the task, move on the next task in the list. 
+The list below includes the tasks for completing the foundational adoption stage. The list is progressive so complete each task in order. If you have previously completed the task, move on the next task in the list. 
 
 1. Understand Azure internals:
     - **Explainer:** [how does Azure work?](azure-explainer.md)
