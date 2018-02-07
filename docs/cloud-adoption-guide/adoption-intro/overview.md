@@ -37,7 +37,7 @@ The list below includes the tasks for completing the foundational adoption stage
         - **Explainer:** [Azure virtual network](/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **How to:** [deploy a Virtual Network to Azure using the portal](/azure/virtual-network/virtual-networks-create-vnet-arm-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - IasS: Deploy a single virtual machine(VM) workload (Windows and Linux):
-        - **How to:** [deploy a Windows VM to Azure with the portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
+        - **How to:** [deploy a Windows VM to Azure with the portal](/azure/virtual-network/virtual-networks-create-vnet-arm-pportal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **Guidance:** [proven practices for running a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **How to:** [deploy a Linux VM to Azure with the portal](/azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **Guidance:** [proven practices for running a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json)
