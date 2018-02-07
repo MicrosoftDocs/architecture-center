@@ -34,7 +34,7 @@ The list below includes the tasks for completing the foundational adoption stage
     - PaaS: Introduction to Platform as a Service:
         - **How to:** [deploy a basic web application to Azure](/azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **Guidance:** proven practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure
-    - IaaS: Introduction to Virtual Networking
+    - IaaS: Introduction to Virtual Networking:
         - **Explainer:** [Azure virtual network](/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **How to:** [deploy a Virtual Network to Azure using the portal](/azure/virtual-network/virtual-networks-create-vnet-arm-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json)
     - IasS: Deploy a single virtual machine(VM) workload (Windows and Linux):
