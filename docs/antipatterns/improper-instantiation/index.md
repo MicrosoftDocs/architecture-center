@@ -19,7 +19,6 @@ Many libraries provide abstractions of external resources. Internally, these cla
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Redis Cache.
 
 These classes are intended to be instantiated once and reused throughout the lifetime of an application. However, it's a common misunderstanding that these classes should be acquired only as necessary and released quickly. (The ones listed here happen to be .NET libraries, but the pattern is not unique to .NET.)
-
 The following ASP.NET example creates an instance of `HttpClient` to communicate with a remote service. You can find the complete sample [here][sample-app].
 
 ```csharp
@@ -72,18 +71,18 @@ The following example uses a static `HttpClient` instance, thus sharing the conn
 ```csharp
 public class SingleHttpClientInstanceController : ApiController
 {
-    private static readonly HttpClient HttpClient;
+    private static readonly HttpClient httpClient;
 
     static SingleHttpClientInstanceController()
     {
-        HttpClient = new HttpClient();
+        httpClient = new HttpClient();
     }
 
     // This method uses the shared instance of HttpClient for every call to GetProductAsync.
     public async Task<Product> GetProductAsync(string id)
     {
         var hostName = HttpContext.Current.Request.Url.Host;
-        var result = await HttpClient.GetStringAsync(string.Format("http://{0}:8080/api/...", hostName));
+        var result = await httpClient.GetStringAsync(string.Format("http://{0}:8080/api/...", hostName));
         return new Product { Name = result };
     }
 }
