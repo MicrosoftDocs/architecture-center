@@ -19,7 +19,6 @@ The list below includes the tasks for completing the foundational adoption stage
     - **How to:** [add new users to Azure Active Directory](/azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json)    
 3. Understand subscriptions in Azure:
     - **Explainer:** [what is an Azure subscription?](subscription-explainer.md)
-    - **How to:** [create an Azure subscription](subscription-how-to.md)
     - **Guidance:** [Azure subscription design](subscription.md)
 4. Understand resource management in Azure: 
     - **Explainer:** [what is Azure Resource Manager?](resource-manager-explainer.md)

@@ -26,8 +26,6 @@
         items: 
         - name: "Explainer: what is an Azure subscription?"
           href: adoption-intro/subscription-explainer.md
-        - name: "How to: create an Azure subscription"
-          href: adoption-intro/subscription-how-to.md
         - name: "Guidance: Azure subscription design"
           href: adoption-intro/subscription.md
       - name: Understanding resource management in Azure
