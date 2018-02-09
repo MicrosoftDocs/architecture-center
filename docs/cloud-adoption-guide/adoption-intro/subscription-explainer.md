@@ -12,7 +12,7 @@ We fundamentally understand why it's necessary to restrict access to these opera
 
 Azure implements this control, and it is named a **subscription**. A subscription groups together users and the resources that have been created by those users. Each of those resources contributes to an [overall limit][subscription-service-limits] on that particular resource.
 
-Organizations can use subscriptions to manage costs and creation of resource by users, teams, projects, or using many other strategies. These strategies will be discussed in the intermediate and advanced adoption stage articles. 
+Organizations can use subscriptions to manage costs and creation of resource by users, teams, projects, or other factors. These strategies will be discussed in the intermediate and advanced adoption stage articles. 
 
 ## Next steps
 
