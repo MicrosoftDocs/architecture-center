@@ -25,4 +25,4 @@ Organizations can use subscriptions to manage costs and creation of resource by 
 [azure-change-subscription-offer]: /azure/billing/billing-how-to-switch-azure-offer
 [microsoft-account]: https://account.microsoft.com/account
 [subscription-service-limits]: /azure/azure-subscription-service-limits
-[docs-organizational-account]: https://docs.microsoft.com/en-us/azure/active-directory/sign-up-organization
+[docs-organizational-account]: /azure/active-directory/sign-up-organization
