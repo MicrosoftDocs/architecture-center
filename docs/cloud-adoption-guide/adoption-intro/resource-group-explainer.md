@@ -1,5 +1,5 @@
 ---
-title: Explainer - what is an Azure resource group?
+title: "Explainer: what is an Azure resource group?"
 description: Explains the internal Azure function of a resource group
 author: petertay
 ---
