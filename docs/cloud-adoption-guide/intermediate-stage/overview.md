@@ -6,36 +6,36 @@ author: petertay
 
 # Adopting Azure: Intermediate
 
-In the foundational adoption stage, you learned the basics about digital identity, subscription, and resource management. You used this knowledge to create your first resources in Azure. 
+In the foundational adoption stage, you learned the basics about digital identity, subscription, and resource management. You used this knowledge to create your first resources in Azure. The next stage in adopting Azure is the intermediate stage. The intermediate stage builds on the foundational stage by adding the management of multiple workloads and the architecture of more complex workloads.
 
-In the cloud, we call a set of resources that perform a particular function a **workload**. A workload can be any type of service or a part of a service. For example, all the discrete compute and software components that make up a website can be described as a workload. We'll describe the resources you deploy to Azure as a *workload* from now on.
+The list below includes the tasks for completing the intermediate adoption stage.
 
-You may have noticed that when you created your first Azure resource in the foundational adoption stage, you had to access your resources using one of Azure's public network endpoints - known in Azure as a **public IP addresss**. Does this mean that every resource in Azure is only accessible this way?
-
-The answer is no, there is no requirement that a particular Azure resource must have a public IP address. The next logical question is how can we access a resource in Azure that has no public IP address? 
-
-1. Understand managing multiple workloads in Azure
-    - automation: cattle, not pets
-    - managing cost across multiple teams
-2. Understand availability and resiliency in the Cloud/Azure
+x. Understand multiple workloads in Azure
+    - Explainer: what is a workload, and what does it mean to have multiple workloads hosted in Azure?
+        - segmenting the network space for multiple workloads
+        - do you have multiple VNets and assign a VNet to team, or, a single Vnet with multiple subnets and assign a subnet to a team
+    - Explainer: what is meant by Azure "regions"?
+x. Understanding digital identity: intermediate
+    - now that you understand what multiple workloads look like in Azure
+    - reasons why you would have multiple tenants, and how to manage multiple tenants (i.e. teams in multiple regions, teams in different subsidiaries, etc.)
+x. Subscriptions: now that you have multiple teams and multiple projects, understand how to use subscriptions to manage costs and limits by various criteria such as team, project, environment, etc.
+x. Resource management: how to manage multiple workloads and the work of multiple teams using resource groups
+    - Explainer: what is role-based access control/what is resource policy?
+x. Operations: how to manage cost
+    - now that you understand all the different ways to define a workload, and you know how to associate cost and resource limits with subscriptions, you are going 
+    - in the foundational adoption stage, you learned about naming resources. Now that you are managing multiple workloads in Azure, you can see that there are difficulties in tracking cost by workload. One of the ways to do this is using resource tagging. 
+x. Understand availability and resiliency in the Cloud/Azure
     - Explainer: what is scaling?
     - Explainer: what is an availability set?
     - Explainer: what is a service level agreement?
     - Explainer: load balancing in Azure - 
-3. Understand security in Azure
+x. Understand security in Azure
     - Explainer: what is an NSG?
-2. Digital identity: reasons for multiple tenants, and how to manage multiple tenants
-    - role-based-access-control: now that you have multiple teams, you have multiple people with the same responsibilities. How do you apply a universal policy to them to control what they do?
-    - resource policy: even though you trust your users with "owner" to create a resource, you still want to restrict 
-3. Subscriptions: now that you have multiple teams and multiple projects, understand how to use subscriptions to manage costs and limits by various criteria such as team, project, environment, etc.
-4. Resource management: how to organize multiple workloads using resource groups
-5. Resource management: introduction to Infrastructure as code
-    - ARM templates
-6. Operations: how to manage cost, 
-7. Architecture: deploy an n-tier workload to Azure
-    - Explainer: what is a public IP address, what is a Gateway subnet (seriously, what is it), what is the difference between them
+    - Explainer: extending the on-premises security boundary to Azure
+x. Architecture: deploy an n-tier workload to Azure
+    - Explainer: what is a public IP address, what is a VPN gateway,  what is the difference between them
+    - Explainer: what is devops; automating build and deployment; when is it appropriate to use infrastructure as code 
     - networking: what is a hybrid network and what does it mean to extend the security boundary from on-premises to Azure
     - networking: routing in an Azure VNet
     - security: firewalling with network security groups
     - security: jumpbox
-    - 
