@@ -20,12 +20,19 @@ x. Understand multiple workloads in Azure
 x. Understanding digital identity: intermediate
     - now that you understand what multiple workloads look like, and how multiple teams will be working concurrently, what are some of the scenarios in which you would want to have multiple AAD tenants?
     - reasons why you would have multiple tenants, and how to manage multiple tenants (i.e. teams in multiple regions, teams in different subsidiaries, etc.)
-x. Subscriptions: now that you have multiple teams and multiple projects, understand how to use subscriptions to manage costs and limits by various criteria such as team, project, environment, etc.
-x. Resource management: how to manage multiple workloads and the work of multiple teams using resource groups
-    - Explainer: what is role-based access control/what is resource policy?
-x. Operations: how to manage cost
+x. Understand subscription management:
+    - Explainer: internal technical issues about subscriptions, ie. now that you have multiple teams and multiple projects, understand how to use subscriptions to manage costs and limits by various criteria such as team, project, environment, etc.
+    - Guidance: strategies for managing the work of multiple teams with subscriptions
+x. Understand resource management with multiple teams:
+    - Explainer:  how to manage multiple workloads and the work of -
+multiple teams using resource groups
+x. Understand infrastructure as code
+    - Explainer: what is infrastructure as code; why should I care about infrastructure as coce; what is an ARM template; what other tools are available
+x. Operations: how to aggregate cost information
     - now that you understand all the different ways to define a workload, and you know how to associate cost and resource limits with subscriptions, you are going 
-    - in the foundational adoption stage, you learned about naming resources. Now that you are managing multiple workloads in Azure, you can see that there are difficulties in tracking cost by workload. One of the ways to do this i s using resource tagging. 
+    - in the foundational adoption stage, you learned about naming resources. Now that you are managing multiple workloads in Azure, you can see that there are difficulties in tracking cost by workload. One of the ways to do this i s using resource tagging.
+x. Understand extending your on-premises security boundary to include Azure
+    - How to: 
 x. Understand availability and resiliency in the Cloud/Azure
     - Explainer: what is scaling?
     - Explainer: what is an availability set?
@@ -34,10 +41,9 @@ x. Understand availability and resiliency in the Cloud/Azure
 x. Understand security in Azure
     - Explainer: what is an NSG?
     - Explainer: extending the on-premises security boundary to Azure
+    - How to: set up a jumpbox in Azure
+x. Understand DevOps in Azure
+    - How to: strategies for multiple environments in Azure (PoC, dev, dev non-prod/canary/etc, prod)
+    - DevOps tools in Azure: VSTS, Jenkins, Chef/Puppet/Ansible/etc
 x. Architecture: deploy an n-tier workload to Azure
-    - Explainer: what is a public IP address, what is a VPN gateway,  what is the difference between them
-    - Explainer: what is devops; automating build and deployment; when is it appropriate to use infrastructure as code 
-    - networking: what is a hybrid network and what does it mean to extend the security boundary from on-premises to Azure
-    - networking: routing in an Azure VNet
-    - security: firewalling with network security groups
-    - security: jumpbox
+
