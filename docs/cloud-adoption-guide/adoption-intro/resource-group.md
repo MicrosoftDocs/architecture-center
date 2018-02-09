@@ -24,4 +24,4 @@ In Azure, a [resource group](https://docs.microsoft.com/azure/azure-resource-man
 
 ## Next steps
 
-* Now that you have learned the proven practices for the foundational adoption stage, you are able to create resource groups and add resources to them. As you add more resources, management of them becomes more complex. Learn about [Azure naming conventions and tagging](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json) for your resources in preparation for the intermediate adoption stage.
+* Now that you have learned the proven practices for the foundational adoption stage, you can create resource groups and add resources to them. As you add more resources, management of them becomes more complex. Learn about [Azure naming conventions and tagging](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json) for your resources in preparation for the intermediate adoption stage.
