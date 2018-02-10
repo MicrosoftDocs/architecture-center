@@ -43,7 +43,8 @@ The list below includes the tasks for completing the intermediate adoption stage
         - finding unused or underused resources
 * x. Understand extending your on-premises security boundary to include Azure
     - **Explainer**: hybrid networking in Azure
-        - in preparation for deploying our n-tier architecture to Azure, we need to set u
+        - we want to deploy an n-tier workload that is only reachable from on-premises, and not the public internet
+        - in preparation for deploying our n-tier architecture to Azure we need to set up a hybrid newtork with a VPN gateway to encrypt our traffic over the internet
         - difference between public and private cloud
         - public cloud means that the edge routers in Azure are exposed to the internet and what that means for services with public endpoints and what that means for VMs or load balancers with a PIP on them
     - **How to:** create a hybrid network with a VPN gateway
@@ -67,11 +68,16 @@ The list below includes the tasks for completing the intermediate adoption stage
         - DevOps tools in Azure: VSTS, Jenkins, Chef/Puppet/Ansible/etc
 * x. Understand application monitoring in Azure (operations)
     - **Explainer:** how does application performance monitoring work in Azure?
-        - what is OMS?
+        - what is OMS? What is app insights? what is log analytics?
 * x. Architecture: deploy an n-tier workload to Azure
+    - would be nice to have n-tier dialtone app to deploy here, nice to have:
+        - set up multiple environments (dev and prod, for example)
+        - set up DevOps pipeline to deploy to both environments, dev pipeline includes ARM template to stand up a test environment
+        - set up OMS and app insights (possibly log analytics) for app running in prod
     - deploy an n-tier architecture to Azure
-        - **How to:** deploy a Windows VM n-tier architecture using ARM
-            - uses the network created above
-        - **How to:** deploy a Linux VM n-tier architecture using 
-        - **Guidance:** best practices for deploying an n-tier application
+        - **How to:** deploy a hybrid network with a VPN gateway (RA)
+        - **How to:** deploy a Windows VM n-tier architecture using ARM (RA)
+        - **How to:** deploy a Linux VM n-tier architecture using ARM (RA)
+        - **Guidance:** best practices for deploying an n-tier application (RA)
+
 
