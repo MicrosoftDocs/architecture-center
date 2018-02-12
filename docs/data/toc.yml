@@ -1,0 +1,93 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+- name: Data Architecture Guide
+  href: index.md
+  items:
+  - name: Traditional RDBMS
+    items:
+    - name: Concepts
+      items:
+      - name: Relational data
+        href: concepts/relational-data.md 
+      - name: Transactional data
+        href: concepts/transactional-data.md 
+      - name: Semantic modeling
+        href: concepts/semantic-modeling.md 
+    - name: Scenarios
+      items:
+      - name: Online transaction processing (OLTP)
+        href: scenarios/online-transaction-processing.md 
+      - name: Online analytical processing (OLAP)
+        href: scenarios/online-analytical-processing.md
+      - name: Data warehousing
+        href: scenarios/data-warehousing.md
+      - name: Extract, transform, and load (ETL)
+        href: scenarios/etl.md 
+    - name: Technology choices
+      items:
+      - name: Data warehouses
+        href: technology-choices/data-warehouses.md 
+      - name: Online analytical processing (OLAP)
+        href: technology-choices/olap-data-stores.md 
+      - name: Online transaction processing (OLTP)
+        href: technology-choices/oltp-data-stores.md 
+  - name: Big Data and NoSQL
+    items:
+    - name: Concepts
+      items:
+      - name: Non-relational data stores
+        href: concepts/non-relational-data.md
+      - name: Working with CSV and JSON files
+        href: concepts/csv-and-json.md
+      - name: Big data architectures
+        href: concepts/big-data.md
+      - name: Advanced analytics
+        href: concepts/advanced-analytics.md 
+      - name: Machine learning at scale
+        href: concepts/machine-learning-at-scale.md
+    - name: Scenarios
+      items:
+      - name: Batch processing
+        href: scenarios/batch-processing.md
+      - name: Real time processing
+        href: scenarios/real-time-processing.md
+      - name: Free-form text search
+        href: scenarios/search.md
+      - name: Interactive data exploration
+        href: scenarios/interactive-data-exploration.md
+      - name: Natural language processing
+        href: scenarios/natural-language-processing.md
+      - name: Time series solutions
+        href: scenarios/time-series.md
+    - name: Technology choices
+      items:
+      - name: Analytical data stores
+        href: technology-choices/analytical-data-stores.md 
+      - name: Analytics and reporting
+        href: technology-choices/analysis-visualizations-reporting.md 
+      - name: Batch processing
+        href: technology-choices/batch-processing.md 
+      - name: Cognitive services
+        href: technology-choices/cognitive-services.md 
+      - name: Data storage
+        href: technology-choices/data-storage.md
+      - name: Machine learning
+        href: technology-choices/data-science-and-machine-learning.md 
+      - name: Natural language processing
+        href: technology-choices/natural-language-processing.md 
+      - name: Pipeline orchestration
+        href: technology-choices/pipeline-orchestration-data-movement.md 
+      - name: Real-time message ingestion
+        href: technology-choices/real-time-ingestion.md
+      - name: Search data stores
+        href: technology-choices/search-options.md
+      - name: Stream processing
+        href: technology-choices/stream-processing.md
+  - name: Cross-cutting concerns
+    items:
+    - name: Data transfer
+      href: scenarios/data-transfer.md 
+    - name: Extending on-premises data solutions to the cloud
+      href: scenarios/hybrid-on-premises-and-cloud.md 
+    - name: Securing data solutions
+      href: scenarios/securing-data-solutions.md 
