@@ -9,6 +9,11 @@
           "source_path": "docs/compliance/pci-dss/index.md",
           "redirect_url": "/azure/security/blueprints/payment-processing-blueprint", 
           "redirect_document_id": false 
+      }, 
+      { 
+          "source_path": "docs/reference-archtiectures/managed-web-app/index.md",
+          "redirect_url": "/azure/architecture/reference-archtiectures/app-service-web-app", 
+          "redirect_document_id": false 
       } 
     ] 
   } 
