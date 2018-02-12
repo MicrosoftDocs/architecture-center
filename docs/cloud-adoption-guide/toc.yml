@@ -55,7 +55,7 @@
           - name: "Explainer: what is an Azure virtual network?"
             href: /azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "How to: deploy a virtual network to Azure"
-            href: /azure/virtual-network/virtual-networks-create-vnet-arm-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
+            href: /azure/virtual-network/virtual-networks-create-vnet-arm-pportal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "How to: deploy a single Windows VM IaaS workload to Azure"
             href: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "Guidance: best practices for deploying a Windows VM to Azure"
