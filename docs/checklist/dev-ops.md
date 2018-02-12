@@ -1,3 +1,11 @@
+---
+title: DevOps checklist
+description: Checklist that provides guidance related to DevOps.
+author: dragon119
+ms.date: 01/10/2018
+ms.custom: checklist
+---
+
 # DevOps Checklist
 
 DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software. Use this checklist as a starting point to assess your DevOps culture and process.
