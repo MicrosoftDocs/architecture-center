@@ -2,6 +2,7 @@
 title: Azure Reference Architectures
 description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
 layout: LandingPage
+NOTE: edit the template in ./build/reference-architectures !!!
 ---
 
 # Azure Reference Architectures
@@ -9,26 +10,8 @@ layout: LandingPage
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 <section class="series">
-    <style scoped type="text/css">
-    .panelContent li {
-        display: flex;
-        flex-direction: column;
-    }
-    .panelContent li a {
-        display: flex;
-        flex-direction: column;
-        flex: 1 0 auto;
-    }
-    .cardSize {
-        flex: 1 0 auto;
-        display: flex;
-    }
-    .cardPadding {
-        display: flex;
-    }
-    </style>
     <ul class="panelContent">
-    <!--Windows VM -->
+    <!-- Windows VM workloads -->
     <li>
         <a href="./virtual-machines-windows/index.md">
             <div class="cardSize">
@@ -48,7 +31,7 @@ Our reference architectures are arranged by scenario, with related architectures
             </div>
         </a>
     </li>
-    <!-- Linux VM -->
+    <!-- Linux VM workloads -->
     <li>
         <a href="./virtual-machines-linux/index.md">
             <div class="cardSize">
@@ -88,7 +71,7 @@ Our reference architectures are arranged by scenario, with related architectures
             </div>
         </a>
     </li>
-    <!-- DMZ -->
+    <!-- Network DMZ -->
     <li>
         <a href="./dmz/index.md">
             <div class="cardSize">
@@ -108,7 +91,7 @@ Our reference architectures are arranged by scenario, with related architectures
             </div>
         </a>
     </li>
-    <!-- Identity -->
+    <!-- Identity management -->
     <li>
         <a href="./identity/index.md">
             <div class="cardSize">
@@ -116,7 +99,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="./identity/images/adds-extend-domain.svg" height="140px" >
+                                <img src="./identity/images/adds-extend-domain.svg" height="140px" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -128,7 +111,7 @@ Our reference architectures are arranged by scenario, with related architectures
             </div>
         </a>
     </li>
-    <!-- Managed web app -->
+    <!-- App Service web application -->
     <li>
         <a href="./app-service-web-app/index.md">
             <div class="cardSize">
@@ -149,69 +132,67 @@ Our reference architectures are arranged by scenario, with related architectures
         </a>
     </li>
     </ul>
-
-<ul class="panelContent cardsI">
-<li>
-    <a href="./jenkins/index.md">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="./jenkins/images/logo.svg" alt="Jenkins" height="100%" />
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>Jenkins build server</h3>
-                    <p>Deploy and operate a scalable, enterprise-grade Jenkins server on Azure.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </a>
-</li>
-
-<li>
-    <a href="./sharepoint/index.md">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="./sharepoint/images/sharepoint.svg" alt="SharePoint Server 2016" height="100%" />
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>SharePoint Server 2016 farm</h3>
-                    <p>Deploy and run a high availability SharePoint Server 2016 farm on Azure with SQL Server Always On Availability Groups.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </a>
-</li>
-
-<li>
-    <a href="./sap/index.md">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card">
-                <div class="cardImageOuter">
-                    <div class="cardImage">
-                        <img src="./sap/images/sap.svg" alt="SAP NetWeaver and SAP HANA" width="100%" />
-                    </div>
-                </div>
-                <div class="cardText">
-                    <h3>SAP NetWeaver and SAP HANA</h3>
-                    <p>Deploy and run SAP NetWeaver and SAP HANA in a high availability environment on Azure.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </a>
-</li>
-</ul>
-
-
 </section>
 
+<ul class="panelContent cardsI">
+    <!-- Jenkins build server -->
+    <li>
+        <a href="./jenkins/index.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="./jenkins/images/logo.svg" height="140px" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Jenkins build server</h3>
+                            <p>Deploy and operate a scalable, enterprise-grade Jenkins server on Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- SharePoint Server 2016 farm -->
+    <li>
+        <a href="./sharepoint/index.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="./sharepoint/images/sharepoint.svg" height="140px" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>SharePoint Server 2016 farm</h3>
+                            <p>Deploy and run a high availability SharePoint Server 2016 farm on Azure with SQL Server Always On Availability Groups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- SAP NetWeaver and SAP HANA -->
+    <li>
+        <a href="./sap/index.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="./sap/images/sap.svg" height="140px" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>SAP NetWeaver and SAP HANA</h3>
+                            <p>Deploy and run SAP NetWeaver and SAP HANA in a high availability environment on Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>

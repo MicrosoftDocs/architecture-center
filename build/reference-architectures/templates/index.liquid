@@ -1,0 +1,62 @@
+---
+title: Azure Reference Architectures
+description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
+layout: LandingPage
+NOTE: edit the template in ./build/reference-architectures !!!
+---
+
+# Azure Reference Architectures
+
+Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
+
+<section class="series">
+    <ul class="panelContent">
+    {%- for x in series %}
+    <!-- {{ x.title }} -->
+    <li>
+        <a href="{{ x.url }}">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="{{ x.image }}" height="140px" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>{{ x.title }}</h3>
+                            <p>{{ x.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    {%- endfor %}
+    </ul>
+</section>
+
+<ul class="panelContent cardsI">
+    {%- for x in individuals %}
+    <!-- {{ x.title }} -->
+    <li>
+        <a href="{{ x.url }}">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="{{ x.image }}" height="140px" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>{{ x.title }}</h3>
+                            <p>{{ x.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    {%- endfor %}
+</ul>
