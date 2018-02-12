@@ -1,2 +1,2 @@
-const formatIndex = require('./reference-architectures/build');
+const formatIndex = require('./reference-architectures/index');
 formatIndex();
