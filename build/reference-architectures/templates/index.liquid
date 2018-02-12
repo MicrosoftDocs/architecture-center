@@ -12,51 +12,13 @@ Our reference architectures are arranged by scenario, with related architectures
 <section class="series">
     <ul class="panelContent">
     {%- for x in series %}
-    <!-- {{ x.title }} -->
-    <li>
-        <a href="{{ x.url }}">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="{{ x.image }}" height="140px" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>{{ x.title }}</h3>
-                            <p>{{ x.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
+    {% include 'tile' with x %}
     {%- endfor %}
     </ul>
 </section>
 
 <ul class="panelContent cardsI">
     {%- for x in individuals %}
-    <!-- {{ x.title }} -->
-    <li>
-        <a href="{{ x.url }}">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="{{ x.image }}" height="140px" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>{{ x.title }}</h3>
-                            <p>{{ x.summary }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
+    {% include 'tile' with x %}
     {%- endfor %}
 </ul>
