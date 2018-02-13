@@ -22,6 +22,9 @@
   - name: Design patterns
     href: patterns/index.md?toc=/azure/architecture/guide/toc.json
 
+- name: Data Architecture Guide
+  href: data-guide/index.md
+
 - name: Reference Architectures
   href: reference-architectures/index.md
   items:
