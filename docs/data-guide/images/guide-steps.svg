@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		width="3.32431in" height="3.67623in" viewBox="0 0 239.351 264.689" xml:space="preserve" color-interpolation-filters="sRGB"
+		class="st11">
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#fcebdd;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {fill:#000000;font-family:Segoe UI;font-size:1.16666em}
+		.st3 {fill:#92cddc;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.24}
+		.st4 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st5 {fill:#000000;font-family:Segoe UI;font-size:0.75em}
+		.st6 {font-size:1em}
+		.st7 {fill:#dbeef3;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st8 {fill:#ebf1df;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st9 {fill:#ffffcc;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st10 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st11 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<g>
+		<title>Page-1</title>
+		<g id="group98-1" transform="translate(15.5425,-0.375)">
+			<title>Sheet.98</title>
+			<g id="shape71-2" transform="translate(0,-190.487)">
+				<title>Sheet.71</title>
+				<desc>RDBMS</desc>
+				<ellipse cx="45.201" cy="227.963" rx="45.201" ry="36.7259" class="st1"/>
+				<text x="22.09" y="232.16" class="st2">RDBMS</text>			</g>
+			<g id="shape83-5" transform="translate(-219.488,154.743) rotate(-90)">
+				<title>Simple Arrow.83</title>
+				<path d="M0 264.69 L12 251.19 L12 257.94 L32.12 257.94 L32.12 264.69 L32.12 271.44 L12 271.44 L12 278.19 L0 264.69
+							 Z" class="st3"/>
+			</g>
+			<g id="shape84-7" transform="translate(-219.488,223.621) rotate(-90)">
+				<title>Simple Arrow.84</title>
+				<path d="M0 264.69 L12 251.19 L12 257.94 L32.12 257.94 L32.12 264.69 L32.12 271.44 L12 271.44 L12 278.19 L0 264.69
+							 Z" class="st3"/>
+			</g>
+			<g id="shape94-9" transform="translate(10.7622,0)">
+				<title>Sheet.94</title>
+				<desc>Technology choices</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="11.37" y="242.53" class="st5">Technology <tspan x="19.75" dy="1.2em" class="st6">choices</tspan></text>			</g>
+			<g id="shape95-13" transform="translate(10.7622,-68.1886)">
+				<title>Sheet.95</title>
+				<desc>Solutions</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="16.07" y="247.93" class="st5">Solutions</text>			</g>
+			<g id="shape96-16" transform="translate(10.7622,-136.377)">
+				<title>Sheet.96</title>
+				<desc>Concepts</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="15.96" y="247.93" class="st5">Concepts</text>			</g>
+		</g>
+		<g id="group99-19" transform="translate(130.976,-0.375)">
+			<title>Sheet.99</title>
+			<g id="shape100-20" transform="translate(0,-190.487)">
+				<title>Sheet.100</title>
+				<desc>NoSQL</desc>
+				<ellipse cx="45.201" cy="227.963" rx="45.201" ry="36.7259" class="st1"/>
+				<text x="23.57" y="232.16" class="st2">NoSQL</text>			</g>
+			<g id="shape101-23" transform="translate(-219.488,154.743) rotate(-90)">
+				<title>Simple Arrow.83</title>
+				<path d="M0 264.69 L12 251.19 L12 257.94 L32.12 257.94 L32.12 264.69 L32.12 271.44 L12 271.44 L12 278.19 L0 264.69
+							 Z" class="st3"/>
+			</g>
+			<g id="shape102-25" transform="translate(-219.488,223.621) rotate(-90)">
+				<title>Simple Arrow.84</title>
+				<path d="M0 264.69 L12 251.19 L12 257.94 L32.12 257.94 L32.12 264.69 L32.12 271.44 L12 271.44 L12 278.19 L0 264.69
+							 Z" class="st3"/>
+			</g>
+			<g id="shape103-27" transform="translate(10.7622,0)">
+				<title>Sheet.103</title>
+				<desc>Technology choices</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="11.37" y="242.53" class="st5">Technology <tspan x="19.75" dy="1.2em" class="st6">choices</tspan></text>			</g>
+			<g id="shape104-31" transform="translate(10.7622,-68.1886)">
+				<title>Sheet.104</title>
+				<desc>Solutions</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="16.07" y="247.93" class="st5">Solutions</text>			</g>
+			<g id="shape105-34" transform="translate(10.7622,-136.377)">
+				<title>Sheet.105</title>
+				<desc>Concepts</desc>
+				<ellipse cx="34.4389" cy="245.231" rx="34.4389" ry="19.4575" class="st4"/>
+				<text x="15.96" y="247.93" class="st5">Concepts</text>			</g>
+		</g>
+		<g id="group46-37" transform="translate(0.375,-179.863)">
+			<title>Sheet.46</title>
+			<g id="shape14-38" transform="translate(5.34572E-14,-28.2507)">
+				<title>Sheet.14</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape15-40" transform="translate(7.53351,-28.2507)">
+				<title>Sheet.15</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st8"/>
+			</g>
+			<g id="shape16-42" transform="translate(22.6005,-28.2507)">
+				<title>Sheet.16</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st8"/>
+			</g>
+			<g id="shape17-44" transform="translate(33.9008,-28.2507)">
+				<title>Sheet.17</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st8"/>
+			</g>
+			<g id="shape18-46" transform="translate(5.34572E-14,-22.6005)">
+				<title>Sheet.18</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape19-48" transform="translate(7.53351,-22.6005)">
+				<title>Sheet.19</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape20-50" transform="translate(22.6005,-22.6005)">
+				<title>Sheet.20</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape21-52" transform="translate(33.9008,-22.6005)">
+				<title>Sheet.21</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape30-54" transform="translate(0,-16.9504)">
+				<title>Sheet.30</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape31-56" transform="translate(7.53351,-16.9504)">
+				<title>Sheet.31</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape32-58" transform="translate(22.6005,-16.9504)">
+				<title>Sheet.32</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape33-60" transform="translate(33.9008,-16.9504)">
+				<title>Sheet.33</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape34-62" transform="translate(0,-11.3003)">
+				<title>Sheet.34</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape35-64" transform="translate(7.53351,-11.3003)">
+				<title>Sheet.35</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape36-66" transform="translate(22.6005,-11.3003)">
+				<title>Sheet.36</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape37-68" transform="translate(33.9008,-11.3003)">
+				<title>Sheet.37</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape38-70" transform="translate(5.34572E-14,-5.65013)">
+				<title>Sheet.38</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape39-72" transform="translate(7.53351,-5.65013)">
+				<title>Sheet.39</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape40-74" transform="translate(22.6005,-5.65013)">
+				<title>Sheet.40</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape41-76" transform="translate(33.9008,-5.65013)">
+				<title>Sheet.41</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape42-78">
+				<title>Sheet.42</title>
+				<rect x="0" y="259.038" width="7.53351" height="5.65013" class="st7"/>
+			</g>
+			<g id="shape43-80" transform="translate(7.53351,-5.68434E-14)">
+				<title>Sheet.43</title>
+				<rect x="0" y="259.038" width="15.067" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape44-82" transform="translate(22.6005,-1.13687E-13)">
+				<title>Sheet.44</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+			<g id="shape45-84" transform="translate(33.9008,-1.13687E-13)">
+				<title>Sheet.45</title>
+				<rect x="0" y="259.038" width="11.3003" height="5.65013" class="st4"/>
+			</g>
+		</g>
+		<g id="group61-86" transform="translate(199.694,-179.763)">
+			<title>Sheet.61</title>
+			<g id="shape47-87" transform="translate(5.47891,-30.134)">
+				<title>Sheet.47</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st4"/>
+			</g>
+			<g id="shape48-89" transform="translate(0,-15.067)">
+				<title>Sheet.48</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st8"/>
+			</g>
+			<g id="shape49-91" transform="translate(21.5243,-17.2194)">
+				<title>Sheet.49</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st4"/>
+			</g>
+			<g id="shape51-93" transform="translate(15.067,0)">
+				<title>Sheet.51</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st9"/>
+			</g>
+			<g id="shape53-95" transform="translate(30.134,-7.80256)">
+				<title>Sheet.53</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st7"/>
+			</g>
+			<g id="shape54-97">
+				<title>Sheet.54</title>
+				<ellipse cx="4.57392" cy="259.98" rx="4.57392" ry="4.70844" class="st4"/>
+			</g>
+			<g id="shape55-99" transform="translate(255.543,327.569) rotate(110.697)">
+				<title>Sheet.55</title>
+				<path d="M0 264.69 L6.73 264.69" class="st10"/>
+			</g>
+			<g id="shape56-102" transform="translate(268.759,249.593) rotate(90)">
+				<title>Sheet.56</title>
+				<path d="M0 264.69 L5.71 264.69" class="st10"/>
+			</g>
+			<g id="shape57-105" transform="translate(195.383,60.5931) rotate(45)">
+				<title>Sheet.57</title>
+				<path d="M0 264.69 L12.1 264.69" class="st10"/>
+			</g>
+			<g id="shape58-108" transform="translate(275.11,329.109) rotate(108.142)">
+				<title>Sheet.58</title>
+				<path d="M0 264.69 L9.17 264.69" class="st10"/>
+			</g>
+			<g id="shape60-111" transform="translate(231.929,75.4861) rotate(49.9041)">
+				<title>Sheet.60</title>
+				<path d="M0 264.69 L3.49 264.69" class="st10"/>
+			</g>
+		</g>
+	</g>
+</svg>
