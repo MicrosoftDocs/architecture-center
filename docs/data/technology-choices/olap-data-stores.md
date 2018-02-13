@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing an online analytical processing (OLAP) data store
+# Choosing an OLAP data store in Azure
 
 Online analytical processing (OLAP) is a technology that organizes large business databases and supports complex analysis. This topic compares the options for OLAP solutions in Azure.
 
@@ -13,6 +13,7 @@ Online analytical processing (OLAP) is a technology that organizes large busines
 > For more information about when to use an OLAP data store, see [Online analytical processing](../scenarios/online-analytical-processing.md).
 
 ## What are your options when choosing an OLAP data store?
+
 In Azure, all of the following data stores will meet the core requirements for OLAP:
 
 - [SQL Server with Columnstore indexes](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
@@ -25,7 +26,7 @@ Clustered Columnstore indexes are available in SQL Server 2014 and above, as wel
 
 ## Key selection criteria
 
-For OLAP scenarios, choose the appropriate system for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 

@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a machine learning technology
+# Choosing a machine learning technology in Azure
 
 Data science and machine learning is a workload that is usually undertaken by data scientists. It requires specialist tools, many of which are designed specifically for the type of interactive data exploration and modeling tasks that a data scientist must perform.
 

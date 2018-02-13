@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a stream processing technology
+# Choosing a stream processing technology in Azure
 
 This article compares technology choices for real-time stream processing in Azure.
 

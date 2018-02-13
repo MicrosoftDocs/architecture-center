@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a natural language processing technology
+# Choosing a natural language processing technology in Azure
 
 Free-form text processing is performed against documents containing paragraphs of text, typically for the purpose of supporting search, but is also used to perform other natural language processing (NLP) tasks such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization. This article focuses on the technology choices that act in support of the NLP tasks.
 
@@ -18,7 +18,7 @@ In Azure, the following services provide natural language processing (NLP) capab
 
 ## Key selection criteria
 
-For NLP scenarios, begin choosing the appropriate service for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you want to use prebuilt models? If yes, consider using the APIs offered by Microsoft Cognitive Services.
 

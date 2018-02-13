@@ -148,7 +148,7 @@ The following compares the requirements for each of the non-relational data stor
 | Overall Maximum Scale | Very Large (PBs) | Very Large (PBs) | Very Large (PBs) | Large (TBs) | 
 
 | Requirement | Time series data | Object data | External index data |
-| ---  --- | --- | --- |
+| --- | --- | --- | --- |
 | Normalization | Normalized | Denormalized | Denormalized |
 | Schema | Schema on read | Schema on read | Schema on write | 
 | Consistency (across concurrent transactions) | N/A | N/A | N/A | 

@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a real-time message ingestion technology
+# Choosing a real-time message ingestion technology in Azure
 
 Real time processing deals with streams of data that are captured in real-time and processed with minimal latency. Many real-time processing solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. 
 
@@ -45,6 +45,8 @@ Some common use cases for Kafka are:
 * **Transformation**. Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
 
 ## Key selection criteria
+
+To narrow the choices, start by answering these questions:
 
 - Do you need two-way communication between your IoT devices and Azure? If so, choose IoT Hub.
 

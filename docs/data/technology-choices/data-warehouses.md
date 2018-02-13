@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a data warehouse
+# Choosing a data warehouse in Azure
 
 A data warehouse is a central, organizational, relational repository of integrated data from one or more disparate sources. This topic compares options for data warehouses in Azure.
 
@@ -48,7 +48,7 @@ Azure SQL Data Warehouse can also be used for small and medium datasets, where t
 
 ## Key selection criteria
 
-For data warehouse scenarios, choose the appropriate system for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 

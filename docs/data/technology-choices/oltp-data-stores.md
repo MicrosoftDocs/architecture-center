@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing an OLTP data store
+# Choosing an OLTP data store in Azure
 
 Online transaction processing (OLTP) is the management of transactional data and transaction processing. This topic compares options for OLTP solutions in Azure.
 
@@ -23,7 +23,7 @@ In Azure, all of the following data stores will meet the core requirements for O
 
 ## Key selection criteria
 
-For OLTP scenarios, begin choosing the appropriate database for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 

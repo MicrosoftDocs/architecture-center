@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing an analytical data store
+# Choosing an analytical data store in Azure
 
 In a [big data](../concepts/big-data.md) architecture, there is often a need for an analytical data store that serves processed data in a structured format that can be queried using analytical tools. Analytical data stores that support querying of both hot-path and cold-path data are collectively referred to as the serving layer, or data serving storage.
 
@@ -13,7 +13,7 @@ The serving layer deals with processed data from both the hot path and cold path
 
 There is no single best data management choice for all data storage tasks. Different data management solutions are optimized for different tasks. Most real-world cloud apps and big data processes have a variety of data storage requirements and often use a combination of data storage solutions.
 
-## What are your options when choosing data serving storage?
+## What are your options when choosing an analytical data store?
 
 There are several options for data serving storage in Azure, depending on your needs:
 
@@ -34,7 +34,7 @@ These options provide various database models that are optimized for different t
 
 ## Key selection criteria
 
-Choose the appropriate system for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you need serving storage that can serve as a hot path for your data? If yes, narrow your options to those that are optimized for a speed serving layer.
 
@@ -56,6 +56,7 @@ The following tables summarize the key differences in capabilities.
 | Optimized for speed serving layer | Yes <sup>2</sup> | No | Yes | Yes | No | Yes |
 
 [1] With manual configuration and scaling.
+
 [2] Using memory-optimized tables and hash or nonclustered indexes.
  
 ### Scalability capabilities

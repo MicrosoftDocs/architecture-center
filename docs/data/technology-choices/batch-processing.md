@@ -5,13 +5,13 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a batch processing technology
+# Choosing a batch processing technology in Azure
 
 Big data solutions often use long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage. 
 
 The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
-## What are your options when choosing a technology for batch processing?
+## What are your options when choosing a batch processing technology?
 
 In Azure, all of the following data stores will meet the core requirements for batch processing:
 
@@ -23,7 +23,7 @@ In Azure, all of the following data stores will meet the core requirements for b
 
 ## Key selection criteria
 
-For batch processing scenarios, begin choosing the appropriate service for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you want a managed service rather than managing your own servers?
 

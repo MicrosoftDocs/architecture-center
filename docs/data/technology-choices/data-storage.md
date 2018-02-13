@@ -5,7 +5,7 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a big data storage technology 
+# Choosing a big data storage technology in Azure
 
 This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md)
 
@@ -72,7 +72,7 @@ The [HDInsight implementation](/azure/hdinsight/hbase/apache-hbase-overview) lev
 
 ## Key selection criteria
 
-For data ingestion, choose the appropriate system for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you need managed, high speed, cloud-based storage for any type of text or binary data? If yes, then select one of the file storage options.
 

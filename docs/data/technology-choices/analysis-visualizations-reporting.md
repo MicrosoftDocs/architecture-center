@@ -5,11 +5,11 @@ author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Choosing a data analytics and reporting technology
+# Choosing a data analytics technology in Azure
 
 The goal of most big data solutions is to provide insights into the data through analysis and reporting. This can include preconfigured reports and visualizations, or interactive data exploration. 
 
-## What are your options when choosing analysis and reporting technologies?
+## What are your options when choosing a data analytics technology?
 
 There are several options for analysis, visualizations, and reporting in Azure, depending on your needs:
 
@@ -56,7 +56,7 @@ Considerations:
 
 ## Key selection criteria
 
-For analysis, visualizations, and reporting scenarios, choose the appropriate system for your needs by answering these questions:
+To narrow the choices, start by answering these questions:
 
 - Do you need to connect to numerous data sources, providing a centralized place to create reports for data spread throughout your domain? If so, choose an option that allows you to connect to 100s of data sources.
 
