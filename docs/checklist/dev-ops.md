@@ -145,3 +145,5 @@ For more about DevOps, see [What is DevOps?][what-is-devops] on the Visual Studi
 [resource-manager]: /azure/azure-resource-manager/
 [trunk-based]: https://trunkbaseddevelopment.com/
 [what-is-devops]: https://www.visualstudio.com/learn/what-is-devops/
+
+<-- Loc comment: please add the metadata in this article. -->
