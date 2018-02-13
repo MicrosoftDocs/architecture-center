@@ -1,0 +1,24 @@
+---
+title: Azure Reference Architectures
+description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
+layout: LandingPage
+NOTE: edit the template in ./build/reference-architectures !!!
+---
+
+# Azure Reference Architectures
+
+Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
+
+<section class="series">
+    <ul class="panelContent">
+    {%- for x in series %}
+    {% include 'tile' with x %}
+    {%- endfor %}
+    </ul>
+</section>
+
+<ul class="panelContent cardsI">
+    {%- for x in individuals %}
+    {% include 'tile' with x %}
+    {%- endfor %}
+</ul>

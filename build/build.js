@@ -1,5 +1,2 @@
-const blueprints = require('./blueprints/build');
-const main = require('./main/build');
-
-main();
-blueprints();
+const formatIndex = require('./reference-architectures/index');
+formatIndex();
