@@ -7,7 +7,7 @@ ms:date: 02/12/2018
 
 # Choosing a big data storage technology in Azure
 
-This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md)
+This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
 ## What are your options when choosing data storage in Azure?
 
