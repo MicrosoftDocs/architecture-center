@@ -12,7 +12,7 @@ The Azure front end includes a service called Azure Resource Manager. Azure Reso
 
 The RESTful API provided by Azure Resource Manager is a consistent interface over a set of **resource providers**. Resource providers are simply Azure services that create, read, update, and delete resources in Azure. In fact, the RESTful API includes methods for each of these functions. 
 
-The RESTful API requires an access token for the user, a **subscription ID**, and something new - a **resource group ID**. We'll cover resource groups in the [resource group explainer](resource-group-explainer.md) article. Azure Resource Manager also requires the **tenant ID**, which is encoded as part of the access token. 
+The RESTful API requires an access token for the user, a **subscription ID**, and something new: a **resource group ID**. We'll cover resource groups in the [resource group explainer](resource-group-explainer.md) article. Azure Resource Manager also requires the **tenant ID**, which is encoded as part of the access token. 
 
 When a valid API call to create a resource is received, Azure Resource Manager finds capacity in the specified region and copies any required files to a staging location. The request is then sent to the fabric controller in the rack, and the fabric controller allocates the resources. The fabric controller responds to the request with a success or failure notification, along with a **resource ID** for the newly created resource. These four IDs are stored internally in Azure and together serve as a unique identifier for a deployed resource.
 
