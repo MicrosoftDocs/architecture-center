@@ -55,7 +55,7 @@ TODO: Organize these links
 - [Azure licensing](https://www.microsoft.com/en-us/Licensing/product-licensing/azure.aspx)
 - [Microsoft Enterprise Agreements](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 - [VIDEO: Enterprise Agreement - Server and Cloud Enrollment](https://www.microsoft.com/en-us/videoplayer/embed/eed0fe74-a5a5-4617-8c2c-6bb78e966a52)
-- [Subscription governance](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance)
+- [Subscription governance](/azure/azure-resource-manager/resource-manager-subscription-governance)
 - [Azure Onboarding Guide for IT Organizations](https://azure.microsoft.com/mediahandler/files/resourcefiles/d8e7430c-8f62-4bbb-9ca2-f2bc877b48bd/Azure%20Onboarding%20Guide%20for%20IT%20Organizations.pdf) 
 - Azure Stack
 - [Azure Government Onboarding Guides](https://blogs.msdn.microsoft.com/azuregov/2016/05/18/new-azure-government-onboarding-guides/)
