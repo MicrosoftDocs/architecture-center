@@ -48,7 +48,7 @@
           items: 
           - name: "How to: deploy a basic web application to Azure"
             href: /azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for web applications in Azure"
+          - name: "Guidance: proven practices for web applications in Azure"
             href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: Infrastructure as a service (IaaS)
           items:
@@ -58,9 +58,9 @@
             href: /azure/virtual-network/virtual-networks-create-vnet-arm-pportal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "How to: deploy a single Windows VM IaaS workload to Azure"
             href: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for deploying a Windows VM to Azure"
+          - name: "Guidance: proven practices for deploying a Windows VM to Azure"
             href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "How to: deploy a single Linux VM IasS workload to Azure"
             href: /azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for deploying a Linux VM to Azure"
+          - name: "Guidance: proven practices for deploying a Linux VM to Azure"
             href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
