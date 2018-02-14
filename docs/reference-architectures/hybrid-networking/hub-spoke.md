@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology in Azure
 description: >-
   How to implement a hub-spoke network topology in Azure.
 author: telmosampaio
-ms.date: 05/05/2017
+ms.date: 02/14/2018
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
@@ -336,68 +336,6 @@ To verify that the hub-spoke topology connected to an on-premises datacenter dep
 
   ```bash
   ping 10.1.1.37
-  ```
-
-### Add connectivity between spokes
-
-If you want to allow spokes to connect to each other, you must deploy UDRs to each spoke that forward traffic destined to other spokes to the gateway in the hub VNet. Perform the following steps to verify that currently you are not able to connect from a spoke to another, then deploy the UDRs and test connectivity again.
-
-1. Repeat steps 1 to 4 above, if you are not connected to the jumpbox VM any longer.
-
-2. Connect to one of the web servers in spoke 1.
-
-  ```bash
-  ssh 10.1.1.37
-  ```
-
-3. Test the connectivity between spoke 1 and spoke 2. It should fail.
-
-  ```bash
-  ping 10.1.2.37
-  ```
-
-4. Switch back to your computer's command prompt.
-
-5. Switch to the `hybrid-networking\hub-spoke\spokes` folder for the repository you downloaded in the pre-requisites step above.
-
-6. Run the bash or PowerShell command below to deploy an UDR to the first spoke. Substitute the values with your subscription, resource group name, and Azure region.
-
-  ```bash
-  sh ./spoke.udr.deploy.sh --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --resourcegroup ra-spoke1-rg \
-    --location westus \
-    --spoke 1
-  ```
-
-  ```powershell
-  ./spoke.udr.deploy.ps1 -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx `
-    -ResourceGroup ra-spoke1-rg `
-    -Location westus `
-    -Spoke 1
-  ```
-
-7. Run the bash or PowerShell command below to deploy an UDR to the second spoke. Substitute the values with your subscription, resource group name, and Azure region.
-
-  ```bash
-  sh ./spoke.udr.deploy.sh --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --resourcegroup ra-spoke2-rg \
-    --location westus \
-    --spoke 2
-  ```
-
-  ```powershell
-  ./spoke.udr.deploy.ps1 -Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx `
-    -ResourceGroup ra-spoke2-rg `
-    -Location westus `
-    -Spoke 2
-  ```
-
-8. Switch back to the ssh terminal.
-
-9. Test the connectivity between spoke 1 and spoke 2. It should succeed.
-
-  ```bash
-  ping 10.1.2.37
   ```
 
 <!-- links -->
