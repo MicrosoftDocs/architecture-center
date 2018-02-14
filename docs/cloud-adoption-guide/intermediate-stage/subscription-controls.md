@@ -1,8 +1,10 @@
 ---
-title: "Explainer: Controls in Azure subscriptions"
+title: "Explainer: controls in Azure subscriptions"
 description: Explains control mechanisms in Azure subscriptions 
 author: alexbuckgit
 ---
+
+# Explainer: controls in Azure subscriptions
 
 In the foundational adoption stage, you learned [what an Azure subscription is](../adoption-intro/subscription-explainer.md) and you [created your first subscription](../adoption-intro/subscription.md). Subscriptions have other aspects your should consider as you move into the intermediate adoption stage.
 
@@ -16,4 +18,4 @@ Azure also provides other ways to control access to Azure resources. *Role-based
 
 ## Next steps
 
-* Now that you know the basics of controls and limits in Azure subscriptions, let's discuss reasons you may want to [use multiple subscriptions](subscription-multiple.md) and considerations for managing them.
+* Now that you know the basics of controls and limits in Azure subscriptions, let's discuss the basics of [ownership and administration of an Azure subscription](subscription-ownership.md).

@@ -4,7 +4,7 @@ description: Explains the basic characteristics of an Azure subscription
 author: alexbuckgit
 ---
 
-# Explainer: What is an Azure subscription?
+# Explainer: what is an Azure subscription?
 
 In the [what is an Azure Active Directory tenant?](tenant-explainer.md) explainer article, you learned that digital identity for your organization is stored in an Azure AD tenant. You also learned that Azure trusts Azure AD to authenticate users that send requests to create, read, update, or delete a resource. 
 

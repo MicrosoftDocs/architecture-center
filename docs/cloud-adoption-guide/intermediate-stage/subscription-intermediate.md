@@ -1,25 +1,5 @@
----
-title: "Guidance: Azure subscription design"
-description: Guidance for Azure subscription design in the intermediate phase of your cloud adoption strategy
-author: alexbuckgit
----
 
-# Guidance: Azure subscription design
 
-In the foundational adoption phase, you learned some basic information about Azure subscriptions. You also created your first subscription. In the intermediate adoption phase, we'll discuss some important aspects of subscriptions, as well as considerations for using multiple subscriptions in your organization. 
-
-## Administration and access control
-
-Initially, Azure provided the Azure Service Model (now known as the classic deployment model). In this model, access controls for a subscription were minimal, and access to a subscription implied access to all the resources in the subscription. These limitations led organizations to create many subscriptions in order to limit access to only the appropriate personnel.
-
-The Azure Resource Management deployment model (introduced in 2014) enables Role-Based Access Control (RBAC), which provides fine-grained control for assigning administrative privileges to Azure resources. In this model, the subscription is no longer required to serve as the primary security boundary. As a result, the proliferation of subscriptions that was common in the classic deployment model is no longer necessary.
-
-> [!NOTE] 
-> Because of its more robust security and billing capabilities, the Azure Resource Management deployment model should be used for all new Azure deployments. This guide focuses solely on deploying and managing Azure resources via this model.
-
-## Scale and subscription limits
-
-A subscription is a logical limit of scale. Every subscription has a defined set of [subscription limits][docs-subscription-limits] for the resources associated with a subscription. These limits include quotas for various Azure resource types. Organizations often create multiple Azure subscriptions in order to avoid these limits.
 
 ## Ownership and administration
 

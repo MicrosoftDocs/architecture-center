@@ -1,10 +1,10 @@
 ---
-title: "Explainer: How does Azure work?"
+title: "Explainer: how does Azure work?"
 description: Explains the internal functioning of Azure
 author: petertay
 ---
 
-# Explainer: How does Azure work?
+# Explainer: how does Azure work?
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 

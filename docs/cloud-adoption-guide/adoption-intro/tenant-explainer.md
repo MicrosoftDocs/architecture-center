@@ -1,14 +1,14 @@
 ---
-title: "Explainer: What is an Azure Active Directory tenant?"
+title: "Explainer: what is an Azure Active Directory tenant?"
 description: Explains the internal functioning of Azure Active Directory to provide identity as a service (IDaaS) in Azure
 author: petertay
 ---
 
-# Explainer: What is an Azure Active Directory tenant?
+# Explainer: what is an Azure Active Directory tenant?
 
 In the [how does Azure work?](azure-explainer.md) explainer article, you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. You also learned that some of these servers run a distributed orchestration application to manage creating, reading, updating, and deleting Azure resources.
 
-However, as you would expect - Azure doesn't allow just anyone to perform one of these operations on a resource. Azure restricts access to these operations using a trusted digital identity service called **Azure Active Directory** (Azure AD). Azure AD stores user name, passwords, profile data, and other information. Azure AD users are segmented into **tenants**. A tenant is a logical construct that represents a secure, dedicated instance of Azure AD typically associated with an organization.
+Of course, Azure doesn't allow just anyone to perform one of these operations on a resource. Azure restricts access to these operations using a trusted digital identity service called **Azure Active Directory** (Azure AD). Azure AD stores user name, passwords, profile data, and other information. Azure AD users are segmented into **tenants**. A tenant is a logical construct that represents a secure, dedicated instance of Azure AD typically associated with an organization.
 
 In order to create a tenant, Azure requires a **privileged account**. This privileged account is associated with either an Azure account or an enterprise agreement. Both of these are billing constructs and are not stored in Azure AD &mdash; these accounts are stored in a highly secure billing database. 
 
