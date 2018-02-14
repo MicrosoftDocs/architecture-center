@@ -93,7 +93,7 @@ You can also configure spokes to use the hub VNet gateway to communicate with re
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub. If you have a Virtual Network gateway or an ExpressRoute gateway in the hub VNet, this can also be used as a means for communication between the spokes. To do this, select *Virtual network gateway* as next hop type.
+If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub. If you have a Virtual Network gateway or an ExpressRoute gateway in the hub VNet, this can also be used as a means for communication between the spokes. To do this, select *Virtual network gateway* as the next hop type.
 
 ![[2]][2]
 
