@@ -53,7 +53,7 @@ By default, the relying party application receives only a fixed set of claims av
 
 | Claim | Description |
 | --- | --- |
-| aud |Audience. The application for which the the claims were issued. |
+| aud |Audience. The application for which the claims were issued. |
 | authenticationinstant |[Authentication instant]. The time at which authentication occurred. |
 | c_hash |Code hash value. This is a hash of the token contents. |
 | exp |[Expiration time]. The time after which the token will no longer be accepted. |
