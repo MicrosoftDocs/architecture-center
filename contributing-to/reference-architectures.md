@@ -46,6 +46,8 @@ In other cases, the series contains a set of recommended alternatives for a sing
 
 We use a consistent structure for reference architecture documents. That said, if the structure doesn't work for a particular case, we can and should evolve the structure.
 
+> See also: [Markdown template for reference architectures](./templates/reference-architecture.md)
+
 ### Title  - State the scenario
 
 > Example: "Connect an on-premises network to Azure using ExpressRoute"
