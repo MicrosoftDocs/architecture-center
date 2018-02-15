@@ -1,6 +1,6 @@
-## Guidelines for Reference Architectures on Azure Architecture Center
+# Guidelines for Reference Architectures on Azure Architecture Center
 
-# What is a Reference Architecture?
+## What is a Reference Architecture?
 
 The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers a specific type of guidance artifact, found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/). 
 
@@ -22,7 +22,7 @@ In other cases, the series contains a set of recommended alternatives for a sing
 1. Hybrid network with VPN Gateway
 2. Hybrid network with ExpressRoute
 
-# Principles
+## Principles
 
 - **Real**. A reference architecture (RA) shows an architecture that a customer can deploy today on Azure.
 
@@ -40,17 +40,17 @@ In other cases, the series contains a set of recommended alternatives for a sing
 
 - **Deployable**. In most cases, an RA should include a Resource Manager template or script that deploys the architecture. There are exceptions to this, however.
  
-# Document Structure
+## Document Structure
 
 We use a consistent structure for reference architecture documents. That said, if the structure doesn't work for a particular case, we can and should evolve the structure.
 
-## Title  - State the scenario
+### Title  - State the scenario
 
 > Example: "Connect an on-premises network to Azure using ExpressRoute"
 
 After the title, there is an introductory section, consisting of:
 
-### Intro paragraph
+#### Intro paragraph
 
 A short paragraph that describes the scenario and the solution that is deployed. This should be very concise, so that the diagram (next item) appears close to the top of the page.
 
@@ -58,13 +58,13 @@ Example:
 
 > This reference architecture shows a set of proven practices for running multiple Linux virtual machines (VMs) behind a load balancer, to improve availability and scalability. This architecture can be used for any stateless workload, such as a web server, and is a foundation for deploying n-tier applications.
 
-### Architecture diagram
+#### Architecture diagram
 
  The diagram shows the Azure resources that get deployed. The level of detail will depend on the scenario.
 
 > Example: For an IaaS deployment, the diagram _should_ include the network topology (VNet, subnets, gateways, public IP addresses), VMs or VM scale sets, plus load balancers, Traffic Manager, and App Gateway, as appropriate. It _might_ include other elements such as NICs, storage accounts, or VHDs, but only if the document contains specific guidance related to those elements. For example, if some VMs need multiple NICs, include those in the diagram. Otherwise, it can be assumed that each VM has a NIC.
 
-## Section: Architecture
+### Section: Architecture
 
 This section is a bullet list that describes the elements in the diagram. In most cases, there should be a 1:1 correspondence. Everything in the diagram should be described here, and vice versa.
 
@@ -76,7 +76,7 @@ For each element, describe its purpose within the context of the overall solutio
 
 It's OK to do both, describing _what_ something is and _why_ it's there. But avoid repeating a lot of information that is already in the product documentation for that service/feature. Instead, link to the product documentation.
 
-## Section: Recommendations
+### Section: Recommendations
 
 This section describes in more detail a set of recommendations for the elements listed in the previous section. This is the place for the gory details, gotchas, and detailed explanations of things.
 
@@ -101,7 +101,7 @@ Recommendations should be definite when possible.
 
 In practice, sometimes you'll need a qualifier like "depending on your workload..."
 
-## Considerations (pillars or "-ilities")
+### Considerations (pillars or "-ilities")
 
 These are four sections (H2) that describe non-functional characteristics of the architecture.
 
@@ -134,6 +134,6 @@ These sections may include whatever discussion points are relevant for that pill
 
   > "If you need additional throughput, consider creating additional Event Hubs and sharding the messages."  **← Advanced option, not shown in the reference architecture.**
 
-## Deploy the solution
+### Section: Deploy the solution
 
 If there is a deployable asset (Azure Resoure Manager template or script), include instructions for how to deploy.
