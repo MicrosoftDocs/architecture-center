@@ -71,13 +71,33 @@ layout: LandingPage
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/best-practices.svg" alt="Best Practices" height="100%" />
+                                <img src="_images/best-practices.svg" alt="Best Practices" />
                             </div>
                         </div>
                         <div class="cardText">
                             <h3>Best Practices for Cloud Applications</h3>
                             <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning,
                                 API design, and others.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- data guide -->
+    <li>
+        <a href="/azure/architecture/data-guide/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/data-guide.svg" alt="Data Architecture Guide"  />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Azure Data Architecture Guide</h3>
+                            <p>A structured approach to designing data-centric solutions on Microsoft Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -96,8 +116,48 @@ layout: LandingPage
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Building microservices on Azure</h3>
+                            <h3>Building Microservices on Azure</h3>
                             <p>This multi-part series takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- Resiliency -->
+    <li>
+        <a href="/azure/architecture/resiliency">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/resiliency.svg" alt="Designing for Resiliency" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Designing for Resiliency</h3>
+                            <p>Learn how to design resilient applications for Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- Building blocks -->
+    <li>
+        <a href="https://github.com/mspnp/template-building-blocks/wiki">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/azbb.svg" alt="Azure Building Blocks" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Azure Building Blocks</h3>
+                            <p>Simplify deployment of Azure resources. With a single settings file, deploy complex architectures in Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -164,46 +224,6 @@ layout: LandingPage
             </div>
         </a>
     </li>
-    <!-- Resiliency -->
-    <li>
-        <a href="/azure/architecture/resiliency">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/resiliency.svg" alt="Designing for Resiliency" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Designing for Resiliency</h3>
-                            <p>Learn how to design resilient applications for Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- Building blocks -->
-    <li>
-        <a href="https://github.com/mspnp/template-building-blocks/wiki">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/azbb.svg" alt="Azure Building Blocks" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Azure Building Blocks</h3>
-                            <p>Simplify deployment of Azure resources. With a single settings file, deploy complex architectures in Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
     <!-- Performance anti-practices -->
     <li>
         <a href="/azure/architecture/antipatterns">
@@ -216,7 +236,7 @@ layout: LandingPage
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Performance antipatterns</h3>
+                            <h3>Performance Antipatterns</h3>
                             <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
                         </div>
                     </div>
