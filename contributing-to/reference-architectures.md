@@ -2,7 +2,7 @@
 
 ## What is a Reference Architecture?
 
-The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers a specific type of guidance artifact, found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/). 
+The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers to a specific type of guidance artifact, found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/). 
 
 Our reference architectures focus on real-world scenarios. Each reference architecture consists of: 
 
@@ -17,14 +17,14 @@ Some reference architectures are part of a series. Within a series, the architec
 3. N-tier architecture
 4. Multi-region n-tier architecture
 
-In other cases, the series contains a set of recommended alternatives for a single scenario. For example:
+In other cases, the series contains a set of recommended alternatives for a single scenario. In that case, we include additional guidance to help customers select which reference architecture meets their needs. For example:
 
 1. Hybrid network with VPN Gateway
 2. Hybrid network with ExpressRoute
 
 ## Principles
 
-- **Real**. A reference architecture (RA) shows an architecture that a customer can deploy today on Azure.
+- **Real**. A reference architecture shows an architecture that a customer can deploy today on Azure.
 
 - **Concrete**. Our reference architectures show specific Azure services, as opposed to logical components such as "data store" or "stream processing."
 
@@ -32,13 +32,15 @@ In other cases, the series contains a set of recommended alternatives for a sing
 
 - **Infrastructure**. A reference architecture focuses on infrastructure (what you deploy), rather than application development. It can be IaaS or PaaS, or a mix of both.
 
-- **Audience**. The main audience is Architects, developers, DevOps.
+- **Audience**. The main audience is architects, developers, and DevOps.
 
-- **Golden path**. A single RA shows one way to do something. The goal is to guide a customer to a solution that works. An RA does _not_ describe every possible option or variation. However, there may be several related RAs that address similar scenarios. In that case, we include additional guidance to help customers select which RA meets their needs. 
+- **Golden path**. A single reference architecture shows one way to do something. The goal is to guide a customer to a solution that works. A reference architecture does _not_ describe every possible option or variation. 
 
-- **Best practices**. An RA embodies a set of best practices _for that scenario_. It does not comprehensively describe every feature of every Azure service being used - that's what the product docs are for.
+- **Best practices**. A reference architecture embodies a set of best practices _for that scenario_. It does not comprehensively describe every feature of every Azure service being used - that's what the product docs are for.
 
-- **Deployable**. In most cases, an RA should include a Resource Manager template or script that deploys the architecture. There are exceptions to this, however.
+- **Deployable**. In most cases, a reference architecture should include a Resource Manager template or script that deploys the architecture. There are exceptions to this, however.
+
+- **Starting point**. A reference architecture includes pointers to additional guidance, such as relevant product documentation.
  
 ## Document Structure
 
@@ -70,9 +72,9 @@ This section is a bullet list that describes the elements in the diagram. In mos
 
 For each element, describe its purpose within the context of the overall solution.
 
-**Weak:** "A subnet is a way to segment a VNet into multiple address spaces." **← This is just a description of subnets.**
+- **Weak:** "A subnet is a way to segment a VNet into multiple address spaces." **← This is just a description of subnets.**
 
-**Better:** "Put each application tier into a separate subnet."  **← This is specific to the scenario.**
+- **Better:** "Put each application tier into a separate subnet."  **← This is specific to the scenario.**
 
 It's OK to do both, describing _what_ something is and _why_ it's there. But avoid repeating a lot of information that is already in the product documentation for that service/feature. Instead, link to the product documentation.
 
@@ -95,9 +97,9 @@ As much as possible, provide the justification or rationale for each recommendat
 
 Recommendations should be definite when possible.
 
-**Weak:** To restrict traffic between the subnets, you can create network security groups. **← Are we recommending this or not?**
+- **Weak:** To restrict traffic between the subnets, you can create network security groups. **← Are we recommending this or not?**
 
-**Better:** Use an NSG to isolate the data tier. The data tier should only accept network traffic from the middle tier. **← Concrete and actionable**
+- **Better:** Use an NSG to isolate the data tier. The data tier should only accept network traffic from the middle tier. **← Concrete and actionable**
 
 In practice, sometimes you'll need a qualifier like "depending on your workload..."
 
@@ -112,27 +114,27 @@ These are four sections (H2) that describe non-functional characteristics of the
 
 These correspond to 4 of our 5 [pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars).
 
-Only include the sections that are relevant for the RA. In some cases, there won't be anything to say for a particular pillar, especially if an RA builds on a previous RA, as part of a series.
+Only include the sections that are relevant for the reference architecture. In some cases, there won't be anything to say for a particular pillar, especially if a reference architecture builds on a previous reference architecture, as part of a series.
 
 These sections may include whatever discussion points are relevant for that pillar, with respect to the architecture that's being described. Including:
 
 - What the architecture gives you.
 
-  >"Scale out by adding more VMs to the load balancer pool." **← A capability that this architecture gives you.**
+  >"Scale out by adding more VMs to the load balancer pool." (Scalability) **← A capability that this architecture gives you.**
 
 - What the architecture does not give you. When possible, point to a possible alternative.
 
-  > "If you need higher availability, replicate the application across two regions and use Traffic Manager for failover." **← What this architecture does _not_ give you (availability during a regional outage), along with a pointer to something actionable.**
+  > "If you need higher availability, replicate the application across two regions and use Traffic Manager for failover." (Availability) **← What this architecture does _not_ give you (availability during a regional outage), along with a pointer to something actionable.**
 
 - Things to keep in mind in order to achieve the pillar, when using this architecture. This might include app dev or operational considerations.
 
-  > "If your VMs run an HTTP server, create an HTTP health probe. Otherwise, create a TCP health probe."  **← A best practice that depends on the specific application workload**
+  > "If your VMs run an HTTP server, create an HTTP health probe. Otherwise, create a TCP health probe." (Availability) **← A best practice that depends on the specific application workload**
 
-  > "The web front end should be stateless, to avoid the need to maintain client affinity." **← An app dev consideration.**
+  > "The web front end should be stateless, to avoid the need to maintain client affinity." (Scalability) **← An app dev consideration.**
 
 - Additional options to consider, which may not be part of the golden path.
 
-  > "If you need additional throughput, consider creating additional Event Hubs and sharding the messages."  **← Advanced option, not shown in the reference architecture.**
+  > "If you need additional throughput, consider creating additional Event Hubs and sharding the messages." (Scalability) **← Advanced option, not shown in the reference architecture.**
 
 ### Section: Deploy the solution
 
