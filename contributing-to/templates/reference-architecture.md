@@ -5,7 +5,7 @@ keywords: Comma-separated list of key concepts and terms from your article (opti
 ms.date: mm/dd/yyyy
 ---
 
-[NOTE: You can find more detailed guidelines about creating reference architectures [here](./reference-architectures.md).]
+[NOTE: You can find more detailed guidelines about creating reference architectures [here](../reference-architectures.md).]
 
 
 # Article title
