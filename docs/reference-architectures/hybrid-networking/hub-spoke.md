@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology in Azure
 description: >-
   How to implement a hub-spoke network topology in Azure.
 author: telmosampaio
-ms.date: 02/13/2018
+ms.date: 02/16/2018
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
