@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-# Azure Cloud Adoption Guide
+# Cloud Adoption Guide
 
 The cloud presents a fundamental shift in the way that enterprises procure and utilize technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed.
 
