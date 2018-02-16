@@ -1,7 +1,7 @@
 - name: Azure Architecture Center
   href: /azure/architecture
   
-- name: Azure Cloud Adoption Guide
+- name: Cloud Adoption Guide
   href: index.md
 
   items:
