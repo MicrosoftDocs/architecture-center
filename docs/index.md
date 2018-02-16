@@ -63,21 +63,20 @@ layout: LandingPage
 
 <!-- Second panel -->
 <ul class="panelContent cardsI">
-    <!-- Best practices -->
+    <!-- Microservices -->
     <li>
-        <a href="/azure/architecture/best-practices/">
+        <a href="/azure/architecture/microservices">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/best-practices.svg" alt="Best Practices" />
+                                <img src="_images/microservices.svg" alt="Designing, building, and operating microservices on Azure" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Best Practices for Cloud Applications</h3>
-                            <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning,
-                                API design, and others.</p>
+                            <h3>Building Microservices on Azure</h3>
+                            <p>This multi-part series takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
                         </div>
                     </div>
                 </div>
@@ -104,20 +103,21 @@ layout: LandingPage
             </div>
         </a>
     </li>
-    <!-- Microservices -->
+    <!-- Best practices -->
     <li>
-        <a href="/azure/architecture/microservices">
+        <a href="/azure/architecture/best-practices/">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/microservices.svg" alt="Designing, building, and operating microservices on Azure" />
+                                <img src="_images/best-practices.svg" alt="Best Practices" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Building Microservices on Azure</h3>
-                            <p>This multi-part series takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
+                            <h3>Best Practices for Cloud Applications</h3>
+                            <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning,
+                                API design, and others.</p>
                         </div>
                     </div>
                 </div>
