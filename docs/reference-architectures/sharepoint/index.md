@@ -285,7 +285,7 @@ The following table shows the VMs that are deployed.
 [availability-set]: /azure/virtual-machines/windows/manage-availability
 [azure-portal]: https://portal.azure.com
 [azure-ps]: /powershell/azure/overview
-[azure-pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
+[azure-pricing]: https://azure.microsoft.com/pricing/calculator/
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
 [create-availability-group]: https://technet.microsoft.com/library/mt793548(v=office.16).aspx
 [connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine

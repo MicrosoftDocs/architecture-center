@@ -85,7 +85,7 @@ The boxes that are shaded gray show components of an IoT system that are not dir
  <!-- links -->
 
 [competing-consumers]: ../../patterns/competing-consumers.md
-[iot-ref-arch]: https://azure.microsoft.com/en-us/updates/microsoft-azure-iot-reference-architecture-available/
+[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/
 [minimize-coordination]: ../design-principles/minimize-coordination.md
 
 

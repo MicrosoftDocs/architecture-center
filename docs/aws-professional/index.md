@@ -513,9 +513,9 @@ services that provide similar functionality:
     components within the Azure platform.
 
 -   [Service
-    Bus](https://azure.microsoft.com/en-us/services/service-bus/) - a more robust messaging system for connecting applications, services, and
+    Bus](https://azure.microsoft.com/services/service-bus/) - a more robust messaging system for connecting applications, services, and
     devices. Using the related [Service Bus
-    relay](https://docs.microsoft.com/en-us/azure/service-bus-relay/relay-what-is-it),
+    relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it),
     Service Bus can also connect to remotely hosted applications and services.
 
 #### Device Farm

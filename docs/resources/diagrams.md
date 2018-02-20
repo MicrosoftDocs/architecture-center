@@ -14,7 +14,7 @@ The symbol/icon set is a collection of Visio, PowerPoint, PNG, and SVG assets th
 
 ![Cloud and Enterprise Symbol/Icon set](./_images/CnESymbols.png)
 
-Additional symbols for Microsoft Office and related technologies are available in the [Microsoft Office Visio stencil](http://www.microsoft.com/en-us/download/details.aspx?id=35772). They are not optimized for architectural diagrams.   
+Additional symbols for Microsoft Office and related technologies are available in the [Microsoft Office Visio stencil](http://www.microsoft.com/download/details.aspx?id=35772). They are not optimized for architectural diagrams.   
 
 > [!NOTE]
 > These assets are not intended for use in user interfaces. 

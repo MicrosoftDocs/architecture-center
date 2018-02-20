@@ -194,7 +194,7 @@ For more information on deploying this sample reference architecture, visit our 
 [fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
 [git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
-[group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
+[group-policy]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn595129(v=ws.11)
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [multi-vm]: multi-vm.md
