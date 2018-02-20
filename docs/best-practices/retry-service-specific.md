@@ -412,7 +412,7 @@ using (var db = new BloggingContext())
 
 ### More information
 * [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency)
-* [Data Points - EF Core 1.1](https://msdn.microsoft.com/en-us/magazine/mt745093.aspx)
+* [Data Points - EF Core 1.1](https://msdn.microsoft.com/magazine/mt745093.aspx)
 
 ## SQL Database using ADO.NET retry guidelines
 SQL Database is a hosted SQL database available in a range of sizes and as both a standard (shared) and premium (non-shared) service.

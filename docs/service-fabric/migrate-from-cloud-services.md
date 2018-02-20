@@ -222,7 +222,7 @@ As mentioned, the Kestrel web server requires a reverse proxy for security reaso
 
 ### Layer 7 routing
 
-In the [original Surveys application](https://msdn.microsoft.com/en-us/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443. 
+In the [original Surveys application](https://msdn.microsoft.com/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443. 
 
 | Public site | Survey management site |
 |-------------|------------------------|
@@ -324,7 +324,7 @@ Now that the Surveys application has been successfully ported, Tailspin wants to
 [sf-reverse-proxy]: /azure/service-fabric/service-fabric-reverseproxy
 [sf-security]: /azure/service-fabric/service-fabric-cluster-security
 [sf-why-microservices]: /azure/service-fabric/service-fabric-overview-microservices
-[tailspin-book]: https://msdn.microsoft.com/en-us/library/ff966499.aspx
-[tailspin-scenario]: https://msdn.microsoft.com/en-us/library/hh534482.aspx
-[unity]: https://msdn.microsoft.com/en-us/library/ff647202.aspx
+[tailspin-book]: https://msdn.microsoft.com/library/ff966499.aspx
+[tailspin-scenario]: https://msdn.microsoft.com/library/hh534482.aspx
+[unity]: https://msdn.microsoft.com/library/ff647202.aspx
 [vm-scale-sets]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
