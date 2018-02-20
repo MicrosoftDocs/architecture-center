@@ -9,7 +9,7 @@ layout: LandingPage
 
 # Connect an on-premises network to Azure
 
-These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
+These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. <br/>[Which should I choose?](./considerations.md)
 
 <section class="series">
     <ul class="panelContent">
