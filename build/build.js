@@ -1,2 +1,3 @@
-const formatIndex = require('./reference-architectures/index');
-formatIndex();
+const formatIndexFor = require('./reference-architectures/index');
+formatIndexFor('.');
+formatIndexFor('app-service-web-app');
