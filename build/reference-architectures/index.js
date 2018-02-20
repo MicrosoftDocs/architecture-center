@@ -8,9 +8,9 @@ const engine = Liquid({
     extname: '.liquid'
 });
 
-module.exports = function () {
+module.exports = function (indexFolder) {
 
-    const basePath = path.resolve(__dirname, `../../docs/reference-architectures/`);
+    const basePath = path.resolve(__dirname, `../../docs/reference-architectures/`, indexFolder);
     const outputhPath = path.resolve(basePath, 'index.md');
     const jsonPath = path.resolve(basePath, `index.json`);
 

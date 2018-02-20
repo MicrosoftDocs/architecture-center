@@ -3,6 +3,18 @@ Microsoft patterns & practices
 
 http://aka.ms/architecture
 
+## Understanding the local build process
+
+Some of the markdown files are generated from data stored in json files.
+This is primarily to avoid human error for pages that still require some HTML.
+The process that converts the json to markdown uses a utility script located in the `build` folder.
+To run the build script, navigate to the root folder of this repository.
+
+```bash
+npm install
+node .\build\build.js
+```
+
 ## Legal Notices
 Microsoft and any contributors grant you a license to the Microsoft documentation and other content
 in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
