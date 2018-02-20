@@ -1,4 +1,7 @@
 {
+    "title": "Azure Reference Architectures",
+    "description": "Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.",
+    "summary": "Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.",
     "series": [
         {
             "title": "Windows VM workloads",
