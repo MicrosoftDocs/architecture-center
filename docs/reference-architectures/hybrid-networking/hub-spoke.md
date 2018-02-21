@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology in Azure
 description: >-
   How to implement a hub-spoke network topology in Azure.
 author: telmosampaio
-ms.date: 02/14/2018
+ms.date: 02/16/2018
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
@@ -93,7 +93,7 @@ You can also configure spokes to use the hub VNet gateway to communicate with re
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
+If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub. If you have a Virtual Network gateway or an ExpressRoute gateway in the hub VNet, this can also be used as a means for transit between the spokes. To do this, select *Virtual network gateway* as the next hop type.
 
 ![[2]][2]
 
