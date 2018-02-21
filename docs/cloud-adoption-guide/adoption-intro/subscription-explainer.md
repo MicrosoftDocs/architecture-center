@@ -1,7 +1,7 @@
 ---
 title: "Explainer: what is an Azure subscription?"
 description: Explains Azure subscriptions, accounts, and offers
-author: abuck
+author: alexbuckgit
 ---
 
 # Explainer: What is an Azure subscription?
