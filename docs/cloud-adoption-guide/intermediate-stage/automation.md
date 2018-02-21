@@ -10,6 +10,8 @@ author: alexbuckgit
 
 ## DevOps / DevSecOps
 
+- [DevOps at Microsoft](https://aka.ms/devops)
+
 ## Configuration Management Tools
 
 - [VM concepts: Use infrastructure automation tools with virtual machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/infrastructure-automation)
