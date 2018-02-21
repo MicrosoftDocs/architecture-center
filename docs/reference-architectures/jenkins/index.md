@@ -136,7 +136,7 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 
 -   Install the [Azure Credentials][configure-credential] plugin to use Key Vault to handle secrets for the Azure assets, the agents in the pipeline, and third-party components.
 
--   Create a security profile that defines the resources required by users, services, and pipeline agents to do their jobs—but no more. This step becomes critical when considering your security settings.
+-   Employing the [principle of least privilege][principle-of-least-privilege], use RBAC to limit the access of users, services, and pipeline agents to the minimum required to do their job. This step becomes critical when considering your security settings.
 
 Jenkins jobs often require secrets to access Azure services that require authorization, such as Azure Container Service. Use [Key Vault][key-vault] along with the [Azure Credential plugin][configure-credential] to manage these secrets securely. Use Key Vault to store service principal credentials, passwords, tokens, and other secrets.
 
@@ -242,6 +242,7 @@ Download and run the disaster recovery scripts from [GitHub][disaster].
 [quick-start]: /azure/security-center/security-center-get-started
 [port443]: /azure/virtual-machines/windows/nsg-quickstart-portal
 [premium]: /azure/virtual-machines/linux/premium-storage
+[principle-of-least-privilege]: https://wikipedia.org/wiki/Principle_of_least_privilege
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rg]: /azure/azure-resource-manager/resource-group-overview
 [scale]: https://jenkins.io/doc/book/architecting-for-scale/
