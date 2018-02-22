@@ -91,5 +91,3 @@ If you deliver static assets such as font files by using the CDN, you might enco
 
 ### CDN fallback
 Consider how your application will cope with a failure or temporary unavailability of the CDN. Client applications may be able to use copies of the resources that were cached locally (on the client) during previous requests, or you can include code that detects failure and instead requests resources from the origin (the application folder or Azure blob container that holds the resources) if the CDN is unavailable.
-
-The following example shows a fallback mecha
