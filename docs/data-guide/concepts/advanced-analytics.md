@@ -1,11 +1,11 @@
 ---
-title: Advanced Analytics
+title: Advanced analytics
 description: 
 author: zoinerTejada
 ms:date: 02/12/2018
 ---
 
-# Advanced Analytics
+# Advanced analytics
 
 Advanced analytics goes beyond the historical reporting and data aggregation of traditional business intelligence (BI), and uses mathematical, probabilistic, and statistical modeling techniques to enable predictive processing and automated decision making.
 
