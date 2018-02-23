@@ -4,6 +4,10 @@ description: Guidance for managing multiple subscriptions
 author: alexbuckgit
 ---
 
+## Multiple subscriptions
+
+Organizations create multiple Azure subscriptions for a variety of reasons. While each additional Azure subscription does not incur a direct cost, it can increase the complexity of managing your Azure resources. Azure provides a number of capabilities to help larger enterprises and organizations manage deployments across multiple Azure subscriptions. The intermediate adoption stage discusses considerations for managing multiple Azure subscriptions. 
+
 ## Managing multiple subscriptions
 Many organizations using Azure will have multiple subscriptions for a variety of reasons. While each additional Azure subscription does not incur a direct cost, it can increase the complexity of managing your Azure resources.
 Many of your early decisions in architecting and planning your subscription model can affect future decisions and designs as your cloud environment grows. Get participation and input from several groups within your organization, including IT leadership and those responsible for networking, security, and identity within your organization. See the [subscription guidance](#guidance) later in this document for guidance on reasons you may need multiple subscriptions in your Azure environment. 

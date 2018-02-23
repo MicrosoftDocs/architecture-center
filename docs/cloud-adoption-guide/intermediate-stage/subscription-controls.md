@@ -13,8 +13,7 @@ Organizations can use subscriptions to control access to Azure resources and man
 Azure also provides other ways to control access to Azure resources. *Role-based access control (RBAC)* and *Azure Policy* allow organizations to define rules and limit resource access within a subscription. These capabilities allow organizations to support multiple workloads within a single subscription while providing the security and governance required. You'll learn more about RBAC and policy later in this guide.
 
 > [!NOTE] 
-> Azure's original service model (now known as the "classic deployment model") didn't provide much control over  access to resources in a subscription &mdash; if a user was granted access to a subscription, that user could access any resource in that subscription. This limitation led organizations to create many subscriptions, so that only the appropriate personnel could access various Azure resources.  
-> In 2014, Microsoft introduced the Azure Resource Management deployment model. This model enables fine-grained control of Azure resource access via RBAC. The model also provides mechanisms to track costs within a subscription. Because workloads with different access and cost control requirements can now reside in the same subscription, organizations need fewer subscriptions than before. All new Azure deployments should use the Azure Resource Management deployment model, and this guide is entirely based on this model.
+> Prior to the introduction of the Azure Resource Manager deployment model in 2014, Azure had a different deployment model (now known as the "classic deployment model"). The classic deployment model lacked fine-grained control of resources in a subscription, which led organizations to create lots of subscriptions. You may encounter older guidance that no longer apply with the new deployment model.    
 
 ## Next steps
 
