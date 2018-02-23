@@ -14,15 +14,14 @@ When an Azure subscription is created, you associate it with an **account**. Typ
 
 A subscription also has a **Service Administrator (SA)**. The Service Administrator can add, remove, and modify Azure resources via the [Azure portal][azure-portal]. For a new subscription, the Account Administrator and the Service Administrator are the same account. The AA can [reassign the SA role][azure-change-sa] to another account, which is common when one person pays for the subscription and another person manages the resources in the subscription.
 
-## TODO - Info or links for: 
+## TODO - Provide info or links for: 
 
 - Change the billing information for a subscription
 - Cancel a subscription
 - [Transfer ownership of your subscription to a different account][azure-transfer-subscription]
 - Create another subscription for your account
 - [Subscription offer types][azure-available-offers]
-- <Relationship between subscription and tenant?>
-- <Billing, chargeback, showback, tagging, how-to?>
+- ?? <Relationship between subscription and tenant?>
 
 ## Next steps
 
