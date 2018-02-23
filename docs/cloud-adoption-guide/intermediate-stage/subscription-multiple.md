@@ -12,3 +12,4 @@ As your Azure adoption increases, you may decide to create additional subscripti
 
 An Azure subscription does not cost anything by itself &dash; you pay for the resources deployed in the subscription. Even so, additional subscriptions can increase the complexity of managing your Azure resources. Azure provides a number of capabilities to help larger enterprises and organizations manage deployments across multiple Azure subscriptions.
 
+##TODO: Remainder
