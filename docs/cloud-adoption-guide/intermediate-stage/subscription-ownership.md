@@ -19,7 +19,8 @@ A subscription also has a **Service Administrator (SA)**. The Service Administra
 - Change the billing information for a subscription
 - Cancel a subscription
 - [Transfer ownership of your subscription to a different account][azure-transfer-subscription]
-- Create another subscription for your account 
+- Create another subscription for your account
+- [Subscription offer types][azure-available-offers]
 - <Relationship between subscription and tenant?>
 - <Billing, chargeback, showback, tagging, how-to?>
 
@@ -31,12 +32,10 @@ A subscription also has a **Service Administrator (SA)**. The Service Administra
 ******************************
 
 
-
-
-
 <!-- links -->
 [azure-account-center]: https://account.azure.com/
 [azure-portal]: https://portal.azure.com
 [azure-change-sa]: /azure/billing/billing-add-change-azure-subscription-administrator
+[azure-available-offers]: https://azure.microsoft.com/en-us/support/legal/offer-details/
 [azure-change-subscription-offer]: /azure/billing/billing-how-to-switch-azure-offer
 [azure-transfer-subscription]: /azure/billing/billing-subscription-transfer
