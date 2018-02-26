@@ -22,8 +22,9 @@ The list below includes the tasks for completing the intermediate adoption stage
     - **How to:** create an Azure tenant
     - **Guidance:** intermediate Azure tenant design
 * x. Understand subscription management:
-    - **Explainer:** internal technical issues about subscriptions, ie. now that you have multiple teams and multiple projects, understand how to use subscriptions to manage costs and limits by various criteria such as team, project, environment, etc.
+    - **Explainer:** understanding subscription limits/quotas, access control, and policy; understanding ownership, accounts, and administrator roles; managing a subscription hierarachy in the enterprise.
     - **Guidance:** intermediate subscription design
+        - Considerations for using and managing multiple subscriptions; common subscription design patterns; supporting multiple teams and multiple projects in both single subscription and multiple subscription scenarios; using subscriptions to manage costs and limits by various criteria such as team, project, environment, etc. (resource tagging/chargeback/showback?)
         - strategies for managing the work of multiple teams with subscriptions
 * x. Understand infrastructure as code
     - **Explainer:** what is infrastructure as code; why should I care about infrastructure as code; what is an ARM template; what other tools are available
