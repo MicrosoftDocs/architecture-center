@@ -52,19 +52,6 @@ Most big data architectures include some or all of the following components:
 
 * **Orchestration**. Most big data solutions consist of repeated data processing operations, encapsulated in workflows, that transform source data, move data between multiple sources and sinks, load the processed data into an analytical data store, or push the results straight to a report or dashboard. To automate these workflows, you can use an orchestration technology such Azure Data Factory or Apache Oozie and Sqoop.
 
-## Data lake
-
-If you have read anything about big data, it's likely you've seen the term _data lake_. You may have seen the word used for the name of a product, or perhaps a concept about storing large quantities of data. 
-
-A data lake consists of both storage and processing. Data lake storage is built with several goals in mind: fault-tolerance, infinite scalability, and high-throughput ingestion of data with varying shapes and sizes. Data lake processing involves one or more processing engines built with these goals in mind, and can operate on data stored in a data lake at scale.
-
-Data lake stores are often used in event streaming or IoT scenarios, because they can persist large amounts of relational and nonrelational data without transformation or schema definition. They are built to handle high volumes of small writes at low latency, and are optimized for massive throughput.
-
-Another term commonly used in data scenarios is _data mart_. Typically, a data mart is a store of data that is cleansed, packaged, and structured for easy consumption. Unlike a data mart, a data lake is designed to ingest raw data, leaving it in its original or least-processed form to allow questions to be asked in various ways and at various times. If the data is cleansed and structured in a specific way, like in a data mart, then it is difficult to adapt how the data is processed and analyzed when new questions or tools come about in the future. This is why a data lake is composed of both storage and processing as separate entities.
-
-Relevant Azure service:
-- [Azure Data Lake](https://azure.microsoft.com/scenarios/data-lake/)
-
 ## Lambda architecture
 
 When working with very large data sets, it can take a long time to run the sort of queries that clients need. These queries can't be performed in real time, and often require algorithms such as [MapReduce](https://en.wikipedia.org/wiki/MapReduce) that operate in parallel across the entire data set. The results are then stored separately from the raw data and used for querying.
