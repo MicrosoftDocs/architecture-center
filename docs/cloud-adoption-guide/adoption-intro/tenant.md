@@ -11,7 +11,7 @@ An Azure AD tenant provides digital identity services and namespaces used for on
 ## Design considerations
 
 - At the foundational adoption stage, you can begin with a single Azure AD tenant. If your organization has an existing Office 365 subscription or an Azure subscription, you already have an Azure AD tenant that you can use. If you do not have either or of these, you can learn more about [how to get an Azure AD tenant][how-to-get-aad-tenant]. 
-- In the intermediate and advanced adoption stages, you will learn how to synchronize or federate on-premises directories with Azure AD. This will allow you to use on-premises digital identity in Azure AD. However, at the foundational stage, you will be adding new users that only have identity your single Azure AD tenant. You are be responsible for managing those identities. For example, you will have to on-board new Azure AD users, off-board Azure AD users that you no longer wish to have access to Azure resources, and other changes to user permissions.
+- In the intermediate and advanced adoption stages, you will learn how to synchronize or federate on-premises directories with Azure AD. This will allow you to use on-premises digital identity in Azure AD. However, at the foundational stage, you will be adding new users that only have identity your single Azure AD tenant. You will be responsible for managing those identities. For example, you will have to on-board new Azure AD users, off-board Azure AD users that you no longer wish to have access to Azure resources, and other changes to user permissions.
 
 ## Next Steps
 
