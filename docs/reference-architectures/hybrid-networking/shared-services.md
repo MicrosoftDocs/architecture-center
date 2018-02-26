@@ -265,8 +265,6 @@ To create a peering connection from the hub VNet to the spoke VNets, perform the
 
 [visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
-[1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
-[2]: ./images/hub-spoke-no-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing using an NVA"
+[0]: ./images/shared-services.png "Shared services topology in Azure"
 [3]: ./images/hub-spokehub-spoke.svg "Hub-spoke-hub-spoke topology in Azure"
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
