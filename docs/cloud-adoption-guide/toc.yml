@@ -60,7 +60,7 @@
             href: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "Guidance: best practices for deploying a Windows VM to Azure"
             href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "How to: deploy a single Linux VM IasS workload to Azure"
+          - name: "How to: deploy a single Linux VM IaaS workload to Azure"
             href: /azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "Guidance: best practices for deploying a Linux VM to Azure"
             href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
