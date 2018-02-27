@@ -13,9 +13,9 @@ A complete data lake solution consists of both storage and processing. Data lake
 
 ## When to use a data lake
 
-A data lake may the data source for a data warehouse. With this approach, the raw data is ingested into the data lake and then transformed into a structured queryable format. Typically this transformation uses an [ELT](../scenarios/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline, where the data is ingested and transformed in place. Source data that is already relational may go directly into the data warehouse, using an ETL process, skipping the data lake.
+Typical uses for a data lake include [data exploration](../scenarios/interactive-data-exploration.md), data analytics, and machine learning. 
 
-Other uses for a data lake include [data exploration](../scenarios/interactive-data-exploration.md), data analytics, and machine learning. 
+A data lake can also act as the data source for a data warehouse. With this approach, the raw data is ingested into the data lake and then transformed into a structured queryable format. Typically this transformation uses an [ELT](../scenarios/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline, where the data is ingested and transformed in place. Source data that is already relational may go directly into the data warehouse, using an ETL process, skipping the data lake.
 
 Data lake stores are often used in event streaming or IoT scenarios, because they can persist large amounts of relational and nonrelational data without transformation or schema definition. They are built to handle high volumes of small writes at low latency, and are optimized for massive throughput.
 
@@ -24,7 +24,7 @@ Data lake stores are often used in event streaming or IoT scenarios, because the
 - Lack of a schema or descriptive metadata can make the data hard to consume or query.
 - Lack of semantic consistency across the data can make it challenging to perform analysis on the data, unless users are highly skilled at data analytics.
 - It can be hard to guarantee the quality of the data going into the data lake. 
-- Without proper governance, access control and privacy can be problems. What information is going into the data lake, who can access that data, and for what uses?
+- Without proper governance, access control and privacy issues can be problems. What information is going into the data lake, who can access that data, and for what uses?
 - A data lake may not be the best way to integrate data that is already relational.
 - By itself, a data lake does not provide integrated or holistic views across the organization. 
 - A data lake may become a dumping ground for data that is never actually analyzed or mined for insights.
