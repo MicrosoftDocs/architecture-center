@@ -67,8 +67,8 @@
   - name: Intermediate Azure adoption
     href: intermediate-stage/overview.md
     items:
-      - name: Understanding software-defined networking
-        href:
+      - name: "Understanding Azure internals: software-defined networking"
+        href: sdn-explainer.md
       - name: Understanding workload isolation in Azure
         href:
       - name: "Understanding digital identity: intermediate"

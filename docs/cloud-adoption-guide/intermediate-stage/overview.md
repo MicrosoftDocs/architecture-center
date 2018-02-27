@@ -10,8 +10,8 @@ In the foundational adoption stage, you learned the basics about digital identit
 
 The list below includes the tasks for completing the intermediate adoption stage.
 
-* x. Understand Azure Internals: Software-defined networking
-    - **Explainer:** in the foundational stage of Azure adoption, you learned about virtualization. You were also introduced to the concept of a **virtual network**. You can imagine that any one time, there are a large number of virtual networks in any given Azure datacenter belonging to multiple customers. So how does software defined networking work?
+* 1. Understand Azure Internals: Software-defined networking
+    - **Explainer:** [what is software defined networking?](sdn-explainer.md)
 * x. Understand workload isolation in Azure
     - **Explainer:** what is a workload, and what does it mean to have multiple workloads hosted in Azure?
         - now that you understand how software-defined networking works, you can see that one strategy for segmenting the network space for multiple workloads is either by full network space (VNet) or by subnet space.
