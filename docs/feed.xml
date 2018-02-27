@@ -11,7 +11,7 @@
 	<atom:link href="https://docs.microsoft.com/azure/architecture/feed.xml" rel="self" type="application/rss+xml" />
 	<link>https://docs.microsoft.com/azure/architecture</link>
 	<description>The Azure Architecture Center is the official center for guidance, blueprints, patterns, and best practices for building solutions with Microsoft Azure. It is curated by the Microsoft patterns &amp; practices team.</description>
-	<lastBuildDate>Fri, 12 May 2017 17:59:06 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 26 Feb 2018 17:59:06 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>daily</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -21,7 +21,14 @@
 		<link>https://docs.microsoft.com/azure/architecture/guide/</link>
 		<pubDate>Thu, 11 May 2017 19:52:09 +0000</pubDate>
 		<description><![CDATA[This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.]]></description>
-		<content:encoded><![CDATA[lipsum]]></content:encoded>
 	</item>
+
+	<item>
+		<title>Azure Data Architecture Guide</title>
+		<link>https://docs.microsoft.com/azure/architecture/data-guide/</link>
+		<pubDate>Mon, 12 Feb 2018 19:52:09 +0000</pubDate>
+		<description><![CDATA[This guide presents a structured approach for designing data-centric solutions on Microsoft Azure. It is based on proven practices derived from customer engagements.]]></description>
+	</item>
+
 </channel>
 </rss>
