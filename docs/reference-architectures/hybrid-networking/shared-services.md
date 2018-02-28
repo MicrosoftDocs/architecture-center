@@ -1,21 +1,20 @@
 ---
-title: Implementing a hub-spoke network topology in Azure
+title: Implementing a hub-spoke network topology with shared services in Azure
 description: >-
-  How to implement a hub-spoke network topology in Azure.
+  How to implement a hub-spoke network topology with shared services in Azure.
 author: telmosampaio
-ms.date: 02/23/2018
+ms.date: 02/25/2018
 
-pnp.series.title: Implement a hub-spoke network topology in Azure
-pnp.series.prev: expressroute
+pnp.series.title: Implement a hub-spoke network topology with shared services in Azure
+pnp.series.prev: hub-spoke
 ---
-# Implement a hub-spoke network topology in Azure
+# Implement a hub-spoke network topology with shared services in Azure
 
-This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.  [**Deploy this solution**](#deploy-the-solution).
+This reference architecture builds on top of the [hub-spoke][guidance-hub-spoke] reference architecture to include shared servcices in the hub that can be consumed by all spokes. As a first step into migrating a datacenter to the cloud, and building a [virtual datacenter], the first services you need to share are identity, and security. This reference archiecture shows you how to extend your Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall, in a hub-spoke topology.  [**Deploy this solution**](#deploy-the-solution).
 
 ![[0]][0]
 
 *Download a [Visio file][visio-download] of this architecture*
-
 
 The benefits of this toplogy include:
 
@@ -46,6 +45,10 @@ The architecture consists of the following components.
 
 * **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
+* **Shared services subnet**. A subnet in the hub VNet used to host services that can be shared among all spokes, such as DNS or AD DS.
+
+* **DMZ subnet**. A subnet in the hub VNet used to host NVAs that can act as security appliances, such as firewalls.
+
 * **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
 * **VNet peering**. Two VNets in the same Azure region can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
@@ -55,46 +58,26 @@ The architecture consists of the following components.
 
 ## Recommendations
 
-The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
+All the recommendations for the [hub-spoke][guidance-hub-spoke] reference architecture also apply to the shared services reference architecture. 
 
-### Resource groups
+ALso, the following recommendations apply for most scenarios under shared services. Follow these recommendations unless you have a specific requirement that overrides them.
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions, as long as they belong to the same Azure Active Directory (Azure AD) tenant in the same Azure region. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
+### Identity
 
-### VNet and GatewaySubnet
+Most enterprise organizations have an Active Directory Directory Services (ADDS) environment in their on-premises datacenter. To facilitate management of assets moved to Azure from your on-premises network that depend on ADDS, it is recommended to host ADDS domain controllers in Azure.
 
-Create a subnet named *GatewaySubnet*, with an address range of /27. This subnet is required by the virtual network gateway. Allocating 32 addresses to this subnet will help to prevent reaching gateway size limitations in the future.
+If you make use of Group Policy Objects, that you want to control separately for Azure, and your on-premises environment, use a different AD site for each Azure region. And place your domain controllers in a central VNet (hub) that dependent workloads can access.
 
-For more information about setting up the gateway, see the following reference architectures, depending on your connection type:
+### Security
 
-- [Hybrid network using ExpressRoute][guidance-expressroute]
-- [Hybrid network using a VPN gateway][guidance-vpn]
+As you move workloads from your on-premises environment to Azure, some of these workloads will require to be hosted in VMs. And due to compliance you may need to enforce restrictions on traffic traversing those workloads. 
 
-For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][hybrid-ha].
+You can use network virtula appliances (NVAs) in Azure to host different types of security and performance services. If you are familiar with a given set of appliances on-premises today, it is recommended to use the same virtualized appliances in Azure, where applicable.
 
-A hub-spoke topology can also be used without a gateway, if you don't need connectivity with your on-premises network. 
-
-### VNet peering
-
-VNet peering is a non-transitive relationship between two VNets. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
-
-However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to an NVA acting as a router at the hub VNet. This will allow the spokes to connect to each other.
-
-You can also configure spokes to use the hub VNet gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub, and connect to remote networks, you must:
-
-  - Configure the VNet peering connection in the hub to **allow gateway transit**.
-  - Configure the VNet peering connection in each spoke to **use remote gateways**.
-  - Configure all VNet peering connections to **allow forwarded traffic**.
+> [!NOTE]
+> The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enbaled to mimic a network virtual appliance.
 
 ## Considerations
-
-### Spoke connectivity
-
-If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
-
-![[2]][2]
-
-In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
 ### Overcoming VNet peering limits
 
@@ -128,18 +111,16 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 To deploy the simulated on-premises datacenter as an Azure VNet, follow these steps:
 
-1. Navigate to the `hybrid-networking\hub-spoke\` folder for the repository you downloaded in the pre-requisites step above.
+1. Navigate to the `hybrid-networking\shared-services-stack\` folder for the repository you downloaded in the pre-requisites step above.
 
-2. Open the `onprem.json` file and enter a username and password between the quotes in line 36 and 37, as shown below, then save the file.
+2. Open the `onprem.json` file and enter a username and password between the quotes in line 45 and 46, as shown below, then save the file.
 
   ```bash
   "adminUsername": "XXX",
   "adminPassword": "YYY",
   ```
 
-3. On line 38, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
-
-4. Run `azbb` to deploy the simulated onprem environment as shown below.
+3. Run `azbb` to deploy the simulated onprem environment as shown below.
 
   ```bash
   azbb -s <subscription_id> -g onprem-vnet-rg - l <location> -p onoprem.json --deploy
@@ -147,22 +128,22 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
   > [!NOTE]
   > If you decide to use a different resource group name (other than `onprem-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
-5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
+4. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine running Windows, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
 
 ### Azure hub VNet
 
 To deploy the hub VNet, and connect to the simulated on-premises VNet created above, perform the following steps.
 
-1. Open the `hub-vnet.json` file and enter a username and password between the quotes in line 39 and 40, as shown below.
+1. Open the `hub-vnet.json` file and enter a username and password between the quotes in line 50 and 51, as shown below.
 
   ```bash
   "adminUsername": "XXX",
   "adminPassword": "YYY",
   ```
 
-2. On line 41, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
+2. On line 52, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
 
-3. Enter a shared key between the quotes in line 72, as shown below, then save the file.
+3. Enter a shared key between the quotes in line 83, as shown below, then save the file.
 
   ```bash
   "sharedKey": "",
@@ -178,54 +159,59 @@ To deploy the hub VNet, and connect to the simulated on-premises VNet created ab
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
 
-### (Optional) Test connectivity from onprem to hub
+### ADDS in Azure
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Windows VMs, perform the following steps.
+To deploy the ADDS domain controllers in Azure, perform the following steps.
 
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
-
-2.  On the top left hand corner of your VM blade in the portal, click `Connect`, and follow the prompts to use remote desktop to connect to the VM. Make sure to use the username and password you specified in lines 36 and 37 in the `onprem.json` file.
-
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the hub jumpbox VM as shown below.
-
-  ```powershell
-  Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
-  ```
-  > [!NOTE]
-  > By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
-
-To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, perform the following steps:
-
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
-
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and then copy the `ssh` command shown on the portal. 
-
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment jumpbox witht the information you copied in step 2 above, as shown below.
-
-  ```bash
-  ssh <your_user>@<public_ip_address>
-  ```
-
-4. Use the password you specified in line 37 in the `onprem.json` file to the connect to the VM.
-
-5. Use the `ping` command to test connectivity to the hub jumpbox, as shown below.
-
-  ```bash
-  ping 10.0.0.68
-  ```
-
-### Azure spoke VNets
-
-To deploy the spoke VNets, perform the following steps.
-
-1. Open the `spoke1.json` file and enter a username and password between the quotes in lines 47 and 48, as shown below, then save the file.
+1. Open the `hub-adds.json` file and enter a username and password between the quotes in lines 14 and 15, as shown below, then save the file.
 
   ```bash
   "adminUsername": "XXX",
   "adminPassword": "YYY",
   ```
 
-2. On line 49, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
+2. Run `azbb` to deploy the ADDS domain controllers as shown below.
+
+  ```bash
+  azbb -s <subscription_id> -g hub-adds-rg - l <location> -p hub-adds.json --deploy
+  ```
+  
+  > [!NOTE]
+  > If you decide to use a different resource group name (other than `hub-adds-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+
+  > [!NOTE]
+  > This part of the deployment may take several minutes, since it requires joining the two VMs to the domain hosted int he simulated on-premises datacenter, then installing AD DS on them.
+
+### NVA
+
+To deploy an NVA in the `dmz` subnet, perform the following steps:
+
+1. Open the `hub-nva.json` file and enter a username and password between the quotes in lines 13 and 14, as shown below, then save the file.
+
+  ```bash
+  "adminUsername": "XXX",
+  "adminPassword": "YYY",
+  ```
+2. Run `azbb` to deploy the NVA VM and user defined routes.
+
+  ```bash
+  azbb -s <subscription_id> -g hub-nva-rg - l <location> -p hub-nva.json --deploy
+  ```
+  > [!NOTE]
+  > If you decide to use a different resource group name (other than `hub-nva-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+
+### Azure spoke VNets
+
+To deploy the spoke VNets, perform the following steps.
+
+1. Open the `spoke1.json` file and enter a username and password between the quotes in lines 52 and 53, as shown below, then save the file.
+
+  ```bash
+  "adminUsername": "XXX",
+  "adminPassword": "YYY",
+  ```
+
+2. On line 54, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
 
 3. Run `azbb` to deploy the first spoke VNet environment as shown below.
 
@@ -261,64 +247,11 @@ To create a peering connection from the hub VNet to the spoke VNets, perform the
   > [!NOTE]
   > If you decide to use a different resource group name (other than `hub-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
-### Test connectivity
-
-To test conectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps.
-
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
-
-2.  On the top left hand corner of your VM blade in the portal, click `Connect`, and follow the prompts to use remote desktop to connect to the VM. Make sure to use the username and password you specified in lines 36 and 37 in the `onprem.json` file.
-
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the hub jumpbox VM as shown below.
-
-  ```powershell
-  Test-NetConnection 10.1.0.68 -CommonTCPPort RDP
-  Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
-  ```
-
-To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
-
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
-
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and then copy the `ssh` command shown on the portal. 
-
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment jumpbox witht the information you copied in step 2 above, as shown below.
-
-  ```bash
-  ssh <your_user>@<public_ip_address>
-  ```
-
-5. Use the password you specified in line 37 in the `onprem.json` file to the connect to the VM.
-
-6. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke, as shown below.
-
-  ```bash
-  ping 10.1.0.68
-  ping 10.2.0.68
-  ```
-
-### Add connectivity between spokes
-
-If you want to allow spokes to connect to each other, you need to use a newtwork virtual appliance (NVA) as a router in the hub virtual netowrk, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, and the necessary uder defined routes to allow the two spoke VNets to connect, perform the following steps:
-
-1. Open the `hub-nva.json` file and enter a username and password between the quotes in lines 13 and 14, as shown below, then save the file.
-
-  ```bash
-  "adminUsername": "XXX",
-  "adminPassword": "YYY",
-  ```
-2. Run `azbb` to deploy the NVA VM and user defined routes.
-
-  ```bash
-  azbb -s <subscription_id> -g hub-nva-rg - l <location> -p hub-nva.json --deploy
-  ```
-  > [!NOTE]
-  > If you decide to use a different resource group name (other than `hub-nva-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
-
 <!-- links -->
 
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[guidance-hub-spoke]: ./hub-spoke.md
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [best-practices-security]: /azure/best-practices-network-securit
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
@@ -335,8 +268,6 @@ If you want to allow spokes to connect to each other, you need to use a newtwork
 
 [visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
-[1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
-[2]: ./images/hub-spoke-no-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing using an NVA"
+[0]: ./images/shared-services.png "Shared services topology in Azure"
 [3]: ./images/hub-spokehub-spoke.svg "Hub-spoke-hub-spoke topology in Azure"
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
