@@ -66,13 +66,16 @@ ALso, the following recommendations apply for most scenarios under shared servic
 
 Most enterprise organizations have an Active Directory Directory Services (ADDS) environment in their on-premises datacenter. To facilitate management of assets moved to Azure from your on-premises network that depend on ADDS, it is recommended to host ADDS domain controllers in Azure.
 
-If you make use of Group Policy Objects, that you want to control separately for Azure, and your on-premises environment, use a different AD site for each Azure region. And place your domain controllers in a central VNet that dependent workloads can access.
+If you make use of Group Policy Objects, that you want to control separately for Azure, and your on-premises environment, use a different AD site for each Azure region. And place your domain controllers in a central VNet (hub) that dependent workloads can access.
 
 ### Security
 
 As you move workloads from your on-premises environment to Azure, some of these workloads will require to be hosted in VMs. And due to compliance you may need to enforce restrictions on traffic traversing those workloads. 
 
-YOu can use network virtula appliances (NVAs) in Azure to host different types of security and performance services. If you are familiar with a given set of appliances on-premises today, it is recommended to use the same virtualized appliances in Azure, where applicable.
+You can use network virtula appliances (NVAs) in Azure to host different types of security and performance services. If you are familiar with a given set of appliances on-premises today, it is recommended to use the same virtualized appliances in Azure, where applicable.
+
+> [!NOTE]
+> The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enbaled to mimic a network virtual appliance.
 
 ## Considerations
 
