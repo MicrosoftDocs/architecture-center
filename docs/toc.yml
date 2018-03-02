@@ -118,8 +118,10 @@
     href: checklist/availability.md
   - name: DevOps
     href: checklist/dev-ops.md
-  - name: Resiliency
+  - name: Resiliency (general)
     href: checklist/resiliency.md
+  - name: Resiliency (Azure services)
+    href: checklist/resiliency-per-service.md
   - name: Scalability
     href: checklist/scalability.md
 
