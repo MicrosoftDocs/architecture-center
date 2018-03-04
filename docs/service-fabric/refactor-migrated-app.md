@@ -73,7 +73,7 @@ The following diagram shows the architecture of the Surveys application refactor
 
 Azure Service Fabric supports the following programming models:
 * The guest executable model allows any executable to be packaged as a service and deployed to a Service Fabric cluster. Service Fabric orchestrates and manages execution of the guest executable.
-* The container model allows for deployment of services in container images. Service Fabric supports creation and management of containers on top of Linux kernel contains as well as Windows Server containers. 
+* The container model allows for deployment of services in container images. Service Fabric supports creation and management of containers on top of Linux kernel containers as well as Windows Server containers. 
 * The reliable services programming model allows for the creation of stateless or stateful services that integrate with all Service Fabric platform features. Stateful services allow for replicated state to be stored in the Service Fabric cluster. Stateless services do not.
 * The reliable actors programming model allows for the creation of services that implement the virtual actor pattern.
 
