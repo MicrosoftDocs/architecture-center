@@ -38,7 +38,7 @@ Using time series offers the following benefits:
 
 Data collected by IoT devices is a natural fit for time series storage and analysis. The incoming data is inserted and rarely, if ever, updated. The data is time stamped and inserted in the order it was received, and this data is typically displayed in chronological order, enabling users to discover trends, spot anomalies, and use the information for predictive analysis.
 
-For more information, see [Internet of Things](../concepts/big-data.md#internet-of-things-iot).
+For more information, see [Internet of Things](../big-data/index.md#internet-of-things-iot).
 
 ### Real-time analytics
 
@@ -53,7 +53,7 @@ Ideally, you would have a stream processing layer that can handle the incoming d
 
 ## Architecture
 
-In many scenarios that involve time series data, such as IoT, the data is captured in real time. As such, a [real-time processing](./real-time-processing.md) architecture is appropriate. 
+In many scenarios that involve time series data, such as IoT, the data is captured in real time. As such, a [real-time processing](../big-data/real-time-processing.md) architecture is appropriate. 
 
 Data from one or more data sources is ingested into the stream buffering layer by [IoT Hub](/azure/iot-hub/), [Event Hubs](/azure/event-hubs/), or [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-introduction). Next, the data is processed in the stream processing layer that can optionally hand off the processed data to a machine learning service for predictive analytics. The processed data is stored in an analytical data store, such as [HBase](/azure/hdinsight/hbase/apache-hbase-overview), [Azure Cosmos DB](/azure/cosmos-db/), Azure Data Lake, or Blob Storage. An analytics and reporting application or service, like Power BI or OpenTSDB (if stored in HBase) can be used to display the time series data for analysis.
 
