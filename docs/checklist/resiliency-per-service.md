@@ -44,6 +44,18 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Replicate the database across regions.** Cosmos DB allows you to associate any number of Azure regions with a Cosmos DB database account. A Cosmos DB database can have one write region and multiple read regions. If there is a failure in the write region, you can read from another replica. The Client SDK handles this automatically. You can also fail over the write region to another region. For more information, see [How to distribute data globally with Azure Cosmos DB](/azure/cosmos-db/distribute-data-globally).
 
+## Event Hubs
+
+**Use checkpoints**.  An event consumer should write its current position to persistent storage at some predefined interval. That way, if the consumer experiences a fault (for example, the consumer crashes, or the host fails), then a new instance can resume reading the stream from the last recorded position. For more information, see [Event consumers](/azure/event-hubs/event-hubs-features#event-consumers).
+
+**Handle duplicate messages.** If an event consumer fails, message processing is resumed from the last recorded checkpoint. Any messages that were already processed after the last checkpoint will be processed again. Therefore, your message processing logic must be idempotent, or the application must be able to deduplicate messages.
+
+**Handle exceptions.**. An event consumer typically processes a batch of messages in a loop. You should handle exceptions within this processing loop to avoid losing an entire batch of messages if a single message causes an exception.
+
+**Use a dead-letter queue.** If processing a message results in a non-transient failure, put the message onto a dead-letter queue, so that you can track the status. Depending on the scenario, you might retry the message later, apply a compensating transaction, or take some other action. Note that Event Hubs does not have any built-in dead-letter queue functionality. You can use Azure Queue Storage or Service Bus to implement a dead-letter queue, or use Azure Functions or some other eventing mechanism.  
+
+**Implement disaster recovery by failing over to a secondary Event Hubs namespace.** For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
+
 ## Redis Cache
 
 **Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure Geo-replication for Azure Redis Cache](/azure/redis-cache/cache-how-to-geo-replication)
