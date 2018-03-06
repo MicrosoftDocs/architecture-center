@@ -7,7 +7,9 @@
     href: availability.md
   - name: DevOps
     href: dev-ops.md
-  - name: Resiliency
+  - name: Resiliency (general)
     href: resiliency.md
+  - name: Resiliency (Azure services)
+    href: resiliency-per-service.md
   - name: Scalability
     href: scalability.md
