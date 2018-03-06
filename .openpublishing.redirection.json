@@ -11,9 +11,45 @@
           "redirect_document_id": false 
       }, 
       { 
-          "source_path": "docs/reference-archtiectures/managed-web-app/index.md",
-          "redirect_url": "/azure/architecture/reference-archtiectures/app-service-web-app", 
+          "source_path": "docs/reference-architectures/managed-web-app/index.md",
+          "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app", 
           "redirect_document_id": false 
-      } 
+      },
+      { 
+        "source_path": "docs/elasticsearch/automated-performance-tests.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/automated-resilience-tests.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/data-aggregation-and-query-performance.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/data-ingestion-performance.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/index.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/jmeter-junit-sampler.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/jmeter-test-plan.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/performance-testing-environment.md",
+        "redirect_url": "/azure/architecture" 
+      },
+      { 
+        "source_path": "docs/elasticsearch/resilience-and-recover.md",
+        "redirect_url": "/azure/architecture" 
+      }
     ] 
   } 

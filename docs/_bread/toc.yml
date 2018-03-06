@@ -18,9 +18,6 @@
     - name: Design Review Checklists
       tocHref: /azure/architecture/checklist
       topicHref: /azure/architecture/checklist
-    - name: Elasticsearch
-      tocHref: /azure/architecture/elasticsearch
-      topicHref: /azure/architecture/elasticsearch
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity
       tocHref: /azure/architecture/multitenant-identity

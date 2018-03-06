@@ -144,8 +144,6 @@
     href: service-fabric/migrate-from-cloud-services.md
   - name: Refactor an Azure Service Fabric Application migrated from Azure Cloud Services
     href: service-fabric/refactor-migrated-app.md
-  - name: Run Elasticsearch on Azure
-    href: elasticsearch/index.md
   - name: Extend Azure Resource Manager Template Functionality
     href: building-blocks/extending-templates/index.md
 
