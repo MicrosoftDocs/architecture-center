@@ -26,6 +26,12 @@
             "url": "./hub-spoke.md",
             "image": "./images/hub-spoke.svg",
             "summary": "The hub is a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads."
+        },
+        {
+            "title": "Hub-spoke topology with shared services",
+            "url": "./shared-services.md",
+            "image": "./images/shared-services.svg",
+            "summary": "Deploy a hub-spoke topology that includes shared services, including Active Directory services and a network virtual appliance (NVA). Shared services can be consumed by all spokes."
         }
     ]
 }

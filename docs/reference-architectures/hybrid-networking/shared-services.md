@@ -10,7 +10,7 @@ pnp.series.prev: hub-spoke
 ---
 # Implement a hub-spoke network topology with shared services in Azure
 
-This reference architecture builds on top of the [hub-spoke][guidance-hub-spoke] reference architecture to include shared servcices in the hub that can be consumed by all spokes. As a first step into migrating a datacenter to the cloud, and building a [virtual datacenter], the first services you need to share are identity, and security. This reference archiecture shows you how to extend your Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall, in a hub-spoke topology.  [**Deploy this solution**](#deploy-the-solution).
+This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes. As a first step toward migrating a datacenter to the cloud, and building a [virtual datacenter], the first services you need to share are identity and security. This reference archiecture shows you how to extend your Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall, in a hub-spoke topology.  [**Deploy this solution**](#deploy-the-solution).
 
 ![[0]][0]
 
@@ -66,13 +66,13 @@ ALso, the following recommendations apply for most scenarios under shared servic
 
 Most enterprise organizations have an Active Directory Directory Services (ADDS) environment in their on-premises datacenter. To facilitate management of assets moved to Azure from your on-premises network that depend on ADDS, it is recommended to host ADDS domain controllers in Azure.
 
-If you make use of Group Policy Objects, that you want to control separately for Azure, and your on-premises environment, use a different AD site for each Azure region. And place your domain controllers in a central VNet (hub) that dependent workloads can access.
+If you make use of Group Policy Objects, that you want to control separately for Azure and your on-premises environment, use a different AD site for each Azure region. Place your domain controllers in a central VNet (hub) that dependent workloads can access.
 
 ### Security
 
-As you move workloads from your on-premises environment to Azure, some of these workloads will require to be hosted in VMs. And due to compliance you may need to enforce restrictions on traffic traversing those workloads. 
+As you move workloads from your on-premises environment to Azure, some of these workloads will require to be hosted in VMs. For compliance reasons, you may need to enforce restrictions on traffic traversing those workloads. 
 
-You can use network virtula appliances (NVAs) in Azure to host different types of security and performance services. If you are familiar with a given set of appliances on-premises today, it is recommended to use the same virtualized appliances in Azure, where applicable.
+You can use network virtual appliances (NVAs) in Azure to host different types of security and performance services. If you are familiar with a given set of appliances on-premises today, it is recommended to use the same virtualized appliances in Azure, where applicable.
 
 > [!NOTE]
 > The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enbaled to mimic a network virtual appliance.
@@ -99,7 +99,7 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
 
-3. Install the [Azure buulding blocks][azbb] npm package.
+3. Install the [Azure building blocks][azbb] npm package.
 
 4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below, and follow the prompts.
 
@@ -261,6 +261,7 @@ To create a peering connection from the hub VNet to the spoke VNets, perform the
 [hybrid-ha]: ./expressroute-vpn-failover.md
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[virtual datacenter]: https://aka.ms/vdc
 [vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices

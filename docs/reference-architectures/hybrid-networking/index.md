@@ -9,7 +9,7 @@ layout: LandingPage
 
 # Connect an on-premises network to Azure
 
-These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. <br/>[Which should I choose?](./considerations.md)
+These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
 
 <section class="series">
     <ul class="panelContent">
@@ -87,6 +87,26 @@ These reference architectures show proven practices for creating a robust networ
                     <div class="cardText">
                         <h3>Hub-spoke topology</h3>
                         <p>The hub is a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+    <!-- Hub-spoke topology with shared services -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./shared-services.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./images/shared-services.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Hub-spoke topology with shared services</h3>
+                        <p>Deploy a hub-spoke topology that includes shared services, including Active Directory services and a network virtual appliance (NVA). Shared services can be consumed by all spokes.</p>
                     </div>
                 </div>
             </div>
