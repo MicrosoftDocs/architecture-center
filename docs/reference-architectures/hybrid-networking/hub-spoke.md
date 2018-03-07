@@ -112,7 +112,7 @@ A deployment for this architecture is available on [GitHub][ref-arch-repo]. It u
 
 Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 
-1. Clone, fork, or download the zip file for the [AzureCAT reference architectures][ref-arch-repo] GitHub repository.
+1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
 
