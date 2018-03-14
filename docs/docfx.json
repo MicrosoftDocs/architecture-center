@@ -47,6 +47,9 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "mspnp/architecture-center",
+      "feedback_product_url": "https://github.com/mspnp/architecture-center/issues",
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
       "ms.author": "pnp",
