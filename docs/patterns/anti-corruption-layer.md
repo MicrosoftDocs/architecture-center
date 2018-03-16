@@ -7,7 +7,7 @@ ms.date: 06/23/2017
 
 # Anti-Corruption Layer pattern
 
-Implement a façade or adapter layer between a modern application and a legacy system that it depends on. This layer translates requests between the modern application and the legacy system. Use this pattern to ensure that an application's design is not limited by dependencies on legacy systems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
+Implement a façade or adapter layer between different subsystems that don't share the same semantics. This layer translates requests that one subsystem makes to the other subsystem. Use this pattern to ensure that an application's design is not limited by dependencies on outside subsystems. This pattern was first described by Eric Evans in *Domain-Driven Design*.
 
 ## Context and problem
 
@@ -17,13 +17,15 @@ Often these legacy systems suffer from quality issues such as convoluted data sc
 
 Maintaining access between new and legacy systems can force the new system to adhere to at least some of the legacy system's APIs or other semantics. When these legacy features have quality issues, supporting them "corrupts" what might otherwise be a cleanly designed modern application. 
 
+Similar issues can arise with any external system that your developmenmt team doesn't control, not just legacy systems. 
+
 ## Solution
 
-Isolate the legacy and modern systems by placing an anti-corruption layer between them. This layer translates communications between the two systems, allowing the legacy system to remain unchanged while the modern application can avoid compromising its design and technological approach.
+Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communications between the two systems, allowing one system to remain unchanged while the other can avoid compromising its design and technological approach.
 
 ![](./_images/anti-corruption-layer.png) 
 
-Communication between the modern application and the anti-corruption layer always uses the application's data model and architecture. Calls from the anti-corruption layer to the legacy system conform to that system's data model or methods. The anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
+The diagram above shows an application with two subsystems. Subsystem A calls to subsystem B through an anti-corruption layer. Communication between subsystem A and the anti-corruption layer always uses the data model and architecture of subsystem A. Calls from the anti-corruption layer to subsystem B conform to that subsystem's data model or methods. The anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
 
 ## Issues and considerations
 
@@ -33,20 +35,18 @@ Communication between the modern application and the anti-corruption layer alway
 - Consider whether you need more than one anti-corruption layer. You may want to decompose functionality into multiple services using different technologies or languages, or there may be other reasons to partition the anti-corruption layer.
 - Consider how the anti-corruption layer will be managed in relation with your other applications or services. How will it be integrated into your monitoring, release, and configuration processes?
 - Make sure transaction and data consistency are maintained and can be monitored.
-- Consider whether the anti-corruption layer needs to handle all communication between legacy and modern systems, or just a subset of features. 
-- Consider whether the anti-corruption layer is meant to be permanent, or eventually retired once all legacy functionality has been migrated.
+- Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features. 
+- If the anti-corruption layer is part of an application migration strategy, consider whether it will be permanent, or will be retired after all legacy functionality has been migrated.
 
 ## When to use this pattern
 
 Use this pattern when:
 
 - A migration is planned to happen over multiple stages, but integration between new and legacy systems needs to be maintained.
-- New and legacy system have different semantics, but still need to communicate.
+- Two or more subsystems have different semantics, but still need to communicate. 
 
 This pattern may not be suitable if there are no significant semantic differences between new and legacy systems. 
 
 ## Related guidance
 
-- [Strangler pattern][strangler]
-
-[strangler]: ./strangler.md
+- [Strangler pattern](./strangler.md)
