@@ -32,7 +32,9 @@ The top level of resource management scope is the **subscription** level. A subs
 
 The next level of management scope is the **resource group** level. A resource group is a logical container for resources that enables a user or group of users to perform operations on the resources as a group. It's also important to note that every resource in Azure is deployed to a resource group. The lowest level of management scope is at the **resource** level. 
 
-Our requirement is to manage all of the resources in the simple workload as a single unit. The first step in design task is to design the highest scope of resource management, and the primary consideration is to select the number of subscriptions your organization will use. You could choose to put each resource into a single subscription, but this will require your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
+Our requirement is to manage all of the resources in the simple workload as a single unit. The first step to meet this requirement is to design the highest scope of resource management, which as we've already dicussed is the *subscription* level. The primary consideration for subscription management is deciding on the number of subscriptions your organization will use. 
+
+You could choose to put each resource into a single subscription, but this will require your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
 
 The next step is to design how we'll manage resources within each subscription. As with subscriptions, you could choose to put each resource into a single resource group, but that would require your *Central IT* and *workload owner* personas to manage each resource one at time in each resource group. The other choice is to place all the resources for a workload into a single resource group, which allows your *Central IT* and *workload owner* personas to select the resource group and apply changes to all resources at once.
 
@@ -40,9 +42,9 @@ Therefore, the design of a single subscription and a single resource group for e
 
 ## Permissions model of least privilege access 
 
-The requirement for least privilege access to resources means that we want users to have permission to peform only approved actions on approved resources and nothing more. In Azure, these permissions are controlled using role-based access control (RBAC). 
+The requirement for least privilege access to resources means that we want users to have permission to peform approved actions on approved resources and nothing more. In Azure, these permissions are controlled using **role-based access control (RBAC)**. 
 
-RBAC roles define which capabilities the **role** has for a particular resource, and roles are applied to individual user identities. For example, the built-in **contributor** role allows a user to create, read, update, and delete a resource. The built-in **owner** role is similar, except it also allows the user to assign roles to other users.
+RBAC roles define which capabilities the **role** has for a particular resource, and a role is applied to individual user identities. For example, the built-in **contributor** role allows a user to create, read, update, and delete a resource. The built-in **owner** role is similar, except it also allows the user to assign roles to other users.
 
 A major consideration in satisfying this requirement is assigning the right role to a user at the correct resource management scope. For example, we want a *workload owner* to be able to manage Azure resources for their project but no other projects. The *workload owner* may also want to allow other users on the project team to view resources but not create, update, or delete them.
 
