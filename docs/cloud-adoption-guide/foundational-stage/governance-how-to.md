@@ -48,7 +48,7 @@ A major consideration in satisfying this requirement is assigning the right role
 
 Therefore, our permissions model should include a single *central IT* user that has permission to add users to Azure AD as well as permission to assign those users to a subscription. This user will have the highest level permissions in your organization and permissions for all other users in your organization are granted by this *central IT* user.
 
-When this *central IT* user creates user accounts in Azure AD, they must assign a role that to each new user that applies to all subscriptions associated with the tenant. Therefore, to meet the least privilege access requirement, your organization must make some decisions about the structure of your *workload owners* team. 
+When this *central IT* user creates user accounts in Azure AD, they must assign a role to each new user. This role is applied to the user for all subscriptions that the user is assigned to. Therefore, to meet the least privilege access requirement, your organization must make some decisions about the structure of your *workload owners* team. 
 
 As discussed earlier, any user with the **owner** or **contributor** role at the subscription level can create, read, update, and delete any type of resource within the subscription regardless of the resource group that contains those resources. If you have a *workload owner* with the **owner** or **contributor** role at the subscription level, that *workload owner* will be able to perform all actions on a resource in any resource group within the subscription, even those for which this user might not be an owner.     
 
