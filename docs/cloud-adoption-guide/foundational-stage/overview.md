@@ -6,7 +6,7 @@ author: petertay
 
 # Adopting Azure: Foundational
 
-For an organization that is new to the cloud, it can be difficult to figure out the right place to start their adoption journey. The goal of the foundational adoption stage is to provide a starting point. Once individuals within the organization have worked through this stage they will have all the knowlege and skills necessary to deploy a simple workload to Azure.
+For an organization that is new to the cloud, it can be difficult to decide on the right place to start their adoption journey. The goal of the foundational adoption stage is to provide a starting point. Once individuals within the organization have worked through this stage they will have all the knowlege and skills necessary to deploy a simple workload to Azure.
 
 The audience for this stage of the guide is the following personas within your organization:
 
