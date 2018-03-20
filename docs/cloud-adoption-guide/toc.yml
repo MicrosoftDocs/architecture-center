@@ -16,7 +16,7 @@
           href: foundational-stage/governance-explainer.md
       - name: "Section 2: understanding Azure governance design"
         items:
-        - name: "How to: foundational Azure goverance design guide"
+        - name: Azure governance design guide for the foundational adoption stage
           href: foundational-stage/governance-how-to.md
       - name: "Section 3: deploy a simple workload to Azure"
         items:
