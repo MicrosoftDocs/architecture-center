@@ -1,66 +1,44 @@
 - name: Azure Architecture Center
   href: /azure/architecture
   
-- name: Cloud Adoption Guide
+- name: Azure Cloud Adoption Guide
   href: index.md
 
   items:
   - name: Foundational Azure adoption
-    href: adoption-intro/overview.md
+    href: foundational-stage/overview.md
     items:
-      - name: Understanding Azure internals
+      - name: "Section 1: Understanding Azure and the concept of cloud goverance"
         items:
         - name: "Explainer: how does Azure work?"
-          href: adoption-intro/azure-explainer.md
-      - name: Understanding digital identity in Azure
+          href: foundational-stage/azure-explainer.md
+        - name: "Explainer: what is cloud resource governance?"
+          href: foundational-stage/governance-explainer.md
+      - name: "Section 2: understanding Azure governance design"
         items:
-        - name: "Explainer: what is an Azure Active Directory Tenant?"
-          href: adoption-intro/tenant-explainer.md
-        - name: "How to: get an Azure Active Directory tenant"
-          href: /azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: "Guidance: Azure AD tenant design"
-          href: adoption-intro/tenant.md
-        - name: "How to: add a user to an Azure AD tenant"
-          href: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
-      - name: Understanding Azure subscriptions
-        items: 
-        - name: "Explainer: what is an Azure subscription?"
-          href: adoption-intro/subscription-explainer.md
-        - name: "Guidance: Azure subscription design"
-          href: adoption-intro/subscription.md
-      - name: Understanding resource management in Azure
+        - name: "How to: foundational Azure goverance design guide"
+          href: foundational-stage/governance-how-to.md
+      - name: "Section 3: deploy a simple workload to Azure"
         items:
-        - name: "Explainer: what is Azure resource manager?"
-          href: adoption-intro/resource-manager-explainer.md
-        - name: "Explainer: what is an Azure resource group?"
-          href: adoption-intro/resource-group-explainer.md
-        - name: "Explainer: understanding resource access in Azure"
-          href: /azure/active-directory/active-directory-understanding-resource-access?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: "How to: create a resource group with the portal"
-          href: /azure/azure-resource-manager/resource-group-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-        - name: "Guidance: resource group design" 
-          href: adoption-intro/resource-group.md
-        - name: "Guidance: Azure resource naming conventions"
-          href: /azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json
-      - name: Deploying basic architectures to Azure
-        items:
+        - name: Overview of Azure compute options
+          href: /azure/architecture/guide/technology-choices/compute-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: Platform as a Service (PaaS) architecture
           items: 
-          - name: "How to: deploy a basic web application to Azure"
+          - name: Web apps documentation
             href: /azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for web applications in Azure"
+          - name: Basic web application
             href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json
         - name: Infrastructure as a service (IaaS)
           items:
-          - name: "Explainer: what is an Azure virtual network?"
+          - name: What is Azure Virtual Network?
             href: /azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "How to: deploy a virtual network to Azure"
-            href: /azure/virtual-network/virtual-networks-create-vnet-arm-pportal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "How to: deploy a single Windows VM IaaS workload to Azure"
+          - name: Create a virtual network using the Azure portal
+            href: /azure/virtual-network/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
+          - name: Create a Windows virtual machine with the Azure portal
             href: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for deploying a Windows VM to Azure"
+          - name: Run a Windows VM on Azure
             href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "How to: deploy a single Linux VM IaaS workload to Azure"
+          - name: Create a Linux virtual machine with the Azure portal
             href: /azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
-          - name: "Guidance: best practices for deploying a Linux VM to Azure"
+          - name: Run a Linux VM on Azure
             href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json

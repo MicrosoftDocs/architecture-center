@@ -15,7 +15,6 @@ In the foundational adoption stage, our goal is to deploy a simple workload to A
 * Manage user identity for the simple workload as single unit.
 * Manage all resources for the simple workload as a single management unit.
 * A permissions model that allows for least privilege access to resources.
-* Cost tracking for all resources associated with the simple workload.
 
 ## Identity management
 
@@ -60,10 +59,6 @@ If your organization's decision is to allow only the *central IT* persona to cre
 If your organization's decision is to trust the *workload owner* persona to create resource groups at the subscription scope, the requirement of least privilege access can be satisifed by applying either the **owner** or **contributor** role.
 
 All other users that work with the *workload owner* persona should have the least privilege access **reader** role applied at the subscription level. If the *workload owner* has the **owner** role applied at the resource group level they will have permission to change the role of the other users. Otherwise, the *workload owner* will have to request that *central IT* make any role changes.
-
-## Cost tracking
-
-Our requirement is for cost tracking in our simple workload. As discussed earlier, a subscription is the top level of management scope in Azure, and a subscription is also used to manage **cost** and apply an upper limit to the number of specific resources that can be deployed. Therefore, the use of a single resource group already designed earlier satisfies this requirement.
 
 ## Next steps
 
