@@ -30,11 +30,16 @@ As the number of resources deployed by your organization grows, the complexity o
 
 The top level of resource management scope is the **subscription** level. A subscription is also associated with a financial commitment, and that will be covered in more depth in the intermediate adoption stage.
 
-The next level of management scope is the **resource group** level. A resource group is a logical container for resources that enables a user or group of users to perform operations on the resources as a group. It's also important to note that every resource in Azure is deployed to a resource group. The lowest level of management scope is at the **resource** level. 
+The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a the group.
+
+The lowest level of management scope is at the **resource** level. Operations applied at the resource level apply only to the resource itself.
+
+> [!NOTE]
+> Each resource must belong to a resource group.
 
 Our requirement is to manage all of the resources in the simple workload as a single unit. The first step to meet this requirement is to design the highest scope of resource management, which as we've already dicussed is the *subscription* level. The primary consideration for subscription management is deciding on the number of subscriptions your organization will use. 
 
-You could choose to put each resource into a single subscription, but this will require your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
+You could choose to put each resource into a single subscription, but this requires your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
 
 The next step is to design how we'll manage resources within each subscription. As with subscriptions, you could choose to put each resource into a single resource group, but that would require your *Central IT* and *workload owner* personas to manage each resource one at time in each resource group. The other choice is to place all the resources for a workload into a single resource group, which allows your *Central IT* and *workload owner* personas to select the resource group and apply changes to all resources at once.
 
