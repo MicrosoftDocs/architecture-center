@@ -1,10 +1,10 @@
 ---
-title: "Explainer: How does Azure work?"
+title: "Explainer: how does Azure work?"
 description: Explains the internal functioning of Azure
 author: petertay
 ---
 
-# Explainer: How does Azure work?
+# Explainer: how does Azure work?
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
@@ -16,9 +16,7 @@ To understand this, let's look at the architecture of the hardware in the datace
 
 Within each rack or cluster, most of the servers are designated to run these virtualized hardware instances on behalf of the user. However, a number of the servers run cloud management software known as a fabric controller. The **fabric controller** is a distributed application with many responsibilities. It allocates services, monitors the health of the server and the services running on it, and heals servers when they fail.
 
-Each instance of the fabric controller is connected to another set of servers running cloud orchestration software, typically known as a **front end**. The front end hosts the web services, RESTful APIs, and internal Azure databases used for all functions the cloud performs. 
-
-For example, the front end hosts the services that handle customer requests to allocate Azure resources such as [virtual networks][vnet], [virtual machines][vms], and services like [Cosmos DB][cosmosdb]. First, the front end validates the user and verifies the user is authorized to allocate the requested resources. If so, the front end consults a database to locate a server rack with sufficient capacity, and then instructs the fabric controller on the rack to allocate the resource.
+Each instance of the fabric controller is connected to another set of servers running the software that send commands to the fabric controllers, known as an **orchestrator**. In addition to the command and control of the fabric controllers, the orchestrator stores information about resources (including resource usage for calculating cost), implements the controls for governing access to resources, and performs many other functions.
 
 So, very simply, Azure is a huge collection of servers and networking hardware, along with a complex set of distributed applications that orchestrate the configuration and operation of the virtualized hardware and software on those servers. And it is this orchestration that makes Azure so powerful - users are no longer responsible for maintaining and upgrading hardware, Azure does all this behind the scenes. 
 
