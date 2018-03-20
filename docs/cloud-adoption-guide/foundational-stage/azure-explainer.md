@@ -22,11 +22,4 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). You are then ready to [create your first user in Azure AD][docs-add-users-to-aad].
-
-<!-- Links -->
-
-[cosmosdb]: /azure/cosmos-db/introduction
-[docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
-[vms]: /azure/virtual-machines/
-[vnet]: /azure/virtual-network/virtual-networks-overview
+* Now that you understand how Azure works and how resources are managed, learn about [Azure resource access governance](governance-explainer.md).
