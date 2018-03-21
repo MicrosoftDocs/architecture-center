@@ -27,7 +27,7 @@ A version of the diagrams used in the [Reference Architectures](../reference-arc
 
 ## Solution Architecture icons
 
-Microsoft publishes [solution architectures and accompanying diagrams](https://azure.microsoft.com/en-us/solutions/architecture/). The diagrams are in downloadable in SVG format. SVG can be opened and then modified by many tools, including Visio and PowerPoint. If you upgroup the diagram, you can get at the individual icons.  To download a diagram, right-click on it and choose "Save As". You should see an option to save as SVG. If you do not see this option, try again with a different browser. 
+Microsoft publishes [solution architectures and accompanying diagrams](https://azure.microsoft.com/solutions/architecture/). The diagrams are in downloadable in SVG format. SVG can be opened and then modified by many tools, including Visio and PowerPoint. If you upgroup the diagram, you can get at the individual icons.  To download a diagram, right-click on it and choose "Save As". You should see an option to save as SVG. If you do not see this option, try again with a different browser. 
 
 ## 3D Blueprint Visio template
 
