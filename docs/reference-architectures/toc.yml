@@ -14,6 +14,11 @@
     - name: Multi-region deployment
       href: app-service-web-app/multi-region.md
 
+  - name: Data architectures
+    items:
+    - name: Enterprise BI with SQL Data Warehouse
+      href: data/enterprise-bi-sqldw.md
+
   - name: Hybrid networks
     href: hybrid-networking/index.md
     items:
