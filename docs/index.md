@@ -15,7 +15,7 @@ ms.topic: landing-page
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/a3g-logo.svg" alt="Azure Application Architecture Guide" />
+                        <img src="_images/a3g-logo.svg" alt="" />
                         <div class="cardText">
                             <h3>Azure Application Architecture Guide</h3>
                             <p> A guide to designing scalable, resilient, and highly available applications, based on proven
@@ -32,7 +32,7 @@ ms.topic: landing-page
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/reference-architectures.svg" alt="Azure Reference Architectures" />
+                        <img src="_images/reference-architectures.svg" alt="" />
                         <div class="cardText">
                             <h3>Reference Architectures</h3>
                             <p>A set of recommended architectures for Azure. Each architecture includes best practices, prescriptive
@@ -49,7 +49,7 @@ ms.topic: landing-page
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/cloud-design-patterns.svg" alt="Cloud Design Patterns" />
+                        <img src="_images/cloud-design-patterns.svg" alt="" />
                         <div class="cardText">
                             <h3>Cloud Design Patterns</h3>
                             <p>Design patterns for developers and solution architects. Each pattern describes a problem, a pattern
@@ -72,7 +72,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/microservices.svg" alt="Designing, building, and operating microservices on Azure" />
+                                <img src="_images/microservices.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -92,7 +92,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/data-guide.svg" alt="Data Architecture Guide"  />
+                                <img src="_images/data-guide.svg" alt=""  />
                             </div>
                         </div>
                         <div class="cardText">
@@ -112,7 +112,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/best-practices.svg" alt="Best Practices" />
+                                <img src="_images/best-practices.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -133,7 +133,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/resiliency.svg" alt="Designing for Resiliency" />
+                                <img src="_images/resiliency.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -153,7 +153,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/azbb.svg" alt="Azure Building Blocks" />
+                                <img src="_images/azbb.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -173,7 +173,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/checklist.svg" alt="Design Review Checklists" />
+                                <img src="_images/checklist.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -193,7 +193,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/virtual-datacenter.svg" alt="Azure Virtual Datacenter e-book" />
+                                <img src="_images/virtual-datacenter.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -213,7 +213,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/aws-professional.svg" alt="Azure for AWS Professionals" />
+                                <img src="_images/aws-professional.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -233,7 +233,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/performance.svg" alt="Performance antipatterns" />
+                                <img src="_images/performance.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -253,7 +253,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="/azure/architecture/reference-architectures/sharepoint/images/sharepoint.svg" alt="Run SharePoint 2016 on Azure" />
+                                <img src="/azure/architecture/reference-architectures/sharepoint/images/sharepoint.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -273,7 +273,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="/azure/architecture/reference-architectures/sap/images/sap.svg" width="100%" alt="Run Elasticsearch on Azure" />
+                                <img src="/azure/architecture/reference-architectures/sap/images/sap.svg" width="100%" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -293,7 +293,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/multitenant-identity.svg" alt="Identity Management for Multitenant Applications" />
+                                <img src="_images/multitenant-identity.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -313,7 +313,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/azurecat.svg" alt="Azure Customer Advisory Team" />
+                                <img src="_images/azurecat.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
@@ -333,7 +333,7 @@ ms.topic: landing-page
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/sqlcat.svg" alt="SQL Server Customer Advisory Team" />
+                                <img src="_images/sqlcat.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
