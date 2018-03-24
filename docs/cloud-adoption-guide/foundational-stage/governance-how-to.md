@@ -6,15 +6,20 @@ author: petertay
 
 # Azure governance design guide for the foundational adoption stage
 
+<!-- We don't list intended personas in the explainers. Is that deliberate? -->
 The audience for this design guide is the *central IT* persona in your organization. *Central IT* is responsible for designing and implementing your organization's cloud governance architecture. As you learned in the [what is cloud resource governance?](governance-explainer.md) explainer, governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization.
 
 The goal of this guidance is to help you learn the process of designing your organization's governance architecture. To facilitate this, we'll look at a set of hypothetical goverance goals and requirements and discuss how to configure Azure's governance tools to meet them. 
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
-* Identity management for a single user or small group of users who will be responsible for deploying and maintaining the simple workload.
-* Manage user identity for the simple workload as single unit.
-* Manage all resources for the simple workload as a single management unit.
-* A permissions model that allows for least privilege access to resources.
+
+> [!div class="checklist"]
+> * Identity management for a single user or small group of users who will be responsible for deploying and maintaining the simple workload.
+> * Manage user identity for the simple workload as single unit.
+> * Manage all resources for the simple workload as a single management unit.
+> * A permissions model that allows for least privilege access to resources.
+
+<!-- testing out the checklist above -->
 
 ## Identity management
 
@@ -28,22 +33,33 @@ A single Azure AD tenant satifies these requirements. Within a single Azure AD t
 
 As the number of resources deployed by your organization grows, the complexity of governing those resources grows as well. Azure implements a logical container hierarchy to enable your organization to manage your resources in groups at various levels of granularity, also known as **scope**. 
 
+<!-- Is the usage of 'scope' something abstract here and not tied to AAD directly? -->
+
 The top level of resource management scope is the **subscription** level. A subscription is also associated with a financial commitment, and that will be covered in more depth in the intermediate adoption stage.
 
 The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a the group.
 
 The lowest level of management scope is at the **resource** level. Operations applied at the resource level apply only to the resource itself.
 
+<!-- a simple graphic demonstrating the relationships --->
+
 > [!NOTE]
 > Each resource must belong to a resource group.
 
 Our requirement is to manage all of the resources in the simple workload as a single unit. The first step to meet this requirement is to design the highest scope of resource management, which as we've already dicussed is the *subscription* level. The primary consideration for subscription management is deciding on the number of subscriptions your organization will use. 
 
-You could choose to put each resource into a single subscription, but this requires your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
+You could choose to put each resource into it's own subscription, but this requires your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
+<!-- 
+I found the first sentence a bit unclear. Did we mean "each resource into it's own subscription"?
+I understand that we are trying to communicate the full spectrum here, but I am concerned that readers might consider that a reasonable option. Perhaps we should qualify that you _should not_ do this?
+
+-->
 
 The next step is to design how we'll manage resources within each subscription. As with subscriptions, you could choose to put each resource into a single resource group, but that would require your *Central IT* and *workload owner* personas to manage each resource one at time in each resource group. The other choice is to place all the resources for a workload into a single resource group, which allows your *Central IT* and *workload owner* personas to select the resource group and apply changes to all resources at once.
 
 Therefore, the design of a single subscription and a single resource group for each workload is the correct design to meet the requirement of managing all resources for a simple workload as a single unit.
+<!--
+I'd like to emphasize this^ statemen; maybe bold, maybe a label? -->
 
 ## Permissions model of least privilege access 
 
@@ -60,6 +76,13 @@ When this *central IT* user creates user accounts in Azure AD, they must assign 
 As discussed earlier, any user with the **owner** or **contributor** role at the subscription level can create, read, update, and delete any type of resource within the subscription regardless of the resource group that contains those resources. If you have a *workload owner* with the **owner** or **contributor** role at the subscription level, that *workload owner* will be able to perform all actions on a resource in any resource group within the subscription, even those for which this user might not be an owner.     
 
 However, in order to be able to do anything at all, at least one user in the *workload owner* persona must be able to request that a resource group be created, and request that resources be deployed into that resource group. At this point, your organization must decide whether the *central IT* persona is responsible for creating resource groups, or whether the individual *workload owner* personas are trusted to not only access their own resources but the resources other *workload owners*. 
+
+<!-- 
+1. I like the comprehensive style of this guide
+2. There are certain key statements I'd like to call-out
+3. I think some readers will want the terse checlist version
+4. Can we keep the comprehensive style, but somehow highlight the key statements like "your organization must decide whether the *central IT* persona is responsible for..." to allow the impatient reader to hit the key points? Maybe we format all prescriptions a certain way...
+-->
 
 If your organization's decision is to allow only the *central IT* persona to create resource groups, the requirement of least privilege access can be satisfied by applying the **reader** role to the *workload owner* persona at the subscription level, and overriding the **reader** role with the **owner** or **contributor** role at the resource group level. 
 
