@@ -43,6 +43,7 @@ Monitoring offers the following benefits:
 * You have a better chance at being proactive in ensuring smooth operation of your solution, rather than always reactively responding to issues and putting out fires that shouldn't have started in the first place.
 * Gather valuable data that will help you troubleshoot issues.
 * Make huge diagnostic logs usable by adding search and alerting mechanisms.
+* Allows you to save money by monitoring resource utilization. By doing this you can detect overprovisioning of resources and optimize your workloads accordingly
 
 ## <a name="challenges"></a>Challenges
 
