@@ -207,6 +207,6 @@ A deployment for a reference architecture that implements these recommendations 
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
-[visio-download]: https://archcenter.blob.core.windows.net/dmz-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
 [wireshark]: https://www.wireshark.org/
 [0]: ./images/dmz-private.png "Secure hybrid network architecture"
