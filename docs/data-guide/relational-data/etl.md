@@ -17,7 +17,7 @@ Extract, transform, and load (ETL) is a data pipeline used to collect data from 
 
 The data transformation that takes place usually involves various operations, such as filtering, sorting, aggregating, joining data, cleaning data, deduplicating, and validating data.
 
-![Extract-transform-load (ETL) process](./images/etl.png)
+![Extract-transform-load (ETL) process](../images/etl.png)
 
 Often, the three ETL phases are run in parallel to save time. For example, while data is being extracted, a transformation process could be working on data already received and prepare it for loading, and a loading process can begin working on the prepared data, rather than waiting for the entire extraction process to complete.
 
@@ -31,7 +31,7 @@ Other tools:
 
 Extract, load, and transform (ELT) differs from ETL solely in where the transformation takes place. In the ELT pipeline, the transformation occurs in the target data store. Instead of using a separate transformation engine, the processing capabilities of the target data store are used to transform data. This simplifies the architecture by removing the transformation engine from the pipeline. Another benefit to this approach is that scaling the target data store also scales the ELT pipeline performance. However, ELT only works well when the target system is powerful enough to transform the data efficiently.
 
-![Extract-Load-Transform (ELT) process](./images/elt.png)
+![Extract-Load-Transform (ELT) process](../images/elt.png)
 
 Typical use cases for ELT fall within the big data realm. For example, you might start by extracting all of the source data to flat files in scalable storage such as Hadoop distributed file system (HDFS) or Azure Data Lake Store. Technologies such as Spark, Hive, or PolyBase can then be used to query the source data. The key point with ELT is that the data store used to perform the transformation is the same data store where the data is ultimately consumed. This data store reads directly from the scalable storage, instead of loading the data into its own proprietary storage. This approach skips the data copy step present in ETL, which can be a time consuming operation for large data sets.
 
@@ -58,7 +58,7 @@ In the context of data pipelines, the control flow ensures orderly processing of
 
 Control flows execute data flows as a task. In a data flow task, data is extracted from a source, transformed, or loaded into a data store. The output of one data flow task can be the input to the next data flow task, and data flowss can run in parallel. Unlike control flows, you cannot add constraints between tasks in a data flow. You can, however, add a data viewer to observe the data as it is processed by each task.
 
-![Data Flow being executed as a task within a Control Flow](./images/control-flow-data-flow.png)
+![Data Flow being executed as a task within a Control Flow](../images/control-flow-data-flow.png)
 
 In the diagram above, there are several tasks within the control flow, one of which is a data flow task. One of the tasks is nested within a container. Containers can be used to provide structure to tasks, providing a unit of work. One such example is for repeating elements within a collection, such as files in a folder or database statements.
 
@@ -70,7 +70,7 @@ Other tools:
 
 ## Technology choices
 
-- [Online Transaction Processing (OLTP) data stores](../technology-choices/oltp-data-stores.md)
-- [Online Analytical Processing (OLAP) data stores](../technology-choices/olap-data-stores.md)
-- [Data warehouses](../technology-choices/data-warehouses.md)
+- [Online Transaction Processing (OLTP) data stores](./online-transaction-processing.md#oltp-in-azure)
+- [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.md#olap-in-azure)
+- [Data warehouses](./data-warehousing.md)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
