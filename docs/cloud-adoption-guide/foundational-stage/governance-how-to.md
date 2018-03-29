@@ -30,7 +30,7 @@ As the number of resources deployed by your organization grows, the complexity o
 
 The top level of resource management scope is the **subscription** level. A subscription is also associated with a financial commitment, and that will be covered in more depth in the intermediate adoption stage.
 
-The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a the group.
+The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a group.
 
 The lowest level of management scope is at the **resource** level. Operations applied at the resource level apply only to the resource itself.
 
