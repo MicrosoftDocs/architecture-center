@@ -118,7 +118,7 @@ A deployment for a reference architecture that implements these recommendations 
 [load-balancer]: /azure/load-balancer/load-balancer-Internet-overview
 [network-security-group]: /azure/virtual-network/virtual-networks-nsg
 
-[visio-download]: https://archcenter.azureedge.net/cdn/dmz-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/dmz-reference-architectures.vsdx
 
 
 [0]: ./images/dmz-public.png "Secure hybrid network architecture"

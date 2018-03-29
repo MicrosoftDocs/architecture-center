@@ -267,7 +267,7 @@ To create a peering connection from the hub VNet to the spoke VNets, perform the
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 
-[visio-download]: https://archcenter.azureedge.net/cdn/hybrid-network-hub-spoke.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [0]: ./images/shared-services.png "Shared services topology in Azure"
 [3]: ./images/hub-spokehub-spoke.svg "Hub-spoke-hub-spoke topology in Azure"
