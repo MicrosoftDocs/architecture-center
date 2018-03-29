@@ -151,6 +151,6 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
-[visio-download]: https://archcenter.azureedge.net/cdn/vm-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/vm-reference-architectures.vsdx
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
 [0]: ./images/multi-region-application-diagram.png "Highly available network architecture for Azure N-tier applications"

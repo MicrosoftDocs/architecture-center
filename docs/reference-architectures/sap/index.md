@@ -231,7 +231,7 @@ After deploying the SAP infrastructure, install and configure your SAP applicati
 [sap-hana-on-azure]: https://azure.microsoft.com/services/virtual-machines/sap-hana/
 [sap-netweaver-dr]: http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx
 [sap-security]: https://archive.sap.com/documents/docs/DOC-62943
-[visio-download]: https://archcenter.azureedge.net/cdn/SAP-HANA-architecture.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/SAP-HANA-architecture.vsdx
 [vm-sizes-mem]: /azure/virtual-machines/windows/sizes-memory
 [swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm
 [0]: ./images/sap-hana.png "SAP HANA architecture using Microsoft Azure"

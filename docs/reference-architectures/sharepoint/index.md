@@ -316,7 +316,7 @@ The following table shows the VMs that are deployed.
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
 [tempdb]: /sql/relational-databases/databases/tempdb-database
 [virtual-networks-nsg]: /azure/virtual-network/virtual-networks-nsg
-[visio-download]: https://archcenter.azureedge.net/cdn/Sharepoint-2016.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/Sharepoint-2016.vsdx
 [vm-sizes-general]: /azure/virtual-machines/windows/sizes-general
 [vm-sizes-memory]: /azure/virtual-machines/windows/sizes-memory
 [windows-n-tier]: ../virtual-machines-windows/n-tier.md
