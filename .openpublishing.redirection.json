@@ -50,6 +50,78 @@
       { 
         "source_path": "docs/elasticsearch/resilience-and-recover.md",
         "redirect_url": "/azure/architecture" 
-      }
+      },
+      {
+        "source_path": "docs/data-guide/scenarios/batch-processing.md",
+        "redirect_url": "/azure/architecture/data-guide/big-data/batch-processing"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/big-data.md",
+        "redirect_url": "/azure/architecture/data-guide/big-data"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/machine-learning-at-scale.md",
+        "redirect_url": "/azure/architecture/data-guide/big-data/machine-learning-at-scale"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/non-relational-data.md",
+        "redirect_url": "/azure/architecture/data-guide/big-data/non-relational-data"
+    },
+    {
+        "source_path": "docs/data-guide/scenarios/real-time-processing.md",
+        "redirect_url": "/azure/architecture/data-guide/big-data/real-time-processing"
+    },
+    {
+        "source_path": "docs/data-guide/technology-choices/data-warehouses.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
+    },
+    {
+        "source_path": "docs/data-guide/scenarios/etl.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/etl"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/relational-data.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/advanced-analytics.md",
+        "redirect_url": "/azure/architecture/data-guide/scenarios/advanced-analytics"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/csv-and-json.md",
+        "redirect_url": "/azure/architecture/data-guide/scenarios/csv-and-json"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/data-lake.md",
+        "redirect_url": "/azure/architecture/data-guide/scenarios/data-lake"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/semantic-modeling.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
+    },
+    {
+        "source_path": "docs/data-guide/concepts/transactional-data.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+    },
+    {
+        "source_path": "docs/data-guide/scenarios/data-warehousing.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
+    },
+    {
+        "source_path": "docs/data-guide/scenarios/online-analytical-processing.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
+    },
+    {
+        "source_path": "docs/data-guide/scenarios/online-transaction-processing.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+    },
+    {
+        "source_path": "docs/data-guide/technology-choices/olap-data-stores.md",
+        "redirect_url": "/azure/architecture/data-guide//relational-data/online-analytical-processing"
+    },
+    {
+        "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
+        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+    }      
     ] 
   } 
