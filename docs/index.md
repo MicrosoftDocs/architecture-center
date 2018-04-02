@@ -187,7 +187,7 @@ ms.topic: landing-page
     </li>
     <!-- Azure Virtual Datacenter -->
     <li>
-        <a href="https://aka.ms/vdc">
+        <a href="./vdc/index.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -197,8 +197,8 @@ ms.topic: landing-page
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Azure Virtual Datacenter e-book</h3>
-                            <p>This e-book shows you how to deploy enterprise workloads to the Azure cloud platform, while respecting your existing security and networking policies.</p>
+                            <h3>Azure Virtual Datacenter</h3>
+                            <p>When deploying enterprise workloads to the cloud, organizations must balance governance with developer agility. Azure Virtual Datacenter provides models to achieve this balance with an emphasis on governance.</p>
                         </div>
                     </div>
                 </div>
