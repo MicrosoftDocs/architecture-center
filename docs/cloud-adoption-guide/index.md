@@ -24,6 +24,9 @@ Maybe it's the definition of 'modernize'. I think of it as adopting PaaS service
 5. **Optimizing migrated applications for the cloud:** for enterprises at the modernizing stage who want to efficiently use cloud resources. At the end of this stage, an enterprise is capable of evaluating Azure usage to identify unused or underutilized resources, scaling workloads, and scheduling workloads with instance reservation.
 6. **Innovating in the cloud:** for enterprises with intermediate to advanced experience in Azure who want to develop native cloud applications from scratch. At the end of this stage, an enterprise is capable of developing and deploying resilient, highly available workloads that use native cloud services, microservices, and other cutting edge Azure services.
 
+<!-- nit: Microservices isn't an Azure service [mwasson] -->
+<!-- Rather than cutting-edge services, maybe say something like "use fully managed Azure services and cloud-native architectures", the idea is it's not always about the new hotness. [mwasson] -->
+
 ## How to use the Azure Cloud Adoption Guide
 
 The Azure Cloud Adoption Guide is organized into a series of stages. Each stage includes a list of articles. The articles fall into one of three categories: articles that **explain** how something works, articles that describe **how to** accomplish a specific task, or articles that provide **guidance** to assist you in making technology choices and design decisions. 

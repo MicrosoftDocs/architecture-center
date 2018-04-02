@@ -10,6 +10,8 @@ For an organization that is new to the cloud, it can be difficult to decide on t
 
 The audience for this stage of the guide is the following personas within your organization:
 
+<!-- nit: Maybe "roles"? I feel like "personas" was originally more of a UX concept? In fact you use 'roles' below [mwasson] -->
+
 - *Finance:* owner of the financial commitment to Azure, responsible for developing policies and procedures for tracking resource consumption costs including billing and chargeback.
 - *Central IT:* responsible for governing your organizatin's cloud resources including resource management and access, and workload health and monitoring.
 - *Workload owners:* all development roles that are involved in deploying workloads to Azure, including developers, testers, and build engineers.
@@ -19,6 +21,8 @@ We could even lean harder into this...
 See https://msdn.microsoft.com/en-us/library/jj591578.aspx#sec2
  -->
 ## Section 1: Understanding Azure and the concept of cloud goverance
+
+<!-- This section title is kind of long - not so much in the page, but in the TOC. [mwasson] -->
 
 This introductory section is intended for the *finance* and *central IT* personas. The focus of this section is acquiring a basic understanding of [how Azure works](azure-explainer.md) in preparation for learning about the [concept of cloud governance](governance-explainer.md). It may also be useful for the *workload owners* in your organization to review this content to help them understand how resource access is managed.
 
@@ -40,6 +44,9 @@ I'm a little bit shy on using 'PaaS' as an adjective.
 I think I'd rather see "a simple web application using PaaS" or something similar.
 I wouldn't press this though if there's precedence.
  -->
+
+<!-- for what it's worth, I find references to 'PaaS application,' 'PaaS web app,' and 'PaaS deployment' in our docs [mwasson] >
+
 For a PaaS basic web application, select one of the 5-minute quickstarts from the [web apps documentation](/azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json) and follow the steps. Once your simple workload has been deployed, you can learn more about the proven practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure.
 
 ### IaaS single Windows or Linux VM

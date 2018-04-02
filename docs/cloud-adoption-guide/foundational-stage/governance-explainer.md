@@ -17,11 +17,13 @@ These goals and requirements are unique to each organization so it's not possibl
 Should we link to something for RBAC And policy? Or is that just a distraction at this point?
 -->
 
-RBAC defines roles, and roles define the capabilities for a user that is assigned the role. For example, the **owner** role enables all capabilites (create, read, update, and delete) for a resource, while the  **reader** roles enables only the read capability. Roles can be defined with a broad scope that applies to many resources types, or a narrow scope that applies to a few. 
+RBAC defines roles, and roles define the capabilities for a user that is assigned the role. For example, the **owner** role enables all capabilites (create, read, update, and delete) for a resource, while the  **reader** roles enables only the read capability. Roles can be defined with a broad scope that applies to many resources types, or a narrow scope that applies to a few. <!-- Is it worth mentioning some examples of what is meant by a "resource type" or somewhere defining what we mean by an Azure resource? [mwasson] -->
 
-Resource policies define rules for resource creation. For example, a resource policy can limit the SKU of a VM to a particular pre-appproved size. Or, a resource policy can enforce the addition of a tag with a cost center when the request is made to create the resource. 
+Resource policies define rules for resource creation. For example, a resource policy can limit the SKU of a VM to a particular pre-appproved size. Or, a resource policy can enforce the addition of a tag <!-- maybe: Enforce tagging resources with a cost center [mwasson] --> with a cost center when the request is made to create the resource. 
 
 When configuring these tools, an important consideration is balancing governance versus organizational agility. That is, the more restrictive your governance policy, the less agile your developers and IT workers become. This is because a restrictive goverance policy may require more manual steps, such as requiring a developer to fill out a form or send an email to a person on the governance team to manually create a resource. The goverance team has finite capabilities and may become backlogged, resulting in unproductive development teams waiting for their resources to be created and unneeded resources accruing costs while they wait to be deleted.
+
+<!-- I know this topic isn't meant to go into details about governance, but maybe mention in passing that governance rules should take into account (a) your organization roles, (b) productions vs dev/test resources? Just to illustrate what we're talking about. [mwasson] -->
 
 <!-- I would like to include a simple graphic here illustrating the tension between governance and agility. -->
 
