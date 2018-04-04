@@ -23,31 +23,37 @@ This reference architecture shows a set of proven practices for running a Window
 
 ## Architecture
 
-Provisioning an Azure VM requires additional components, such as compute, networking, and storage resources.
+Provisioning an Azure VM requires some additional components besides the VM itself, including networking and storage resources.
 
-* **Resource group.** A [resource group][resource-manager-overview] is a container that holds related resources. In general, you should group resources in a solution based on their lifetime and who will manage the resources. For a single VM workload, you may want to create a single resource group for all resources.
+* **Resource group.** A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them. 
+
 * **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
-* **OS disk.** The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down.
-* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is **not** saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
-* **Data disks.** A [data disk][data-disk] is a persistent VHD used for application data. Data disks are stored in Azure Storage, like the OS disk.
-* **Virtual network (VNet) and subnet.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
+
+* **Managed Disks**. The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. A [data disk][data-disk] is a persistent VHD used for application data. [Azure Managed Disks][managed-disks] simplify disk management by handling the storage for you. 
+
+* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+
+* **Virtual network (VNet).** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
+
+* **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.  
+
 * **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP).  
-* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.  
-* **Network interface (NIC)**. An assigned NIC enables the VM to communicate with the virtual network.  
-* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to a network resource. You can associate an NSG with an individual NIC or with a subnet. If you associate it with a subnet, the NSG rules apply to all VMs in that subnet.
+
+* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+
+* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated with either subnets or individual VM instances within that subnet.
+
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## Recommendations
 
-This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads because it creates a single point of failure. For higher availability, deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple VMs on Azure][multi-vm]. 
+This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads because it creates a single point of failure. For higher availability, deploy two or more load-balanced VMs. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 ### VM recommendations
 
-Azure offers many different virtual machine sizes. [Premium Storage][premium-storage] is recommended due to its high performance and low latency, and is [supported by specific VM sizes][premium-storage-supported]. Select one of these sizes unless you have a specialized workload such as high-performance computing. For more information, see [virtual machine sizes][virtual-machine-sizes].
+Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed. If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each [VM size][vm-size-tables].
 
-If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed. If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each [VM size][vm-size-tables].
-
-When you provision Azure resources, you must specify a region. Generally, choose a region closest to your internal users or customers. However, not all VM sizes are available in all regions. For more information, see [Services by region][services-by-region]. For a list of the VM sizes available in a specific region, run the following command from the Azure command-line interface (CLI):
+Generally, choose an Azure region that is closest to your internal users or customers. However, not all VM sizes are available in all regions. For more information, see [Services by region][services-by-region]. For a list of the VM sizes available in a specific region, run the following command from the Azure command-line interface (CLI):
 
 ```
 az vm list-sizes --location <location>
@@ -61,15 +67,15 @@ Enable monitoring and diagnostics, including basic health metrics, diagnostics i
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
-We also recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
+We also recommend using [Managed Disks][managed-disks]. Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
 
-If you are using unmanaged disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the [(IOPS) limits][vm-disk-limits] for storage accounts.
+Add one or more data disks. When you create a VHD, it is unformatted. Log into the VM to format the disk. When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
 
-Add one or more data disks. When you create a VHD, it is unformatted. Log into the VM to format the disk. If you are not using managed disks and have a large number of data disks, be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
+Create a storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
-When possible, install applications on a data disk, not the OS disk. Some legacy applications might need to install components on the C: drive; in that case, you can [resize the OS disk][resize-os-disk] using PowerShell.
+> [!NOTE]
+> If you aren't using Managed Disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the [(IOPS) limits][vm-disk-limits] for storage accounts. Be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
-To maximize performance, create a separate storage account to hold diagnostic logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs.
 
 ### Network recommendations
 
@@ -84,7 +90,7 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For more information, see [Running multiple VMs on Azure for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For more information, see [Run load-balanced VMs for scalability and availability][multi-vm].
 
 ## Availability considerations
 
@@ -92,21 +98,15 @@ For higher availability, deploy multiple VMs in an availability set. This also p
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
-VHDs are stored in [Azure storage][azure-storage]. Azure storage is replicated for durability and availability.
-
 To protect against accidental data loss during normal operations (for example, because of user error), you should also implement point-in-time backups, using [blob snapshots][blob-snapshot] or another tool.
 
 ## Manageability considerations
 
 **Resource groups.** Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
-**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated.
+**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
-
-**Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage].
-
-To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage]. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Security considerations
 
@@ -204,6 +204,7 @@ For more information on deploying this sample reference architecture, visit our 
 [group-policy]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn595129(v=ws.11)
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[managed-disks]: /azure/storage/storage-managed-disks-overview
 [multi-vm]: multi-vm.md
 [naming-conventions]: ../../best-practices/naming-conventions.md
 [nsg]: /azure/virtual-network/virtual-networks-nsg
