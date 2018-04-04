@@ -21,12 +21,12 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./virtual-machines-windows/images/n-tier.svg" height="140px" />
+                            <img src="./virtual-machines-windows/images/n-tier-diagram.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows VM workloads</h3>
-                        <p>This series starts with best practices for running a single Windows VM, then multiple load-balanced VMs, and finally a multi-region N-tier application.</p>
+                        <h3>N-tier application</h3>
+                        <p>This series starts with best practices for running a single Windows or Linux VM. The next step is a load balanced VM, then a N-tier application deployment. The last step is a multi-region N-tier application.</p>
                     </div>
                 </div>
             </div>
