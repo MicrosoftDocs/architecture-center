@@ -29,7 +29,7 @@ Provisioning an Azure VM requires some additional components besides the VM itse
 
 * **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 
-* **Managed Disks**. The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. A [data disk][data-disk] is a persistent VHD used for application data. [Azure Managed Disks][managed-disks] simplify disk management by handling the storage for you. 
+* **Managed Disks**. [Azure Managed Disks][managed-disks] simplify disk management by handling the storage for you. The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
 
 * **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 
@@ -41,7 +41,7 @@ Provisioning an Azure VM requires some additional components besides the VM itse
 
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated with either subnets or individual VM instances within that subnet.
+* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances. 
 
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
@@ -173,10 +173,9 @@ To verify the deployment, run the following Azure CLI command to find the public
 az vm show -n ra-single-windows-vm1 -g <resource-group-name> -d -o table
 ```
 
-If navigate to this IP address in a web browser, you should see the default IIS homepage.
+If you navigate to this address in a web browser, you should see the default IIS homepage.
 
-
-For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
+For information about customizing this deployment, visit our [GitHub repository][git].
 
 ## Next steps
 
