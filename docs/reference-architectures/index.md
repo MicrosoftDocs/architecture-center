@@ -21,7 +21,7 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./virtual-machines-windows/images/n-tier-diagram.png" height="140px"/>
+                            <img src="./virtual-machines-windows/images/n-tier-diagram.png" />
                         </div>
                     </div>
                     <div class="cardText">
