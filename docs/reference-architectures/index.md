@@ -12,7 +12,7 @@ layout: LandingPage
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 <section class="series">
-    <ul class="panelContent cardsC">
+    <ul class="panelContent">
     <!-- Windows VM workloads -->
 <li style="display: flex; flex-direction: column;">
     <a href="./virtual-machines-windows/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -21,7 +21,7 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./virtual-machines-windows/images/n-tier-diagram.png"/>
+                            <img src="./virtual-machines-windows/images/n-tier-diagram.png" height="140px"/>
                         </div>
                     </div>
                     <div class="cardText">
