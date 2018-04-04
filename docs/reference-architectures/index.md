@@ -12,7 +12,7 @@ layout: LandingPage
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 <section class="series">
-    <ul class="panelContent cardsH">
+    <ul class="panelContent cardsC">
     <!-- Windows VM workloads -->
 <li style="display: flex; flex-direction: column;">
     <a href="./virtual-machines-windows/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
