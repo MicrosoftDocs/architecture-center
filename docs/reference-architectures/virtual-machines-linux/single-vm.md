@@ -187,6 +187,14 @@ To deploy this reference architecture, follow these steps:
   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
   ```
 
+To verify the deployment, run the following Azure CLI command to find the public IP address of the VM:
+
+```bash
+az vm show -n ra-single-linux-vm1 -g <resource-group-name> -d -o table
+```
+
+If navigate to this IP address in a web browser, you should see the default Apache2 homepage.
+
 For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
 
 ## Next steps

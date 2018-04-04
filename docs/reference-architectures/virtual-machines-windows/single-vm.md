@@ -132,7 +132,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It d
   * A virtual network with a single subnet named **web** used to host the VM.
   * An NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
   * A VM running the latest version of Windows Server 2016 Datacenter Edition.
-  * A sample custom script extension that formats the two data disks, and a PowerShell DSC script that deploys IIS.
+  * A sample custom script extension that formats the two data disks, and a PowerShell DSC script that deploys Internet Information Services (IIS).
 
 ### Prerequisites
 
@@ -166,6 +166,15 @@ To deploy this reference architecture, follow these steps:
   ```bash
   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
   ```
+
+To verify the deployment, run the following Azure CLI command to find the public IP address of the VM:
+
+```bash
+az vm show -n ra-single-windows-vm1 -g <resource-group-name> -d -o table
+```
+
+If navigate to this IP address in a web browser, you should see the default IIS homepage.
+
 
 For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
 
