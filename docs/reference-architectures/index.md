@@ -26,7 +26,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>N-tier application</h3>
-                        <p>This series starts with best practices for running a single Windows or Linux VM. The next step is a load balanced VM, then a N-tier application deployment. The last step is a multi-region N-tier application.</p>
+                        <p>This series starts with best practices for running Windows and Linux VMs. It builds up to an N-tier application, and finally a multi-region active-passive configuration.</p>
                     </div>
                 </div>
             </div>
