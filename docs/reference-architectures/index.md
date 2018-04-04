@@ -2,6 +2,7 @@
 title: Azure Reference Architectures
 description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
 layout: LandingPage
+ms.topic: landing-page
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->

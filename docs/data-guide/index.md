@@ -4,6 +4,7 @@ description:
 author: zoinerTejada
 ms:date: 02/12/2018
 layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Azure Data Architecture Guide
