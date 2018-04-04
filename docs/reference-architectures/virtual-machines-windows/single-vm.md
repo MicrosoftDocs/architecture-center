@@ -6,7 +6,7 @@ description: >-
 
 author: telmosampaio
 
-ms.date: 12/12/2017
+ms.date: 04/03/2018
 
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-vm
@@ -136,15 +136,13 @@ A deployment for this architecture is available on [GitHub][github-folder]. It d
 
 ### Prerequisites
 
-Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
-
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
 
 3. Install the [Azure building blocks][azbb] npm package.
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+4. From a command prompt, bash prompt, or PowerShell prompt, enter the following command to log into your Azure account.
 
   ```bash
   az login
@@ -152,11 +150,11 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 ### Deploy the solution using azbb
 
-To deploy the sample single VM workload, follow these steps:
+To deploy this reference architecture, follow these steps:
 
 1. Navigate to the `virtual-machines\single-vm\parameters\windows` folder for the repository you downloaded in the prerequisites step above.
 
-2. Open the `single-vm-v2.json` file and enter a username and SSH key between the quotes, as shown below, then save the file.
+2. Open the `single-vm-v2.json` file and enter a username and password between the quotes, then save the file.
 
   ```bash
   "adminUsername": "",
