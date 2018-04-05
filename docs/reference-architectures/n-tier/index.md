@@ -1,5 +1,5 @@
 ---
-title: Windows VM workloads
+title: N-tier application reference architectures
 description: Explains some common architectures for deploying VMs that host enterprise-scale applications in Azure.
 layout: LandingPage
 ---
@@ -7,50 +7,10 @@ layout: LandingPage
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# N-tier application
+# Reference architectures for running N-tier applications on Azure
 
 <section class="series">
     <ul class="panelContent">
-    <!-- Single VM -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./windows-vm.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/single-vm.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Windows VM</h3>
-                        <p>Baseline recommendations for running a Windows VM in Azure.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-
-<li style="display: flex; flex-direction: column;">
-    <a href="./linux-vm.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/single-vm.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Linux VM</h3>
-                        <p>Baseline recommendations for running a Linux VM in Azure.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
 
     <!-- N-tier application -->
 <li style="display: flex; flex-direction: column;">
@@ -65,7 +25,7 @@ layout: LandingPage
                     </div>
                     <div class="cardText">
                         <h3>N-tier application</h3>
-                        <p>VMs configured for an N-tier application with SQL Server.</p>
+                        <p>N-tier application with SQL Server.</p>
                     </div>
                 </div>
             </div>
@@ -115,8 +75,50 @@ layout: LandingPage
         </div>
     </a>
 </li>
+
+
     </ul>
 </section>
 
 <ul class="panelContent cardsI">
+<li style="display: flex; flex-direction: column;">
+    <a href="./windows-vm.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./images/Windows.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Windows VM</h3>
+                        <p>Baseline recommendations for running a Windows VM in Azure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+
+<li style="display: flex; flex-direction: column;">
+    <a href="./linux-vm.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./images/LinuxPenguin.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Linux VM</h3>
+                        <p>Baseline recommendations for running a Linux VM in Azure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+
 </ul>
