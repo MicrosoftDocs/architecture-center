@@ -14,6 +14,19 @@
     - name: Multi-region deployment
       href: app-service-web-app/multi-region.md
 
+  - name: N-tier application on VMs
+    href: n-tier/index.md
+    items:
+    - name: Deploying Windows VMs
+      href: n-tier/windows-vm.md
+    - name: Deploying Linux VMs
+      href: n-tier/linux-vm.md
+    - name: N-tier application
+      href: n-tier/n-tier.md  
+    - name: N-tier application with Availability Zones
+    - name: Multi-region N-tier application
+      href: n-tier/multi-region-application.md
+
   - name: Hybrid networks
     href: hybrid-networking/index.md
     items:
