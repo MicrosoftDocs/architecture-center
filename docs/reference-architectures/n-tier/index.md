@@ -7,7 +7,7 @@ layout: LandingPage
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# Reference architectures for running N-tier applications on Azure
+# N-tier applications reference architectures
 
 <section class="series">
     <ul class="panelContent">

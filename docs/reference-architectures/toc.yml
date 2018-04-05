@@ -67,30 +67,6 @@
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
 
-  - name: VM workloads (Linux)
-    href: virtual-machines-linux/index.md
-    items:
-    - name: Single VM
-      href: virtual-machines-linux/single-vm.md
-    - name: Load balanced VMs
-      href: virtual-machines-linux/multi-vm.md
-    - name: N-tier application
-      href: virtual-machines-linux/n-tier.md  
-    - name: Multi-region application
-      href: virtual-machines-linux/multi-region-application.md
-
-  - name: VM workloads (Windows)
-    href: virtual-machines-windows/index.md
-    items:
-    - name: Single VM
-      href: virtual-machines-windows/single-vm.md
-    - name: Load balanced VMs
-      href: virtual-machines-windows/multi-vm.md
-    - name: N-tier application
-      href: virtual-machines-windows/n-tier.md  
-    - name: Multi-region application
-      href: virtual-machines-windows/multi-region-application.md
-
   - name: Jenkins server
     href: jenkins/index.md
 
@@ -99,3 +75,5 @@
 
   - name: SharePoint Server 2016
     href: sharepoint/index.md
+
+  - name: SQL Server
