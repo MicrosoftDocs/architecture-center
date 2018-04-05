@@ -118,7 +118,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 ### Web or worker roles are unexpectedly being shut down.
 **Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
 
-**Recovery**. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
+<strong>Recovery</strong>. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
 
 ## Cosmos DB 
 ### Reading data fails.

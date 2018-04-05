@@ -57,7 +57,7 @@ The following sections compare various data store models in terms of workload pr
 ## Relational database management systems (RDBMS)
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Both the creation of new records and updates to existing data happen regularly.</li>
@@ -70,7 +70,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data is highly normalized.</li>
@@ -83,7 +83,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Line of business  (human capital management, customer relationship management, enterprise resource planning)</li>
@@ -101,7 +101,7 @@ The following sections compare various data store models in terms of workload pr
 ## Document databases
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>General purpose.</li>
@@ -113,7 +113,7 @@ The following sections compare various data store models in terms of workload pr
             <li>Individual documents are retrieved and written as a single block.</li>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data can be managed in de-normalized way.</li>
@@ -125,7 +125,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Product catalog</li>
@@ -145,7 +145,7 @@ The following sections compare various data store models in terms of workload pr
 ## Key/value stores
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Data is identified and accessed using a single ID key, like a dictionary.</li>
@@ -156,7 +156,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data size tends to be large.</li>
@@ -166,7 +166,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Data caching</li>
@@ -182,7 +182,7 @@ The following sections compare various data store models in terms of workload pr
 ## Graph databases
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>The relationships between data items are very complex, involving many hops between related data items.</li>
@@ -191,7 +191,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data is comprised of nodes and relationships.</li>
@@ -201,7 +201,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Organization charts</li>
@@ -217,7 +217,7 @@ The following sections compare various data store models in terms of workload pr
 ## Column-family databases
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Most column-family databases perform write operations extremely quickly.</li>
@@ -228,7 +228,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data is stored in tables consisting of a key column and one or more column families.</li>
@@ -238,7 +238,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Recommendations</li>
@@ -258,7 +258,7 @@ The following sections compare various data store models in terms of workload pr
 ## Search engine databases
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Indexing data from multiple sources and services.</li>
@@ -270,7 +270,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Semi-structured or unstructured</li>
@@ -279,7 +279,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Product catalogs</li>
@@ -295,7 +295,7 @@ The following sections compare various data store models in terms of workload pr
 ## Data warehouse
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Data analytics</li>
@@ -303,17 +303,17 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Historical data from multiple sources.</li>
-            <li>Usually denormalized in a "star" or "snowflake" schema, consisting of fact and dimension tables.</li>
+            <li>Usually denormalized in a &quot;star&quot; or &quot;snowflake&quot; schema, consisting of fact and dimension tables.</li>
             <li>Usually loaded with new data on a scheduled basis.</li>
-            <li>Dimension tables often include multiple historic versions of an entity, referred to as a *slowly changing dimension*.</li>
+            <li>Dimension tables often include multiple historic versions of an entity, referred to as a <em>slowly changing dimension</em>.</li>
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>An enterprise data warehouse that provides data for analytical models, reports, and dashboards.
     </td>
 </tr>
@@ -323,7 +323,7 @@ The following sections compare various data store models in terms of workload pr
 ## Time series databases
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>An overwhelmingly proportion of operations (95-99%) are writes.</li>
@@ -331,12 +331,12 @@ The following sections compare various data store models in terms of workload pr
             <li>Updates are rare.</li>
             <li>Deletes occur in bulk, and are made to contiguous blocks or records.</li>
             <li>Read requests can be larger than available memory.</li>
-            <li>It's common for multiple reads to occur simultaneously.</li>
+            <li>It&#39;s common for multiple reads to occur simultaneously.</li>
             <li>Data is read sequentially in either ascending or descending time order.</li>
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>A time stamp that is used as the primary key and sorting mechanism.</li>
@@ -345,7 +345,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Monitoring and event telemetry.</li>
@@ -358,7 +358,7 @@ The following sections compare various data store models in terms of workload pr
 ## Object storage
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Identified by key.</li>
@@ -368,7 +368,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Data size is large.</li>
@@ -377,7 +377,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Images, videos, office documents, PDFs</li>
@@ -393,7 +393,7 @@ The following sections compare various data store models in terms of workload pr
 ## Shared files
 
 <table>
-<tr><td>**Workload**</td>
+<tr><td><strong>Workload</strong></td>
     <td>
         <ul>
             <li>Migration from existing apps that interact with the file system.</li>
@@ -401,7 +401,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Data type**</td>
+<tr><td><strong>Data type</strong></td>
     <td>
         <ul>
             <li>Files in a hierarchical set of folders.</li>
@@ -409,7 +409,7 @@ The following sections compare various data store models in terms of workload pr
         </ul>
     </td>
 </tr>
-<tr><td>**Examples**</td>
+<tr><td><strong>Examples</strong></td>
     <td>
         <ul>
             <li>Legacy files</li>

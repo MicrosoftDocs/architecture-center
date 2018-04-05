@@ -137,9 +137,9 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
 
-  ```bash
-  az login
-  ```
+   ```bash
+   az login
+   ```
 
 ### Deploy the solution using azbb
 
@@ -149,16 +149,16 @@ To deploy the sample single VM workload, follow these steps:
 
 2. Open the `multi-vm-v2.json` file and enter a username and password between the quotes, as shown below, then save the file.
 
-  ```bash
-  "adminUsername": "",
-  "adminPassword": "",
-  ```
+   ```bash
+   "adminUsername": "",
+   "adminPassword": "",
+   ```
 
 3. Run `azbb` to deploy the VMs as shown below.
 
-  ```bash
-  azbb -s <subscription_id> -g <resource_group_name> -l <location> -p multi-vm-v2.json --deploy
-  ```
+   ```bash
+   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p multi-vm-v2.json --deploy
+   ```
 
 For more information on deploying this sample reference architecture, visit our [GitHub repository][git].
 

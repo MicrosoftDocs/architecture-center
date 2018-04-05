@@ -162,9 +162,9 @@ A deployment for this architecture is available on [GitHub][github-folder]. It d
 
 4. From a command prompt, bash prompt, or PowerShell prompt, enter the following command to log into your Azure account.
 
-  ```bash
-  az login
-  ```
+   ```bash
+   az login
+   ```
 
 5. Create an SSH key pair. For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -176,16 +176,16 @@ To deploy this reference architecture, follow these steps:
 
 2. Open the `single-vm-v2.json` file and enter a username and your SSH public key between the quotes, then save the file.
 
-  ```bash
-  "adminUsername": "<your username>",
-  "sshPublicKey": "ssh-rsa AAAAB3NzaC1...",
-  ```
+   ```bash
+   "adminUsername": "<your username>",
+   "sshPublicKey": "ssh-rsa AAAAB3NzaC1...",
+   ```
 
 3. Run `azbb` to deploy the sample VM as shown below.
 
-  ```bash
-  azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
-  ```
+   ```bash
+   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
+   ```
 
 To verify the deployment, run the following Azure CLI command to find the public IP address of the VM:
 

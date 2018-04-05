@@ -474,7 +474,6 @@ public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlComm
 
     }, cancellationToken);
 }
-
 ```
 
 This asynchronous extension method can be used as follows.
@@ -788,7 +787,7 @@ namespace RetryCodeSamples
                 try
                 {
                     var retryTimeInMilliseconds = TimeSpan.FromSeconds(4).Milliseconds; // delay between retries
-                    
+
                     // Using object-based configuration.
                     var options = new ConfigurationOptions
                                         {

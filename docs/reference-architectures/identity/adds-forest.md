@@ -116,8 +116,8 @@ A solution is available on [GitHub][github] to deploy this reference architectur
      
 5. If you are using the simulated on-premises configuration, configure the incoming trust relationship:
    
-   1. Connect to the jump box (*ra-adtrust-mgmt-vm1* in the *ra-adtrust-security-rg* resource group). Log in as *testuser* with password *AweS0me@PW*.
-   2. On the jump box open an RDP session on the first VM in the *contoso.com* domain (the on-premises domain). This VM has the IP address 192.168.0.4. The username is *contoso\testuser* with password *AweS0me@PW*.
+   1. Connect to the jump box (<em>ra-adtrust-mgmt-vm1</em> in the <em>ra-adtrust-security-rg</em> resource group). Log in as <em>testuser</em> with password <em>AweS0me@PW</em>.
+   2. On the jump box open an RDP session on the first VM in the <em>contoso.com</em> domain (the on-premises domain). This VM has the IP address 192.168.0.4. The username is <em>contoso\testuser</em> with password <em>AweS0me@PW</em>.
    3. Download the [incoming-trust.ps1][incoming-trust] script and run it to create the incoming trust from the *treyresearch.com* domain.
 
 6. If you are using your own on-premises infrastructure:
@@ -126,7 +126,7 @@ A solution is available on [GitHub][github] to deploy this reference architectur
    2. Edit the script and replace the value of the `$TrustedDomainName` variable with the name of your own domain.
    3. Run the script.
 
-7. From the jump-box, connect to the first VM in the *treyresearch.com* domain (the domain in the cloud). This VM has the IP address 10.0.4.4. The username is *treyresearch\testuser* with password *AweS0me@PW*.
+7. From the jump-box, connect to the first VM in the <em>treyresearch.com</em> domain (the domain in the cloud). This VM has the IP address 10.0.4.4. The username is <em>treyresearch\testuser</em> with password <em>AweS0me@PW</em>.
 
 8. Download the [outgoing-trust.ps1][outgoing-trust] script and run it to create the incoming trust from the *treyresearch.com* domain. If you are using your own on-premises machines, then edit the script first. Set the `$TrustedDomainName` variable to the name of your on-premises domain, and specify the IP addresses of the Active Directory DS servers for this domain in the `$TrustedDomainDnsIpAddresses` variable.
 

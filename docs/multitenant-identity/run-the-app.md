@@ -48,15 +48,15 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 3. Click **App registrations** > **New application registration**.
 
-4.	In the **Create** blade, enter the following information:
+4. In the **Create** blade, enter the following information:
 
-  - **Name**: `Surveys.WebAPI`
+   - **Name**: `Surveys.WebAPI`
 
-  - **Application type**: `Web app / API`
+   - **Application type**: `Web app / API`
 
-  - **Sign-on URL**: `https://localhost:44301/`
+   - **Sign-on URL**: `https://localhost:44301/`
    
-  ![](./images/running-the-app/register-web-api.png) 
+   ![](./images/running-the-app/register-web-api.png) 
 
 5. Click **Create**.
 
@@ -74,15 +74,15 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 ## Register the Surveys web app 
 
-1.	Navigate back to the **App registrations** blade, and click **New application registration**.
+1. Navigate back to the **App registrations** blade, and click **New application registration**.
 
-2.	In the **Create** blade, enter the following information:
+2. In the **Create** blade, enter the following information:
 
-  - **Name**: `Surveys`
-  - **Application type**: `Web app / API`
-  - **Sign-on URL**: `https://localhost:44300/`
+   - **Name**: `Surveys`
+   - **Application type**: `Web app / API`
+   - **Sign-on URL**: `https://localhost:44300/`
    
-    Notice that the sign-on URL has a different port number from the `Surveys.WebAPI` app in the previous step.
+   Notice that the sign-on URL has a different port number from the `Surveys.WebAPI` app in the previous step.
 
 3. Click **Create**.
  
@@ -146,36 +146,36 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
     ![](./images/running-the-app/manifest.png)
  
-3.	Add the following JSON to the `appRoles` element. Generate new GUIDs for the `id` properties.
+3. Add the following JSON to the `appRoles` element. Generate new GUIDs for the `id` properties.
 
-    ```json
-    {
-      "allowedMemberTypes": ["User"],
-      "description": "Creators can create surveys",
-      "displayName": "SurveyCreator",
-      "id": "<Generate a new GUID. Example: 1b4f816e-5eaf-48b9-8613-7923830595ad>",
-      "isEnabled": true,
-      "value": "SurveyCreator"
-    },
-    {
-      "allowedMemberTypes": ["User"],
-      "description": "Administrators can manage the surveys in their tenant",
-      "displayName": "SurveyAdmin",
-      "id": "<Generate a new GUID>",  
-      "isEnabled": true,
-      "value": "SurveyAdmin"
-    }
-    ```
+   ```json
+   {
+     "allowedMemberTypes": ["User"],
+     "description": "Creators can create surveys",
+     "displayName": "SurveyCreator",
+     "id": "<Generate a new GUID. Example: 1b4f816e-5eaf-48b9-8613-7923830595ad>",
+     "isEnabled": true,
+     "value": "SurveyCreator"
+   },
+   {
+     "allowedMemberTypes": ["User"],
+     "description": "Administrators can manage the surveys in their tenant",
+     "displayName": "SurveyAdmin",
+     "id": "<Generate a new GUID>",  
+     "isEnabled": true,
+     "value": "SurveyAdmin"
+   }
+   ```
 
-5.	In the `knownClientApplications` property, add the application ID for the Surveys web application, which you got when you registered the Surveys application earlier. For example:
+4. In the `knownClientApplications` property, add the application ID for the Surveys web application, which you got when you registered the Surveys application earlier. For example:
 
-  ```json
-  "knownClientApplications": ["be2cea23-aa0e-4e98-8b21-2963d494912e"],
-  ```
+   ```json
+   "knownClientApplications": ["be2cea23-aa0e-4e98-8b21-2963d494912e"],
+   ```
 
-  This setting adds the Surveys app to the list of clients authorized to call the web API.
+   This setting adds the Surveys app to the list of clients authorized to call the web API.
 
-6.	Click **Save**.
+5. Click **Save**.
 
 Now repeat the same steps for the Surveys app, except do not add an entry for `knownClientApplications`. Use the same role definitions, but generate new GUIDs for the IDs.
 

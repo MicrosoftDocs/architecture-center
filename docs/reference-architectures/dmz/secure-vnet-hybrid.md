@@ -176,7 +176,7 @@ A deployment for a reference architecture that implements these recommendations 
 * For more information about managing network security with Azure, see [Microsoft cloud services and network security][cloud-services-network-security].
 * For detailed information about protecting resources in Azure, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. 
 * For additional details on addressing security concerns across an Azure gateway connection, see [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-security] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-security].
-> 
+  > 
 
 <!-- links -->
 

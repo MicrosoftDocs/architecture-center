@@ -105,12 +105,13 @@ The following tables summarize the key differences in capabilities.
 
 ### NoSQL database capabilities
 
-| | Azure Cosmos DB | HBase on HDInsight |
-| --- | --- | --- |
-| Primary database model | Document store, graph, key-value store, wide column store | Wide column store |
-| Secondary indexes | Yes | No |
-| SQL language support | Yes | Yes (using the [Phoenix](http://phoenix.apache.org/) JDBC driver) |
-| Consistency | Strong, bounded-staleness, session, consistent prefix, eventual | Strong |
-| Native Azure Functions integration | [Yes](/azure/cosmos-db/serverless-computing-database) | No |
-| Automatic global distribution | [Yes](/azure/cosmos-db/distribute-data-globally) | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
-| Pricing model | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage | Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage |
+|                                    |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
+|------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+|       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
+|         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |
+|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](http://phoenix.apache.org/) JDBC driver)                                      |
+|            Consistency             |                   Strong, bounded-staleness, session, consistent prefix, eventual                   |                                                                   Strong                                                                   |
+| Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
+|   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
+|           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |
+

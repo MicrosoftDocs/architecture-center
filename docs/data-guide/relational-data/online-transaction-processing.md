@@ -90,15 +90,17 @@ To narrow the choices, start by answering these questions:
 The following tables summarize the key differences in capabilities.
 
 ### General capabilities 
-| | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
-| --- | --- | --- | --- | --- | --- |
-| Is Managed Service | Yes | No | Yes | Yes |
-| Runs on Platform | N/A | Windows, Linux, Docker | N/A | N/A |
-| Programmability <sup>1</sup> | T-SQL, .NET, R | T-SQL, .NET, R, Python | T-SQL, .NET, R, Python | SQL | SQL |
+
+|                              | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
+|------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
+|      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
+|       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
+| Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |  T-SQL, .NET, R, Python  |              SQL              |
 
 [1] Not including client driver support, which allows many programming languages to connect to and use the OLTP data store.
 
 ### Scalability capabilities
+
 | | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
 | Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [1 TB](/azure/mysql/concepts-limits) | [1 TB](/azure/postgresql/concepts-limits) |
@@ -107,6 +109,7 @@ The following tables summarize the key differences in capabilities.
 | Dynamic scalability (scale up)  | Yes | No | Yes | Yes |
 
 ### Analytic workload capabilities
+
 | | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- | 
 | Temporal tables | Yes | Yes | No | No |
@@ -115,6 +118,7 @@ The following tables summarize the key differences in capabilities.
 | Adaptive query processing | Yes | Yes | No | No |
 
 ### Availability capabilities
+
 | | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- | 
 | Readable secondaries | Yes | Yes | No | No | 
@@ -123,16 +127,17 @@ The following tables summarize the key differences in capabilities.
 | Point-in-time restore | Yes | Yes | Yes | Yes |
 
 ### Security capabilities
-| | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- | 
-| Row level security | Yes | Yes | Yes | Yes |
-| Data masking | Yes | Yes | No | No |
-| Transparent data encryption | Yes | Yes | Yes | Yes |
-| Restrict access to specific IP addresses | Yes | Yes | Yes | Yes |
-| Restrict access to allow VNET access only | Yes | Yes | No | No |
-| Azure Active Directory authentication | Yes | Yes | No | No |
-| Active Directory authentication | No | Yes | No | No |
-| Multi-factor authentication | Yes | Yes | No | No |
-| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Yes | Yes | Yes | No | No |
-| Private IP | No | Yes | Yes | No | No |
+
+|                                                                                                             | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
+|-------------------------------------------------------------------------------------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
+|                                             Row level security                                              |        Yes         |                  Yes                   |           Yes            |              Yes              |
+|                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
+|                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
+|                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
+|                                  Restrict access to allow VNET access only                                  |        Yes         |                  Yes                   |            No            |              No               |
+|                                    Azure Active Directory authentication                                    |        Yes         |                  Yes                   |            No            |              No               |
+|                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
+|                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
+| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |           Yes            |              No               |
+|                                                 Private IP                                                  |         No         |                  Yes                   |           Yes            |              No               |
 

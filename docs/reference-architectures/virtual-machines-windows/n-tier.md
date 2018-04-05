@@ -30,7 +30,7 @@ There are many ways to implement an N-tier architecture. The diagram shows a typ
 * **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 * **Monitoring.** Monitoring software such as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system. Install the monitoring software on a VM that's placed in a separate management subnet.
-* **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
+* <strong>NSGs.</strong> Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
 * **Active Directory Domain Services (AD DS) Servers**. Prior to Windows Server 2016, SQL Server Always On Availability Groups must be joined to a domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory, in which case the AD DS servers are not required for this architecture. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new].
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -83,10 +83,10 @@ Configure the SQL Server Always On Availability Group as follows:
 3. Create an availability group listener, and map the listener's DNS name to the IP address of an internal load balancer. 
 4. Create a load balancer rule for the SQL Server listening port (TCP port 1433 by default). The load balancer rule must enable *floating IP*, also called Direct Server Return. This causes the VM to reply directly to the client, which enables a direct connection to the primary replica.
   
-  > [!NOTE]
-  > When floating IP is enabled, the front-end port number must be the same as the back-end port number in the load balancer rule.
-  > 
-  > 
+   > [!NOTE]
+   > When floating IP is enabled, the front-end port number must be the same as the back-end port number in the load balancer rule.
+   > 
+   > 
 
 When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there is a failover to another replica, the load balancer automatically routes subsequent requests to a new primary replica. For more information, see [Configure an ILB listener for SQL Server Always On Availability Groups][sql-alwayson-ilb].
 
@@ -142,15 +142,15 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 3. Install the [Azure building blocks][azbb] npm package.
 
-  ```bash
-  npm install -g @mspnp/azure-building-blocks
-  ```
+   ```bash
+   npm install -g @mspnp/azure-building-blocks
+   ```
 
 4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
 
-  ```bash
-  az login
-  ```
+   ```bash
+   az login
+   ```
 
 ### Deploy the solution using azbb
 
@@ -160,18 +160,18 @@ To deploy the Windows VMs for an N-tier application reference architecture, foll
 
 2. The parameter file specifies a default adminstrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-windows.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.
   
-  > [!NOTE]
-  > There are multiple scripts that run during this deployment both in the  **VirtualMachineExtension** objects and in the **extensions** settings for some of the **VirtualMachine** objects. Some of these scripts require the administrator user name and password that you have just changed. It's recommended that you review these scripts to ensure that you specified the correct credentials. The deployment may fail if you have not specified the correct credentials.
-  > 
-  > 
+   > [!NOTE]
+   > There are multiple scripts that run during this deployment both in the  **VirtualMachineExtension** objects and in the **extensions** settings for some of the **VirtualMachine** objects. Some of these scripts require the administrator user name and password that you have just changed. It's recommended that you review these scripts to ensure that you specified the correct credentials. The deployment may fail if you have not specified the correct credentials.
+   > 
+   > 
 
 Save the file.
 
 3. Deploy the reference architecture using the **azbb** command line tool as shown below.
 
-  ```bash
-  azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
-  ```
+   ```bash
+   azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
+   ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
 

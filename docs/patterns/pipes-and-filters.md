@@ -269,7 +269,7 @@ public class FinalReceiverRoleEntry : RoleEntryPoint
 }
 ```
 
-##Related patterns and guidance
+## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).

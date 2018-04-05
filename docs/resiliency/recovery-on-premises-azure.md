@@ -5,6 +5,7 @@ author: adamglick
 ms.date: 08/18/2016
 ---
 [!INCLUDE [header](../_includes/header.md)]
+
 # Azure resiliency technical guidance: Recovery from on-premises to Azure
 Azure provides a comprehensive set of services for enabling the extension of an on-premises datacenter to Azure for high availability and disaster recovery purposes:
 

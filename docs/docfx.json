@@ -60,13 +60,14 @@
       ]
     },
     "fileMetadata": {
-      "tocRel":{
-        "reference-architectures/**.md":"../toc.json"
+      "tocRel": {
+        "reference-architectures/**.md": "../toc.json"
       }
     },
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "markdownEngineName": "markdig"
   }
 }
