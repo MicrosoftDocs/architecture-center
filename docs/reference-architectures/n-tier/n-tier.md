@@ -148,10 +148,6 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
 
-## Manageability considerations
-
-Simplify management of the entire system by using centralized administration tools such as [Azure Automation][azure-administration], [Microsoft Operations Management Suite][operations-management-suite], [Chef][chef], or [Puppet][puppet]. These tools can consolidate diagnostic and health information captured from multiple VMs to provide an overall view of the system.
-
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. 
@@ -243,3 +239,17 @@ For more information on deploying this sample reference architecture using Azure
 [Icinga]: http://www.icinga.org/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
+
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 
+[vm-scaleset]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
+[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-features
+[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
+[subscription-limits]: /azure/azure-subscription-service-limits
+[availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[availability-set-ch9]: https://channel9.msdn.com/Series/Microsoft-Azure-Fundamentals-Virtual-Machines/08
+[health-probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
+[health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
+[health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
+[network-security]: /azure/best-practices-network-security

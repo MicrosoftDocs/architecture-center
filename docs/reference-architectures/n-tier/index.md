@@ -72,6 +72,29 @@ layout: LandingPage
         </div>
     </a>
 </li>
+
+
+    <!-- N-tier application -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./n-tier.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./images/n-tier.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>N-tier application with Availability Zones</h3>
+                        <p>An N-tier architecture that uses Availability Zones to achieve higher availability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+
     <!-- Multi-region application -->
 <li style="display: flex; flex-direction: column;">
     <a href="./multi-region-application.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
