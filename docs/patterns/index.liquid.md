@@ -16,7 +16,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 <ul id="categories" class="panel">
 {%- for category in categories %}
     <li>
-    {% include &#39;pattern-category-card&#39; %}
+    {% include 'pattern-category-card' %}
     </li>
 {%- endfor %}
 </ul>
