@@ -229,7 +229,6 @@ Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. T
 
 
 [BusyDatabase]: ../busy-database/index.md
-[chatty-io]: ../chatty-io.md
 [data-partitioning]: ../../best-practices/data-partitioning.md
 [new-relic]: https://newrelic.com/application-monitoring
 
