@@ -17,7 +17,7 @@ Often these legacy systems suffer from quality issues such as convoluted data sc
 
 Maintaining access between new and legacy systems can force the new system to adhere to at least some of the legacy system's APIs or other semantics. When these legacy features have quality issues, supporting them "corrupts" what might otherwise be a cleanly designed modern application. 
 
-Similar issues can arise with any external system that your developmenmt team doesn't control, not just legacy systems. 
+Similar issues can arise with any external system that your development team doesn't control, not just legacy systems. 
 
 ## Solution
 
