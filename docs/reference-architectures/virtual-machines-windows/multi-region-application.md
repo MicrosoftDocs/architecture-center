@@ -115,9 +115,9 @@ To configure the availability group:
 * Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both regions. 
 * Create a SQL Server Always On Availability Group that includes the SQL Server instances in both the primary and secondary regions. See [Extending Always On Availability Group to Remote Azure Datacenter (PowerShell)](https://blogs.msdn.microsoft.com/sqlcat/2014/09/22/extending-alwayson-availability-group-to-remote-azure-datacenter-powershell/) for the steps.
 
-    * Put the primary replica in the primary region.
-    * Put one or more secondary replicas in the primary region. Configure these to use synchronous commit with automatic failover.
-    * Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all T-SQL transactions have to wait on a round trip over the network to the secondary region.)
+  * Put the primary replica in the primary region.
+  * Put one or more secondary replicas in the primary region. Configure these to use synchronous commit with automatic failover.
+  * Put one or more secondary replicas in the secondary region. Configure these to use *asynchronous* commit, for performance reasons. (Otherwise, all T-SQL transactions have to wait on a round trip over the network to the secondary region.)
 
     > [!NOTE]
     > Asynchronous commit replicas do not support automatic failover.

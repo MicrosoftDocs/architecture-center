@@ -5,6 +5,7 @@ author: adamglick
 ms.date: 08/18/2016
 ---
 [!INCLUDE [header](../_includes/header.md)]
+
 # Azure resiliency technical guidance: Recovery from local failures in Azure
 
 There are two primary threats to application availability:

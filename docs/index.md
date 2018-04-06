@@ -318,7 +318,7 @@ ms.topic: landing-page
                         </div>
                         <div class="cardText">
                             <h3>Azure Customer Advisory Team</h3>
-                            <p>The AzureCAT team's blog</p>
+                            <p>The AzureCAT team&#39;s blog</p>
                         </div>
                     </div>
                 </div>
@@ -338,7 +338,7 @@ ms.topic: landing-page
                         </div>
                         <div class="cardText">
                             <h3>SQL Server Customer Advisory Team</h3>
-                            <p>The SQLCAT team's blog</p>
+                            <p>The SQLCAT team&#39;s blog</p>
                         </div>
                     </div>
                 </div>

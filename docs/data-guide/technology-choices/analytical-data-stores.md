@@ -61,12 +61,12 @@ The following tables summarize the key differences in capabilities.
  
 ### Scalability capabilities
 
-| | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
-| --- | --- | --- | --- | --- | --- | --- |
-| Redundant regional servers for high availability  | Yes | Yes | Yes | No | No | Yes | Yes |
-| Supports query scale out  | No | Yes | Yes | Yes | Yes | Yes |
-| Dynamic scalability (scale up)  | Yes | Yes | No | No | Yes | Yes |
-| Supports in-memory caching of data | Yes | Yes | No | Yes | Yes | No |
+|                                                  | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+|--------------------------------------------------|--------------|--------------------|----------------------------|------------------------|-------------------------|-----------|
+| Redundant regional servers for high availability |     Yes      |        Yes         |            Yes             |           No           |           No            |    Yes    |
+|             Supports query scale out             |      No      |        Yes         |            Yes             |          Yes           |           Yes           |    Yes    |
+|          Dynamic scalability (scale up)          |     Yes      |        Yes         |             No             |           No           |           Yes           |    Yes    |
+|        Supports in-memory caching of data        |     Yes      |        Yes         |             No             |          Yes           |           Yes           |    No     |
 
 ### Security capabilities
 

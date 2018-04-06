@@ -154,7 +154,7 @@ Tips for troubleshooting your application:
 
 * Use the [troubleshoot blade][troubleshoot-blade] in the Azure portal to find solutions to common problems.
 * Enable [log streaming][web-app-log-stream] to see logging information in near-real time.
-* The [Kudu dashboard][kudu] has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about][kudu] (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click **Tools**, then click **Kudu**.
+* The [Kudu dashboard][kudu] has several tools for monitoring and debugging your application. For more information, see [Azure Websites online tools you should know about][kudu] (blog post). You can reach the Kudu dashboard from the Azure portal. Open the blade for your app and click <strong>Tools</strong>, then click <strong>Kudu</strong>.
 * If you use Visual Studio, see the article [Troubleshoot a web app in Azure App Service using Visual Studio][troubleshoot-web-app] for debugging and troubleshooting tips.
 
 ## Security considerations
