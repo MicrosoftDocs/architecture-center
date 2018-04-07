@@ -31,7 +31,7 @@ layout: LandingPage
             </div>
         </div>
     </a>
-</li>
+</li>-az
 
 
     <!-- N-tier application -->
@@ -42,7 +42,7 @@ layout: LandingPage
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/n-tier.svg" height="140px" />
+                            <img src="./images/n-tier-az.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
