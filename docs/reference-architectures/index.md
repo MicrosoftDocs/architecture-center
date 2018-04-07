@@ -87,7 +87,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>Identity management</h3>
-                        <p>Integrate your on-premises Active Directory (AD) environment with an Azure virtual network. Options include integrating with Azure Active Directory, extending AD DS to Azure, and extending AD FS to Azure.</p>
+                        <p>Integrate your on-premises Active Directory (AD) domain with an Azure virtual network.</p><p> Configurations include integration with Azure AD, extending AD DS to Azure, and extending AD FS to Azure.</p>
                     </div>
                 </div>
             </div>
