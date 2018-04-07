@@ -26,7 +26,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>N-tier application</h3>
-                        <p>Deploying an N-tier application to Azure, for Windows or Linux.</p><p>Configurations include single region, single region with Availability Zones, and active-passive in two regions, depending on your availability requirements.</p>
+                        <p>Deploy an N-tier application to Azure, for Windows or Linux.</p><p>Configurations include single region, single region with Availability Zones, and active-passive in two regions, depending on your availability requirements.</p>
                     </div>
                 </div>
             </div>
