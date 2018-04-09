@@ -99,7 +99,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Queue name |Storage account |3-63 |Lowercase |Alphanumeric and hyphen |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
-|Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>-dls` |`telemetry-dls` |
+|Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
 
 ### Networking
 
