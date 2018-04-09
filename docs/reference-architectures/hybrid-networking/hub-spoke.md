@@ -110,83 +110,84 @@ A deployment for this architecture is available on [GitHub][ref-arch-repo]. It u
 
 ### Prerequisites
 
-Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
-
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
 
-3. Install the [Azure buulding blocks][azbb] npm package.
+3. Install the [Azure building blocks][azbb] npm package.
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below, and follow the prompts.
+4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
 
    ```bash
    az login
    ```
 
-### Deploy the simulated on-premises datacenter using azbb
+### Deploy the simulated on-premises datacenter
 
 To deploy the simulated on-premises datacenter as an Azure VNet, follow these steps:
 
-1. Navigate to the `hybrid-networking\hub-spoke\` folder for the repository you downloaded in the pre-requisites step above.
+1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
 
-2. Open the `onprem.json` file and enter a username and password between the quotes in line 36 and 37, as shown below, then save the file.
+2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-   ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
+  ```bash
+  "adminUsername": "<user name>",
+  "adminPassword": "<password>",
+  ```
 
-3. On line 38, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
+3. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
-4. Run `azbb` to deploy the simulated onprem environment as shown below.
+4. Run the following command:
 
-   ```bash
-   azbb -s <subscription_id> -g onprem-vnet-rg - l <location> -p onoprem.json --deploy
-   ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `onprem-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+  ```bash
+  azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onoprem.json --deploy
+  ```
+  > [!NOTE]
+  > You can use a different resource group name. If so, replace all instances of  `onprem-vnet-rg` in the parameter files to match the name you choose.
 
-5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. It can take about 40 minutes to create the VPN gateway.
 
-### Azure hub VNet
+### Deploy the hub VNet
 
-To deploy the hub VNet, and connect to the simulated on-premises VNet created above, perform the following steps.
+To deploy the hub VNet, perform the following steps.
 
-1. Open the `hub-vnet.json` file and enter a username and password between the quotes in line 39 and 40, as shown below.
+1. Open the `hub-vnet.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-   ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
+  ```bash
+  "adminUsername": "<user name>",
+  "adminPassword": "<password>",
+  ```
 
-2. On line 41, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
+2. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
-3. Enter a shared key between the quotes in line 72, as shown below, then save the file.
+3. For `sharedKey`, enter a shared key for the VPN connection. 
 
    ```bash
    "sharedKey": "",
    ```
 
-4. Run `azbb` to deploy the simulated onprem environment as shown below.
+4. Run the following command:
 
-   ```bash
-   azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet.json --deploy
-   ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+  ```bash
+  azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet.json --deploy
+  ```
 
-5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
+  > [!NOTE]
+  > You can use a different resource group name. If so, replace all instances of  `hub-vnet-rg` in the parameter files to match the name you choose.
 
-### (Optional) Test connectivity from onprem to hub
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway.  It can take about 40 minutes to create the VPN gateway.
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Windows VMs, perform the following steps.
+### Test connectivity with the hub
 
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
+To test conectivity from the simulated on-premises environment to the hub VNet, perform the following steps.
 
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and follow the prompts to use remote desktop to connect to the VM. Make sure to use the username and password you specified in lines 36 and 37 in the `onprem.json` file.
+**Windows deployment**
 
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the hub jumpbox VM as shown below.
+1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
+
+2. Click `Connect` to open a remove desktop session to the VM. Use the password that you specified in the `onprem.json` parameter file.
+
+3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
 
    ```powershell
    Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
@@ -194,27 +195,21 @@ To test conectivity from the simulated on-premises environment to the hub VNet u
    > [!NOTE]
    > By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, perform the following steps:
+**Linux deployment**
 
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
+1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and then copy the `ssh` command shown on the portal. 
+2. Click `Connect` and copy the `ssh` command shown in the portal. 
 
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment jumpbox witht the information you copied in step 2 above, as shown below.
+3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
-   ```bash
-   ssh <your_user>@<public_ip_address>
-   ```
-
-4. Use the password you specified in line 37 in the `onprem.json` file to the connect to the VM.
-
-5. Use the `ping` command to test connectivity to the hub jumpbox, as shown below.
+4. Use the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```bash
    ping 10.0.0.68
    ```
 
-### Azure spoke VNets
+### Deploy the spoke VNets
 
 To deploy the spoke VNets, perform the following steps.
 
