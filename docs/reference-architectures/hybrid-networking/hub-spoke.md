@@ -108,11 +108,22 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
 
+The deployment creates the following resource groups in your subscription:
+
+- hub-nva-rg
+- hub-vnet-rg
+- onprem-jb-rg
+- onprem-vnet-rg
+- spoke1-vnet-rg
+- spoke2-vent-rg
+
+The template parameter files refer to these names, so if you change them, update the parameter files to match.
+
 ### Prerequisites
 
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
-2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
+2. Install [Azure CLI 2.0][azure-cli-2].
 
 3. Install the [Azure building blocks][azbb] npm package.
 
@@ -142,8 +153,6 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
   ```bash
   azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onoprem.json --deploy
   ```
-  > [!NOTE]
-  > You can use a different resource group name. If so, replace all instances of  `onprem-vnet-rg` in the parameter files to match the name you choose.
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. It can take about 40 minutes to create the VPN gateway.
 
@@ -169,17 +178,13 @@ To deploy the hub VNet, perform the following steps.
 4. Run the following command:
 
   ```bash
-  azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet.json --deploy
+  azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
   ```
-
-  > [!NOTE]
-  > You can use a different resource group name. If so, replace all instances of  `hub-vnet-rg` in the parameter files to match the name you choose.
-
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway.  It can take about 40 minutes to create the VPN gateway.
 
 ### Test connectivity with the hub
 
-To test conectivity from the simulated on-premises environment to the hub VNet, perform the following steps.
+Test conectivity from the simulated on-premises environment to the hub VNet.
 
 **Windows deployment**
 
@@ -192,8 +197,19 @@ To test conectivity from the simulated on-premises environment to the hub VNet, 
    ```powershell
    Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
    ```
-   > [!NOTE]
-   > By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
+The output should look similar to the following:
+
+```powershell
+ComputerName     : 10.0.0.68
+RemoteAddress    : 10.0.0.68
+RemotePort       : 3389
+InterfaceAlias   : Ethernet 2
+SourceAddress    : 192.168.1.000
+TcpTestSucceeded : True
+```
+
+> [!NOTE]
+> By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
 
 **Linux deployment**
 
@@ -213,79 +229,63 @@ To test conectivity from the simulated on-premises environment to the hub VNet, 
 
 To deploy the spoke VNets, perform the following steps.
 
-1. Open the `spoke1.json` file and enter a username and password between the quotes in lines 47 and 48, as shown below, then save the file.
+1. Open the `spoke1.json` file. Replace the values for `adminUsername` and `adminPassword`.
+
+  ```bash
+  "adminUsername": "<user name>",
+  "adminPassword": "<password>",
+  ```
+
+2. (Optional) For a Linux deployment, set `osType` to `Linux`.
+
+3. Run the following command:
 
    ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
-
-2. On line 49, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
-
-3. Run `azbb` to deploy the first spoke VNet environment as shown below.
-
-   ```bash
-   azbb -s <subscription_id> -g spoke1-vnet-rg - l <location> -p spoke1.json --deploy
+   azbb -s <subscription_id> -g spoke1-vnet-rg -l <location> -p spoke1.json --deploy
    ```
   
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `spoke1-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+4. Repeat steps 1-2 for the `spoke2.json` file.
 
-4. Repeat step 1 above for file `spoke2.json`.
-
-5. Run `azbb` to deploy the second spoke VNet environment as shown below.
+5. Run the following command:
 
    ```bash
-   azbb -s <subscription_id> -g spoke2-vnet-rg - l <location> -p spoke2.json --deploy
+   azbb -s <subscription_id> -g spoke2-vnet-rg -l <location> -p spoke2.json --deploy
    ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `spoke2-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
-### Azure hub VNet peering to spoke VNets
-
-To create a peering connection from the hub VNet to the spoke VNets, perform the following steps.
-
-1. Open the `hub-vnet-peering.json` file and verify that the resource group name, and virtual network name for each of the virtual network peerings starting in line 29 are correct.
-
-2. Run `azbb` to deploy the first spoke VNet environment as shown below.
+6. Run the following command:
 
    ```bash
-   azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet-peering.json --deploy
+   azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json --deploy
    ```
-
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
 ### Test connectivity
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps.
+Test conectivity from the simulated on-premises environment to the spoke VNets.
 
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
+**Windows deployment**
 
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and follow the prompts to use remote desktop to connect to the VM. Make sure to use the username and password you specified in lines 36 and 37 in the `onprem.json` file.
+1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the hub jumpbox VM as shown below.
+2. Click `Connect` to open a remove desktop session to the VM. Use the password that you specified in the `onprem.json` parameter file.
+
+3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
 
    ```powershell
    Test-NetConnection 10.1.0.68 -CommonTCPPort RDP
    Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
    ```
 
+**Linux deployment**
+
 To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
 
-1. From the Azure portal, navigate to the `onprem-jb-rg` resource group, then click on the `jb-vm1` virtual machine resource.
+1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
-2. On the top left hand corner of your VM blade in the portal, click `Connect`, and then copy the `ssh` command shown on the portal. 
+2. Click `Connect` and copy the `ssh` command shown in the portal. 
 
-3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment jumpbox witht the information you copied in step 2 above, as shown below.
+3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
-   ```bash
-   ssh <your_user>@<public_ip_address>
-   ```
-
-4. Use the password you specified in line 37 in the `onprem.json` file to the connect to the VM.
-
-5. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke, as shown below.
+5. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
    ping 10.1.0.68
@@ -294,21 +294,20 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 ### Add connectivity between spokes
 
-If you want to allow spokes to connect to each other, you need to use a newtwork virtual appliance (NVA) as a router in the hub virtual netowrk, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, and the necessary uder defined routes to allow the two spoke VNets to connect, perform the following steps:
+This step is optional. If you want to allow spokes to connect to each other, you must use a newtwork virtual appliance (NVA) as a router in the hub VNet, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, along with user-defined routes (UDRs) to allow the two spoke VNets to connect, perform the following steps:
 
-1. Open the `hub-nva.json` file and enter a username and password between the quotes in lines 13 and 14, as shown below, then save the file.
+1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
+
+  ```bash
+  "adminUsername": "<user name>",
+  "adminPassword": "<password>",
+  ```
+
+2. Run the following command:
 
    ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
+   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
    ```
-2. Run `azbb` to deploy the NVA VM and user defined routes.
-
-   ```bash
-   azbb -s <subscription_id> -g hub-nva-rg - l <location> -p hub-nva.json --deploy
-   ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-nva-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
 <!-- links -->
 
