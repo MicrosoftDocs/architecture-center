@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology in Azure
 description: >-
   How to implement a hub-spoke network topology in Azure.
 author: telmosampaio
-ms.date: 02/23/2018
+ms.date: 04/09/2018
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
@@ -141,18 +141,18 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-  ```bash
-  "adminUsername": "<user name>",
-  "adminPassword": "<password>",
-  ```
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
+    ```
 
 3. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
 4. Run the following command:
 
-  ```bash
-  azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onoprem.json --deploy
-  ```
+    ```bash
+    azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onoprem.json --deploy
+    ```
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. It can take about 40 minutes to create the VPN gateway.
 
@@ -162,24 +162,25 @@ To deploy the hub VNet, perform the following steps.
 
 1. Open the `hub-vnet.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-  ```bash
-  "adminUsername": "<user name>",
-  "adminPassword": "<password>",
-  ```
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
+    ```
 
 2. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
 3. For `sharedKey`, enter a shared key for the VPN connection. 
 
-   ```bash
-   "sharedKey": "",
-   ```
+    ```bash
+    "sharedKey": "",
+    ```
 
 4. Run the following command:
 
-  ```bash
-  azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
-  ```
+    ```bash
+    azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
+    ```
+
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway.  It can take about 40 minutes to create the VPN gateway.
 
 ### Test connectivity with the hub
@@ -231,10 +232,10 @@ To deploy the spoke VNets, perform the following steps.
 
 1. Open the `spoke1.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-  ```bash
-  "adminUsername": "<user name>",
-  "adminPassword": "<password>",
-  ```
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
+    ```
 
 2. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
@@ -298,10 +299,10 @@ This step is optional. If you want to allow spokes to connect to each other, you
 
 1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-  ```bash
-  "adminUsername": "<user name>",
-  "adminPassword": "<password>",
-  ```
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
+    ```
 
 2. Run the following command:
 
