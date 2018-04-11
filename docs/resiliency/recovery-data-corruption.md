@@ -19,7 +19,7 @@ Azure Storage provides data resiliency through automated replicas. However, this
 
 - **Block blobs**. Create a point-in-time snapshot of each block blob. For more information, see [Creating a Snapshot of a Blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob). For each snapshot, you are only charged for the storage required to store the differences within the blob since the last snapshot state. The snapshots are dependent on the existence of the original blob they are based on, so a copy operation to another blob or even another storage account is advisable. This ensures that backup data is properly protected against accidental deletion. You can use [AzCopy](/azure/storage/common/storage-use-azcopy) or [Azure PowerShell](/azure/storage/common/storage-powershell-guide-full) to copy the blobs to another storage account.
 
-- **Files**. Use [share snapshots (preview)](/azure/storage/files/storage-how-to-use-files-snapshots), or use AzCopy or PowerShell to copy your files to another storage account.
+- **Files**. Use [share snapshots](/azure/storage/files/storage-snapshots-files), or use AzCopy or PowerShell to copy your files to another storage account.
 
 - **Tables**. Use AzCopy to export the table data into another storage account in another region.
 

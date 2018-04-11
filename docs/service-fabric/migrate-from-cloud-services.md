@@ -136,9 +136,9 @@ The original Surveys application uses ASP.NET MVC. Because ASP.NET MVC cannot be
 
 - Port the web roles to ASP.NET Core, which can be self-hosted.
 - Convert the web site into a single-page application (SPA) that calls a web API implemented using ASP.NET Web API. This would have required a complete redesign of the web front end.
-- Keep the existing ASP.NET MVC code and deploy IIS in a Windows Server container to Service Fabric. This approach would require little or no code change. However, [container support][sf-containers] in Service Fabric is currently still in preview.
+- Keep the existing ASP.NET MVC code and deploy IIS in a Windows Server container to Service Fabric. This approach would require little or no code change. 
 
-Based on these considerations, we selected the first option, porting to ASP.NET Core. To do so, we followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration]. 
+The first option, porting to ASP.NET Core, allowed us to take advantage of the latest features in ASP.NET Core without doing a complete redesign of the we front end. To do the conversion, we followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration]. 
 
 > [!NOTE]
 > When using ASP.NET Core with Kestrel, you should place a reverse proxy in front of Kestrel to handle traffic from the Internet, for security reasons. For more information, see [Kestrel web server implementation in ASP.NET Core][kestrel]. The section [Deploying the application](#deploying-the-application) describes a recommended Azure deployment.
