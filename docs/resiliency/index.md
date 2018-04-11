@@ -149,7 +149,7 @@ Azure has a number of features to make an application redundant at every level o
 
 **Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
-**Availability zones (preview)**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
+**Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
 
 **Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
@@ -160,7 +160,7 @@ When you design a multi-region application, take into account that network laten
 | Scope of failure | Rack | Datacenter | Region |
 | Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
 | Network latency | Very low | Low | Mid to high |
-| Virtual network  | VNet | VNet | Cross-region VNet peering (preview) |
+| Virtual network  | VNet | VNet | Cross-region VNet peering |
 
 ## Designing for resiliency
 During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.

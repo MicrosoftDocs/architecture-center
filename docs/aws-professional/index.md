@@ -175,7 +175,7 @@ The following table summarizes each option.
 | Scope of failure | Rack | Datacenter | Region |
 | Request routing | Load Balancer | Cross-zone Load Balancer | Traffic Manager |
 | Network latency | Very low | Low | Mid to high |
-| Virtual networking  | VNet | VNet | Cross-region VNet peering (preview) |
+| Virtual networking  | VNet | VNet | Cross-region VNet peering |
 
 ### Availability sets 
 
@@ -188,7 +188,7 @@ for the front-end, application, and data tiers.
 
 ![Azure availability sets for each application role](./images/three-tier-example.png "Availability sets for each application role")
 
-### Availability zones (preview)
+### Availability zones
 
 An [Availability Zone](/azure/availability-zones/az-overview) is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
 
