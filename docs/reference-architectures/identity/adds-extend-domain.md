@@ -193,7 +193,7 @@ A deployment for this architecture is available on [GitHub][github].
     azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
     ```
 
-   Deploy to the same resource group as the previous step.
+   Deploy to the same resource group as the on-premises VNet.
 
 5. Wait for the deployment to finish. It can take about 40 minutes to create the VPN gateway.
 
