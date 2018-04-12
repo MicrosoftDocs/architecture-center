@@ -15,7 +15,7 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services].  [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS).  [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
@@ -101,27 +101,103 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Deploy the solution
 
-A solution is available on [GitHub][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
+A deployment for this architecture is available on [GitHub][github]. 
 
-1. Download or clone the solution folder from [GitHub][github] to your local machine.
+### Prerequisites
 
-2. Open the Azure CLI and navigate to the local solution folder.
+1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
-3. Run the following command:
-    ```Powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
+2. Install [Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks][azbb] npm package.
+
+4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
+
+   ```bash
+   az login
+   ```
+
+### Deploy the simulated on-premises datacenter
+
+1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
+
+2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`. There are three instances, for the jumpbox and the two AD servers.
+
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
     ```
-    Replace `<subscription id>` with your Azure subscription ID.
-    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
-    The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
-    * `Onpremise`: deploys the simulated on-premises environment.
-    * `Infrastructure`: deploys the VNet infrastructure and jump box in Azure.
-    * `CreateVpn`: deploys the Azure virtual network gateway and connects it to the simulated on-premises network.
-    * `AzureADDS`: deploys the VMs acting as AD DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
-    * `Workload`: deploys the public and private DMZs and the workload tier.
-    * `All`: deploys all of the preceding deployments. **This is the recommended option if If you do not have an existing on-premises network but you want to deploy the complete reference architecture described above for testing or evaluation.**
 
-4. Wait for the deployment to complete. If you are deploying the `All` deployment, it will take several hours.
+3. In the same file, replace the values for `UserName` and `Password` in the `protectedSettings` sections. There are two instances of `protectedSettings`, one for each AD server.
+
+    ```bash
+    "protectedSettings": {
+      "configurationArguments": {
+        ...
+        "AdminCreds": {
+          "UserName": "<user name>",
+          "Password": "<password>"
+        },
+        "SafeModeAdminCreds": {
+          "UserName": "<user name>",
+          "Password": "<password>"
+        }
+      }
+    }
+    ```
+
+4. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
+    ```
+
+5. Wait for the deployment to finish. It can take about 40 minutes to create the VPN gateway.
+
+### Deploy the Azure VNet
+
+1. Open the `azure.json` file. Replace the values for `adminUsername` and `adminPassword`. There are three instances, for the jumpbox and the two AD servers.
+
+    ```bash
+    "adminUsername": "<user name>",
+    "adminPassword": "<password>",
+    ```
+
+2. In the same file, replace the values for `UserName` and `Password` in the `protectedSettings` sections. There are two instances of `protectedSettings`, one for each AD server.
+
+    ```bash
+    "protectedSettings": {
+      "configurationArguments": {
+        ...
+        "AdminCreds": {
+          "UserName": "<user name>",
+          "Password": "<password>"
+        },
+        "SafeModeAdminCreds": {
+          "UserName": "<user name>",
+          "Password": "<password>"
+        }
+      }
+    }
+    ```
+
+3. For `sharedKey`, enter a shared key for the VPN connection. There are two instances of `sharedKey` in the parameter file.
+
+    ```bash
+    "sharedKey": "",
+    ```
+
+4. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
+    ```
+
+   Deploy to the same resource group as the previous step.
+
+5. Wait for the deployment to finish. It can take about 40 minutes to create the VPN gateway.
+
+
 
 ## Next steps
 
@@ -129,27 +205,27 @@ A solution is available on [GitHub][github] to deploy this reference architectur
 * Learn the best practices for [creating an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 
 <!-- links -->
+
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
-
+[azure-cli-2]: /azure/install-azure-cli
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 
-[active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
 [adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[azure-powershell]: /powershell/azureps-cmdlets-docs
-[azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [security-considerations]: #security-considerations
-[set-a-static-ip-address]: https://azure.microsoft.com/documentation/articles/virtual-networks-static-private-ip-arm-pportal/
+[set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
