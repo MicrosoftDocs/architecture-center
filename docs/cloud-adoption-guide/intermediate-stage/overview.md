@@ -4,16 +4,17 @@ description: Describes the intermediate level of knowledge that an enterprise re
 author: petertay
 ---
 
-# Adopting Azure: Intermediate
+# Governance design walkthrough: new development in Azure for multiple teams
 
 In the foundational adoption stage, you were introduced to the basic concepts of Azure resource governance. The foundational stage was designed to get you started with your Azure adoption journey, and it walked you through how to deploy a simple workload with a single small team. In reality, most large organizations have many teams that are working on many different workloads at the same time. As you would expect, a simple governance model is not sufficient to manage more complex organziational and development scenarios.
 
 The audience for this stage of the guide is the following personas within your organization:
 - *Finance:* owner of the financial commitment to Azure, responsible for developing policies and procedures for tracking resource consumption costs including billing and chargeback.
-- *Central IT:* responsible for governing your organization's cloud resources including resource management and access, and workload health and monitoring.
-- *Shared infrastructure owners*: technical roles responsible for managing networking connectivity from  on-premises to cloud, including implementing goverance policies as . 
-- *Workload owners:* all development roles that are involved in deploying workloads to Azure, including developers, testers, and build engineers.
-    - *Workload contributors*: development team members that report to the *workload owner* persona.
+- *Central IT:* responsible for governing your organization's cloud resources including resource management and access, as well as workload health and monitoring.
+- *Shared infrastructure owner*: technical roles responsible for network connectivity from on-premises to cloud.
+- *Security operations:* responsible for  implementing security policy necessary to extend on-premises security boundary to include Azure. May also own security infrastructure in Azure for storing secrets.
+- *Workload owner:* responsible for publishing a workload to Azure. Depending on the structure of your organization's development teams, this could be a development lead, a program management lead, or build engineering lead. Part of the publishing process may include the deployment of resources to Azure.
+    - *Workload contributor:* responsible for contributing to the publishing of a workload to Azure. May require read access to Azure resources for performance monitoring or tuning. Does not require permission to create, update, or delete resources.
 
 One of the most difficult things about planning your enterprise's journey to the cloud is determining an appropriate area to begin. For example, should your organization begin by deciding on how to re-structure on-premises roles and responsibilities to handle resource management in the cloud, or, should you begin by evaluating your on-premises workloads and designing the technical aspects of your cloud architecture to meet those needs first?
 
