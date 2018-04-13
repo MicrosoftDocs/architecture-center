@@ -2,7 +2,7 @@
 title: Enterprise BI with SQL Data Warehouse
 description: Use Azure to gain business insights from relational data stored on-premises
 author: alexbuckgit
-ms.date: 03/21/2018
+ms.date: 04/13/2018
 ---
 
 # Enterprise BI with SQL Data Warehouse
@@ -64,17 +64,17 @@ You can speed up the network transfer by saving the exported data in Gzip compre
 
 ### Copy flat files into blob storage
 
-The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data to into Azure blob storage.
+The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data into Azure blob storage.
 
 **Recommendations**
 
-Create the storage account in a region that is closest to where the source data resides. Deploy the storage account and the SQL Data Warehouse instance in the same region. 
+Create the storage account in a region near the location of the source data. Deploy the storage account and the SQL Data Warehouse instance in the same region. 
 
 Don't run AzCopy on the same machine that runs your production workloads, because the CPU and I/O consumption can interfere with the production workload. 
 
-Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from fully completing.  
+Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.  
 
-AzCopy moves data to storage over the public Internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
+AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
 
 During a copy operation, AzCopy creates a temporary journal file, which enables AzCopy to restart the operation if it gets interrupted (for example, due to a network error). Make sure there is enough disk space to store the journal files. You can use the /Z option to specify where the journal files are written.
 
@@ -84,8 +84,8 @@ Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the fi
 
 Loading the data is a two-step process:
 
-1. Create a set of external tables for the data. An external table is a table that points to data stored outside of the warehouse &mdash; in this case, the flat files in blob storage. This step does not move any data into the warehouse.
-2. Create staging tables, and load the data from the external tables into the staging tables. This step copies the data into the warehouse.
+1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat files in blob storage. This step does not move any data into the warehouse.
+2. Create staging tables, and load the data into the staging tables. This step copies the data into the warehouse.
 
 **Recommendations**
 
@@ -122,7 +122,7 @@ Create the production tables with clustered columnstore indexes, which offer the
 > [!NOTE]
 > Clustered columnstore tables do not support `varchar(max)`, `nvarchar(max)`, or `varbinary(max)` data types. In that case, consider a heap or clustered index. You might put those columns into a separate table.
 
-Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
+Because the sample database is not very large, we created replicated tables with no partitions. For production workloads, using distributed tables is likely to improve query performance. See [Guidance for designing distributed tables in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute). Our example scripts run the queries using a static [resource class](/azure/sql-data-warehouse/resource-classes-for-workload-management).
 
 ### Load the semantic model
 
@@ -161,7 +161,7 @@ To reduce the amount of unnecessary processing, consider using partitions to div
 
 ### IP whitelisting of Analysis Services clients
 
-Currently Azure Consider using the Analysis Services firewall feature to whitelist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules whitelist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
+Consider using the Analysis Services firewall feature to whitelist client IP addresses. If enabled, the firewall blocks all client connections other than those specified in the firewall rules. The default rules whitelist the Power BI service, but you can disable this rule if desired. For more information, see [Hardening Azure Analysis Services with the new firewall capability](https://azure.microsoft.com/blog/hardening-azure-analysis-services-with-the-new-firewall-capability/).
 
 ### Authorization
 
@@ -214,7 +214,7 @@ First you'll deploy a VM as a simulated on-premises server, which includes SQL S
     azbb -s <subscription_id> -g <resource_group_name> -l <location> -p onprem.parameters.json --deploy
     ```
 
-4. The deployment may take 20 to 30 minutes to complete, which includes running the [Desired State Configuration](/powershell/dsc/overview) (DSC) to install the tools and restore the database. Verify the deployment in the Azure portal by reviewing the resources in the resource group. You should see the `sql-vm1` virtual machine and its associated resources.
+4. The deployment may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. Verify the deployment in the Azure portal by reviewing the resources in the resource group. You should see the `sql-vm1` virtual machine and its associated resources.
 
 ### Deploy the Azure resources
 
