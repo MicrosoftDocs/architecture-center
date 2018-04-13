@@ -1,13 +1,8 @@
 ---
-title: Extending Active Directory Domain Services (AD DS) to Azure
-description: >-
-  How to implement a secure hybrid network architecture with Active Directory
-  authorization in Azure.
-
-  guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-
+title: Extend Active Directory Domain Services (AD DS) to Azure
+description: Extend your on-premises Active Directory domain to Azure
 author: telmosampaio
-ms.date: 11/28/2016
+ms.date: 04/12/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: azure-ad
@@ -15,7 +10,7 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS).  [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS). [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
@@ -101,7 +96,7 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][github]. 
+A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
 
 ### Prerequisites
 
@@ -121,60 +116,58 @@ A deployment for this architecture is available on [GitHub][github].
 
 1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
 
-2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`. There are three instances, for the jumpbox and the two AD servers.
+2. Open the `onprem.json` file. Search for `adminPassword` and add a value for the password. There are three instances in the file.
 
     ```bash
-    "adminUsername": "<user name>",
+    "adminUsername": "testuser",
     "adminPassword": "<password>",
     ```
 
-3. In the same file, replace the values for `UserName` and `Password` in the `protectedSettings` sections. There are two instances of `protectedSettings`, one for each AD server.
+3. In the same file, search for `protectedSettings` and add values for the passwords. There are two instances of `protectedSettings`, one for each AD server.
 
     ```bash
     "protectedSettings": {
       "configurationArguments": {
         ...
         "AdminCreds": {
-          "UserName": "<user name>",
+          "UserName": "testadminuser",
           "Password": "<password>"
         },
         "SafeModeAdminCreds": {
-          "UserName": "<user name>",
+          "UserName": "testsafeadminuser",
           "Password": "<password>"
         }
       }
     }
     ```
 
-4. Run the following command:
+4. Run the following command and wait for the deployment to finish:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
     ```
 
-5. Wait for the deployment to finish. It can take about 40 minutes to create the VPN gateway.
-
 ### Deploy the Azure VNet
 
-1. Open the `azure.json` file. Replace the values for `adminUsername` and `adminPassword`. There are three instances, for the jumpbox and the two AD servers.
+1. Open the `azure.json` file.  Search for `adminPassword` and add a value for the password. There are three instances in the file.
 
     ```bash
-    "adminUsername": "<user name>",
+    "adminUsername": "testuser",
     "adminPassword": "<password>",
     ```
 
-2. In the same file, replace the values for `UserName` and `Password` in the `protectedSettings` sections. There are two instances of `protectedSettings`, one for each AD server.
+2. In the same file, search for `protectedSettings` and add values for the passwords. There are two instances of `protectedSettings`, one for each AD server.
 
     ```bash
     "protectedSettings": {
       "configurationArguments": {
         ...
         "AdminCreds": {
-          "UserName": "<user name>",
+          "UserName": "testadminuser",
           "Password": "<password>"
         },
         "SafeModeAdminCreds": {
-          "UserName": "<user name>",
+          "UserName": "testsafeadminuser",
           "Password": "<password>"
         }
       }
@@ -187,7 +180,7 @@ A deployment for this architecture is available on [GitHub][github].
     "sharedKey": "",
     ```
 
-4. Run the following command:
+4. Run the following command and wait for the deployment to finish.
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
@@ -195,9 +188,21 @@ A deployment for this architecture is available on [GitHub][github].
 
    Deploy to the same resource group as the on-premises VNet.
 
-5. Wait for the deployment to finish. It can take about 40 minutes to create the VPN gateway.
+### Test connectivity with the Azure VNet
 
+Test conectivity from the simulated on-premises environment to the Azure VNet.
 
+1. Use the Azure portal to find the VM named `ra-onpremise-mgmt-vm1`.
+
+2. Click `Connect` to open a remove desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
+
+3. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
+
+4. In **Server Manager**, click **Add other servers to manage.** 
+
+5. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
+
+   ![](./images/add-servers-dialog.png)
 
 ## Next steps
 
