@@ -106,7 +106,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
+A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
 
 The deployment creates the following resource groups in your subscription:
 
