@@ -222,7 +222,7 @@ Here are some typical error conditions that might be encountered when processing
 
 ### DELETE methods
 
-If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
+If the delete operation is successful, the web server should respond with HTTP status code 204, indicating that the process has been successfully handled, but that the response body contains no further information. If the resource is to be handled deletion in future i.e. queued for processing, then the server should respond with HTTP status code 202 with any relevant data in the respond body including a link to check the status of the deletion process. If the resource doesn't exist, the web server can return HTTP 404 (Not Found).
 
 ### Asynchronous operations
 
