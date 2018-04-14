@@ -2,7 +2,7 @@
 title: Extend Active Directory Domain Services (AD DS) to Azure
 description: Extend your on-premises Active Directory domain to Azure
 author: telmosampaio
-ms.date: 04/12/2018
+ms.date: 04/13/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: azure-ad
@@ -114,9 +114,9 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Deploy the simulated on-premises datacenter
 
-1. Navigate to the `hybrid-networking/hub-spoke` folder of the reference architectures repository.
+1. Navigate to the `identity/adds-extend-domain` folder of the reference architectures repository.
 
-2. Open the `onprem.json` file. Search for `adminPassword` and add a value for the password. There are three instances in the file.
+2. Open the `onprem.json` file. Search for `adminPassword` and add values for the passwords. There are three instances in the file.
 
     ```bash
     "adminUsername": "testuser",
@@ -149,7 +149,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Deploy the Azure VNet
 
-1. Open the `azure.json` file.  Search for `adminPassword` and add a value for the password. There are three instances in the file.
+1. Open the `azure.json` file.  Search for `adminPassword` and add values for the passwords. There are three instances in the file.
 
     ```bash
     "adminUsername": "testuser",
@@ -190,15 +190,15 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Test connectivity with the Azure VNet
 
-Test conectivity from the simulated on-premises environment to the Azure VNet.
+Afterr deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
 
 1. Use the Azure portal to find the VM named `ra-onpremise-mgmt-vm1`.
 
-2. Click `Connect` to open a remove desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
+2. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
 
 3. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
 
-4. In **Server Manager**, click **Add other servers to manage.** 
+4. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage.** 
 
 5. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
 
