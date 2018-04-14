@@ -151,7 +151,7 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 4. Run the following command:
 
     ```bash
-    azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onoprem.json --deploy
+    azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onprem.json --deploy
     ```
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, and a VPN gateway. It can take about 40 minutes to create the VPN gateway.
