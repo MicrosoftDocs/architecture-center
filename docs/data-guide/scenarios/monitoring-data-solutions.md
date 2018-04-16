@@ -80,7 +80,7 @@ Azure Monitor is also built on top of data managed by two other monitoring servi
 
 More information can be found [here](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview).
 
-### Specifialized monitoring tools
+### Specialized monitoring tools
 
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) automatically collects, analyzes, and integrates security logs and data from your Azure and on-premises resources, the network, storage, data, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of security recommendations is shown in Security Center with the information you need to review and take action to tighten the security of the resources monitored by Security Center. ASC generates security alerts and incidents with information needed to quickly detect and respond to the threats and attacks.
 
