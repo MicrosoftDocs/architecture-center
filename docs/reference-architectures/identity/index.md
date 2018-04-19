@@ -9,7 +9,7 @@ layout: LandingPage
 
 # Identity management
 
-These reference architectures show options for integrating your on-premises Active Directory (AD) environment with an Azure network. <br/>[Which should I choose?](./considerations.md)
+These reference architectures show options for integrating your on-premises Active Directory (AD) environment with an Azure network. [Which should I choose?](./considerations.md)
 
 <section class="series">
     <ul class="panelContent">

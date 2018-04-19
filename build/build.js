@@ -6,3 +6,4 @@ formatIndexFor('hybrid-networking');
 formatIndexFor('identity');
 formatIndexFor('virtual-machines-linux');
 formatIndexFor('virtual-machines-windows');
+formatIndexFor('sap');
