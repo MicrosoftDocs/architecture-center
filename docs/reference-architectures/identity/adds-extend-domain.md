@@ -114,34 +114,11 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Deploy the simulated on-premises datacenter
 
-1. Navigate to the `identity/adds-extend-domain` folder of the reference architectures repository.
+1. Navigate to the `identity/adds-extend-domain` folder of the GitHub repository.
 
-2. Open the `onprem.json` file. Search for `adminPassword` and add values for the passwords. There are three instances in the file.
+2. Open the `onprem.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
 
-    ```bash
-    "adminUsername": "testuser",
-    "adminPassword": "<password>",
-    ```
-
-3. In the same file, search for `protectedSettings` and add values for the passwords. There are two instances of `protectedSettings`, one for each AD server.
-
-    ```bash
-    "protectedSettings": {
-      "configurationArguments": {
-        ...
-        "AdminCreds": {
-          "UserName": "testadminuser",
-          "Password": "<password>"
-        },
-        "SafeModeAdminCreds": {
-          "UserName": "testsafeadminuser",
-          "Password": "<password>"
-        }
-      }
-    }
-    ```
-
-4. Run the following command and wait for the deployment to finish:
+3. Run the following command and wait for the deployment to finish:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
@@ -149,38 +126,15 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Deploy the Azure VNet
 
-1. Open the `azure.json` file.  Search for `adminPassword` and add values for the passwords. There are three instances in the file.
+1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords. 
 
-    ```bash
-    "adminUsername": "testuser",
-    "adminPassword": "<password>",
-    ```
-
-2. In the same file, search for `protectedSettings` and add values for the passwords. There are two instances of `protectedSettings`, one for each AD server.
-
-    ```bash
-    "protectedSettings": {
-      "configurationArguments": {
-        ...
-        "AdminCreds": {
-          "UserName": "testadminuser",
-          "Password": "<password>"
-        },
-        "SafeModeAdminCreds": {
-          "UserName": "testsafeadminuser",
-          "Password": "<password>"
-        }
-      }
-    }
-    ```
-
-3. For `sharedKey`, enter a shared key for the VPN connection. There are two instances of `sharedKey` in the parameter file.
+2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection. 
 
     ```bash
     "sharedKey": "",
     ```
 
-4. Run the following command and wait for the deployment to finish.
+3. Run the following command and wait for the deployment to finish.
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
@@ -190,17 +144,19 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Test connectivity with the Azure VNet
 
-Afterr deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
+After deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
 
-1. Use the Azure portal to find the VM named `ra-onpremise-mgmt-vm1`.
+1. Use the Azure portal, navigate to the resource group that you created.
 
-2. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
+2. Find the VM named `ra-onpremise-mgmt-vm1`.
 
-3. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
+3. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
 
-4. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage.** 
+4. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
 
-5. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
+5. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage.** 
+
+6. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
 
    ![](./images/add-servers-dialog.png)
 
