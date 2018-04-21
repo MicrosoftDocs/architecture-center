@@ -2,6 +2,7 @@
 title: Overview of Azure compute options
 description: Overview of Azure compute options
 author: MikeWasson
+ms.date: 04/21/2018
 ---
 
 # Overview of Azure compute options
@@ -17,7 +18,6 @@ There is a spectrum from IaaS to pure PaaS. For example, Azure VMs can auto-scal
 **Functions-as-a-Service** (FaaS) goes even further in removing the need to worry about the hosting environment. Instead of creating compute instances and deploying code to those instances, you simply deploy your code, and the service automatically runs it. You don’t need to administer the compute resources. These services make use of serverless architecture, and seamlessly scale up or down to whatever level necessary to handle the traffic. Azure Functions are a FaaS service.
 
 IaaS gives the most control, flexibility, and portability. FaaS provides simplicity, elastic scale, and potential cost savings, because you pay only for the time your code is running. PaaS falls somewhere between the two. In general, the more flexibility a service provides, the more you are responsible for configuring and managing the resources. FaaS services automatically manage nearly all aspects of running an application, while IaaS solutions require you to provision, configure and manage the VMs and network components you create.
-
 
 Here are the main compute options currently available in Azure:
 
@@ -39,4 +39,6 @@ When selecting a compute option, here are some factors to consider:
 - What are the overall limitations of each service? 
 - What kind of application architectures are appropriate for this service? 
 
-For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute option](./compute-comparison.md).
+To help select a compute service for your application, use the [Decision tree for Azure compute services](./compute-decision-tree.md)
+
+For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute service](./compute-comparison.md).

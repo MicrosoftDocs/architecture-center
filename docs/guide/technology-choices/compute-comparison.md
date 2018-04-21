@@ -1,11 +1,12 @@
 ---
-title: Criteria for choosing an Azure compute option
-description: Compare Azure compute services across several axes.
+title: Criteria for choosing an Azure compute service
+description: Compare Azure compute services across several axes
 author: MikeWasson
 layout: LandingPage
+ms.date: 04/21/2018
 ---
 
-# Criteria for choosing an Azure compute option
+# Criteria for choosing an Azure compute service
 
 The term *compute* refers to the hosting model for the computing resources that your applications runs on. The following tables compare Azure compute services across several axes. Refer to these tables when selecting a compute option for your application.
 
