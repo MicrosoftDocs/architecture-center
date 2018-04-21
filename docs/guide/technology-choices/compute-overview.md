@@ -2,6 +2,7 @@
 title: Overview of Azure compute options
 description: Overview of Azure compute options
 author: MikeWasson
+ms.date: 04/21/2018
 ---
 
 # Overview of Azure compute options
@@ -38,4 +39,6 @@ When selecting a compute option, here are some factors to consider:
 - What are the overall limitations of each service? 
 - What kind of application architectures are appropriate for this service? 
 
-For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute option](./compute-comparison.md).
+To help select a compute service for your application, use the [Decision tree for Azure compute services](./compute-decision-tree.md)
+
+For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute service](./compute-comparison.md).

@@ -12,9 +12,10 @@
   items:
   - name: Architecture styles
     href: guide/architecture-styles/index.md
-  - name: Technology choices
-    href: guide/technology-choices/index.md
-    items:
+  - name: Choosing a compute service
+    href: guide/technology-choices/compute-overview.md
+  - name: Choosing a data store
+    href: guide/technology-choices/data-store-overview.md
   - name: Design principles
     href: guide/design-principles/index.md
   - name: Pillars of software quality
