@@ -1,25 +1,25 @@
 {
     "title": "SAP Reference Architectures on Azure",
-    "description": "Explains and compares the different methods available for managing identity in hybrid systems that span the on-premises/cloud boundary with Azure.",
+    "description": "Reference architectures showing proven  practices for running SAP applications and data layers on Azure.",
     "summary": "These reference architectures show proven pratices for reliably hosting and running SAP application and data layers on Azure. [Which should I choose?](./considerations.md)",
     "series": [
         {
-            "title": "Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines ",
+            "title": "Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines",
             "url": "./SAP-NetWeaver-Windows-anydb.md",
             "image": "./images/SAP-windows.svg",
-            "summary": "This reference architecture shows a set a set of proven practices for running SAP NetWeaver in a Windows eniveronment on Azure with high availablity. ."
+            "summary": "Baseline recommendations for running SAP Netweaver in a high availability environment."
         },
         {
-            "title": "SAP S/4HANA for Linux Virtual Machines on Azure",
+            "title": "Deploy SAP S/4HANA for Linux Virtual Machines on Azure",
             "url": "./s4HANA-linux.md",
             "image": "./images/SAP-linux.svg",
-            "summary": "This reference architecture shows a set of proven practices for running S/4HANA in a high availability environment that supports disaster recover on Azure."
+            "summary": "Recommendations for running S/4HANA with Fiori in a high availability environment."
         },
         {
-            "title": "SAP HANA (Large Instances) on Azure",
+            "title": "Run SAP HANA (Large Instances) on Azure",
             "url": "./SAP-HANA-Large-Instances-HADR.md",
             "image": "./images/HANA-LI-DR.svg",
-            "summary": "This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) HANA Large Instances (for short) are deployed on physical servers in Azure datacenters with high availability and disaster recovery."
+            "summary": "Deployment of SAP HANA on physical servers in Azure datacenters with high availability and disaster recovery."
         }
     ]
 }
