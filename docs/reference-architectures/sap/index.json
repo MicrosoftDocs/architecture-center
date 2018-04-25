@@ -6,19 +6,19 @@
         {
             "title": "Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines ",
             "url": "./SAP-NetWeaver-Windows-anydb.md",
-            "image": "./images/adds-forest.svg",
+            "image": "./images/SAP-windows.svg",
             "summary": "This reference architecture shows a set a set of proven practices for running SAP NetWeaver in a Windows eniveronment on Azure with high availablity. ."
         },
         {
             "title": "SAP S/4HANA for Linux Virtual Machines on Azure",
             "url": "./s4HANA-linux.md",
-            "image": "./images/adfs.svg",
+            "image": "./images/SAP-linux.svg",
             "summary": "This reference architecture shows a set of proven practices for running S/4HANA in a high availability environment that supports disaster recover on Azure."
         },
         {
             "title": "SAP HANA (Large Instances) on Azure",
             "url": "./SAP-HANA-Large-Instances-HADR.md",
-            "image": "./images/adfs.svg",
+            "image": "./images/HANA-LI-DR.svg",
             "summary": "This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) HANA Large Instances (for short) are deployed on physical servers in Azure datacenters with high availability and disaster recovery."
         }
     ]
