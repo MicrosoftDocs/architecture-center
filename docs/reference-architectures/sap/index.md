@@ -15,13 +15,13 @@ These reference architectures show proven pratices for reliably hosting and runn
     <ul class="panelContent">
     <!-- Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines  -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-layers-windows.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./SAP-NetWeaver-Windows-anydb.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/adds-forest.svg" height="140px" />
+                            <img src="./images/SAP-windows.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -35,13 +35,13 @@ These reference architectures show proven pratices for reliably hosting and runn
 </li>
     <!-- SAP S/4HANA for Linux Virtual Machines on Azure -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-layers-linux.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./s4HANA-linux.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/adfs.svg" height="140px" />
+                            <img src="./images/SAP-linux.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -55,13 +55,13 @@ These reference architectures show proven pratices for reliably hosting and runn
 </li>
     <!-- SAP HANA (Large Instances) on Azure -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./data-layer-HANA-DR.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./SAP-HANA-Large-Instances-HADR.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/adfs.svg" height="140px" />
+                            <img src="./images/HANA-LI-DR.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
