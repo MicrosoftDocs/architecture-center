@@ -130,7 +130,7 @@ See [SAP certifications and configurations running on Microsoft Azure][sap-certi
 ## Disaster recovery considerations
 Each tier uses a different strategy to provide disaster recovery (DR) protection.
 
-- **Application servers tier.**SAP application servers do not contain business data. On Azure, a simple DR strategy is to create SAP application servers in the DR region, then shut them down. Upon any configuration changes or kernel updates on the primary application server, the same changes must be copied to the virtual machines in the DR region. For example, the kernel executables copied to the DR virtual machines. For automatic replication of application servers to a DR region, [Azure Site Recovery][asr] is the recommended solution.
+- **Application servers tier.** SAP application servers do not contain business data. On Azure, a simple DR strategy is to create SAP application servers in the DR region, then shut them down. Upon any configuration changes or kernel updates on the primary application server, the same changes must be copied to the virtual machines in the DR region. For example, the kernel executables copied to the DR virtual machines. For automatic replication of application servers to a DR region, [Azure Site Recovery][asr] is the recommended solution.
 
 - **Central Services.** This component of the SAP application stack also does not persist business data. You can build a VM in the disaster recovery region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. Also, if configuration changes or kernel updates take place on the primary Central Services servers, they must be repeated on the VM in the disaster recovery region running Central Services. To synchronize the two servers, you can use either Azure Site Recovery to replicate the cluster nodes or simply use a regularly scheduled copy job to copy /sapmnt to the disaster recovery region. For details about this simple replication method’s build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution][sap-netweaver-dr], and refer to "4.3. SAP SPOF layer (ASCS)."
 
@@ -174,8 +174,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 * [SAP Community][sap-community]
 * [Stack Overflow SAP][stack-overflow]
 
-## Solution deployment
-A deployment for this reference architecture is available on [GitHub][gitnub]. It includes documentation in Markdown format as well as code artifacts for the deployment.
+
 
 
   
