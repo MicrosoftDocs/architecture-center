@@ -1,8 +1,8 @@
 ---
 title: Run SAP HANA on Azure Large Instances
 description:  Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
-author: njray
-ms.date: 4/23/18
+author: lbrader
+ms.date: 4/27/18
 ---
 
 # Run SAP HANA on Azure Large Instances
@@ -18,9 +18,7 @@ This reference architecture shows a set of proven practices for running SAP HANA
 
 ## Architecture
 
-This architecture builds on the [SAP NetWeaver][ref-arch] reference architecture. It focuses primarily on the infrastructure known as HANA Large Instances. 
-
-The architecture consists of the following components.
+This architecture consists of the following infrastructure components.
 
 - **Virtual network**. The [Azure Virtual Network][vnet] service securely connects Azure resources to each other and is subdivided into separate [subnets][subnet] for each layer. SAP application layers are deployed on Azure virual machines (VMs) to connect to the HANA database layer residing on large instances.
 
@@ -40,10 +38,10 @@ The architecture consists of the following components.
  
 
 ## Recommendations
-Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
+Requirements can vary, so use these recommendations as a starting point.
 
 ### HANA Large Instances compute
-[Large Instances][physical] are physical servers based on the Intel EX E7 Haswell CPU architecture and configured in a large instance stamp—that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer’s deployment of SAP HANA.
+[Large Instances][physical] are physical servers based on the Intel EX E7 CPU architecture and configured in a large instance stamp—that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer’s deployment of SAP HANA.
 
 A variety of SKUs are available for HANA Large Instances, supporting up to 20 TB single instance (60 TB scale-out) of memory for S/4HANA or other SAP HANA workloads. [Two classes][classes] of servers are offered:
 
@@ -51,7 +49,7 @@ A variety of SKUs are available for HANA Large Instances, supporting up to 20 TB
 
 - Type II class: S384, S384m, S384xm, S576, S768, and S960
 
-For example, the S72 SKU comes with 768 GB RAM, 3 terabytes (TB) of storage, and 2 Intel Xeon processors (E7-8890 v3) with 36 cores. Choose a SKU that fulfills the sizing requirements you determined in your architecture and design sessions. Always ensure that your sizing applies to the correct SKU. Capabilities and deployment requirements vary by [type][type], and availability varies by [region][region]. You can also move up from a Type 1 SKU to Type 2.
+For example, the S72 SKU comes with 768 GB RAM, 3 terabytes (TB) of storage, and 2 Intel Xeon processors (E7-8890 v3) with 36 cores. Choose a SKU that fulfills the sizing requirements you determined in your architecture and design sessions. Always ensure that your sizing applies to the correct SKU. Capabilities and deployment requirements vary by [type][type], and availability varies by [region][region]. You can also move up from a Type I SKU to Type II.
 
 A Microsoft or another service provider helps establish the large instance setup, but it is your responsibility to verify the operating system’s configuration settings. Make sure to review the most current SAP Notes for your exact Linux release.
 
@@ -98,7 +96,7 @@ Work with SAP, your system integrator, or Microsoft to properly architect and im
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects HANA.
 
-For high availability, deploy more than one instance and use HSR to minimize downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain. The failover to the DR node is a manual process. To enable automatic failover, a high availability extension for the specific Linux distribution is required.
+For high availability, deploy more than one instance and use HSR to minimize downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain. The failover to the DR node is a manual process.
 
 When you set up HANA Large Instances HSR with automatic failover, you can request the Microsoft Service Management team to set up a [STONITH][stonith] device for your existing servers. 
 
@@ -115,7 +113,7 @@ Based on your business requirements, choose from several options available for [
 | Backup option                   | Pros                                                                                                   | Cons                                                       |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
 | HANA backup                     | Native to SAP. Built-in consistency check.                                                             | Long backup and recovery times. Storage space consumption. |
-| HANA snapshot                   | Native to SAP. Rapid backup and restore.                                                               | No consistency check.                                      |
+| HANA snapshot                   | Native to SAP. Rapid backup and restore.                                                               |                                       |
 | Storage snapshot (third-party)  | Included with HANA Large Instances. Optimized DR for HANA Large Instances. Boot volume backup support. | Maximum 254 snapshots per volume.                          |
 | Log backup                      | Required for point in time recovery.                                                                   |                                                            |
 | Backup tools from other vendors | Redundant backup location.                                                                             | Additional licensing costs.                                |
@@ -136,7 +134,7 @@ If you need more computing capability, you must get a larger SKU.
 
 - Isolation provides security between the tenants in the multi-tenant HANA Large Instance environment. Tenants are isolated using their own VLAN.
 
-- Network security
+- Azure network security [best practices][network-best-practices] are recommended.
 
 - As with any deployment, operating system hardening is recommended.
 
@@ -188,6 +186,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 [monitoring]: /azure/architecture/best-practices/monitoring
 [multiple-vm-nics]: https://azure.microsoft.com/en-us/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
 [netweaver-on-azure]: /azure/virtual-machines/workloads/sap/planning-guide
+[network-best-practices]: /azure/security/azure-security-network-security-best-practices
 [network-considerations]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [nsg]: /azure/virtual-network/virtual-networks-n
 [physical]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
