@@ -12,7 +12,7 @@ The audience for this stage of the guide is the following personas within your o
 - *Finance:* owner of the financial commitment to Azure, responsible for developing policies and procedures for tracking resource consumption costs including billing and chargeback.
 - *Central IT:* responsible for governing your organization's cloud resources including resource management and access, as well as workload health and monitoring.
 - *Shared infrastructure owner*: technical roles responsible for network connectivity from on-premises to cloud.
-- *Security operations:* responsible for  implementing security policy necessary to extend on-premises security boundary to include Azure. May also own security infrastructure in Azure for storing secrets.
+- *Security operations*: responsible for implementing security policy necessary to extend on-premises security boundary to include Azure. May also own security infrastructure in Azure for storing secrets.
 - *Workload owner:* responsible for publishing a workload to Azure. Depending on the structure of your organization's development teams, this could be a development lead, a program management lead, or build engineering lead. Part of the publishing process may include the deployment of resources to Azure.
     - *Workload contributor:* responsible for contributing to the publishing of a workload to Azure. May require read access to Azure resources for performance monitoring or tuning. Does not require permission to create, update, or delete resources.
 
