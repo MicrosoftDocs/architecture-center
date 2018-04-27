@@ -1,7 +1,7 @@
 {
     "title": "SAP Reference Architectures on Azure",
     "description": "Reference architectures showing proven  practices for running SAP applications and data layers on Azure.",
-    "summary": "These reference architectures show proven pratices for reliably hosting and running SAP application and data layers on Azure. [Which should I choose?](./considerations.md)",
+    "summary": "These reference architectures show proven pratices for reliably hosting and running SAP application and data layers on Azure. [For more SAP on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/get-started)",
     "series": [
         {
             "title": "Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines",

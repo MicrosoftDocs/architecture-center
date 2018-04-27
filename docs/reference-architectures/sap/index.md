@@ -9,7 +9,7 @@ layout: LandingPage
 
 # SAP Reference Architectures on Azure
 
-These reference architectures show proven pratices for reliably hosting and running SAP application and data layers on Azure. [Which should I choose?](./considerations.md)
+These reference architectures show proven pratices for reliably hosting and running SAP application and data layers on Azure. [For more SAP on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/get-started)
 
 <section class="series">
     <ul class="panelContent">
