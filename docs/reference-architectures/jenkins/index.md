@@ -54,7 +54,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 The [Azure AD][azure-ad] tenant for your Azure subscription is used to enable SSO for Jenkins users and set up [service principals][service-principal] that enable Jenkins jobs to access Azure resources.
 
-SSO authentication and authorization are implemented by the Azure AD plugin  installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkin server.
+SSO authentication and authorization are implemented by the Azure AD plugin  installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkins server.
 
 To provide Jenkins jobs with access to Azure resources, an Azure AD administrator creates service principals. These grant applications—in this case, the Jenkins jobs—[authenticated, authorized access][ad-sp] to Azure resources.
 
@@ -70,7 +70,7 @@ The solution template for Jenkins on Azure installs several Azure plugins. The A
 
 -   [Azure AD plugin][configure-azure-ad] allows the Jenkins server to support SSO for users based on Azure AD.
 
--   [Azure VM Agents][configure-agent] plugin uses an Azure Resource Manager (ARM) template to create Jenkins agents in Azure virtual machines.
+-   [Azure VM Agents][configure-agent] plugin uses an Azure Resource Manager template to create Jenkins agents in Azure virtual machines.
 
 -   [Azure Credentials][configure-credential] plugin allows you to store Azure service principal credentials in Jenkins.
 
@@ -109,7 +109,7 @@ Selecting the correct server size depends on the size of the expected workload. 
 
 ## Availability considerations
 
-Assess the availability requirements for your workflow and how to recover the Jenkin state should the Jenkin server goes down. To assess your availability
+Availability in the context of a Jenkins server means being able to recover any state information associated with your workflow, such as test results, libraries you have created,or other artifacts. Critical workflow state or artifacts must be maintained to recover the workflow should the Jenkins server goes down. To assess your availability
 requirements, consider two common metrics:
 
 -   Recovery Time Objective (RTO) specifies how long you can go without Jenkins.
@@ -124,7 +124,7 @@ Consider using the disaster recovery [scripts][disaster] in step 7 of the deploy
 
 Use the following approaches to help lock down security on a basic Jenkins server, since in its basic state, it is not secure.
 
--   Set up a way to secure logon to the Jenkin server. HTTP is not secure By default, this architecture uses HTTP and has a public IP. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
+-   Set up a way to secure logon to the Jenkins server. This architecture uses HTTP and has a public IP, but HTTP is not secure by default. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
 
     > [!NOTE]
     > When adding SSL to your server, create an NSG rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
@@ -172,7 +172,7 @@ To deploy this architecture, follow the steps below to install the [solution tem
 
 ### Step 1: Deploy the Jenkins server
 
-1.  Open the [Azure marketplace image for Jenkins][azure-market] in your web browser and select **GET IT NOW** from the left side of the page.
+1.  Open the [Azure Marketplace image for Jenkins][azure-market] in your web browser and select **GET IT NOW** from the left side of the page.
 
 2.  Review the pricing details and select **Continue**, then select **Create** to configure the Jenkins server in the Azure portal.
 
@@ -182,7 +182,7 @@ For detailed instructions, see [Create a Jenkins server on an Azure Linux VM fro
 
 The step is run by the Jenkins administrator, who must also have a user account in the subscription’s Azure AD directory and must be assigned the Contributor role.
 
-Use the [Azure AD Plugin][configure-azure-ad] from the Jenkins Update Center in the Jenkin server and follow the instructions to set up SSO.
+Use the [Azure AD Plugin][configure-azure-ad] from the Jenkins Update Center in the Jenkins server and follow the instructions to set up SSO.
 
 ### Step 3: Provision Jenkins server with Azure VM Agent plugin
 
