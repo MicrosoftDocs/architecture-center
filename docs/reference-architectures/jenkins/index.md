@@ -115,7 +115,7 @@ Availability in the context of a Jenkins server means being able to recover any 
 
 -   Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery—that is part of Azure—but rather ensuring you maintain the state of your Jenkins server. This reference architecture uses the [Azure service level agreement][sla] (SLA), which guarantees 99.9-percent uptime for a single virtual machine. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
+In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery—that is part of Azure—but rather ensuring you maintain the state of your Jenkins server. Azure offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
