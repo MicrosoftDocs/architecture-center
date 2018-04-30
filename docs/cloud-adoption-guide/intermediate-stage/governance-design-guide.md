@@ -68,31 +68,31 @@ There are two options to consider:
 
 Let's take a look an example implementation of each option to see the effect of this decision:
 
-1. When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*.
+When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*.
 ![subscription service administrator with owner role](../_images/governance-2-1.png) 
 
-2. Now let's assume we have someone from a development team who is working on an application. This person is responsible for managing all the resources associated with this workload. This includes ensuring that resources are not deleted or changed, and that no unapproved resources are created. We'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
+1. Now let's assume we have someone from a development team who is working on an application. This person is responsible for managing all the resources associated with this workload. This includes ensuring that resources are not deleted or changed, and that no unapproved resources are created. We'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
 ![workload owner requests creation of resource group A](../_images/governance-2-2.png)  
 
-3. The *service administrator* reviews the request, and creates *resource group A*. At this point, *workload owner A* still doesn't have permission to do anything.
+2. The *service administrator* reviews the request, and creates *resource group A*. At this point, *workload owner A* still doesn't have permission to do anything.
 ![service administrator creates resource group A](../_images/governance-2-3.png)
 
-4. In order to enable *workload owner A* to manage resources, the *service administrator* adds them to *resource group A*. The *service administrator* can assign any role to *workload owner A*, and in our example the policy is to restrict the right to delegate access management. As a result, the *service administrator* assigns the *contributor* role to *workload owner A*.
+3. In order to enable *workload owner A* to manage resources, the *service administrator* adds them to *resource group A*. The *service administrator* can assign any role to *workload owner A*, and in our example the policy is to restrict the right to delegate access management. As a result, the *service administrator* assigns the *contributor* role to *workload owner A*.
 ![service administrator adds workload owner a to resource group a](../_images/governance-2-4.png)
 
-5. *Workload owner A* has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because *workload owner A* does not have permission to add a user to *resource group A* directly, they must make the request to the *service administrator*.
+4. *Workload owner A* has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because *workload owner A* does not have permission to add a user to *resource group A* directly, they must make the request to the *service administrator*.
 ![workload owner requests workload contributors be added to resource group](../_images/governance-2-5.png)
 
-6. The *service adminstrator* reviews the request, and adds the two *workload contributor* users to *resource group A*. Neither of these users requires permission to manage resources, so they are assigned the *reader* role. 
+5. The *service adminstrator* reviews the request, and adds the two *workload contributor* users to *resource group A*. Neither of these users requires permission to manage resources, so they are assigned the *reader* role. 
 ![service administrator adds workload contributors to resource group A](../_images/governance-2-6.png)
 
-7. Now let's take a look at what happens when there's another *workload owner* that is also responsible for deploying a workload to Azure. As we learned earlier, *workload owner B* does not initally have any rights at all in the subscription and must make a request for a new *resource group* to the *service administrator*. 
+6. Now let's take a look at what happens when there's another *workload owner* that is also responsible for deploying a workload to Azure. As we learned earlier, *workload owner B* does not initally have any rights at all in the subscription and must make a request for a new *resource group* to the *service administrator*. 
 ![workload owner B requests creation of resource group B](../_images/governance-2-7.png)
 
-8. The *service administrator* reviews the request and creates *resource group B*.
+7. The *service administrator* reviews the request and creates *resource group B*.
 ![Service Administrator creates resource group B](../_images/governance-2-8.png)
 
-9. The *service administrator* then adds *workload owner B* to *resource group B* and assigns the *contributor role*. 
+8. The *service administrator* then adds *workload owner B* to *resource group B* and assigns the *contributor role*. 
 ![Service Administrator adds Workload Owner B to resource group B](../_images/governance-2-9.png)
 
 Now let's analyze the resulting state of the *subscription*. We have two workloads, each isolated in their own resource group. None of the users added to *resource group A* has visibility into any of the resources in *resource group B* and vice-versa. This is a desirable state because each user is assigned the correct permission at the correct resource management scope.
