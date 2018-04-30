@@ -109,8 +109,7 @@ Selecting the correct server size depends on the size of the expected workload. 
 
 ## Availability considerations
 
-Availability in the context of a Jenkins server means being able to recover any state information associated with your workflow, such as test results, libraries you have created,or other artifacts. Critical workflow state or artifacts must be maintained to recover the workflow should the Jenkins server goes down. To assess your availability
-requirements, consider two common metrics:
+Availability in the context of a Jenkins server means being able to recover any state information associated with your workflow, such as test results, libraries you have created, or other artifacts. Critical workflow state or artifacts must be maintained to recover the workflow if the Jenkins server goes down. To assess your availability requirements, consider two common metrics:
 
 -   Recovery Time Objective (RTO) specifies how long you can go without Jenkins.
 
@@ -124,7 +123,7 @@ Consider using the disaster recovery [scripts][disaster] in step 7 of the deploy
 
 Use the following approaches to help lock down security on a basic Jenkins server, since in its basic state, it is not secure.
 
--   Set up a way to secure logon to the Jenkins server. This architecture uses HTTP and has a public IP, but HTTP is not secure by default. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
+-   Set up a secure way to log into the Jenkins server. This architecture uses HTTP and has a public IP, but HTTP is not secure by default. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
 
     > [!NOTE]
     > When adding SSL to your server, create an NSG rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
