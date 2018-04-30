@@ -71,7 +71,7 @@ Let's take a look an example implementation of each option to see the effect of 
 When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*.
 ![subscription service administrator with owner role](../_images/governance-2-1.png) 
 
-1. Now let's assume we have someone from a development team who is working on an application. This person is responsible for managing all the resources associated with this workload. This includes ensuring that resources are not deleted or changed, and that no unapproved resources are created. We'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
+1. Now let's assume we have someone from one of our development teams who is working on an application. Recall that we defined a *workload* as including not only the code artifacts for the application, but all necessary cloud resources as well. Therefore, this developer will be responsible not only for building and publishing the application code, but they will also be responsible for creating and maintaining the cloud resources necessary for the application to run.  Therefore, we'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
 ![workload owner requests creation of resource group A](../_images/governance-2-2.png)  
 
 2. The *service administrator* reviews the request, and creates *resource group A*. At this point, *workload owner A* still doesn't have permission to do anything.
@@ -103,7 +103,7 @@ However, note that every task in this example was performed by the *service admi
 
 One way to fix this problem is for our organization to allow workload owners to create their own resource groups and delegate access to resources. Let's take a look at how this implementation works and the issues associated with it:
 
-1. To enable workload owners to create their own resource groups and add users to those resource groups, they must be added to the *subscription* with the *owner* role. In this example, this is the only action the *service administrator* needs to take. 
+1. To enable workload owners to create their own resource groups and add users to those resource groups, they must be added to the *subscription* with the *owner* role. As in   the first example, the only person with permission to perform this action is the *service administrator*. 
 ![Service Administrator adds Workload Owner A to subscription](../_images/governance-2-11.png)
 
 2. Now, *workload owner A* creates *resource group A* and is added by default. Note that *workload owner A* inherits the *owner* role from the *subscription*.
