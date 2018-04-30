@@ -68,19 +68,11 @@ There are two options to consider:
 
 Let's take a look an example implmentation of each option to see the effect of this decision:
 
----
+| Figure | Description |
+|--------|-------------|
+|![subscription service administrator with owner role](../_images/governance-2-1.png)| When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*.| 
+|![workload owner requests creation of resource group A](../_images/governance-2-2.png)| Now let's assume we have someone from a development team who is working on an application. This person is responsible for managing all the resources associated with this workload. This includes ensuring that resources are not deleted or changed, and that no unapproved resources are created. We'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload. |
 
-![subscription service administrator with owner role](../_images/governance-2-1.png)
-
-When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*. 
-
----
-
-![workload owner requests creation of resource group A](../_images/governance-2-2.png)
-
-Now let's assume we have someone from a development team who is working on an application. This person is responsible for managing all the resources associated with this workload. This includes ensuring that resources are not deleted or changed, and that no unapproved resources are created. We'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
-
----
 
 ![service administrator creates resource group A](../_images/governance-2-3.png)
 
