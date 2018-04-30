@@ -99,9 +99,9 @@ Now let's analyze the resulting state of the *subscription*. We have two workloa
 
 ![subscription with resource groups A and B](../_images/governance-2-10.png)
 
-However, note that every task in this example was performed by the *service administrator*. This is a simple example and it's not an issue because there were only two workload owners, it's easy to imagine the types of issues that would result if the organization was very large. The *service administrator* could become a bottleneck, resulting in a backlog of requests that delay development teams for unacceptably long times.
+However, note that every task in this example was performed by the *service administrator*. This is a simple example and it's not an issue because there were only two workload owners, however it's easy to imagine the types of issues that would result if the organization was very large. The *service administrator* can become a bottleneck, resulting in a backlog of requests that create unacceptably long delays for development teams.
 
-One way to fix this problem is for our organization to allow workload owners to create their own resource groups and delegate access to resources. Let's take a look at how this implementation works:
+One way to fix this problem is for our organization to allow workload owners to create their own resource groups and delegate access to resources. Let's take a look at how this implementation works and the issues associated with it:
 
 1. To enable workload owners to create their own resource groups and add users to those resource groups, they must be added to the *subscription* with the *owner* role. In this example, this is the only action the *service administrator* needs to take. 
 ![Service Administrator adds Workload Owner A to subscription](../_images/governance-2-11.png)
@@ -124,53 +124,13 @@ As we did earlier, let's analyze the resulting state of the *subscription*, *res
 
 However, because both *workload owner A* and *workload owner B* are assigned the *owner* role at the *subscription scope*, they have also both inherited the *owner* role for each other's resource group. This means that not only do they have full access to one another's resources, they are also able to delegate access to others. For example, *workload owner B* has rights to add any other user to *resource group A* and can assign any role, including *owner*.
 
+Therefore, only the first example is a model that implements the concept of least privilege access. There is additional management overhead associated with this model, but there are some other strategies that can be implemented to reduce the effects. We'll take a look at these in the advanced section.
+
 ## Resource management scope
 
 The task of designing our resource management scope is to decide how we will organize and group the resources that make up our workloads. As you learned in the workload explainer, a workload can be made up of many different types of resources. Most of your workloads will share network resources with one or more central gateways to your on-premises network, and some of your workloads may share other resources such a load balancers, storage, and databases. 
 
 Therefore, we want to design the way we group our resources to make it as easy as possible for our *workload owner* personas to get access to the resources they need while at the same time ensuring that they do not have access to resources we don't want them to touch for security and durability reasons. We also have to design our resource management scope to support a *developer* and *production* environment.
 
-
-    
-
-In the earlier section, you learned about the concept of resource management **scope** in Azure. You learned that the top level of resource management scope is the **subscription** level and the next is the **resource group** level. Finally, the lowest level of management scope is at the **resource** level.
-
-For the last goverance walkthrough, our requirement was to manage all of the resources in the simple workload as a single unit. A single *resource group* included in a single *subscription* was sufficient to manage the resources for a simple workload. 
-
-Now we have a requirement to manage the resources for multiple workloads, with the resources for each workload isolated such that they are only accessible to the team responsible for the workload. We have an additional requirement to support a *development* environment and a *production* environment, each with different resource access management requirements.
-
-The requirement to isolate the resources for multiple workloads by team can be accomplished in the same way it was for a simple workload, and that's by including all the resources for each workload in a single *resource group*. Recall that we can 
-
-Our requirement is to manage all of the resources in the simple workload as a single unit. The first step to meet this requirement is to design the highest scope of resource management, which as we've already dicussed is the *subscription* level. The primary consideration for subscription management is deciding on the number of subscriptions your organization will use. 
-
-You could choose to put each resource into a single subscription, but this requires your *Central IT* and *workload owner* personas to manage each resource one at a time in each subscription. The other choice is to place all resources into a single subscription, which allows your *Central IT* and *workload owner* personas to select the subscription and apply changes to all resources in that subscription. 
-
-The next step is to design how we'll manage resources within each subscription. As with subscriptions, you could choose to put each resource into a single resource group, but that would require your *Central IT* and *workload owner* personas to manage each resource one at time in each resource group. The other choice is to place all the resources for a workload into a single resource group, which allows your *Central IT* and *workload owner* personas to select the resource group and apply changes to all resources at once.
-
-Therefore, the design of a single subscription and a single resource group for each workload is the correct design to meet the requirement of managing all resources for a simple workload as a single unit.
-
-## Permissions model of least privilege access 
-
-The requirement for least privilege access to resources means that we want users to have permission to peform approved actions on approved resources and nothing more. In Azure, these permissions are controlled using **role-based access control (RBAC)**. 
-
-RBAC roles define which capabilities the **role** has for a particular resource, and a role is applied to individual user identities. For example, the built-in **contributor** role allows a user to create, read, update, and delete a resource. The built-in **owner** role is similar, except it also allows the user to assign roles to other users.
-
-A major consideration in satisfying this requirement is assigning the right role to a user at the correct resource management scope. For example, we want a *workload owner* to be able to manage Azure resources for their project but no other projects. The *workload owner* may also want to allow other users on the project team to view resources but not create, update, or delete them.
-
-Therefore, our permissions model should include a single *central IT* user that has permission to add users to Azure AD as well as permission to assign those users to a subscription. This user will have the highest level permissions in your organization and permissions for all other users in your organization are granted by this *central IT* user.
-
-When this *central IT* user creates user accounts in Azure AD, they must assign a role to each new user. This role is applied to the user for all subscriptions that the user is assigned to. Therefore, to meet the least privilege access requirement, your organization must make some decisions about the structure of your *workload owners* team. 
-
-As discussed earlier, any user with the **owner** or **contributor** role at the subscription level can create, read, update, and delete any type of resource within the subscription regardless of the resource group that contains those resources. If you have a *workload owner* with the **owner** or **contributor** role at the subscription level, that *workload owner* will be able to perform all actions on a resource in any resource group within the subscription, even those for which this user might not be an owner.     
-
-However, in order to be able to do anything at all, at least one user in the *workload owner* persona must be able to request that a resource group be created, and request that resources be deployed into that resource group. At this point, your organization must decide whether the *central IT* persona is responsible for creating resource groups, or whether the individual *workload owner* personas are trusted to not only access their own resources but the resources other *workload owners*. 
-
-If your organization's decision is to allow only the *central IT* persona to create resource groups, the requirement of least privilege access can be satisfied by applying the **reader** role to the *workload owner* persona at the subscription level, and overriding the **reader** role with the **owner** or **contributor** role at the resource group level. 
-
-If your organization's decision is to trust the *workload owner* persona to create resource groups at the subscription scope, the requirement of least privilege access can be satisifed by applying either the **owner** or **contributor** role.
-
-All other users that work with the *workload owner* persona should have the least privilege access **reader** role applied at the subscription level. If the *workload owner* has the **owner** role applied at the resource group level they will have permission to change the role of the other users. Otherwise, the *workload owner* will have to request that *central IT* make any role changes.
-
 ## Next steps
 
-Return to the [foundational adoption stage overview](overview.md) and learn about the different types of compute options in Azure. Then, select a type of workload and learn how to deploy it.
