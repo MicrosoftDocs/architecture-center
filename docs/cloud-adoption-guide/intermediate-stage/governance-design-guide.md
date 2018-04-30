@@ -62,11 +62,11 @@ In Azure, each subscription has at least one service administrator. The service 
 
 The next level down in scope is the *resource group* level. There is a decision to be made at this point: who in your organization is trusted to create a resource group? While this may seem like a trivial decision, it is actually a key decision in your permissions model. 
 
-There are two options to consider:
-    1. Trust only the *service administrator* to create resource groups, or,
-    2. allow the *service administrator* to add one or more *workload owners* with the *owner* role at the subscription level, which enables the *workload owner* to create their own resource group.
+There are two options to consider:  
+1. Trust only the *service administrator* to create resource groups, or,
+2. allow the *service administrator* to add one or more *workload owners* with the *owner* role at the subscription level, which enables the *workload owner* to create their own resource group.
 
-Let's take a look an example implmentation of each option to see the effect of this decision. 
+Let's take a look an example implmentation of each option to see the effect of this decision:
 
 ![subscription service administrator with owner role](../_images/governance-2-1.png)
 
