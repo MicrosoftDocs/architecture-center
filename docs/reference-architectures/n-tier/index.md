@@ -7,7 +7,7 @@ layout: LandingPage
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# N-tier application reference architecture
+# N-tier application reference architectures
 
 <section class="series">
     <ul class="panelContent">
@@ -20,7 +20,7 @@ layout: LandingPage
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/n-tier.svg" height="140px" />
+                            <img src="./images/n-tier-sql-server.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
