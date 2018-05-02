@@ -15,7 +15,7 @@ pnp.series.prev: multi-vm
 
 # N-tier application with SQL Server
 
-This reference architecture shows a set of proven practices for running Windows virtual machines (VMs) for an N-tier application. [**Deploy this solution**.](#deploy-the-solution) 
+This reference architecture shows how to deploy VMs and a virtual network configured for an N-tier application, using SQL Server on Windows for the data tier. [**Deploy this solution**.](#deploy-the-solution) 
 
 ![[0]][0]
 

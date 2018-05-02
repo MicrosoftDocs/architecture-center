@@ -12,7 +12,7 @@ pnp.series.title: Windows VM workloads
 pnp.series.prev: n-tier
 ---
 
-# Run Windows VMs in multiple regions for high availability
+# Multi-region N-tier application for high availability
 
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure. 
 

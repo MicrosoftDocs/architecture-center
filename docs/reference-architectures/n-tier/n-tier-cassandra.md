@@ -8,9 +8,9 @@ ms.date: 11/22/2017
 
 ---
 
-# Run Linux VMs for an N-tier application
+# N-tier application with Apache Cassandra
 
-This reference architecture shows a set of proven practices for running Linux virtual machines (VMs) for an N-tier application. [**Deploy this solution**.](#deploy-the-solution)  
+This reference architecture shows how to deploy VMs and a virtual network configured for an N-tier application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**.](#deploy-the-solution) 
 
 ![[0]][0]
 
