@@ -153,4 +153,4 @@ Measure the recovery times and verify they meet your business requirements. Test
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
-[0]: ./images/multi-region-application-diagram.png "Highly available network architecture for Azure N-tier applications"
+[0]: ./images/multi-region-cassandra.png "Highly available network architecture for Azure N-tier applications"

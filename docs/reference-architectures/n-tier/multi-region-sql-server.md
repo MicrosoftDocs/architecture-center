@@ -189,4 +189,4 @@ Measure the recovery times and verify they meet your business requirements. Test
 [vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
 
-[0]: ./images/multi-region-application-diagram.png "Highly available network architecture for Azure N-tier applications"
+[0]: ./images/multi-region-sql-server.png "Highly available network architecture for Azure N-tier applications"

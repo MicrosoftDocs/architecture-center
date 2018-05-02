@@ -218,4 +218,4 @@ For more information on deploying this sample reference architecture using Azure
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
+[0]: ./images/n-tier-sql-server.png "N-tier architecture using Microsoft Azure"

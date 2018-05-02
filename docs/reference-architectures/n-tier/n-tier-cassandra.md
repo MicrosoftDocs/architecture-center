@@ -186,5 +186,5 @@ For more information on deploying this sample reference architecture using Azure
 [Nagios]: https://www.nagios.org/
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
-[0]: ./images/n-tier-diagram.png "N-tier architecture using Microsoft Azure"
+[0]: ./images/n-tier-cassandra.png "N-tier architecture using Microsoft Azure"
 
