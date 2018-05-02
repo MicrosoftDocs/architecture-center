@@ -62,7 +62,7 @@
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
 
-      - name: Jenkins server
+  - name: Jenkins server
     href: jenkins/index.md
 
   - name: SAP NetWeaver and SAP HANA
