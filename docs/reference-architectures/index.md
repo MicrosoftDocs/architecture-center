@@ -14,47 +14,29 @@ Our reference architectures are arranged by scenario, with related architectures
 
 <section class="series">
     <ul class="panelContent">
-    <!-- Windows VM workloads -->
+    <!-- N-tier application -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./virtual-machines-windows/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./n-tier/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./virtual-machines-windows/images/n-tier.svg" height="140px" />
+                            <img src="./virtual-machines-windows/images/n-tier.svg" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows VM workloads</h3>
-                        <p>This series starts with best practices for running a single Windows VM, then multiple load-balanced VMs, and finally a multi-region N-tier application.</p>
+                        <h3>N-tier application</h3>
+                        <p>Deploy an N-tier application to Azure, for Windows or Linux.</p>
+                        <p>For high availability, deploy an active-passive configuration in two regions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-    <!-- Linux VM workloads -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./virtual-machines-linux/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./virtual-machines-linux/images/n-tier.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Linux VM workloads</h3>
-                        <p>This series starts with best practices for running a single Linux VM, then multiple load-balanced VMs, and finally a multi-region N-tier application.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- Hybrid network -->
+
+<!-- Hybrid network -->
 <li style="display: flex; flex-direction: column;">
     <a href="./hybrid-networking/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -67,14 +49,15 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>Hybrid network</h3>
-                        <p>This series shows options for creating a network connection between an on-premises network and Azure.</p>
+                        <p>Create a hybrid network connection between an on-premises network and Azure.</p><p>Configurations include VPN Gateway and ExpressRoute, depending on your bandwidth and scalability requirements.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-    <!-- Network DMZ -->
+
+<!-- Network DMZ -->
 <li style="display: flex; flex-direction: column;">
     <a href="./dmz/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -87,14 +70,15 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>Network DMZ</h3>
-                        <p>This series shows how to create a network DMZ to protect the boundary between an Azure virtual network and an on-premises network or the Internet.</p>
+                        <p>Create a network DMZ to protect the boundary between an Azure virtual network and an on-premises network or the Internet.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-    <!-- Identity management -->
+
+<!-- Identity management -->
 <li style="display: flex; flex-direction: column;">
     <a href="./identity/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -107,7 +91,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     </div>
                     <div class="cardText">
                         <h3>Identity management</h3>
-                        <p>This series show options for integrating your on-premises Active Directory (AD) environment with an Azure network.</p>
+                        <p>Integrate your on-premises Active Directory (AD) domain with an Azure virtual network.</p><p> Configurations include integration with Azure AD, extending AD DS to Azure, and extending AD FS to Azure.</p>
                     </div>
                 </div>
             </div>
