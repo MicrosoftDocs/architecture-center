@@ -53,7 +53,7 @@
     href: n-tier/index.md
     items:
     - name: N-tier application with SQL Server
-      hef: n-tier/n-tier-sql-server.md
+      href: n-tier/n-tier-sql-server.md
     - name: Multi-region N-tier application
       href: n-tier/multi-region-sql-server.md
     - name: N-tier application with Cassandra

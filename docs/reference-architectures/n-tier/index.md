@@ -62,7 +62,7 @@ layout: LandingPage
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./images/n-tier.svg" height="140px" />
+                            <img src="./images/n-tier-cassandra.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
