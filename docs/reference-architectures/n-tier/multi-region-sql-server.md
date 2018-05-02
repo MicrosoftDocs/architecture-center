@@ -22,7 +22,7 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 ## Architecture 
 
-This architecture builds on the one shown in [Run Windows VMs for an N-tier application](n-tier.md). 
+This architecture builds on the one shown in [Run Windows VMs for an N-tier application](n-tier-sql-server.md). 
 
 * **Primary and secondary regions**. Use two regions to achieve higher availability. One is the primary region. The other region is for failover.
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
@@ -123,8 +123,6 @@ To configure the availability group:
     > Asynchronous commit replicas do not support automatic failover.
     >
     >
-
-For more information, see [Running Windows VMs for an N-tier architecture on Azure](n-tier.md).
 
 ## Availability considerations
 

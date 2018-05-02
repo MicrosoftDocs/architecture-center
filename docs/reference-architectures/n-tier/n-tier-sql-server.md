@@ -205,7 +205,7 @@ For more information on deploying this sample reference architecture using Azure
 
 <!-- links -->
 [dmz]: ../dmz/secure-vnet-dmz.md
-[multi-dc]: multi-region-application.md
+[multi-dc]: multi-region-sql-server.md
 [n-tier]: n-tier.md
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-administration]: /azure/automation/automation-intro

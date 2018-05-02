@@ -8,20 +8,15 @@ author: telmosampaio
 
 ms.date: 04/03/2018
 
-pnp.series.title: Windows VM workloads
-pnp.series.next: multi-vm
-pnp.series.prev: ./index
 ---
 
 # Run a Windows VM on Azure
 
-This reference architecture shows a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. This architecture can be used to run a single VM instance, and is the basis for more complex architectures such as N-tier applications. [**Deploy this solution.**](#deploy-the-solution)
+This article describes a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution.**](#deploy-the-solution)
 
 ![[0]][0]
 
-*Download a [Visio file][visio-download] that contains this architecture diagram.*
-
-## Architecture
+## Components
 
 Provisioning an Azure VM requires some additional components besides the VM itself, including networking and storage resources.
 
@@ -45,11 +40,7 @@ Provisioning an Azure VM requires some additional components besides the VM itse
 
 * **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
 
-## Recommendations
-
-This architecture shows the baseline recommendations for running a Windows VM in Azure. However, we don't recommend using a single VM for mission critical workloads because it creates a single point of failure. For higher availability, deploy two or more load-balanced VMs. For more information, see [Running multiple VMs on Azure][multi-vm].
-
-### VM recommendations
+## VM recommendations
 
 Azure offers many different virtual machine sizes. For more information, see [Sizes for virtual machines in Azure][virtual-machine-sizes]. If you are moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk input/output operations per second (IOPS), and adjust the size as needed. If you require multiple NICs for your VM, be aware that a maximum number of NICs is defined for each [VM size][vm-size-tables].
 
@@ -63,7 +54,7 @@ For information about choosing a published VM image, see [Find Windows VM images
 
 Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
 
-### Disk and storage recommendations
+## Disk and storage recommendations
 
 For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
 
@@ -77,7 +68,7 @@ Create a storage account to hold diagnostic logs. A standard locally redundant s
 > If you aren't using Managed Disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the [(IOPS) limits][vm-disk-limits] for storage accounts. Be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
 
-### Network recommendations
+## Network recommendations
 
 The public IP address can be dynamic or static. The default is dynamic.
 
@@ -90,7 +81,7 @@ To enable RDP, add an NSG rule that allows inbound traffic to TCP port 3389.
 
 ## Scalability considerations
 
-You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For more information, see [Run load-balanced VMs for scalability and availability][multi-vm].
+You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out horizontally, put two or more VMs behind a load balancer. For more information, see the [N-tier reference architecture](./n-tier-sql-server.md).
 
 ## Availability considerations
 
@@ -177,11 +168,6 @@ If you navigate to this address in a web browser, you should see the default IIS
 
 For information about customizing this deployment, visit our [GitHub repository][git].
 
-## Next steps
-
-- Learn about our [Azure building Blocks][azbbv2].
-- Deploy [multiple VMs][multi-vm] in Azure.
-
 <!-- links -->
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
@@ -204,7 +190,6 @@ For information about customizing this deployment, visit our [GitHub repository]
 [log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[multi-vm]: multi-vm.md
 [naming-conventions]: ../../best-practices/naming-conventions.md
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/virtual-networks-nsg#default-rules
