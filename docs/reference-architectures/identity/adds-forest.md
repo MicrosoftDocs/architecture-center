@@ -86,8 +86,6 @@ For Active Directory-specific security considerations, see the security consider
 
 ## Deploy the solution
 
-## Deploy the solution
-
 A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
 
 ### Prerequisites
