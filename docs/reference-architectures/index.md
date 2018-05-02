@@ -14,47 +14,30 @@ Our reference architectures are arranged by scenario, with related architectures
 
 <section class="series">
     <ul class="panelContent">
-    <!-- Windows VM workloads -->
+
+<!-- N-tier -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./virtual-machines-windows/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./n-tier/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./virtual-machines-windows/images/n-tier.svg" height="140px" />
+                            <img src="./virtual-machines-windows/images/n-tier.svg" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows VM workloads</h3>
-                        <p>This series starts with best practices for running a single Windows VM, then multiple load-balanced VMs, and finally a multi-region N-tier application.</p>
+                        <h3>N-tier application</h3>
+                        <p>Deploy an N-tier application to Azure, for Windows or Linux.</p>
+                        <p>Configurations are shown for SQL Server and Apache Cassandra. For high availability, deploy an active-passive configuration in two regions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-    <!-- Linux VM workloads -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./virtual-machines-linux/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./virtual-machines-linux/images/n-tier.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Linux VM workloads</h3>
-                        <p>This series starts with best practices for running a single Linux VM, then multiple load-balanced VMs, and finally a multi-region N-tier application.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- Hybrid network -->
+
+<!-- Hybrid network -->
 <li style="display: flex; flex-direction: column;">
     <a href="./hybrid-networking/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
