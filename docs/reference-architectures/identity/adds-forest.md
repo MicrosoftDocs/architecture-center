@@ -90,7 +90,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
+1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
 
 2. Install [Azure CLI 2.0][azure-cli-2].
 
@@ -160,6 +160,8 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 <!-- links -->
 [adds-extend-domain]: adds-extend-domain.md
 [adfs]: adfs.md
+[azure-cli-2]: /azure/install-azure-cli
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md

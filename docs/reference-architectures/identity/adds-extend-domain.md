@@ -100,7 +100,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
+1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
 
 2. Install [Azure CLI 2.0][azure-cli-2].
 
