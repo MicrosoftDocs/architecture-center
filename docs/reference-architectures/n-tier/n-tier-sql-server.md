@@ -132,7 +132,7 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 ## Availability considerations
 
-If you are not using VM scale sets, put VMs in the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. The following video also provides a good overview of availability sets: [How Do I Configure an Availability Set to Scale VMs][availability-set-ch9].
+If you are not using VM scale sets, put VMs in the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. 
 
 The load balancer uses [health probes][health-probes] to monitor the availability of VM instances. If a probe cannot reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 
@@ -230,6 +230,7 @@ For more information on deploying this sample reference architecture using Azure
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
+[resource-manager-overview]: 
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/library/gg509118.aspx
@@ -245,3 +246,15 @@ For more information on deploying this sample reference architecture using Azure
 [Icinga]: http://www.icinga.org/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [0]: ./images/n-tier-sql-server.png "N-tier architecture using Microsoft Azure"
+
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 
+[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
+[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-features
+[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
+[subscription-limits]: /azure/azure-subscription-service-limits
+[availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
+[health-probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
+[health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
+[health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
+[network-security]: /azure/best-practices-network-security
