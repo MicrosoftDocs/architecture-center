@@ -62,7 +62,7 @@ Affixes can refer to different aspects that describe the particular resources. T
 | Product or Service |service |Identifies the product, application, or service that the resource supports |
 | Role |sql, web, messaging |Identifies the role of the associated resource |
 
-When developing a specific naming convention for your company or projects, it is importantly to choose a common set of affixes and their position (suffix or prefix).
+When developing a specific naming convention for your company or projects, it is important to choose a common set of affixes and their position (suffix or prefix).
 
 ## Naming rules and restrictions
 
