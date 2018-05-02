@@ -13,7 +13,7 @@ pnp.series.next: multi-region-application
 pnp.series.prev: multi-vm
 ---
 
-# Run Windows VMs for an N-tier application
+# N-tier application with SQL Server
 
 This reference architecture shows a set of proven practices for running Windows virtual machines (VMs) for an N-tier application. [**Deploy this solution**.](#deploy-the-solution) 
 
@@ -230,7 +230,6 @@ For more information on deploying this sample reference architecture using Azure
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[resource-manager-overview]: 
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/library/gg509118.aspx
@@ -246,7 +245,6 @@ For more information on deploying this sample reference architecture using Azure
 [Icinga]: http://www.icinga.org/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [0]: ./images/n-tier-sql-server.png "N-tier architecture using Microsoft Azure"
-
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
