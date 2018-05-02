@@ -22,13 +22,12 @@
   - name: N-tier application on VMs
     href: n-tier/index.md
     items:
-    - name: Deploying Windows VMs
+    - name: Deploy a Windows VM
       href: n-tier/windows-vm.md
-    - name: Deploying Linux VMs
+    - name: Deploy a Linux VM
       href: n-tier/linux-vm.md
     - name: N-tier application
       href: n-tier/n-tier.md  
-    - name: N-tier application with Availability Zones
     - name: Multi-region N-tier application
       href: n-tier/multi-region-application.md
 

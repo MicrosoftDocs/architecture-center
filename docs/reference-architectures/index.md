@@ -36,7 +36,7 @@ Our reference architectures are arranged by scenario, with related architectures
     </a>
 </li>
 
-    <!-- Hybrid network -->
+<!-- Hybrid network -->
 <li style="display: flex; flex-direction: column;">
     <a href="./hybrid-networking/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -56,7 +56,8 @@ Our reference architectures are arranged by scenario, with related architectures
         </div>
     </a>
 </li>
-    <!-- Network DMZ -->
+
+<!-- Network DMZ -->
 <li style="display: flex; flex-direction: column;">
     <a href="./dmz/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -76,7 +77,8 @@ Our reference architectures are arranged by scenario, with related architectures
         </div>
     </a>
 </li>
-    <!-- Identity management -->
+
+<!-- Identity management -->
 <li style="display: flex; flex-direction: column;">
     <a href="./identity/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">

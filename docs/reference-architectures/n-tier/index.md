@@ -7,7 +7,7 @@ layout: LandingPage
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# N-tier applications reference architectures
+# N-tier application reference architecture
 
 <section class="series">
     <ul class="panelContent">
@@ -25,13 +25,13 @@ layout: LandingPage
                     </div>
                     <div class="cardText">
                         <h3>N-tier application</h3>
-                        <p>N-tier application with SQL Server.</p>
+                        <p>This reference architecture shows VMs and a virtual network configured for an N-tier application.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
-</li>-az
+</li>
 
 <!-- Multi-region application -->
 <li style="display: flex; flex-direction: column;">
@@ -46,7 +46,7 @@ layout: LandingPage
                     </div>
                     <div class="cardText">
                         <h3>Multi-region application</h3>
-                        <p>N-tier application deployed to two regions for high availability.</p>
+                        <p>This reference architecture shows an N-tier application deployed to two regions for high availability.</p>
                     </div>
                 </div>
             </div>
