@@ -2,7 +2,7 @@
 title: Extend Active Directory Domain Services (AD DS) to Azure
 description: Extend your on-premises Active Directory domain to Azure
 author: telmosampaio
-ms.date: 04/13/2018
+ms.date: 05/02/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: azure-ad

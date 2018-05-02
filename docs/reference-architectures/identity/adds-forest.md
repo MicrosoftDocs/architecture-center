@@ -5,7 +5,7 @@ description: How to create a trusted Active Directory domain in Azure.
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-ms.date: 04/17/2018
+ms.date: 05/02/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: adds-extend-domain
