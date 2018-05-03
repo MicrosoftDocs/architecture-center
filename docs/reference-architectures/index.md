@@ -51,6 +51,7 @@ Our reference architectures are arranged by scenario, with related architectures
                     <div class="cardText">
                         <h3>Hybrid network</h3>
                         <p>This series shows options for creating a network connection between an on-premises network and Azure.</p>
+                        <p>Configurations include site-to-site VPN or Azure ExpressRoute for a private, dedicated connection.</p>
                     </div>
                 </div>
             </div>
