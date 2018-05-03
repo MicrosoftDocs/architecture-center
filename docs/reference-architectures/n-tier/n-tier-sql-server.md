@@ -1,12 +1,11 @@
 ---
-title: Running Windows VMs for an N-tier architecture
+title: N-tier application with SQL Server
 description: >-
-  How to implement a multi-tier architecture on Azure, paying particular
-  attention to availability, security, scalability, and manageability security.
+  How to implement a multi-tier architecture on Azure, for availability, security, scalability, and manageability.
 
 author: MikeWasson
 
-ms.date: 11/22/2016
+ms.date: 05/03/2018
 
 pnp.series.title: Windows VM workloads
 pnp.series.next: multi-region-application
@@ -30,6 +29,8 @@ The architecture has the following components:
 * **Virtual network (VNet) and subnets.** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets. Create a separate subnet for each tier. 
 
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
+
+* **Virtual machines**. For recommendations on configuring VMs, see [Run a Windows VM on Azure](./windows-vm.md) and [Run a Linux VM on Azure](./linux-vm,md).
 
 * **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla] for VMs. 
 
@@ -65,8 +66,6 @@ Do not expose the VMs directly to the Internet, but instead give each VM a priva
 
 Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When a client sends an HTTP request to port 80, the load balancer selects a back-end IP address by using a [hashing algorithm][load-balancer-hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs.
 
-To route traffic to a specific VM, use NAT rules. For example, to enable RDP to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, the default port for RDP. For example, use port 50001 for "VM1," port 50002 for "VM2," and so on. Assign the NAT rules to the NICs on the VMs.
-
 ### Network security groups
 
 Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
@@ -74,7 +73,7 @@ Use NSG rules to restrict traffic between tiers. For example, in the 3-tier arch
 1. Deny all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
 2. Allow inbound traffic from the business tier subnet.  
 3. Allow inbound traffic from the database tier subnet itself. This rule allows communication between the database VMs, which is needed for database replication and failover.
-4. Allow RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
+4. Allow RDP traffic (port 3389) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
 
 Create rules 2 &ndash; 4 with higher priority than the first rule, so they override it.
 
@@ -111,7 +110,7 @@ Do not allow RDP access from the public Internet to the VMs that run the applica
 
 The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
-To secure the jumpbox, add an NSG rule that allows ssh or RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh or RDP traffic from the management subnet.
+To secure the jumpbox, add an NSG rule that allows RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
 
 ## Scalability considerations
 
@@ -143,7 +142,7 @@ Here are some recommendations on load balancer health probes:
 * The probe is sent from a [known IP address][health-probe-ip], 168.63.129.16. Make sure you don't block traffic to or from this IP address in any firewall policies or network security group (NSG) rules.
 * Use [health probe logs][health-probe-log] to view the status of the health probes. Enable logging in the Azure portal for each load balancer. Logs are written to Azure Blob storage. The logs show how many VMs on the back end are not receiving network traffic due to failed probe responses.
 
-If you need higher availability than the [Azure SLA for VMs][vm-sla] provides, replicate the application across two regions and use Azure Traffic Manager for failover. For more information, see [Run Windows VMs in multiple regions for high availability][multi-dc].  
+If you need higher availability than the [Azure SLA for VMs][vm-sla] provides, consider replication the application across two regions, using Azure Traffic Manager for failover. For more information, see [Multi-region N-tier application for high availability][multi-dc].  
 
 ## Security considerations
 
@@ -160,8 +159,6 @@ Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to man
 A deployment for this reference architecture is available on [GitHub][github-folder]. 
 
 ### Prerequisites
-
-Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
 
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 

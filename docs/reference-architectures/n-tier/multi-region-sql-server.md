@@ -1,12 +1,12 @@
 ---
-title: Run Windows VMs in multiple Azure regions for high availability
+title: Multi-region N-tier application for high availability
 description: >-
   How to deploy VMs in multiple regions on Azure for high availability and
   resiliency.
 
 author: MikeWasson
 
-ms.date: 11/22/2016
+ms.date: 05/03/2018
 
 pnp.series.title: Windows VM workloads
 pnp.series.prev: n-tier
@@ -22,13 +22,16 @@ This reference architecture shows a set of proven practices for running an N-tie
 
 ## Architecture 
 
-This architecture builds on the one shown in [Run Windows VMs for an N-tier application](n-tier-sql-server.md). 
+This architecture builds on the one shown in [N-tier application with SQL Server](n-tier-sql-server.md). 
 
 * **Primary and secondary regions**. Use two regions to achieve higher availability. One is the primary region. The other region is for failover.
-* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+
 * **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to one of the regions. During normal operations, it routes requests to the primary region. If that region becomes unavailable, Traffic Manager fails over to the secondary region. For more information, see the section [Traffic Manager configuration](#traffic-manager-configuration).
+
 * **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
+
 * **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap. 
+
 * **SQL Server Always On Availability Group**. If you are using SQL Server, we recommend [SQL Always On Availability Groups][sql-always-on] for high availability. Create a single availability group that includes the SQL Server instances in both regions. 
 
     > [!NOTE]

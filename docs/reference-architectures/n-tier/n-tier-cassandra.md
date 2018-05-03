@@ -1,10 +1,10 @@
 ---
-title: Run Linux VMs for an N-tier application on Azure
+title: N-tier application with Apache Cassandra
 description: How to run Linux VMs for an N-tier architecture in Microsoft Azure.
 
 author: MikeWasson
 
-ms.date: 11/22/2017
+ms.date: 05/03/2018
 
 ---
 
@@ -26,6 +26,8 @@ The architecture has the following components:
 
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
+* **Virtual machines**. For recommendations on configuring VMs, see [Run a Windows VM on Azure](./windows-vm.md) and [Run a Linux VM on Azure](./linux-vm,md).
+
 * **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla] for VMs. 
 
 * **VM scale set** (not shown). A [VM scale set][vmss] is an alternative to using an availability set. A scale sets makes it easy to scale out the VMs in a tier, either manually or automatically based on predefined rules.
@@ -34,7 +36,7 @@ The architecture has the following components:
 
 * **Public IP address**. A public IP address is needed for the public load balancer to receive Internet traffic.
 
-* **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
+* **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit ssh traffic.
 
 * **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
@@ -58,8 +60,6 @@ Do not expose the VMs directly to the Internet, but instead give each VM a priva
 
 Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When a client sends an HTTP request to port 80, the load balancer selects a back-end IP address by using a [hashing algorithm][load-balancer-hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs.
 
-To route traffic to a specific VM, use NAT rules. For example, to enable RDP to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, the default port for RDP. For example, use port 50001 for "VM1," port 50002 for "VM2," and so on. Assign the NAT rules to the NICs on the VMs.
-
 ### Network security groups
 
 Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
@@ -67,7 +67,7 @@ Use NSG rules to restrict traffic between tiers. For example, in the 3-tier arch
 1. Deny all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
 2. Allow inbound traffic from the business tier subnet.  
 3. Allow inbound traffic from the database tier subnet itself. This rule allows communication between the database VMs, which is needed for database replication and failover.
-4. Allow RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
+4. Allow ssh traffic (port 22) from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
 
 Create rules 2 &ndash; 4 with higher priority than the first rule, so they override it.
 
@@ -88,11 +88,11 @@ For high availability, deploy Cassandra in more than one Azure region. Within ea
 
 ### Jumpbox
 
-Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
+Do not allow ssh access from the public Internet to the VMs that run the application workload. Instead, all ssh access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows ssh traffic from the Internet, but only from known, safe IP addresses.
 
 The jumpbox has minimal performance requirements, so select a small VM size. Create a [public IP address] for the jumpbox. Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
-To secure the jumpbox, add an NSG rule that allows ssh or RDP connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh or RDP traffic from the management subnet.
+To secure the jumpbox, add an NSG rule that allows ssh connections only from a safe set of public IP addresses. Configure the NSGs for the other subnets to allow ssh traffic from the management subnet.
 
 ## Scalability considerations
 
@@ -142,8 +142,6 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 ### Prerequisites
 
-Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
-
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
 2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
@@ -185,6 +183,8 @@ For more information on deploying this sample reference architecture using Azure
 [azure-availability-sets]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [azure-cli-2]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-dns]: /azure/dns/dns-overview
+[azure-key-vault]: https://azure.microsoft.com/services/key-vault
+
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
