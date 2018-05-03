@@ -21,7 +21,7 @@ Now we're ready to go from domain model to application design. Here's an approac
 
 2. Next, look at the aggregates in your domain model. Aggregates are often good candidates for microservices. A well-designed aggregate exhibits many of the characteristics of a well-designed microservice, such as:
 
-    - An aggregates is derived from business requirements, rather than technical concerns such as data access or messaging.  
+    - An aggregate is derived from business requirements, rather than technical concerns such as data access or messaging.  
     - An aggregate should have high functional cohesion.
     - An aggregate is a boundary of persistence.
     - Aggregates should be loosely coupled. 
