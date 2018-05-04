@@ -4,7 +4,7 @@
 - name: Reference Architectures
   href: index.md
   items:
-  - name: App Service web applications
+  - name: App Service web application
     href: app-service-web-app/index.md
     items:
     - name: Basic web application
@@ -49,6 +49,20 @@
     - name: Extend AD FS to Azure
       href: identity/adfs.md
 
+  - name: N-tier application
+    href: n-tier/index.md
+    items:
+    - name: N-tier application with SQL Server
+      href: n-tier/n-tier-sql-server.md
+    - name: Multi-region N-tier application
+      href: n-tier/multi-region-sql-server.md
+    - name: N-tier application with Cassandra
+      href: n-tier/n-tier-cassandra.md
+    - name: Deploy a Linux VM
+      href: n-tier/linux-vm.md
+    - name: Deploy a Windows VM
+      href: n-tier/windows-vm.md
+
   - name: Network DMZ
     href: dmz/index.md
     items:
@@ -58,30 +72,6 @@
       href: dmz/secure-vnet-dmz.md
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
-
-  - name: VM workloads (Linux)
-    href: virtual-machines-linux/index.md
-    items:
-    - name: Single VM
-      href: virtual-machines-linux/single-vm.md
-    - name: Load balanced VMs
-      href: virtual-machines-linux/multi-vm.md
-    - name: N-tier application
-      href: virtual-machines-linux/n-tier.md  
-    - name: Multi-region application
-      href: virtual-machines-linux/multi-region-application.md
-
-  - name: VM workloads (Windows)
-    href: virtual-machines-windows/index.md
-    items:
-    - name: Single VM
-      href: virtual-machines-windows/single-vm.md
-    - name: Load balanced VMs
-      href: virtual-machines-windows/multi-vm.md
-    - name: N-tier application
-      href: virtual-machines-windows/n-tier.md  
-    - name: Multi-region application
-      href: virtual-machines-windows/multi-region-application.md
 
   - name: Jenkins server
     href: jenkins/index.md
