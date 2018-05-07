@@ -13,7 +13,7 @@ pnp.pattern.categories: [data-management, design-implementation, performance-sca
 
 [!INCLUDE [header](../_includes/header.md)]
 
-Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevent update commands from causing merge conflicts at the domain level.
+Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevents update commands from causing merge conflicts at the domain level.
 
 ## Context and problem
 
