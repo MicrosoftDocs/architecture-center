@@ -154,8 +154,8 @@ ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 Alternatively, you can specify the options as a string, and pass this to the **Connect** method. Note that the **ReconnectRetryPolicy** property cannot be set this way, only through code.
 
 ```csharp
-    var options = "localhost,connectRetry=3,connectTimeout=2000";
-    ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
+var options = "localhost,connectRetry=3,connectTimeout=2000";
+ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 ```
 
 You can also specify options directly when you connect to the cache.
@@ -188,7 +188,6 @@ You can collect information about connections (but not other operations) using a
 
 ```csharp
 var writer = new StringWriter();
-...
 ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 ```
 
@@ -231,7 +230,6 @@ namespace RetryCodeSamples
         public async static Task Samples()
         {
             var writer = new StringWriter();
-
             {
                 try
                 {
@@ -276,7 +274,6 @@ namespace RetryCodeSamples
         public async static Task Samples()
         {
             var writer = new StringWriter();
-
             {
                 try
                 {
@@ -327,15 +324,19 @@ The exceptions returned from Service Bus expose the **IsTransient** property tha
 ### Policy configuration
 Retry policies are set programmatically, and can be set as a default policy for a **NamespaceManager** and for a **MessagingFactory**, or individually for each messaging client. To set the default retry policy for a messaging session you set the **RetryPolicy** of the **NamespaceManager**.
 
-    namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
-                                                                 maxBackoff: TimeSpan.FromSeconds(30),
-                                                                 maxRetryCount: 3);
+```csharp
+namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
+                                                                maxBackoff: TimeSpan.FromSeconds(30),
+                                                                maxRetryCount: 3);
+```
 
 To set the default retry policy for all clients created from a messaging factory, you set the **RetryPolicy** of the **MessagingFactory**.
 
-    messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
-                                                        maxBackoff: TimeSpan.FromSeconds(30),
-                                                        maxRetryCount: 3);
+```csharp
+messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
+                                                    maxBackoff: TimeSpan.FromSeconds(30),
+                                                    maxRetryCount: 3);
+```
 
 To set the retry policy for a messaging client, or to override its default policy, you set its **RetryPolicy** property using an instance of the required policy class:
 
@@ -439,7 +440,6 @@ namespace RetryCodeSamples
                 }
             }
 
-
             var messagingFactory = MessagingFactory.Create(
                 namespaceManager.Address, namespaceManager.Settings.TokenProvider);
             // The messaging factory will have a default exponential policy with 10 retry attempts
@@ -460,7 +460,6 @@ namespace RetryCodeSamples
                 var session = await messagingFactory.AcceptMessageSessionAsync();
             }
 
-
             {
                 var client = messagingFactory.CreateQueueClient(QueueName);
                 // The client inherits the policy from the factory that created it.
@@ -472,7 +471,6 @@ namespace RetryCodeSamples
                         minBackoff: TimeSpan.FromSeconds(0.1),
                         maxBackoff: TimeSpan.FromSeconds(30),
                         maxRetryCount: 3);
-
 
                 // Policies cannot be specified on a per-operation basis.
                 var session = await client.AcceptMessageSessionAsync();
@@ -492,20 +490,20 @@ Distributing reliable services in a Service Fabric cluster guards against most o
 Internally, Service Fabric manages this kind of transient fault. You can configure some settings by using the `OperationRetrySettings` class while setting up your services.  The following code shows an example. In most cases, this should not be necessary, and the default settings will be fine.
 
 ```csharp
-    FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
-    {
-        OperationTimeout = TimeSpan.FromSeconds(30)
-    };
+FabricTransportRemotingSettings transportSettings = new FabricTransportRemotingSettings
+{
+    OperationTimeout = TimeSpan.FromSeconds(30)
+};
 
-    var retrySettings = new OperationRetrySettings(TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(1), 5);
+var retrySettings = new OperationRetrySettings(TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(1), 5);
 
-    var clientFactory = new FabricTransportServiceRemotingClientFactory(transportSettings);
+var clientFactory = new FabricTransportServiceRemotingClientFactory(transportSettings);
 
-    var serviceProxyFactory = new ServiceProxyFactory((c) => clientFactory, retrySettings);
+var serviceProxyFactory = new ServiceProxyFactory((c) => clientFactory, retrySettings);
 
-    var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
-        new Uri("fabric:/SomeApp/SomeStatefulReliableService"),
-        new ServicePartitionKey(0));
+var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
+    new Uri("fabric:/SomeApp/SomeStatefulReliableService"),
+    new ServicePartitionKey(0));
 ```
 
 ### More information
@@ -628,29 +626,34 @@ public class BloggingContextConfiguration : DbConfiguration
 
 You can then specify this as the default retry strategy for all operations using the **SetConfiguration** method of the **DbConfiguration** instance when the application starts. By default, EF will automatically discover and use the configuration class.
 
-    DbConfiguration.SetConfiguration(new BloggingContextConfiguration());
+```csharp
+DbConfiguration.SetConfiguration(new BloggingContextConfiguration());
+```
 
 You can specify the retry configuration class for a context by annotating the context class with a **DbConfigurationType** attribute. However, if you have only one configuration class, EF will use it without the need to annotate the context.
 
-    [DbConfigurationType(typeof(BloggingContextConfiguration))]
-    public class BloggingContext : DbContext
-    { ...
+```csharp
+[DbConfigurationType(typeof(BloggingContextConfiguration))]
+public class BloggingContext : DbContext
+```
 
 If you need to use different retry strategies for specific operations, or disable retries for specific operations, you can create a configuration class that allows you to suspend or swap strategies by setting a flag in the **CallContext**. The configuration class can use this flag to switch strategies, or disable the strategy you provide and use a default strategy. For more information, see [Suspend Execution Strategy](http://msdn.microsoft.com/dn307226#transactions_workarounds) in the page Limitations with Retrying Execution Strategies (EF6 onwards).
 
 Another technique for using specific retry strategies for individual operations is to create an instance of the required strategy class and supply the desired settings through parameters. You then invoke its **ExecuteAsync** method.
 
-    var executionStrategy = new SqlAzureExecutionStrategy(5, TimeSpan.FromSeconds(4));
-    var blogs = await executionStrategy.ExecuteAsync(
-        async () =>
+```csharp
+var executionStrategy = new SqlAzureExecutionStrategy(5, TimeSpan.FromSeconds(4));
+var blogs = await executionStrategy.ExecuteAsync(
+    async () =>
+    {
+        using (var db = new BloggingContext("Blogs"))
         {
-            using (var db = new BloggingContext("Blogs"))
-            {
-                // Acquire some values asynchronously and return them
-            }
-        },
-        new CancellationToken()
-    );
+            // Acquire some values asynchronously and return them
+        }
+    },
+    new CancellationToken()
+);
+```
 
 The simplest way to use a **DbConfiguration** class is to locate it in the same assembly as the **DbContext** class. However, this is not appropriate when the same context is required in different scenarios, such as different interactive and background retry strategies. If the different contexts execute in separate AppDomains, you can use the built-in support for specifying configuration classes in the configuration file or set it explicitly using code. If the different contexts must execute in the same AppDomain, a custom solution will be required.
 
@@ -825,18 +828,20 @@ var stats = await client.GetServiceStatsAsync(interactiveRequestOption, operatio
 
 You use an **OperationContext** instance to specify the code to execute when a retry occurs and when an operation has completed. This code can collect information about the operation for use in logs and telemetry.
 
-    // Set up notifications for an operation
-    var context = new OperationContext();
-    context.ClientRequestID = "some request id";
-    context.Retrying += (sender, args) =>
-    {
-      /* Collect retry information */
-    };
-    context.RequestCompleted += (sender, args) =>
-    {
-      /* Collect operation completion information */
-    };
-    var stats = await client.GetServiceStatsAsync(null, context);
+```csharp
+// Set up notifications for an operation
+var context = new OperationContext();
+context.ClientRequestID = "some request id";
+context.Retrying += (sender, args) =>
+{
+    /* Collect retry information */
+};
+context.RequestCompleted += (sender, args) =>
+{
+    /* Collect operation completion information */
+};
+var stats = await client.GetServiceStatsAsync(null, context);
+```
 
 In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more details, see [IExtendedRetryPolicy.Evaluate Method](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx).
 
@@ -993,23 +998,31 @@ Consider the following when accessing Azure or third party services:
 ### Retry strategies
 The following are the typical types of retry strategy intervals:
 
-* **Exponential**: A retry policy that performs a specified number of retries, using a randomized exponential back off approach to determine the interval between retries. For example:
+* **Exponential**. A retry policy that performs a specified number of retries, using a randomized exponential back off approach to determine the interval between retries. For example:
 
-        var random = new Random();
+    ```csharp
+    var random = new Random();
 
-        var delta = (int)((Math.Pow(2.0, currentRetryCount) - 1.0) *
-                    random.Next((int)(this.deltaBackoff.TotalMilliseconds * 0.8),
-                    (int)(this.deltaBackoff.TotalMilliseconds * 1.2)));
-        var interval = (int)Math.Min(checked(this.minBackoff.TotalMilliseconds + delta),
-                       this.maxBackoff.TotalMilliseconds);
-        retryInterval = TimeSpan.FromMilliseconds(interval);
-* **Incremental**: A retry strategy with a specified number of retry attempts and an incremental time interval between retries. For example:
+    var delta = (int)((Math.Pow(2.0, currentRetryCount) - 1.0) *
+                random.Next((int)(this.deltaBackoff.TotalMilliseconds * 0.8),
+                (int)(this.deltaBackoff.TotalMilliseconds * 1.2)));
+    var interval = (int)Math.Min(checked(this.minBackoff.TotalMilliseconds + delta),
+                    this.maxBackoff.TotalMilliseconds);
+    retryInterval = TimeSpan.FromMilliseconds(interval);
+    ```
 
-        retryInterval = TimeSpan.FromMilliseconds(this.initialInterval.TotalMilliseconds +
-                       (this.increment.TotalMilliseconds * currentRetryCount));
-* **LinearRetry**: A retry policy that performs a specified number of retries, using a specified fixed time interval between retries. For example:
+* **Incremental**. A retry strategy with a specified number of retry attempts and an incremental time interval between retries. For example:
 
-        retryInterval = this.deltaBackoff;
+    ```csharp
+    retryInterval = TimeSpan.FromMilliseconds(this.initialInterval.TotalMilliseconds +
+                    (this.increment.TotalMilliseconds * currentRetryCount));
+    ```
+
+* **LinearRetry**. A retry policy that performs a specified number of retries, using a specified fixed time interval between retries. For example:
+
+    ```csharp
+    retryInterval = this.deltaBackoff;
+    ```
 
 ### Transient fault handling with Polly
 [Polly][polly] is a library to programatically handle retries and [circuit breaker][circuit-breaker] strategies. The Polly project is a member of the [.NET Foundation][dotnet-foundation]. For services where the client does not natively support retries, Polly is a valid alternative and avoids the need to write custom retry code, which can be hard to implement correctly. Polly also provides a way to trace errors when they occur, so that you can log retries.
