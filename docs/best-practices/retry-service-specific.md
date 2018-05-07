@@ -23,9 +23,9 @@ The following table summarizes the retry features for the Azure services describ
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None | 
-| **[SQL Database with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single | **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6)** |Native in client |Programmatic |Global per AppDomain |None |
+| **[SQL Database with ADO.NET](#sql-database-using-adonet)** |[Polly](#transient-fault-handling-with-polly) |Declarative and programmatic |Single statements or blocks of code |Custom |
+| **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-core)** |Native in client |Programmatic |Global per AppDomain |None |
-statements or blocks of code |Custom |
 | **[Storage](#azure-storage)** |Native in client |Programmatic |Client and individual operations |TraceSource |
 
 > [!NOTE]
