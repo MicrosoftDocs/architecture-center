@@ -9,15 +9,28 @@
 
 <a name="about"></a>
 
-Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your applications and data pipelines stay up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your various solutions. This knowledge can help you to improve performance or maintainability, or automate actions that would otherwise require manual intervention.
+Cloud applications are complex with many moving parts. Implementing a well-designed monitoring architecture will create the capability to ensure that your applications and data pipelines are up and running and in a healthy state end-to-end. It also helps to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your various solutions. This knowledge can help you to improve performance or maintainability, or automate actions that would otherwise require manual intervention.
 
-When dealing with data, the range of things you need to monitor is both deep and wide. For instance, you might using memory-optimized database tables, putting pressure on your available memory. When you run out of memory, the system will no longer allow most write operations. If you're not using alerting features in Azure, you are at risk of discovering the issue when it's too late. Another example is monitoring data [pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md) for moving and transforming data. Monitoring your orchestration pipeline will ensure that your [ETL/ELT or data flow & control flow](../common-architectures/data-pipeline.md) tasks are running as expected.
+When dealing with data, the range of things you need to monitor is both deep and wide. An overview of what to monitor is the following:
+* Usage
+* Data Movement
+* Infrastructure & Services
+* Performance
+* Security & Access
 
-### Performance monitoring
+For instance, you might using memory-optimized database tables, putting pressure on your available memory. When you run out of memory, the system will no longer allow most write operations. If you're not using alerting features in Azure, you are at risk of discovering the issue when it's too late. Another example is monitoring data [pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md) for moving and transforming data. Monitoring your orchestration pipeline will ensure that your [ETL/ELT or data flow & control flow](../common-architectures/data-pipeline.md) tasks are running as expected.
 
-A good performance monitoring solution implements proper data collection so you do not have visibility gaps. This includes [time series](../pipeline-patterns/time-series.md) data so you can monitor performance trends, raw data retention offering high data granularity, and high frequency polling. A long polling cycle can cause you to completely miss traffic spikes that only last a few seconds, for instance. When working with [big data](../common-architectures/big-data.md), the ability to capture your data at massive scale is very important. You don't want to start making decisions on what you will and will not monitor, because you can't handle the increased capacity of your data logs.
+<!-- The below three sections does/did not align, meaning that they do not express the same level of detail. This cause the reader to be a bit confused. I have tried to sort it a bit. -->
 
-You need to establish a baseline for your performance, so you know what levels are outside the expected range at a given time. This means having regular snapshots of your baseline so you know when to expect more load on your system, based on historical data. This is crucial information when it comes to your scaling strategy, whether manual or automatic.
+### <!-- Performance ... this does not only relate to performance, or does it? --> Monitoring
+
+A good <!-- performance --> monitoring solution implements proper data collection so you do not have visibility gaps. Too long polling cycles can cause you to completely miss traffic spikes that only last a few seconds.
+
+Monitoring could be done to include [time series](../pipeline-patterns/time-series.md) data so you can monitor performance trends, raw data retention offering high data granularity, and high frequency polling. When working with [big data](../common-architectures/big-data.md), the ability to capture your data at massive scale is very important. You don't want to start making decisions on what you will and will not monitor, because you can't handle the increased capacity of your data logs.
+
+#### Performance monitoring
+
+Performance monitoring is especially vulnerable to two things; gaps in the data collection time series and not having a comparision baseline. You need to establish a baseline for your performance, so you know what levels are outside the expected range at a given time. This means having regular snapshots of your baseline so you know when to expect more load on your system, based on historical data. This is crucial information when it comes to your scaling strategy, whether manual or automatic.
 
 ### Alerting
 
@@ -74,7 +87,7 @@ However, you can also use any number of third-party solutions, such as Stackify,
 
 Azure Monitor is also built on top of data managed by two other monitoring services in Azure:
 
-- [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), which is part of the [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) (OMS). This service monitors your Azure and on-premises environments to give you a single pane of glass through which you can view logging and other monitoring data from multiple sources. This helps address one of the primary monitoring challenges we mentioned above. It also assists in searching your diagnostic logs, performance data, and custom data, as well as setting alerts.
+- [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), which is part of the [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) (OMS). This service monitors your Azure and on-premises environments to give you a single pane of glass through which you can view logging and other monitoring data from multiple sources. This helps address one of the primary monitoring challenges mentioned above. It also assists in searching your diagnostic logs, performance data, and custom data, as well as setting alerts.
 
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible application performance management (APM) service for developers on multiple platforms. It also automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. You can use it to monitor your live web, mobile, container applications and more. By using Application Insights you can quickly get insights in your availability, dependency, requests, trace logging, metrics, user usage and much more.
 
