@@ -14,7 +14,7 @@ Creating and deploying a machine learning model is an iterative process:
 * Data scientists explore the source data to determine relationships between *features* and predicted *labels*.
 * The data scientists train and validate models based on appropriate algorithms to find the optimal model for prediction.
 * The optimal model is deployed into production, as a web service or some other encapsulated function.
-* As new data is collected, the model is periodically retrained to improve is effectiveness.
+* As new data is collected, the model is periodically retrained to improve its effectiveness.
 
 Machine learning at scale addresses two different scalability concerns. The first is training a model against large data sets that require the scale-out capabilities of a cluster to train. The second centers is operationalizating the learned model in a way that can scale to meet the demands of the applications that consume it. Typically this is accomplished by deploying the predictive capabilities as a web service that can then be scaled out.
 
