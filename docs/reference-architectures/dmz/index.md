@@ -1,5 +1,5 @@
 ---
-title: Network DMZ
+title: Network DMZ reference architectures
 description: Explains and compares the different methods available for protecting applications and components running in Azure as part of a hybrid system from unauthorized intrusion.
 layout: LandingPage
 ---
@@ -7,7 +7,7 @@ layout: LandingPage
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# Network DMZ
+# Network DMZ reference architectures
 
 These reference architectures show proven practices for creating a network DMZ that protects the boundary between an Azure virtual network and an on-premises network or the Internet.
 
