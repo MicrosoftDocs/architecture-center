@@ -11,20 +11,19 @@
 
 Cloud applications are complex with many moving parts. Implementing a well-designed monitoring architecture will create the capability to ensure that your applications and data pipelines are up and running and in a healthy state end-to-end. It also helps to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your various solutions. This knowledge can help you to improve performance or maintainability, or automate actions that would otherwise require manual intervention.
 
-When dealing with data, the range of things you need to monitor is both deep and wide. An overview of what to monitor is the following:
+When dealing with data, the range of things you need to monitor is both deep and wide. A high-level overview of what to monitor is as follows:
+
 * Usage
 * Data Movement
 * Infrastructure & Services
 * Performance
 * Security & Access
 
-For instance, you might using memory-optimized database tables, putting pressure on your available memory. When you run out of memory, the system will no longer allow most write operations. If you're not using alerting features in Azure, you are at risk of discovering the issue when it's too late. Another example is monitoring data [pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md) for moving and transforming data. Monitoring your orchestration pipeline will ensure that your [ETL/ELT or data flow & control flow](../common-architectures/data-pipeline.md) tasks are running as expected.
+For instance, you might be using memory-optimized database tables, putting pressure on your available memory. When you run out of memory, the system will no longer allow most write operations. If you're not using alerting features in Azure, you are at risk of discovering the issue when it's too late. Another example is monitoring data [pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md) for moving and transforming data. Monitoring your orchestration pipeline will ensure that your [ETL/ELT or data flow & control flow](../common-architectures/data-pipeline.md) tasks are running as expected.
 
-<!-- The below three sections does/did not align, meaning that they do not express the same level of detail. This cause the reader to be a bit confused. I have tried to sort it a bit. -->
+### Monitoring - things to consider
 
-### <!-- Performance ... this does not only relate to performance, or does it? --> Monitoring
-
-A good <!-- performance --> monitoring solution implements proper data collection so you do not have visibility gaps. Too long polling cycles can cause you to completely miss traffic spikes that only last a few seconds.
+A good monitoring solution implements proper data collection so you do not have visibility gaps. Polling cycles that are too long can cause you to completely miss traffic spikes that only last a few seconds.
 
 Monitoring could be done to include [time series](../pipeline-patterns/time-series.md) data so you can monitor performance trends, raw data retention offering high data granularity, and high frequency polling. When working with [big data](../common-architectures/big-data.md), the ability to capture your data at massive scale is very important. You don't want to start making decisions on what you will and will not monitor, because you can't handle the increased capacity of your data logs.
 
@@ -40,7 +39,7 @@ Alerts are also important in security monitoring. This type of monitoring should
 
 ### Troubleshooting & diagnostics
 
-Azure services (IaaS, PaaS, SaaS, and so on) generate a plethora <!--This is one of those words that might be challenging for ESL readers and only appears on MSDN a little over 100 times. I'm not sure if you want to emphasize the idea of too many, like surplus, excess, or overabundance or if you just mean a number or many or?--> of logs, many of which you can opt in or out of as well as set the level of detail. The challenge is in monitoring these logs and easily accessing the information within so you can troubleshoot and diagnose issues. The important thing is to ensure you have enabled ample logging, but logs are just the starting point. Data operations that you run, and the applications that invoke the operations, could emit telemetry that you can collect and analyze. An example of this could be specific values and user events that flow through your system that you could later use to correlate with any errors that occur. This allows you to answer questions like, "when this error shows up, what does my data normally look like at that time, or what steps did the user take leading up to the issue?"
+Azure services (IaaS, PaaS, SaaS, and so on) generate a large number of logs, many of which you can opt in or out of as well as set the level of detail. The challenge is in monitoring these logs and easily accessing the information within so you can troubleshoot and diagnose issues. The important thing is to ensure you have enabled ample logging, but logs are just the starting point. Data operations that you run, and the applications that invoke the operations, could emit telemetry that you can collect and analyze. An example of this could be specific values and user events that flow through your system that you could later use to correlate with any errors that occur. This allows you to answer questions like, "when this error shows up, what does my data normally look like at that time, or what steps did the user take leading up to the issue?"
 
 ## <a name="whentouse"></a>When to use this architecture
 
