@@ -10,7 +10,7 @@ ms.date: 04/21/2018
 
 Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation. 
 
-**Treat this flowchart as a stating point.** Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation, looking at aspects such as:
+**Treat this flowchart as a starting point.** Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation, looking at aspects such as:
  
 - Feature set
 - [Service limits](/azure/azure-subscription-service-limits)
