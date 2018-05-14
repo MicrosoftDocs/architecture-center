@@ -93,7 +93,7 @@ SAP Web Dispatcher handles load balancing of HTTP(S) traffic to a pool of SAP ap
 
 For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
 
-## Performance and scalability considerations
+## Performance considerations
 
 SAP application servers are in constant communication with the database servers. For the HANA database VMs, consider enabling [Write Accelerator](/virtual-machines/linux/how-to-enable-write-accelerator) to improve log write latency. To optimize network communication between VMs, enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Note that not all VM series support Accelerated Network.
 
@@ -103,6 +103,8 @@ To achieve high IOPS and disk bandwidth throughput, the common practices in stor
 - Enabling the read cache on storage content that changes infrequently enhances the speed of data retrieval.
 
 For details about performance requirements, see [SAP note 1943937 - Hardware Configuration Check Tool](https://launchpad.support.sap.com/#/notes/1943937) (requires SAP Service Marketplace account to access).
+
+## Scalability considerations
 
 At the SAP application layer, Azure offers a wide range of virtual machine sizes for scaling up. For an inclusive list, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533) (requires SAP Service Marketplace account to access). SAP application servers can scale up/down or scale out by adding more instances.
 
