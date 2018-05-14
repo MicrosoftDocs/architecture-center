@@ -19,7 +19,9 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 The architecture consists of the following components.
 
-**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. The VNet is divided into separate subnets for each tier: application, database, jumpbox, and Active Directory.
+**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. This VNet is divided into separate subnets for each tier: application, database, shared services, and identity management.
+
+The identity management subnet contains VMs that perform network authentication, usually either Active Directory domain controllers or Kerberos servers. The shared services subnet contains the jumpbox that is used to manage the other VMs. Depending on your requirements, this subnet may contain VMs for other shared services such as patching, IP tables, and backup (not shown).
 
 **Virtual machines**. This architecture uses virtual machines running Linux for the application and database tiers.
 

@@ -18,9 +18,11 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The architecture consists of the following components.
 
-**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. The VNet is divided into separate subnets for each tier: application (SAP NetWeaver), database, jumpbox, and Active Directory.
+**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. This VNet is divided into separate subnets for each tier: application, database, shared services, and identity management.
 
-**Virtual machines**:
+The identity management subnet contains Active Directory domain controllers. The shared services subnet contains the jumpbox that is used to manage the other VMs. Depending on your requirements, this subnet may contain VMs for other shared services such as patching, IP tables, and backup (not shown).
+
+**Virtual machines**. This architecture uses virtual machines running Windows for the application and database tiers.
 
 - **SAP NetWeaver**. The application tier uses Windows VMs and runs SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by SIOS DataKeeper Cluster Edition.
 
