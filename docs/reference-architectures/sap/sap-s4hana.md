@@ -37,7 +37,7 @@ The architecture consists of the following components.
 
 **Gateway**. The gateway extends your on-premises network to the Azure virtual network. We recommend ExpressRoute for creating private connections that do not go over the public Internet, but a virtual private network (VPN) can also be used. For more information, see [Connect an on-premises network to Azure](../hybrid-networking/index.md).
 
-**Paired region**. For disaster recover (DR), configure a secondary region that can be used to fail over the application and database. See [Disaster recovery considerations](#disaster-recovery-considerations), below.
+**Paired region**. For disaster recovery (DR), configure a secondary region that can be used to fail over the application and database. See [Disaster recovery considerations](#disaster-recovery-considerations), below.
 
 ## Recommendations
 
@@ -59,7 +59,7 @@ The Fiori Front-end Server uses a [NetWeaver Gateway](https://help.sap.com/doc/s
 
 ### Application servers pool
 
-To manage logon groups for ABAP application servers, SMLG transaction is used. It uses the load balancing function within the Central Services Message Server to distribute the workload among SAP application servers for SAPGUI and RFC traffic. The application server connects to the Central Services through the cluster virtual network name. This avoids the need to change the application server profile for Central Services connectivity after a local failover. Assigning the cluster virtual network name to the endpoint of this internal load balancer is optional.
+To manage logon groups for ABAP application servers, the SMLG transaction is used. It uses the load balancing function within the Central Services Message Server to distribute the workload among SAP application servers for SAPGUI and RFC traffic. The application server connects to the Central Services through the cluster virtual network name. This avoids the need to change the application server profile for Central Services connectivity after a local failover.
 
 ### SAP Central Services cluster
 
@@ -73,7 +73,7 @@ Availability sets distribute VMs to different physical infrastructure and update
 
 ### VM disks
 
-For the database server VMs, we recommend using Azure Premium Storage for consistent read/write latency. For production SAP systems, we recommend using [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) with Premium tier in all cases. Managed disks ensure that the disks for VMs within an availability set are isolated to avoid single points of failure.
+For the database server VMs, we recommend using Azure Premium Storage for consistent read/write latency. We recommend using [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) with Premium tier in all cases. Managed disks ensure that the disks for VMs within an availability set are isolated to avoid single points of failure.
 
 For SAP application servers, including the Central Services VMs, you can use Azure Standard Storage to reduce cost, because application execution takes place in memory and disks are used for logging only. However, at this time, Standard Storage is only certified for unmanaged storage. Since application servers do not host any data, you can also use the smaller P4 and P6 Premium Storage disks to help minimize cost.
 
@@ -91,7 +91,7 @@ For more information about using NSGs for fine-grained control over the VMs in a
 
 SAP Web Dispatcher handles load balancing of HTTP(S) traffic to a pool of SAP application servers.
 
-For traffic from SAP GUI clients connecting a SAP server via DIAG protocol and Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
+For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
 
 ## Performance and scalability considerations
 
@@ -133,9 +133,9 @@ For disaster recovery (DR), you must be able to fail over to a secondary region.
 
 **Application servers.** SAP application servers do not contain business data. A simple DR strategy is to create SAP application servers in the secondary region, and then shut them down. However, any configuration changes or kernel updates on the primary application server must be copied to the VMs in the secondary region. Consider using [Azure Site Recovery](/azure/site-recovery/) to automatically replicate application servers the secondary region.
 
-**Central Services**. Central Services does not persist any business data. You can deploy a VM in the secondary region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. In addition, any configuration changes or kernel updates on the primary Central Services servers must be copied to the VM in the secondary region. To synchronize the two servers, you can use Azure Site Recovery to replicate the cluster nodes or simply schedule a job to copy /sapmnt to the disaster recovery region. For details, download the whitepaper [SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx), and refer to section 4.3, SAP SPOF layer (ASCS).
+**Central Services**. Central Services do not persist any business data. You can deploy a VM in the secondary region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. In addition, any configuration changes or kernel updates on the primary Central Services servers must be copied to the VM in the secondary region. To synchronize the two servers, you can use Azure Site Recovery to replicate the cluster nodes or simply schedule a job to copy /sapmnt to the disaster recovery region. For details, download the whitepaper [SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx), and refer to section 4.3, SAP SPOF layer (ASCS). This whitepaper shows a Windows configuration but you can implement an equivalent configuration for Linux.
 
-**HANA database**. Use HSR for HANA-supported replication. HSR supports multitier replication. In this configuration, the secondary HANA instance in the primary region is replicated to a third HANA instance in the DR region. This forms a replication daisy chain. Failover to this HANA instance is a manual process.
+**HANA database**. Use HSR for HANA-supported replication. HSR supports multitier replication. In this configuration, the secondary HANA instance in the primary region is replicated to a third HANA instance in the DR region, using asynchronous replication. This forms a replication daisy chain. Failover to this HANA instance is a manual process.
 
 To use Azure Site Recovery to automatically build out a fully replicated production site of your original, you must run customized deployment scripts. For more information, see [Add Azure Automation runbooks to recovery plans](/azure/site-recovery/site-recovery-runbook-automation). Site Recovery first deploys the VMs in availability sets, then runs scripts to add resources such as load balancers.
 

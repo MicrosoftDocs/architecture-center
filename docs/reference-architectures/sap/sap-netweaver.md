@@ -20,7 +20,7 @@ The architecture consists of the following components.
 
 **Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. The VNet is divided into separate subnets for each tier: application (SAP NetWeaver), database, jumpbox, and Active Directory.
 
-**Virtual machines**. The VMs are grouped into the following tiers:
+**Virtual machines**:
 
 - **SAP NetWeaver**. The application tier uses Windows VMs and runs SAP Central Services and SAP application servers. The VMs that run Central Services are configured as a Windows Server Failover Cluster for high availability, supported by SIOS DataKeeper Cluster Edition.
 
@@ -36,7 +36,7 @@ The architecture consists of the following components.
 
 **Gateway**. The gateway extends your on-premises network to the Azure virtual network. We recommend ExpressRoute for creating private connections that do not go over the public Internet, but a virtual private network (VPN) can also be used. For more information, see [Connect an on-premises network to Azure](../hybrid-networking/index.md).
 
-**Paired region**. For disaster recover (DR), configure a secondary region that can be used to fail over the application and database. See [Disaster recovery considerations](#disaster-recovery-considerations), below.
+**Paired region**. For disaster recovery (DR), configure a secondary region that can be used to fail over the application and database. See [Disaster recovery considerations](#disaster-recovery-considerations), below.
 
 ## Recommendations
 
@@ -50,7 +50,7 @@ For details about running SAP NetWeaver on Azure VMs, see [Azure Virtual Machine
 
 ### Application server pool
 
-To manage logon groups for ABAP application servers, SMLG transaction is used. It uses the load balancing function within the Central Services Message Server to distribute the workload among SAP application servers for SAPGUI and RFC traffic. The application server connects to the Central Services through the cluster virtual network name. This avoids the need to change the application server profile for Central Services connectivity after a local failover. Assigning the cluster virtual network name to the endpoint of this internal load balancer is optional.
+To manage logon groups for ABAP application servers, the SMLG transaction is used. It uses the load balancing function within the Central Services Message Server to distribute the workload among SAP application servers for SAPGUI and RFC traffic. The application server connects to the Central Services through the cluster virtual network name. This avoids the need to change the application server profile for Central Services connectivity after a local failover.
 
 ### SAP Central Services cluster
 
@@ -71,7 +71,7 @@ Availability sets distribute VMs to different physical infrastructure and update
 
 ### VM disks
 
-For all database server VMs, we recommend using Azure Premium Storage for consistent read/write latency. For production SAP systems, we recommend using [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) with Premium tier in all cases. Managed disks ensure that the disks for VMs within an availability set are isolated to avoid single points of failure.
+For all database server VMs, we recommend using Azure Premium Storage for consistent read/write latency. We recommend using [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) with Premium tier in all cases. Managed disks ensure that the disks for VMs within an availability set are isolated to avoid single points of failure.
 
 For SAP application servers, including the Central Services VMs, you can use Azure Standard Storage to reduce cost, because application execution takes place in memory and disks are used for logging only. However, at this time, Standard Storage is only certified for unmanaged storage. Since application servers do not host any data, you can also use the smaller P4 and P6 Premium Storage disks to help minimize cost.
 
@@ -89,7 +89,7 @@ For more information about using NSGs for fine-grained control over the VMs in a
 
 SAP Web Dispatcher handles load balancing of HTTP(S) traffic to a pool of SAP application servers.
 
-For traffic from SAP GUI clients connecting a SAP server via DIAG protocol and Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
+For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
 
 ## Performance and scalability considerations
 
@@ -126,7 +126,7 @@ For disaster recovery (DR), you must be able to fail over to a secondary region.
 
 **Application servers.** SAP application servers do not contain business data. A simple DR strategy is to create SAP application servers in the secondary region, and then shut them down. However, any configuration changes or kernel updates on the primary application server must be copied to the VMs in the secondary region. Consider using [Azure Site Recovery](/azure/site-recovery/) to automatically replicate application servers the secondary region.
 
-**Central Services**. Central Services does not persist any business data. You can deploy a VM in the secondary region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. In addition, any configuration changes or kernel updates on the primary Central Services servers must be copied to the VM in the secondary region. To synchronize the two servers, you can use Azure Site Recovery to replicate the cluster nodes or simply schedule a job to copy /sapmnt to the disaster recovery region. For details, download the whitepaper [SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx), and refer to section 4.3, SAP SPOF layer (ASCS).
+**Central Services**. Central Services do not persist any business data. You can deploy a VM in the secondary region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. In addition, any configuration changes or kernel updates on the primary Central Services servers must be copied to the VM in the secondary region. To synchronize the two servers, you can use Azure Site Recovery to replicate the cluster nodes or simply schedule a job to copy /sapmnt to the disaster recovery region. For details, download the whitepaper [SAP NetWeaver: Building a Hyper-V & Microsoft Azure–based Disaster Recovery Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx), and refer to section 4.3, SAP SPOF layer (ASCS).
 
 **Database tier**. Use the database's own integrated replication technology for DR. In the case of SQL Server, for example, we recommend using Always On Availability Groups to replicate transactions asynchronously with manual failover. Asynchronous replication avoids an impact to the performance of interactive workloads at the primary site. Manual failover offers the opportunity for a person to evaluate the DR impact and decide if operating from the DR site is justified. For more information, see [Multi-region N-tier application for high availability](../n-tier/multi-region-sql-server.md).
 
