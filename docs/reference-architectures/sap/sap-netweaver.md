@@ -50,11 +50,11 @@ The spoke VNet contains an application subnet and a database subnet.
 
 ## Recommendations
 
-This architecture describes a small production-level enterprise deployment. Your deployment may differ based on your business requirements. Use these recommendations as a starting point.
+Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
 ### SAP Web Dispatcher
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, place two or more Web Dispatcher VMs behind an Azure Load Balancer.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, place two or more Web Dispatcher VMs behind an Azure Load Balancer. Web Dispatcher uses a round-robin configuration for HTTP(S) traffic distribution among the available Web Dispatchers in the balancers pool.
 
 For details about running SAP NetWeaver on Azure VMs, see [Azure Virtual Machines planning and implementation for SAP NetWeaver](/azure/virtual-machines/workloads/sap/planning-guide).
 
@@ -66,9 +66,9 @@ To manage logon groups for ABAP application servers, the SMLG transaction is use
 
 Central Services can be deployed to a single virtual machine when high availability is not a requirement. However, the single virtual machine becomes a potential single point of failure (SPOF). To achieve high availability, configure Central Services on a Windows Server Failover Cluster. The cluster storage for the failover cluster can be configured using either a clustered shared volume or a file share.
 
-**Shared volume.** Because Azure does not natively support shared disks, SIOS Datakeeper is used to replicate the content of independent disks attached to the cluster nodes and to abstract the drives as a cluster shared volume for the cluster manager. For implementation details, see [Clustering SAP ASCS on Azure](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/20/clustering-sap-ascs-instance-using-windows-server-failover-cluster-on-microsoft-azure-with-sios-datakeeper-and-azure-internal-load-balancer/).
+- **Shared volume.** Because Azure does not natively support shared disks, SIOS Datakeeper is used to replicate the content of independent disks attached to the cluster nodes and to abstract the drives as a cluster shared volume for the cluster manager. For implementation details, see [Clustering SAP ASCS on Azure](https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/20/clustering-sap-ascs-instance-using-windows-server-failover-cluster-on-microsoft-azure-with-sios-datakeeper-and-azure-internal-load-balancer/).
 
-**File share**. Another way to handle clustering is to implement a file share cluster. SAP has modified the Central Services deployment pattern to access the /sapmnt global directories via a UNC path. This change removes the requirement for SIOS or other shared disk solutions on the Central Services VMs. It is still recommended that the /sapmnt UNC share be highly available. This can be done using [Scale Out File Server](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/14/file-server-with-sofs-and-s2d-as-an-alternative-to-cluster-shared-disk-for-clustering-of-an-sap-ascs-instance-in-azure-is-generally-available/) (SOFS) and [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct/) (S2D) in Windows Server 2016. S2D can implement software-defined storage and eliminates the need for SIOS DataKeeper.
+- **File share cluster**. Another way to handle clustering is to implement a file share cluster. SAP has modified the Central Services deployment pattern to access the /sapmnt global directories via a UNC path. This change removes the requirement for SIOS or other shared disk solutions on the Central Services VMs. It is still recommended that the /sapmnt UNC share be highly available. This can be done using [Scale Out File Server](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/14/file-server-with-sofs-and-s2d-as-an-alternative-to-cluster-shared-disk-for-clustering-of-an-sap-ascs-instance-in-azure-is-generally-available/) (SOFS) and [Storage Spaces Direct](https://blogs.sap.com/2018/03/07/your-sap-on-azure-part-5-ascs-high-availability-with-storage-spaces-direct/) (S2D) in Windows Server 2016. S2D can implement software-defined storage and eliminates the need for SIOS DataKeeper.
 
 > [!NOTE]
 > Currently an SOFS cluster does not extend across regions to provide disaster recovery support.
@@ -103,7 +103,7 @@ For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Re
 
 ## Performance considerations
 
-SAP application servers are in constant communication with the database servers. For performance-critical applications running on any database platform, including SAP HANA, consider enabling [Write Accelerator](/virtual-machines/linux/how-to-enable-write-accelerator) to improve log write latency. To optimize network communication between VMs, enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Note that not all VM series support Accelerated Network.
+SAP application servers are in constant communication with the database servers. For performance-critical applications running on any database platform, including SAP HANA, consider enabling [Write Accelerator](/virtual-machines/linux/how-to-enable-write-accelerator) to improve log write latency. To optimize network communication between VMs, enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Note that not all VM series support Accelerated Networking.
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in storage volume performance optimization apply in Azure. For example:
 

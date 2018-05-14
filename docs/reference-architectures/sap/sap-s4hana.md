@@ -51,7 +51,7 @@ The spoke VNet contains an application subnet and a database subnet.
 
 ## Recommendations
 
-This architecture describes a small production-level enterprise deployment. Your deployment may differ based on your business requirements. Use these recommendations as a starting point.
+Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
 ### Virtual machines
 
@@ -61,7 +61,7 @@ For details about SAP support for Azure virtual machine types and throughput met
 
 ### SAP Web Dispatcher pool
 
-The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, place two or more Web Dispatcher VMs behind an Azure Load Balancer.
+The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, place two or more Web Dispatcher VMs behind an Azure Load Balancer. Web Dispatcher uses a round-robin configuration for HTTP(S) traffic distribution among the available Web Dispatchers in the balancers pool
 
 ### Fiori Front-end Server
 
@@ -105,7 +105,7 @@ For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Re
 
 ## Performance considerations
 
-SAP application servers are in constant communication with the database servers. For the HANA database VMs, consider enabling [Write Accelerator](/virtual-machines/linux/how-to-enable-write-accelerator) to improve log write latency. To optimize network communication between VMs, enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Note that not all VM series support Accelerated Network.
+SAP application servers are in constant communication with the database servers. For the HANA database VMs, consider enabling [Write Accelerator](/virtual-machines/linux/how-to-enable-write-accelerator) to improve log write latency. To optimize network communication between VMs, enable [Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Note that not all VM series support Accelerated Networking.
 
 To achieve high IOPS and disk bandwidth throughput, the common practices in storage volume performance optimization apply in Azure. For example:
 
