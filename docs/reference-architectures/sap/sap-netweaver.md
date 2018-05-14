@@ -81,7 +81,7 @@ When a NSG is associated with a subnet, it applies to all the servers within the
 
 [SAP Web Dispatcher](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm) handles load balancing of HTTP(S) traffic to a pool of SAP application servers.
 
-For traffic from SAP GUI clients connecting a SAP server via DIAG protocol and Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
+For traffic from SAP GUI clients connecting a SAP server via DIAG protocol or Remote Function Calls (RFC), the Central Services message server balances the load through SAP application server [logon groups](https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing), so no additional load balancer is needed.
 
 ### Azure Storage
 
@@ -132,7 +132,7 @@ For implementation details about specific database systems, see Azure Virtual Ma
 
 Each tier uses a different strategy to provide disaster recovery (DR) protection.
 
-- **Application servers tier.**. SAP application servers do not contain business data. On Azure, a simple DR strategy is to create SAP application servers in the DR region, then shut them down. Upon any configuration changes or kernel updates on the primary application server, the same changes must be copied to the virtual machines in the DR region. For example, the kernel executables copied to the DR virtual machines. For automatic replication of application servers to a DR region, [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is the recommended solution.
+- **Application servers tier**. SAP application servers do not contain business data. On Azure, a simple DR strategy is to create SAP application servers in the DR region, then shut them down. Upon any configuration changes or kernel updates on the primary application server, the same changes must be copied to the virtual machines in the DR region. For example, the kernel executables copied to the DR virtual machines. For automatic replication of application servers to a DR region, [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) is the recommended solution.
 
 - **Central Services**. This component of the SAP application stack also does not persist business data. You can build a VM in the disaster recovery region to run the Central Services role. The only content from the primary Central Services node to synchronize is the /sapmnt share content. Also, if configuration changes or kernel updates take place on the primary Central Services servers, they must be repeated on the VM in the disaster recovery region running Central Services. To synchronize the two servers, you can use either Azure Site Recovery to replicate the cluster nodes or simply use a regularly scheduled copy job to copy /sapmnt to the disaster recovery region. For details about this simple replication method's build, copy, and test failover process, download [SAP NetWeaver: Building a Hyper-V and Microsoft Azure–based Disaster Recovery Solution](http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx), and refer to "4.3. SAP SPOF layer (ASCS)."
 
