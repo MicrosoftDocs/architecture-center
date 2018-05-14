@@ -37,7 +37,7 @@ The spoke VNet contains an application subnet and a database subnet.
 
 - **NFS cluster**. This architecture uses an [NFS server](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) running on a Linux cluster to store data shared between SAP systems. This centralized cluster can be shared across multiple SAP systems. For high availability of the NFS service, use the appropriate High Availability Extension for the selected Linux distribution.
 
-- **SAP HANA**. The database tier uses two or more Linux virtual machines in a cluster to achieve high availability. HANA System Replication (HSR) is used to replicate contents between primary and secondary HANA systems. Linux clustering is used to detect system failures and facilitate automatic failover. A storage-based or cloud-based fencing mechanism can be used to ensure the failed system is isolated or shut down to avoid the cluster split-brain condition.
+- **SAP HANA**. The database tier uses two or more Linux virtual machines in a cluster to achieve high availability. HANA System Replication (HSR) is used to replicate contents between primary and secondary HANA systems. Linux clustering is used to detect system failures and trigger automatic failover. A storage-based or cloud-based fencing mechanism can be used to ensure the failed system is isolated or shut down to avoid the cluster split-brain condition.
 
 - **Jumpbox**. Also called a bastion host. This is a secure virtual machine on the network that administrators use to connect to the other virtual machines. It can run Windows or Linux. Use a Windows jumpbox for web browsing convenience when using HANA Cockpit or HANA Studio management tools.
 
@@ -65,7 +65,7 @@ The Web Dispatcher component is used as a load balancer for SAP traffic among th
 
 ### Fiori Front-end Server
 
-The Fiori Front-end Server uses a [NetWeaver Gateway](https://help.sap.com/doc/saphelp_gateway20sp12/2.0/en-US/76/08828d832e4aa78748e9f82204a864/content.htm). For small deployments, it can be loaded on the Fiori server. For large deployments, a separate server for the NetWeaver Gateway may be deployed in front of the Fiori Front-end Server pool.
+The Fiori Front-end Server uses a [NetWeaver Gateway](https://help.sap.com/doc/saphelp_gateway20sp12/2.0/en-US/76/08828d832e4aa78748e9f82204a864/content.htm). For small deployments, it can be loaded on the Fiori server. For large deployments, consider deploying a separate server for the NetWeaver Gateway in front of the Fiori Front-end Server pool.
 
 ### Application servers pool
 
@@ -164,11 +164,9 @@ Control access to resources by using a centralized identity management system at
 another system. 
 - Support access within the apps themselves through the services that SAP provides, or use [OAuth 2.0 and Azure Active Directory](/azure/active-directory/develop/active-directory-protocols-oauth-code). 
 
-## Monitoring
-
 Azure Operations Management Suite (OMS) provides enhanced monitoring of Azure virtual machines.  
 
-For SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure Enhanced Monitoring Extension for SAP](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca). This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For more information, see [Azure Virtual Machines deployment for SAP NetWeaver](/azure/virtual-machines/workloads/sap/deployment-guide#detailed-tasks-for-sap-software-deployment).
+For SAP-based monitoring of resources and service performance of the SAP infrastructure, use the [Azure Enhanced Monitoring Extension for SAP](/azure/virtual-machines/workloads/sap/deployment-guide#d98edcd3-f2a1-49f7-b26a-07448ceb60ca). This extension feeds Azure monitoring statistics into the SAP application for operating system monitoring and DBA Cockpit functions. SAP enhanced monitoring is a mandatory prerequisite to run SAP on Azure. For more information, see [SAP Note 2191498 – SAP on Linux with Azure: Enhanced Monitoring](https://launchpad.support.sap.com/).
 
 ## Security considerations
 
