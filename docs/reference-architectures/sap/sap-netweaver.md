@@ -18,9 +18,17 @@ This reference architecture shows a set of proven practices for running SAP NetW
 
 The architecture consists of the following components.
 
-**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet contains shared services including Active Directory domain servers. The spoke VNet contains the SAP applications and database tier. This VNet is divided into separate subnets for each tier: application, database, shared services, and identity management.
+**Virtual networks (VNets)**. This architecture uses two VNets in a [hub-spoke](../hybrid-networking/hub-spoke.md) topology. The hub VNet connects to the organization's on-premises network through a virtual network gateway. The spoke VNet contains the SAP applications and database tier. The hub and spoke communicate through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview). 
 
-The identity management subnet contains Active Directory domain controllers. The shared services subnet contains the jumpbox that is used to manage the other VMs. Depending on your requirements, this subnet may contain VMs for other shared services such as patching, IP tables, and backup (not shown).
+The hub VNet contains the following subnets:
+
+- **Gateway subnet**. Contains the virtual network gateway. For more information, see [Connect an on-premises network to Azure](../hybrid-networking/index.md).
+
+- **Shared services subnet**. Contains a jumpbox VM, which is used to manage the other VMs. Depending on your requirements, this subnet might also have VMs for other shared services such as patching, IP tables, and backup (not shown). 
+
+- **Identity management subnet**. Contains Active Directory domain servers. 
+
+The spoke VNet contains an application subnet and a database subnet.
 
 **Virtual machines**. This architecture uses virtual machines running Windows for the application and database tiers.
 
