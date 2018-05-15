@@ -46,7 +46,7 @@ The enterprise scaffold is intended to be the foundation of each new subscriptio
 
 The following image describes the components of the scaffold. The foundation relies on a solid plan for departments, accounts, and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of the scaffold comes from core Azure capabilities and features that enable a secure and manageable environment.
 
-![scaffold components](./media/resource-manager-subscription-governance/components.png)
+![scaffold components](./_images/components.png)
 
 > [!NOTE]
 > Azure has grown rapidly since its introduction in 2008. This growth required Microsoft engineering teams to rethink their approach for managing and deploying services. The Azure Resource Manager model was introduced in 2014 and replaces the classic deployment model. Resource Manager enables organizations to more easily deploy, organize, and control Azure resources. Resource Manager includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata. Microsoft recommends that you create all resources through the Resource Manager model. The enterprise scaffold is explicitly designed for the Resource Manager model.
@@ -56,7 +56,7 @@ The following image describes the components of the scaffold. The foundation rel
 ## Define your hierarchy
 The foundation of the scaffold is the Azure Enterprise Enrollment (and the Enterprise Portal). The enterprise enrollment defines the shape and use of Azure services within a company and is the core governance structure. Within the enterprise agreement, customers are able to further subdivide the environment into departments, accounts, and finally, subscriptions. An Azure subscription is the basic unit where all resources are contained. It also defines several limits within Azure, such as number of cores, resources, etc.
 
-![hierarchy](./media/resource-manager-subscription-governance/agreement.png)
+![hierarchy](./_images/agreement.png)
 
 Every enterprise is different and the hierarchy in the previous image allows for significant flexibility in how Azure is organized within the company. Before implementing the guidance contained in this document, you should model your hierarchy and understand the impact on billing, resource access, and complexity.
 
@@ -64,13 +64,13 @@ The three common patterns for Azure Enrollments are:
 
 * The **functional** pattern
   
-    ![functional](./media/resource-manager-subscription-governance/functional.png)
+    ![functional](./_images/functional.png)
 * The **business unit** pattern 
   
-    ![business](./media/resource-manager-subscription-governance/business.png)
+    ![business](./_images/business.png)
 * The **geographic** pattern
   
-    ![geographic](./media/resource-manager-subscription-governance/geographic.png)
+    ![geographic](./_images/geographic.png)
 
 You apply the scaffold at the subscription level to extend the governance requirements of the enterprise into the subscription.
 
@@ -79,14 +79,14 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 
 > [!TIP]
 > For naming conventions:
-> * Review and adopt where possible the [Patterns and Practices guidance](../guidance/guidance-naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
+> * Review and adopt where possible the [Patterns and Practices guidance](../best-practices/naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
 > * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 > * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
 > The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure policies](../azure-policy/azure-policy-introduction.md) and [auditing the activity log](resource-group-audit.md). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating [Azure policies](/azure/azure-policy/azure-policy-introduction) and [auditing the activity log](/azure/azure-resource-manage/resource-group-audit). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).
@@ -137,7 +137,7 @@ To view how your environment is functioning, you need to audit user activity. Mo
 Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them. Activity logs can be collected and aggregated using tools like Log Analytics.
 
 ## Resource tags
-As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](resource-group-using-tags.md). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
+As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](/azure/azure-resource-manage/resource-group-using-tags). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
 
 Resource tags are flexible and should be attached to most resources. Examples of common resource tags are:
 
@@ -148,9 +148,9 @@ Resource tags are flexible and should be attached to most resources. Examples of
 * Application Owner
 * ProjectName
 
-![tags](./media/resource-manager-subscription-governance/resource-group-tagging.png)
+![tags](./_images/resource-group-tagging.png)
 
-For more examples of tags, see [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md).
+For more examples of tags, see [Recommended naming conventions for Azure resources](../best-practices/naming-conventions.md).
 
 > [!TIP]
 > Consider making a policy that mandates tagging for:
@@ -194,7 +194,7 @@ This proliferation of subscriptions is no longer needed. With role-based access 
 > These tips help you manage user access across your subscription.
 
 ## Azure resource locks
-As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](resource-group-lock-resources.md) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
+As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](/azure/azure-resource-manage/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
 
 Resource locks currently support two values: CanNotDelete and ReadOnly. CanNotDelete means that users (with the appropriate rights) can still read or modify a resource but cannot delete it. ReadOnly means that authorized users can't delete or modify a resource.
 
@@ -216,7 +216,7 @@ Access to resources can be either internal (within the corporation's network) or
 * **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
 * **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
 
-![core networking](./media/resource-manager-subscription-governance/core-network.png)
+![core networking](./_images/core-network.png)
 
 > [!TIP]
 > For networking:
@@ -226,11 +226,11 @@ Access to resources can be either internal (within the corporation's network) or
 > These tips help you implement secure networking resources.
 
 ### Automation
-Managing resources individually is both time-consuming and potentially error prone for certain operations. Azure provides various automation capabilities including Azure Automation, Logic Apps, and Azure Functions. [Azure Automation](../automation/automation-intro.md) enables administrators to create and define runbooks to handle common tasks in managing resources. You create runbooks by using either a PowerShell code editor or a graphical editor. You can produce complex multi-stage workflows. Azure Automation is often used to handle common tasks such as shutting down unused resources, or creating resources in response to a specific trigger without needing human intervention.
+Managing resources individually is both time-consuming and potentially error prone for certain operations. Azure provides various automation capabilities including Azure Automation, Logic Apps, and Azure Functions. [Azure Automation](/azure/automation/automation-intro) enables administrators to create and define runbooks to handle common tasks in managing resources. You create runbooks by using either a PowerShell code editor or a graphical editor. You can produce complex multi-stage workflows. Azure Automation is often used to handle common tasks such as shutting down unused resources, or creating resources in response to a specific trigger without needing human intervention.
 
 > [!TIP]
 > For automation:
-> * Create an Azure Automation account and review the available runbooks (both graphical and command line) available in the [Runbook Gallery](../automation/automation-runbook-gallery.md).
+> * Create an Azure Automation account and review the available runbooks (both graphical and command line) available in the [Runbook Gallery](/azure/automation/automation-runbook-gallery).
 > * Import and customize key runbooks for your own use.
 > 
 > A common scenario is the ability to Start/Shutdown virtual machines on a schedule. There are example runbooks that are available in the Gallery that both handle this scenario and teach you how to expand it.
@@ -240,14 +240,14 @@ Managing resources individually is both time-consuming and potentially error pro
 ## Azure Security Center
 Perhaps one of the biggest blockers to cloud adoption has been the concerns over security. IT risk managers and security departments need to ensure that resources in Azure are secure. 
 
-The [Azure Security Center](../security-center/security-center-intro.md) provides a central view of the security status of resources in the subscriptions, and provides recommendations that help prevent compromised resources. It can enable more granular policies (for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they are addressing). Finally, Azure Security Center is an open platform that enables Microsoft partners and independent software vendors to create software that plugs into Azure Security Center to enhance its capabilities. 
+The [Azure Security Center](/azure/security-center/security-center-intro) provides a central view of the security status of resources in the subscriptions, and provides recommendations that help prevent compromised resources. It can enable more granular policies (for example, applying policies to specific resource groups that allow the enterprise to tailor their posture to the risk they are addressing). Finally, Azure Security Center is an open platform that enables Microsoft partners and independent software vendors to create software that plugs into Azure Security Center to enhance its capabilities. 
 
 > [!TIP]
 > Azure Security Center is enabled by default in each subscription. However, you must enable data collection from virtual machines to allow Azure Security Center to install its agent and begin gathering data.
 > 
-> ![data collection](./media/resource-manager-subscription-governance/data-collection.png)
+> ![data collection](./_images/data-collection.png)
 > 
 > 
 
 ## Next steps
-* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](resource-manager-subscription-examples.md).
+* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](/azure/azure-resource-manage/resource-manager-subscription-examples).
