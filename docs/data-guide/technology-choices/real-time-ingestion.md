@@ -28,7 +28,7 @@ Feature of IoT Hub include:
 * Multiple options for device-to-cloud and cloud-to-device communication. These options include one-way messaging, file transfer, and request-reply methods.
 * Message routing to other Azure services.
 * Queryable store for device metadata and synchronized state information.
-* Scure communications and access control using per-device security keys or X.509 certificates.
+* Secure communications and access control using per-device security keys or X.509 certificates.
 * Monitoring of device connectivity and device identity management events.
 
 In terms of message ingestion, IoT Hub is similar to Event Hubs. However, it was specifically designed for managing IoT device connectivity, not just message ingestion. For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs). 
