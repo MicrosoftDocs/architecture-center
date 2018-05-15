@@ -49,7 +49,7 @@ Drawbacks:
 ### Implementation
 **Define the roles.** The SaaS provider declares the app roles in the [application manifest]. For example, here is the manifest entry for the Surveys app:
 
-```
+```json
 "appRoles": [
   {
     "allowedMemberTypes": [
@@ -119,7 +119,7 @@ Disadvantages:
 ### Implementation
 In the application manifest, set the `groupMembershipClaims` property to "SecurityGroup". This is needed to get group membership claims from AAD.
 
-```
+```json
 {
    // ...
    "groupMembershipClaims": "SecurityGroup",
