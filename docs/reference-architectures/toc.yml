@@ -80,6 +80,8 @@
       href: sap/sap-netweaver.md
     - name: SAP S/4HANA
       href: sap/sap-s4hana.md
+    - name: SAP HANA on Azure Large Instances
+      href: sap/hana-large-instances.md
 
   - name: Jenkins server
     href: jenkins/index.md
