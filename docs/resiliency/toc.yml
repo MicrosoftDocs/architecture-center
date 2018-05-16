@@ -5,8 +5,10 @@
   items:
   - name: Designing resilient applications
     href: index.md
-  - name: Resiliency checklist
+  - name: Resiliency checklist (general)
     href: ../checklist/resiliency.md?toc=/azure/architecture/resiliency/toc.json
+  - name: Resiliency checklist (Azure services)
+    href: ../checklist/resiliency-per-service.md?toc=/azure/architecture/resiliency/toc.json
   - name: Failure mode analysis
     href: failure-mode-analysis.md
 

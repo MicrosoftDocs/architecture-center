@@ -11,7 +11,7 @@ This reference architecture shows how to deploy and operate a scalable, enterpri
 
 ![Jenkins server running on Azure][0]
 
-*Download a [Visio file](https://arch-center.azureedge.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
+*Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
 
 This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on  Azure][jenkins-on-azure].
 
@@ -21,30 +21,30 @@ The focus of this document is on the core Azure operations needed to support Jen
 
 The architecture consists of the following components:
 
--   **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
+- **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
--   **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 16.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
+- **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 16.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
 
-    > [!NOTE]
-    > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
-    > 
-    > 
+  > [!NOTE]
+  > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
+  > 
+  > 
 
--   **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
+- **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
 
--   **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without impacting performance.
+- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without impacting performance.
 
--   **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic from the Internet to the subnet of a virtual network.
+- <strong>NSGs</strong>. Use [network security groups][nsg] (NSGs) to restrict network traffic from the Internet to the subnet of a virtual network.
 
--   **Managed disks**. A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
+- **Managed disks**. A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
 
--   **Azure Blob Storage**. The [Windows Azure Storage plugin][configure-storage] uses Azure Blob  Storage to store the build artifacts that are created and shared with other Jenkins builds.
+- **Azure Blob Storage**. The [Windows Azure Storage plugin][configure-storage] uses Azure Blob  Storage to store the build artifacts that are created and shared with other Jenkins builds.
 
--   **Azure Active Directory (Azure AD)**. [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
+- <strong>Azure Active Directory (Azure AD)</strong>. [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
 
--   **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Key Vault][key-vault]. For added help storing secrets associated with the application in the pipeline, see also the [Azure Credentials][configure-credential] plugin for Jenkins.
+- **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Key Vault][key-vault]. For added help storing secrets associated with the application in the pipeline, see also the [Azure Credentials][configure-credential] plugin for Jenkins.
 
--   **Azure monitoring services**. This service [monitors][monitor] the Azure virtual machine hosting Jenkins. This deployment monitors the virtual machine status and CPU utilization and sends alerts.
+- **Azure monitoring services**. This service [monitors][monitor] the Azure virtual machine hosting Jenkins. This deployment monitors the virtual machine status and CPU utilization and sends alerts.
 
 ## Recommendations
 
@@ -54,7 +54,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 The [Azure AD][azure-ad] tenant for your Azure subscription is used to enable SSO for Jenkins users and set up [service principals][service-principal] that enable Jenkins jobs to access Azure resources.
 
-SSO authentication and authorization are implemented by the Azure AD plugin  installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkin server.
+SSO authentication and authorization are implemented by the Azure AD plugin  installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkins server.
 
 To provide Jenkins jobs with access to Azure resources, an Azure AD administrator creates service principals. These grant applications—in this case, the Jenkins jobs—[authenticated, authorized access][ad-sp] to Azure resources.
 
@@ -70,7 +70,7 @@ The solution template for Jenkins on Azure installs several Azure plugins. The A
 
 -   [Azure AD plugin][configure-azure-ad] allows the Jenkins server to support SSO for users based on Azure AD.
 
--   [Azure VM Agents][configure-agent] plugin uses an Azure Resource Manager (ARM) template to create Jenkins agents in Azure virtual machines.
+-   [Azure VM Agents][configure-agent] plugin uses an Azure Resource Manager template to create Jenkins agents in Azure virtual machines.
 
 -   [Azure Credentials][configure-credential] plugin allows you to store Azure service principal credentials in Jenkins.
 
@@ -109,14 +109,13 @@ Selecting the correct server size depends on the size of the expected workload. 
 
 ## Availability considerations
 
-Assess the availability requirements for your workflow and how to recover the Jenkin state should the Jenkin server goes down. To assess your availability
-requirements, consider two common metrics:
+Availability in the context of a Jenkins server means being able to recover any state information associated with your workflow, such as test results, libraries you have created, or other artifacts. Critical workflow state or artifacts must be maintained to recover the workflow if the Jenkins server goes down. To assess your availability requirements, consider two common metrics:
 
 -   Recovery Time Objective (RTO) specifies how long you can go without Jenkins.
 
 -   Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery—that is part of Azure—but rather ensuring you maintain the state of your Jenkins server. This reference architecture uses the [Azure service level agreement][sla] (SLA), which guarantees 99.9-percent uptime for a single virtual machine. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
+In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery—that is part of Azure—but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
@@ -124,7 +123,7 @@ Consider using the disaster recovery [scripts][disaster] in step 7 of the deploy
 
 Use the following approaches to help lock down security on a basic Jenkins server, since in its basic state, it is not secure.
 
--   Set up a way to secure logon to the Jenkin server. HTTP is not secure By default, this architecture uses HTTP and has a public IP. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
+-   Set up a secure way to log into the Jenkins server. This architecture uses HTTP and has a public IP, but HTTP is not secure by default. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
 
     > [!NOTE]
     > When adding SSL to your server, create an NSG rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
@@ -172,7 +171,7 @@ To deploy this architecture, follow the steps below to install the [solution tem
 
 ### Step 1: Deploy the Jenkins server
 
-1.  Open the [Azure marketplace image for Jenkins][azure-market] in your web browser and select **GET IT NOW** from the left side of the page.
+1.  Open the [Azure Marketplace image for Jenkins][azure-market] in your web browser and select **GET IT NOW** from the left side of the page.
 
 2.  Review the pricing details and select **Continue**, then select **Create** to configure the Jenkins server in the Azure portal.
 
@@ -182,7 +181,7 @@ For detailed instructions, see [Create a Jenkins server on an Azure Linux VM fro
 
 The step is run by the Jenkins administrator, who must also have a user account in the subscription’s Azure AD directory and must be assigned the Contributor role.
 
-Use the [Azure AD Plugin][configure-azure-ad] from the Jenkins Update Center in the Jenkin server and follow the instructions to set up SSO.
+Use the [Azure AD Plugin][configure-azure-ad] from the Jenkins Update Center in the Jenkins server and follow the instructions to set up SSO.
 
 ### Step 3: Provision Jenkins server with Azure VM Agent plugin
 

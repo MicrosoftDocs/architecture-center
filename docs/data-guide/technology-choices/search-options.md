@@ -38,6 +38,7 @@ For search scenarios, begin choosing the appropriate search data store for your 
 The following tables summarize the key differences in capabilities.
 
 ### General capabilities
+
 | | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
 | --- | --- | --- | --- | --- | 
 | Is managed service | Yes | No | Yes | Yes |  
@@ -46,12 +47,14 @@ The following tables summarize the key differences in capabilities.
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
 
 ### Manageability capabilities
+
 | | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
 | --- | --- | --- | --- | --- |
 | Updateable schema | No | Yes | Yes | Yes |
 | Supports scale out  | Yes | Yes | Yes | No |
 
 ### Analytic workload capabilities
+
 | | Azure Search | Elasticsearch | HDInsight with Solr | SQL Databash | 
 | --- | --- | --- | --- | --- | 
 | Supports analytics beyond full text search | No | Yes | Yes | Yes |
@@ -59,6 +62,7 @@ The following tables summarize the key differences in capabilities.
 | Supports semantic search | Yes (find similar documents only) | Yes | Yes | Yes | 
 
 ### Security capabilities
+
 | | Azure Search | Elasticsearch | HDInsight with Solr | SQL Databash | 
 | --- | --- | --- | --- | --- | 
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes | 

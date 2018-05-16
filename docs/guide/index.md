@@ -1,10 +1,13 @@
 ---
 layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Azure Application Architecture Guide
 
 This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.
+
+<br/>
 
 <img src="./images/guide-steps.svg" style="max-width:800px;"/>
 
@@ -42,31 +45,55 @@ Immutable infrastructure<br/>
 </tbody>
 </table>
 
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform.
+This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][ebook].
 
 ## How this guide is structured
 
 The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
 
-**[Architecture styles][arch-styles]**. The first decision point is the most fundamental. What kind of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. We have identified seven distinct architecture styles. There are benefits and challenges to each.
+### Architecture styles
 
-> &#10148; [Azure Reference Architectures][ref-archs] show recommended deployments in Azure, along with considerations for scalability, availability, manageability, and security. Most also include deployable Resource Manager templates.
+The first decision point is the most fundamental. What kind of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. We have identified several distinct architecture styles. There are benefits and challenges to each.
 
-**[Technology Choices][technology-choices]**. Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute and storage technologies. The term *compute* refers to the hosting model for the computing resources that your applications runs on. Storage includes databases but also storage for message queues, caches, IoT data, unstructured log data, and anything else that an application might persist to storage. 
+Learn more:
 
-> &#10148; [Compute options][compute-options] and [Storage options][storage-options] provide detailed comparison criteria for selecting compute and storage services.
+- [Architecture styles][arch-styles]
+- [Azure reference architectures][ref-archs]
 
-**[Design Principles][design-principles]**. Throughout the design process, keep these ten high-level design principles in mind. 
+### Technology choices
 
-> &#10148; [Best practices][best-practices] articles give specific guidance on areas such as auto-scaling, caching, data partitioning, API design, and others.   
+Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. 
 
-**[Pillars][pillars]**. A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security. 
+Learn more:
 
-> &#10148; Use our [Design review checklists][checklists] to review your design according to these quality pillars. 
+- [Choosing a compute service](./technology-choices/compute-overview.md)
+- [Choosing a data store](./technology-choices/data-store-overview.md)
 
-**[Cloud Design Patterns][patterns]**. These design patterns are useful for building reliable, scalable, and secure applications on Azure. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.
+### Design principles
 
-> &#10148; View the complete [Catalog of cloud design patterns](../patterns/index.md).
+We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
+
+Learn more:
+
+- [Design principles for Azure applications][design-principles]
+- [Best practices when building for the cloud][best-practices]
+
+### Quality pillars
+
+A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
+
+Learn more:
+
+- [Pillars of software quality][pillars]
+- [Design review checklists][checklists] 
+
+### Cloud design patterns
+
+Design patterns are general solutions to common software design problem. We have identified a set of design patterns that are especially useful when designing distributed applications for the cloud.
+
+Learn more:
+
+- [Catalog of cloud design patterns](../patterns/index.md)
 
 
 [arch-styles]: ./architecture-styles/index.md
@@ -74,6 +101,7 @@ The Azure Application Architecture Guide is organized as a series of steps, from
 [checklists]: ../checklist/index.md
 [compute-options]: ./technology-choices/compute-comparison.md
 [design-principles]: ./design-principles/index.md
+[ebook]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
 [patterns]: ../patterns/index.md?toc=/azure/architecture/guide/toc.json
 [pillars]: ./pillars.md
 [ref-archs]: ../reference-architectures/index.md

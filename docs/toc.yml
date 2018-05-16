@@ -12,9 +12,10 @@
   items:
   - name: Architecture styles
     href: guide/architecture-styles/index.md
-  - name: Technology choices
-    href: guide/technology-choices/index.md
-    items:
+  - name: Choosing a compute service
+    href: guide/technology-choices/compute-overview.md
+  - name: Choosing a data store
+    href: guide/technology-choices/data-store-overview.md
   - name: Design principles
     href: guide/design-principles/index.md
   - name: Pillars of software quality
@@ -36,16 +37,14 @@
     href: reference-architectures/identity/index.md
   - name: Jenkins server
     href: reference-architectures/jenkins/index.md
+  - name: N-tier application
+    href: reference-architectures/n-tier/index.md
   - name: Network DMZ
     href: reference-architectures/dmz/index.md
   - name: SAP NetWeaver and SAP HANA
     href: reference-architectures/sap/index.md
   - name: SharePoint Server 2016
     href: reference-architectures/sharepoint/index.md
-  - name: VM workloads (Linux)
-    href: reference-architectures/virtual-machines-linux/index.md
-  - name: VM workloads (Windows)
-    href: reference-architectures/virtual-machines-windows/index.md
 
 - name: Cloud Design Patterns
   href: patterns/index.md
@@ -118,8 +117,10 @@
     href: checklist/availability.md
   - name: DevOps
     href: checklist/dev-ops.md
-  - name: Resiliency
+  - name: Resiliency (general)
     href: checklist/resiliency.md
+  - name: Resiliency (Azure services)
+    href: checklist/resiliency-per-service.md
   - name: Scalability
     href: checklist/scalability.md
 
@@ -142,8 +143,6 @@
     href: service-fabric/migrate-from-cloud-services.md
   - name: Refactor an Azure Service Fabric Application migrated from Azure Cloud Services
     href: service-fabric/refactor-migrated-app.md
-  - name: Run Elasticsearch on Azure
-    href: elasticsearch/index.md
   - name: Extend Azure Resource Manager Template Functionality
     href: building-blocks/extending-templates/index.md
 

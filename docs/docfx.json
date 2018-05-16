@@ -47,6 +47,8 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "mspnp/architecture-center",
       "breadcrumb_path": "/azure/architecture/bread/toc.json",
       "brand": "azure",
       "ms.author": "pnp",
@@ -58,13 +60,14 @@
       ]
     },
     "fileMetadata": {
-      "tocRel":{
-        "reference-architectures/**.md":"../toc.json"
+      "tocRel": {
+        "reference-architectures/**.md": "../toc.json"
       }
     },
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "markdownEngineName": "markdig"
   }
 }

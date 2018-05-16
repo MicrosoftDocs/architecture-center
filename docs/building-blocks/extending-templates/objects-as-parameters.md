@@ -291,7 +291,6 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
   ],          
   "outputs": {}
 }
-
 ```
 
 Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `securityRules` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object. 
@@ -300,18 +299,18 @@ Let's take a closer look at how we specify our property values in the `securityR
 
 If you would like to experiment with this template, follow these steps: 
 
-1.	Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
-2.	Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
-3.	Select the **edit template** button.
-4.	Delete the empty template. 
-5.	Copy and paste the sample template into the right pane.
-6.	Select the **save** button.
-7.	When you are returned to the **custom deployment** pane, select the **edit parameters** button.
+1.  Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
+2.  Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
+3.  Select the **edit template** button.
+4.  Delete the empty template. 
+5.  Copy and paste the sample template into the right pane.
+6.  Select the **save** button.
+7.  When you are returned to the **custom deployment** pane, select the **edit parameters** button.
 8.  On the **edit parameters** blade, delete the existing template.
 9.  Copy and paste the sample parameter template from above.
 10. Select the **save** button, which returns you to the **custom deployment** blade.
 11. On the **custom deployment** blade, select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, and select the **I agree** checkbox.
-12.	Select the **purchase** button.
+12. Select the **purchase** button.
 
 ## Next steps
 

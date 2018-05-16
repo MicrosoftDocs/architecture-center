@@ -23,17 +23,22 @@
     - name: Big compute
       href: architecture-styles/big-compute.md
 
-  - name: Technology choices
-    href: technology-choices/index.md
+  - name: Choosing a compute service
     items:
-    - name: Compute options overview
+    - name: Overview
       href: technology-choices/compute-overview.md
+    - name: Decision tree
+      href: technology-choices/compute-decision-tree.md
     - name: Compute comparison
       href: technology-choices/compute-comparison.md
-    - name: Data store overview
+
+  - name: Choosing a data store
+    items:
+    - name: Overview
       href: technology-choices/data-store-overview.md
     - name: Data store comparison
       href: technology-choices/data-store-comparison.md
+
 
   - name: Design principles
     href: design-principles/index.md

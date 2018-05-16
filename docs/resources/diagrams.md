@@ -25,6 +25,10 @@ Additional symbols for Microsoft Office and related technologies are available i
 
 A version of the diagrams used in the [Reference Architectures](../reference-architectures/index.md) is available for [download in Visio format](https://aka.ms/arch-diagrams).
 
+## Solution Architecture Diagrams
+
+Microsoft publishes [solution architectures and accompanying diagrams](https://azure.microsoft.com/solutions/architecture/). The diagrams are in downloadable in SVG format. The SVG can be opened and then modified by many tools, including Visio and PowerPoint. If you ungroup the diagram, you can seclect the individual icons.   
+
 ## 3D Blueprint Visio template
 
 A Visio template is avaliable for producing 3D (isometric) architectural diagrams.

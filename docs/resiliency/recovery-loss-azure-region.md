@@ -5,6 +5,7 @@ author: adamglick
 ms.date: 08/18/2016
 ---
 [!INCLUDE [header](../_includes/header.md)]
+
 # Azure resiliency technical guidance: recovery from a region-wide service disruption
 Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity. 
 

@@ -2,13 +2,14 @@
 title: Overview of Azure compute options
 description: Overview of Azure compute options
 author: MikeWasson
+ms.date: 04/21/2018
 ---
 
 # Overview of Azure compute options
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. 
 
-At one end of the spectrum is **Intrastructure-as-a-Service** (IaaS). With IaaS, you provision the VMs that you need, along with associated network and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.  
+At one end of the spectrum is **Infrastructure-as-a-Service** (IaaS). With IaaS, you provision the VMs that you need, along with associated network and storage components. Then you deploy whatever software and applications you want onto those VMs. This model is the closest to a traditional on-premises environment, except that Microsoft manages the infrastructure. You still manage the individual VMs.  
 
 **Platform-as-a-Service** (PaaS) provides a managed hosting environment, where you can deploy your application without needing to manage VMs or networking resources. For example, instead of creating individual VMs, you specify an instance count, and the service will provision, configure, and manage the necessary resources. Azure App Service is an example of a PaaS service.
 
@@ -38,4 +39,6 @@ When selecting a compute option, here are some factors to consider:
 - What are the overall limitations of each service? 
 - What kind of application architectures are appropriate for this service? 
 
-For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute option](./compute-comparison.md).
+To help select a compute service for your application, use the [Decision tree for Azure compute services](./compute-decision-tree.md)
+
+For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute service](./compute-comparison.md).

@@ -49,8 +49,9 @@ The following tables summarize the key differences in capabilities.
 | Pricing model | Per batch job | By cluster hour | By cluster hour | By cluster hour | By cluster hour |  
 
 [1] With manual configuration and scaling.
- 
+
 ### Integration capabilities
+
 | | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP |
 | --- | --- | --- | --- | --- | --- |
 | Access from Azure Data Lake Store | Yes | Yes | Yes | Yes | Yes |
@@ -58,6 +59,7 @@ The following tables summarize the key differences in capabilities.
 | Query from external relational stores | Yes | No | Yes | No | No |
 
 ### Scalability capabilities
+
 | | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP |
 | --- | --- | --- | --- | --- | --- |
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster |
@@ -65,6 +67,7 @@ The following tables summarize the key differences in capabilities.
 | In-memory caching of data | No | Yes | Yes | No | Yes | 
 
 ### Security capabilities
+
 | | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- |
 | Authentication  | Azure Active Directory (Azure AD) | SQL / Azure AD | No | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> |

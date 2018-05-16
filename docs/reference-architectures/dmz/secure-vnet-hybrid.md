@@ -176,7 +176,7 @@ A deployment for a reference architecture that implements these recommendations 
 * For more information about managing network security with Azure, see [Microsoft cloud services and network security][cloud-services-network-security].
 * For detailed information about protecting resources in Azure, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. 
 * For additional details on addressing security concerns across an Azure gateway connection, see [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-security] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-security].
-> 
+  > 
 
 <!-- links -->
 
@@ -207,6 +207,6 @@ A deployment for a reference architecture that implements these recommendations 
 [routing-and-remote-access-service]: https://technet.microsoft.com/library/dd469790(v=ws.11).aspx
 [security-principle-of-least-privilege]: https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1
 [udr-overview]: /azure/virtual-network/virtual-networks-udr-overview
-[visio-download]: https://archcenter.azureedge.net/cdn/dmz-reference-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/dmz-reference-architectures.vsdx
 [wireshark]: https://www.wireshark.org/
 [0]: ./images/dmz-private.png "Secure hybrid network architecture"

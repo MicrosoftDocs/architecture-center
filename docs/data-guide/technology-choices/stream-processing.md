@@ -1,4 +1,3 @@
-
 ---
 title: Choosing a stream processing technology
 description: 
@@ -10,7 +9,7 @@ ms:date: 02/12/2018
 
 This article compares technology choices for real-time stream processing in Azure.
 
-Real-time stream processing consumes messages from either queue or file-based storage, process the messages, and forward the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume an endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../scenarios/real-time-processing.md).
+Real-time stream processing consumes messages from either queue or file-based storage, process the messages, and forward the result to another message queue, file store, or database. Processing may include querying, filtering, and aggregating messages. Stream processing engines must be able to consume an endless streams of data and produce results with minimal latency. For more information, see [Real time processing](../big-data/real-time-processing.md).
 
 ## What are your options when choosing a technology for real-time processing?
 In Azure, all of the following data stores will meet the core requirements supporting real-time processing:
@@ -38,6 +37,7 @@ For real-time processing scenarios, begin choosing the appropriate service for y
 The following tables summarize the key differences in capabilities. 
 
 ### General capabilities
+
 | | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- | 
 | Programmability | Stream analytics query language, JavaScript | Scala, Python, Java | Scala, Python, Java, R | Java, C# | C#, F#, Node.js | C#, Node.js, PHP, Java, Python |
@@ -45,12 +45,14 @@ The following tables summarize the key differences in capabilities.
 | Pricing model | [Streaming units](https://azure.microsoft.com/pricing/details/stream-analytics/) | Per cluster hour | [Databricks units](https://azure.microsoft.com/pricing/details/databricks/) | Per cluster hour | Per function execution and resource consumption | Per app service plan hour |  
 
 ### Integration capabilities
+
 | | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- | 
 | Inputs | [Stream Analytics inputs](/azure/stream-analytics/stream-analytics-define-inputs)  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Kafka, HDFS, Storage Blobs, Azure Data Lake Store  | Event Hubs, IoT Hub, Storage Blobs, Azure Data Lake Store  | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files |
 | Sinks |  [Stream Analytics outputs](/azure/stream-analytics/stream-analytics-define-outputs) | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | HDFS, Kafka, Storage Blobs, Azure Data Lake Store, Cosmos DB | Event Hubs, Service Bus, Kafka | [Supported bindings](/azure/azure-functions/functions-triggers-bindings#supported-bindings) | Service Bus, Storage Queues, Storage Blobs, Event Hubs, WebHooks, Cosmos DB, Files | 
 
 ### Processing capabilities
+
 | | Azure Stream Analytics | HDInsight with Spark Streaming | Apache Spark in Azure Databricks | HDInsight with Storm | Azure Functions | Azure App Service WebJobs |
 | --- | --- | --- | --- | --- | --- | --- | 
 | Built-in temporal/windowing support | Yes | Yes | Yes | Yes | No | No |
@@ -62,4 +64,4 @@ See also:
 
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
 - [Comparing Apache Storm and Azure Stream Analytics](/azure/stream-analytics/stream-analytics-comparison-storm)
-- [Real time processing](../scenarios/real-time-processing.md)
+- [Real time processing](../big-data/real-time-processing.md)

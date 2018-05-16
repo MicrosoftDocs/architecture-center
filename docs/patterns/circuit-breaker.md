@@ -209,7 +209,7 @@ Additionally, it uses a lock to prevent the circuit breaker from trying to perfo
         bool lockTaken = false;
         try
         {
-          Monitor.TryEnter(halfOpenSyncObject, ref lockTaken)
+          Monitor.TryEnter(halfOpenSyncObject, ref lockTaken);
           if (lockTaken)
           {
             // Set the circuit breaker state to HalfOpen.

@@ -1,13 +1,8 @@
 ---
-title: Extending Active Directory Domain Services (AD DS) to Azure
-description: >-
-  How to implement a secure hybrid network architecture with Active Directory
-  authorization in Azure.
-
-  guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-
+title: Extend Active Directory Domain Services (AD DS) to Azure
+description: Extend your on-premises Active Directory domain to Azure
 author: telmosampaio
-ms.date: 11/28/2016
+ms.date: 05/02/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: azure-ad
@@ -15,7 +10,7 @@ pnp.series.next: adds-forest
 ---
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using [Active Directory Domain Services (AD DS)][active-directory-domain-services].  [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS). [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
@@ -101,27 +96,69 @@ Use either BitLocker or Azure disk encryption to encrypt the disk hosting the AD
 
 ## Deploy the solution
 
-A solution is available on [GitHub][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-powershell] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
+A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
 
-1. Download or clone the solution folder from [GitHub][github] to your local machine.
+### Prerequisites
 
-2. Open the Azure CLI and navigate to the local solution folder.
+1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
 
-3. Run the following command:
-    ```Powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
+2. Install [Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks][azbb] npm package.
+
+4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
+
+   ```bash
+   az login
+   ```
+
+### Deploy the simulated on-premises datacenter
+
+1. Navigate to the `identity/adds-extend-domain` folder of the GitHub repository.
+
+2. Open the `onprem.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
+
+3. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
     ```
-    Replace `<subscription id>` with your Azure subscription ID.
-    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
-    The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
-    * `Onpremise`: deploys the simulated on-premises environment.
-    * `Infrastructure`: deploys the VNet infrastructure and jump box in Azure.
-    * `CreateVpn`: deploys the Azure virtual network gateway and connects it to the simulated on-premises network.
-    * `AzureADDS`: deploys the VMs acting as AD DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
-    * `Workload`: deploys the public and private DMZs and the workload tier.
-    * `All`: deploys all of the preceding deployments. **This is the recommended option if If you do not have an existing on-premises network but you want to deploy the complete reference architecture described above for testing or evaluation.**
 
-4. Wait for the deployment to complete. If you are deploying the `All` deployment, it will take several hours.
+### Deploy the Azure VNet
+
+1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords. 
+
+2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection. 
+
+    ```bash
+    "sharedKey": "",
+    ```
+
+3. Run the following command and wait for the deployment to finish.
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
+    ```
+
+   Deploy to the same resource group as the on-premises VNet.
+
+### Test connectivity with the Azure VNet
+
+After deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
+
+1. Use the Azure portal, navigate to the resource group that you created.
+
+2. Find the VM named `ra-onpremise-mgmt-vm1`.
+
+3. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
+
+4. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
+
+5. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage.** 
+
+6. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
+
+   ![](./images/add-servers-dialog.png)
 
 ## Next steps
 
@@ -129,29 +166,29 @@ A solution is available on [GitHub][github] to deploy this reference architectur
 * Learn the best practices for [creating an Active Directory Federation Services (AD FS) infrastructure][adfs] in Azure.
 
 <!-- links -->
+
 [adds-resource-forest]: adds-forest.md
 [adfs]: adfs.md
-
+[azure-cli-2]: /azure/install-azure-cli
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 
-[active-directory-domain-services]: https://technet.microsoft.com/library/dd448614.aspx
 [adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azure-expressroute]: https://azure.microsoft.com/documentation/articles/expressroute-introduction/
-[azure-powershell]: /powershell/azureps-cmdlets-docs
-[azure-vpn-gateway]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-vpngateways/
+[azure-expressroute]: /azure/expressroute/expressroute-introduction
+[azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [security-considerations]: #security-considerations
-[set-a-static-ip-address]: https://azure.microsoft.com/documentation/articles/virtual-networks-static-private-ip-arm-pportal/
+[set-a-static-ip-address]: /azure/virtual-network/virtual-networks-static-private-ip-arm-pportal
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
-[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [vm-windows-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 
 [0]: ./images/adds-extend-domain.png "Secure hybrid network architecture with Active Directory"

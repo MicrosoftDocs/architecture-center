@@ -5,7 +5,7 @@ description: How to create a trusted Active Directory domain in Azure.
   guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
 
 author: telmosampaio
-ms.date: 11/28/2016
+ms.date: 05/02/2018
 
 pnp.series.title: Identity management
 pnp.series.prev: adds-extend-domain
@@ -86,51 +86,71 @@ For Active Directory-specific security considerations, see the security consider
 
 ## Deploy the solution
 
-A solution is available on [GitHub][github] to deploy this reference architecture. You will need the latest version of the Azure CLI to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
+A deployment for this architecture is available on [GitHub][github]. Note that the entire deployment can take up to two hours, which includes creating the VPN gateway and running the scripts that configure AD DS.
 
-1. Download or clone the solution folder from [GitHub][github] to your local machine.
+### Prerequisites
 
-2. Open the Azure CLI and navigate to the local solution folder.
+1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
 
-3. Run the following command:
-   
-    ```Powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
+2. Install [Azure CLI 2.0][azure-cli-2].
+
+3. Install the [Azure building blocks][azbb] npm package.
+
+4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
+
+   ```bash
+   az login
+   ```
+
+### Deploy the simulated on-premises datacenter
+
+1. Navigate to the `identity/adds-forest` folder of the GitHub repository.
+
+2. Open the `onprem.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
+
+3. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
     ```
-   
-    Replace `<subscription id>` with your Azure subscription ID.
-   
-    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
-   
-    The `<mode>` parameter controls the granularity of the deployment, and can be one of the following values:
-   
-   * `Onpremise`: deploys the simulated on-premises environment.
-   * `Infrastructure`: deploys the VNet infrastructure and jump box in Azure.
-   * `CreateVpn`: deploys the Azure virtual network gateway and connects it to the simulated on-premises network.
-   * `AzureADDS`: deploys the VMs acting as Active Directory DS servers, deploys Active Directory to these VMs, and deploys the domain in Azure.
-   * `WebTier`: deploys the web tier VMs and load balancer.
-   * `Prepare`: deploys all of the preceding deployments. **This is the recommended option if If you do not have an existing on-premises network but you want to deploy the complete reference architecture described above for testing or evaluation.** 
-   * `Workload`: deploys the business and data tier VMs and load balancers. Note that these VMs are not included in the `Prepare` deployment.
 
-4. Wait for the deployment to complete. If you are deploying the `Prepare` deployment, it will take several hours.
-     
-5. If you are using the simulated on-premises configuration, configure the incoming trust relationship:
-   
-   1. Connect to the jump box (*ra-adtrust-mgmt-vm1* in the *ra-adtrust-security-rg* resource group). Log in as *testuser* with password *AweS0me@PW*.
-   2. On the jump box open an RDP session on the first VM in the *contoso.com* domain (the on-premises domain). This VM has the IP address 192.168.0.4. The username is *contoso\testuser* with password *AweS0me@PW*.
-   3. Download the [incoming-trust.ps1][incoming-trust] script and run it to create the incoming trust from the *treyresearch.com* domain.
+### Deploy the Azure VNet
 
-6. If you are using your own on-premises infrastructure:
-   
-   1. Download the [incoming-trust.ps1][incoming-trust] script.
-   2. Edit the script and replace the value of the `$TrustedDomainName` variable with the name of your own domain.
-   3. Run the script.
+1. Open the `azure.json` file. Search for instances of `adminPassword` and `Password` and add values for the passwords.
 
-7. From the jump-box, connect to the first VM in the *treyresearch.com* domain (the domain in the cloud). This VM has the IP address 10.0.4.4. The username is *treyresearch\testuser* with password *AweS0me@PW*.
+2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection. 
 
-8. Download the [outgoing-trust.ps1][outgoing-trust] script and run it to create the incoming trust from the *treyresearch.com* domain. If you are using your own on-premises machines, then edit the script first. Set the `$TrustedDomainName` variable to the name of your on-premises domain, and specify the IP addresses of the Active Directory DS servers for this domain in the `$TrustedDomainDnsIpAddresses` variable.
+    ```bash
+    "sharedKey": "",
+    ```
 
-9. Wait a few minutes for the previous steps to complete, then connect to an on-premises VM and perform the steps outlined in the article [Verify a Trust][verify-a-trust] to determine whether the trust relationship between the *contoso.com* and *treyresearch.com* domains is correctly configured.
+3. Run the following command and wait for the deployment to finish.
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
+    ```
+
+   Deploy to the same resource group as the on-premises VNet.
+
+
+### Test the AD trust relation
+
+1. Use the Azure portal, navigate to the resource group that you created.
+
+2. Use the Azure portal to find the VM named `ra-adt-mgmt-vm1`.
+
+2. Click `Connect` to open a remote desktop session to the VM. The username is `contoso\testuser`, and the password is the one that you specified in the `onprem.json` parameter file.
+
+3. From inside your remote desktop session, open another remote desktop session to 192.168.0.4, which is the IP address of the VM named `ra-adtrust-onpremise-ad-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
+
+4. From inside the remote desktop session for `ra-adtrust-onpremise-ad-vm1`, go to **Server Manager** and click **Tools** > **Active Directory Domains and Trusts**. 
+
+5. In the left pane, right-click on the contoso.com and select **Properties**.
+
+6. Click the **Trusts** tab. You should see treyresearch.net listed as an incoming trust.
+
+![](./images/ad-forest-trust.png)
+
 
 ## Next steps
 
@@ -140,6 +160,8 @@ A solution is available on [GitHub][github] to deploy this reference architectur
 <!-- links -->
 [adds-extend-domain]: adds-extend-domain.md
 [adfs]: adfs.md
+[azure-cli-2]: /azure/install-azure-cli
+[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
@@ -161,5 +183,5 @@ A solution is available on [GitHub][github] to deploy this reference architectur
 [standby-operations-masters]: https://technet.microsoft.com/library/cc794737(v=ws.10).aspx
 [outgoing-trust]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/identity/adds-forest/extensions/outgoing-trust.ps1
 [verify-a-trust]: https://technet.microsoft.com/library/cc753821.aspx
-[visio-download]: https://archcenter.azureedge.net/cdn/identity-architectures.vsdx
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 [0]: ./images/adds-forest.png "Secure hybrid network architecture with separate Active Directory domains"

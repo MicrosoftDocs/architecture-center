@@ -118,7 +118,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 ### Web or worker roles are unexpectedly being shut down.
 **Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
 
-**Recovery**. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
+<strong>Recovery</strong>. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
 
 ## Cosmos DB 
 ### Reading data fails.
@@ -462,7 +462,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
 [redis-monitor]: /azure/redis-cache/cache-how-to-monitor/
-[redis-retry]: ../best-practices/retry-service-specific.md#azure-redis-cache-retry-guidelines
+[redis-retry]: ../best-practices/retry-service-specific.md#azure-redis-cache
 [resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
@@ -474,7 +474,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sb-outages]: /azure/service-bus-messaging/service-bus-outages-disasters/#protecting-queues-and-topics-against-datacenter-outages-or-disasters
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning/
 [sb-poison-message]: /azure/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to/#poison
-[sb-retry]: ../best-practices/retry-service-specific.md#service-bus-retry-guidelines
+[sb-retry]: ../best-practices/retry-service-specific.md#service-bus
 [search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
 [scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
 [search-analytics]: /azure/search/search-traffic-analytics/

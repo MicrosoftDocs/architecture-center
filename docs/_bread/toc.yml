@@ -18,9 +18,6 @@
     - name: Design Review Checklists
       tocHref: /azure/architecture/checklist
       topicHref: /azure/architecture/checklist
-    - name: Elasticsearch
-      tocHref: /azure/architecture/elasticsearch
-      topicHref: /azure/architecture/elasticsearch
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity
       tocHref: /azure/architecture/multitenant-identity
@@ -42,15 +39,9 @@
     - name: Data Architecture Guide
       tocHref: /azure/architecture/data-guide
       topicHref: /azure/architecture/data-guide
-
+    - name: Design Microservices
+      tocHref: /azure/architecture/microservices
+      topicHref: /azure/architecture/microservices
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns
       topicHref: /azure/architecture/
-    - name: Compliance
-      tocHref: /azure/architecture/compliance
-      topicHref: /azure/architecture/compliance
-      items:
-      - name: PCI-DSS
-        tocHref: /azure/architecture/compliance/pci-dss
-        topicHref: /azure/architecture/compliance/pci-dss
-    
