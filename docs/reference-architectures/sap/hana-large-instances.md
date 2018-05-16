@@ -142,55 +142,35 @@ For more information, see [SAP HANA Security—An Overview][sap-security].(A SAP
 Communities can answer questions and help you set up a successful deployment. Consider the following:
 
 * [Running SAP Applications on the Microsoft Platform Blog][running-sap-blog]
-* [Azure Forum][azure-forum]
+* [Azure Community Support][azure-forum]
 * [SAP Community][sap-community]
 * [Stack Overflow SAP][stack-overflow]
 
-[azure-cli]: /cli/azure/install-azure-cli
 [azure-forum]: https://azure.microsoft.com/support/forums/
 [azure-large-instances]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
-[azure-lb]: /azure/load-balancer/load-balancer-overview
-[azure-storage]: /azure/storage/storage-standard-storage
-[azure-trust-center]: https://azure.microsoft.com/support/trust-center/
-[backup-faq]: /azure/backup/backup-azure-backup-faq
 [classes]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
-[clustering]: https://blogs.msdn.microsoft.com/saponsqlserver/2015/05/20/clustering-sap-ascs-instance-using-windows-server-failover-cluster-on-microsoft-azure-with-sios-datakeeper-and-azure-internal-load-balancer/
-[cool-blob-storage]: /azure/storage/storage-blob-storage-tiers
 [cross-connected]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
-[disk-encryption]: /azure/security/azure-security-disk-encryption
 [dr-site]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
 [filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
-[github]: https://github.com/mspnp/reference-architectures/tree/master/sap/sap-hana
-[hana-backup]: /azure/virtual-machines/workloads/sap/sap-hana-backup-guide
-[hana-guide]: https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.01/en-US/7eb0167eb35e4e2885415205b8383584.html
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
 [hli-backup]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#backup-and-restore
 [hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [hli-overview]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [hli-troubleshoot]: /azure/virtual-machines/workloads/sap/troubleshooting-monitoring
-[ilb]: /azure/load-balancer/load-balancer-internal-overview
 [ip]: https://blogs.msdn.microsoft.com/saponsqlserver/2018/02/10/setting-up-hana-system-replication-on-azure-hana-large-instances/
-[logon-groups]: https://wiki.scn.sap.com/wiki/display/SI/ABAP+Logon+Group+based+Load+Balancing
-[managed-disks]: /azure/storage/storage-managed-disks-overview
-[monitoring]: /azure/architecture/best-practices/monitoring
-[multiple-vm-nics]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
-[netweaver-on-azure]: /azure/virtual-machines/workloads/sap/planning-guide
 [network-best-practices]: /azure/security/azure-security-network-security-best-practices
-[network-considerations]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
-[nsg]: /azure/virtual-network/virtual-networks-n
+[nfs]: /azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
 [os-hardening]: /azure/security/azure-security-iaas
 [physical]: /azure/virtual-machines/workloads/sap/hana-overview-architecture
 [planning]: /azure/vpn-gateway/vpn-gateway-plan-design
 [protecting-sap]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/06/protecting-sap-systems-running-on-vmware-with-azure-site-recovery/
 [ref-arch]: /azure/architecture/reference-architectures/
 [running-SAP]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/06/07/sap-on-sql-general-update-for-customers-partners-june-2016/
-[region]: https://azure.microsoft.com/en-in/global-infrastructure/services/
+[region]: https://azure.microsoft.com/global-infrastructure/services/
 [running-sap-blog]: https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/04/sap-on-azure-general-update-for-customers-partners-april-2017/
 [quick-sizer]: http://service.sap.com/quicksizing
-[sap-1943937]: https://launchpad.support.sap.com/#/notes/1943937
-[sap-1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [sap-1793345]: https://launchpad.support.sap.com/#/notes/1793345
 [sap-1872170]: https://launchpad.support.sap.com/#/notes/1872170
 [sap-2121330]: https://launchpad.support.sap.com/#/notes/2121330
@@ -198,23 +178,15 @@ Communities can answer questions and help you set up a successful deployment. Co
 [sap-1736976]: https://launchpad.support.sap.com/#/notes/1736976
 [sap-2296290]: https://launchpad.support.sap.com/#/notes/2296290
 [sap-community]: https://www.sap.com/community.html
-[sap-dispatcher]: https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/8fe37933114e6fe10000000a421937/frameset.htm
-[sap-dispatcher-ha]: https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/9a9a6b48c673e8e10000000a42189b/frameset.htm
-[sap-dispatcher-install]: https://wiki.scn.sap.com/wiki/display/SI/Web+Dispatcher+Installation
-[sap-guide]: https://service.sap.com/instguides
-[sap-ha]: https://support.sap.com/content/dam/SAAP/SAP_Activate/AGS_70.pdf
-[sap-hana-on-azure]: https://azure.microsoft.com/solutions/sap/
 [sap-hana-tutorial]: http://saphanatutorial.com/comparison-between-hana-backup-options/
-[sap-netweaver-dr]: http://download.microsoft.com/download/9/5/6/956FEDC3-702D-4EFB-A7D3-2DB7505566B6/SAP%20NetWeaver%20-%20Building%20an%20Azure%20based%20Disaster%20Recovery%20Solution%20V1_5%20.docx
 [sap-security]: https://archive.sap.com/documents/docs/DOC-62943
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [sku]: /azure/expressroute/expressroute-about-virtual-network-gateways
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
 [stack-overflow]: http://stackoverflow.com/tags/sap/info
 [stonith]: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith
+[subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm
-[template-bb]: https://github.com/mspnp/template-building-blocks/wiki
 [type]: /azure/virtual-machines/workloads/sap/hana-installation
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[white-papers]: https://azure.microsoft.com/blog/azure-compliance-white-paper-o-rama/
 [0]: ./images/sap-hana-large-instances.png "SAP HANA architecture using Azure Large Instances"
