@@ -86,7 +86,7 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 > The preceding tips help you implement a consistent naming convention.
 
 ## Policies and auditing
-The second pillar of the scaffold involves creating [Azure policies](/azure/azure-policy/azure-policy-introduction) and [auditing the activity log](/azure/azure-resource-manage/resource-group-audit). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
+The second pillar of the scaffold involves creating [Azure policies](/azure/azure-policy/azure-policy-introduction) and [auditing the activity log](/azure/azure-resource-manager/resource-group-audit). Resource Manager policies provide you with the ability to manage risk in Azure. You can define policies that ensure data sovereignty by restricting, enforcing, or auditing certain actions. 
 
 * Policy is a default **allow** system. You control actions by defining and assigning policies to resources that deny or audit actions on resources.
 * Policies are described by policy definitions in a policy definition language (if-then conditions).
@@ -137,7 +137,7 @@ To view how your environment is functioning, you need to audit user activity. Mo
 Activity logs from Resource Manager deployments enable you to determine the **operations** that took place and who performed them. Activity logs can be collected and aggregated using tools like Log Analytics.
 
 ## Resource tags
-As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](/azure/azure-resource-manage/resource-group-using-tags). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
+As users in your organization add resources to the subscription, it becomes increasingly important to associate resources with the appropriate department, customer, and environment. You can attach metadata to resources through [tags](/azure/azure-resource-manager/resource-group-using-tags). You use tags to provide information about the resource or the owner. Tags enable you to not only aggregate and group resources in various ways, but use that data for the purposes of chargeback. You can tag resources with up to 15 key:value pairs. 
 
 Resource tags are flexible and should be attached to most resources. Examples of common resource tags are:
 
@@ -194,7 +194,7 @@ This proliferation of subscriptions is no longer needed. With role-based access 
 > These tips help you manage user access across your subscription.
 
 ## Azure resource locks
-As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](/azure/azure-resource-manage/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
+As your organization adds core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. [Resource locks](/azure/azure-resource-manager/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group, or resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts. 
 
 Resource locks currently support two values: CanNotDelete and ReadOnly. CanNotDelete means that users (with the appropriate rights) can still read or modify a resource but cannot delete it. ReadOnly means that authorized users can't delete or modify a resource.
 
@@ -250,4 +250,4 @@ The [Azure Security Center](/azure/security-center/security-center-intro) provid
 > 
 
 ## Next steps
-* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](/azure/azure-resource-manage/resource-manager-subscription-examples).
+* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](/azure/azure-resource-manager/resource-manager-subscription-examples).
