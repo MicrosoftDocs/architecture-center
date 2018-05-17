@@ -250,4 +250,4 @@ The [Azure Security Center](/azure/security-center/security-center-intro) provid
 > 
 
 ## Next steps
-* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](subscription-governance-examples).
+* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](subscription-governance-examples.md).
