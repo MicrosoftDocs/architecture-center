@@ -14,13 +14,12 @@ The goal of this guidance is to help you learn the process of designing your org
 
 Our requirements are:
 * Identity management for multiple teams with multiple resource access requirements in Azure. Efficiently manage and audit resource access permissions for groups of users.
+* Support for a *shared infrastructure*, *development*, and *production* environment. The *development* environment is for proof-of-concept and testing work and therefore has relaxed security requirements but increased cost tracking requirements to ensure that development teams are working to resource budget constraints. The *production* environment is where workloads are published for internal and external consumption with tighter resource access requirments than the *development* environment.
 * A permissions model of least privilege access, that supports the following:
     * A single trusted user that is allowed to delegate permissions assignments to *workload owners* 
     * Allow *workload owner* access to appropriate shared infrastructure resources (such as virtual networking) owned by *shared infrastructure owner*, but deny access to permanent infrastructure such as network gateways to prevent accidental changes or deletion.
 * Manage the resources for multiple workloads, with each workload's resources isolated so that no one other than the team responsible for the workload has access.
-* Support for a *development* environment and a *production* environment. The *development* environment is for proof-of-concept and testing work and therefore has relaxed security requirements but increased cost tracking requirements to ensure that development teams are working to resource budget constraints. The *production* environment is where workloads are published for internal and external consumption with tighter resource access requirments than the *development* environment.
-
-* Enforce resource naming standards to enable cost tracking.
+* Enforce resource tag naming standards to enable cost tracking.
 * Use Azure built-in roles to manage access to resources. 
 
 ## Identity management
@@ -118,7 +117,7 @@ One way to fix this problem is for our organization to allow workload owners to 
 5. *Workload owner B* creates *resource group B* and is added by default. Again, *workload owner B* inherits the *owner* role from their *subscription* level role.
 ![Workload Owner B creates resource group B](../_images/governance-2-15.png)
 
-As we did earlier, let's analyze the resulting state of the *subscription*, *resource group A*, and *resource group B*. We have two workloads, each isolated in a resource group. The *service administrator* only had to perform two actions, so they are no longer a bottleneck even in a large organization.
+As we did earlier, let's analyze the resulting state of the *subscription*, as well as *resource group A* and *resource group B*. In the final state we have two workloads, each isolated in a resource group. The *service administrator* only had to perform two actions, so they are no longer a bottleneck even in a large organization.
 
 ![subscription with resource groups A and B](../_images/governance-2-16.png)
 
@@ -130,7 +129,53 @@ Therefore, only the first example is a model that implements the concept of leas
 
 The task of designing our resource management scope is to decide how we will organize and group the resources that make up our workloads. As you learned in the workload explainer, a workload can be made up of many different types of resources. Most of your workloads will share network resources with one or more central gateways to your on-premises network, and some of your workloads may share other resources such a load balancers, storage, and databases. 
 
-Therefore, we want to design the way we group our resources to make it as easy as possible for our *workload owner* personas to get access to the resources they need while at the same time ensuring that they do not have access to resources we don't want them to touch for security and durability reasons. We also have to design our resource management scope to support a *developer* and *production* environment.
+Now that you've seen some examples of different access management scenarios, let's take a look at some practical applications of these governance models. Recall from our requirements that we want are required to support multiple *environments*. We define an *environment* as a logical grouping of resources that are used for a similar purpose. 
+
+Recall from our requirements that we'll have three environments:
+1. **Shared infrastructure:** a single group of resources shared by all workloads. These are resources such as network gateways, firewalls, and security services.  
+2. **Development:** multiple groups of resources representing multiple non-production ready workloads. These resources are used for proof-of-concept, testing, and other developer activities. These resources may have a more relaxed goverance model because to allow for increased developer agility.
+3. **Production:** multiple groups of resources representing multiple production workloads. These resources are used to host the private and public facing application artifacts. These resources typically have the tightest goverance and security models to protect the resources, application code, and data from unauthorized access.
+
+For each of these three environments, we have a requirement to track cost data by workload, environment, or both. That is, we want to know the ongoing cost of our *shared infrastructure*, the cost of all workloads running in both *development* and *production*, and finally the overall cost of *development* and *production*. We also want to know who is responsible for the cost associated with the resource. 
+
+You have already learned that resources are scoped to two levels: *subscription* and *resource group*. Therefore, our first decision is how to organize our environments by *subscription*. There are two options: a single subscription, or, multiple subscriptions. 
+
+Let's evaluate a resource management model using a single *subscription*. Our first decision is how to align resource groups to the three environments. We have two options:
+1. Align each environment to a single resource group. All shared infrastructure resources are deployed to a single *shared infrastructure* resource group. All resources associated development workloads are deployed to a single *development* resource group. All resources associated with production workloads are deployed into a single *production* resource group for the **production** environment. 
+2. Align workloads with a separate resource group, using a naming convention and tags to align resource groups with each of the three environments.  
+
+Let's begin by evaluting the first option. We'll be using the permissions model that we discussed in the previous section, with a single subscription service administrator that creates resource groups and adds users to them with either the built-in *contributor* or *reader* role.
+
+> [!NOTE]
+> In this hypothetical example, the subscription service administrator is responsible for creating resource groups and adding users to them. In practice, your organization may decide to have one or more trusted users with the *owner* role assigned at the *subscription* level.  
+
+1. The first resource group deployed represents the *shared infrastructure* environment. This resource group includes a virtual network with a gateway subnet. The gateway subnet hosts a VPN gateway that connects to a VPN appliance on-premises. When the subscription service administrator creates the shared infrastructure resource group, they add the *network operations* user with the *contributor* role. The *network operations* user creates a resource group named *netops-shared-rg* and creates a virtual network with a gateway subnet. This user deploys a [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and configures it to connect to the on-premises VPN appliance. The *network operations* user also applies a pair of [tags](/azure/azure-resource-manager/resource-group-using-tags) to each of the resources: *environment:shared* and *managedBy:netOps*. When the *subscription service administrator* exports a cost report, costs will be aligned with each of these tags. This allows the *subscription service administrator* to pivot costs using the *environment* tag and the *managedBy* tag. Notice the *resource limits* counter at the top right-hand side of the figure. Each Azure subscription has [service limits](/azure/azure-subscription-service-limits), and to help you understand the affect of these limits we'll follow the virtual network limit for each subscription. There is a default limit of 50 virtual networks per subscription, and after the first virtual network is deployed there are now 49 available.
+![](../_images/governance-3-1.png)
+2. Two more resource groups are deployed, the first is named *prod-rg*. This resource group is aligned with the **production** environment. The second is named *dev-rg* and is aligned with the **development** environment. All resources associated with production workloads are deployed to the **production** environment and all resources associated with development workloads are deployed to the **development** environment. In this example we'll only deploy two workloads to each of these two environments so we won't encounter any Azure subscription service limits. However, it's important to consider that each resource group has a limit of 800 resources per resource group. Therefore, if we keep adding workloads to each resource group it is possible that this limit can be reached. 
+![](../_images/governance-3-2.png)
+3. The first *workload owner* sends a request to the *subscription service administrator* and is added to each of the **development** and **production** environment resource groups with the *contributor* role. As you learned earlier, the *contributor* role allows the user to perform any operation other than assigning a role to another user. The first *workload owner* can now create the resources associated with their workload.
+![](../_images/governance-3-3.png)
+4. The first *workload owner* creates a virtual network in each of the two resource groups with a pair of virtual machines in each. The first *workload owner* applies the *environment* and *managedBy* tags to all resources. Note that the Azure service limit counter is now at 47 virtual networks remaining.
+![](../_images/governance-3-4.png)
+5. Each of the virtual networks does not have connectivity to on-premises when they are created. In this type of architecture, each virtual network must be peered to the *hub-vnet* in the **shared infrastructure** environment. Virtual network peering creates a connection between two separate virtual networks and allows network traffic to travel between them. Note that virtual network peering is not inherently transitive. A peering must be specified in each of the two virtual networks that are connected, and if only one of the virtual networks specifies a peering the connection is incomplete. To illustrate the effect of this, the first *workload owner* specifies a peering between *prod-vnet* and *hub-vnet*. The first peering is created, but no traffic flows because the complementary peering from *hub-vnet* to *prod-vnet* has not yet been specified. The first *workload owner* contacts the *network operations* user and requests this complementary peering connection.
+![](../_images/governance-3-5.png)
+6. The *network operations* user reviews the request, approves it, then specifies the peering in teh settings for the *hub-vnet*. The peering connection is now complete and network traffic flows between the two virtual networks.
+![](../_images/governance-3-6.png)
+7. Now, a second *workload owner* sends a request to the *subscription service administrator* and is added to the existing **production** and **development** environment resource groups with the *contributor* role. The second *workload owner* has the same permissions on all resources as the first *workload owner* in each resource group. 
+![](../_images/governance-3-7.png)
+8. The second *workload owner* creates a subnet in the *prod-vnet* virtual network, then adds two virtual machines. The second *workload owner* applies the *environment* and *managedBy* tags to each resource.
+![](../_images/governance-3-8.png) 
+
+Now that our model is complete, let's analyze the final state to see how it aligns with our requirements.
+
+Our model enables us to manage our resources in the three required environments. Our shared infrastructure resources are protected because there's only a single user in the subscrition with permission to access those resources. 
+
+
+Now let's evaluate a resource management model using multiple subscriptions. In this model, we'll align each of the our three environments to a separate subscription: a **shared services** subscription, **production** subscription, and finally a **development** subscription. The considerations for this model are similar to a model using a single subscription in that we have to decide how to align resource groups to workloads. 
+
+As you learned earlier, if we want to isolate workloads on a permissions basis we must assign the *owner* role to a trusted user at the *subscription* level. The *subscription* owner is responsible for creating resource groups and adding workload owners with the *contributor* role. When we had a single subscription, there was only one subscription owner. Now that we have three subscriptions, we have three subscription owners. These three subscription owners can be the same user or up to three different users.
+
+As you can see from the diagram, workload owners may have resources in both the **production** and **development** subscriptions at the same time. These users do not require management access to the resources in the **shared infrastructure** environment. Because workload owners have to contact the subscription owner to create a resource group, it may be more efficient for the **production** and **development** subscription owner to be the same user or users on the same team. 
 
 ## Next steps
 
