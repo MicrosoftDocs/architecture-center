@@ -53,10 +53,10 @@ Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](/azure/role-based-access-control/built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
-| [Security Reader](/azure/role-based-access-control/built-in-roles.md#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
-| [Network Contributor](/azure/role-based-access-control/built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
-| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/azure/role-based-access-control/custom-roles.md) |
+| [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
+| [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
+| [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
+| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/azure/role-based-access-control/custom-roles) |
 
 ### Policies
 Dave has the following requirements for managing resources in the subscription:
@@ -65,7 +65,7 @@ Dave has the following requirements for managing resources in the subscription:
 * He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.  
 * Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
-He creates the following [Azure policies](/azure/azure-policy/azure-policy-introduction.md):
+He creates the following [Azure policies](/azure/azure-policy/azure-policy-introduction):
 
 | Field | Effect | Description |
 | --- | --- | --- |
@@ -78,7 +78,7 @@ He creates the following [Azure policies](/azure/azure-policy/azure-policy-intro
 ### Resource tags
 Dave understands that he needs to have specific information on the bill to identify the cost center for the BitBucket implementation. Additionally, Dave wants to know all the resources that ETS owns.
 
-He adds the following [tags](/azure/azure-resource-manager/resource-group-using-tags.md) to the resource groups and resources.
+He adds the following [tags](/azure/azure-resource-manager/resource-group-using-tags) to the resource groups and resources.
 
 | Tag name | Tag value |
 | --- | --- |
@@ -100,7 +100,7 @@ He creates the following resources:
 ### Resource locks
 Dave recognizes that the connectivity from Contoso's corporate network to the internal virtual network must be protected from any wayward script or accidental deletion.
 
-He creates the following [resource lock](/azure/azure-resource-manager/resource-group-lock-resources.md):
+He creates the following [resource lock](/azure/azure-resource-manager/resource-group-lock-resources):
 
 | Lock type | Resource | Description |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Dave has nothing to automate for this application. Although he created an Azure 
 ### Azure Security Center
 Contoso IT service management needs to quickly identify and handle threats. They also want to understand what problems may exist.  
 
-To fulfill these requirements, Dave enables the [Azure Security Center](/azure/security-center/security-center-intro.md), and provides access to the Security Reader role.
+To fulfill these requirements, Dave enables the [Azure Security Center](/azure/security-center/security-center-intro), and provides access to the Security Reader role.
 
 ## Scenario 2: customer-facing app
 The business leadership in the supply chain business unit has identified various opportunities to increase engagement with Contoso's customers by using a loyalty card. Alice's team must create this application and decides that Azure increases their ability to meet the business need. Alice works with Dave from ETS to configure two subscriptions for developing and operating this application.
@@ -184,7 +184,7 @@ They create the following lock:
 ### Azure Automation
 Alice and her development team have extensive runbooks to manage the environment for this application. The runbooks allow for the addition/deletion of nodes for the application and other DevOps tasks.
 
-To use these runbooks, they enable [Automation](/azure/automation/automation-intro.md).
+To use these runbooks, they enable [Automation](/azure/automation/automation-intro).
 
 ### Azure Security Center
 Contoso IT service management needs to quickly identify and handle threats. They also want to understand what problems may exist.  
@@ -192,4 +192,4 @@ Contoso IT service management needs to quickly identify and handle threats. They
 To fulfill these requirements, Dave enables Azure Security Center. He ensures that the Azure Security Center is monitoring the resources, and provides access to the DevOps and security teams.
 
 ## Next steps
-* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices.md).
+* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices).
