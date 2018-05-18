@@ -6,86 +6,78 @@ author: petertay
 
 # Governance design walkthrough: new development in Azure for multiple teams
 
-The audience for this governance walkthrough is the *central IT* and *security operations* personas in your organization. *Central IT* is responsible for designing and implementing your organization's cloud governance architecture. *Security operations* is responsible for the infrastructure for storing secrets in Azure as well as implementing your organization's security protocols in Azure. This guide is also useful as a reference to aid in understanding how governance is implemented for the *finance*, *shared infrastructure owner*, and *workload owner* personas.
-
-As you learned in the [what is cloud resource governance?](governance-explainer.md) explainer, governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization.
-
 The goal of this guidance is to help you learn the process of designing your organization's governance architecture to accomodate new development in Azure for multiple teams. To facilitate this, we'll look at a set of hypothetical goverance goals and requirements and discuss how to configure Azure's governance tools to meet them. 
 
 Our requirements are:
-* Identity management for multiple teams with multiple resource access requirements in Azure. Efficiently manage and audit resource access permissions for groups of users.
-* Support for a *shared infrastructure*, *development*, and *production* environment. The *development* environment is for proof-of-concept and testing work and therefore has relaxed security requirements but increased cost tracking requirements to ensure that development teams are working to resource budget constraints. The *production* environment is where workloads are published for internal and external consumption with tighter resource access requirments than the *development* environment.
-* A permissions model of least privilege access, that supports the following:
-    * A single trusted user that is allowed to delegate permissions assignments to *workload owners* 
-    * Allow *workload owner* access to appropriate shared infrastructure resources (such as virtual networking) owned by *shared infrastructure owner*, but deny access to permanent infrastructure such as network gateways to prevent accidental changes or deletion.
-* Manage the resources for multiple workloads, with each workload's resources isolated so that no one other than the team responsible for the workload has access.
-* Enforce resource tag naming standards to enable cost tracking.
-* Use Azure built-in roles to manage access to resources. 
+* Identity management for multiple teams with multiple resource access requirements in Azure, with a single privileged account for managing and auditing user identity for the organization. The identity management system must store the identity of the following users:
+  1. The individual in our organization responsible for ownership of *subscriptions*.
+  2. The individual in our organization responsible for the shared infrastructure resources in Azure used to connect our on-premises network to an Azure virtual network. 
+  3. Two individuals in our organization responsible for managing a *workload*. 
+* Support for multiple environments. As you learned earlier, an *environment* is a logical grouping of resources that are used for a similar purpose and have similar management and security requirements. Our requirement is for three environments:
+  1. A *shared infrastructure* environment that includes resources shared by all other environments. These are resources such as a virtual network with a gateway subnet to provide connectivity to on-premises, a network security group, and user-defined routes.
+  2. A *development* environment for proof-of-concept and testing work. This environment may have relaxed security requirements but increased cost tracking requirements to ensure that development teams are working to resource budget constraints. 
+  3. A *production* environment where workloads are published for internal and external consumption. This environment has tighter resource access requirements than the *development* environment.
+* A permissions model of least privilege, that supports the following:
+  * A single trusted entity at the *subscription* scope to delegate permissions assignments to our two *workload owners*. 
+  * Allow our two *workload owner* access to appropriate shared infrastructure resources (such as virtual networking) owned by our *shared infrastructure owner*, but deny access to permanent infrastructure such as network gateways to prevent accidental changes or deletion.
+  * Manage the resources for multiple workloads, with each workload's resources isolated so that no one other than the team responsible for the workload has access.
+  * Use [built-in role-based access control (RBAC) roles][rbac-built-in-roles] to manage access to Azure resources, so that we do not have to create any custom RBAC roles.
+* Cost tracking by *workload owner*, *environment*, or both. 
 
 ## Identity management
 
 Before we can design our identity management infrastructure to support multiple teams and multiple workloads, it's important to understand the functions that identity management provides in our governance model. These functions are:
 
-* Administration: the processes and tools for managing user identity; we want to be able to efficiently manage user identity to ensure that users only have access to the resources we want them to access when they require that access. 
-* Authentication: the process of verifying the identity of a user through the use of credentials such as a user name and password.
+* Administration: the processes and tools for creating, editing, and deleting user identity.
+* Authentication: the process of verifying the identity of a user through their use of credentials such as a user name and password.
 * Authorization: once a user has been authorized, this process determines which resources the user is allowed to access and what operations they are allowed to perform.
 * Auditing: the process of periodically reviewing logs and other information to uncover any potential security issues related to user identity. This includes reviewing user connection patterns to ensure that a user's activity isn't suspicious, periodically running checks to ensure user permissions are accurate, and many other functions.
 
-The only service trusted by Azure to provide this functionality is Azure Active Directory (AD), so our task in designing our identity management infrastructure is to configure this service to meet our requirements. 
+The only service trusted by Azure to provide this functionality is Azure Active Directory (AD), so we'll be configuring this service and using it for all of the functions listed above. Our requirement was also for a single privileged account to manage and audit user identity. Before we look at how we'll configure Azure AD, let's discuss privileged accounts in Azure.
 
-Our first requirement is to efficiently administer identity and permissions for multiple users with multiple resource access requirements. The motivation for this requirement is to reduce the effort it takes to manage our users and their permissions. For example, we'd like to select some common criteria we can use to group users together and apply permissions to them all at once rather than one by one.
+When your organization signed up for an Azure account, the Account was created. An *Azure Account Owner* was added and an Azure AD tenant was created if there was not already an Azure AD tenant associated with your organization use of other Microsoft services such as Office 365. A *global administrator* is associated with the Azure AD tenant. 
 
-As you learned earlier, user identity can be grouped by **tenant** or by [**groups**](/azure/active-directory/active-directory-manage-groups) within the same tenant. 
+Both of the *Azure Account Owner* and Azure AD *global administrator* user identities are privileged. This means that these identities are stored in a highly secure identity system that is managed by Microsoft. The *Azure Account Owner* is authorized to create, update, and delete *subscriptions*. The Azure AD *global administrator* is authorized to perform many actions in Azure AD, but for this design guide we'll focus on the creation and deletion of user identity.
 
-Let's evaluate grouping by *tenant* first. Grouping at the *tenant* level means that a separate *tenant* is created for each group of users. This allows us to select all the users at the tenant level then apply permissions and audit their activities as a group. 
+![Azure account with Azure Account Manager and Azure AD global admin](../_images/governance-3-0.png)
 
-There are two problems with this approach. First, we cannot audit the activity of users across multiple tenants without exporting and aggregating activity logs from each tenant. Second, we cannot share user identity between Azure AD tenants, so if we have a user that belongs in more than one group we have to replicate and manage their identity separately in each tenant.
+Our requirement for a single privileged account is satisfied by Azure AD. Our next requirement is user accounts for the four specified users, which are created by the Azure AD *global administrator*:
 
-Now let's evaluate grouping by Azure AD *group*. Grouping user identities at the *group* level means that we store all our user identities in a single *tenant* and organize them into one or more *groups*. Just as in a *tenant*, we can apply permissions and audit activities by *group*. We can also audit the activity of all users in all groups in a single log file, and we can include users in more than one group.
+![Azure account with Azure Account Manager and Azure AD global admin](../_images/governance-3-0a.png)
 
-Based on our analysis, the design that most closely meets our requirements is a single Azure AD *tenant* and multiple *groups*. 
+The first two accounts, *App1 Workload Owner* and *App2 Workload Owner* are owned by the two individuals in our organization that are responsible for managing workloads. The *network operations* account is owned by the individual that is responsible for the shared infrastructure resources. Finally, the *subscription owner* account is owned by the individual responsible for ownership of *subscriptions*.
 
-**TODO: add pointer to "how to" on group creation**
+## Resource access permissions model of least privilege
 
-## Permissions model of least privilege access
+Now that we have our identity management system and user accounts created, we have to decide how we'll apply role-based access control (RBAC) roles to each of them to satify our requirement for a permissions model of least privilege. That is, our requirement is to design a permissions model that grants permission for a user to perform only the action they need to perform, and nothing else. 
 
-As you learned in the earlier section, resource access in Azure is managed using role-based access control (RBAC). You learned that RBAC defines a role, and the role is associated with a set of allowed or denied actions that a user can take on a particular resource. When we designed our permissions model for a simple workload, we were primarily concerned with assigning permission to create, read, update, or delete resources.
+Our other requirements are for a single trusted user to delegate rights to *workload owners*. We have a further requirement for the resources associated with each workload be isolated from one another such that no one *workload owner* has management access to the any other *workload* they do not own. We have an slight variation on this requirement in that the *workload owners* must be able to access the shared resources but not management access to them. Finally, we have a requirement to implement this model using only [built-in roles for Azure RBAC][rbac-built-in-roles].
 
-Now that we are designing our permissions model for multiple teams and multiple workloads, we have an additional consideration in that we have to control who in our organization has permission to delegate rights to others. That is, we only want users we trust to have permission to delegate rights to others, otherwise we run the risk of a proliferation of rights delegation in our organization.
+Each RBAC role is applied at one of three *scopes* in Azure: *subscription*, *resource group*, then an individual *resource*. Roles are inherited at lower scopes. For example, if a user is assigned the *owner* role at the *subscription* level, that role is also assigned to that user at the *resource group* and individual *resource* level unless is it overridden.
 
-Our permissions model, like most permissions models in the past, is a hierarchy. We have a single trusted user at the top who delegates access control to other trusted individuals down the structure of the hierarchy. So, our task in designing our permissions model is to identify the job function at each level of the hierarchy and what permissions are appropriate at that level.
+Therefore, to create a model of least privilege access we have to decide what actions a particular type of user is allowed to take at each of these three scopes. For example, our requirement is for a *workload owner* to have permission to manage access to only the resources associated with their workload and no others. If we were to assign the *owner* role at the *subscription* scope, each *workload owner* would have management access to all workloads.
 
-First, recall from earlier that the a hierarchy of resource management scope in Azure starts with a *subscription* at the highest scope, followed by a *resource group*, then finally an individual *resource*. 
+Let's take a look at two example permission models to understand this concept a little better. In the first example, our model trusts only the *service administrator* to create resource groups. In our second example, our model assigns the *owner* role to each *workload owner* at the *subscription* scope. 
 
-In Azure, each subscription has at least one service administrator. The service administrator is assigned the built-in RBAC *owner* role when the subscription is created. The *owner* role allows the user to delegate access control to other users. All delegation of access control rights begins with the service administrator and flows to all other users in the hierarchy.
-
-The next level down in scope is the *resource group* level. There is a decision to be made at this point: who in your organization is trusted to create a resource group? While this may seem like a trivial decision, it is actually a key decision in your permissions model. 
-
-There are two options to consider:  
-1. Trust only the *service administrator* to create resource groups, or,
-2. allow the *service administrator* to add one or more *workload owners* with the *owner* role at the subscription level, which enables the *workload owner* to create their own resource group.
-
-Let's take a look an example implementation of each option to see the effect of this decision:
-
-When the subscription is initally created, a *service administrator* is added and assigned the *owner* role. The *owner* role grants all permissions to the *service administrator*.
+In both examples, we have a *service administrator* that is assigned the *owner* role at the *subscription* scope. Recall that the *owner* role grants all permissions to the *service administrator*.
 ![subscription service administrator with owner role](../_images/governance-2-1.png) 
 
-1. Now let's assume we have someone from one of our development teams who is working on an application. Recall that we defined a *workload* as including not only the code artifacts for the application, but all necessary cloud resources as well. Therefore, this developer will be responsible not only for building and publishing the application code, but they will also be responsible for creating and maintaining the cloud resources necessary for the application to run.  Therefore, we'll call this person *workload owner A*. Because *workload owner A* currently doesn't have permission to do anything in the subscription, they must contact the *service administrator* and request the creation of a *resource group* to contain the resources for the workload.
+1. In our first example, we have *workload owner A* who wants to manage the resources for their workload. This user doesn't have permission to do anything at the *subscription* scope so they must contact the *service administrator* to request creation of a *resource group* to contain the resources for their workload.
 ![workload owner requests creation of resource group A](../_images/governance-2-2.png)  
 
-2. The *service administrator* reviews the request, and creates *resource group A*. At this point, *workload owner A* still doesn't have permission to do anything.
+2. The *service administrator* reviews their request and creates *resource group A*. At this point, *workload owner A* still doesn't have permission to do anything.
 ![service administrator creates resource group A](../_images/governance-2-3.png)
 
-3. In order to enable *workload owner A* to manage resources, the *service administrator* adds them to *resource group A*. The *service administrator* can assign any role to *workload owner A*, and in our example the policy is to restrict the right to delegate access management. As a result, the *service administrator* assigns the *contributor* role to *workload owner A*.
+3. In order to enable *workload owner A* to manage resources, the *service administrator* adds them to *resource group A*. The *service administrator* assigns the *contributor* role to *workload owner A*. The *contributor* role grants all permissions on *resource group A* except delegating access permission.
 ![service administrator adds workload owner a to resource group a](../_images/governance-2-4.png)
 
-4. *Workload owner A* has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because *workload owner A* does not have permission to add a user to *resource group A* directly, they must make the request to the *service administrator*.
+4. *Workload owner A* has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because *workload owner A* is assigned the *contributor* role, they do not have permission to add a user to *resource group A* directly. They must send this request to the *service administrator*.
 ![workload owner requests workload contributors be added to resource group](../_images/governance-2-5.png)
 
 5. The *service adminstrator* reviews the request, and adds the two *workload contributor* users to *resource group A*. Neither of these users requires permission to manage resources, so they are assigned the *reader* role. 
 ![service administrator adds workload contributors to resource group A](../_images/governance-2-6.png)
 
-6. Now let's take a look at what happens when there's another *workload owner* that is also responsible for deploying a workload to Azure. As we learned earlier, *workload owner B* does not initally have any rights at all in the subscription and must make a request for a new *resource group* to the *service administrator*. 
+6. Now *workload onwer B* also requires a *resource group* to contain the resources for their workload. As with *workload owner A*, *workload owner B* does not have permission to take any action at the *subscription* scope so they must send a request to the *service administrator*. 
 ![workload owner B requests creation of resource group B](../_images/governance-2-7.png)
 
 7. The *service administrator* reviews the request and creates *resource group B*.
@@ -94,49 +86,43 @@ When the subscription is initally created, a *service administrator* is added an
 8. The *service administrator* then adds *workload owner B* to *resource group B* and assigns the *contributor role*. 
 ![Service Administrator adds Workload Owner B to resource group B](../_images/governance-2-9.png)
 
-Now let's analyze the resulting state of the *subscription*. We have two workloads, each isolated in their own resource group. None of the users added to *resource group A* has visibility into any of the resources in *resource group B* and vice-versa. This is a desirable state because each user is assigned the correct permission at the correct resource management scope.
+At this point we have two workloads, each isolated in their own resource group. None of the users added to *resource group A* has visibility into any of the resources in *resource group B* and vice-versa. This model is a least privelege model because each user is assigned the correct permission at the correct resource management scope.
 
 ![subscription with resource groups A and B](../_images/governance-2-10.png)
 
 However, note that every task in this example was performed by the *service administrator*. This is a simple example and it's not an issue because there were only two workload owners, however it's easy to imagine the types of issues that would result if the organization was very large. The *service administrator* can become a bottleneck, resulting in a backlog of requests that create unacceptably long delays for development teams.
 
-One way to fix this problem is for our organization to allow workload owners to create their own resource groups and delegate access to resources. Let's take a look at how this implementation works and the issues associated with it:
-
-1. To enable workload owners to create their own resource groups and add users to those resource groups, they must be added to the *subscription* with the *owner* role. As in   the first example, the only person with permission to perform this action is the *service administrator*. 
+1. In our second example, *workload owner A* is assigned the *owner* role at the *subscription* scope. This enables them to create their own *resource group*.
 ![Service Administrator adds Workload Owner A to subscription](../_images/governance-2-11.png)
 
-2. Now, *workload owner A* creates *resource group A* and is added by default. Note that *workload owner A* inherits the *owner* role from the *subscription*.
+2. Now, *workload owner A* creates *resource group A* and is added by default. Note that *workload owner A* inherits the *owner* role from the *subscription* scope.
 ![Workload Owner A creates resource group A](../_images/governance-2-12.png)
 
-3. The *owner* role allows *workload owner A* to delegate access. *Workload owner A* adds two *workload contributors* and assigns the *reader* role to them. 
+3. The *owner* role allows *workload owner A* to delegate management access. *Workload owner A* adds two *workload contributors* and assigns the *reader* role to them. 
 ![Workload Owner A adds Workload Contributors](../_images/governance-2-13.png)
 
-4. Similarly, the *service administrator* can now add *workload owner B* to the *subscription* with the *owner* role. 
+4. Similarly, the *service administrator* now adds *workload owner B* to the *subscription* with the *owner* role. 
 ![Service Administrator adds Workload Owners B to subscription](../_images/governance-2-14.png)
 
-5. *Workload owner B* creates *resource group B* and is added by default. Again, *workload owner B* inherits the *owner* role from their *subscription* level role.
+5. *Workload owner B* creates *resource group B* and is added by default. Again, *workload owner B* inherits the *owner* role from the *subscription* scope.
 ![Workload Owner B creates resource group B](../_images/governance-2-15.png)
 
-As we did earlier, let's analyze the resulting state of the *subscription*, as well as *resource group A* and *resource group B*. In the final state we have two workloads, each isolated in a resource group. The *service administrator* only had to perform two actions, so they are no longer a bottleneck even in a large organization.
+Note that in this model, the *service administrator* only had to perform two actions. This means that they are no longer a bottleneck even in a large organization.
 
 ![subscription with resource groups A and B](../_images/governance-2-16.png)
 
 However, because both *workload owner A* and *workload owner B* are assigned the *owner* role at the *subscription scope*, they have also both inherited the *owner* role for each other's resource group. This means that not only do they have full access to one another's resources, they are also able to delegate access to others. For example, *workload owner B* has rights to add any other user to *resource group A* and can assign any role, including *owner*.
 
-Therefore, only the first example is a model that implements the concept of least privilege access. There is additional management overhead associated with this model, but there are some other strategies that can be implemented to reduce the effects. We'll take a look at these in the advanced section.
+If we compare each example to our requirements, we see that both examples supports a single trusted user to delegate rights to *workload owners*. However, only the first example supports the requirement that the resources associated with each workload be isolated from one another such that no one *workload owner* has management access to the any other *workload* they do not own. It follows that our additional requirement that *workload owners* are able to access the shared resources but not have management access to them is also supported only by the first example.
 
-## Resource management scope
+## Resource management model
 
-The task of designing our resource management scope is to decide how we will organize and group the resources that make up our workloads. As you learned in the workload explainer, a workload can be made up of many different types of resources. Most of your workloads will share network resources with one or more central gateways to your on-premises network, and some of your workloads may share other resources such a load balancers, storage, and databases. 
-
-Now that you've seen some examples of different access management scenarios, let's take a look at some practical applications of these governance models. Recall from our requirements that we want are required to support multiple *environments*. We define an *environment* as a logical grouping of resources that are used for a similar purpose. 
-
-Recall from our requirements that we'll have three environments:
+Now that we've designed a permissions model of least privelege, let's move on to take a look at some practical applications of these governance models. Recall from our requirements that we must support the following three environments:
 1. **Shared infrastructure:** a single group of resources shared by all workloads. These are resources such as network gateways, firewalls, and security services.  
 2. **Development:** multiple groups of resources representing multiple non-production ready workloads. These resources are used for proof-of-concept, testing, and other developer activities. These resources may have a more relaxed goverance model because to allow for increased developer agility.
 3. **Production:** multiple groups of resources representing multiple production workloads. These resources are used to host the private and public facing application artifacts. These resources typically have the tightest goverance and security models to protect the resources, application code, and data from unauthorized access.
 
-For each of these three environments, we have a requirement to track cost data by workload, environment, or both. That is, we want to know the ongoing cost of our *shared infrastructure*, the cost of all workloads running in both *development* and *production*, and finally the overall cost of *development* and *production*. We also want to know who is responsible for the cost associated with the resource. 
+For each of these three environments, we have a requirement to track cost data by *workload owner*, *environment*, or both. That is, we want to know the ongoing cost of our *shared infrastructure*, the costs incurred by individuals rin both the *development* and *production* environments, and finally the overall cost of *development* and *production*. 
 
 You have already learned that resources are scoped to two levels: *subscription* and *resource group*. Therefore, our first decision is how to organize our environments by *subscription*. There are two options: a single subscription, or, multiple subscriptions. 
 
@@ -146,8 +132,14 @@ Let's evaluate a resource management model using a single *subscription*. Our fi
 
 Let's begin by evaluting the first option. We'll be using the permissions model that we discussed in the previous section, with a single subscription service administrator that creates resource groups and adds users to them with either the built-in *contributor* or *reader* role.
 
-> [!NOTE]
-> In this hypothetical example, the subscription service administrator is responsible for creating resource groups and adding users to them. In practice, your organization may decide to have one or more trusted users with the *owner* role assigned at the *subscription* level.  
+For all of these options, our requirements also state that we have an individual in our organization that is responsible for *subscriptions*, and this user owns the *subscription owner* account in our Azure AD tenant. However, this individual does not have permission to create *subscriptions* for our Azure account. Only the *Azure Account Owner* has permission to do this:
+![](../_images/governance-3-0b.png)
+
+Once the *subscription* has been created, the *Azure Account Owner* can add the *subscription owner* account to the *subscription* with the *owner* role:
+
+![](../_images/governance-3-0c.png)
+
+The *subscription owner* can now create *resource groups* and delegate resource access management. 
 
 1. The first resource group deployed represents the *shared infrastructure* environment. This resource group includes a virtual network with a gateway subnet. The gateway subnet hosts a VPN gateway that connects to a VPN appliance on-premises. When the subscription service administrator creates the shared infrastructure resource group, they add the *network operations* user with the *contributor* role. The *network operations* user creates a resource group named *netops-shared-rg* and creates a virtual network with a gateway subnet. This user deploys a [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and configures it to connect to the on-premises VPN appliance. The *network operations* user also applies a pair of [tags](/azure/azure-resource-manager/resource-group-using-tags) to each of the resources: *environment:shared* and *managedBy:netOps*. When the *subscription service administrator* exports a cost report, costs will be aligned with each of these tags. This allows the *subscription service administrator* to pivot costs using the *environment* tag and the *managedBy* tag. Notice the *resource limits* counter at the top right-hand side of the figure. Each Azure subscription has [service limits](/azure/azure-subscription-service-limits), and to help you understand the affect of these limits we'll follow the virtual network limit for each subscription. There is a default limit of 50 virtual networks per subscription, and after the first virtual network is deployed there are now 49 available.
 ![](../_images/governance-3-1.png)
@@ -179,3 +171,7 @@ As you can see from the diagram, workload owners may have resources in both the 
 
 ## Next steps
 
+
+<!-- links -->
+
+[rbac-built-in-roles]: /azure/role-based-access-control/built-in-roles
