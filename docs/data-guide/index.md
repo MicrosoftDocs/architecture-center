@@ -17,7 +17,7 @@ The cloud is changing the way applications are designed, including how data is p
 
 ## How this guide is structured
 
-This guide is structured around two general categories of data solution, *traditional RDMBS workloads* and *big data solutions*. 
+This guide is structured around two general categories of data solution, *traditional RDBMS workloads* and *big data solutions*. 
 
 **[Traditional RDBMS workloads](./relational-data/index.md)**. These workloads include online transaction processing (OLTP) and online analytical processing (OLAP). Data in OLTP systems is typically relational data with a pre-defined schema and a set of constraints to maintain referential integrity. Often, data from multiple sources in the organization may be consolidated into a data warehouse, using an ETL process to move and transform the source data.
 
