@@ -28,7 +28,7 @@ This architecture consists of the following infrastructure components.
 
 - **MSEE (Microsoft Enterprise Edge)**. MSEE is a connection point from a connectivity provider or your network edge through an ExpressRoute circuit. 
 
-- **Network interface card (NIC)**. To enable communication with the Azure virtual network, the HANA Large Instance server provides four virtual NICs by default. This architecture requires one NIC for client communication with the Azure virtual machines, a second NIC for the node-to-node connectivity needed by HSR, a third NIC for HANA Large Instance storage, and a fourth for iSCSI used in high availability clustering.
+- **Network interface cards (NICs)**. To enable communication, the HANA Large Instance server provides four virtual NICs by default. This architecture requires one NIC for client communication, a second NIC for the node-to-node connectivity needed by HSR, a third NIC for HANA Large Instance storage, and a fourth for iSCSI used in high availability clustering.
     
 - **Network File System (NFS) storage**. The [NFS][nfs] server supports the network file share that provides secure data persistence for HANA Large Instance.
 
@@ -95,7 +95,7 @@ Work with SAP, your system integrator, or Microsoft to properly architect and im
 
 - Recovery Time Objective (RTO) means the duration of time in which the HANA Large Instances server is unavailable.
 
-- Recovery Point Objective (RPO) means the maximum tolerable period in which customer data might be lost due to a disaster.
+- Recovery Point Objective (RPO) means the maximum tolerable period in which customer data might be lost due to a failure.
 
 For high availability, deploy more than one instance in a HA Pair and use HSR in a synchronous mode to minimize data loss and downtime. In addition to a local, two-node high availability setup, HSR supports multi-tier replication, where a third node in a separate Azure region registers to the secondary replica of the clustered HSR pair as its replication target. This forms a replication daisy chain. The failover to the DR node is a manual process.
 
@@ -106,7 +106,10 @@ This architecture supports [disaster recovery][hli-dr] between HANA Large Instan
 
 - Storage replication. The primary storage contents are constantly replicated to the remote DR storage systems that are available on the designated DR HANA Large Instances server. In storage replication, the HANA database is not loaded into memory. This DR option is simpler from an administration perspective. To determine if this is a suitable strategy, consider the database load time against the availability SLA. Storage replication also enables you to perform point-in-time recovery. If multi-purpose (cost-optimized) DR is set up, you must purchase additional storage of the same size at the DR location. Microsoft provides self-services [storage snapshot and failover scripts][scripts] for HANA failover as part of the HANA Large Instances offering.
 
-- Multi-tier HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a dedicated system. HANA system replication for the DR site is handled through proxies such as nginx or IP tables. 
+- Multi-tier HSR with a third replica in the DR region (where the HANA database is loaded onto memory). This option supports a faster recovery time but does not support a point-in-time recovery. HSR requires a secondary system. HANA system replication for the DR site is handled through proxies such as nginx or IP tables. 
+
+> [!NOTE]
+> You can optimize this reference architecture for costs by running in a single-instance environment. This [cost-optimized scenario](https://blogs.sap.com/2016/07/19/new-whitepaper-for-high-availability-for-sap-hana-cost-optimized-scenario/) is suitable for non-production HANA workloads. 
 
 ## Backup considerations
 Based on your business requirements, choose from several options available for [backup and recovery][hli-backup].
