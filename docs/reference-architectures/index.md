@@ -174,8 +174,8 @@ Our reference architectures are arranged by scenario, with related architectures
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>SAP NetWeaver and SAP HANA</h3>
-                        <p>Deploy and run SAP NetWeaver and SAP HANA in a high availability environment on Azure.</p>
+                        <h3>Run SAP on Azure</h3>
+                        <p>Deploy and run SAP in a high availability environment on Azure.</p>
                     </div>
                 </div>
             </div>

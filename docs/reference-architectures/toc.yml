@@ -73,11 +73,18 @@
     - name: Highly available network virtual appliances
       href: dmz/nva-ha.md
 
+  - name: SAP
+    href: sap/index.md
+    items:
+    - name: SAP NetWeaver for AnyDB
+      href: sap/sap-netweaver.md
+    - name: SAP S/4HANA
+      href: sap/sap-s4hana.md
+    - name: SAP HANA on Azure Large Instances
+      href: sap/hana-large-instances.md
+
   - name: Jenkins server
     href: jenkins/index.md
-
-  - name: SAP NetWeaver and SAP HANA
-    href: sap/index.md
 
   - name: SharePoint Server 2016
     href: sharepoint/index.md
