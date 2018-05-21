@@ -88,6 +88,9 @@ If you already have SAP deployments, SAP provides reports you can use to check t
 - SAP Note [2296290][sap-2296290] - New Sizing Report for BW on HANA
 
 ## Availability considerations
+
+Resource redundancy is the general theme in highly available infrastructure solutions. For enterprises that have a less stringent SLA, single-instance Azure VMs offer an uptime SLA. For more information, see [Azure Service Level Agreement](https://azure.microsoft.com/support/legal/sla/).
+
 Work with SAP, your system integrator, or Microsoft to properly architect and implement a [high availability and disaster-recovery][hli-hadr] strategy. This architecture follows the Azure [service-level agreement][sla] (SLA) for HANA on Azure (Large Instances). To assess your availability requirements, consider any single points of failure, the desired level of uptime for services, and these common metrics:
 
 - Recovery Time Objective (RTO) means the duration of time in which the HANA Large Instances server is unavailable.
