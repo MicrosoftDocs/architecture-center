@@ -82,7 +82,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric, underscore, and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
+|Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
 |Function App | Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
 
 > [!NOTE]
