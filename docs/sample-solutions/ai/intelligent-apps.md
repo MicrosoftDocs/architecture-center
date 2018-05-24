@@ -23,14 +23,15 @@ You should use this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
+![Intelligent apps architecture][architecture-intelligent-apps]
+
 ## Architecture components
 
 These are the components found in this solution:
 
-* Computer Vision API
+* [Computer Vision API][computer-vision-docs]
 * [Azure Functions][functions-docs]
 * 
-*
 
 ## Architecture considerations
 
@@ -56,3 +57,5 @@ Explore the [cost][pricing] of running this solution.
 <!-- links -->
 [pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
+[computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
+[architecture-intelligent-apps]: ./media/architecture-intelligent-apps.png
