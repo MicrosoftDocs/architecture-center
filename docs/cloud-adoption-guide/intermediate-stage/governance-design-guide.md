@@ -40,12 +40,12 @@ When your organization signed up for an Azure account, at least one **Azure Acco
 Both of the Azure Account Owner and Azure AD global administrator user identities are privileged. This means that these identities are stored in a highly secure identity system that is managed by Microsoft. The Azure Account Owner is authorized to create, update, and delete subscriptions. The Azure AD global administrator is authorized to perform many actions in Azure AD, but for this design guide we'll focus on the creation and deletion of user identity.
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../_images/governance-3-0.png)
-Figure 1. An Azure account with an Account Manager and Azure AD Global Administrator.
+*Figure 1. An Azure account with an Account Manager and Azure AD Global Administrator.*
 
-Our requirement for a single privileged account is satisfied by Azure AD. Our next requirement is user accounts for the four specified users, which are created by the Azure AD *global administrator*:
+Our requirement for a single privileged account is satisfied by Azure AD. Our next requirement is user accounts for the four specified users, which are created by the Azure AD **global administrator**:
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../_images/governance-3-0a.png)
-Figure 2. The Azure AD Global Administrator creates the required user accounts in the tenant.
+*Figure 2. The Azure AD Global Administrator creates the required user accounts in the tenant.*
 
 The first two accounts, **App1 Workload Owner** and **App2 Workload Owner** are each associated with an individual in our organization responsible for managing a workload. The **network operations** account is owned by the individual that is responsible for the shared infrastructure resources. Finally, the **subscription owner** account is associated with the individual responsible for ownership of subscriptions.
 
@@ -132,9 +132,11 @@ Now that we've designed a permissions model of least privelege, let's move on to
 
 For each of these three environments, we have a requirement to track cost data by *workload owner*, *environment*, or both. That is, we want to know the ongoing cost of our *shared infrastructure*, the costs incurred by individuals in both the *development* and *production* environments, and finally the overall cost of *development* and *production*. 
 
-You have already learned that resources are scoped to two levels: *subscription* and *resource group*. Therefore, our first decision is how to organize our environments by *subscription*. There are two models: a single subscription, or, multiple subscriptions. 
+You have already learned that resources are scoped to two levels: *subscription* and *resource group*. Therefore, our first decision is how to organize our environments by *subscription*. There are only two possibilities: a single subscription, or, multiple subscriptions. 
 
-Before we look at examples of each of these models, let's take a look at how access to *subscriptions* is managed. Recall from our requirements that we have an individual in our organization that is responsible for *subscriptions*, and this user owns the *subscription owner* account in our Azure AD tenant. However, this account does not have permission to create *subscriptions*. Only the *Azure Account Owner* has permission to do this:
+Before we look at examples of each of these models, let's review the management structure for subscriptions in Azure. 
+
+Recall from our requirements that we have an individual in our organization that is responsible for *subscriptions*, and this user owns the *subscription owner* account in our Azure AD tenant. However, this account does not have permission to create *subscriptions*. Only the *Azure Account Owner* has permission to do this:
 ![](../_images/governance-3-0b.png)
 
 Once the *subscription* has been created, the *Azure Account Owner* can add the *subscription owner* account to the *subscription* with the *owner* role:
