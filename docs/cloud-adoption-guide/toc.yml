@@ -67,29 +67,4 @@
   - name: Intermediate Azure adoption
     href: intermediate-stage/overview.md
     items:
-      - name: "Understanding Azure internals: software-defined networking"
-        href: sdn-explainer.md
-      - name: Understanding workload isolation in Azure
-        href:
-      - name: "Understanding digital identity: intermediate"
-        href:
-      - name: "Understanding Azure subscriptions: intermediate"
-        href: 
-      - name: Understanding infrastructure as code
-        href:
-      - name: "Understanding resource management in Azure: intermediate"
-        href:
-      - name: Understanding resource access control in Azure
-        href:
-      - name: Understanding cost and resource usage tracking in Azure
-        href:
-      - name: Understanding hybrid networking in Azure
-        href:
-      - name: Understanding virtual network security in Azure
-        href:
-      - name: Understanding DevOps in Azure
-        href:
-      - name: Understanding application performance monitoring in Azure
-        href:
-      - name: Deploying complex architectures to Azure
-        href:
+      - name: 
