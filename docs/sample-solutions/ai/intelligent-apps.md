@@ -8,16 +8,14 @@ ms.date: 06/01/2018
 
 In this example, image processing functions would invoke the Computer Vision Cognitive Service for automatically creating the caption and the tags from any supplied images. A mixture of pre-built AI in the form of Cognitive Services and custom AI in the form of Azure ML services would be used to process the text. Azure Functions would be used to coordinate the calls to the classifications and summary AI services which would run as containerized web services in Azure Container Service, while the Text Analytics API could be invoked directly to provide a sentiment score for each text.
 Once all processing has completed, one final Azure Function could be used to insert the complete document into Azure Search for future searches. The document inserted would contain specific tabs and search metadata, so that it could always be tied back to the record store in Azure SQL Database.
-Hero Services: Azure SQL DB, Azure Search, Azure Functions, Azure Storage, Azure Cognitive Services, Azure ML Services.
 
 ## Potential use cases
 
 You should use this solution for the following use cases:
 
 * Classifying images on a fashion website.
-* Something
-* Something
-* Something
+* Classify images & text for insurance claims
+* Capture and classify telemetry data from screenshots of games.
 
 ## Architecture diagram
 
@@ -31,11 +29,24 @@ These are the components found in this solution:
 
 * [Computer Vision API][computer-vision-docs]
 * [Azure Functions][functions-docs]
-* 
 
 ## Architecture considerations
 
+Here we will discuss the major architectural components of the solution, what some of the alternative options are, and why we selected the things we did.
+
+### Data storage
+
+There are a couple types of data present in this scenario. Raw data that relates to each individual customer submission, data derived via machine learning, and finally the meta-data to relate raw data to the customer.
+
+We are storing the raw image data in Azure blob storage, the other storage options are detailed in our [storage documentation][storage-documentation].
+
+### AI Processing
+
+In this solution we are primarily processing images, there are two main options in Azure to consider: Computer Vision API & the Custom Vision API. The main difference between the two is the computer vision API comes pre-trained and will give you a good amount of information by default. You need to provide training images and classifications to the custom vision API in order for it to give you back the information that you might be looking for.
+
 ## Deploy the solution
+
+This section is intended to allow the customer to deploy a template into their own account.
 
 **Prequisites.** You must have an existing Azure account.
 
@@ -58,4 +69,5 @@ Explore the [cost][pricing] of running this solution.
 [pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
 [computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
+[storage-documentation]: https://docs.microsoft.com/en-us/azure/storage/
 [architecture-intelligent-apps]: ./media/architecture-intelligent-apps.png
