@@ -133,6 +133,11 @@
   - name: Failure mode analysis
     href: resiliency/failure-mode-analysis.md
 
+- name: Sample Solutions
+  items:
+  - name: AI
+    href: sample-solutions/AI/index.md
+  
 - name: Scenario guides
   items:
   - name: Azure for AWS Professionals

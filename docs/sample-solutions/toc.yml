@@ -1,0 +1,11 @@
+- name: Azure Architecture Center
+  href: /azure/architecture
+
+- name: Sample Solutions
+  href: index.md
+  items:
+  - name: AI
+    href: ai/index.md
+    items:
+    - name: Application using Cognitive Services
+      href: ai/intelligent-apps.md
