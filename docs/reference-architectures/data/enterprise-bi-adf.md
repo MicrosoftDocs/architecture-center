@@ -21,11 +21,11 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 2. Install the [Azure Building Blocks][azbb-wiki] (azbb).
 
-3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below and following the instructions.
+3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account as follows:
 
-  ```bash
-  az login  
-  ```
+    ```bash
+    az login  
+    ```
 
 ### Deploy the Azure resources
 
@@ -47,10 +47,10 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     az group deployment create --resource-group <resource_group_name> \
      --template-file azure-resources-deploy.json \
      --parameters "dwServerName"="<data_warehouse_server_name>" \
-     "dwAdminLogin"="adminuser" "dwAdminPassword"="<password>" \ 
+     "dwAdminLogin"="adminuser" "dwAdminPassword"="<data-warehouse-password>" \ 
      "storageAccountName"="<storage_account_name>" \
      "analysisServerName"="<analysis_server_name>" \
-     "analysisServerAdmin"="user@contoso.com"
+     "analysisServerAdmin"="<user@contoso.com>"
     ```
 
     - The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts. 
@@ -62,14 +62,16 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
 
     ```bash
     az group deployment create --resource-group <resource_group_name> \
-    --template-file adf-pipeline-deploy.json 
+    --template-file adf-pipeline-deploy.json \
     --parameters "factoryName"="<adf_factory_name>" \
-    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
+    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data-warehouse-password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
     "blobConnectionString"="DefaultEndpointsProtocol=https;AccountName=<storage_account_name>;AccountKey=<storage_account_key>;EndpointSuffix=core.windows.net" \
-    "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<password>;Trusted_Connection=True;"
+    "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
     ```
 
-    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in step 4.
+    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in step 4. 
+
+    The value for `<sql-db-password>` is the password for the on-premises SQL Server VM, which you will create later.
 
 ### Get the Integration Runtime authentication key
 
@@ -98,16 +100,16 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\onprem\templates` folder of the repository.
 
-2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with a different password.
+2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with the password that you specified earlier for `<sql-db-password>`.
 
-3. In the same file, paste  the Integration Runtime authentication key (above) into the `IntegrationRuntimeGatewayKey` parameter 
+3. In the same file, paste the Integration Runtime authentication key from the previous step, into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
 
     ```json
     "protectedSettings": {
         "configurationArguments": {
             "SqlUserCredentials": {
                 "userName": ".\\adminUser",
-                "password": "testPassw0rd!23"
+                "password": "<sql-db-password>"
             },
             "IntegrationRuntimeGatewayKey": "<authentication key>"
         }
@@ -122,8 +124,55 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 This step may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
 
 
+### Run the data warehouse scripts
 
+1. In the Azure Portal, navigate to the on-premises VM, which is named `sql-vm1`.
 
+2. Use Remote Desktop to connect to the VM.
+
+3. From your Remote Desktop session, open a command prompt and run the following command.
+
+    ```
+    cd C:\SampleDataFiles\reference-architectures\data\enterprise_bi_sqldw_advanced\azure\sqldw_scripts
+
+    deploy_database.cmd -S <dwServerName>.database.windows.net -d wwi -U adminuser -P <password> -N -I
+    ```
+
+    For `<dwServerName>` and `<password>`, use the SQL Server Data Warehouse server name and password from earlier.
+
+To verify this step, you can use SQL Server Management Studio (SSMS) to connect to the SQL Data Warehouse database. You should see the database table definitions.
+
+### Run the Data Factory pipeline
+
+1. Using the same Remote Desktop session, open a PowerShell window.
+
+2. Run the following PowerShell command. Choose **Yes** when prompted.
+
+    ```powershell
+    Install-Module -Name AzureRM -AllowClobber
+    ```
+
+3. Run the following PowerShell command. Enter your Azure credentials when prompted.
+
+    ```powershell
+    Connect-AzureRmAccount 
+    ```
+
+4. Run the following PowerShell commands. 
+
+    ```powershell
+    Set-AzureRmContext -SubscriptionId <subscription id>
+
+    Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "MasterPipeline" -ResourceGroupName <resource-group>
+
+    Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "CityPopulationPipeline" -ResourceGroupName <resource-group>
+    ```
+
+5. In the Azure Portal, navigate to the Data Factory instance that was created earlier.
+
+6. In the Data Factory blade, click **Author & Monitor**. This opens the Azure Data Factory portal in another browser window.
+
+    ![](./images/adf-blade.png)
 
 
 
@@ -221,3 +270,11 @@ In this step, you will use Power BI to create a report from the data in Analysis
     ![](./images/power-bi-report.png)
 
 To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](/power-bi/desktop-getting-started).
+
+
+
+
+
+[azure-cli-2]: /azure/install-azure-cli
+[azbb-repo]: https://github.com/mspnp/template-building-blocks
+[azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks

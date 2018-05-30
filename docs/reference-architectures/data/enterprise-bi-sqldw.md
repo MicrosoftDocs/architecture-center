@@ -187,11 +187,11 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 2. Install the [Azure Building Blocks][azbb-wiki] (azbb).
 
-3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below and following the instructions.
+3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account as follows:
 
-  ```bash
-  az login  
-  ```
+    ```bash
+    az login  
+    ```
 
 ### Deploy the simulated on-premises server
 
@@ -267,7 +267,7 @@ In this step, you will run a PowerShell script that uses bcp to export the SQL d
 
 3. In the Azure portal, verify that the source data was copied to Blob storage by navigating to the storage account, selecting the Blob service, and opening the `wwi` container. You should see a list of tables prefaced with `WorldWideImporters_Application_*`.
 
-### Execute the data warehouse scripts
+### Run the data warehouse scripts
 
 1. From your Remote Desktop session, launch SQL Server Management Studio (SSMS). 
 
