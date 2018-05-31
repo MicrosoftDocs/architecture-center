@@ -97,8 +97,10 @@ Dimension data is relatively static, but it can change. For example, if a produc
 
 There are several approaches to handling slowly changing dimensions. A common technique, called [Type 2](https://wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row), is to add a new record whenever a dimension changes. 
 
+To implement this approach:
+
 -	The dimension tables need additional columns that specify the effective date range for a given record.
--	Primary keys from the source database will be duplicated, so the dimention table will need an artificial primary key.
+-	Primary keys from the source database will be duplicated, so the dimension table must have an artificial primary key.
 
 The following image shows the Dimension.City table. The `WWI City ID` column is the primary key from the source database. The `City Key` column is an artificial key generated during the ETL pipeline. Also notice that the table has `Valid From` and `Valid To` columns, which define the range when each row was valid. Current values have a `Valid To` equal to '9999-12-31'.
 
