@@ -19,7 +19,7 @@ This reference architecture is designed for one-time or on-demand jobs. If you n
 
 The architecture consists of the following components.
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. 
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source data.
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into SQL Data Warehouse.
 
@@ -33,7 +33,7 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
-## Data Pipeline
+## Data pipeline
  
 This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as data source. The data pipeline has the following stages:
 
@@ -143,7 +143,7 @@ Avoid running BI dashboard queries directly against the data warehouse. BI dashb
 
 Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
 
-## Scalability Considerations
+## Scalability considerations
 
 ### SQL Data Warehouse
 
@@ -157,7 +157,7 @@ Under high load, query performance can become degraded due to query concurrency.
 
 To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
-## Security Considerations
+## Security considerations
 
 ### IP whitelisting of Analysis Services clients
 
@@ -195,7 +195,7 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 ### Deploy the simulated on-premises server
 
-First you'll deploy a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. This step also loads the sample [Wide World Importers OLTP database](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) into SQL Server.
+First you'll deploy a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. This step also loads the [Wide World Importers OLTP database][wwi] into SQL Server.
 
 1. Navigate to the `data\enterprise_bi_sqldw\onprem\templates` folder of the repository.
 
@@ -410,4 +410,4 @@ To learn more about Power BI Desktop, see [Getting started with Power BI Desktop
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
-
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

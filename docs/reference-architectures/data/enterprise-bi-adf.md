@@ -1,8 +1,140 @@
 
 # Run scheduled ELT jobs with SQL Data Warehouse and Azure Data Factory
 
+This reference architecture shows how to perform incremental loading in an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into SQL Data Warehouse. Transactional data is transformed into a tabular model for analysis.
 
 ![](./images/enterprise-bi-sqldw-adf.png)
+
+This architecture builds on the one shown in [Enterprise BI with SQL Data Warehouse](./enterprise-bi-sqldw.md), but adds some features that are important for enterprise data warehousing scenarios.
+
+-	Automation of the pipeline using Data Factory.
+-	Incremental loading.
+-	Integrating multiple data sources.
+-	Loading binary data with type `varbinary(max)`.
+
+## Architecture
+
+The architecture consists of the following components.
+
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source database.
+
+**External data**. A common scenario for data warehouses is to integrate multiple data sources. This reference architecture loads an external data set that contains city populations by year, and integrates it with the data from the OLTP database. You can use this data for insights such as: "Does sales growth in each region match or exceed population growth?"
+
+**Azure Data Factory**. [Data Factory][adf] is a managed service for orchestrating and automating data movement and data transformation. In this architecture, it coordinates the various stages of the ELT process.
+
+**Blob Storage**. Blob storage is used as a staging area for the source data before loading it into SQL Data Warehouse.
+
+**Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
+
+**Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. The semantic model is loaded into Analysis Services.
+
+**Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
+
+**Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
+
+## Data pipeline
+
+In [Azure Data Factory][adf], a pipeline is a logical grouping of activities that is used to coordinate a task &mdash; in this case, loading and transforming data into SQL Data Warehouse. 
+
+This reference architecture defines a master pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
+
+![](./images/adf-pipeline.png)
+
+## Incremental loading
+
+When you run an automated ETL or ELT process, you want to load only the data that has changed. That means you need a way to track and query which data has changed over a given time range. 
+
+There are two basic approaches, which are both demonstrated in this reference architecture.
+
+- **Watermark column.** The first option is to filter based on some column in the source data that holds a timestamp or an incrementing key. This column is called a watermark column.
+
+    A limitation of this approach is that it requires the table schema to have a suitable watermark column. The data stored in fact tables often has a timestamp column, because it represents an activity, such as a sales transaction. Dimension data often doesn't have a suitable watermark column. Dimension data changes slowly, it at all, and the OLTP system may only store the latest values.
+
+- **Change-tracking**. If there is no watermark column, the second option is to use change-tracking features built into the database engine. Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables) for this purpose. Temporal tables are system-versioned tables that keep a full history of data changes. 
+
+    With earlier versions of SQL Server, you can use Change Data Capture (CDC). However, temporal tables are easier to work with. Using CDC, you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. Using temporal tables, you query the main table and simply include a FOR SYSTEM_TIME clause to get the historical data for a particular timestamp.
+
+Here is the general flow for the ETL process:
+
+1. For each table in the source database, track the most recent cutoff time when the ETL job ran. Store this information in the data warehouse. (On initial setup, all rows are set to '1-1-1900'.)
+
+2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. 
+
+3. When the data migration is complete, update the ETL cutoff table.
+
+It's also useful to record a lineage for each ETL run. For a given record, the lineage associates that record with the ETL run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting end ending load times.
+The dimension and fact tables then the lineage key for each each record.
+
+![](./images/city-dimension-table.png)
+
+Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table during processing.
+
+## External data sources
+
+Data warehouses often pull in data from multiple sources. This reference architecture loads an external data source that contains demographics data. The dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/polybase) sample.
+
+Azure Data Factory can copy directly from blob storage, using the [blob storage connector](/azure/data-factory/connector-azure-blob-storage) for Data Factory. However, this connector does not support copying a blob with public read access, because it requires either a connection string or a shared access signature. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into SQL Data Warehouse. 
+
+## Handling large binary data 
+
+In the source database, the Cities table has a Location column that holds a [geography](/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. SQL Data Warehouse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
+
+However, PolyBase supports a maximum column size of `varbinary(8000)`, which means some data could be truncated. A workaround for this problem is to break the data up into chunks during export it, and then reassemble the chunks. 
+
+Here's the approach that we use:
+
+1. Create a temporary staging table for the Location column.
+
+2. For each city, split the location data into 8000-byte chunks, resulting in 1 &ndash; N rows for each city.
+
+3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatentate the column values for each city.
+
+The challenge is that each city will be split into a different number of rows, depending on the size of the data. For the PIVOT operator to work, every city must have the same number of rows. The T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
+
+## Slowly changing dimensions
+
+Dimension data is relatively static, but it can change. For example, if a product is associated with a product category, it might get reassigned to a different category.
+
+There are several approaches to handling slowly changing dimensions. A common technique, called [Type 2](https://wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row), is to add a new record whenever a dimension changes. 
+
+-	The dimension tables need additional columns that specify the effective date range for a given record.
+-	Primary keys from the source database will be duplicated, so the dimention table will need an artificial primary key.
+
+The following image shows the Dimension.City table. The `WWI City ID` column is the primary key from the source database. The `City Key` column is an artificial key generated during the ETL pipeline. Also notice that the table has `Valid From` and `Valid To` columns, which define the range when each row was valid. Current values have a `Valid To` equal to '9999-12-31'.
+
+![](./images/city-dimension-table.png)
+
+The advantage of this approach is that it preserves historical data, which can be valuable for analysis. However, it also means there will be multiple rows for the same entity. For example, here are the records that match `WWI City ID` = 28561:
+
+![](./images/city-dimension-table-2.png)
+
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. You can do this in Azure Analysis Services by adding calculated column to the fact table.
+
+The following formula returns the `[City Key]` from the City dimension table that corresponds to the invoice date in the Sales fact table.
+
+```
+MINX(
+  FILTER('Dimension City', 
+    'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && 
+    ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 
+     'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 
+  'Dimension City'[City Key]
+)
+```
+
+Using this calculated column, a Power BI query can look up the City data for a given sales invoice.
+
+## Security considerations
+
+For additional security, you can use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual networks. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
+
+There are currently some limitations with this approach:
+
+1.	At the time this reference architecture was created, VNet service endpoints are supported for Azure Storage and Azure SQL Data Warehouse, but not for Azure Analysis Service. Check the latest status [here](https://azure.microsoft.com/updates/?product=virtual-network).
+
+2.	In order to move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. However, you cannot whitelist selective CIDR ranges, so you cannot restrict access to be from a specific subnet of your on-premises network.
+
+3.	If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into SQL Data Warehouse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 
 ## Deploy the solution
@@ -98,7 +230,7 @@ For the on-premise server (below), you will need an authentication key for the A
 
 ### Deploy the simulated on-premises server
 
-This step deploys a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. It also loads the sample [Wide World Importers OLTP database](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) into SQL Server.
+This step deploys a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. It also loads the [Wide World Importers OLTP database][wwi] into SQL Server.
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\onprem\templates` folder of the repository.
 
@@ -330,8 +462,11 @@ The table now shows cities with population greater than 100,000 and zero sales. 
 To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](/power-bi/desktop-getting-started).
 
 
+[adf]: /azure/data-factory
 [azure-cli-2]: /azure/install-azure-cli
 [azbb-repo]: https://github.com/mspnp/template-building-blocks
 [azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw_advanced
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
