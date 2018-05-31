@@ -338,3 +338,4 @@ To learn more about Power BI Desktop, see [Getting started with Power BI Desktop
 [azure-cli-2]: /azure/install-azure-cli
 [azbb-repo]: https://github.com/mspnp/template-building-blocks
 [azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw_advanced
