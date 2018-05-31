@@ -373,11 +373,11 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 6. In the **Fields** pane, expand **prd.CityDimensions**.
 
-7. Drag **prd.CityDimensions** > **WWI City ID** to the **Axis well**.
+7. Drag **prd.CityDimensions** > **WWI City ID** to the **Axis** well.
 
 8. Drag **prd.CityDimensions** > **City** to the **Legend** well.
 
-9. In the Fields pane, expand **prd.SalesFact**.
+9. In the **Fields** pane, expand **prd.SalesFact**.
 
 10. Drag **prd.SalesFact** > **Total Excluding Tax** to the **Value** well.
 

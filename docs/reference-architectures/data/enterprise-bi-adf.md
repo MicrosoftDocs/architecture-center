@@ -254,7 +254,7 @@ For more information about creating calculated columns, see [Create a Calculated
     
     Ending Population:=CALCULATE(SUM('Fact CityPopulation'[Population]),FILTER('Fact CityPopulation','Fact CityPopulation'[YearNumber]=MAX('Fact CityPopulation'[YearNumber])))
     
-    CAGR:=(([Ending Population]/[Beginning Population])^(1/[Number of Years]))-1
+    CAGR:=IFERROR((([Ending Population]/[Beginning Population])^(1/[Number of Years]))-1,0)
     ```
 
     ![](./images/analysis-services-measures.png)
@@ -303,36 +303,23 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 5. In the **Navigator** dialog, expand the tabular project that you deployed, select the model that you created, and click **OK**.
 
-2. In the **Visualizations** pane, select the **Stacked Bar Chart** icon. In the Report view, resize the visualization to make it larger.
+2. In the **Visualizations** pane, select the **Table** icon. In the Report view, resize the visualization to make it larger.
 
-6. In the **Fields** pane, expand **prd.CityDimensions**.
+6. In the **Fields** pane, expand **Dimension City**.
 
-7. Drag **prd.CityDimensions** > **WWI City ID** to the **Axis well**.
+7. From **Dimension City**, drag **City** and **State Province** to the **Values** well.
 
-8. Drag **prd.CityDimensions** > **City** to the **Legend** well.
+9. In the **Fields** pane, expand **Fact Sales**.
 
-9. In the Fields pane, expand **prd.SalesFact**.
+10. From **Fact Sales**, drag **CAGR**, **Ending Population**,  and **Total Sales** to the **Value** well.
 
-10. Drag **prd.SalesFact** > **Total Excluding Tax** to the **Value** well.
+11. Under **Visual Level Filters**, select **Ending Population**. Set the filter to "is greater than 100000" and click **Apply filter**.
 
-    ![](./images/power-bi-visualization.png)
+12. Under **Visual Level Filters**, select **Total Sales**. Set the filter to "is 0" and click **Apply filter**.
 
-11. Under **Visual Level Filters**, select **WWI City ID**.
-
-12. Set the **Filter Type** to `Top N`, and set **Show Items** to `Top 10`.
-
-13. Drag **prd.SalesFact** > **Total Excluding Tax** to the **By Value** well
-
-    ![](./images/power-bi-visualization2.png)
-
-14. Click **Apply Filter**. The visualization shows the top 10 total sales by city.
-
-    ![](./images/power-bi-report.png)
+The table now shows cities with population more than 100,000 and zero sales. The CAGR measure stands for Compounded Annual Growth Rate and measures the population growth rate. You could use this value to find cities with high growth rates, for example. (However, note that the values for CAGR in the model aren't accurate, because they are derived from sample data.)
 
 To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](/power-bi/desktop-getting-started).
-
-
-
 
 
 [azure-cli-2]: /azure/install-azure-cli
