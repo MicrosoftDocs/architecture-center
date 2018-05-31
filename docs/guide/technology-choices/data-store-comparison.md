@@ -326,7 +326,7 @@ The following sections compare various data store models in terms of workload pr
 <tr><td><strong>Workload</strong></td>
     <td>
         <ul>
-            <li>An overwhelmingly proportion of operations (95-99%) are writes.</li>
+            <li>An overwhelming proportion of operations (95-99%) are writes.</li>
             <li>Records are generally appended sequentially in time order.</li>
             <li>Updates are rare.</li>
             <li>Deletes occur in bulk, and are made to contiguous blocks or records.</li>
