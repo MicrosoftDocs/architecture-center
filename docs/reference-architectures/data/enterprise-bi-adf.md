@@ -31,7 +31,7 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Factory.
 
-1. Navigate to the `data\enterprise_bi_sqldw_advanced\azure\templates` folder of the repository you downloaded in the prerequisites above.
+1. Navigate to the `data\enterprise_bi_sqldw_advanced\azure\templates` folder of the [GitHub repository][ref-arch-repo].
 
 2. Run the following Azure CLI command to create a resource group.  
 
@@ -41,7 +41,7 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
 
     Specify a region that supports SQL Data Warehouse, Azure Analysis Services, and Data Factory v2. See [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)
 
-3. Run the following Azure CLI command. Replace the parameter values shown in angle brackets. 
+3. Run the following Azure CLI command. Replace the parameter values shown in angle brackets.
 
     ```bash
     az group deployment create --resource-group <resource_group_name> \
@@ -56,7 +56,11 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     - The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts. 
     - For the `analysisServerAdmin` parameter, use your Azure Active Directory user principal name (UPN).
 
-4. Use the Azure portal to get the access key for the storage account. Select the storage account to open it. Under **Settings**, select **Access keys**. Copy the primary key value. You will use this key in step 5, below.
+4. Run the following Azure CLI command to get the access key for the storage account. You will use this key in the next step.
+
+    ```bash
+    az storage account keys list -n <storage_account_name> -g <resource_group_name> --query [0].value
+    ```
 
 5. Run the following Azure CLI command. Replace the parameter values shown in angle brackets. 
 
@@ -69,25 +73,23 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
     ```
 
-    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in step 4. 
-
-    The value for `<sql-db-password>` is the password for the on-premises SQL Server VM, which you will create later.
+    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. The value of `<sql-db-password>` will be the password for the on-premises SQL Server VM, which you will create later.
 
 ### Get the Integration Runtime authentication key
 
 For the on-premise server (below), you will need an authentication key for the Azure Data Factory [integration runtime](/azure/data-factory/concepts-integration-runtime). Perform the following steps.
 
-1. In the Azure Portal, navigate to the Data Factory instance that was created in the previous step.
+1. In the [Azure Portal](https://portal.azure.com/), navigate to the Data Factory instance.
 
 2. In the Data Factory blade, click **Author & Monitor**. This opens the Azure Data Factory portal in another browser window.
 
     ![](./images/adf-blade.png)
 
-3. In the Azure Data Factory portal, select the pencil icon. 
+3. In the Azure Data Factory portal, select the pencil icon ("Author"). 
 
-4. Select **Connections** > **Integration Runtimes**
+4. Click **Connections**, and then select **Integration Runtimes**.
 
-5. Under **sourceIntegrationRuntime**, click the pencil icon.
+5. Under **sourceIntegrationRuntime**, click the pencil icon ("Edit").
 
     > [!NOTE]
     > The portal will show the status as "unavailable". This is expected until you deploy the on-premises server.
@@ -100,9 +102,9 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\onprem\templates` folder of the repository.
 
-2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with the password that you specified earlier for `<sql-db-password>`.
+2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with the password that you specified earlier for `<sql-db-password>`. These must match, or the Data Factory pipeline will fail.
 
-3. In the same file, paste the Integration Runtime authentication key from the previous step, into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
+3. In the same file, paste the Integration Runtime authentication key into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
 
     ```json
     "protectedSettings": {
@@ -115,7 +117,7 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
         }
     ```
 
-3. Run `azbb` to deploy the on-premises server.
+3. Run `azbb` to deploy the on-premises server, as follows:
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
@@ -126,11 +128,11 @@ This step may take 20 to 30 minutes to complete, which includes running the [DSC
 
 ### Run the data warehouse scripts
 
-1. In the Azure Portal, navigate to the on-premises VM, which is named `sql-vm1`.
+1. In the [Azure Portal](https://portal.azure.com/), find the on-premises VM, which is named `sql-vm1`.
 
-2. Use Remote Desktop to connect to the VM.
+2. Click **Connect** and use Remote Desktop to connect to the VM.
 
-3. From your Remote Desktop session, open a command prompt and run the following command.
+3. From your Remote Desktop session, open a command prompt and run the following commands.
 
     ```
     cd C:\SampleDataFiles\reference-architectures\data\enterprise_bi_sqldw_advanced\azure\sqldw_scripts
@@ -140,11 +142,11 @@ This step may take 20 to 30 minutes to complete, which includes running the [DSC
 
     For `<data_warehouse_server_name>` and `<data-warehouse-password>`, use the data warehouse server name and password from earlier.
 
-To verify this step, you can use SQL Server Management Studio (SSMS) to connect to the SQL Data Warehouse database. You should see the database table definitions.
+To verify this step, you can use SQL Server Management Studio (SSMS) to connect to the SQL Data Warehouse database. You should see the database table schemas.
 
 ### Run the Data Factory pipeline
 
-1. Using the same Remote Desktop session, open a PowerShell window.
+1. From the same Remote Desktop session, open a PowerShell window.
 
 2. Run the following PowerShell command. Choose **Yes** when prompted.
 
@@ -171,7 +173,9 @@ To verify this step, you can use SQL Server Management Studio (SSMS) to connect 
 
     ![](./images/adf-blade.png)
 
-7. In the Azure Data Factory portal, select the monitor icon. Verify that the pipeline completes successfully.
+7. In the Azure Data Factory portal, click the **Monitor** icon. 
+
+8. Verify that the pipeline has completed successfully.
 
     ![](./images/adf-pipeline-progress.png)
 
@@ -190,7 +194,9 @@ In this step, you will create a tabular model that imports data from the data wa
 
 4. Name the project and click **OK**.
 
-5. In the **Tabular model designer** dialog, select **Integrated workspace**  and set **Compatibility level** to `SQL Server 2017 / Azure Analysis Services (1400)`. Click **OK**.
+5. In the **Tabular model designer** dialog, select **Integrated workspace**  and set **Compatibility level** to `SQL Server 2017 / Azure Analysis Services (1400)`. 
+
+6. Click **OK**.
 
 
 **Import data**
@@ -203,7 +209,7 @@ In this step, you will create a tabular model that imports data from the data wa
 
 4. In the next dialog, choose **Database** authentication and enter your Azure SQL Data Warehouse user name and password, and click **OK**.
 
-5. In the **Navigator** dialog, select the checkboxes for the **Fact.\*** and **Dimension.\*** tables 
+5. In the **Navigator** dialog, select the checkboxes for the **Fact.\*** and **Dimension.\*** tables.
 
     ![](./images/analysis-services-import-2.png)
 
@@ -211,9 +217,9 @@ In this step, you will create a tabular model that imports data from the data wa
 
 **Add calculated columns**
 
-1. Select the **Fact CityPopulation** table, click the **Column menu**, and then click **Add Column**.
+1. Select the **Fact CityPopulation** table, click the **Column** menu, and then click **Add Column**.
 
-2. In the formula bar, type the following
+2. In the formula bar, type the following:
 
     ```
     =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact CityPopulation'[WWI City ID] && (DATE('Fact CityPopulation'[YearNumber],1,1) >= 'Dimension City'[Valid From] && DATE('Fact CityPopulation'[YearNumber],1,1) <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
@@ -225,7 +231,7 @@ In this step, you will create a tabular model that imports data from the data wa
 
     ![](./images/analysis-services-calculated-column.png)
 
-5. Select the **Fact Sale** table and repeat steps 1 &ndash; 4, but using the following formula:
+5. Select the **Fact Sale** table and repeat steps 1 &ndash; 4, but use the following formula:
 
     ```
     =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
@@ -277,7 +283,7 @@ For more information about creating measures, see [Measures](/sql/analysis-servi
 
 2. In **Solution Explorer**, right-click the project and select **Properties**. 
 
-3. Under **Server**, enter the URL of your Azure Analysis Services instance. You can get this value from the Azure Portal. In the portal, select the Analysis Services resource, click the Overview pane, and look for the **Server Name** property. It will be similar to `asazure://eastus.asazure.windows.net/contoso`. Click **OK**.
+3. Under **Server**, enter the URL of your Azure Analysis Services instance. You can get this value from the Azure Portal. In the portal, select the Analysis Services resource, click the Overview pane, and look for the **Server Name** property. It will be similar to `asazure://westus.asazure.windows.net/contoso`. Click **OK**.
 
     ![](./images/analysis-services-properties.png)
 
@@ -301,7 +307,7 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 4. Enter the URL of your Analysis Services instance, then click **OK**. Sign into Azure if prompted.
 
-5. In the **Navigator** dialog, expand the tabular project that you deployed, select the model that you created, and click **OK**.
+5. In the **Navigator** dialog, expand the tabular project, select the model, and click **OK**.
 
 2. In the **Visualizations** pane, select the **Table** icon. In the Report view, resize the visualization to make it larger.
 
@@ -317,7 +323,9 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 12. Under **Visual Level Filters**, select **Total Sales**. Set the filter to "is 0" and click **Apply filter**.
 
-The table now shows cities with population more than 100,000 and zero sales. The CAGR measure stands for Compounded Annual Growth Rate and measures the population growth rate. You could use this value to find cities with high growth rates, for example. (However, note that the values for CAGR in the model aren't accurate, because they are derived from sample data.)
+![](./images/power-bi-report-2.png)
+
+The table now shows cities with population greater than 100,000 and zero sales. CAGR  stands for Compounded Annual Growth Rate and measures the rate of population growth per city. You could use this value to find cities with high growth rates, for example. However, note that the values for CAGR in the model aren't accurate, because they are derived from sample data.
 
 To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](/power-bi/desktop-getting-started).
 
@@ -325,4 +333,5 @@ To learn more about Power BI Desktop, see [Getting started with Power BI Desktop
 [azure-cli-2]: /azure/install-azure-cli
 [azbb-repo]: https://github.com/mspnp/template-building-blocks
 [azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw_advanced
