@@ -135,10 +135,10 @@ This step may take 20 to 30 minutes to complete, which includes running the [DSC
     ```
     cd C:\SampleDataFiles\reference-architectures\data\enterprise_bi_sqldw_advanced\azure\sqldw_scripts
 
-    deploy_database.cmd -S <dwServerName>.database.windows.net -d wwi -U adminuser -P <password> -N -I
+    deploy_database.cmd -S <data_warehouse_server_name>.database.windows.net -d wwi -U adminuser -P <data-warehouse-password> -N -I
     ```
 
-    For `<dwServerName>` and `<password>`, use the SQL Server Data Warehouse server name and password from earlier.
+    For `<data_warehouse_server_name>` and `<data-warehouse-password>`, use the data warehouse server name and password from earlier.
 
 To verify this step, you can use SQL Server Management Studio (SSMS) to connect to the SQL Data Warehouse database. You should see the database table definitions.
 
@@ -165,22 +165,22 @@ To verify this step, you can use SQL Server Management Studio (SSMS) to connect 
 
     Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "MasterPipeline" -ResourceGroupName <resource-group>
 
-    Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "CityPopulationPipeline" -ResourceGroupName <resource-group>
-    ```
-
 5. In the Azure Portal, navigate to the Data Factory instance that was created earlier.
 
 6. In the Data Factory blade, click **Author & Monitor**. This opens the Azure Data Factory portal in another browser window.
 
     ![](./images/adf-blade.png)
 
+7. In the Azure Data Factory portal, select the monitor icon. Verify that the pipeline completes successfully.
 
-
+    ![](./images/adf-pipeline-progress.png)
 
 
 ### Build the Azure Analysis Services model
 
 In this step, you will create a tabular model that imports data from the data warehouse. Then you will deploy the model to Azure Analysis Services.
+
+**Create a new tabular project**
 
 1. From your Remote Desktop session, launch SQL Server Data Tools 2015.
 
@@ -192,38 +192,98 @@ In this step, you will create a tabular model that imports data from the data wa
 
 5. In the **Tabular model designer** dialog, select **Integrated workspace**  and set **Compatibility level** to `SQL Server 2017 / Azure Analysis Services (1400)`. Click **OK**.
 
-6. In the **Tabular Model Explorer** window, right-click the project and select **Import from Data Source**.
 
-7. Select **Azure SQL Data Warehouse** and click **Connect**.
+**Import data**
 
-8. For **Server**, enter the fully qualified name of your Azure SQL Data Warehouse server. For **Database**, enter `wwi`. Click **OK**.
+1. In the **Tabular Model Explorer** window, right-click the project and select **Import from Data Source**.
 
-9. In the next dialog, choose **Database** authentication and enter your Azure SQL Data Warehouse user name and password, and click **OK**.
+2. Select **Azure SQL Data Warehouse** and click **Connect**.
 
-10. In the **Navigator** dialog, select the checkboxes for **prd.CityDimensions**, **prd.DateDimensions**, and **prd.SalesFact**. 
+3. For **Server**, enter the fully qualified name of your Azure SQL Data Warehouse server. You can get this value from the Azure Portal. For **Database**, enter `wwi`. Click **OK**.
 
-    ![](./images/analysis-services-import.png)
+4. In the next dialog, choose **Database** authentication and enter your Azure SQL Data Warehouse user name and password, and click **OK**.
 
-11. Click **Load**. When processing is complete, click **Close**. You should now see a tabular view of the data.
+5. In the **Navigator** dialog, select the checkboxes for the **Fact.\*** and **Dimension.\*** tables 
 
-12. In the **Tabular Model Explorer** window, right-click the project and select **Model View** > **Diagram View**.
+    ![](./images/analysis-services-import-2.png)
 
-13. Drag the **[prd.SalesFact].[WWI City ID]** field to the **[prd.CityDimensions].[WWI City ID]** field to create a relationship.  
+6. Click **Load**. When processing is complete, click **Close**. You should now see a tabular view of the data.
 
-14. Drag the **[prd.SalesFact].[Invoice Date Key]** field to the **[prd.DateDimensions].[Date]** field.  
-    ![](./images/analysis-services-relations.png)
+**Add calculated columns**
 
-15. From the **File** menu, choose **Save All**.  
+1. Select the **Fact CityPopulation** table, click the **Column menu**, and then click **Add Column**.
 
-16. In **Solution Explorer**, right-click the project and select **Properties**. 
+2. In the formula bar, type the following
 
-17. Under **Server**, enter the URL of your Azure Analysis Services instance. You can get this value from the Azure Portal. In the portal, select the Analysis Services resource, click the Overview pane, and look for the **Server Name** property. It will be similar to `asazure://westus.asazure.windows.net/contoso`. Click **OK**.
+    ```
+    =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact CityPopulation'[WWI City ID] && (DATE('Fact CityPopulation'[YearNumber],1,1) >= 'Dimension City'[Valid From] && DATE('Fact CityPopulation'[YearNumber],1,1) <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
+    ```
+
+3. Press ENTER to accept the formula.
+
+4. Rename the columm **City Key**.
+
+    ![](./images/analysis-services-calculated-column.png)
+
+5. Select the **Fact Sale** table and repeat steps 1 &ndash; 4, but using the following formula:
+
+    ```
+    =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
+    ```
+
+For more information about creating calculated columns, see [Create a Calculated Column](/sql/analysis-services/tabular-models/ssas-calculated-columns-create-a-calculated-column).
+
+**Create measures**
+
+1. In the model designer, select any of the tables. (It doesn't matter which table you select.)
+
+2. Click a cell in the the measure grid. By default, the measure grid is displayed below the table. 
+
+3. In the formula bar, enter the following and press ENTER:
+
+    ```
+    Total Sales:=SUM([Total Including Tax])
+    ```
+
+4. Repeat these steps to create the following measures:
+
+    ```
+    Number of Years:=(MAX('Fact CityPopulation'[YearNumber])-MIN('Fact CityPopulation'[YearNumber]))+1
+    
+    Beginning Population:=CALCULATE(SUM('Fact CityPopulation'[Population]),FILTER('Fact CityPopulation','Fact CityPopulation'[YearNumber]=MIN('Fact CityPopulation'[YearNumber])))
+    
+    Ending Population:=CALCULATE(SUM('Fact CityPopulation'[Population]),FILTER('Fact CityPopulation','Fact CityPopulation'[YearNumber]=MAX('Fact CityPopulation'[YearNumber])))
+    
+    CAGR:=(([Ending Population]/[Beginning Population])^(1/[Number of Years]))-1
+    ```
+
+    ![](./images/analysis-services-measures.png)
+
+For more information about creating measures, see [Measures](/sql/analysis-services/tabular-models/measures-ssas-tabular).
+
+**Create relationships**
+
+1. In the **Tabular Model Explorer** window, right-click the project and select **Model View** > **Diagram View**.
+
+2. Drag the **[Fact Sale].[City Key]** field to the **[Dimension City].[City Key]** field to create a relationship.  
+
+3. Drag the **[Face CityPopulation].[City Key]** field to the **[Dimension City].[City Key]** field.  
+
+    ![](./images/analysis-services-relations-2.png)
+
+**Deploy the model**
+
+1. From the **File** menu, choose **Save All**.  
+
+2. In **Solution Explorer**, right-click the project and select **Properties**. 
+
+3. Under **Server**, enter the URL of your Azure Analysis Services instance. You can get this value from the Azure Portal. In the portal, select the Analysis Services resource, click the Overview pane, and look for the **Server Name** property. It will be similar to `asazure://eastus.asazure.windows.net/contoso`. Click **OK**.
 
     ![](./images/analysis-services-properties.png)
 
-18. In **Solution Explorer**, right-click the project and select **Deploy**. Sign into Azure if prompted. When processing is complete, click **Close**.
+4. In **Solution Explorer**, right-click the project and select **Deploy**. Sign into Azure if prompted. When processing is complete, click **Close**.
 
-19. In the Azure portal, view the details for your Azure Analysis Services instance. Verify that your model appears in the list of models.
+5. In the Azure portal, view the details for your Azure Analysis Services instance. Verify that your model appears in the list of models.
 
     ![](./images/analysis-services-models.png)
 
