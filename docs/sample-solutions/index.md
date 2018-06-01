@@ -19,7 +19,7 @@ Our reference architectures are arranged by scenario, with related architectures
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/cognitive-services.svg" />
+                            <img src="./ai/media/cognitive-services.svg"  height="250px" />
                         </div>
                     </div>
                     <div class="cardText">

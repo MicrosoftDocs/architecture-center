@@ -16,7 +16,7 @@ These sample solutions show proven practices for building out AI solutions on Az
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/computer-vision.svg" height="140px" />
+                            <img src="./media/computer-vision.svg" height="250px" />
                         </div>
                     </div>
                     <div class="cardText">
