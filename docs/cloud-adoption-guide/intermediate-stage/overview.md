@@ -79,7 +79,7 @@ Now that you've implemented your governance model, you can deploy your shared in
 
 ## Section 4: deploy shared infrastructure services
 
-There are several [hybrid network reference architectures]() that your organization can use to connect your on-premises network to Azure. Each of these reference architectures includes a deployment that requires a subscription identifier. During deployment, specify the subscription identifier for the subscription associated with your **shared infrastructre** environment. You will also need to edit the template files to specify the resource group that is managed by your **network operations** user, or, you can use the default resource groups in the deployment and add the **network operations** user with the **contributor** role to them.
+There are several [hybrid network reference architectures](/azure/architecture/reference-architectures/hybrid-networking/) that your organization can use to connect your on-premises network to Azure. Each of these reference architectures includes a deployment that requires a subscription identifier. During deployment, specify the subscription identifier for the subscription associated with your **shared infrastructre** environment. You will also need to edit the template files to specify the resource group that is managed by your **network operations** user, or, you can use the default resource groups in the deployment and add the **network operations** user with the **contributor** role to them.
 
 <!-- links -->
 [understand-resource-access-in-azure]: /azure/role-based-access-control/rbac-and-directory-admin-roles
