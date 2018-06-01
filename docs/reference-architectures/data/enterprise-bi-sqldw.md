@@ -304,7 +304,7 @@ In SMSS, you should see a set of `prd.*` tables in the `wwi` database. To verify
 SELECT TOP 10 * FROM prd.CityDimensions
 ```
 
-### Build the Azure Analysis Services model
+## Build the Azure Analysis Services model
 
 In this step, you will create a tabular model that imports data from the data warehouse. Then you will deploy the model to Azure Analysis Services.
 
@@ -353,7 +353,7 @@ In this step, you will create a tabular model that imports data from the data wa
 
     ![](./images/analysis-services-models.png)
 
-### Analyze the data in Power BI Desktop
+## Analyze the data in Power BI Desktop
 
 In this step, you will use Power BI to create a report from the data in Analysis Services.
 
