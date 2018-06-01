@@ -20,7 +20,7 @@ To start your comparison, gather as much of the following information as you can
 - **Data relationships**. Will your data need to support one-to-many or many-to-many relationships? Are relationships themselves an important part of the data? Will you need to join or otherwise combine data from within the same dataset, or from external datasets? 
 - **Consistency model**. How important is it for updates made in one node to appear in other nodes, before further changes can be made? Can you accept eventual consistency? Do you need ACID guarantees for transactions?
 - **Schema flexibility**. What kind of schemas will you apply to your data? Will you use a fixed schema, a schema-on-write approach, or a schema-on-read approach?
-- **Concurrency**. What kind of concurrency mechanism do you want to use when updating and synchronizing data? Will the application perform many updates that could potentially conflict. If so, you may requiring record locking and pessimistic concurrency control. Alternatively, can you support optimistic concurrency controls? If so, is simple timestamp-based concurrency control enough, or do you need the added functionality of multi-version concurrency control?
+- **Concurrency**. What kind of concurrency mechanism do you want to use when updating and synchronizing data? Will the application perform many updates that could potentially conflict. If so, you may require record locking and pessimistic concurrency control. Alternatively, can you support optimistic concurrency controls? If so, is simple timestamp-based concurrency control enough, or do you need the added functionality of multi-version concurrency control?
 - **Data movement**. Will your solution need to perform ETL tasks to move data to other stores or data warehouses?
 - **Data lifecycle**. Is the data write-once, read-many? Can it be moved into cool or cold storage?
 - **Other supported features**. Do you need any other specific features, such as schema validation, aggregation, indexing, full-text search, MapReduce, or other query capabilities?
@@ -326,7 +326,7 @@ The following sections compare various data store models in terms of workload pr
 <tr><td><strong>Workload</strong></td>
     <td>
         <ul>
-            <li>An overwhelmingly proportion of operations (95-99%) are writes.</li>
+            <li>An overwhelming proportion of operations (95-99%) are writes.</li>
             <li>Records are generally appended sequentially in time order.</li>
             <li>Updates are rare.</li>
             <li>Deletes occur in bulk, and are made to contiguous blocks or records.</li>
