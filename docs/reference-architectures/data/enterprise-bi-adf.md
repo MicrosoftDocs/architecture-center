@@ -10,7 +10,7 @@ This architecture builds on the one shown in [Enterprise BI with SQL Data Wareho
 -	Automation of the pipeline using Data Factory.
 -	Incremental loading.
 -	Integrating multiple data sources.
--	Loading binary data with type `varbinary(max)`.
+-	Loading binary data such as geospatial data and images.
 
 ## Architecture
 
@@ -34,7 +34,7 @@ The architecture consists of the following components.
 
 ## Data pipeline
 
-In [Azure Data Factory][adf], a pipeline is a logical grouping of activities that is used to coordinate a task &mdash; in this case, loading and transforming data into SQL Data Warehouse. 
+In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into SQL Data Warehouse. 
 
 This reference architecture defines a master pipeline that runs a sequence of child pipelines. Each child pipeline loads data into one or more data warehouse tables.
 
@@ -42,46 +42,44 @@ This reference architecture defines a master pipeline that runs a sequence of ch
 
 ## Incremental loading
 
-When you run an automated ETL or ELT process, you want to load only the data that has changed. That means you need a way to track and query which data has changed over a given time range. 
+When you run an automated ETL or ELT process, you want to load only new or changed data. That means you need a way to track and query which data has changed over a given time range. 
 
-There are two basic approaches, which are both demonstrated in this reference architecture.
+There are two basic approaches. Both are demonstrated in this reference architecture:
 
-- **Watermark column.** The first option is to filter based on some column in the source data that holds a timestamp or an incrementing key. This column is called a watermark column.
+- **Watermark column.** The first option is to run a query based on some column in the source data that holds a timestamp or an incrementing key. This column is called a *watermark* column. This approach requires the table schema to have a suitable watermark column. Data stored in fact tables often has a timestamp, because it represents an activity, such as a sales transaction. Dimension data, on the other, often does not have a suitable watermark column.
 
-    A limitation of this approach is that it requires the table schema to have a suitable watermark column. The data stored in fact tables often has a timestamp column, because it represents an activity, such as a sales transaction. Dimension data often doesn't have a suitable watermark column. Dimension data changes slowly, it at all, and the OLTP system may only store the latest values.
+- **Change-tracking**. The second option is to use change-tracking features built into the database engine. Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables) for this purpose. Temporal tables are system-versioned tables that keep a full history of data changes. 
 
-- **Change-tracking**. If there is no watermark column, the second option is to use change-tracking features built into the database engine. Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables) for this purpose. Temporal tables are system-versioned tables that keep a full history of data changes. 
+    > [!NOTE]
+    > With earlier versions of SQL Server, you can use Change Data Capture (CDC). However, temporal tables are easier to work with. Using CDC, you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. Using temporal tables, you query the main table and simply include a FOR SYSTEM_TIME clause to get the historical data for a particular timestamp.
 
-    With earlier versions of SQL Server, you can use Change Data Capture (CDC). However, temporal tables are easier to work with. Using CDC, you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. Using temporal tables, you query the main table and simply include a FOR SYSTEM_TIME clause to get the historical data for a particular timestamp.
+In the World Wide Importers OLTP database, the Sales.Invoices and Sales.InvoiceLines tables both contain a `LastEditedWhen` field. The ELT pipeline uses these fields to query the changed records for the Sales fact table. For the dimension tables, the ELT pipeline uses temporal tables.
 
-Here is the general flow for the ETL process:
+Here is the general flow for the ELT pipeline:
 
-1. For each table in the source database, track the most recent cutoff time when the ETL job ran. Store this information in the data warehouse. (On initial setup, all rows are set to '1-1-1900'.)
+1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to '1-1-1900'.)
 
 2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. 
 
-3. When the data migration is complete, update the ETL cutoff table.
+3. When the data migration is complete, update the table that stores the cutoff times.
 
-It's also useful to record a lineage for each ETL run. For a given record, the lineage associates that record with the ETL run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting end ending load times.
-The dimension and fact tables then the lineage key for each each record.
+It's also useful to record a *lineage* for each ELT run. For a given record, the lineage associates that record with the ELT run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting end ending load times. The lineage keys for each record are stored in the dimension and fact tables.
 
 ![](./images/city-dimension-table.png)
 
-Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table during processing.
+Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table.
 
 ## External data sources
 
-Data warehouses often pull in data from multiple sources. This reference architecture loads an external data source that contains demographics data. The dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/polybase) sample.
+Data warehouses often consolidate data from multiple sources. This reference architecture loads an external data source that contains demographics data. This dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/polybase) sample.
 
-Azure Data Factory can copy directly from blob storage, using the [blob storage connector](/azure/data-factory/connector-azure-blob-storage) for Data Factory. However, this connector does not support copying a blob with public read access, because it requires either a connection string or a shared access signature. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into SQL Data Warehouse. 
+Azure Data Factory can copy directly from blob storage, using the [blob storage connector](/azure/data-factory/connector-azure-blob-storage). However, the connector requires a connection string or a shared access signature, so it can't be used to copy a blob with public read access. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into SQL Data Warehouse. 
 
 ## Handling large binary data 
 
 In the source database, the Cities table has a Location column that holds a [geography](/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. SQL Data Warehouse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
 
-However, PolyBase supports a maximum column size of `varbinary(8000)`, which means some data could be truncated. A workaround for this problem is to break the data up into chunks during export it, and then reassemble the chunks. 
-
-Here's the approach that we use:
+However, PolyBase supports a maximum column size of `varbinary(8000)`, which means some data could be truncated. A workaround for this problem is to break the data up into chunks during export, and then reassemble the chunks, as follows:
 
 1. Create a temporary staging table for the Location column.
 
@@ -89,18 +87,15 @@ Here's the approach that we use:
 
 3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatentate the column values for each city.
 
-The challenge is that each city will be split into a different number of rows, depending on the size of the data. For the PIVOT operator to work, every city must have the same number of rows. The T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
+The challenge is that each city will be split into a different number of rows, depending on the size of geography data. For the PIVOT operator to work, every city must have the same number of rows. To make this work, the T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
+
+The same approach is used for image data.
 
 ## Slowly changing dimensions
 
-Dimension data is relatively static, but it can change. For example, if a product is associated with a product category, it might get reassigned to a different category.
+Dimension data is relatively static, but it can change. For example, a product might get reassigned to a different product category. There are several approaches to handling slowly changing dimensions. A common technique, called [Type 2](https://wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row), is to add a new record whenever a dimension changes. 
 
-There are several approaches to handling slowly changing dimensions. A common technique, called [Type 2](https://wikipedia.org/wiki/Slowly_changing_dimension#Type_2:_add_new_row), is to add a new record whenever a dimension changes. 
-
-To implement this approach:
-
--	The dimension tables need additional columns that specify the effective date range for a given record.
--	Primary keys from the source database will be duplicated, so the dimension table must have an artificial primary key.
+In order to implement the Type 2 approach, dimension tables need additional columns that specify the effective date range for a given record. Also, primary keys from the source database will be duplicated, so the dimension table must have an artificial primary key.
 
 The following image shows the Dimension.City table. The `WWI City ID` column is the primary key from the source database. The `City Key` column is an artificial key generated during the ETL pipeline. Also notice that the table has `Valid From` and `Valid To` columns, which define the range when each row was valid. Current values have a `Valid To` equal to '9999-12-31'.
 
@@ -110,7 +105,7 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. You can do this in Azure Analysis Services by adding calculated column to the fact table.
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. You can do this in Azure Analysis Services by adding a calculated column to the fact table.
 
 The following formula returns the `[City Key]` from the City dimension table that corresponds to the invoice date in the Sales fact table.
 
@@ -124,7 +119,7 @@ MINX(
 )
 ```
 
-Using this calculated column, a Power BI query can look up the City data for a given sales invoice.
+Using this calculated column, a Power BI query can look up the correct City record for a given sales invoice.
 
 ## Security considerations
 
