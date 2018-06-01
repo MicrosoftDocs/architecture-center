@@ -6,15 +6,19 @@ ms.date: 06/01/2018
 ---
 # Intelligent Applications - Image Processing on Azure
 
-This example scenario is applicable for businesses that have an image processing need. Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and then finally run the images through their custom process to get the data out of the images. By leveraging Azure services such as the Computer Vision API and Azure Functions, companies can remove the undifferentiated heavy lifting with an on-premises or IaaS deployment, while reducing costs and leveraging ….” “… This scenario will specifically solve X, however if you need Y or Z, you may want to consider….”
+This sample solution is applicable for businesses that have an image processing need.
+
+Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and then finally run the images through their custom process to get the data out of the images. 
+
+By leveraging Azure services such as the Computer Vision API and Azure Functions, companies can remove the undifferentiated heavy lifting of an on-premises or IaaS deployment, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services… This scenario will specifically solve an image processing scenario, however, if you have different AI needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
 
 ## Potential use cases
 
 You should consider this solution for the following use cases:
 
-* Classifying images on a fashion website.
-* Classify images & text for insurance claims
-* Capture and classify telemetry data from screenshots of games.
+* Classify images on a fashion website.
+* Classify images for insurance claims
+* Classify telemetry data from screenshots of games.
 
 ## Architecture diagram
 
@@ -24,31 +28,33 @@ The solution diagram below is an example of this solution:
 
 ## Architecture
 
-In this example, image processing functions would invoke the Computer Vision Cognitive Service for automatically creating the caption and the tags from any supplied images. A mixture of pre-built AI in the form of Cognitive Services and custom AI in the form of Azure ML services would be used to process the text. Azure Functions would be used to coordinate the calls to the classifications and summary AI services which would run as containerized web services in Azure Container Service, while the Text Analytics API could be invoked directly to provide a sentiment score for each text.
-Once all processing has completed, one final Azure Function could be used to insert the complete document into Azure Search for future searches. The document inserted would contain specific tabs and search metadata, so that it could always be tied back to the record store in Azure SQL Database.
-
 These are the components found in this solution:
 
 * [Resource Groups][resource-groups] is a logical container for Azure resources.
+
 * [Computer Vision API][computer-vision-docs] is part of the Cognitive Services suite and is used to retrieve information about each image.
+
 * [Azure Functions][functions-docs]: this provides the backend API for the web application, as well as the event processing for uploaded images.
+
 * [Event Grid][eventgrid-docs]: triggers an event when a new image is uploaded to blob storage, that is then processed with Azure functions.
+
 * [Blob Storage][storage-docs]: you use Azure Blob storage to host all of the image files that are uploaded into your web application, as well any static files that your web application consumes.
+
 * [Cosmos DB][cosmos-docs]: Cosmos DB is used to hold metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
-
-## Architecture considerations
-
-Here we will discuss the major architectural components of the solution, what some of the alternative options are, and why we selected the things we did.
 
 ### Data storage
 
-There are a couple types of data present in this scenario. Raw data that relates to each individual customer submission, data derived via machine learning, and finally the meta-data to relate raw data to the customer.
+There are a couple types of data present in this scenario. Raw data that relates to each individual customer submission, data derived via machine learning, and finally the metadata to relate raw image data to the customer.
 
-We are storing the raw image data in Azure blob storage, the other storage options are detailed in our [storage documentation][storage-docs].
+In this scenario you're storing the raw image data in Azure blob storage with all of your metadata about the images and customers stored in Cosmos DB.
+
+You use Cosmos DB in this situation as the lookups will consistently be by the key, and you will not be querying by value.  Which is one of the ways that a NoSQL database excels. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
 
 ### AI Processing
 
-In this solution we are primarily processing images, there are two main options in Azure to consider: Computer Vision API & the Custom Vision API. The main difference between the two is the computer vision API comes pre-trained and will give you a good amount of information by default. You need to provide training images and classifications to the custom vision API in order for it to give you back the information that you might be looking for.
+In this solution we are processing images, there are two main options in Azure to consider: Computer Vision API & the Custom Vision API. The main difference between the two is the Computer Vision API comes pre-trained and will give you a good amount of information by default. If this default set of data covers what you need then this is the appropriate choice.
+
+If you need to process images to retrieve information that isn't returned by the Computer Vision API then you should consider the Custom Vision API. As you can train this service with your own image data to retrieve the information that you care about for your application.
 
 ## Deploy the solution
 
@@ -87,3 +93,4 @@ Reference Architectures / Implementations
 [cosmos-docs]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [eventgrid-docs]: https://docs.microsoft.com/en-us/azure/event-grid/
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+[cognitive-docs]: https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai

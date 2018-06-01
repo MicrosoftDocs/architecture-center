@@ -7,5 +7,5 @@
   - name: AI
     href: ai/index.md
     items:
-    - name: Application using Cognitive Services
+    - name: Image Processing
       href: ai/intelligent-apps-image-processing.md
