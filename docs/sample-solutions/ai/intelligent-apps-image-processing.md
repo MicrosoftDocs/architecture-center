@@ -78,7 +78,7 @@ For a guided learning path of this solution please see [Build a serverless web a
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
 [computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
 [storage-docs]: https://docs.microsoft.com/en-us/azure/storage/
-[architecture-intelligent-apps]: ./media/architecture-computer-vision.png
+[architecture-computer-vision]: ./media/architecture-computer-vision.png
 [serverless]: https://docs.microsoft.com/en-us/learn/build-serverless-app/index
 [cosmos-docs]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [eventgrid-docs]: https://docs.microsoft.com/en-us/azure/event-grid/
