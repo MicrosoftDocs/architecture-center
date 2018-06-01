@@ -123,7 +123,7 @@ Using this calculated column, a Power BI query can look up the correct City reco
 
 ## Security considerations
 
-For additional security, you can use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual networks. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
+For additional security, you can use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
 
 There are currently some limitations with this approach:
 
