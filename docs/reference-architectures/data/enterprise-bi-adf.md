@@ -47,7 +47,7 @@ When you run an automated ETL or ELT process, it's most efficient to load only t
 Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application. 
 
 > [!NOTE]
-> For earlier versions of SQL Server, you can use Change Data Capture (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
+> For earlier versions of SQL Server, you can use [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
 
 Temporal tables are especially useful for dimension data, which can change over time. Fact tables usually represent a point-in-time event such as a sale. In that case, the overhead of tracking the complete change history might not make sense. Instead, each transaction record can include a "last-modified" column. For example, in the Wide World Importers OLTP databse, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`. 
 
