@@ -34,16 +34,16 @@ This isolation also enables another concept known as [DevOps](https://azure.micr
 
 ## Section 2: Governance design for multiple teams and multiple workloads
 
-In the [foundational stage]() of the Azure cloud adoption guide, you were introduced to the concept of cloud governance. You learned how to design a simple governance model for a single team working on a single workload. 
+In the [foundational stage](/azure/architecture/cloud-adoption-guide/adoption-intro/overview) of the Azure cloud adoption guide, you were introduced to the concept of cloud governance. You learned how to design a simple governance model for a single team working on a single workload. 
 
-In the intermediate stage, the [governance design guide]() expands on the foundational concepts to add multiple teams, multiple workloads, and multiple environments. Once you've gone through the examples in the document you can apply the design principles to designing your own goverance model.
+In the intermediate stage, the [governance design guide](governance-design-guide.md) expands on the foundational concepts to add multiple teams, multiple workloads, and multiple environments. Once you've gone through the examples in the document you can apply the design principles to designing and implementing your organization's goverance model.
 
 ## Section 3: Implementing a resource management model
 
 Your organization's cloud governance model represents the intersection between Azure's resource access management tools, your people, and the access management rules you've defined. 
 In the goverance design guide, you learned about several different models for governing access to Azure resources. Now we'll walk through the steps necessary to implement the resource management model with one subscription for each of the **shared infrastructure**, **production**, and **development** environments from the design guide. We'll have one **subscription owner** for all three environments. Each workload will be isolated in a **resource group** with a **workload owner** added with the **contributor** role.
 
-> [!NOTE] Read [understanding resource access in Azure][understanding-resource-access-in-azure] to learn more about the relationship between Azure Accounts and subscriptions. 
+> [!NOTE] Read [understanding resource access in Azure][understand-resource-access-in-azure] to learn more about the relationship between Azure Accounts and subscriptions. 
 
 Follow these steps:
 
