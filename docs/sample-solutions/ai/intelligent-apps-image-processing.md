@@ -28,6 +28,10 @@ The solution diagram below is an example of this solution:
 
 ## Architecture
 
+This solution covers the back-end components of a web or mobile application. The first point of contact the application has with the solution is Azure Functions which acts as the API layer. The APIs enable a couple behaviors for the application: the ability to upload images, and the ability to retrieve data from Cosmos.
+
+As an image is uploaded via an API call it is stored in Blob storage, which triggers an EventGrid notification to be sent to a different Azure Function that sends the image to the Computer Vision API to analyze. Finally, when the image has been processed, the function makes an entry in Cosmos DB to persist the results of the analysis alongside the image metadata.
+
 These are the components found in this solution:
 
 * [Resource Groups][resource-groups] is a logical container for Azure resources.
@@ -79,9 +83,6 @@ Explore the [cost][pricing] of running this solution, all of the services are pr
 ## Related Resources
 
 For a guided learning path of this solution please see [Build a serverless web app in Azure][serverless]
-
-Best practice links  
-Reference Architectures / Implementations
 
 <!-- links -->
 [pricing]: https://azure.com/e/d886c0e6c8b2414a9485d67c4691cf2c
