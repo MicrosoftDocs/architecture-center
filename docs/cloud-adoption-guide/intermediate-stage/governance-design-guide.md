@@ -65,7 +65,7 @@ In both examples, we have a subscription service administrator that is assigned 
 ![subscription service administrator with owner role](../_images/governance-2-1.png)
 *Figure 3. A subscription with a service adminstrator assigned the built-in owner role.* 
 
-1. In our first example, we have **workload owner A** with no permissions at the subscription scope. This user wants to deploy and manage the resources for their workload. They must contact the **service administrator** to request creation of a resource group to contain the resources for their workload.
+1. In our first example, we have **workload owner A** with no permissions at the subscription scope - they have no resource access management rights by default. This user wants to deploy and manage the resources for their workload. They must contact the **service administrator** to request creation of a resource group.
 ![workload owner requests creation of resource group A](../_images/governance-2-2.png)  
 
 2. The **service administrator** reviews their request and creates **resource group A**. At this point, **workload owner A** still doesn't have permission to do anything.
@@ -74,10 +74,10 @@ In both examples, we have a subscription service administrator that is assigned 
 3. In order to enable **workload owner A** to manage resources, the **service administrator** adds them to **resource group A**. The **service administrator** assigns the [built-in contributor role](/azure/role-based-access-control/built-in-roles#contributor) to **workload owner A**. The contributor role grants all permissions on **resource group A** except managing access permission.
 ![service administrator adds workload owner a to resource group a](../_images/governance-2-4.png)
 
-4. **Workload owner A** has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because **workload owner A** is assigned the contributor role, they do not have permission to add a user to **resource group A** directly. They must send this request to the **service administrator**.
+4. Let's assume that **Workload owner A** has a requirement for a pair of team members to view the CPU and network traffic monitoring data as part of capacity planning for the workload. Because **workload owner A** is assigned the contributor role, they do not have permission to add a user to **resource group A** directly. They must send this request to the **service administrator**.
 ![workload owner requests workload contributors be added to resource group](../_images/governance-2-5.png)
 
-5. The **service adminstrator** reviews the request, and adds the two **workload contributor** users to **resource group A**. Neither of these users requires permission to manage resources, so they are assigned the [built-in reader role](/azure/role-based-access-control/built-in-roles#reader). 
+5. The **service adminstrator** reviews the request, and adds the two **workload contributor** users to **resource group A**. Neither of these users requires permission to manage resources, so they are assigned the [built-in reader role](/azure/role-based-access-control/built-in-roles#contributor). 
 ![service administrator adds workload contributors to resource group A](../_images/governance-2-6.png)
 
 6. Now, **workload owner B** also requires a resource group to contain the resources for their workload. As with **workload owner A**, **workload owner B** initially does not have permission to take any action at the subscription scope so they must send a request to the **service administrator**. 
@@ -85,7 +85,8 @@ In both examples, we have a subscription service administrator that is assigned 
 
 7. The **service administrator** reviews the request and creates **resource group B**.
 ![Service Administrator creates resource group B](../_images/governance-2-8.png)
-8. The **service administrator** then adds **workload owner B** to **resource group B** and assigns the [built-in contributor role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader). 
+
+8. The **service administrator** then adds **workload owner B** to **resource group B** and assigns the [built-in contributor role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#contributor). 
 ![Service Administrator adds Workload Owner B to resource group B](../_images/governance-2-9.png)
 
 At this point each of the workload owners are isolated in their own resource group. None of the workload owners or their team members have management access to the resources in any other resource group. 
