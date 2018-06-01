@@ -51,15 +51,15 @@ Follow these steps:
   * creating subscriptions, and
   * creating and administering [Azure Active Directory (AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.    
 2. Your organization's leadership team decides which people are responsible for:
-  * management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default.  
-  * subscriptions, which means these users:
+  * Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal). 
+  * Subscriptions, which means these users:
     * manage costs associated with resource usage in that subscription,
-    * implement and maintain least permission model for resource access,
+    * implement and maintain least permission model for resource access, and
     * keep track of service limits.
-  * shared infrastructure services (if your organization decides to use this model), which means they have to look after:
-    * on-premises to Azure network connectivity
-    * ownership of network connectivity within Azure through peering
-  * workload owners 
+  * Shared infrastructure services (if your organization decides to use this model), which means this user is responsible for:
+    * on-premises to Azure network connectivity, and 
+    * ownership of network connectivity within Azure through virtual network peering.
+  * Workload owners. 
 3. The Azure AD global administrator [creates the new user accounts](/azure/active-directory/add-users-azure-active-directory) for:
   * the person who will be the **subscription owner** for each subscription associated with each environment. Note that this is necessary only if the subscription **service administrator** will not be tasked with managing resource access for each subscription/environment.
   * the person who will be the **network operations user**, and
