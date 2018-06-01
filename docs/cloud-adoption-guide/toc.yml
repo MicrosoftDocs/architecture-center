@@ -67,4 +67,5 @@
   - name: Intermediate Azure adoption
     href: intermediate-stage/overview.md
     items:
-      - name: 
+      - name: Governance design guide
+        href: intermediate-stage/goverance-design-guide.md

@@ -1,10 +1,10 @@
 ---
-title: "Governance design walkthrough: new development in Azure for multiple teams"
-description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
+title: "Governance design guide: new development in Azure for multiple teams"
+description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments
 author: petertay
 ---
 
-# Governance design walkthrough: new development in Azure for multiple teams
+# Governance design guide: new development in Azure for multiple teams
 
 The goal of this guidance is to help you learn the process of designing your organization's governance architecture to accomodate new development in Azure for multiple teams. To facilitate this, we'll look at a set of hypothetical goverance goals and requirements and discuss how to configure Azure's governance tools to meet them. 
 
