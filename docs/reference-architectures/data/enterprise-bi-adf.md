@@ -42,24 +42,20 @@ This reference architecture defines a master pipeline that runs a sequence of ch
 
 ## Incremental loading
 
-When you run an automated ETL or ELT process, you want to load only new or changed data. That means you need a way to track and query which data has changed over a given time range. 
+When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all of the data. To perform an incremental load, you need a way to identify which data has changed.
 
-There are two basic approaches. Both are demonstrated in this reference architecture:
+Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application. 
 
-- **Watermark column.** The first option is to run a query based on some column in the source data that holds a timestamp or an incrementing key. This column is called a *watermark* column. This approach requires the table schema to have a suitable watermark column. Data stored in fact tables often has a timestamp, because it represents an activity, such as a sales transaction. Dimension data, on the other, often does not have a suitable watermark column.
+> [!NOTE]
+> For earlier versions of SQL Server, you can use Change Data Capture (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
 
-- **Change-tracking**. The second option is to use change-tracking features built into the database engine. Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables) for this purpose. Temporal tables are system-versioned tables that keep a full history of data changes. 
-
-    > [!NOTE]
-    > With earlier versions of SQL Server, you can use Change Data Capture (CDC). However, temporal tables are easier to work with. Using CDC, you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. Using temporal tables, you query the main table and simply include a FOR SYSTEM_TIME clause to get the historical data for a particular timestamp.
-
-In the World Wide Importers OLTP database, the Sales.Invoices and Sales.InvoiceLines tables both contain a `LastEditedWhen` field. The ELT pipeline uses these fields to query the changed records for the Sales fact table. For the dimension tables, the ELT pipeline uses temporal tables.
+Temporal tables are especially useful for dimension data, which can change over time. Fact tables usually represent a point-in-time event such as a sale. In that case, the overhead of tracking the complete change history might not make sense. Instead, each transaction record can include a "last-modified" column. For example, in the Wide World Importers OLTP databse, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`. 
 
 Here is the general flow for the ELT pipeline:
 
 1. For each table in the source database, track the cutoff time when the last ELT job ran. Store this information in the data warehouse. (On initial setup, all times are set to '1-1-1900'.)
 
-2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. 
+2. During the data export step, the cutoff time is passed as a parameter to a set of stored procedures in the source database. These stored procedures query for any records that were changed or created after the cutoff time. For the Sales fact table, the `LastEditedWhen` column is used. For the dimension data, system-versioned temporal tables are used.
 
 3. When the data migration is complete, update the table that stores the cutoff times.
 
@@ -85,7 +81,7 @@ However, PolyBase supports a maximum column size of `varbinary(8000)`, which mea
 
 2. For each city, split the location data into 8000-byte chunks, resulting in 1 &ndash; N rows for each city.
 
-3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatentate the column values for each city.
+3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatenate the column values for each city.
 
 The challenge is that each city will be split into a different number of rows, depending on the size of geography data. For the PIVOT operator to work, every city must have the same number of rows. To make this work, the T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
 
@@ -309,7 +305,7 @@ To verify this step, you can use SQL Server Management Studio (SSMS) to connect 
     ![](./images/adf-pipeline-progress.png)
 
 
-### Build the Azure Analysis Services model
+## Build the Analysis Services model
 
 In this step, you will create a tabular model that imports data from the data warehouse. Then you will deploy the model to Azure Analysis Services.
 
@@ -408,7 +404,7 @@ For more information about creating measures, see [Measures](/sql/analysis-servi
 
 **Deploy the model**
 
-1. From the **File** menu, choose **Save All**.  
+1. From the **File** menu, choose **Save All**.
 
 2. In **Solution Explorer**, right-click the project and select **Properties**. 
 
@@ -422,7 +418,7 @@ For more information about creating measures, see [Measures](/sql/analysis-servi
 
     ![](./images/analysis-services-models.png)
 
-### Analyze the data in Power BI Desktop
+## Analyze the data in Power BI Desktop
 
 In this step, you will use Power BI to create a report from the data in Analysis Services.
 
