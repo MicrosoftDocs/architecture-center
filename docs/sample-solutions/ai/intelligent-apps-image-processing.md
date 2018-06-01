@@ -74,7 +74,7 @@ Explore the [cost][pricing] of running this solution.
 For a guided learning path of this solution please see [Build a serverless web app in Azure][serverless]
 
 <!-- links -->
-[pricing]: https://azure.microsoft.com/en-us/pricing/calculator/
+[pricing]: https://azure.com/e/d886c0e6c8b2414a9485d67c4691cf2c
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
 [computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
 [storage-docs]: https://docs.microsoft.com/en-us/azure/storage/

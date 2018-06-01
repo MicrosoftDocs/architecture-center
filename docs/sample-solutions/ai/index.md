@@ -16,11 +16,11 @@ These sample solutions show proven practices for building out AI solutions on Az
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/intelligent-apps.svg" height="140px" />
+                            <img src="./media/computer-vision.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Intelligent Apps on Azure</h3>
+                        <h3>Intelligent image processing</h3>
                         <p>Leverage Cognitive services to process image data.</p>
                     </div>
                 </div>
