@@ -116,7 +116,7 @@ Configure the load balancers for the AD FS VMs and WAP VMs as follows:
 * Use an Azure load balancer to provide external access to the WAP VMs, and an internal load balancer to distribute the load across the AD FS servers in the farm.
 * Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
 * Give the load balancer a static IP address.
-* Create a health probe using HTTP against `/adfs/probe` as discussed at https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
+* Create a health probe using HTTP against `/adfs/probe`. For more information, see [Hardware Load Balancer Health Checks and Web Application Proxy / AD FS 2012 R2](https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/).
   
   > [!NOTE]
   > AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
