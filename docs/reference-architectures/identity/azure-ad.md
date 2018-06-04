@@ -31,7 +31,7 @@ Typical uses for this reference architecture include:
 * Architectures in which the on-premises network and the application's Azure VNet are not connected using a VPN tunnel or ExpressRoute circuit.
 
 > [!NOTE]
-> Azure AD currently supports user authentication only. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
+> Azure AD can authenticate the identity of users and applications that exist in an organization’s directory. Some applications and services, such as SQL Server, may require computer authentication, in which case this solution is not appropriate.
 > 
 
 For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
