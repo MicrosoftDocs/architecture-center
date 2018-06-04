@@ -28,9 +28,17 @@ The solution diagram below is an example of this solution:
 
 ## Architecture
 
-This solution covers the back-end components of a web or mobile application. The first point of contact the application has with the solution is Azure Functions which acts as the API layer. The APIs enable a couple behaviors for the application: the ability to upload images, and the ability to retrieve data from Cosmos.
+This solution covers the back-end components of a web or mobile application, the data flows through the solution as follows:
 
-As an image is uploaded via an API call it is stored in Blob storage, which triggers an EventGrid notification to be sent to a different Azure Function that sends the image to the Computer Vision API to analyze. Finally, when the image has been processed, the function makes an entry in Cosmos DB to persist the results of the analysis alongside the image metadata.
+1. The first point of contact the application has with the solution is Azure Functions which acts as the API layer. The APIs enable a couple behaviors for the application: the ability to upload images, and the ability to retrieve data from Cosmos DB.
+
+2. When an image is uploaded via an API call it is stored in Blob storage.
+
+3. New files add to Blob storage trigger an EventGrid notification to be sent to an Azure Function.
+
+4. Azure Functions sends a link to the newly uploaded file to the Computer Vision API to analyze.
+
+5. Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis alongside the image metadata.
 
 These are the components found in this solution:
 
