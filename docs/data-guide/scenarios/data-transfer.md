@@ -64,7 +64,7 @@ For data transfer scenarios, choose the appropriate system for your needs by ans
 
 - Do you prefer to script your data transfer tasks, so they are reusable? If so, select one of the command line options or Azure Data Factory.
 
-- Do you need to transfer a very large amount of data over a network connection? If so, selection an option that is optimized for big data.
+- Do you need to transfer a very large amount of data over a network connection? If so, select an option that is optimized for big data.
 
 - Do you need to transfer data to or from a relational database? If yes, choose an option that supports one or more relational databases. Note that some of these options also require a Hadoop cluster.
 
