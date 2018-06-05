@@ -86,14 +86,22 @@ To deploy the solution, perform the following steps.
 
 ## Pricing
 
-Explore the [cost][pricing] of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
+Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
+
+We have provided three sample cost profiles based on amount of traffic (we assume all images are 100kb in size):
+
+* [Small][pricing]: this correlates to processing &lt; 5000 images a month.
+* [Medium][medium-pricing]: this correlates to processing 500,000 images a month.
+* [Large][large-pricing]: this correlates to processing 50 million images a month.
 
 ## Related Resources
 
 For a guided learning path of this solution please see [Build a serverless web app in Azure][serverless]
 
 <!-- links -->
-[pricing]: https://azure.com/e/d886c0e6c8b2414a9485d67c4691cf2c
+[pricing]: https://azure.com/e/f9b59d238b43423683db73f4a31dc380
+[medium-pricing]: https://azure.com/e/7c7fc474db344b87aae93bc29ae27108
+[large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
 [computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
 [storage-docs]: https://docs.microsoft.com/en-us/azure/storage/
