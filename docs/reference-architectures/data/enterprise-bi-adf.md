@@ -24,9 +24,9 @@ The architecture consists of the following components.
 
 **Blob Storage**. Blob storage is used as a staging area for the source data before loading it into SQL Data Warehouse.
 
-**Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
+**Azure SQL Data Warehouse**. [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
 
-**Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. The semantic model is loaded into Analysis Services.
+**Azure Analysis Services**. [Analysis Services](https://docs.microsoft.com/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. The semantic model is loaded into Analysis Services.
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
@@ -44,10 +44,10 @@ This reference architecture defines a master pipeline that runs a sequence of ch
 
 When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all of the data. To perform an incremental load, you need a way to identify which data has changed.
 
-Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application. 
+Starting with SQL Server 2016, you can use [temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application. 
 
 > [!NOTE]
-> For earlier versions of SQL Server, you can use [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
+> For earlier versions of SQL Server, you can use [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
 
 Temporal tables are especially useful for dimension data, which can change over time. Fact tables usually represent a point-in-time event such as a sale. In that case, the overhead of tracking the complete change history might not make sense. Instead, each transaction record can include a "last-modified" column. For example, in the Wide World Importers OLTP databse, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`. 
 
@@ -69,11 +69,11 @@ Data cleansing should be part of the ELT process. In this reference architecture
 
 Data warehouses often consolidate data from multiple sources. This reference architecture loads an external data source that contains demographics data. This dataset is available in Azure blob storage as part of the [WorldWideImportersDW](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/wide-world-importers/sample-scripts/polybase) sample.
 
-Azure Data Factory can copy directly from blob storage, using the [blob storage connector](/azure/data-factory/connector-azure-blob-storage). However, the connector requires a connection string or a shared access signature, so it can't be used to copy a blob with public read access. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into SQL Data Warehouse. 
+Azure Data Factory can copy directly from blob storage, using the [blob storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage). However, the connector requires a connection string or a shared access signature, so it can't be used to copy a blob with public read access. As a workaround, you can use PolyBase to create an external table over Blob storage and then copy the external tables into SQL Data Warehouse. 
 
 ## Handling large binary data 
 
-In the source database, the Cities table has a Location column that holds a [geography](/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. SQL Data Warehouse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
+In the source database, the Cities table has a Location column that holds a [geography](https://docs.microsoft.com/sql/t-sql/spatial-geography/spatial-types-geography) spatial data type. SQL Data Warehouse doesn't support the **geography** type natively, so this field is converted to a **varbinary** type during loading. (See [Workarounds for unsupported data types](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-data-types#unsupported-data-types).)
 
 However, PolyBase supports a maximum column size of `varbinary(8000)`, which means some data could be truncated. A workaround for this problem is to break the data up into chunks during export, and then reassemble the chunks, as follows:
 
@@ -81,7 +81,7 @@ However, PolyBase supports a maximum column size of `varbinary(8000)`, which mea
 
 2. For each city, split the location data into 8000-byte chunks, resulting in 1 &ndash; N rows for each city.
 
-3. To reassemble the chunks, use the T-SQL [PIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatenate the column values for each city.
+3. To reassemble the chunks, use the T-SQL [PIVOT](https://docs.microsoft.com/sql/t-sql/queries/from-using-pivot-and-unpivot) operator to convert rows into columns and then concatenate the column values for each city.
 
 The challenge is that each city will be split into a different number of rows, depending on the size of geography data. For the PIVOT operator to work, every city must have the same number of rows. To make this work, the T-SQL query (which you can view [here][MergeLocation]) does some tricks to pad out the rows with blank values, so that every city has the same number of columns after the pivot. The resulting query turns out to be much faster than looping through the rows one at a time.
 
@@ -119,7 +119,7 @@ Using this calculated column, a Power BI query can look up the correct City reco
 
 ## Security considerations
 
-For additional security, you can use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
+For additional security, you can use [Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
 
 There are currently some limitations with this approach:
 
@@ -127,7 +127,7 @@ There are currently some limitations with this approach:
 
 2.	In order to move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. However, you cannot whitelist selective CIDR ranges, so you cannot restrict access to be from a specific subnet of your on-premises network.
 
-3.	If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into SQL Data Warehouse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
+3.	If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into SQL Data Warehouse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 
 ## Deploy the solution
@@ -202,7 +202,7 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
 
 ### Get the Integration Runtime authentication key
 
-For the on-premise server (below), you will need an authentication key for the Azure Data Factory [integration runtime](/azure/data-factory/concepts-integration-runtime). Perform the following steps.
+For the on-premise server (below), you will need an authentication key for the Azure Data Factory [integration runtime](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime). Perform the following steps.
 
 1. In the [Azure Portal](https://portal.azure.com/), navigate to the Data Factory instance.
 
@@ -248,7 +248,7 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
     ```
 
-This step may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
+This step may take 20 to 30 minutes to complete, which includes running the [DSC](https://docs.microsoft.com/powershell/dsc/overview) script to install the tools and restore the database. 
 
 
 ### Run the data warehouse scripts
@@ -362,7 +362,7 @@ In this step, you will create a tabular model that imports data from the data wa
     =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
     ```
 
-For more information about creating calculated columns, see [Create a Calculated Column](/sql/analysis-services/tabular-models/ssas-calculated-columns-create-a-calculated-column).
+For more information about creating calculated columns, see [Create a Calculated Column](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns-create-a-calculated-column).
 
 **Create measures**
 
@@ -390,7 +390,7 @@ For more information about creating calculated columns, see [Create a Calculated
 
     ![](./images/analysis-services-measures.png)
 
-For more information about creating measures, see [Measures](/sql/analysis-services/tabular-models/measures-ssas-tabular).
+For more information about creating measures, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
 
 **Create relationships**
 
@@ -452,14 +452,14 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 The table now shows cities with population greater than 100,000 and zero sales. CAGR  stands for Compounded Annual Growth Rate and measures the rate of population growth per city. You could use this value to find cities with high growth rates, for example. However, note that the values for CAGR in the model aren't accurate, because they are derived from sample data.
 
-To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](/power-bi/desktop-getting-started).
+To learn more about Power BI Desktop, see [Getting started with Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-getting-started).
 
 
-[adf]: /azure/data-factory
-[azure-cli-2]: /azure/install-azure-cli
+[adf]: https://docs.microsoft.com//azure/data-factory
+[azure-cli-2]: https://docs.microsoft.com//azure/install-azure-cli
 [azbb-repo]: https://github.com/mspnp/template-building-blocks
 [azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [MergeLocation]: https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/city/%5BIntegration%5D.%5BMergeLocation%5D.sql
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw_advanced
-[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
+[wwi]: https://docs.microsoft.com//sql/sample/world-wide-importers/wide-world-importers-oltp-database
