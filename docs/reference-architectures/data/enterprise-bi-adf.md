@@ -42,14 +42,14 @@ This reference architecture defines a master pipeline that runs a sequence of ch
 
 ## Incremental loading
 
-When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all of the data. To perform an incremental load, you need a way to identify which data has changed.
+When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all of the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column. 
 
 Starting with SQL Server 2016, you can use [temporal tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application. 
 
 > [!NOTE]
 > For earlier versions of SQL Server, you can use [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) (CDC). This approach is less convenient than temporal tables, because you have to query a separate change table, and changes are tracked by a log sequence number, rather than a timestamp. 
 
-Temporal tables are especially useful for dimension data, which can change over time. Fact tables usually represent a point-in-time event such as a sale. In that case, the overhead of tracking the complete change history might not make sense. Instead, each transaction record can include a "last-modified" column. For example, in the Wide World Importers OLTP databse, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`. 
+Temporal tables are useful for dimension data, which can change over time. Fact tables usually represent an immutable transaction such as a sale, in which case keeping the system version history doesn't make sense. Instead, transactions usually have a column that represents the transaction date, which can be used as the watermark value. For example, in the Wide World Importers OLTP databse, the Sales.Invoices and Sales.InvoiceLines tables have a `LastEditedWhen` field that defaults to `sysdatetime()`. 
 
 Here is the general flow for the ELT pipeline:
 
@@ -59,11 +59,24 @@ Here is the general flow for the ELT pipeline:
 
 3. When the data migration is complete, update the table that stores the cutoff times.
 
-It's also useful to record a *lineage* for each ELT run. For a given record, the lineage associates that record with the ELT run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting end ending load times. The lineage keys for each record are stored in the dimension and fact tables.
+It's also useful to record a *lineage* for each ELT run. For a given record, the lineage associates that record with the ELT run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting and ending load times. The lineage keys for each record are stored in the dimension and fact tables.
 
 ![](./images/city-dimension-table.png)
 
-Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table.
+## Data cleansing
+
+Data cleansing should be part of the ELT process. In this reference architecture, one source of bad data is the city population table, where some cities have zero population, perhaps because no data was available. During processing, the ELT pipeline removes those cities from the city population table. Perform data cleansing on staging tables, rather than external tables.
+
+Here is the stored procedure that removes the cities with zero population from the City Population table. (You can find the source file [here](https://github.com/mspnp/reference-architectures/blob/master/data/enterprise_bi_sqldw_advanced/azure/sqldw_scripts/citypopulation/%5BIntegration%5D.%5BMigrateExternalCityPopulationData%5D.sql).) 
+
+```sql
+DELETE FROM [Integration].[CityPopulation_Staging]
+WHERE RowNumber in (SELECT DISTINCT RowNumber
+FROM [Integration].[CityPopulation_Staging]
+WHERE POPULATION = 0
+GROUP BY RowNumber
+HAVING COUNT(RowNumber) = 4)
+```
 
 ## External data sources
 
@@ -119,16 +132,21 @@ Using this calculated column, a Power BI query can look up the correct City reco
 
 ## Security considerations
 
+To secure communications between 
+
 For additional security, you can use [Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
 
-There are currently some limitations with this approach:
+With this approach, you create a VNet in Azure and then create private service endpoints for Azure services. Those services are then restricted to traffic from that virtual network. You can also reach them from your on-premises network through a gateway.
 
-1.	At the time this reference architecture was created, VNet service endpoints are supported for Azure Storage and Azure SQL Data Warehouse, but not for Azure Analysis Service. Check the latest status [here](https://azure.microsoft.com/updates/?product=virtual-network).
+Be aware of the following limitations:
 
-2.	In order to move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. However, you cannot whitelist selective CIDR ranges, so you cannot restrict access to be from a specific subnet of your on-premises network.
+- At the time this reference architecture was created, VNet service endpoints are supported for Azure Storage and Azure SQL Data Warehouse, but not for Azure Analysis Service. Check the latest status [here](https://azure.microsoft.com/updates/?product=virtual-network). 
 
-3.	If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into SQL Data Warehouse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
+- If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into SQL Data Warehouse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
+- To move data from on-premises into Azure Storage, you will need to whitelist public IP addresses from your on-premises or ExpressRoute. For details, see [Securing Azure services to virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#securing-azure-services-to-virtual-networks).
+
+- To enable Analysis Services to read data from SQL Data Warehouse, deploy a Windows VM to the virtual network that contains the SQL Data Warehouse service endpoint. Install [Azure On-premises Data Gateway](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-gateway) on this VM. Then connect your Azure Analysis service to the data gateway.
 
 ## Deploy the solution
 
