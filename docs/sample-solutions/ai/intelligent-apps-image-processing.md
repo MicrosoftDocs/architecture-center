@@ -40,7 +40,7 @@ This solution covers the back-end components of a web or mobile application, the
 
 5. Once the data has been returned from the Computer Vision API, Azure Functions makes an entry in Cosmos DB to persist the results of the analysis alongside the image metadata.
 
-These are the components found in this solution:
+### Components
 
 * [Resource Groups][resource-groups] is a logical container for Azure resources.
 
@@ -54,7 +54,7 @@ These are the components found in this solution:
 
 * [Cosmos DB][cosmos-docs]: Cosmos DB is used to hold metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
-Alternative options to consider:
+### Alternatives
 
 * [Custom Vision API][custom-vision-docs]: If you need to process images to retrieve information that isn't returned by the Computer Vision API, which returns these [86 categories][cv-categories]. Then you should consider the Custom Vision API.
 
