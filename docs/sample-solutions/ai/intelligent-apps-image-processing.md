@@ -54,6 +54,12 @@ These are the components found in this solution:
 
 * [Cosmos DB][cosmos-docs]: Cosmos DB is used to hold metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
+Alternative options to consider:
+
+* [Custom Vision API][custom-vision-docs]: If you need to process images to retrieve information that isn't returned by the Computer Vision API, which returns these [86 categories][cv-categories]. Then you should consider the Custom Vision API.
+
+* Azure Search: 
+
 ### Data storage
 
 There are a couple types of data present in this scenario. Raw data that relates to each individual customer submission, data derived via machine learning, and finally the metadata to relate raw image data to the customer.
@@ -67,6 +73,10 @@ You use Cosmos DB in this situation as the lookups will consistently be by the k
 In this solution we are processing images, there are two main options in Azure to consider: Computer Vision API & the Custom Vision API. The main difference between the two is the Computer Vision API comes pre-trained and will give you a good amount of information by default. If this default set of data covers what you need then this is the appropriate choice.
 
 If you need to process images to retrieve information that isn't returned by the Computer Vision API then you should consider the Custom Vision API. As you can train this service with your own image data to retrieve the information that you care about for your application.
+
+### Security
+
+Discussion on security here.
 
 ## Deploy the solution
 
@@ -111,3 +121,5 @@ For a guided learning path of this solution please see [Build a serverless web a
 [eventgrid-docs]: https://docs.microsoft.com/en-us/azure/event-grid/
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [cognitive-docs]: https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai
+[custom-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/home
+[cv-categories]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home#the-86-category-concept
