@@ -1,5 +1,5 @@
 
-# Run scheduled ELT jobs with SQL Data Warehouse and Azure Data Factory
+# Automated enterprise BI with SQL Data Warehouse and Azure Data Factory
 
 This reference architecture shows how to perform incremental loading in an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into SQL Data Warehouse. Transactional data is transformed into a tabular model for analysis.
 
@@ -16,19 +16,27 @@ This architecture builds on the one shown in [Enterprise BI with SQL Data Wareho
 
 The architecture consists of the following components.
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source database.
+### Data sources
+
+**On-premises SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source database.
 
 **External data**. A common scenario for data warehouses is to integrate multiple data sources. This reference architecture loads an external data set that contains city populations by year, and integrates it with the data from the OLTP database. You can use this data for insights such as: "Does sales growth in each region match or exceed population growth?"
 
-**Azure Data Factory**. [Data Factory][adf] is a managed service for orchestrating and automating data movement and data transformation. In this architecture, it coordinates the various stages of the ELT process.
+### Ingestion and data storage
 
 **Blob Storage**. Blob storage is used as a staging area for the source data before loading it into SQL Data Warehouse.
 
 **Azure SQL Data Warehouse**. [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
 
+**Azure Data Factory**. [Data Factory][adf] is a managed service that orchestrates and automates data movement and data transformation. In this architecture, it coordinates the various stages of the ELT process.
+
+### Analysis and reporting
+
 **Azure Analysis Services**. [Analysis Services](https://docs.microsoft.com/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. The semantic model is loaded into Analysis Services.
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
+
+### Authentication
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
@@ -370,7 +378,7 @@ In this step, you will create a tabular model that imports data from the data wa
 
 3. Press ENTER to accept the formula.
 
-4. Rename the columm **City Key**.
+4. Rename the column **City Key**.
 
     ![](./images/analysis-services-calculated-column.png)
 
@@ -384,14 +392,18 @@ For more information about creating calculated columns, see [Create a Calculated
 
 **Create measures**
 
+For more information about creating measures in SQL Server Data Tools, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
+
 1. In the model designer, select any of the tables. (It doesn't matter which table you select.)
 
 2. Click a cell in the the measure grid. By default, the measure grid is displayed below the table. 
 
+    ![](./images/tabular-model-measures.png)
+
 3. In the formula bar, enter the following and press ENTER:
 
     ```
-    Total Sales:=SUM([Total Including Tax])
+    Total Sales:=SUM('Fact Sale'[Total Including Tax])
     ```
 
 4. Repeat these steps to create the following measures:
@@ -408,7 +420,6 @@ For more information about creating calculated columns, see [Create a Calculated
 
     ![](./images/analysis-services-measures.png)
 
-For more information about creating measures, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
 
 **Create relationships**
 
