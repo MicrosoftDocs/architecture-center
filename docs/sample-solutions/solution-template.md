@@ -1,7 +1,7 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: david-stanford
+author: <github UserName>
 ms.date: <publish or update date>
 ---
 # Article Title
@@ -78,5 +78,5 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
-[architecture]:
+[architecture]: ./media/architecture.png
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
