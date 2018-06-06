@@ -178,6 +178,20 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
     az login  
     ```
 
+### Variables
+
+The steps that follow include some user-defined variables. You will need to replace these with values that you define.
+
+- `<adf_factory_name>`. Data Factory name.
+- `<analysis_server_name>`. Analysis Services server name.
+- `<active_directory_upn>`. Your Azure Active Directory user principal name (UPN). For example, `user@contoso.com`.
+- `<data_warehouse_server_name>`. SQL Data Warehouse server name.
+- `<data_warehouse_password>`. SQL Data Warehouse administrator password.
+- `<resource_group_name>`. The name of the resource group.
+- `<region>`. The Azure region where the resources will be deployed.
+- `<storage_account_name>`. Storage account name. Must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts.
+- `<sql-db-password>`. SQL Server login password.
+
 ### Deploy the Azure resources
 
 This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Factory.
@@ -198,7 +212,7 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     az group deployment create --resource-group <resource_group_name> \
      --template-file azure-resources-deploy.json \
      --parameters "dwServerName"="<data_warehouse_server_name>" \
-     "dwAdminLogin"="adminuser" "dwAdminPassword"="<data-warehouse-password>" \ 
+     "dwAdminLogin"="adminuser" "dwAdminPassword"="<data_warehouse_password>" \ 
      "storageAccountName"="<storage_account_name>" \
      "analysisServerName"="<analysis_server_name>" \
      "analysisServerAdmin"="<user@contoso.com>"
@@ -219,7 +233,7 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     az group deployment create --resource-group <resource_group_name> \
     --template-file adf-pipeline-deploy.json \
     --parameters "factoryName"="<adf_factory_name>" \
-    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data-warehouse-password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
+    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data_warehouse_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
     "blobConnectionString"="DefaultEndpointsProtocol=https;AccountName=<storage_account_name>;AccountKey=<storage_account_key>;EndpointSuffix=core.windows.net" \
     "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
     ```
@@ -288,10 +302,10 @@ This step may take 20 to 30 minutes to complete, which includes running the [DSC
     ```
     cd C:\SampleDataFiles\reference-architectures\data\enterprise_bi_sqldw_advanced\azure\sqldw_scripts
 
-    deploy_database.cmd -S <data_warehouse_server_name>.database.windows.net -d wwi -U adminuser -P <data-warehouse-password> -N -I
+    deploy_database.cmd -S <data_warehouse_server_name>.database.windows.net -d wwi -U adminuser -P <data_warehouse_password> -N -I
     ```
 
-    For `<data_warehouse_server_name>` and `<data-warehouse-password>`, use the data warehouse server name and password from earlier.
+    For `<data_warehouse_server_name>` and `<data_warehouse_password>`, use the data warehouse server name and password from earlier.
 
 To verify this step, you can use SQL Server Management Studio (SSMS) to connect to the SQL Data Warehouse database. You should see the database table schemas.
 
@@ -394,7 +408,7 @@ For more information about creating calculated columns, see [Create a Calculated
 
 For more information about creating measures in SQL Server Data Tools, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
 
-1. In the model designer, select any of the tables. (It doesn't matter which table you select.)
+1. In the model designer, select the **Fact Sale** table.
 
 2. Click a cell in the the measure grid. By default, the measure grid is displayed below the table. 
 
@@ -469,9 +483,9 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 7. From **Dimension City**, drag **City** and **State Province** to the **Values** well.
 
-9. In the **Fields** pane, expand **Fact Sales**.
+9. In the **Fields** pane, expand **Fact Sale**.
 
-10. From **Fact Sales**, drag **CAGR**, **Ending Population**,  and **Total Sales** to the **Value** well.
+10. From **Fact Sale**, drag **CAGR**, **Ending Population**,  and **Total Sales** to the **Value** well.
 
 11. Under **Visual Level Filters**, select **Ending Population**. Set the filter to "is greater than 100000" and click **Apply filter**.
 
