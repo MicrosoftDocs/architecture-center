@@ -24,7 +24,7 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). You are then ready to [create your first user in Azure AD][docs-add-users-to-aad].
+* Now that you understand the internal functioning of Azure, learn about [resource access governance](governance-explainer.md). Then, move on to the first step of adopting Azure, which is to [understand digital identity in Azure](tenant-explainer.md). Once you have completed that step, you are ready to [create your first user in Azure AD][docs-add-users-to-aad].
 
 <!-- Links -->
 
