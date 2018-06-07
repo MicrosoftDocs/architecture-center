@@ -12,6 +12,7 @@ The list below includes the tasks for completing the foundational adoption stage
 
 1. Understand Azure internals:
     - **Explainer:** [how does Azure work?](azure-explainer.md)
+    - **Explainer:** [what is cloud resource governance?](governance-explainer.md)
 2. Understand enterprise digital identity in Azure:
     - **Explainer:** [what is an Azure Active Directory Tenant?](tenant-explainer.md)
     - **How to:** [get an Azure Active Directory Tenant](/azure/active-directory/develop/active-directory-howto-tenant?toc=/azure/architecture/cloud-adoption-guide/toc.json)
