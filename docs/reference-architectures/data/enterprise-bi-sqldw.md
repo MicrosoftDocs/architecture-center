@@ -19,11 +19,17 @@ This reference architecture is designed for one-time or on-demand jobs. If you n
 
 The architecture consists of the following components.
 
+### Data source
+
 **SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source data.
+
+### Ingestion and data storage
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into SQL Data Warehouse.
 
 **Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
+
+### Analysis and reporting
 
 **Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
 
@@ -31,11 +37,13 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
+### Authentication
+
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
 ## Data pipeline
  
-This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as data source. The data pipeline has the following stages:
+This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
 
 1. Export the data from SQL Server to flat files (bcp utility).
 2. Copy the flat files to Azure Blob Storage (AzCopy).
