@@ -34,4 +34,4 @@ The audience for the Azure Cloud Adoption Guide includes Enterprise Administrato
 
 ## Next steps
 
-* If you are new to Azure, start with the [foundational Azure adoption](adoption-intro/overview.md) section of this guide.
+* If you are new to Azure, start with the [foundational Azure adoption](foundational-stage/overview.md) section of this guide.
