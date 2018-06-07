@@ -406,8 +406,6 @@ For more information about creating calculated columns, see [Create a Calculated
 
 **Create measures**
 
-For more information about creating measures in SQL Server Data Tools, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
-
 1. In the model designer, select the **Fact Sale** table.
 
 2. Click a cell in the the measure grid. By default, the measure grid is displayed below the table. 
@@ -434,6 +432,7 @@ For more information about creating measures in SQL Server Data Tools, see [Meas
 
     ![](./images/analysis-services-measures.png)
 
+For more information about creating measures in SQL Server Data Tools, see [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular).
 
 **Create relationships**
 
