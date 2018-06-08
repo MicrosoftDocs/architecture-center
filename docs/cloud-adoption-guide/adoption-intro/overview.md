@@ -30,7 +30,7 @@ The list below includes the tasks for completing the foundational adoption stage
     - **Guidance:** [naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions?toc=/azure/architecture/cloud-adoption-guide/toc.json)
 5. Deploy a basic Azure architecture:
     - Learn about the different types of Azure compute options such as Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) in the [overview of Azure compute options](/azure/architecture/guide/technology-choices/compute-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json).
-    - Now that you understand the different types of Azure compute options, pick either a PaaS web application or IaaS virtual machine as your first resource in Azure:
+    - Now that you understand the different types of Azure compute options, pick either a web application (PaaS) or virtual machine (IaaS) as your first resource in Azure:
     - PaaS: Introduction to Platform as a Service:
         - **How to:** [deploy a basic web application to Azure](/azure/app-service/app-service-web-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json)
         - **Guidance:** proven practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure
