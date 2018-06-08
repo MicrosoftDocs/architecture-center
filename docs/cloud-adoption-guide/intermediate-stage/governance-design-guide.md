@@ -23,11 +23,11 @@ Our requirements are:
   * Management access for the shared infrastructure resources limited to the shared infrastructure owner.  
   * Management access for each workload restricted to the workload owner.
   * Use of [built-in RBAC roles][rbac-built-in-roles] only. No custom RBAC roles.
-* Cost tracking by workload owner, environment, or both. 
+* Cost tracking by workload owner name, environment, or both. 
 
 ## Identity management
 
-Before we can design identity management for our governance model, it's important to understand the four major areas of it encompasses:
+Before we can design identity management for our governance model, it's important to understand the four major areas it encompasses:
 
 * Administration: the processes and tools for creating, editing, and deleting user identity.
 * Authentication: verifying user identity by validating credentials, such as a user name and password.
@@ -36,7 +36,7 @@ Before we can design identity management for our governance model, it's importan
 
 There is only one service trusted by Azure for identity, and that is Azure Active Directory (AD). We'll be adding users to Azure AD and using it for all of the functions listed above. But before we look at how we'll configure Azure AD, it's important to understand the privileged accounts that are used to manage access to these services.
 
-When your organization signed up for an Azure account, at least one Azure **account owner** was assigned and an Azure AD **tenant** was created if there was not already an Azure AD tenant associated with your organization's use of other Microsoft services such as Office 365. A **global administrator** is also associated with the Azure AD tenant. 
+When your organization signed up for an Azure account, at least one Azure **account owner** was assigned and an Azure AD **tenant** was created if there was not already an Azure AD tenant associated with your organization's use of other Microsoft services such as Office 365. A **global administrator** with full permissions on the Azure AD tenant was associated when it was created. 
 
 Both of the Azure Account Owner and Azure AD global administrator user identities are stored in a highly secure identity system that is managed by Microsoft. The Azure Account Owner is authorized to create, update, and delete subscriptions. The Azure AD global administrator is authorized to perform many actions in Azure AD, but for this design guide we'll focus on the creation and deletion of user identity. 
 
@@ -57,7 +57,7 @@ The first two accounts, **App1 Workload Owner** and **App2 Workload Owner** are 
 
 ## Resource access permissions model of least privilege
 
-Now that we have our identity management system and user accounts created, we have to decide how we'll apply role-based access control (RBAC) roles to each of them to satisfy our requirement for a permissions model of least privilege. That is, our requirement is to design a permissions model in which resource access is denied by default and must be explicitly granted at the correct scope. 
+Now that we have our identity management system and user accounts created, we have to decide how we'll apply role-based access control (RBAC) roles to each account to support a permissions model of least privilege.
 
 Our other requirement is for the resources associated with each workload be isolated from one another such that no one workload owner has management access to any other workload they do not own. We have a requirement to implement this model using only [built-in roles for Azure RBAC][rbac-built-in-roles].
 
