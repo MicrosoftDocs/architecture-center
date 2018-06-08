@@ -12,6 +12,8 @@
         items:
         - name: "Explainer: how does Azure work?"
           href: adoption-intro/azure-explainer.md
+        - name: "Explainer: what is cloud resource governance"
+          href: adoption-intro/governance-explainer.md
       - name: Understanding digital identity in Azure
         items:
         - name: "Explainer: what is an Azure Active Directory Tenant?"
