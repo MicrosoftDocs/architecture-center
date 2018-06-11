@@ -52,7 +52,7 @@ Notes
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Auto-scaling | VM scale sets | Built-in service | VM Scale Sets | Built-in service | Not supported | Not supported | N/A |
 | Load balancer | Azure Load Balancer | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer |  No built-in support | Azure Load Balancer |
-| Scale limit | Platform image: 1000 nodes per VMSS, Custom image: 100 nodes per VMSS | 20 instances, 50 with App Service Environment | 100 nodes per VMSS | Infinite <a href="#note1c"><sup>1</sup></a> | 100 |20 container groups per subscription <a href="#note2c"><sup>2</sup></a> | 20 core limit by default. Contact customer service for increase. |
+| Scale limit | Platform image: 1000 nodes per VMSS, Custom image: 100 nodes per VMSS | 20 instances, 50 with App Service Environment | 100 nodes per VMSS | Infinite <a href="#note1c"><sup>1</sup></a> | 100 |20 container groups per subscription by default. Contact customer service for increase. <a href="#note2c"><sup>2</sup></a> | 20 core limit by default. Contact customer service for increase. |
 
 Notes
 
@@ -71,7 +71,7 @@ Notes
 
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Container Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
-| SSL | Configured in VM | Supported | Supported  | Supported | Configured in VM | Not supported | Supported |
+| SSL | Configured in VM | Supported | Supported  | Supported | Configured in VM | Supported with sidecar container | Supported |
 | Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [Azure Container Service pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
 | Suitable architecture styles | N-Tier, Big compute (HPC) | Web-Queue-Worker | Microservices, Event driven architecture (EDA) | Microservices, EDA | Microservices, EDA | Microservices, task automation, batch jobs  | Big Compute |
 
