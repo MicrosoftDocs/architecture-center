@@ -220,11 +220,11 @@ This management model has the benefits of the second example above. However, the
 
 Therefore, you can select any of these two examples resource management models depending on the priority of your requirements. If you anticipate that your organization will not reach the service limits for a single subscription, you can use a single subscription with multiple resource groups. Conversely, if your organization anticipates many workloads, multiple subscriptions for each environment may be better.
 
-## Summary
+<!-- ## Summary
 
 
 
-## Next steps
+## Next steps -->
 
 
 <!-- links -->
