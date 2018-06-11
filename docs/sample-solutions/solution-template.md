@@ -1,7 +1,7 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: <github UserName>
+author: david-stanford
 ms.date: <publish or update date>
 ---
 # Article Title
@@ -36,29 +36,19 @@ This solution covers ###What does the solution cover###, the data flows through 
 
 * List of alternative options and why you might use them.
 
+### Availability
+
 ### Scalability
 
-Discussion on scalability here.
+For other scalability topics please see the  [scalability checklist][] available in the architecure center.
 
 ### Security
 
-Discussion on security here.
+For a deeper discussion on [security][] please see the relevant article in the architecure center.
 
 ### Resiliency
 
-Discussion on resiliency here
-
-## Deploy the solution
-
-To deploy this sample solution into your account follow the directions below:
-
-**Prerequisites.** You must have an existing Azure account.
-
-To deploy the solution, perform the following steps.
-###Replace the link below with the correct link
-1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fai%2Ftemplates%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. ###Directions on deployment###
-3. Wait for the deployment to complete.
+For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
 
 ## Pricing
 
@@ -78,5 +68,8 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
-[architecture]: ./media/architecture.png
+[architecture]:
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
+[security]:
+[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability

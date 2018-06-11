@@ -58,41 +58,21 @@ This solution covers the back-end components of a web or mobile application, the
 
 * [Custom Vision API][custom-vision-docs]: If you need to process images to retrieve information that isn't returned by the Computer Vision API, which returns these [86 categories][cv-categories]. Then you should consider the Custom Vision API.
 
-* Azure Search: 
+* [Azure Search][azure-search-docs]: If your use case involves querying the metadata to find images that meet specific criteria then you should consider leverage Azure Search for that purpose.  Currently, in preview, [Cognitive search][cognitive-search] seamlessly integrates this workflow.
 
-### Data storage
-
-There are a couple types of data present in this scenario. Raw data that relates to each individual customer submission, data derived via machine learning, and finally the metadata to relate raw image data to the customer.
-
-In this scenario you're storing the raw image data in Azure blob storage with all of your metadata about the images and customers stored in Cosmos DB.
+### Scalability
 
 You use Cosmos DB in this situation as the lookups will consistently be by the key, and you will not be querying by value.  Which is one of the ways that a NoSQL database excels. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
 
-### AI Processing
-
-In this solution we are processing images, there are two main options in Azure to consider: Computer Vision API & the Custom Vision API. The main difference between the two is the Computer Vision API comes pre-trained and will give you a good amount of information by default. If this default set of data covers what you need then this is the appropriate choice.
-
-If you need to process images to retrieve information that isn't returned by the Computer Vision API then you should consider the Custom Vision API. As you can train this service with your own image data to retrieve the information that you care about for your application.
+For other scalability topics please see the  [scalability checklist][] available in the architecure center.
 
 ### Security
 
-Discussion on security here.
+For a deeper discussion on [security][] please see the relevant article in the architecure center.
 
-## Deploy the solution
+### Resiliency
 
-To deploy this sample solution into your account follow the directions below:
-
-**Prerequisites.** You must have an existing Azure account.
-
-To deploy the solution, perform the following steps.
-1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fai%2Ftemplates%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Wait for the link to open in the Azure portal, then follow these steps: 
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `computer-vision-solution` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click the **Purchase** button.
-3. Wait for the deployment to complete.
+For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
 
 ## Pricing
 
@@ -115,6 +95,8 @@ For a guided learning path of this solution please see [Build a serverless web a
 [functions-docs]: https://docs.microsoft.com/en-us/azure/azure-functions/
 [computer-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home
 [storage-docs]: https://docs.microsoft.com/en-us/azure/storage/
+[azure-search-docs]: https://docs.microsoft.com/en-us/azure/search/
+[cognitive-search]: https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-intro
 [architecture-computer-vision]: ./media/architecture-computer-vision.png
 [serverless]: https://docs.microsoft.com/en-us/learn/build-serverless-app/index
 [cosmos-docs]: https://docs.microsoft.com/en-us/azure/cosmos-db/
@@ -123,3 +105,6 @@ For a guided learning path of this solution please see [Build a serverless web a
 [cognitive-docs]: https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai
 [custom-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/home
 [cv-categories]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home#the-86-category-concept
+[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
+[security]:
+[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
