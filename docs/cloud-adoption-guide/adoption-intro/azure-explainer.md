@@ -8,8 +8,6 @@ author: petertay
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
-> [!VIDEO https://azure.microsoft.com/resources/videos/azure-adoption-guide-how-does-azure-work]
-
 Azure, like other cloud platforms, relies on a technology known as **virtualization**. Most computer hardware can be emulated in software, because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. Using an emulation layer that maps software instructions to hardware instructions, virtualized hardware can execute in software as if it were the actual hardware itself.
 
 Essentially, the cloud is a set of physical servers in one or more datacenters that execute virtualized hardware on behalf of customers. So how does the cloud create, start, stop, and delete millions of instances of virtualized hardware for millions of customers simultaneously?
@@ -26,7 +24,7 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-* Now that you understand the internal functioning of Azure, learn about [resource access governance](governance-explainer.md). Then, move on to the first step of adopting Azure, which is to [understand digital identity in Azure](tenant-explainer.md). Once you have completed that step, you are ready to [create your first user in Azure AD][docs-add-users-to-aad].
+* Now that you understand the internal functioning of Azure, the first step to adopting Azure is to [understand digital identity in Azure](tenant-explainer.md). You are then ready to [create your first user in Azure AD][docs-add-users-to-aad].
 
 <!-- Links -->
 
