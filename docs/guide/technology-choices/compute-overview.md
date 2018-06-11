@@ -25,6 +25,7 @@ Here are the main compute options currently available in Azure:
 - [App Service](/azure/app-service/app-service-value-prop-what-is) is a managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Service Fabric](/azure/service-fabric/service-fabric-overview) is a distributed systems platform that can run in many environments, including Azure or on premises. Service Fabric is an orchestrator of microservices across a cluster of machines. 
 - [Azure Container Service](/azure/container-service/container-service-intro) lets you create, configure, and manage a cluster of VMs that are preconfigured to run containerized applications.
+- [Azure Container Instances](/azure/container-instances/container-instances-overview) offer the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 - [Azure Functions](/azure/azure-functions/functions-overview) is a managed FaaS service.
 - [Azure Batch](/azure/batch/batch-technical-overview) is a managed service for running large-scale parallel and high-performance computing (HPC) applications.
 - [Cloud Services](/azure/cloud-services/cloud-services-choose-me) is a managed service for running cloud applications. It uses a PaaS hosting model. 
