@@ -12,6 +12,8 @@
         items:
         - name: "Explainer: how does Azure work?"
           href: adoption-intro/azure-explainer.md
+        - name: "Explainer: what is cloud resource governance"
+          href: adoption-intro/governance-explainer.md
       - name: Understanding digital identity in Azure
         items:
         - name: "Explainer: what is an Azure Active Directory Tenant?"
@@ -64,3 +66,8 @@
             href: /azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json
           - name: "Guidance: best practices for deploying a Linux VM to Azure"
             href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json
+  - name: Intermediate Azure adoption
+    href: intermediate-stage/overview.md
+    items:
+      - name: Governance design guide
+        href: intermediate-stage/governance-design-guide.md
