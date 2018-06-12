@@ -4,7 +4,7 @@ description: Proven solution for building image processing into your Azure appli
 author: david-stanford
 ms.date: 06/01/2018
 ---
-# Intelligent Applications - Image Processing on Azure
+# Insurance claim image classification on Azure
 
 This sample solution is applicable for businesses that have an image processing need.
 
@@ -54,25 +54,51 @@ This solution covers the back-end components of a web or mobile application, the
 
 * [Cosmos DB][cosmos-docs]: Cosmos DB is used to hold metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
-### Alternatives
+## Considerations
 
 * [Custom Vision API][custom-vision-docs]: If you need to process images to retrieve information that isn't returned by the Computer Vision API, which returns these [86 categories][cv-categories]. Then you should consider the Custom Vision API.
 
 * [Azure Search][azure-search-docs]: If your use case involves querying the metadata to find images that meet specific criteria then you should consider leverage Azure Search for that purpose.  Currently, in preview, [Cognitive search][cognitive-search] seamlessly integrates this workflow.
 
+### Availability
+
+More detail to come, but it will focus on the specific considerations around availability for this particular use case.
+
 ### Scalability
 
 You use Cosmos DB in this situation as the lookups will consistently be by the key, and you will not be querying by value.  Which is one of the ways that a NoSQL database excels. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
+
+More detail to come, but it will focus on the specific considerations around scalability for this particular use case.
 
 For other scalability topics please see the  [scalability checklist][] available in the architecure center.
 
 ### Security
 
+More detail to come, but it will focus on the specific considerations around security for this particular use case.
+
 For a deeper discussion on [security][] please see the relevant article in the architecure center.
 
 ### Resiliency
 
+More detail to come, but it will focus on the specific considerations around resiliency for this particular use case.
+
 For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
+
+## Deploy the solution
+
+To deploy this sample solution into your account follow the directions below:
+
+**Prerequisites.** You must have an existing Azure account.
+
+To deploy the solution, perform the following steps.
+1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fai%2Ftemplates%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Wait for the link to open in the Azure portal, then follow these steps: 
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `computer-vision-solution` in the text box.
+   * Select the region from the **Location** drop down box.
+   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
+   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+   * Click the **Purchase** button.
+3. Wait for the deployment to complete.
 
 ## Pricing
 
@@ -106,5 +132,5 @@ For a guided learning path of this solution please see [Build a serverless web a
 [custom-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/home
 [cv-categories]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home#the-86-category-concept
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-[security]:
+[security]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/security
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
