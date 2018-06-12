@@ -6,6 +6,8 @@
   items:
   - name: Foundational Adoption Stage
     href: cloud-adoption-guide/adoption-intro/overview.md
+  - name: Intermediate Adoption Stage
+    href: cloud-adoption-guide/intermediate-stage/overview.md
     
 - name: Application Architecture Guide
   href: guide/index.md
