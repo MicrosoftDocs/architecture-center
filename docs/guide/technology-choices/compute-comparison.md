@@ -74,7 +74,7 @@ Notes
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | SSL | Configured in VM | Supported | Supported  | Supported | Configured in VM | Supported with sidecar container | Supported |
 | Cost | [Windows][cost-windows-vm], [Linux][cost-linux-vm] | [App Service pricing][cost-app-service] | [Service Fabric pricing][cost-service-fabric] | [Azure Functions pricing][cost-functions] | [Azure Container Service pricing][cost-acs] | [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) | [Azure Batch pricing][cost-batch]
-| Suitable architecture styles | N-Tier, Big compute (HPC) | Web-Queue-Worker | Microservices, Event driven architecture (EDA) | Microservices, EDA | Microservices, EDA | Microservices, task automation, batch jobs  | Big Compute |
+| Suitable architecture styles | [N-Tier][n-tier], [Big compute][big-compute] (HPC) | [Web-Queue-Worker][w-q-w] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], [Event-driven architecture][event-driven] | [Microservices][microservices], task automation, batch jobs  | [Big compute][big-compute] (HPC) |
 
 [cost-linux-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/linux/
 [cost-windows-vm]: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
@@ -94,3 +94,11 @@ Notes
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
 [scale-acs]: /azure/container-service/kubernetes/container-service-scale#scaling-considerations
+
+[n-tier]: ../architecture-styles/n-tier.md
+[w-q-w]: ../architecture-styles/web-queue-worker.md
+[microservices]: ../architecture-styles/microservices.md
+[event-driven]: ../architecture-styles/event-driven.md
+[big-date]: ../architecture-styles/big-data.md
+[big-compute]: ../architecture-styles/big-compute.md
+
