@@ -40,6 +40,8 @@ When selecting a compute option, here are some factors to consider:
 - What are the overall limitations of each service? 
 - What kind of application architectures are appropriate for this service? 
 
+## Next steps
+
 To help select a compute service for your application, use the [Decision tree for Azure compute services](./compute-decision-tree.md)
 
 For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute service](./compute-comparison.md).
