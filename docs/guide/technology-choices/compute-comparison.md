@@ -3,7 +3,7 @@ title: Criteria for choosing an Azure compute service
 description: Compare Azure compute services across several axes
 author: MikeWasson
 layout: LandingPage
-ms.date: 04/21/2018
+ms.date: 06/13/2018
 ---
 
 # Criteria for choosing an Azure compute service
@@ -25,12 +25,12 @@ The term *compute* refers to the hosting model for the computing resources that 
 
 Notes
 
-1. <span id="note1">If using Consumption plan. If using App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</a>
-2. <span id="note2">Higher SLA with two or more instances.</a>
-3. <span id="note3">For production environments.</a>
-4. <span id="note4">Can scale down to zero after job completes.</a>
-5. <span id="note5">Requires App Service Environment (ASE).</a>
-6. <span id="note7">Requires ASE or BizTalk Hybrid Connections</a>
+1. <span id="note1">If using Consumption plan. If using App Service plan, functions run on the VMs allocated for your App Service plan. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+2. <span id="note2">Higher SLA with two or more instances.</span>
+3. <span id="note3">For production environments.</span>
+4. <span id="note4">Can scale down to zero after job completes.</span>
+5. <span id="note5">Requires App Service Environment (ASE).</span>
+6. <span id="note7">Requires ASE or BizTalk Hybrid Connections</span>
 
 ## DevOps
 
@@ -42,8 +42,8 @@ Notes
 
 Notes
 
-1. <span id="note1b">Options include IIS Express for ASP.NET or node.js (iisnode); PHP web server; Azure Toolkit for IntelliJ, Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</a>
-2. <span id="note2b">See [Resource Manager providers, regions, API versions and schemas][resource-manager-supported-services]. 
+1. <span id="note1b">Options include IIS Express for ASP.NET or node.js (iisnode); PHP web server; Azure Toolkit for IntelliJ, Azure Toolkit for Eclipse. App Service also supports remote debugging of deployed web app.</span>
+2. <span id="note2b">See [Resource Manager providers, regions, API versions and schemas][resource-manager-supported-services].</span> 
 
 
 ## Scalability
@@ -52,12 +52,13 @@ Notes
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Auto-scaling | VM scale sets | Built-in service | VM Scale Sets | Built-in service | Not supported | Not supported | N/A |
 | Load balancer | Azure Load Balancer | Integrated | Azure Load Balancer | Integrated | Azure Load Balancer |  No built-in support | Azure Load Balancer |
-| Scale limit | Platform image: 1000 nodes per VMSS, Custom image: 100 nodes per VMSS | 20 instances, 50 with App Service Environment | 100 nodes per VMSS | Infinite <a href="#note1c"><sup>1</sup></a> | 100 |20 container groups per subscription by default. Contact customer service for increase. <a href="#note2c"><sup>2</sup></a> | 20 core limit by default. Contact customer service for increase. |
+| Scale limit | Platform image: 1000 nodes per VMSS, Custom image: 100 nodes per VMSS | 20 instances, 50 with App Service Environment | 100 nodes per VMSS | Infinite <a href="#note1c"><sup>1</sup></a> | 100 <a href="#note2c"><sup>2</sup></a> |20 container groups per subscription by default. Contact customer service for increase. <a href="#note3c"><sup>3</sup></a> | 20 core limit by default. Contact customer service for increase. |
 
 Notes
 
-1. <span id="note1c">If using Consumption plan. If using App Service plan, the App Service scale limits apply. See [Choose the correct service plan for Azure Functions][function-plans].</a>
-2. <span id="note2c">See [Quotas and region availability for Azure Container Instances](/azure/container-instances/container-instances-quotas).</a>
+1. <span id="note1c">If using Consumption plan. If using App Service plan, the App Service scale limits apply. See [Choose the correct service plan for Azure Functions][function-plans].</span>
+2. <span id="note2c">See [Scale agent nodes in a Container Service cluster][scale-acs]</span>.
+3. <span id="note3c">See [Quotas and region availability for Azure Container Instances](/azure/container-instances/container-instances-quotas).</span>
 
 
 ## Availability
@@ -92,3 +93,4 @@ Notes
 [sla-vm]: https://azure.microsoft.com/support/legal/sla/virtual-machines/
 
 [resource-manager-supported-services]: /azure/azure-resource-manager/resource-manager-supported-services
+[scale-acs]: /azure/container-service/kubernetes/container-service-scale#scaling-considerations
