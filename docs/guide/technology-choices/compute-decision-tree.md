@@ -2,7 +2,7 @@
 title: Decision tree for Azure compute services
 description: A flowchart for selecting a compute service
 author: MikeWasson
-ms.date: 04/21/2018
+ms.date: 06/13/2018
 
 ---
 
@@ -22,5 +22,20 @@ Azure offers a number of ways to host your application code. The term *compute* 
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
 
+## Flowchart
+
 ![](../images/compute-decision-tree.svg)
 
+## Definitions
+
+- **Greenfield** describes a software project that is completely new and built from scratch. It does not include legacy code. 
+
+- **Brownfield** describes a software project that builds on an existing application. It may inherit legacy code or frameworks.
+
+- **Lift and shift** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration center](https://azure.microsoft.com/migration/).
+
+- **Cloud optimized** is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
+
+## Next steps
+
+For additional criteria to consider, see [Criteria for choosing an Azure compute service](./compute-comparison.md).
