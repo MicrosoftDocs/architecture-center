@@ -2,7 +2,7 @@
 title: Overview of Azure compute options
 description: Overview of Azure compute options
 author: MikeWasson
-ms.date: 04/21/2018
+ms.date: 06/13/2018
 ---
 
 # Overview of Azure compute options

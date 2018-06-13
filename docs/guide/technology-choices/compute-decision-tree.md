@@ -2,7 +2,7 @@
 title: Decision tree for Azure compute services
 description: A flowchart for selecting a compute service
 author: MikeWasson
-ms.date: 04/21/2018
+ms.date: 06/13/2018
 
 ---
 
