@@ -139,7 +139,7 @@
     href: aws-professional/index.md
   - name: Build microservices on Azure
     href: ./microservices/index.md
-  - name: Manage Identity in Multitenant Applications
+  - name: Manage identity in multitenant applications
     href: multitenant-identity/index.md
   - name: Migrate to Service Fabric from Cloud Services
     items:
@@ -147,7 +147,7 @@
       href: service-fabric/migrate-from-cloud-services.md
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
-  - name: Extend Azure Resource Manager Template Functionality
+  - name: Extend Azure Resource Manager template functionality
     href: building-blocks/extending-templates/index.md
 
 - name: Resources
