@@ -2,7 +2,6 @@
 title: Design for change
 description: An evolutionary design is key for continuous innovation.
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Design for evolution

@@ -2,7 +2,6 @@
 title: Use managed services
 description: When possible, use platform as a service (PaaS) over infrastructure as a service (IaaS)
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Use managed services

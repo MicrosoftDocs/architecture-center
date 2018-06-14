@@ -2,7 +2,6 @@
 title: Partition around limits
 description: Use partitioning to work around database, network, and compute limits
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Partition around limits
