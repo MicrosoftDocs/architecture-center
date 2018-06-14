@@ -2,7 +2,6 @@
 title: Design principles for Azure applications
 description: Design principles for Azure applications
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Design principles for Azure applications
