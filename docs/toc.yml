@@ -137,7 +137,7 @@
   items:
   - name: Azure for AWS Professionals
     href: aws-professional/index.md
-  - name: Design, build, and operate microservices on Azure
+  - name: Build microservices on Azure
     href: ./microservices/index.md
   - name: Manage Identity in Multitenant Applications
     href: multitenant-identity/index.md
