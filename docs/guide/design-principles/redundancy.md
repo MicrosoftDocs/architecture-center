@@ -2,7 +2,6 @@
 title: Make all things redundant
 description: Avoid single points of failure by building redundancy into your application.
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Make all things redundant

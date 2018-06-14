@@ -2,7 +2,6 @@
 title: Design for operations
 description: Design an application so that the operations team has the tools they need
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Design for operations

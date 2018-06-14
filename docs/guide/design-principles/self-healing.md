@@ -2,7 +2,6 @@
 title: Design for self healing
 description: Resilient applications can recover from failures without manual intervention.
 author: MikeWasson
-layout: LandingPage
 ---
 
 # Design for self healing
