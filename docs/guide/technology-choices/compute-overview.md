@@ -26,7 +26,7 @@ IaaS gives the most control, flexibility, and portability. FaaS provides simplic
 Here are the main compute options currently available in Azure:
 
 - [Virtual Machines](/azure/virtual-machines/) are an IaaS service, allowing you to deploy and manage VMs inside a virtual network (VNet).
-- [App Service](/azure/app-service/app-service-value-prop-what-is) is a managed service for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
+- [App Service](/azure/app-service/app-service-value-prop-what-is) is a managed PaaS offering for hosting web apps, mobile app back ends, RESTful APIs, or automated business processes.
 - [Service Fabric](/azure/service-fabric/service-fabric-overview) is a distributed systems platform that can run in many environments, including Azure or on premises. Service Fabric is an orchestrator of microservices across a cluster of machines. 
 - [Azure Container Service](/azure/container-service/container-service-intro) lets you create, configure, and manage a cluster of VMs that are preconfigured to run containerized applications.
 - [Azure Container Instances](/azure/container-instances/container-instances-overview) offer the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
