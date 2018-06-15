@@ -77,14 +77,20 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 ## Deploy the solution
 
-**Prerequisites.** You must have an existing Azure account.
+This solution is divided into three components for you explore the area that you are most focused on:
+
+* [Infrastructure components](#deploy-infrastructure-components) - Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
+* [Web App Chatbot](#deploy-web-app-chatbot) - Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
+* [Sample C# chatbot application](#deploy-chatbot-c-application-code) - Use Visual Studio to review sample hotel reservation code and deploy to a bot in Azure.
+
+**Prerequisites.** You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ### Deploy infrastructure components
 
-To deploy the infrastructure components, perform the following steps.
+To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
-1. Select the following button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fcommerce-chatbot%2Fsample-solutions%2Fevent-driven-apps%2Ftemplates%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Wait for the template deployment to open in the Azure portal, then follow these steps:
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fcommerce-chatbot%2Fsample-solutions%2Fevent-driven-apps%2Ftemplates%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
    * Select a region from the **Location** drop-down box.
    * Provide a username and secure password for the SQL Server administrator account.
@@ -95,13 +101,13 @@ It takes a few minutes for the deployment to complete.
 
 ### Deploy Web App chatbot
 
-To create the chatbot, use the Azure CLI. The following example installs the CLI extension for Bot Service, creates a resource group, then deploys a bot that uses App Insights. When prompted, authenticate your Microsoft account and allow the bot to register itself with the Bot Service.
+To create the chatbot, use the Azure CLI. The following example installs the CLI extension for Bot Service, creates a resource group, then deploys a bot that uses App Insights. When prompted, authenticate your Microsoft account and allow the bot to register itself with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
 
 ```azurecli-interactive
 # Install the Azure CLI extension for the Bot Service
 az extension add --name botservice --yes
 
-# Create a resource group for your chatbot
+# Create a resource group
 az group create --name myCommerceChatbot --location eastus
 
 # Create a Web App Chatbot that uses Application Insights
@@ -118,9 +124,9 @@ az bot create \
 
 A sample C# application that includes the Azure Active Directory authentication components and integration with Language Understanding and Intelligent Services (LUIS) component of Cognitive Services is available on GitHub:
 
-- [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
+* [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
 
-This sample application requires Visual Studio to build and deploy the solution. Additional information on configuring the AAD B2C and LUIS app can be found in the repo documentation.
+This sample application requires Visual Studio to build and deploy the solution. Additional information on configuring AAD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 
@@ -138,22 +144,22 @@ Other resources that are relevant that aren't linked from else where in the doc.
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
-[appinsights-docs]: /azure/application-insights/app-insights-overview
-[architecture]: ./media/commerce-chatbot/architecture-commerce-chatbot.png
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [aad-docs]: /azure/active-directory/
+[appinsights-docs]: /azure/application-insights/app-insights-overview
 [appservice-docs]: /azure/app-service/
+[architecture]: ./media/commerce-chatbot/architecture-commerce-chatbot.png
+[autoscaling]: ../../best-practices/auto-scaling.md
+[availability]: ../../checklist/availability.md
 [botservice-docs]: /azure/bot-service/
 [cognitive-docs]: /azure/cognitive-services/
-[sqldatabase-docs]: /azure/sql-database/
-[appinsights-doc]: /azure/application-insights/
-[availability]: ../../checklist/availability.md
 [resiliency]: ../../resiliency/index.md
+[resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [security]: ../../patterns/category/security.md
-[sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
-[sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
 [scalability]: ../../checklist/scalability.md
-[autoscaling]: ../../best-practices/auto-scaling.md
+[sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+[sqldatabase-docs]: /azure/sql-database/
+[sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+
 [small-pricing]: https://azure.com/e/dce05b6184904c50b38e1a8654f726b6
 [medium-pricing]: https://azure.com/e/304d17106afc480dbc414f9726078a03
 [large-pricing]: https://azure.com/e/8319dd5e5e3d4f118f9029e32a80e887

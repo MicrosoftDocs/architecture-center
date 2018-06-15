@@ -21,7 +21,6 @@
         "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
         "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
         "appInsightsName": "[concat('appInsights', uniqueString(resourceGroup().id))]",
-        "botName": "[concat('chatbot', uniqueString(resourceGroup().id))]",
         "databaseName": "commerce_chatbot"
       },
     "resources": [
