@@ -2,13 +2,13 @@
 title: Conversational commerce chatbot
 description: Proven solution for building a conversational chatbot for commerce applications in Azure.
 author: iainfoulds
-ms.date: 06/13/2018
+ms.date: 06/15/2018
 ---
 # Conversational commerce chatbot on Azure
 
 This sample solution is applicable for businesses that have a need for integrating a conversational chatbot into applications.
 
-Example application scenarios include providing a way for customers to view hotel availaiblity and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
+Example application scenarios include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
 
 By leveraging Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots. This scenario specifically outlines a hotel chain that allows customers to check availability and reserve a room. If you have different commerce needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
 
@@ -36,7 +36,7 @@ This solution covers a commerce bot that functions as a concierge for a hotel. T
 4. Cognitive Services process the natural language request to understand the customer communication.
 5. The bot's response is reviewed by customer who can refine their question or continue the discussion using natural conversation.
 6. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
-7. Application Insights gathers runtime telemetery throughout the process to help development with bot performance and usage.
+7. Application Insights gathers runtime telemetry throughout the process to help development with bot performance and usage.
 
 ### Components
 

@@ -9,3 +9,7 @@
     items:
     - name: Image Processing
       href: ai/intelligent-apps-image-processing.md
+  - name: Event driven apps
+    items:
+    - name: Commerce chatbot
+      href: event-driven-apps/commerce-chatbot.md
