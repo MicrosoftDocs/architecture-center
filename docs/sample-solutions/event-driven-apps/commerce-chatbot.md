@@ -75,6 +75,53 @@ To monitor the health of your application, this solution also uses Application I
 
 For a deeper discussion on [resiliency][], see the relevant article in the architecture center.
 
+## Deploy the solution
+
+**Prerequisites.** You must have an existing Azure account.
+
+### Deploy infrastructure components
+
+To deploy the infrastructure components, perform the following steps.
+
+1. Select the following button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fcommerce-chatbot%2Fsample-solutions%2Fevent-driven-apps%2Ftemplates%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Wait for the template deployment to open in the Azure portal, then follow these steps:
+   * Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
+   * Select a region from the **Location** drop-down box.
+   * Provide a username and secure password for the SQL Server administrator account.
+   * Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
+   * Select the **Purchase** button.
+
+It takes a few minutes for the deployment to complete.
+
+### Deploy Web App chatbot
+
+To create the chatbot, use the Azure CLI. The following example installs the CLI extension for Bot Service, creates a resource group, then deploys a bot that uses App Insights. When prompted, authenticate your Microsoft account and allow the bot to register itself with the Bot Service.
+
+```azurecli-interactive
+# Install the Azure CLI extension for the Bot Service
+az extension add --name botservice --yes
+
+# Create a resource group for your chatbot
+az group create --name myCommerceChatbot --location eastus
+
+# Create a Web App Chatbot that uses Application Insights
+az bot create \
+    --resource-group myCommerceChatbot \
+    --name commerceChatbot \
+    --location eastus \
+    --kind webapp \
+    --sku S1 \
+    --insights eastus
+```
+
+### Deploy chatbot C# application code
+
+A sample C# application that includes the Azure Active Directory authentication components and integration with Language Understanding and Intelligent Services (LUIS) component of Cognitive Services is available on GitHub:
+
+- [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
+
+This sample application requires Visual Studio to build and deploy the solution. Additional information on configuring the AAD B2C and LUIS app can be found in the repo documentation.
+
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
