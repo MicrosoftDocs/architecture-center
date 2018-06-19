@@ -89,9 +89,7 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 ## Deploy the solution
 
-A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
-
-The deployment creates the following resource groups in your subscription:
+A deployment for this architecture is available on [GitHub][ref-arch-repo]. The deployment creates the following resource groups in your subscription:
 
 - hub-adds-rg
 - hub-nva-rg
@@ -104,15 +102,13 @@ The template parameter files refer to these names, so if you change them, update
 
 ### Prerequisites
 
-Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
-
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
-2. Make sure you have the Azure CLI 2.0 installed on your computer. For CLI installation instructions, see [Install Azure CLI 2.0][azure-cli-2].
+2. Install [Azure CLI 2.0][azure-cli-2].
 
 3. Install the [Azure building blocks][azbb] npm package.
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below, and follow the prompts.
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
 
    ```bash
    az login
@@ -120,9 +116,9 @@ Before you can deploy the reference architecture to your own subscription, you m
 
 ### Deploy the simulated on-premises datacenter using azbb
 
-To deploy the simulated on-premises datacenter as an Azure VNet, follow these steps:
+This step deploys the simulated on-premises datacenter as an Azure VNet.
 
-1. Navigate to the `hybrid-networking\shared-services-stack\` folder for the repository you downloaded in the pre-requisites step above.
+1. Navigate to the `hybrid-networking\shared-services-stack\` folder of the GitHub repository.
 
 2. Open the `onprem.json` file. 
 
@@ -137,7 +133,7 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 ### Deploy the hub VNet
 
-To deploy the hub VNet, and connect to the simulated on-premises VNet created above, perform the following steps.
+This step deploys the hub VNet and connects it to the simulated on-premises VNet.
 
 1. Open the `hub-vnet.json` file. 
 
@@ -155,11 +151,11 @@ To deploy the hub VNet, and connect to the simulated on-premises VNet created ab
    azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
    ```
 
-5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway can take more than 40 minutes to complete.
 
 ### Deploy AD DS in Azure
 
-To deploy the AD DS domain controllers in Azure, perform the following steps.
+This step deploys AD DS domain controllers in Azure.
 
 1. Open the `hub-adds.json` file.
 
@@ -171,11 +167,11 @@ To deploy the AD DS domain controllers in Azure, perform the following steps.
    azbb -s <subscription_id> -g hub-adds-rg -l <location> -p hub-adds.json --deploy
    ```
   
-This deployment step may take several minutes, because it requires joining the two VMs to the domain hosted in the simulated on-premises datacenter, then installing AD DS on them.
+This deployment step may take several minutes, because it joins the two VMs to the domain hosted in the simulated on-premises datacenter, and installs AD DS on them.
 
 ### Azure spoke VNets
 
-To deploy the spoke VNets, perform the following steps.
+This step deploys the spoke VNets.
 
 1. Open the `spoke1.json` file.
 
@@ -205,7 +201,7 @@ azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json 
 
 ### Deploy the NVA
 
-To deploy an NVA in the `dmz` subnet, perform the following steps:
+This step deploys an NVA in the `dmz` subnet.
 
 1. Open the `hub-nva.json` file.
 
@@ -216,6 +212,8 @@ To deploy an NVA in the `dmz` subnet, perform the following steps:
    ```bash
    azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
    ```
+
+### Test connectivity 
 
 Test conectivity from the simulated on-premises environment to the hub VNet.
 
