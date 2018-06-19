@@ -40,6 +40,8 @@ The architecture consists of the following components.
 
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
+Data Factory can use also use Azure AD to authenticate to SQL Data Warehouse, by using a service principal or Managed Service Identity (MSI). For simplicity, the example deployment uses SQL Server authentication.
+
 ## Data pipeline
 
 In [Azure Data Factory][adf], a pipeline is a logical grouping of activities used to coordinate a task &mdash; in this case, loading and transforming data into SQL Data Warehouse. 
@@ -70,6 +72,8 @@ Here is the general flow for the ELT pipeline:
 It's also useful to record a *lineage* for each ELT run. For a given record, the lineage associates that record with the ELT run that produced the data. For each ETL run, a new lineage record is created for every table, showing the starting and ending load times. The lineage keys for each record are stored in the dimension and fact tables.
 
 ![](./images/city-dimension-table.png)
+
+After a new batch of data is loaded into the warehouse, refresh the Analysis Services tabular model. See [Asynchronous refresh with the REST API](/azure/analysis-services/analysis-services-async-refresh).
 
 ## Data cleansing
 
@@ -122,25 +126,38 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. You can do this in Azure Analysis Services by adding a calculated column to the fact table.
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that 
 
-The following formula returns the `[City Key]` from the City dimension table that corresponds to the invoice date in the Sales fact table.
+The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
+
+```sql
+CREATE TABLE CityHolder
+WITH (HEAP , DISTRIBUTION = HASH([WWI Invoice ID]))
+AS
+SELECT DISTINCT s1.[WWI Invoice ID] AS [WWI Invoice ID],
+                c.[City Key] AS [City Key]
+    FROM [Integration].[Sale_Staging] s1
+    CROSS APPLY (
+                SELECT TOP 1 [City Key]
+                    FROM [Dimension].[City]
+                WHERE [WWI City ID] = s1.[WWI City ID]
+                    AND s1.[Last Modified When] > [Valid From]
+                    AND s1.[Last Modified When] <= [Valid To]
+                ORDER BY [Valid From], [City Key] DESC
+                ) c
 
 ```
-MINX(
-  FILTER('Dimension City', 
-    'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && 
-    ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 
-     'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 
-  'Dimension City'[City Key]
-)
+
+This table is used to populate a column in the Sales fact table:
+
+```sql
+UPDATE [Integration].[Sale_Staging]
+SET [Integration].[Sale_Staging].[WWI Customer ID] =  CustomerHolder.[WWI Customer ID]
 ```
 
-Using this calculated column, a Power BI query can look up the correct City record for a given sales invoice.
+This column enables a Power BI query to find the correct City record for a given sales invoice.
 
 ## Security considerations
-
-To secure communications between 
 
 For additional security, you can use [Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure service resources to only your virtual network. This fully removes public Internet access to those resources, allowing traffic only from your virtual network.
 
@@ -379,30 +396,6 @@ In this step, you will create a tabular model that imports data from the data wa
     ![](./images/analysis-services-import-2.png)
 
 6. Click **Load**. When processing is complete, click **Close**. You should now see a tabular view of the data.
-
-**Add calculated columns**
-
-1. Select the **Fact CityPopulation** table, click the **Column** menu, and then click **Add Column**.
-
-2. In the formula bar, type the following:
-
-    ```
-    =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact CityPopulation'[WWI City ID] && (DATE('Fact CityPopulation'[YearNumber],1,1) >= 'Dimension City'[Valid From] && DATE('Fact CityPopulation'[YearNumber],1,1) <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
-    ```
-
-3. Press ENTER to accept the formula.
-
-4. Rename the column **City Key**.
-
-    ![](./images/analysis-services-calculated-column.png)
-
-5. Select the **Fact Sale** table and repeat steps 1 &ndash; 4, but use the following formula:
-
-    ```
-    =MINX(FILTER('Dimension City', 'Dimension City'[WWI City ID] = 'Fact Sale'[WWI City ID] && ('Fact Sale'[Invoice Date Key] >= 'Dimension City'[Valid From] && 'Fact Sale'[Invoice Date Key] <= 'Dimension City'[Valid To])), 'Dimension City'[City Key])
-    ```
-
-For more information about creating calculated columns, see [Create a Calculated Column](https://docs.microsoft.com/sql/analysis-services/tabular-models/ssas-calculated-columns-create-a-calculated-column).
 
 **Create measures**
 
