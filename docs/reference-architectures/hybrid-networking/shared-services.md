@@ -169,7 +169,7 @@ This step deploys AD DS domain controllers in Azure.
   
 This deployment step may take several minutes, because it joins the two VMs to the domain hosted in the simulated on-premises datacenter, and installs AD DS on them.
 
-### Azure spoke VNets
+### Deploy the spoke VNets
 
 This step deploys the spoke VNets.
 
