@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology with shared services in Azure
 description: >-
   How to implement a hub-spoke network topology with shared services in Azure.
 author: telmosampaio
-ms.date: 02/25/2018
+ms.date: 06/19/2018
 
 pnp.series.title: Implement a hub-spoke network topology with shared services in Azure
 pnp.series.prev: hub-spoke
@@ -173,20 +173,6 @@ To deploy the AD DS domain controllers in Azure, perform the following steps.
   
 This deployment step may take several minutes, because it requires joining the two VMs to the domain hosted in the simulated on-premises datacenter, then installing AD DS on them.
 
-### Deploy an NVA
-
-To deploy an NVA in the `dmz` subnet, perform the following steps:
-
-1. Open the `hub-nva.json` file.
-
-2. Search for `adminPassword` and enter a user name and password in the parameters. 
-
-3. Run `azbb` the following command:
-
-   ```bash
-   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
-   ```
-
 ### Azure spoke VNets
 
 To deploy the spoke VNets, perform the following steps.
@@ -216,6 +202,53 @@ To create a peering connection from the hub VNet to the spoke VNets, run the fol
 ```bash
 azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json --deploy
 ```
+
+### Deploy the NVA
+
+To deploy an NVA in the `dmz` subnet, perform the following steps:
+
+1. Open the `hub-nva.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters. 
+
+3. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
+   ```
+
+Test conectivity from the simulated on-premises environment to the hub VNet.
+
+1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
+
+2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `onprem.json` parameter file.
+
+3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
+
+   ```powershell
+   Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
+   ```
+The output should look similar to the following:
+
+```powershell
+ComputerName     : 10.0.0.68
+RemoteAddress    : 10.0.0.68
+RemotePort       : 3389
+InterfaceAlias   : Ethernet 2
+SourceAddress    : 192.168.1.000
+TcpTestSucceeded : True
+```
+
+> [!NOTE]
+> By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
+
+Repeat the sames steps to test connectivity to the spoke VNets:
+
+```powershell
+Test-NetConnection 10.1.0.68 -CommonTCPPort RDP
+Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
+```
+
 
 <!-- links -->
 

@@ -269,7 +269,7 @@ Test conectivity from the simulated on-premises environment to the spoke VNets.
 
 2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `onprem.json` parameter file.
 
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
+3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VMs in the spoke VNets.
 
    ```powershell
    Test-NetConnection 10.1.0.68 -CommonTCPPort RDP
