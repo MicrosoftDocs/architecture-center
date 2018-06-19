@@ -113,20 +113,15 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 1. Navigate to the `hybrid-networking\shared-services-stack\` folder for the repository you downloaded in the pre-requisites step above.
 
-2. Open the `onprem.json` file and enter a username and password between the quotes in line 45 and 46, as shown below, then save the file.
-
-   ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
+2. Open the `onprem.json` file. Search for all instances of `Password` and enter values for the user name and password in the parameters. Save the file. 
 
 3. Run `azbb` to deploy the simulated onprem environment as shown below.
 
    ```bash
-   azbb -s <subscription_id> -g onprem-vnet-rg - l <location> -p onoprem.json --deploy
+   azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onprem.json --deploy
    ```
    > [!NOTE]
-   > If you decide to use a different resource group name (other than `onprem-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+   > If you use a different resource group name, search for all parameter files that use that name and edit them to use your own resource group name.
 
 4. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine running Windows, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
 
@@ -134,28 +129,21 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 To deploy the hub VNet, and connect to the simulated on-premises VNet created above, perform the following steps.
 
-1. Open the `hub-vnet.json` file and enter a username and password between the quotes in line 50 and 51, as shown below.
+1. Open the `hub-vnet.json` file. Search for `Password` and enter a user name and password in the parameters. 
+
+2. Search for all instances of `sharedKey` and enter a value for a shared key.
 
    ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
-
-2. On line 52, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
-
-3. Enter a shared key between the quotes in line 83, as shown below, then save the file.
-
-   ```bash
-   "sharedKey": "",
+   "sharedKey": "abc123",
    ```
 
 4. Run `azbb` to deploy the simulated onprem environment as shown below.
 
    ```bash
-   azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet.json --deploy
+   azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
    ```
    > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+   > If you use a different resource group name (other than `hub-vnet-rg`), search for all parameter files that use that name and edit them to use your own resource group name.
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
 
