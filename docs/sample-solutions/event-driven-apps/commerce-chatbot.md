@@ -138,10 +138,6 @@ We have provided three sample cost profiles based on the amount of messages you 
 * [Medium][medium-pricing]: this correlates to processing < 500,000 messages per month.
 * [Large][large-pricing]: this correlates to processing < 10 million messages per month.
 
-## Related Resources
-
-Other resources that are relevant that aren't linked from else where in the doc.
-
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
 [aad-docs]: /azure/active-directory/
