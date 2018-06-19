@@ -112,7 +112,7 @@ We have provided three sample cost profiles based on the number of container ima
 This solution used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components.
 
 <!-- links -->
-[architecture]: ./media/devops-with-kubernetes/architecture-devops-with-kubernetes.png
+[architecture]: ./media/devops-with-aks/architecture-devops-with-aks.png
 [autoscaling]: ../../best-practices/auto-scaling.md
 [availability]: ../../checklist/availability.md
 [resiliency]: ../../resiliency/index.md
@@ -120,6 +120,6 @@ This solution used Azure Container Registry and Azure Kubernetes Service to stor
 [security]: ../../patterns/category/security.md
 [scalability]: ../../checklist/scalability.md
 
-[small-pricing]:
-[medium-pricing]:
-[large-pricing]:
+[small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
+[medium-pricing]: https://azure.com/e/eea0e6d79b4e45618a96d33383ec77ba
+[large-pricing]: https://azure.com/e/3faab662c54c473da55a1e93a27e0e64
