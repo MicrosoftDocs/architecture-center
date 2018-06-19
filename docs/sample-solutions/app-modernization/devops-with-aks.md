@@ -20,7 +20,6 @@ You should consider this solution for the following use cases:
 * Speeding up application development and deployment lifecycles.
 * Automating deployments to test or acceptance environments for validation.
 
-
 ## Architecture diagram
 
 The solution diagram below is an example of this solution:
@@ -90,7 +89,7 @@ To deploy the infrastructure components with an Azure Resource Manager template,
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.
-   * Provide an SSH key to secure the Linux VMs that
+   * Provide an SSH key to secure logons to the Linux VMs.
    * Provide a username and secure password for the Jenkins instance and Grafana console.
    * Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    * Select the **Purchase** button.
