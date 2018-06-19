@@ -1,8 +1,8 @@
 ---
 title: Enterprise BI with SQL Data Warehouse
 description: Use Azure to gain business insights from relational data stored on-premises
-author: alexbuckgit
-ms.date: 04/13/2018
+author: MikeWasson
+ms.date: 06/19/2018
 ---
 
 # Enterprise BI with SQL Data Warehouse
