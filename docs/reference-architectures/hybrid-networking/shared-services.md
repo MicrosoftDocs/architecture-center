@@ -91,6 +91,17 @@ Also consider what services are shared in the hub, to ensure the hub scales for 
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. It uses Ubuntu VMs in each VNet to test connectivity. There are no actual services hosted in the **shared-services** subnet in the **hub VNet**.
 
+The deployment creates the following resource groups in your subscription:
+
+- hub-adds-rg
+- hub-nva-rg
+- hub-vnet-rg
+- onprem-vnet-rg
+- spoke1-vnet-rg
+- spoke2-vent-rg
+
+The template parameter files refer to these names, so if you change them, update the parameter files to match.
+
 ### Prerequisites
 
 Before you can deploy the reference architecture to your own subscription, you must perform the following steps.
@@ -113,127 +124,98 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 1. Navigate to the `hybrid-networking\shared-services-stack\` folder for the repository you downloaded in the pre-requisites step above.
 
-2. Open the `onprem.json` file. Search for all instances of `Password` and enter values for the user name and password in the parameters. Save the file. 
+2. Open the `onprem.json` file. 
 
-3. Run `azbb` to deploy the simulated onprem environment as shown below.
+3. Search for all instances of `Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
+
+4. Run the following command:
 
    ```bash
    azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onprem.json --deploy
    ```
-   > [!NOTE]
-   > If you use a different resource group name, search for all parameter files that use that name and edit them to use your own resource group name.
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine running Windows, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
 
-4. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine running Windows, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
-
-### Azure hub VNet
+### Deploy the hub VNet
 
 To deploy the hub VNet, and connect to the simulated on-premises VNet created above, perform the following steps.
 
-1. Open the `hub-vnet.json` file. Search for `Password` and enter a user name and password in the parameters. 
+1. Open the `hub-vnet.json` file. 
 
-2. Search for all instances of `sharedKey` and enter a value for a shared key.
+2. Search for `adminPassword` and enter a user name and password in the parameters. 
+
+3. Search for all instances of `sharedKey` and enter a value for a shared key. Save the file.
 
    ```bash
    "sharedKey": "abc123",
    ```
 
-4. Run `azbb` to deploy the simulated onprem environment as shown below.
+4. Run the following command:
 
    ```bash
    azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
    ```
-   > [!NOTE]
-   > If you use a different resource group name (other than `hub-vnet-rg`), search for all parameter files that use that name and edit them to use your own resource group name.
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway creation can take more than 40 minutes to complete.
 
-### ADDS in Azure
+### Deploy AD DS in Azure
 
-To deploy the ADDS domain controllers in Azure, perform the following steps.
+To deploy the AD DS domain controllers in Azure, perform the following steps.
 
-1. Open the `hub-adds.json` file and enter a username and password between the quotes in lines 14 and 15, as shown below, then save the file.
+1. Open the `hub-adds.json` file.
 
-   ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
+2. Search for all instances of `Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
 
-2. Run `azbb` to deploy the ADDS domain controllers as shown below.
+3. Run the following command:
 
    ```bash
-   azbb -s <subscription_id> -g hub-adds-rg - l <location> -p hub-adds.json --deploy
+   azbb -s <subscription_id> -g hub-adds-rg -l <location> -p hub-adds.json --deploy
    ```
   
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-adds-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+This deployment step may take several minutes, because it requires joining the two VMs to the domain hosted in the simulated on-premises datacenter, then installing AD DS on them.
 
-   > [!NOTE]
-   > This part of the deployment may take several minutes, since it requires joining the two VMs to the domain hosted int he simulated on-premises datacenter, then installing AD DS on them.
-
-### NVA
+### Deploy an NVA
 
 To deploy an NVA in the `dmz` subnet, perform the following steps:
 
-1. Open the `hub-nva.json` file and enter a username and password between the quotes in lines 13 and 14, as shown below, then save the file.
+1. Open the `hub-nva.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters. 
+
+3. Run `azbb` the following command:
 
    ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
+   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
    ```
-2. Run `azbb` to deploy the NVA VM and user defined routes.
-
-   ```bash
-   azbb -s <subscription_id> -g hub-nva-rg - l <location> -p hub-nva.json --deploy
-   ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-nva-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
 
 ### Azure spoke VNets
 
 To deploy the spoke VNets, perform the following steps.
 
-1. Open the `spoke1.json` file and enter a username and password between the quotes in lines 52 and 53, as shown below, then save the file.
+1. Open the `spoke1.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters. 
+
+3. Run the following command:
 
    ```bash
-   "adminUsername": "XXX",
-   "adminPassword": "YYY",
-   ```
-
-2. On line 54, for `osType`, type `Windows` or `Linux` to install either Windows Server 2016 Datacenter, or Ubuntu 16.04 as the operating system for the jumpbox.
-
-3. Run `azbb` to deploy the first spoke VNet environment as shown below.
-
-   ```bash
-   azbb -s <subscription_id> -g spoke1-vnet-rg - l <location> -p spoke1.json --deploy
+   azbb -s <subscription_id> -g spoke1-vnet-rg -l <location> -p spoke1.json --deploy
    ```
   
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `spoke1-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+4. Repeat steps 1 and 2 for the file `spoke2.json`.
 
-4. Repeat step 1 above for file `spoke2.json`.
-
-5. Run `azbb` to deploy the second spoke VNet environment as shown below.
+5. Run the following command:
 
    ```bash
-   azbb -s <subscription_id> -g spoke2-vnet-rg - l <location> -p spoke2.json --deploy
-   ```
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `spoke2-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
-
-### Azure hub VNet peering to spoke VNets
-
-To create a peering connection from the hub VNet to the spoke VNets, perform the following steps.
-
-1. Open the `hub-vnet-peering.json` file and verify that the resource group name, and virtual network name for each of the virtual network peerings starting in line 29 are correct.
-
-2. Run `azbb` to deploy the first spoke VNet environment as shown below.
-
-   ```bash
-   azbb -s <subscription_id> -g hub-vnet-rg - l <location> -p hub-vnet-peering.json --deploy
+   azbb -s <subscription_id> -g spoke2-vnet-rg -l <location> -p spoke2.json --deploy
    ```
 
-   > [!NOTE]
-   > If you decide to use a different resource group name (other than `hub-vnet-rg`), make sure to search for all parameter files that use that name and edit them to use your own resource group name.
+### Peer the hub VNet to the spoke VNets
+
+To create a peering connection from the hub VNet to the spoke VNets, run the following command:
+
+```bash
+azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json --deploy
+```
 
 <!-- links -->
 
