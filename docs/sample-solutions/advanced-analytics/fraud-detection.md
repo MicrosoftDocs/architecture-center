@@ -47,9 +47,9 @@ This solution covers the back-end components of a real-time analytics pipeline. 
 
 ### Alternatives
 
-Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing][/azure/architecture/data-guide/technology-choices/real-time-ingestion] in the Azure Data Architecture Guide.
+Many technology choices are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the Azure Data Architecture Guide.
 
-Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning][/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning] in the Azure Data Architecture Guide.
+Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) in the Azure Data Architecture Guide.
 
 ### Availability
 
@@ -57,7 +57,7 @@ Additionally, more complex algorithms for fraud detection can be produced by var
 
 ### Scalability
 
-The components of this solution are designed for hyper-scale ingestion and massively parallel real-time analytics. For general guidance on designing scalable solutions, see the [scalability checklist][/azure/architecture/checklist/scalability] available in the Azure Architecture Center.
+The components of this solution are designed for hyper-scale ingestion and massively parallel real-time analytics. For general guidance on designing scalable solutions, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -79,7 +79,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Related Resources
 
-Other resources that are relevant that aren't linked from else where in the doc.
+...
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics/
