@@ -45,7 +45,7 @@ This solution covers a commerce bot that functions as a concierge for a hotel. T
 * [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
 * [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication.
 * [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
-* [Application Insights][appinsights-doc] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+* [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
 ### Availability
 
