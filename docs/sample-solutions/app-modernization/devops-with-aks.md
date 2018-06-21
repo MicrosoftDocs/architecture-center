@@ -85,11 +85,13 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 * You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * You need an SSH public key pair. The Linux VMs used in this solution are secured for SSH public key authentication rather than just a username and password. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
-* You need an Azure Active Directory (AD) service principal for 
+* You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac[]]
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name myDevOpsSolution
     ```
+
+    Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the solution.
 
 To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
