@@ -215,7 +215,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat('https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/jenkins/jenkins-acr-aks.sh', parameters('_artifactsLocationSasToken'))]"
+                "'https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/jenkins/jenkins-acr-aks.sh', parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {

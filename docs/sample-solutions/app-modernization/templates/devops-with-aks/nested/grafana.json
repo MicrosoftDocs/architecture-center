@@ -200,8 +200,8 @@
             "autoUpgradeMinorVersion": true,
             "settings": {
               "fileUris": [
-                "[concat(parameters('https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/grafana/install-grafana.sh', parameters('_artifactsLocationSasToken'))]",
-                "[concat(parameters('https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/grafana/configure-grafana.sh', parameters('_artifactsLocationSasToken'))]"
+                "[concat('https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/grafana/install-grafana.sh', parameters('_artifactsLocationSasToken'))]",
+                "[concat('https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/scripts/grafana/configure-grafana.sh', parameters('_artifactsLocationSasToken'))]"
               ]
             },
             "protectedSettings": {
