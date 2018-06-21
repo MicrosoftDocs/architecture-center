@@ -93,7 +93,7 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fsample-solutions%2Fapp-modernization%2Ftemplates%2Fdevops-with-aks.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Faks-devops%2Fdocs%2Fsample-solutions%2Fapp-modernization%2Ftemplates%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.

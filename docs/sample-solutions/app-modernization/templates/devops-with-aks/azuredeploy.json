@@ -46,7 +46,7 @@
     "kubernetesVersion": "1.8.1",
     "kubernetesAgentVMSize": "Standard_DS2_v2",
     "gitRepository": "https://github.com/iainfoulds/architecture-center",
-    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/tree/aks-devops",
+    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/",
     "_artifactsLocationSasToken": "",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "virtual-network",
