@@ -15,6 +15,9 @@
     "linuxAdminUsername": {
       "type": "string"
     },
+    "linuxSSHPublicKey": {
+      "type": "string"
+    },
     "linuxAdminPassword": {
       "type": "securestring"
     },
@@ -45,6 +48,7 @@
     }
   },
   "variables": {
+    "sshKeyPath": "[concat('/home/',parameters('linuxAdminUsername'),'/.ssh/authorized_keys')]",
     "installOpts": "[concat('-A \"', parameters('linuxAdminPassword'), '\"')]",
     "configureOpts": "[concat('-A \"', uriComponent(parameters('linuxAdminPassword')), '\" -p \"3000\" -S \"', subscription().subscriptionId, '\" -T \"', subscription().tenantId, '\" -i \"', parameters('spClientId'), '\" -s \"', parameters('spClientSecret'), '\" -r \"', resourceGroup().name, '\" -c \"', parameters('cosmosDbName'), '\" -k \"', parameters('kubernetesClusterName'), '\" -l \"', parameters('_artifactsLocation'), '\" -t \"', parameters('_artifactsLocationSasToken'), '\"')]",
     "nicName": "[concat(parameters('grafanaVMName'), '-nic')]",
@@ -159,7 +163,17 @@
         "osProfile": {
           "computerName": "[concat(parameters('grafanaVMName'), '-vm')]",
           "adminUsername": "[parameters('linuxAdminUsername')]",
-          "adminPassword": "[parameters('linuxAdminPassword')]"
+          "adminPassword": "[parameters('linuxAdminPassword')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "[variables('sshKeyPath')]",
+                  "keyData": "[parameters('linuxSSHPublicKey')]"
+                }
+              ]
+            }
         },
         "networkProfile": {
           "networkInterfaces": [

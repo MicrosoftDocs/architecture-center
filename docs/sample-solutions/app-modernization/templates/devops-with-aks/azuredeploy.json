@@ -17,179 +17,38 @@
     "linuxAdminUsername": {
       "type": "string",
       "metadata": {
-        "description": "User name for the Linux Virtual Machines (Jenkins and Kubernetes)."
+        "description": "User name for the Linux VMs (Jenkins and Kubernetes)."
       }
     },
     "linuxAdminPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "Password for the Jenkins and Grafana Virtual Machines."
+        "description": "Password for the Jenkins and Grafana VMs. Password authentication disabled in favor of SSH public key authentication."
       }
     },
     "linuxSSHPublicKey": {
       "type": "string",
       "metadata": {
-        "description": "Configure all linux machines with the SSH RSA public key string. Your key should include three parts, for example 'ssh-rsa AAAAB...snip...UcyupgH azureuser@linuxvm'"
-      }
-    },
-    "cosmosDbName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the CosmosDB."
-      }
-    },
-    "acrName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Azure Container Registery. The name may contain alpha numeric characters only and must be between 5 and 50 characters."
-      }
-    },
-    "jenkinsDnsPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Jenkins Virtual Machine."
-      }
-    },
-    "grafanaDnsPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "Unique DNS Name for the Public IP used to access the Grafana Virtual Machine."
-      }
-    },
-    "kubernetesDnsPrefix": {
-      "type": "string",
-      "metadata": {
-        "description": "Optional DNS prefix to use with hosted Kubernetes API server FQDN."
-      }
-    },
-    "kubernetesClusterName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the Managed Cluster resource."
-      }
-    },
-    "kubernetesAgentCount": {
-      "type": "int",
-      "defaultValue": 1,
-      "metadata": {
-        "description": "The number of nodes for the cluster."
-      },
-      "minValue": 1,
-      "maxValue": 50
-    },
-    "kubernetesAgentVMSize": {
-      "type": "string",
-      "defaultValue": "Standard_D2_v2",
-      "allowedValues": [
-        "Standard_A10",
-        "Standard_A11",
-        "Standard_A2",
-        "Standard_A2_v2",
-        "Standard_A2m_v2",
-        "Standard_A3",
-        "Standard_A4",
-        "Standard_A4_v2",
-        "Standard_A4m_v2",
-        "Standard_A5",
-        "Standard_A6",
-        "Standard_A7",
-        "Standard_A8",
-        "Standard_A8_v2",
-        "Standard_A8m_v2",
-        "Standard_A9",
-        "Standard_D1_v2",
-        "Standard_D11",
-        "Standard_D11_v2",
-        "Standard_D12",
-        "Standard_D12_v2",
-        "Standard_D13",
-        "Standard_D13_v2",
-        "Standard_D14",
-        "Standard_D14_v2",
-        "Standard_D15_v2",
-        "Standard_D2",
-        "Standard_D2_v2",
-        "Standard_D3",
-        "Standard_D3_v2",
-        "Standard_D4",
-        "Standard_D4_v2",
-        "Standard_D5_v2",
-        "Standard_DS11",
-        "Standard_DS11_v2",
-        "Standard_DS12",
-        "Standard_DS12_v2",
-        "Standard_DS13",
-        "Standard_DS13_v2",
-        "Standard_DS14",
-        "Standard_DS14_v2",
-        "Standard_DS15_v2",
-        "Standard_DS2",
-        "Standard_DS2_v2",
-        "Standard_DS3",
-        "Standard_DS3_v2",
-        "Standard_DS4",
-        "Standard_DS4_v2",
-        "Standard_DS5_v2",
-        "Standard_F16",
-        "Standard_F16s",
-        "Standard_F2",
-        "Standard_F2s",
-        "Standard_F4",
-        "Standard_F4s",
-        "Standard_F8",
-        "Standard_F8s",
-        "Standard_G1",
-        "Standard_G2"
-      ],
-      "metadata": {
-        "description": "The size of the Virtual Machine."
-      }
-    },
-    "kubernetesVersion": {
-      "type": "string",
-      "defaultValue": "1.7.7",
-      "allowedValues": [
-        "1.7.7",
-        "1.8.1"
-      ],
-      "metadata": {
-        "description": "The version of Kubernetes."
-      }
-    },
-    "gitRepository": {
-      "type": "string",
-      "metadata": {
-        "description": "URL to a public git repository that includes a Dockerfile."
-      },
-      "defaultValue": "https://github.com/Azure/azure-quickstart-templates"
-    },
-    "_artifactsLocation": {
-      "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/jenkins-cicd-container/",
-      "metadata": {
-        "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
-      }
-    },
-    "_artifactsLocationSasToken": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
+        "description": "Configure all Linux VMs with the SSH RSA public key string. Copy the content of your public key, such as ~/.ssh/id_rsa.pub"
       }
     }
   },
   "variables": {
+    "cosmosDbName": "[concat('cosmosdb', uniqueString(resourceGroup().id))]",
     "jenkinsVMName": "jenkins",
     "grafanaVMName": "grafana",
-    "cosmosDbName": "[parameters('cosmosDbName')]",
-    "acrName": "[parameters('acrName')]",
+    "acrName": "[concat('acr', uniqueString(resourceGroup().id))]",
+    "jenkinsDnsPrefix": "[concat('jenkins', uniqueString(resourceGroup().id))]",
+    "grafanaDnsPrefix": "[concat('grafana', uniqueString(resourceGroup().id))]",
+    "kubernetesDnsPrefix": "[concat('kubernetes', uniqueString(resourceGroup().id))]",
+    "kubernetesClusterName": "[concat('aks', uniqueString(resourceGroup().id))]",
+    "kubernetesAgentCount": "2",
+    "kubernetesVersion": "1.8.1",
+    "kubernetesAgentVMSize": "Standard_DS2_v2",
+    "gitRepository": "https://github.com/iainfoulds/architecture-center",
+    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/tree/aks-devops",
+    "_artifactsLocationSasToken": "",
+    "location": "[resourceGroup().location]",
     "virtualNetworkName": "virtual-network",
     "subnetName": "default-subnet"
   },
@@ -197,7 +56,7 @@
     {
       "name": "[variables('acrName')]",
       "type": "Microsoft.ContainerRegistry/registries",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "apiVersion": "2017-10-01",
       "sku": {
         "name": "Basic"
@@ -211,7 +70,7 @@
       "kind": "MongoDB",
       "type": "Microsoft.DocumentDb/databaseAccounts",
       "name": "[variables('cosmosDbName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "properties": {
         "databaseAccountOfferType": "Standard"
       }
@@ -220,7 +79,7 @@
       "apiVersion": "2016-09-01",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": [
@@ -249,7 +108,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), 'nested/jenkins.json', parameters('_artifactsLocationSasToken'))]",
+          "uri": "[concat(variables('_artifactsLocation'), 'nested/jenkins.json', variables('_artifactsLocationSasToken'))]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -268,14 +127,17 @@
           "linuxAdminPassword": {
             "value": "[parameters('linuxAdminPassword')]"
           },
+          "linuxSSHPublicKey": {
+            "value": "[parameters('linuxSSHPublicKey')]"
+          },
           "dnsPrefix": {
-            "value": "[parameters('jenkinsDnsPrefix')]"
+            "value": "[variables('jenkinsDnsPrefix')]"
           },
           "subnetId": {
             "value": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
           },
           "gitRepository": {
-            "value": "[parameters('gitRepository')]"
+            "value": "[variables('gitRepository')]"
           },
           "acrServer": {
             "value": "[reference(resourceId('Microsoft.ContainerRegistry/registries', variables('acrName'))).loginServer]"
@@ -293,13 +155,13 @@
             "value": "[resourceGroup().name]"
           },
           "kubernetesClusterName": {
-            "value": "[parameters('kubernetesClusterName')]"
+            "value": "[variables('kubernetesClusterName')]"
           },
           "_artifactsLocation": {
-            "value": "[parameters('_artifactsLocation')]"
+            "value": "[variables('_artifactsLocation')]"
           },
           "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
+            "value": "[variables('_artifactsLocationSasToken')]"
           }
         }
       }
@@ -308,16 +170,16 @@
       "apiVersion": "2017-08-31",
       "type": "Microsoft.ContainerService/managedClusters",
       "location": "eastus",
-      "name": "[parameters('kubernetesClusterName')]",
+      "name": "[variables('kubernetesClusterName')]",
       "properties": {
-        "kubernetesVersion": "[parameters('kubernetesVersion')]",
-        "dnsPrefix": "[parameters('kubernetesDnsPrefix')]",
+        "kubernetesVersion": "[variables('kubernetesVersion')]",
+        "dnsPrefix": "[variables('kubernetesDnsPrefix')]",
         "agentPoolProfiles": [
           {
             "name": "agentpool",
             "osDiskSizeGB": 0,
-            "count": "[parameters('kubernetesAgentCount')]",
-            "vmSize": "[parameters('kubernetesAgentVMSize')]",
+            "count": "[variables('kubernetesAgentCount')]",
+            "vmSize": "[variables('kubernetesAgentVMSize')]",
             "osType": "Linux",
             "storageProfile": "ManagedDisks"
           }
@@ -344,12 +206,12 @@
       "type": "Microsoft.Resources/deployments",
       "dependsOn": [
         "[resourceId('Microsoft.DocumentDb/databaseAccounts', variables('cosmosDbName'))]",
-        "[resourceId('Microsoft.ContainerService/managedClusters', parameters('kubernetesClusterName'))]"
+        "[resourceId('Microsoft.ContainerService/managedClusters', variables('kubernetesClusterName'))]"
       ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(parameters('_artifactsLocation'), 'nested/grafana.json', parameters('_artifactsLocationSasToken'))]",
+          "uri": "[concat(variables('_artifactsLocation'), 'nested/grafana.json', variables('_artifactsLocationSasToken'))]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -368,23 +230,26 @@
           "linuxAdminPassword": {
             "value": "[parameters('linuxAdminPassword')]"
           },
+          "linuxSSHPublicKey": {
+            "value": "[parameters('linuxSSHPublicKey')]"
+          },
           "dnsPrefix": {
-            "value": "[parameters('grafanaDnsPrefix')]"
+            "value": "[variables('grafanaDnsPrefix')]"
           },
           "subnetId": {
             "value": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
           },
           "cosmosDbName": {
-            "value": "[parameters('cosmosDbName')]"
+            "value": "[variables('cosmosDbName')]"
           },
           "kubernetesClusterName": {
-            "value": "[parameters('kubernetesClusterName')]"
+            "value": "[variables('kubernetesClusterName')]"
           },
           "_artifactsLocation": {
-            "value": "[parameters('_artifactsLocation')]"
+            "value": "[variables('_artifactsLocation')]"
           },
           "_artifactsLocationSasToken": {
-            "value": "[parameters('_artifactsLocationSasToken')]"
+            "value": "[variables('_artifactsLocationSasToken')]"
           }
         }
       }
@@ -405,7 +270,7 @@
     },
     "kubernetesControlPlaneFQDN": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.ContainerService/managedClusters/', parameters('kubernetesClusterName'))).fqdn]"
+      "value": "[reference(concat('Microsoft.ContainerService/managedClusters/', variables('kubernetesClusterName'))).fqdn]"
     },
     "grafanaUrl": {
       "type": "string",

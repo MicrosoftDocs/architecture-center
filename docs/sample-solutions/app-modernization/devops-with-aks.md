@@ -81,7 +81,15 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 ## Deploy the solution
 
-**Prerequisites.** You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+**Prerequisites.**
+
+* You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You need an SSH public key pair. The Linux VMs used in this solution are secured for SSH public key authentication rather than just a username and password. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
+* You need an Azure Active Directory (AD) service principal for 
+
+    ```azurecli-interactive
+    az ad sp create-for-rbac --name myDevOpsSolution
+    ```
 
 To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
@@ -89,8 +97,9 @@ To deploy the infrastructure components with an Azure Resource Manager template,
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.
-   * Provide an SSH key to secure logons to the Linux VMs.
+   * Enter your service principal app ID and password from the `az ad sp create-for-rbac` command.
    * Provide a username and secure password for the Jenkins instance and Grafana console.
+   * Provide an SSH key to secure logons to the Linux VMs.
    * Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    * Select the **Purchase** button.
 
@@ -118,6 +127,7 @@ This solution used Azure Container Registry and Azure Kubernetes Service to stor
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [security]: ../../patterns/category/security.md
 [scalability]: ../../checklist/scalability.md
+[sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
 [medium-pricing]: https://azure.com/e/eea0e6d79b4e45618a96d33383ec77ba

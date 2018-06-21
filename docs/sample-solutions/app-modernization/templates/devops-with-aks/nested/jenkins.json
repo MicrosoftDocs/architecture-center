@@ -15,6 +15,9 @@
     "linuxAdminUsername": {
       "type": "string"
     },
+    "linuxSSHPublicKey": {
+      "type": "string"
+    },
     "linuxAdminPassword": {
       "type": "securestring"
     },
@@ -60,6 +63,7 @@
     }
   },
   "variables": {
+    "sshKeyPath": "[concat('/home/',parameters('linuxAdminUsername'),'/.ssh/authorized_keys')]",
     "nicName": "[concat(parameters('jenkinsVMName'), '-nic')]",
     "publicIPAddressName": "[concat(parameters('jenkinsVMName'), '-ip')]",
     "vmName": "[concat(parameters('jenkinsVMName'), '')]",
@@ -160,7 +164,17 @@
         "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('linuxAdminUsername')]",
-          "adminPassword": "[parameters('linuxAdminPassword')]"
+          "adminPassword": "[parameters('linuxAdminPassword')]",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "[variables('sshKeyPath')]",
+                  "keyData": "[parameters('linuxSSHPublicKey')]"
+                }
+              ]
+            }
         },
         "storageProfile": {
           "imageReference": {
