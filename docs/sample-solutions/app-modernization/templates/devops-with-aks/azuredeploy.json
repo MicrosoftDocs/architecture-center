@@ -31,6 +31,15 @@
       "metadata": {
         "description": "Configure all Linux VMs with the SSH RSA public key string. Copy the content of your public key, such as ~/.ssh/id_rsa.pub"
       }
+    },
+    "kubernetesAgentCount": {
+      "type": "int",
+      "defaultValue": 2,
+      "metadata": {
+        "description": "The number of nodes for the cluster."
+      },
+      "minValue": 1,
+      "maxValue": 50
     }
   },
   "variables": {
@@ -42,7 +51,6 @@
     "grafanaDnsPrefix": "[concat('grafana', uniqueString(resourceGroup().id))]",
     "kubernetesDnsPrefix": "[concat('kubernetes', uniqueString(resourceGroup().id))]",
     "kubernetesClusterName": "[concat('aks', uniqueString(resourceGroup().id))]",
-    "kubernetesAgentCount": "2",
     "kubernetesVersion": "1.8.1",
     "kubernetesAgentVMSize": "Standard_DS2_v2",
     "gitRepository": "https://github.com/iainfoulds/architecture-center",
@@ -108,7 +116,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "['https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/jenkins.json', variables('_artifactsLocationSasToken'))]",
+          "uri": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/jenkins.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -178,7 +186,7 @@
           {
             "name": "agentpool",
             "osDiskSizeGB": 0,
-            "count": "[variables('kubernetesAgentCount')]",
+            "count": "[parameters('kubernetesAgentCount')]",
             "vmSize": "[variables('kubernetesAgentVMSize')]",
             "osType": "Linux",
             "storageProfile": "ManagedDisks"
@@ -211,7 +219,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "['https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/grafana.json', variables('_artifactsLocationSasToken'))]",
+          "uri": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/grafana.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
