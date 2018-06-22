@@ -6,31 +6,36 @@
       "type": "string",
       "metadata": {
         "description": "Service Principal Client ID used by Jenkins and Azure Container Service (AKS)."
-      }
+      },
+      "defaultValue": "97764909-d6f5-4669-bdd9-2da94726c790"
     },
     "spClientSecret": {
       "type": "securestring",
       "metadata": {
         "description": "Service Principal Client Secret used by Jenkins and Azure Container Service(AKS)."
-      }
+      },
+      "defaultValue": "dd443430-a51b-47ea-8825-a229dce3d36d"
     },
     "linuxAdminUsername": {
       "type": "string",
       "metadata": {
         "description": "User name for the Linux VMs (Jenkins and Kubernetes)."
-      }
+      },
+      "defaultValue": "azureuser"
     },
     "linuxAdminPassword": {
       "type": "securestring",
       "metadata": {
         "description": "Password for the Jenkins and Grafana VMs. Password authentication disabled in favor of SSH public key authentication."
-      }
+      },
+      "defaultValue": "P@ssw0rd!P@ssw0rd!"
     },
     "linuxSSHPublicKey": {
       "type": "string",
       "metadata": {
         "description": "Configure all Linux VMs with the SSH RSA public key string. Copy the content of your public key, such as ~/.ssh/id_rsa.pub"
-      }
+      },
+      "defaultValue": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDCvjiH7jhi4SRj+DT04XVgUFjGHoIDgELFjlQGrCggzO4gyZSFWh3gvBxK7W9l7OFDIeaTp7tAjdWizZBlqUw1amMT5KaAOWukz+NdtliHQJfYtjRB6GR+RX5uDvR6Z8QvzTNw6gX+lxHFsNfW0v9iIPHhrWSs6Ax33yL6KsmBQICIvXjRlk1+oY1TMgQPc4Mh0AzX5fomkAwLUY56wuNZNhje7k2/0ajJpfITRFXIsacckbAy8+eCCMDhNfAGk8SX0vVpUd3FRg0iwpkdMvf5sZyMETob4ewvLkMya5PnjGrdPJojI9n25qDtxZbN82HCc4qgxl+cv+Rdikx4DP8F"
     }
   },
   "variables": {
@@ -46,7 +51,7 @@
     "kubernetesAgentCount": 2,
     "kubernetesAgentVMSize": "Standard_DS2_v2",
     "gitRepository": "https://github.com/iainfoulds/devops-jenkins-aks",
-    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks",
+    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/",
     "_artifactsLocationSasToken": "",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "virtual-network",
@@ -108,7 +113,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(variables('_artifactsLocation'), '/nested/jenkins.json')]",
+          "uri": "[concat(variables('_artifactsLocation'), 'nested/jenkins.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -211,7 +216,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[concat(variables('_artifactsLocation'), '/nested/grafana.json')]",
+          "uri": "[concat(variables('_artifactsLocation'), 'nested/grafana.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
