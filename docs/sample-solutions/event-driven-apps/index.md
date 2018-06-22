@@ -2,7 +2,7 @@
 title: Event driven apps sample solutions
 description: Sample event driven app solutions
 layout: LandingPage
-ms.date: 06/15/2018
+ms.date: 06/22/2018
 ---
 # Event driven apps on Azure sample solutions
 
@@ -20,7 +20,7 @@ These sample solutions show proven practices for building out event driven app s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Conversational commerce chatbot</h3>
+                        <h3>Hotel reservation chatbot</h3>
                         <p>Use Cognitive Services and the Bot Framework to build a commerce chatbot.</p>
                     </div>
                 </div>

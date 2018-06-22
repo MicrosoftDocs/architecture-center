@@ -12,5 +12,5 @@
   - name: Event driven apps
     href: event-driven-apps/index.md
     items:
-    - name: Commerce chatbot
+    - name: Hotel reservation chatbot
       href: event-driven-apps/commerce-chatbot.md
