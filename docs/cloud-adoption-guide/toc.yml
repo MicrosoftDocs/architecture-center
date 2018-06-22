@@ -54,7 +54,7 @@
         - name: Platform as a Service (PaaS) architecture
           items: 
           - name: "How to: deploy a basic web application to Azure"
-            href: /azure/app-service
+            href: /azure/app-service/index
             maintainContext: true
           - name: "Guidance: best practices for web applications in Azure"
             href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
