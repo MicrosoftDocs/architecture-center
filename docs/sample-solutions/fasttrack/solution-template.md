@@ -4,7 +4,7 @@ description: <Article Description>
 author: david-stanford
 ms.date: <publish or update date>
 ---
-# Article Title
+# Article Title FastTrack Solution Samples
 
 Introductory Paragraphs
 
