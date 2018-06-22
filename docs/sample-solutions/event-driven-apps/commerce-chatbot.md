@@ -1,16 +1,16 @@
 ---
-title: Conversational commerce chatbot
-description: Proven solution for building a conversational chatbot for commerce applications in Azure.
+title: Conversational Azure chatbot for hotel reservations
+description: Proven solution for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
 author: iainfoulds
-ms.date: 06/15/2018
+ms.date: 06/22/2018
 ---
-# Conversational commerce chatbot on Azure
+# Conversational Azure chatbot for hotel reservations
 
-This sample solution is applicable for businesses that have a need for integrating a conversational chatbot into applications.
+This sample solution is applicable to businesses that have a need for integrating a conversational chatbot into applications. In this solution, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
 
 Example application scenarios include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
 
-By leveraging Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots. This scenario specifically outlines a hotel chain that allows customers to check availability and reserve a room. If you have different commerce needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
+By leveraging Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots.
 
 ## Potential use cases
 
@@ -24,13 +24,13 @@ You should consider this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Architecture overview of the Azure components involved in a commerce chatbot][architecture]
+![Architecture overview of the Azure components involved in a conversational chatbot][architecture]
 
 ## Architecture
 
-This solution covers a commerce bot that functions as a concierge for a hotel. The data flows through the solution as follows:
+This solution covers a conversational bot that functions as a concierge for a hotel. The data flows through the solution as follows:
 
-1. The customer uses a mobile or web app.
+1. The customer accesses the chatbot with a mobile or web app.
 2. Using Azure Active Directory B2C (Business 2 Customer), the user is authenticated.
 3. Interacting with the Bot Service, user requests information about hotel availability.
 4. Cognitive Services process the natural language request to understand the customer communication.
@@ -55,7 +55,7 @@ For other scalability topics, see the [availability checklist][availability] ava
 
 ### Scalability
 
-This solution uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the architecture center.
+This solution uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the architecture center.
 
 For other scalability topics, see the [scalability checklist][scalability] available in the architecure center.
 
@@ -69,7 +69,7 @@ For a deeper discussion on [security][], see the relevant article in the archite
 
 ### Resiliency
 
-This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
+This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running in the event of a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
 To monitor the health of your application, this solution also uses Application Insights. With App Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [App Insights overview][appinsights-docs].
 
@@ -77,11 +77,11 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 ## Deploy the solution
 
-This solution is divided into three components for you explore the area that you are most focused on:
+This solution is divided into three components for you to explore areas that you are most focused on:
 
 * [Infrastructure components](#deploy-infrastructure-components) - Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
 * [Web App Chatbot](#deploy-web-app-chatbot) - Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
-* [Sample C# chatbot application](#deploy-chatbot-c-application-code) - Use Visual Studio to review sample hotel reservation code and deploy to a bot in Azure.
+* [Sample C# chatbot application](#deploy-chatbot-c-application-code) - Use Visual Studio to review the sample hotel reservation C# application code and deploy to a bot in Azure.
 
 **Prerequisites.** You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -130,7 +130,7 @@ This sample application requires Visual Studio to build and deploy the solution.
 
 ## Pricing
 
-Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To explore the cost of running this solution, all of the services are pre-configured in the following cost calculator links.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on the amount of messages you expect your chatbot to process:
 
