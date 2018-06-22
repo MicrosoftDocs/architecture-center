@@ -31,15 +31,6 @@
       "metadata": {
         "description": "Configure all Linux VMs with the SSH RSA public key string. Copy the content of your public key, such as ~/.ssh/id_rsa.pub"
       }
-    },
-    "kubernetesAgentCount": {
-      "type": "int",
-      "defaultValue": 2,
-      "metadata": {
-        "description": "The number of nodes for the cluster."
-      },
-      "minValue": 1,
-      "maxValue": 50
     }
   },
   "variables": {
@@ -52,9 +43,10 @@
     "kubernetesDnsPrefix": "[concat('kubernetes', uniqueString(resourceGroup().id))]",
     "kubernetesClusterName": "[concat('aks', uniqueString(resourceGroup().id))]",
     "kubernetesVersion": "1.8.1",
+    "kubernetesAgentCount": 2,
     "kubernetesAgentVMSize": "Standard_DS2_v2",
-    "gitRepository": "https://github.com/iainfoulds/architecture-center",
-    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/",
+    "gitRepository": "https://github.com/iainfoulds/devops-jenkins-aks",
+    "_artifactsLocation": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks",
     "_artifactsLocationSasToken": "",
     "location": "[resourceGroup().location]",
     "virtualNetworkName": "virtual-network",
@@ -116,7 +108,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/jenkins.json",
+          "uri": "[concat(variables('_artifactsLocation'), '/nested/jenkins.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -186,7 +178,7 @@
           {
             "name": "agentpool",
             "osDiskSizeGB": 0,
-            "count": "[parameters('kubernetesAgentCount')]",
+            "count": "[variables('kubernetesAgentCount')]",
             "vmSize": "[variables('kubernetesAgentVMSize')]",
             "osType": "Linux",
             "storageProfile": "ManagedDisks"
@@ -219,7 +211,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/iainfoulds/architecture-center/aks-devops/docs/sample-solutions/app-modernization/templates/devops-with-aks/nested/grafana.json",
+          "uri": "[concat(variables('_artifactsLocation'), '/nested/grafana.json')]",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
