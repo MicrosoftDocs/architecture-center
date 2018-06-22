@@ -162,7 +162,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
-2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
+2. Install [Azure CLI 2.0][azure-cli-2].
 
 3. Install the [Azure building blocks][azbb] npm package.
 
@@ -170,32 +170,65 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    npm install -g @mspnp/azure-building-blocks
    ```
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
 
    ```bash
    az login
    ```
 
-### Deploy the solution using azbb
+### Deploy the solution 
 
-To deploy the Windows VMs for an N-tier application reference architecture, follow these steps:
+1. Run the following command to create a resource group.
 
-1. Navigate to the `virtual-machines\n-tier-windows` folder for the repository you cloned in step 1 of the pre-requisites above.
+    ```bash
+    az group create --location <location> --name <resource-group-name>
+    ```
 
-2. The parameter file specifies a default adminstrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-windows.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.
-  
-   > [!NOTE]
-   > There are multiple scripts that run during this deployment both in the  **VirtualMachineExtension** objects and in the **extensions** settings for some of the **VirtualMachine** objects. Some of these scripts require the administrator user name and password that you have just changed. It's recommended that you review these scripts to ensure that you specified the correct credentials. The deployment may fail if you have not specified the correct credentials.
-   > 
-   > 
+2. Run the following command to create a Storage account for the Cloud Witness.
 
-Save the file.
+    ```bash
+    az storage account create --location <location> \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --sku Standard_LRS
+    ```
 
-3. Deploy the reference architecture using the **azbb** command line tool as shown below.
+3. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
 
-   ```bash
-   azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
-   ```
+4. Open the `n-tier-windows.json` file. 
+
+5. Search for "witnessStorageBlobEndPoint" and replace the placeholder text with the name of the Storage account from step 2.
+
+    ```json
+    "witnessStorageBlobEndPoint": "https://[replace-with-storageaccountname].blob.core.windows.net",
+    ```
+
+6. Run the following command to list the account keys for the storage account. Copy the value of `key1`. 
+
+    ```bash
+    az storage account keys list \
+      --account-name <storage-account-name> \
+      --resource-group <resource-group-name>
+    ```
+
+7. In the `n-tier-windows.json` file, search for "witnessStorageAccountKey" and paste in the account key.
+
+    ```json
+    "witnessStorageAccountKey": "[replace-with-storagekey]"
+    ```
+
+8. The parameter file specifies a default adminstrator user name and password. Change these before you deploy the architecture In the `n-tier-windows.json` file, search for the "adminUsername", "adminPassword" properties and replace the values. Save the file.
+
+    ```json
+    "adminUserName": "<user>",
+    "adminPassword": "<password>",
+    ```
+
+9. Run the following command to deploy the architecture.
+
+    ```bash
+    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
+    ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
 
