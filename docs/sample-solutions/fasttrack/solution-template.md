@@ -18,7 +18,7 @@ You should consider this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Hybrid HPC Architecture](https://octodex.github.com/images/yaktocat.png)
+![Hybrid HPC Architecture](media\AzureBatchArchitecture.png)
 
 ## Architecture
 
