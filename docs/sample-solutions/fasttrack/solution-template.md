@@ -1,10 +1,10 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: david-stanford
+author: Mike Warrington and Ben Hummerstone
 ms.date: <publish or update date>
 ---
-# Article Title FastTrack Solution Samples
+# Linux and Azure: Hybrid HPC
 
 Introductory Paragraphs
 
@@ -18,7 +18,7 @@ You should consider this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Description][architecture]
+![Hybrid HPC Architecture](https://octodex.github.com/images/yaktocat.png)
 
 ## Architecture
 
