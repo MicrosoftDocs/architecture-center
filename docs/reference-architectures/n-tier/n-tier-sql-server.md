@@ -231,7 +231,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     "witnessStorageAccountKey": "[replace-with-storagekey]"
     ```
 
-8. The parameter file specifies default passwords. Change these before you deploy the architecture In the `n-tier-windows.json` file, search for all instances `testPassw0rd!23`, `test$!Passw0rd111`, and `AweS0me@SQLServicePW`. Replace them with your own passwords and save the file.
+8. In the `n-tier-windows.json` file, search for all instances `testPassw0rd!23`, `test$!Passw0rd111`, and `AweS0me@SQLServicePW`. Replace them with your own passwords and save the file.
 
     > [!NOTE]
     > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file. 
