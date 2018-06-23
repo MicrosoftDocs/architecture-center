@@ -4,12 +4,7 @@ description: >-
   How to implement a multi-tier architecture on Azure, for availability, security, scalability, and manageability.
 
 author: MikeWasson
-
-ms.date: 05/03/2018
-
-pnp.series.title: Windows VM workloads
-pnp.series.next: multi-region-application
-pnp.series.prev: multi-vm
+ms.date: 06/23/2018
 ---
 
 # N-tier application with SQL Server
@@ -42,9 +37,11 @@ The architecture has the following components:
 
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
-* **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
+* **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover. It uses Windows Server Failover Cluster (WSFC) technology for failover.
 
-* **Active Directory Domain Services (AD DS) Servers**. The SQL Server Always On Availability Groups are joined to a domain, to enable the Windows Server Failover Cluster (WSFC) technology for failover. 
+* **Active Directory Domain Services (AD DS) Servers**. The computer objects for the failover cluster and its associated clustered roles are created in Active Directory Domain Services (AD DS).
+
+* **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the master node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). 
 
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
@@ -197,13 +194,13 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 4. Open the `n-tier-windows.json` file. 
 
-5. Search for "witnessStorageBlobEndPoint" and replace the placeholder text with the name of the Storage account from step 2.
+5. Search for all instances of "witnessStorageBlobEndPoint" and replace the placeholder text with the name of the Storage account from step 2.
 
     ```json
     "witnessStorageBlobEndPoint": "https://[replace-with-storageaccountname].blob.core.windows.net",
     ```
 
-6. Run the following command to list the account keys for the storage account. Copy the value of `key1`. 
+6. Run the following command to list the account keys for the storage account.
 
     ```bash
     az storage account keys list \
@@ -211,7 +208,24 @@ A deployment for this reference architecture is available on [GitHub][github-fol
       --resource-group <resource-group-name>
     ```
 
-7. In the `n-tier-windows.json` file, search for "witnessStorageAccountKey" and paste in the account key.
+    The output should look like the following. Copy the value of `key1`.
+
+    ```json
+    [
+    {
+        "keyName": "key1",
+        "permissions": "Full",
+        "value": "..."
+    },
+    {
+        "keyName": "key2",
+        "permissions": "Full",
+        "value": "..."
+    }
+    ]
+    ```
+
+7. In the `n-tier-windows.json` file, search for all instances of "witnessStorageAccountKey" and paste in the account key.
 
     ```json
     "witnessStorageAccountKey": "[replace-with-storagekey]"
