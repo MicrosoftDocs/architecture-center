@@ -217,17 +217,15 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     "witnessStorageAccountKey": "[replace-with-storagekey]"
     ```
 
-8. The parameter file specifies a default adminstrator user name and password. Change these before you deploy the architecture In the `n-tier-windows.json` file, search for the "adminUsername", "adminPassword" properties and replace the values. Save the file.
+8. The parameter file specifies default passwords. Change these before you deploy the architecture In the `n-tier-windows.json` file, search for all instances `testPassw0rd!23`, `test$!Passw0rd111`, and `AweS0me@SQLServicePW`. Replace them with your own passwords and save the file.
 
-    ```json
-    "adminUserName": "<user>",
-    "adminPassword": "<password>",
-    ```
+    > [!NOTE]
+    > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file. 
 
 9. Run the following command to deploy the architecture.
 
     ```bash
-    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
+    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows.json --deploy
     ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
