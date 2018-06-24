@@ -4,12 +4,7 @@ description: >-
   How to implement a multi-tier architecture on Azure, for availability, security, scalability, and manageability.
 
 author: MikeWasson
-
-ms.date: 05/03/2018
-
-pnp.series.title: Windows VM workloads
-pnp.series.next: multi-region-application
-pnp.series.prev: multi-vm
+ms.date: 06/23/2018
 ---
 
 # N-tier application with SQL Server
@@ -42,9 +37,11 @@ The architecture has the following components:
 
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
-* **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
+* **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover. It uses Windows Server Failover Cluster (WSFC) technology for failover.
 
-* **Active Directory Domain Services (AD DS) Servers**. The SQL Server Always On Availability Groups are joined to a domain, to enable the Windows Server Failover Cluster (WSFC) technology for failover. 
+* **Active Directory Domain Services (AD DS) Servers**. The computer objects for the failover cluster and its associated clustered roles are created in Active Directory Domain Services (AD DS).
+
+* **Cloud Witness**. A failover cluster requires more than half of its nodes to be running, which is known as having quorum. If the cluster has just two nodes, a network partition could cause each node to think it's the master node. In that case, you need a *witness* to break ties and establish quorum. A witness is a resource such as a shared disk that can act as a tie breaker to establish quorum. Cloud Witness is a type of witness that uses Azure Blob Storage. To learn more about the concept of quorum, see [Understanding cluster and pool quorum](/windows-server/storage/storage-spaces/understand-quorum). For more information about Cloud Witness, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). 
 
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
@@ -156,13 +153,13 @@ Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to man
 
 ## Deploy the solution
 
-A deployment for this reference architecture is available on [GitHub][github-folder]. 
+A deployment for this reference architecture is available on [GitHub][github-folder]. Note that the entire deployment can take up to two hours, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
 
 ### Prerequisites
 
 1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
 
-2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
+2. Install [Azure CLI 2.0][azure-cli-2].
 
 3. Install the [Azure building blocks][azbb] npm package.
 
@@ -170,32 +167,80 @@ A deployment for this reference architecture is available on [GitHub][github-fol
    npm install -g @mspnp/azure-building-blocks
    ```
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
 
    ```bash
    az login
    ```
 
-### Deploy the solution using azbb
+### Deploy the solution 
 
-To deploy the Windows VMs for an N-tier application reference architecture, follow these steps:
+1. Run the following command to create a resource group.
 
-1. Navigate to the `virtual-machines\n-tier-windows` folder for the repository you cloned in step 1 of the pre-requisites above.
+    ```bash
+    az group create --location <location> --name <resource-group-name>
+    ```
 
-2. The parameter file specifies a default adminstrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-windows.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.
-  
-   > [!NOTE]
-   > There are multiple scripts that run during this deployment both in the  **VirtualMachineExtension** objects and in the **extensions** settings for some of the **VirtualMachine** objects. Some of these scripts require the administrator user name and password that you have just changed. It's recommended that you review these scripts to ensure that you specified the correct credentials. The deployment may fail if you have not specified the correct credentials.
-   > 
-   > 
+2. Run the following command to create a Storage account for the Cloud Witness.
 
-Save the file.
+    ```bash
+    az storage account create --location <location> \
+      --name <storage-account-name> \
+      --resource-group <resource-group-name> \
+      --sku Standard_LRS
+    ```
 
-3. Deploy the reference architecture using the **azbb** command line tool as shown below.
+3. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
 
-   ```bash
-   azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-windows.json --deploy
-   ```
+4. Open the `n-tier-windows.json` file. 
+
+5. Search for all instances of "witnessStorageBlobEndPoint" and replace the placeholder text with the name of the Storage account from step 2.
+
+    ```json
+    "witnessStorageBlobEndPoint": "https://[replace-with-storageaccountname].blob.core.windows.net",
+    ```
+
+6. Run the following command to list the account keys for the storage account.
+
+    ```bash
+    az storage account keys list \
+      --account-name <storage-account-name> \
+      --resource-group <resource-group-name>
+    ```
+
+    The output should look like the following. Copy the value of `key1`.
+
+    ```json
+    [
+    {
+        "keyName": "key1",
+        "permissions": "Full",
+        "value": "..."
+    },
+    {
+        "keyName": "key2",
+        "permissions": "Full",
+        "value": "..."
+    }
+    ]
+    ```
+
+7. In the `n-tier-windows.json` file, search for all instances of "witnessStorageAccountKey" and paste in the account key.
+
+    ```json
+    "witnessStorageAccountKey": "[replace-with-storagekey]"
+    ```
+
+8. In the `n-tier-windows.json` file, search for all instances `testPassw0rd!23`, `test$!Passw0rd111`, and `AweS0me@SQLServicePW`. Replace them with your own passwords and save the file.
+
+    > [!NOTE]
+    > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file. 
+
+9. Run the following command to deploy the architecture.
+
+    ```bash
+    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows.json --deploy
+    ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
 
