@@ -153,7 +153,7 @@ Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to man
 
 ## Deploy the solution
 
-A deployment for this reference architecture is available on [GitHub][github-folder]. 
+A deployment for this reference architecture is available on [GitHub][github-folder]. Note that the entire deployment can take up to two hours, which includes running the scripts to configure AD DS, the Windows Server Failover Cluster, and the SQL Server Always On availability group.
 
 ### Prerequisites
 
