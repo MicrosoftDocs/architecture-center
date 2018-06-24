@@ -17,7 +17,7 @@
       - name: Foundational governance design guide
         items:
         - name: Governance design guide
-          href: adoption-intro/goverance-how-to.md
+          href: adoption-intro/governance-how-to.md
       - name: Deploying basic workloads to Azure
         items:
         - name: Platform as a Service (PaaS) architecture
