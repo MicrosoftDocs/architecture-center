@@ -167,78 +167,118 @@ In addition, it's always wise to plan for security hardening. Other recommendati
 
 ## Deploy the solution
 
-The deployment scripts for this reference architecture are available on [GitHub][github]. 
+A deployment for this reference architecture is available on [GitHub][github]. The entire deployment can take several hours to complete.
 
-You can deploy this architecture incrementally or all at once. The first time, we recommend an incremental deployment, so that you can see what each deployment does. Specify the increment using one of the following *mode* parameters.
+The deployment creates the following resource groups in your subscription:
 
-| Mode           | What it does                                                                                                            |
-|----------------|-------------------------------------------------------------------------------------------------------------------------|
-| onprem         | (Optional) Deploys a simulated on-premises network environment, for testing or evaluation. This step does not connect to an actual on-premises network. |
-| infrastructure | Deploys the SharePoint 2016 network infrastructure and jumpbox to Azure.                                                |
-| createvpn      | Deploys a virtual network gateway for both the SharePoint and on-premises networks and connects them. Run this step only if you ran the `onprem` step.                |
-| workload       | Deploys the SharePoint servers to the SharePoint network.                                                               |
-| security       | Deploys the network security group to the SharePoint network.                                                           |
-| all            | Deploys all the preceding deployments.                            
+- ra-onprem-sp2016-rg
+- ra-sp2016-network-rg
 
+The template parameter files refer to these names, so if you change them, update the parameter files to match. 
 
-To deploy the architecture incrementally with a simulated on-premises network environment, run the following steps in order:
-
-1. onprem
-2. infrastructure
-3. createvpn
-4. workload
-5. security
-
-To deploy the architecture incrementally without a simulated on-premises network environment, run the following steps in order:
-
-1. infrastructure
-2. workload
-3. security
-
-To deploy everything in one step, use `all`. Note that the entire process may take several hours.
+The parameter files include a hard-coded password in various places. Change these values before you deploy.
 
 ### Prerequisites
 
-* Install the latest version of [Azure PowerShell][azure-ps].
+1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
 
-* Before deploying this reference architecture, verify that your subscription has sufficient quota—at least 38 cores. If you don't have enough, use the Azure portal to submit a support request for more quota.
+2. Install [Azure CLI 2.0][azure-cli-2].
 
-* To estimate the cost of this deployment, see the [Azure Pricing Calculator][azure-pricing].
+3. Install the [Azure building blocks][azbb] npm package.
 
-### Deploy the reference architecture
+   ```bash
+   npm install -g @mspnp/azure-building-blocks
+   ```
 
-1.  Download or clone the [GitHub repo][github] to your local computer.
+4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
 
-2.  Open a PowerShell window and navigate to the `/sharepoint/sharepoint-2016` folder.
+   ```bash
+   az login
+   ```
 
-3.  Run the following PowerShell command. For \<subscription id\>, use your Azure subscription ID. For \<location\>, specify an Azure region, such as `eastus` or `westus`. For \<mode\>, specify `onprem`, `infrastructure`, `createvpn`, `workload`, `security`, or `all`.
+### Deploy the solution 
+
+1. Run the following command to deploy a simulated on-premises network.
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p onprem.json --deploy
+    ```
+
+2. Run the following command to deploy the Azure VNet and the VPN gateway.
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p connections.json --deploy
+    ```
+
+3. Run the following command to deploy the jumpbox, AD domain controllers, and SQL Server VMs.
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure1.json --deploy
+    ```
+
+4. Run the following command to create the failover cluster and the availability group. 
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure2-cluster.json --deploy
+
+5. Run the following command to deploy the remaining VMs.
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure3.json --deploy
+    ```
+
+At this point, you should check the TCP conectivity to the SQL Server availability group listener, as follows:
+
+1. Use the Azure portal to find the VM named `ra-sp-jb-vm1` in the `ra-sp2016-network-rg` resource group. This is the jumpbox VM.
+
+2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `azure1.json` parameter file.
+
+3. From the Remote Desktop session, log into 10.0.5.4. 
+
+4. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VMs in the spoke VNets.
 
     ```powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <mode>
-    ```   
-4. When prompted, log on to your Azure account. The deployment scripts can take up to several hours to complete, depending on the mode you selected.
+    Test-NetConnection 10.0.3.100 -Port 1433
+    ```
 
-5. When the deployment completes, run the scripts to configure SQL Server Always On Availability Groups. See the [readme][readme] for details.
+The output should look similar to the following:
 
-> [!WARNING]
-> The parameter files include a hard-coded password (`AweS0me@PW`) in various places. Change these values before you deploy.
+```powershell
+ComputerName     : 10.0.3.100
+RemoteAddress    : 10.0.3.100
+RemotePort       : 1433
+InterfaceAlias   : Ethernet 3
+SourceAddress    : 10.0.0.132
+TcpTestSucceeded : True
+```
 
+If it fails, use the Azure Portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait for a minute after the VM restarts for the connection to succeed. 
 
-## Validate the deployment
+Now complete the deployment as follows.
 
-After you deploy this reference architecture, the following resource groups are listed under the Subscription that you used:
+1. Run the following command to deploy the SharePoint farm primary node.
 
-| Resource Group        | Purpose                                                                                         |
-|-----------------------|-------------------------------------------------------------------------------------------------|
-| ra-onprem-sp2016-rg   | Simulated on-premises network with Active Directory, federated with the SharePoint 2016 network |
-| ra-sp2016-network-rg  | Infrastructure to support SharePoint deployment                                                 |
-| ra-sp2016-workload-rg | SharePoint and supporting resources                                                             |
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure4-sharepoint-server.json --deploy
+    ```
 
-### Validate access to the SharePoint site from the on-premises network
+2. Run the following command to deploy the SharePoint cache, search, and web.
 
-1. In the [Azure portal][azure-portal], under **Resource groups**, select the `ra-onprem-sp2016-rg` resource group.
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure5-sharepoint-farm.json --deploy
+    ```
 
-2. In the list of resources, select the VM resource named `ra-adds-user-vm1`. 
+3. Run the following command to create the NSG rules.
+
+    ```bash
+    azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure6-security.json --deploy
+    ```
+
+### Validate the deployment
+
+1. In the [Azure portal][azure-portal], navigate to the `ra-onprem-sp2016-rg` resource group.
+
+2. In the list of resources, select the VM resource named `ra-onpr-u-vm1`. 
 
 3. Connect to the VM, as described in [Connect to virtual machine][connect-to-vm]. The user name is `\onpremuser`.
 
@@ -248,36 +288,6 @@ After you deploy this reference architecture, the following resource groups are 
 
 This logon tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
 
-### Validate jumpbox access to VMs and check configuration settings
-
-1.  In [Azure portal][azure-portal], under **Resource groups**, select the `ra-sp2016-network-rg` resource group.
-
-2.  In the list of resources, select the VM resource named `ra-sp2016-jb-vm1`, which is the jumpbox.
-
-3. Connect to the VM, as described in [Connect to virtual machine][connect-to-vm]. The user name is `testuser`.
-
-4.  After you log onto the jumpbox, open an RDP session from the jumpbox. Connect to any other VMs in the VNet. The username is `testuser`. You can ignore the warning about the remote computer's security certificate.
-
-5.  When the remote connection to the VM opens, review the configuration and make changes using the administrative tools such as Server Manager.
-
-The following table shows the VMs that are deployed. 
-
-| Resource Name      | Purpose                                   | Resource Group        | VM Name                       |
-|--------------------|-------------------------------------------|-----------------------|-------------------------------|
-| Ra-sp2016-ad-vm1   | Active Directory + DNS                    | Ra-sp2016-network-rg  | Ad1.contoso.local             |
-| Ra-sp2016-ad-vm2   | Active Directory + DNS                    | Ra-sp2016-network-rg  | Ad2.contoso.local             |
-| Ra-sp2016-fsw-vm1  | SharePoint                                | Ra-sp2016-network-rg  | Fsw1.contoso.local            |
-| Ra-sp2016-jb-vm1   | Jumpbox                                   | Ra-sp2016-network-rg  | Jb (use public IP to log on) |
-| Ra-sp2016-sql-vm1  | SQL Always On - Failover                  | Ra-sp2016-network-rg  | Sq1.contoso.local             |
-| Ra-sp2016-sql-vm2  | SQL Always On - Primary                   | Ra-sp2016-network-rg  | Sq2.contoso.local             |
-| Ra-sp2016-app-vm1  | SharePoint 2016 Application MinRole       | Ra-sp2016-workload-rg | App1.contoso.local            |
-| Ra-sp2016-app-vm2  | SharePoint 2016 Application MinRole       | Ra-sp2016-workload-rg | App2.contoso.local            |
-| Ra-sp2016-dch-vm1  | SharePoint 2016 Distributed Cache MinRole | Ra-sp2016-workload-rg | Dch1.contoso.local            |
-| Ra-sp2016-dch-vm2  | SharePoint 2016 Distributed Cache MinRole | Ra-sp2016-workload-rg | Dch2.contoso.local            |
-| Ra-sp2016-srch-vm1 | SharePoint 2016 Search MinRole            | Ra-sp2016-workload-rg | Srch1.contoso.local           |
-| Ra-sp2016-srch-vm2 | SharePoint 2016 Search MinRole            | Ra-sp2016-workload-rg | Srch2.contoso.local           |
-| Ra-sp2016-wfe-vm1  | SharePoint 2016 Web Front End MinRole     | Ra-sp2016-workload-rg | Wfe1.contoso.local            |
-| Ra-sp2016-wfe-vm2  | SharePoint 2016 Web Front End MinRole     | Ra-sp2016-workload-rg | Wfe2.contoso.local            |
 
 
 **_Contributors to this reference architecture_** &mdash;  Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
