@@ -1,9 +1,9 @@
 - name: Azure Architecture Center
   href: /azure/architecture
 
-  - name: Building IoT solutions on Azure
+- name: Building IoT solutions on Azure
   items:
   - name: Introduction
-    href: /azure/iot/index.md
+    href: index.md
   - name: Architecture of an IoT solution
-    href: /azure/iot/iot-architecture.md
+    href: iot-architecture.md
