@@ -33,7 +33,7 @@
         {
             "type": "Microsoft.Network/publicIPAddresses",
             "sku": {
-                "name": "Standard"
+                "name": "Basic"
             },
             "name": "[variables('publicIP')]",
             "apiVersion": "2018-02-01",
@@ -41,7 +41,7 @@
             "scale": null,
             "properties": {
                 "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
+                "publicIPAllocationMethod": "Static",
                 "idleTimeoutInMinutes": 4
             },
             "dependsOn": []
@@ -177,6 +177,25 @@
                         }
                     }
                 ],
+                "virtualNetworkPeerings": [
+                    {
+                        "name": "peering",
+                        "properties": {
+                            "remoteVirtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', variables('backendVnet'))]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": false,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.0.0.0/16"
+                                ]
+                            }
+                        }
+                    }
+                ],
                 "enableDdosProtection": false,
                 "enableVmProtection": false
             },
@@ -305,6 +324,25 @@
                         "name": "backendSubnet",
                         "properties": {
                             "addressPrefix": "10.0.0.0/24"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [
+                    {
+                        "name": "peering",
+                        "properties": {
+                            "remoteVirtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', variables('frontendVnet'))]"
+                            },
+                            "allowVirtualNetworkAccess": true,
+                            "allowForwardedTraffic": false,
+                            "allowGatewayTransit": false,
+                            "useRemoteGateways": false,
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "10.1.2.0/24"
+                                ]
+                            }
                         }
                     }
                 ],
