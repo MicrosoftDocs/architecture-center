@@ -4,8 +4,6 @@ description: <Article Description>
 author: Abdul Sheik
 ms.date: <publish or update date>
 ---
-# Article Title
-
 # Monitoring and Reporting - Log Analytics, Azure Advisor - Thomas
  1.  Cost Management (P2)
  2. -add calc for now and not go any further
