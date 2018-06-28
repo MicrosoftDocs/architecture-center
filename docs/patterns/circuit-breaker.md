@@ -225,20 +225,20 @@ Additionally, it uses a lock to prevent the circuit breaker from trying to perfo
             this.stateStore.Reset();
             return;
           }
-          catch (Exception ex)
-          {
-            // If there's still an exception, trip the breaker again immediately.
-            this.stateStore.Trip(ex);
+        }
+        catch (Exception ex)
+        {
+          // If there's still an exception, trip the breaker again immediately.
+          this.stateStore.Trip(ex);
 
-            // Throw the exception so that the caller knows which exception occurred.
-            throw;
-          }
-          finally
+          // Throw the exception so that the caller knows which exception occurred.
+          throw;
+        }
+        finally
+        {
+          if (lockTaken)
           {
-            if (lockTaken)
-            {
-              Monitor.Exit(halfOpenSyncObject);
-            }
+            Monitor.Exit(halfOpenSyncObject);
           }
         }
       }
