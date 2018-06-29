@@ -22,11 +22,11 @@ This logical architecture consists of the following functional blocks:
 
 - The **cold path** performs batch processing at longer intervals (hourly or daily). Typical scenarios involve mining historical data for business insights or machine learning. The cold path typically operates over large volumes of data, but the results don't need to be as timely as the hot path. In the cold path, raw telemetry is captured and then fed into a batch process such as a MapReduce job.  
 
-The cold path is not the same as *cold storage*. The term cold storage refers to a data store that is archived and rarely accessed. Azure Archive Blob Storage and Amazon Glacier are examples of cold storage. The results from the cold path processing are typically used for interactive analytic queries, where cold storage would not be appropriate.
+    The cold path is not the same as *cold storage*. The term cold storage refers to a data store that is archived and rarely accessed. Azure Archive Blob Storage and Amazon Glacier are examples of cold storage. However, the results from the cold path are typically used for interactive analytic queries, where cold storage would not be appropriate.
 
-In some cases, it's also useful to define a **warm path**. The warm path is similar to the hot path, except the hot path has stricter latency requirements. For example, if the hot path has latency on the order seconds or a minute, the warm path may have a latency of several minutes or longer. However, there's no precise cutoff that distinguishes "hot" from "warm."
+- In some cases, it's also useful to define a **warm path**. The warm path is similar to the hot path, except the hot path has stricter latency requirements. For example, if the hot path has latency on the order seconds or a minute, the warm path may have a latency of several minutes or longer. However, there's no precise cutoff that distinguishes "hot" from "warm."
 
-The warm path often supports the hot path. For example, the hot path might trigger an alert, while the warm path shows the last hour of telemetry data in a dashboard. An operator who receives the alert will use the warm-path dashboard to drill more deeply into the data. 
+    The warm path often supports the hot path. For example, the hot path might trigger an alert, while the warm path shows the last hour of telemetry data in a dashboard. An operator who receives the alert will use the warm-path dashboard to drill more deeply into the data. 
 
 The hot, cold, and warm paths all feed into data visualization and reporting tools, such as Power BI dashboards. 
 
