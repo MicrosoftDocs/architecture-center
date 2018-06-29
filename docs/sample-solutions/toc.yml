@@ -9,6 +9,11 @@
     items:
     - name: Image Processing
       href: ai/intelligent-apps-image-processing.md
+  - name: Event driven apps
+    href: event-driven-apps/index.md
+    items:
+    - name: Hotel reservation chatbot
+      href: event-driven-apps/commerce-chatbot.md
   - name: App Modernization
     href: app-modernization/index.md
     items:
