@@ -6,7 +6,7 @@ ms.date: <publish or update date>
 ---
 # Hybrid HPC in Azure
 
-
+<Introductory paragraph>
 
 ## Potential use cases
 
