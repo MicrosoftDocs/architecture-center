@@ -1,4 +1,8 @@
-# Designing, building, and operating IoT solutions on Azure
+# Internet of Things on Azure: Designing and operating an IoT solution at scale
+
+This series of articles explores how to build and run an IoT solution on Azure. There is a reference implementation on GitHub that accompanies this series.
+
+## Introduction
 
 Depending on who you ask, the Internet of Things (IoT) is either the "Next Big Thing" or something that people have been doing for years. 
 
