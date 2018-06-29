@@ -26,11 +26,11 @@ This solution covers ###What does the solution cover###, the data flows through 
 
 1. User submits job to the CycleCloud server
 2. CycleCloud server decides where to place the job depending on submission criteria
-  2a. CycleCloud submits the job to an Azure-based head node
-  2b. CycleCloud submits the job to an on-premises head node
+&nbsp&nbsp2a. CycleCloud submits the job to an Azure-based head node
+&nbsp&nbsp2b. CycleCloud submits the job to an on-premises head node
 3. The job is queued for execution
-  3a. CycleCloud detects a job in the queue and scales the number of execute nodes accordingly
-  3b. The on-premises head node submits the job when space is available on the cluster
+&nbsp&nbsp3a. CycleCloud detects a job in the queue and scales the number of execute nodes accordingly
+&nbsp&nbsp3b. The on-premises head node submits the job when space is available on the cluster
 4. CycleCloud monitors the head nodes and job queues to gather usage metrics and determine when the job is completed
 
 ### Components
