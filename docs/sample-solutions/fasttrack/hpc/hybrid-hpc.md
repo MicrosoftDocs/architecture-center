@@ -24,7 +24,14 @@ The solution diagram below is an example of this solution:
 
 This solution covers ###What does the solution cover###, the data flows through the solution as follows:
 
-1. Numbered data flow through the solution.
+1. User submits job to the CycleCloud server
+2. CycleCloud server decides where to place the job depending on submission criteria
+  2a. CycleCloud submits the job to an Azure-based head node
+  2b. CycleCloud submits the job to an on-premises head node
+3. The job is queued for execution
+  3a. CycleCloud detects a job in the queue and scales the number of execute nodes accordingly
+  3b. The on-premises head node submits the job when space is available on the cluster
+4. CycleCloud monitors the head nodes and job queues to gather usage metrics and determine when the job is completed
 
 ### Components
 
