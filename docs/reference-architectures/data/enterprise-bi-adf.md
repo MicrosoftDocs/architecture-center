@@ -215,9 +215,7 @@ The steps that follow include some user-defined variables. You will need to repl
 - `<storage_account_name>`. Storage account name. Must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts.
 - `<sql-db-password>`. SQL Server login password.
 
-### Deploy the Azure resources
-
-This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Factory.
+### Deploy Azure Data Factory
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\azure\templates` folder of the [GitHub repository][ref-arch-repo].
 
@@ -229,43 +227,15 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
 
     Specify a region that supports SQL Data Warehouse, Azure Analysis Services, and Data Factory v2. See [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)
 
-3. Run the following Azure CLI command. Replace the parameter values shown in angle brackets.
+3. Run the following command
 
-    ```bash
+    ```
     az group deployment create --resource-group <resource_group_name> \
-     --template-file azure-resources-deploy.json \
-     --parameters "dwServerName"="<data_warehouse_server_name>" \
-     "dwAdminLogin"="adminuser" "dwAdminPassword"="<data_warehouse_password>" \ 
-     "storageAccountName"="<storage_account_name>" \
-     "analysisServerName"="<analysis_server_name>" \
-     "analysisServerAdmin"="<user@contoso.com>"
+        --template-file adf-create-deploy.json \
+        --parameters factoryName=<adf_factory_name> location=eastus
     ```
 
-    - The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts. 
-    - For the `analysisServerAdmin` parameter, use your Azure Active Directory user principal name (UPN).
-
-4. Run the following Azure CLI command to get the access key for the storage account. You will use this key in the next step.
-
-    ```bash
-    az storage account keys list -n <storage_account_name> -g <resource_group_name> --query [0].value
-    ```
-
-5. Run the following Azure CLI command. Replace the parameter values shown in angle brackets. 
-
-    ```bash
-    az group deployment create --resource-group <resource_group_name> \
-    --template-file adf-pipeline-deploy.json \
-    --parameters "factoryName"="<adf_factory_name>" \
-    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data_warehouse_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
-    "blobConnectionString"="DefaultEndpointsProtocol=https;AccountName=<storage_account_name>;AccountKey=<storage_account_key>;EndpointSuffix=core.windows.net" \
-    "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
-    ```
-
-    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. The value of `<sql-db-password>` will be the password for the on-premises SQL Server VM, which you will create later.
-
-### Get the Integration Runtime authentication key
-
-For the on-premise server (below), you will need an authentication key for the Azure Data Factory [integration runtime](/azure/data-factory/concepts-integration-runtime). Perform the following steps.
+Next, use the Azure Portal to get the authentication key for the Azure Data Factory [integration runtime](/azure/data-factory/concepts-integration-runtime), as follows:
 
 1. In the [Azure Portal](https://portal.azure.com/), navigate to the Data Factory instance.
 
@@ -284,13 +254,15 @@ For the on-premise server (below), you will need an authentication key for the A
 
 6. Find **Key1** and copy the value of the authentication key.
 
+You will need the authentication key for the next step.
+
 ### Deploy the simulated on-premises server
 
 This step deploys a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. It also loads the [Wide World Importers OLTP database][wwi] into SQL Server.
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\onprem\templates` folder of the repository.
 
-2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with the password that you specified earlier for `<sql-db-password>`. These must match, or the Data Factory pipeline will fail.
+2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with your own password for SQL Server.
 
 3. In the same file, paste the Integration Runtime authentication key into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
 
@@ -305,7 +277,7 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
         }
     ```
 
-3. Run `azbb` to deploy the on-premises server, as follows:
+3. Run the following command.
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
@@ -313,6 +285,46 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 
 This step may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
 
+
+### Deploy Azure resources
+
+This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Factory.
+
+1. Navigate to the `data\enterprise_bi_sqldw_advanced\azure\templates` folder of the [GitHub repository][ref-arch-repo].
+
+2. Run the following Azure CLI command. Replace the parameter values shown in angle brackets.
+
+    ```bash
+    az group deployment create --resource-group <resource_group_name> \
+     --template-file azure-resources-deploy.json \
+     --parameters "dwServerName"="<data_warehouse_server_name>" \
+     "dwAdminLogin"="adminuser" "dwAdminPassword"="<data_warehouse_password>" \ 
+     "storageAccountName"="<storage_account_name>" \
+     "analysisServerName"="<analysis_server_name>" \
+     "analysisServerAdmin"="<user@contoso.com>"
+    ```
+
+    - The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts. 
+    - For the `analysisServerAdmin` parameter, use your Azure Active Directory user principal name (UPN).
+
+3. Run the following Azure CLI command to get the access key for the storage account. You will use this key in the next step.
+
+    ```bash
+    az storage account keys list -n <storage_account_name> -g <resource_group_name> --query [0].value
+    ```
+
+4. Run the following Azure CLI command. Replace the parameter values shown in angle brackets. 
+
+    ```bash
+    az group deployment create --resource-group <resource_group_name> \
+    --template-file adf-pipeline-deploy.json \
+    --parameters "factoryName"="<adf_factory_name>" \
+    "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data_warehouse_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
+    "blobConnectionString"="DefaultEndpointsProtocol=https;AccountName=<storage_account_name>;AccountKey=<storage_account_key>;EndpointSuffix=core.windows.net" \
+    "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
+    ```
+
+    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. For `<sql-db-password>`, use the SQL Server password that you specified in the `onprem.parameters.json` file previously.
 
 ### Run the data warehouse scripts
 
