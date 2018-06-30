@@ -205,7 +205,7 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 The steps that follow include some user-defined variables. You will need to replace these with values that you define.
 
-- `<adf_factory_name>`. Data Factory name.
+- `<data_factory_name>`. Data Factory name.
 - `<analysis_server_name>`. Analysis Services server name.
 - `<active_directory_upn>`. Your Azure Active Directory user principal name (UPN). For example, `user@contoso.com`.
 - `<data_warehouse_server_name>`. SQL Data Warehouse server name.
@@ -232,7 +232,7 @@ The steps that follow include some user-defined variables. You will need to repl
     ```
     az group deployment create --resource-group <resource_group_name> \
         --template-file adf-create-deploy.json \
-        --parameters factoryName=<adf_factory_name> location=eastus
+        --parameters factoryName=<data_factory_name> location=<location>
     ```
 
 Next, use the Azure Portal to get the authentication key for the Azure Data Factory [integration runtime](/azure/data-factory/concepts-integration-runtime), as follows:
@@ -262,9 +262,11 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 
 1. Navigate to the `data\enterprise_bi_sqldw_advanced\onprem\templates` folder of the repository.
 
-2. In the `onprem.parameters.json` file, replace `testPassw0rd!23` with your own password for SQL Server.
+2. In the `onprem.parameters.json` file, search for `adminPassword`. This is the password to log into the SQL Server VM. Replace the value with another password.
 
-3. In the same file, paste the Integration Runtime authentication key into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
+3. In the same file, search for `SqlUserCredentials`. This property specifies the SQL Server account credentials. Replace the password with different value.
+
+4. In the same file, paste the Integration Runtime authentication key into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
 
     ```json
     "protectedSettings": {
@@ -277,14 +279,13 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
         }
     ```
 
-3. Run the following command.
+5. Run the following command.
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
     ```
 
 This step may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
-
 
 ### Deploy Azure resources
 
@@ -318,25 +319,29 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     ```bash
     az group deployment create --resource-group <resource_group_name> \
     --template-file adf-pipeline-deploy.json \
-    --parameters "factoryName"="<adf_factory_name>" \
+    --parameters "factoryName"="<data_factory_name>" \
     "sinkDWConnectionString"="Server=tcp:<data_warehouse_server_name>.database.windows.net,1433;Initial Catalog=wwi;Persist Security Info=False;User ID=adminuser;Password=<data_warehouse_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" \
     "blobConnectionString"="DefaultEndpointsProtocol=https;AccountName=<storage_account_name>;AccountKey=<storage_account_key>;EndpointSuffix=core.windows.net" \
     "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
     ```
 
-    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. For `<sql-db-password>`, use the SQL Server password that you specified in the `onprem.parameters.json` file previously.
+    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. For `<sql-db-password>`, use the SQL Server account password that you specified in the `onprem.parameters.json` file previously.
 
 ### Run the data warehouse scripts
 
-1. In the [Azure Portal](https://portal.azure.com/), find the on-premises VM, which is named `sql-vm1`.
+1. In the [Azure Portal](https://portal.azure.com/), find the on-premises VM, which is named `sql-vm1`. The user name and password for the VM are specified in the `onprem.parameters.json` file.
 
 2. Click **Connect** and use Remote Desktop to connect to the VM.
 
-3. From your Remote Desktop session, open a command prompt and run the following commands.
+3. From your Remote Desktop session, open a command prompt and navigate to the following folder on the VM:
 
     ```
     cd C:\SampleDataFiles\reference-architectures\data\enterprise_bi_sqldw_advanced\azure\sqldw_scripts
+    ```
 
+4. Run the following command:
+
+    ```
     deploy_database.cmd -S <data_warehouse_server_name>.database.windows.net -d wwi -U adminuser -P <data_warehouse_password> -N -I
     ```
 
@@ -360,12 +365,12 @@ To verify this step, you can use SQL Server Management Studio (SSMS) to connect 
     Connect-AzureRmAccount 
     ```
 
-4. Run the following PowerShell commands. 
+4. Run the following PowerShell commands. Replace the values in angle brackets.
 
     ```powershell
     Set-AzureRmContext -SubscriptionId <subscription id>
 
-    Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "MasterPipeline" -ResourceGroupName <resource-group>
+    Invoke-AzureRmDataFactoryV2Pipeline -DataFactory <data-factory-name> -PipelineName "MasterPipeline" -ResourceGroupName <resource_group_name>
 
 5. In the Azure Portal, navigate to the Data Factory instance that was created earlier.
 
