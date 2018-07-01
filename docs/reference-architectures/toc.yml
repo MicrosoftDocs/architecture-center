@@ -18,6 +18,8 @@
     items:
     - name: Enterprise BI with SQL Data Warehouse
       href: data/enterprise-bi-sqldw.md
+    - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
+      href: data/enterprise-bi-adf.md
 
   - name: Hybrid networks
     href: hybrid-networking/index.md
