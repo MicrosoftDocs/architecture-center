@@ -264,7 +264,7 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
 
 2. In the `onprem.parameters.json` file, search for `adminPassword`. This is the password to log into the SQL Server VM. Replace the value with another password.
 
-3. In the same file, search for `SqlUserCredentials`. This property specifies the SQL Server account credentials. Replace the password with different value.
+3. In the same file, search for `SqlUserCredentials`. This property specifies the SQL Server account credentials. Replace the password with a different value.
 
 4. In the same file, paste the Integration Runtime authentication key into the `IntegrationRuntimeGatewayKey` parameter, as shown below:
 
@@ -285,7 +285,7 @@ This step deploys a VM as a simulated on-premises server, which includes SQL Ser
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
     ```
 
-This step may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
+This step may take 20 to 30 minutes to complete. It includes running a [DSC](/powershell/dsc/overview) script to install the tools and restore the database. 
 
 ### Deploy Azure resources
 
@@ -325,7 +325,7 @@ This step provisions SQL Data Warehouse, Azure Analysis Services, and Data Facto
     "sourceDBConnectionString"="Server=sql1;Database=WideWorldImporters;User Id=adminuser;Password=<sql-db-password>;Trusted_Connection=True;"
     ```
 
-    Note that the connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. For `<sql-db-password>`, use the SQL Server account password that you specified in the `onprem.parameters.json` file previously.
+    The connection strings have substrings shown in angle brackets that must be replaced. For `<storage_account_key>`, use the key that you got in the previous step. For `<sql-db-password>`, use the SQL Server account password that you specified in the `onprem.parameters.json` file previously.
 
 ### Run the data warehouse scripts
 
