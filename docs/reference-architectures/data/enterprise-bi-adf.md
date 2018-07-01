@@ -380,7 +380,7 @@ To verify this step, you can use SQL Server Management Studio (SSMS) to connect 
 
 7. In the Azure Data Factory portal, click the **Monitor** icon. 
 
-8. Verify that the pipeline has completed successfully.
+8. Verify that the pipeline completes successfully. It can take a few minutes.
 
     ![](./images/adf-pipeline-progress.png)
 
