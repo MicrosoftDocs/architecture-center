@@ -6,7 +6,11 @@ ms.date: <publish or update date>
 ---
 # Deploy a .NET application to Azure App Service using Visual Studio Team Services as the CI/CD Pipeline
 
-Introductory Paragraphs
+DevOps is the union of people, process, and products to enable continuous delivery of value to our end users. 
+
+This sample solution demonstrates how Visual Studio Team Services can be used by development teams to deploy a .NET Application to Azure App Service. This document also points out a number of the considerations that you should make whilst you architect such a solution using App Service. Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps  you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
+
+By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their solution, rather than the management of the infrastructure to enable it.
 
 ## Potential use cases
 
@@ -123,25 +127,40 @@ As we will be using Visual Studio Team Services to drive the DevOps pipeline, we
 
 #### Continuous Deployment - Releases
 
+1. Navigate to **Build and Release**, and click on the **Releases** tab.
+2. Select the **PartsUnlimitedE2E** release definition.
+3. Click **Edit**.
+4. Notice that a release pipeline has been setup, releasing our application into Dev, QA and Production. Notice that there is a **continuous deployment trigger** set from our **PartsUnlimitedE2E** build artifact, with automatic releases into our environments.
+5. This demo deploys the App Service to the same resource, in each environment due to cost saving. However, you could clone the Dev task and alter the variables to change the behavior.
+
 **Additional Considerations.**
 
-* Tokenization of secrets
-* Using variables as part of deployment
+* Consider leveraging one of the [tokenization tasks][vsts-tokenization] that are available in the VSTS marketplace.
+* Consider using the [Deploy: Azure Key Vault][download-keyvault-secrets] VSTS task to download secrets from an Azure KeyVault into your release. You can then use those secrets as variables as part of your release definition, and should not be storing them in source control.
+* Consider using [release variables][vsts-release-variables] in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. If using variables for secret information, ensure that you select the padlock icon.
+* Consider using [deployment gates][vsts-deployment-gates] in your release pipeline. This allows you to leverage monitoring data in association with external systems (e.g. incident management or additional bespoke systems) to determine whether a release should be promoted.
+* Where manual intervention in a release pipeline is required, consider using the [approvals][vsts-approvals] functionality.
+* Consider using [Application Insights][application-insights] and additional monitoring tooling as early as possible in your release pipeline. Most organizations only begin monitoring in their production environment, though you could identify potential bugs earlier in the process and prevent impact to your users in production.
 
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+We have provided three sample cost profiles based on amount of traffic you expect to get in your App Service solution.
 
 * [Small][small-pricing]: describe what a small implementation is.
 * [Medium][medium-pricing]: describe what a medium implementation is.
 * [Large][large-pricing]: describe what a large implementation is.
-* [VSTS][vsts-pricing]: Visual Studio Team Services (VSTS) is a service that enables you to manage your development life cycle, and is paid for on a per user, per month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users, or user basic licenses.
+
+Your visual Studio Team Services costing will depend upon the number of users in your organization that require access, in addition to factors such as the number of concurrent build/releases required, and number of test users. These are detailed further on the [VSTS pricing page][vsts-pricing-page].
+
+* [Visual Studio Team Services (VSTS)][vsts-pricing-calculator] is a service that enables you to manage your development life cycle and is paid for on a per user, per month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users, or user basic licenses.
 
 ## Related Resources
 
-* [DevOps with Visual Studio Team Services][devops-with-vsts]
+* [What is DevOps?][devops-whatis]
+* [DevOps at Microsoft - How we work with Visual Studio Team Services][devops-microsoft]
+* [Step-by-step Tutorials: DevOps with Visual Studio Team Services][devops-with-vsts]
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/
@@ -156,10 +175,13 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [design-patterns-resiliency]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
 [design-patterns-security]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/security
+[devops-microsoft]: https://docs.microsoft.com/en-us/azure/devops/devops-at-microsoft/
 [devops-with-vsts]: https://almvm.azurewebsites.net/labs/vsts/
 [application-insights]: https://azure.microsoft.com/en-gb/services/application-insights/
 [cloud-based-load-testing]: https://visualstudio.microsoft.com/team-services/cloud-load-testing/
 [cloud-based-load-testing-on-premises]: https://docs.microsoft.com/en-us/vsts/test/load-test/clt-with-private-machines?view=vsts
+[devops-whatis]: https://docs.microsoft.com/en-us/azure/devops/what-is-devops
+[download-keyvault-secrets]: https://docs.microsoft.com/en-us/vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [resiliency-app-service]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency
@@ -169,7 +191,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [continuous-delivery]: https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-delivery
 [web-apps]: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview
 [vsts-account-create]: https://docs.microsoft.com/en-gb/vsts/organizations/accounts/create-account-msa-or-work-student?view=vsts
+[vsts-approvals]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/approvals?view=vsts
 [vsts-demo-generator]: https://vstsdemogenerator.azurewebsites.net/
-[vsts-pricing]: https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/
+[vsts-deployment-gates]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/gates?view=vsts
+[vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
+[vsts-pricing-page]: https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/
+[vsts-release-variables]: https://docs.microsoft.com/en-us/vsts/pipelines/release/variables?view=vsts&tabs=batch
+[vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
 [azure-key-vault]: https://docs.microsoft.com/en-gb/azure/key-vault/key-vault-overview
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
