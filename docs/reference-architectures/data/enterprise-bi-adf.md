@@ -2,7 +2,7 @@
 title: Automated enterprise BI with SQL Data Warehouse and Azure Data Factory
 description: Automate an ELT workflow on Azure by using Azure Data Factory
 author: MikeWasson
-ms.date: 06/19/2018
+ms.date: 07/01/2018
 ---
 
 # Automated enterprise BI with SQL Data Warehouse and Azure Data Factory
