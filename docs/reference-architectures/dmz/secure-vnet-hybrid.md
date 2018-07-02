@@ -2,7 +2,7 @@
 title: Implementing a secure hybrid network architecture in Azure
 description: How to implement a secure hybrid network architecture in Azure.
 author: telmosampaio
-ms.date: 11/23/2016
+ms.date: 07/01/2018
 
 pnp.series.title: Network DMZ
 pnp.series.prev: ./index
@@ -155,19 +155,54 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 ### DevOps access
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-## Solution deployment
+## Deploy the solution
 
-A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed by following the directions below:
+A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. 
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2Fsecure-vnet-hybrid%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click the **Purchase** button.
-3. Wait for the deployment to complete.
-4. The parameter files include hard-coded administrator user name and password for all VMs, and it is strongly recommended that you immediately change both. For each VM in the deployment, select it in the Azure portal and then click **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to save.
+### Preequisites
+
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
+
+### Deploy resources
+
+1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
+
+2. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
+    ```
+
+3. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
+    ```
+
+### Connect the on-premises and Azure gateways
+
+In this step, you will connect the two local network gateways.
+
+1. In the Azure Portal, navigate to the resource group and find the resource named `ra-vpn-vgw-pip`. Copy the IP address shown in the **Overview** blade.
+
+2. Find the resource named `onprem-vpn-lgw`.
+
+3. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 1.
+
+    ![](./images/local-net-gw.png)
+
+4. Click **Save** and wait for the opertion to complete. It can take about 5 minutes.
+
+5. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
+
+6. Find the resource named `ra-vpn-lgw`. 
+
+7. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 4.
+
+8. Click **Save** and wait for the opertion to complete.
+
+9. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
+
 
 ## Next steps
 
