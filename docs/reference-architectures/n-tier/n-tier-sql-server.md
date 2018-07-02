@@ -157,7 +157,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 ### Prerequisites
 
-[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../../includes/ref-arch-prerequisites.md)]
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the solution
 

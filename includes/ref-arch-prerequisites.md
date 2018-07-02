@@ -8,7 +8,7 @@
    npm install -g @mspnp/azure-building-blocks
    ```
 
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
+4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
 
    ```bash
    az login
