@@ -12,7 +12,7 @@ cardTitle: DMZ between Azure and on-premises
 ---
 # DMZ between Azure and your on-premises datacenter
 
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited.
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
@@ -183,26 +183,27 @@ A deployment for a reference architecture that implements these recommendations 
 
 In this step, you will connect the two local network gateways.
 
-1. In the Azure Portal, navigate to the resource group and find the resource named `ra-vpn-vgw-pip`. Copy the IP address shown in the **Overview** blade.
+1. In the Azure Portal, navigate to the resource group that you created. 
 
-2. Find the resource named `onprem-vpn-lgw`.
+2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
 
-3. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 1.
+3. Find the resource named `onprem-vpn-lgw`.
+
+4. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 2.
 
     ![](./images/local-net-gw.png)
 
-4. Click **Save** and wait for the opertion to complete. It can take about 5 minutes.
+5. Click **Save** and wait for the operation to complete. It can take about 5 minutes.
 
-5. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
+6. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
 
-6. Find the resource named `ra-vpn-lgw`. 
+7. Find the resource named `ra-vpn-lgw`. 
 
-7. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 4.
+8. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 6.
 
-8. Click **Save** and wait for the opertion to complete.
+9. Click **Save** and wait for the operation to complete.
 
-9. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
-
+10. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
 
 ## Next steps
 
