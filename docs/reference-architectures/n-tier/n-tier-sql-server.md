@@ -255,7 +255,6 @@ For more information on deploying this sample reference architecture using Azure
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
 [puppet]: https://puppetlabs.com/blog/managing-azure-virtual-machines-puppet
-[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [sql-alwayson]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-alwayson-force-failover]: https://msdn.microsoft.com/library/ff877957.aspx
 [sql-alwayson-getting-started]: https://msdn.microsoft.com/library/gg509118.aspx

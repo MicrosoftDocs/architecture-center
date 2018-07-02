@@ -1,4 +1,4 @@
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
+1. Clone, fork, or download the zip file for the [reference architectures](https://github.com/mspnp/reference-architectures) GitHub repository.
 
 2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
