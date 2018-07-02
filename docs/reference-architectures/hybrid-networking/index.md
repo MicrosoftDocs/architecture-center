@@ -1,120 +1,82 @@
 ---
-title: Connect an on-premises network to Azure
-description: Recommended architectures for secure, robust network connections between on-premises networks and Azure.
-layout: LandingPage
+title: Choose a solution for connecting an on-premises network to Azure
+description: Compares reference architectures for connecting an on-premises network to Azure.
+author: telmosampaio
+ms.date: 07/02/2018
 ---
-<!-- This file is generated! -->
-<!-- See the templates in ./build/reference-architectures  -->
-<!-- See data in index.json -->
 
 # Connect an on-premises network to Azure
 
-These reference architectures show proven practices for creating a robust network connection between an on-premises network and Azure. [Which should I choose?](./considerations.md)
+This article compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
-<section class="series">
-    <ul class="panelContent">
-    <!-- VPN -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./vpn.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/vpn.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>VPN</h3>
-                        <p>Extend an on-premises network to Azure using a site-to-site virtual private network (VPN).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- ExpressRoute -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./expressroute.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/expressroute.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>ExpressRoute</h3>
-                        <p>Extend an on-premises network to Azure using Azure ExpressRoute.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- ExpressRoute with VPN failover -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./expressroute-vpn-failover.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/expressroute-vpn-failover.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>ExpressRoute with VPN failover</h3>
-                        <p>Extend an on-premises network to Azure using Azure ExpressRoute, with a VPN as a failover connection.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- Hub-spoke topology -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./hub-spoke.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/hub-spoke.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Hub-spoke topology</h3>
-                        <p>The hub is a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    <!-- Hub-spoke topology with shared services -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./shared-services.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./images/shared-services.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Hub-spoke topology with shared services</h3>
-                        <p>Deploy a hub-spoke topology that includes shared services, including Active Directory services and a network virtual appliance (NVA). Shared services can be consumed by all spokes.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-    </ul>
-</section>
+## VPN connection
 
-<ul class="panelContent cardsI">
-</ul>
+A [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) is a type of virtual network gateway that sends encrypted traffic between an Azure virtual network and an on-premises location. The encrypted traffic goes over the public Internet.
+
+This architecture is suitable for hybrid applications where the traffic between on-premises hardware and the cloud is likely to be light, or you are willing to trade slightly extended latency for the flexibility and processing power of the cloud.
+
+**Benefits**
+
+- Simple to configure.
+
+**Challenges**
+
+- Requires an on-premises VPN device.
+- Although Microsoft guarantees 99.9% availability for each VPN Gateway, this [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) only covers the VPN gateway, and not your network connection to the gateway.
+- A VPN connection over Azure VPN Gateway currently supports a maximum of 200 Mbps bandwidth. You may need to partition your Azure virtual network across multiple VPN connections if you expect to exceed this throughput.
+
+**Reference architecture**
+
+- [Hybrid network with VPN gateway](./vpn.md)
+
+## Azure ExpressRoute connection
+
+[ExpressRoute](/azure/expressroute/) connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. 
+
+This architecture is suitable for hybrid applications running large-scale, mission-critical workloads that require a high degree of scalability. 
+
+**Benefits**
+
+- Much higher bandwidth available; up to 10 Gbps depending on the connectivity provider.
+- Supports dynamic scaling of bandwidth to help reduce costs during periods of lower demand. However, not all connectivity providers have this option.
+- May allow your organization direct access to national clouds, depending on the connectivity provider.
+- 99.9% availability SLA across the entire connection.
+
+**Challenges**
+
+- Can be complex to set up. Creating an ExpressRoute connection requires working with a third-party connectivity provider. The provider is responsible for provisioning the network connection.
+- Requires high-bandwidth routers on-premises.
+
+**Reference architecture**
+
+- [Hybrid network with ExpressRoute](./expressroute.md)
+
+## ExpressRoute with VPN failover
+
+This options combines the previous two, using ExpressRoute in normal conditions, but failing over to a VPN connection if there is a loss of connectivity in the ExpressRoute circuit.
+
+This architecture is suitable for hybrid applications that need the higher bandwidth of ExpressRoute, and also require highly available network connectivity. 
+
+**Benefits**
+
+- High availability if the ExpressRoute circuit fails, although the fallback connection is on a lower bandwidth network.
+
+**Challenges**
+
+- Complex to configure. You need to set up both a VPN connection and an ExpressRoute circuit.
+- Requires redundant hardware (VPN appliances), and a redundant Azure VPN Gateway connection for which you pay charges.
+
+**Reference architecture**
+
+- [Hybrid network with ExpressRoute and VPN failover](./expressroute-vpn-failover.md)
+
+
+## Hub-spoke network topology
+
+A hub-spoke network topology is a way to isolate workloads while sharing services such as identity and security. The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed as spokes.
+
+
+**Reference architectures**
+
+- [Hub-spoke topology](./hub-spoke.md)
+- [Hub-spoke with shared services](./shared-services.md)
