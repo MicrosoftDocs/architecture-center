@@ -1,0 +1,52 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.md",
+          "**/swagger/*.json",
+          "**/*.yml"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "devsandbox/**",
+          "**/includes/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "**/*.png",
+          "**/*.svg",
+          "**/*.jpg",
+          "**/breadcrumb.json"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "chromeless-sandbox/**",
+          "**/includes/**"
+        ]
+      }
+    ],
+    "globalMetadata": {
+      "enable_rest_try_it": true,
+      "signintest": true,
+      "extendBreadcrumb": false,
+      "breadcrumb_path": "/chromeless/breadcrumb.json",
+      "feedback_system": "GitHub",
+      "feedback_github_repo": "MicrosoftDocs/chromeless-sandbox",
+      "feedback_product_url": "mailto://duncanma@microsoft.com"
+    },
+    "markdownEngineName": "markdig",
+    "overwrite": [],
+    "externalReference": [],
+    "fileMetadata": {},
+    "template": [],
+    "dest": "chromeless-sandbox",
+    "exportRawModel": true,
+    "rawModelOutputFolder": "../_model",
+    "exportViewModel": true,
+    "viewModelOutputFolder": "../_viewmodel"
+  }
+}
