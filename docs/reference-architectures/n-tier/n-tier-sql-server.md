@@ -157,23 +157,9 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../../includes/ref-arch-prerequisites.md)]
 
-2. Install [Azure CLI 2.0][azure-cli-2].
-
-3. Install the [Azure building blocks][azbb] npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
-
-   ```bash
-   az login
-   ```
-
-### Deploy the solution 
+### Deploy the solution
 
 1. Run the following command to create a resource group.
 
@@ -249,11 +235,9 @@ For more information on deploying this sample reference architecture using Azure
 [dmz]: ../dmz/secure-vnet-dmz.md
 [multi-dc]: multi-region-sql-server.md
 [n-tier]: n-tier.md
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-administration]: /azure/automation/automation-intro
 [azure-availability-sets]: /azure/virtual-machines/virtual-machines-windows-manage-availability#configure-each-application-tier-into-separate-availability-sets
 [azure-cli]: /azure/virtual-machines-command-line-tools
-[azure-cli-2]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
