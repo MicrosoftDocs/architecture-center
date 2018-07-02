@@ -191,15 +191,7 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [Azure reference architectures][ref-arch-repo] GitHub repository.
-
-2. Install the [Azure Building Blocks][azbb-wiki] (azbb).
-
-3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account as follows:
-
-    ```bash
-    az login  
-    ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the simulated on-premises server
 
