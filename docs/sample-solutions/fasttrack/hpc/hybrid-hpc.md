@@ -6,19 +6,21 @@ ms.date: <publish or update date>
 ---
 # Hybrid HPC in Azure
 
-Running High Performance Computing on Azure is also referred to as Big Compute, as it moves away from the traditional need for specialist hardware as a major investment.
+High Performance Computing on Azure is somtimes also referred to as Big Compute, due to the way it moves away from the traditional need for on-premises specialist hardware as a major investment. On-demand compute resources can be utilised when a buiness needs it the most, either with hardware for specific HPC scenarios (GPU or RDMA for instance) or general purpose VMs that provide a balance on cost and performance. 
 
-This sample solution demonstrates how using CycleCloud can be used to orchestrate an IaaS HPC grid running on Azure, and how this could also be used to extend a grid running on-premises to Azure for on demand compute resources.
+This sample solution demonstrates how CycleCloud* can be used to orchestrate an IaaS HPC grid running on Azure, while also providing an optional scenario to extend a grid running on-premises to Azure for on demand compute resources.
 
-By using CycleCloud, the manual aspect of creating an IaaS grid in the cloud becomes an efficient process, which can also be used to faciliate a new grid for Disaster Recovery or failover purposes. It also means that organisations can build multiple grids and be confident there is no infrastructure drift taking place between deployments.
+By using CycleCloud, the manual work to create an IaaS grid in the cloud becomes an efficient process, and can also be used to faciliate a new grid for Disaster Recovery or failover purposes. Additionally, organisations can build multiple grids and be confident there is no infrastructure drift taking place between deployments.
+
+\* CycleCloud has been a recent aquisition for Microsoft, we are currently in the process of intregrating this solution with Azure. During this period the functionality of CycleCloud will not be modified.
 
 ## Potential use cases
 
 You should consider this solution for the following use cases:
 
-* If you were previously manually building an HPC IaaS infrastructure or using an ARM template 
-* Where an on-premises grid is to be extended into the cloud, taking advantage of Compute Node bursting
-* A new grid is to be implemented entirely within Azure
+* If you have been manually building HPC IaaS infrastructures or using an ARM template, but want to further automate the deployment process.
+* Where there is a need to use on-demand compute in Azure while maintaining an on-premises grid.
+* Where a new grid is to be implemented entirely within Azure, while also utilising on-demand compute resources in Azure.
 
 ## Architecture diagram
 
@@ -28,7 +30,7 @@ The solution diagram below is an example of this solution:
 
 ## Architecture
 
-This solution covers the workflow when using a head node running on Azure while a head node is also deployed on premises, the data flows through the solution as follows:
+This solution covers the workflow when using a head node running on Azure while an optional head node is also deployed on premises, the data flows through the solution as follows:
 
 1. User submits job to the CycleCloud server
 2. CycleCloud server decides where to place the job depending on submission criteria
@@ -38,13 +40,6 @@ This solution covers the workflow when using a head node running on Azure while 
   - 3a. CycleCloud detects a job in the queue and scales the number of execute nodes accordingly
   - 3b. The on-premises head node submits the job when space is available on the cluster
 4. CycleCloud monitors the head nodes and job queues to gather usage metrics and determine when the job is completed
-
-### Components
-
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
-* [Virtual Networks][vnet] are used to for both the Head Node and Compute resources
-* [Storage][storage] accounts are used for the synchronisation and data retention
-* [Virtual Machine Scale Sets][vmss] are utilised by CycleCloud for compute resources
 
 ## CycleCloud
 * Please use the following recipe to deploy CycleCloud which can then orchestrate your grid, you will be altering an ARM template to deploy CycleCloud:
@@ -56,17 +51,48 @@ This solution covers the workflow when using a head node running on Azure while 
   - Clone the CycleCloud repo
   - Create a resource group and VNET
   - Deploy CycleCloud using a modified ARM template, this will deploy a jumpbox and the CycleCloud server
+
+### Components
+
+* [Resource Groups][resource-groups] is a logical container for Azure resources.
+* [Virtual Networks][vnet] are used to for both the Head Node and Compute resources
+* [Storage][storage] accounts are used for the synchronisation and data retention
+* [Virtual Machine Scale Sets][vmss] are utilised by CycleCloud for compute resources
+
+## HPC Machine Sizes
+Compute resources in the VM Scale Sets will depend on a number of factors:
+  - Is the Application being run memory bound?
+  - Does the Application need to use GPU's? 
+  - Are the job types embaressingly parallel or require Infiniband connectivity for tightly coupled jobs?
+  - Require fast I/O to Storage on the Compute Nodes
+
+Azure has a wide range of VM sizes that can address each and every one of the above application requirements, some are specific to HPC, but even the smallest sizes can be utilised to provide an effective grid implementation:
+
+  - [HPC VM sizes][compute-hpc]* VM's specifically available for high end computational needs, with 8 and 16 core vCPU sizes available, the Azure H-Series feature DDR4 memory, SSD temporary storage and Haswell E5 Intel technology.
+  - [GPU VM sizes][compute-gpu]* GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
+    - NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. 
+NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.
+  - [Memory optmised VM sizes][compute-memory] Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for relational database servers, medium to large caches, and in-memory analytics.
+  - [Storage optimised VM sizes][compute-storage] Storage optimized VM sizes offer high disk throughput and IO, and are ideal for Big Data, SQL, and NoSQL databases. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for each size in this grouping
+  - [General purposes VM sizes][compute-general] General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.
+
+\* For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth
+
+
+
   
 
 ### Alternatives
 
-* If you are looking to transform current applications or develop anew as a Cloud Native app, then [Azure Batch][batch] could be more appropriate. The design principles for Azure Batch can be found [here][batch-arch]
+If you are looking to transform current applications or develop anew as a Cloud Native app, then [Azure Batch][batch] could be more appropriate. This is especially true if a SaaS offering to your own customers is the end goal. 
+
+The design principles for Azure Batch can be found [here][batch-arch]
 
 ### Availability
 
 ### Scalability
 
-* CycleCloud can scale up or down on demand depending on the criteria you supply to .
+* CycleCloud can scale up or down on demand depending on the criteria you supply.
 
 ### Security
 
@@ -88,7 +114,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 * 
 
-Your costing for deploying CycleCloud will depend on the VM sizes that are used for the compute and how long these are allocated and running
+The cost of deploying CycleCloud will depend on the VM sizes that are used for the compute and how long these are allocated and running. Storage and data egress should also be taken into account as these will apply additional costs.
+
+High Performance VMs:
+100 x H16mr (16 cores, 225GB RAM, RDMA networking), 2 TB Storage, 1 TB egress: [Cost Estimate][hpc-est-high]
+
+
 
 ## Related Resources
 
@@ -101,7 +132,6 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [architecture]: ./media/hybrid-hpc-ref-arch.png
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-[security]:
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
 [vmss]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
 [vnet]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
@@ -117,6 +147,7 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [compute-acu]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu
 [compute=benchmark]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores
 [cycle-recipes]: https://github.com/CycleCloudCommunity/cyclecloud_arm
+[hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 
 
 
