@@ -21,18 +21,16 @@ You should consider this solution for the following use cases:
 * Identifying fraudulent credit card transactions for banking institutions.
 * Identifying fraudulent purchases in retail or e-commerce scenarios.
 
-## Architecture diagram
+## Architecture
 
 The architecture of the sample solution is depicted below.
 
 ![Sample solution architecture for real-time fraud detection][architecture-diagram]
 
-## Architecture
-
 This solution covers the back-end components of a real-time analytics pipeline. The data flows through the solution as follows:
 
 1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance. 
-2. A Stream Analytics job is run and receives data via the event hub source.
+2. A Stream Analytics job is started, which receives data via the event hub source.
 3. The Stream Analytics job runs a predefined query to transform the input stream and analyze it based on a fraudulent-transaction algorithm. This query uses a tumbling window to segment the stream into distinct temporal units.
 4. The Stream Analytics job writes the transformed stream representing detected fraudulent calls to an output sink in Azure Blob storage.
 
@@ -53,19 +51,38 @@ Additionally, more complex algorithms for fraud detection can be produced by var
 
 ### Availability
 
-...
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor. 
+
+For other availability considerations, see the [availability checklist][availability].
 
 ### Scalability
 
-The components of this solution are designed for hyper-scale ingestion and massively parallel real-time analytics. For general guidance on designing scalable solutions, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+The components of this solution are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency.  Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
+
+For general guidance on designing scalable solutions, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-...
+For a deeper discussion on security, see the relevant article in the architecture center.
+
+For general guidance on designing secure solutions, see the [Cloud Security Design Patterns][security] available in the Azure Architecture Center.
 
 ### Resiliency
 
-...
+For general guidance on designing resilient solutions, see the [Cloud Resiliency Design Patterns][resiliency] available in the Azure Architecture Center.
+
+## Deploy the solution
+
+To deploy this sample solution into your existing Azure subscription, perform the following steps.
+
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fadvanced-analytics%2Ffraud-detection%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
+   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `fraud-detection-solution` in the text box.
+   * Select the region from the **Location** drop down box.
+   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
+   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
+   * Click the **Purchase** button.
+3. Wait for the deployment to complete.
 
 ## Pricing
 
@@ -76,8 +93,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 * [Small][small-pricing]: process one million events through one standard streaming unit per month.
 * [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
 * [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
-
-## Related Resources
 
 ...
 
@@ -91,5 +106,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
 [docs-blob-storage]: /azure/storage/blobs/storage-blobs-introduction
-[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[availability]: /azure/architecture/checklist/availability
+[scalability]: /azure/architecture/checklist/scalability
+[resiliency]: /azure/architecture/patterns/category/resiliency/
+[security]: /azure/architecture/patterns/category/security

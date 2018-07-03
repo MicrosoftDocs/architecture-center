@@ -2,10 +2,19 @@
   href: /azure/architecture
 
 - name: Sample Solutions
-  href: index.md
   items:
   - name: AI
-    href: ai/index.md
     items:
     - name: Image Processing
       href: ai/intelligent-apps-image-processing.md
+  - name: Apps
+    items:
+    - name: Hotel reservation chatbot
+      href: apps/commerce-chatbot.md
+    - name: DevOps with Azure Kubernetes Service
+      href: apps/devops-with-aks.md
+  - name: Data & Analytics
+    items:
+    - name:  Real-time Fraud detection
+      href: data/fraud-detection.md
+  
