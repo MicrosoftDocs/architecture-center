@@ -159,7 +159,7 @@ To deploy the hub VNet, perform the following steps.
 
 2. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
-3. For `sharedKey`, enter a shared key for the VPN connection. 
+3. Find both instances of `sharedKey` and enter a shared key for the VPN connection. The values must match.
 
     ```bash
     "sharedKey": "",
