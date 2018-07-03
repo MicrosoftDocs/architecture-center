@@ -159,7 +159,7 @@ Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. 
 
-### Preequisites
+### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
@@ -204,6 +204,16 @@ In this step, you will connect the two local network gateways.
 9. Click **Save** and wait for the operation to complete.
 
 10. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
+
+### Verify that network traffic reaches the web tier
+
+1. In the Azure Portal, navigate to the resource group that you created. 
+
+2. Find the resource named `int-dmz-lb`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
+
+3. Find the VM named `jb-vm1`. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
+
+4. From the Remote Desktop Session, open a web browser and navigate to the IP address from step 2. You should see the default Apache2 server home page.
 
 ## Next steps
 
