@@ -159,7 +159,7 @@ Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier
 
 A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. 
 
-### Preequisites
+### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
