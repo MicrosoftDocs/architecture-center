@@ -76,8 +76,8 @@ ms.topic: landing-page
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Building Microservices on Azure</h3>
-                            <p>This multi-part series takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
+                            <h3>Build Microservices on Azure</h3>
+                            <p>This design guide takes you through the process of designing and building a microservices architecture on Azure. A reference implementation is included.</p>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@ ms.topic: landing-page
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Best Practices for Cloud Applications</h3>
+                            <h3>Cloud Best Practices</h3>
                             <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning,
                                 API design, and others.</p>
                         </div>
@@ -137,7 +137,7 @@ ms.topic: landing-page
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Designing for Resiliency</h3>
+                            <h3>Design for Resiliency</h3>
                             <p>Learn how to design resilient applications for Azure.</p>
                         </div>
                     </div>
@@ -245,46 +245,6 @@ ms.topic: landing-page
             </div>
         </a>
     </li>
-    <!-- Sharepoint -->
-    <li>
-        <a href="/azure/architecture/reference-architectures/sharepoint">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="/azure/architecture/reference-architectures/sharepoint/images/sharepoint.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Run SharePoint Server 2016 on Azure</h3>
-                            <p>Deploy and run a high availability SharePoint Server 2016 farm on Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- SAP -->
-    <li>
-        <a href="/azure/architecture/reference-architectures/sap">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="/azure/architecture/reference-architectures/sap/images/sap.svg" width="100%" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Run SAP HANA on Azure</h3>
-                            <p>Deploy and run SAP NetWeaver and SAP HANA in a high availability environment on Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
     <!-- Multitenant identity -->
     <li>
         <a href="/azure/architecture/multitenant-identity">
@@ -299,46 +259,6 @@ ms.topic: landing-page
                         <div class="cardText">
                             <h3>Identity Management for Multitenant Applications</h3>
                             <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- AzureCAT blog -->
-    <li>
-        <a href="https://blogs.msdn.microsoft.com/azurecat/">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/azurecat.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Azure Customer Advisory Team</h3>
-                            <p>The AzureCAT team&#39;s blog</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- SQL CAT blog -->
-    <li>
-        <a href="https://blogs.msdn.microsoft.com/sqlcat/">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/sqlcat.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>SQL Server Customer Advisory Team</h3>
-                            <p>The SQLCAT team&#39;s blog</p>
                         </div>
                     </div>
                 </div>
