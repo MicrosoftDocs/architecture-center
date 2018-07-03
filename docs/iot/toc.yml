@@ -5,7 +5,7 @@
   items:
   - name: Introduction
     href: index.md
-  - name: IoT solution architectures
+  - name: IoT architectures
     href: iot-architecture.md
   - name: Data ingestion
     href: data-ingestion.md
