@@ -1,20 +1,23 @@
+# Stream processing for IoT using Azure Stream Analytics
 
+This chapter describes using Azure Stream Analytics to implement the hot path in the Drone Delivery sample IoT application.
 
-In the Drone Delivery sample application, 
+As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for the hot path:
 
-
-Functional requirements:
-
-- Analyze aggregations of telemetry over time windows
-- Use the analysis to trigger alerts
+- Analyze aggregations of telemetry over time windows.
+- Use the analysis to trigger alerts.
 - Write the output to a data store.
 
-Non-functional requirements:
+Non-functional requirements include:
 
-- Low latency
-- Be able to scale to growing amount of data 
+- Low latency.
+- Ability to scale with the number of devices.
 
+Azure Stream Analytics is an event-processing engine that allows you to examine high volumes of data streaming from devices. It supports queries that operate over time windows, and has built-in integration with IoT Hubs.
 
+## Stream Analytics query
+
+Stream Analytics uses a SQL-like query language to define stream processing operations. Here is the query for the Drone Application hot path:
 
 ```sql
 WITH
