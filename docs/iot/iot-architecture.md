@@ -32,6 +32,15 @@ The hot, cold, and warm paths all feed into data visualization and reporting too
 
 **Monitoring**. As with any distributed system, it's critical to monitor all of the components of the solution and correlate KPIs. Operators need access to dashboards that give insight into the health of system. 
 
+
+## Batch processing versus stream processing
+
+There are two general approaches to processing large amounts of data: Batch processing and stream processing. Batch processing corresponds to the cold path described above, while stream processing corresponds to the hot and warm paths. Many solutions use a combination of stream processing and batch processing. 
+
+With batch processing, you collect and store a batch of data over some period of time, and then process the batch. The batch size may typically range from an hour to a day, depending on how often you run the batch job. Consider batch processing if you process large aggregates of data (hours or days) to find historical trends or make statistical inferences, and you don't require the answers in real time.
+
+With stream processing, events are processed as they arrive. Messages can be processed individually or across short time windows (seconds or minutes). Some stream processing solutions use "micro-batching," where small batches of data are processed in chunks (on the order of tens to hundreds of messages per batch). Micro-batching is still considered to be a form of stream processing, because the time windows are still small. However, micro-batching can result in higher latencies than pure stream processing, depending on the batch size. Stream processing is appropriate when you need to process the data continuously and get the results quickly, in real time or near real time. The tradeoff can be a loss in accuracy, because the processing operates over very small time windows.
+
 ## Example architecture
 
 The following diagram shows how we implemented the Drone IoT sample application in Azure.

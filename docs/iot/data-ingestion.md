@@ -14,7 +14,6 @@ This chapter describes how to get data from IoT devices into the cloud.
 
 **Device authentication**. The cloud gateway should only accept connections from authenticated devices. There may be thousands or tens of thousands of devices. If devices share the same credentials, and one device is compromised, then all the devices are compromised. Instead, every device should have unique credentials, making it possible to revoke individual devices.
 
-The first three requirements (high scale, low latency, and multiple receivers) point to using an [event-driven architecture](../guide/architecture-styles/event-driven.md). 
 
 ## Technology choices
 
@@ -48,7 +47,7 @@ When using the Event Hubs endpoint, it's important to understand the streaming m
 
 - A consumer writes its current position to persistent storage at some predefined interval. That way, if the consumer experiences a fault, a new instance can restart at the last recorded position. This process is called checkpointing. In practice, you rarely need to write any checkpointing code, because it's handled by client SDKs, or by using built-in integration features of Azure. For example, Azure Stream Analytics can read from Event Hubs, which doesn't require writing any code.
 
-- An event hub uses partitions to increase throughput. Horizontal scale is achieved by assigning a separate reader to each partition and reading the partitions in parallel. Incoming messages are partitioned based on the device ID. All of the messages from a particular device will always land on the same partition, but a single partition will have messages from multiple devices.
+- An event hub uses partitions to increase throughput. Horizontal scale is achieved by assigning a separate reader to each partition and reading the partitions in parallel. Incoming messages are partitioned based on the device ID. All of the messages from a particular device will always arrive on the same partition, but a single partition will have messages from multiple devices.
 
 For more information, see [Event Hubs features overview](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features).
 

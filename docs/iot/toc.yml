@@ -5,9 +5,11 @@
   items:
   - name: Introduction
     href: index.md
-  - name: Architecture of an IoT solution
+  - name: IoT solution architectures
     href: iot-architecture.md
   - name: Data ingestion
     href: data-ingestion.md
   - name: Field gateways
     href: field-gateways.md
+  - name: Stream processing with Azure Stream Analytics
+    href: stream-processing-stream-analytics.md
