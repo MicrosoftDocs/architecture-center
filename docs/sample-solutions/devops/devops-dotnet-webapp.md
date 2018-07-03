@@ -6,7 +6,7 @@ ms.date: <publish or update date>
 ---
 # Deploy a .NET application to Azure App Service using Visual Studio Team Services as the CI/CD Pipeline
 
-DevOps is the union of people, process, and products to enable continuous delivery of value to our end users. 
+DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software.
 
 This sample solution demonstrates how Visual Studio Team Services can be used by development teams to deploy a .NET Application to Azure App Service. This document also points out a number of the considerations that you should make whilst you architect such a solution using App Service. Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps  you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
 
@@ -44,6 +44,24 @@ This solution covers a DevOps pipeline for a .NET web application using Visual S
 * [Azure Web Apps][web-apps] is a Platform as a Service (PaaS) service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional options available.
 * [Application Insights][application-insights] is an extensible Application Performance Management (APM) service for web developers on multiple platforms.
 
+### Alternative DevOps tooling options
+
+Whilst this article focuses on Visual Studio Team Services, [Team Foundation Server][team-foundation-server] or [Jenkins][jenkins-on-azure] could be considered as options to drive the CI/CD pipeline.
+
+From an Infrastructure as Code perspective, [Azure Resource Manager (ARM) Templates][arm-templates] are included as part of the Azure DevOps project, but you could consider [terraform][terraform] or [Chef][chef] if you have investments here. If you prefer an Infrastructure as a Service (IaaS) based deployment and require configuration management, then you could consider either [Azure Desired State Configuration][desired-state-configuration], [Ansible][ansible] or [Chef][chef].
+
+### Alternatives to Web App Hosting
+
+Alternatives to hosting in Azure Web Apps:
+
+* [VM][compare-vm-hosting] - For workloads that require a high degree of control, or depend on OS components / services that are not possible with Web Apps (e.g. the Windows GAC, or COM)
+* [Container Hosting][azure-containers] - Where there are OS dependencies and hosting portability, or hosting density, are also requirements.
+
+Other options include:
+
+* [Service Fabric][service-fabric] - A good option if the workload is architected around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
+* [Serverless Azure functions][azure-functions] - A good option if the workload is architected around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+
 ### DevOps
 
 **[Continuous Integration (CI)][continuous-integration]** should aim to demonstrate a stable build, with more than one individual developer or team continuously committing small, frequent changes to the shared codebase.
@@ -64,10 +82,10 @@ Continuous Delivery may also extend to Load Testing and User Acceptance Testing 
 Continuous Delivery benefits from continuous Monitoring, ideally across all environments.
 The consistency and reliability of deployments and integration testing across environments is made easier by scripting the creation and configuration or the hosting infrastructure (something which is considerably easier for Cloud based workloads, see Azure infrastructure as code) - this is also known as ["infrastructure-as-code"][infra-as-code].
 
- * Start Continuous Delivery as early as possible in the project life-cycle. The later you leave it, the more difficult it will be.
- * Integration & unit tests should be given the same priority as the project features
- * Use environment agnostic deployment packages and manage environment specific configuration through the release process.
- * Protect sensitive configuration within the release management tooling or by calling out to a Hardware-security-module (HSM), or [Key Vault][azure-key-vault], during the release process. Do not store sensitive configuration within source control.
+* Start Continuous Delivery as early as possible in the project life-cycle. The later you leave it, the more difficult it will be.
+* Integration & unit tests should be given the same priority as the project features
+* Use environment agnostic deployment packages and manage environment specific configuration through the release process.
+* Protect sensitive configuration within the release management tooling or by calling out to a Hardware-security-module (HSM), or [Key Vault][azure-key-vault], during the release process. Do not store sensitive configuration within source control.
 
 **Continuous Learning** - The most effective monitoring of a CD environment is provided by Application-Performance-Monitoring tools (APM for short), for example Microsoft's [Application Insights][application-insights].
 
@@ -81,19 +99,18 @@ The consistency and reliability of deployments and integration testing across en
 
 * When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 * Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For other scalability topics please see the [scalability checklist][scalability] available in the architecure center.
+* For other scalability topics please see the [scalability checklist][scalability] available in the architecture center.
 
 ### Security
 
 * Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
-* Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For a deeper discussion on [security][] please see the relevant article in the architecure center.
+* Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 
 ### Resiliency
 
 * Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
 * You can find a number of [resiliency recommended practices for App Service][resiliency-app-service] on the architecture center.
-* For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecure center.
+* For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecture center.
 
 ## Deploy the solution
 
@@ -104,34 +121,40 @@ The consistency and reliability of deployments and integration testing across en
 
 ### Walk through
 
-As we will be using Visual Studio Team Services to drive the DevOps pipeline, we cannot leverage ARM Templates to create entities in VSTS. We will leverage the VSTS Demo Generator for the purposes of this sample.
+As we will be using Visual Studio Team Services to drive the DevOps pipeline, we cannot leverage ARM Templates to create entities in VSTS. We will leverage the Azure DevOps Project service for the purposes of this sample.
 
-#### Setup steps
+#### Setup Steps
 
-1. Navigate to the [VSTS Demo Generator][vsts-demo-generator].
-2. Sign in using the credentials for the appropriate account for your VSTS account.
-3. Select your VSTS account from **Account Name**.
-4. Enter an appropriate project name into **New Project Name**.
-5. Using the ellipsis, select the **PartsUnlimited** sample from the **general** section.
-6. Click on the link to your team project once it has been provisioned.
+1. Navigate to the [DevOps Project][devops-project] creation blade in the Azure portal.
+2. Select the .NET option.
+3. Select either ASP.NET or ASP.NET Core as appropriate.
+4. Select Web App (Windows).
+5. Select your existing Visual Studio Team Services account
+6. Create a new project
+7. Select **change** next to the Azure heading to allow for advanced editing options
+8. Adjust the values for **subscription**, **resource group**, **web app name**, **location**, **pricing tier** and **application insights location** as appropriate for your deployment.
+9. Click OK, and Select **Done** on the final blade.
+10. Once the deployment has succeeded, click **Go to resource**.
+
+The DevOps project will deploy an App Service Plan, App Service and app App Insights resource for you, as well as configure the Visual Studio Team Services Project for you.
 
 #### Continuous Integration - Builds
 
-1. Navigate to **Build and Release**, and click on the **Builds** tab.
-2. Select the **PartsUnlimitedE2E** build definition.
+1. From the Azure DevOps Project blade, select **Build Pipelines**.
+2. Select the **Your Project Name - CI** build definition.
 3. Click **Edit**.
-4. Review the tasks included as part of the build definition. Notice  we are including a test task to run our unit tests as part of our CI pipeline.
+4. Review the tasks included as part of the build definition. Notice  we are including a test task to run appropriate tests as part of our CI pipeline.
 5. Browse to the **Triggers** tab in your build definition, and notice that **Enable Continuous Integration** is enabled.
 6. Select **Queue**, and opt for an appropriate agent queue to build a .NET Project.
-7. Once the build has completed, navigate to the completed build. Review the associated code changes, work items and test results.
+7. Once the build has completed, navigate to the completed build. Review the associated code changes, work items and test results. You will notice no test results are displayed, as the code does not contain any tests to run.
 
 #### Continuous Deployment - Releases
 
-1. Navigate to **Build and Release**, and click on the **Releases** tab.
-2. Select the **PartsUnlimitedE2E** release definition.
+1. From the Azure DevOps Project blade, select **Release Pipelines**.
+2. Select the **Your Project Name - CD** release definition.
 3. Click **Edit**.
-4. Notice that a release pipeline has been setup, releasing our application into Dev, QA and Production. Notice that there is a **continuous deployment trigger** set from our **PartsUnlimitedE2E** build artifact, with automatic releases into our environments.
-5. This demo deploys the App Service to the same resource, in each environment due to cost saving. However, you could clone the Dev task and alter the variables to change the behavior.
+4. Notice that a release pipeline has been setup, releasing our application into Dev. Notice that there is a **continuous deployment trigger** set from our **Drop** build artifact, with automatic releases into our Dev environments.
+5. As part of a Continuous Deployment process, you may see releases span across multiple environments. A release can span both infrastructure (using techniques such as Infrastructure as Code), and also deploy the application packages required as well as any post-configuration tasks.
 
 **Additional Considerations.**
 
@@ -148,11 +171,32 @@ Explore the cost of running this solution, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get in your App Service solution.
 
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+* [Small][small-pricing]:
+  * App Tier: A standard (S2) Web App Plan, with a single instance (the deploy template configures autoscale). At the time of writing, the service level agreement (SLA) for App Service is 99.95%. 1 IP SSL Connection.
+  * Azure DNS, 1 hosted zone, estimated 1M queries.
+  * Azure SQL Database 4 core Instance, General Purpose Tier, Generation 5 processors, with Transparent Data Encryption (TDE) enabled. (Purchase model by core.)
+  * Azure SQL Database backup storage and retention.
+  * Storage for diagnostics logs.
+  * Application Insights
+* [Medium][medium-pricing]:
+  * App Tier: A standard (S2) Web App Plan, with a single instance (the deploy template configures autoscale). At the time of writing, the service level agreement (SLA) for App Service is 99.95%. 1 IP SSL Connection.
+  * Middle Tier: A standard (S2) Web App Plan for API and background processing (WebJobs), with a single instance. 1 IP SSL Connection.
+  * Standard (C1) Redis Cache.
+  * Azure DNS, 1 hosted zone, estimated 1M queries.
+  * Azure SQL Database 4 core Instance, General Purpose Tier, Generation 5 processors, with Transparent Data Encryption (TDE) enabled. (Purchase model by core.)
+  * Azure SQL Database backup storage and retention.
+  * Storage for diagnostics logs.
+  * Application Insights
+  * CosmosDB - 50GB, 500RUs provisioned. Note: Pricing CosmosDB will depend on the workload. Proof of Concepts & testing are recommended to optimize the correct number of RUs required for production to meet the project workload requirements.
+  * 1 Standard (S1) Unit for Azure search, for a month.
+  * 10Gb Standard (Verizon) CDN.
+  * 5GB Storage queue with 10M Class 1 and 10M Class 2 Operations.
+* [Large][large-pricing]:
+  * This architecture is the "medium deployment" with an additional identical deployment (as a passive or warm standby) in a paired Azure region, for Disaster Recovery (DR) / fail over, with a Traffic Manager profile supporting 50M DNS queries / month.
+  * Traffic Manager (TM) can be used to automatically, or manually fail over customer connections to the secondary region. The data tier, SQL and CosmosDB, is replicated from the primary to secondary region.
+  * Where possible resources in the secondary can be provisioned scaled back until they're required on fail over.
 
-Your visual Studio Team Services costing will depend upon the number of users in your organization that require access, in addition to factors such as the number of concurrent build/releases required, and number of test users. These are detailed further on the [VSTS pricing page][vsts-pricing-page].
+Your Visual Studio Team Services costing will depend upon the number of users in your organization that require access, in addition to factors such as the number of concurrent build/releases required, and number of test users. These are detailed further on the [VSTS pricing page][vsts-pricing-page].
 
 * [Visual Studio Team Services (VSTS)][vsts-pricing-calculator] is a service that enables you to manage your development life cycle and is paid for on a per user, per month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users, or user basic licenses.
 
@@ -163,23 +207,28 @@ Your visual Studio Team Services costing will depend upon the number of users in
 * [Step-by-step Tutorials: DevOps with Visual Studio Team Services][devops-with-vsts]
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
+[small-pricing]: https://azure.com/e/9bb582ce4ab64617bf328bf13178d328
+[medium-pricing]: https://azure.com/e/9b63ca1ede5b4e6085411660b1e7b8e9
+[large-pricing]: https://azure.com/e/a96bf5d849174a4c95adc5bcfc4531ca
+[ansible]: https://docs.microsoft.com/en-us/azure/ansible/
 [application-insights]: https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[arm-templates]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment
 [architecture]: ./media/devops-dotnet-webapp/architecture-devops-dotnet-webapp.png
 [availability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/availability
+[chef]: https://docs.microsoft.com/en-us/azure/chef/
 [design-patterns-availability]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/availability
 [design-patterns-resiliency]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
 [design-patterns-security]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/security
+[desired-state-configuration]: https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview
 [devops-microsoft]: https://docs.microsoft.com/en-us/azure/devops/devops-at-microsoft/
 [devops-with-vsts]: https://almvm.azurewebsites.net/labs/vsts/
 [application-insights]: https://azure.microsoft.com/en-gb/services/application-insights/
 [cloud-based-load-testing]: https://visualstudio.microsoft.com/team-services/cloud-load-testing/
 [cloud-based-load-testing-on-premises]: https://docs.microsoft.com/en-us/vsts/test/load-test/clt-with-private-machines?view=vsts
+[jenkins-on-azure]: https://docs.microsoft.com/en-us/azure/jenkins/
 [devops-whatis]: https://docs.microsoft.com/en-us/azure/devops/what-is-devops
 [download-keyvault-secrets]: https://docs.microsoft.com/en-us/vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
@@ -190,9 +239,10 @@ Your visual Studio Team Services costing will depend upon the number of users in
 [continuous-integration]: https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-integration
 [continuous-delivery]: https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-delivery
 [web-apps]: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview
+[terraform]: https://docs.microsoft.com/en-us/azure/terraform/
 [vsts-account-create]: https://docs.microsoft.com/en-gb/vsts/organizations/accounts/create-account-msa-or-work-student?view=vsts
 [vsts-approvals]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/approvals?view=vsts
-[vsts-demo-generator]: https://vstsdemogenerator.azurewebsites.net/
+[devops-project]: https://portal.azure.com/?feature.customportal=false#create/Microsoft.AzureProject
 [vsts-deployment-gates]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
 [vsts-pricing-page]: https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/
@@ -200,3 +250,9 @@ Your visual Studio Team Services costing will depend upon the number of users in
 [vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
 [azure-key-vault]: https://docs.microsoft.com/en-gb/azure/key-vault/key-vault-overview
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
+[team-foundation-server]: https://visualstudio.microsoft.com/tfs/
+[infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
+[service-fabric]:https://docs.microsoft.com/en-us/azure/service-fabric/
+[azure-functions]:https://docs.microsoft.com/en-us/azure/azure-functions/
+[azure-containers]:https://azure.microsoft.com/en-us/overview/containers/
+[compare-vm-hosting]:https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm
