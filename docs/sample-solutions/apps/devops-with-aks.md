@@ -20,13 +20,9 @@ You should consider this solution for the following use cases:
 * Speeding up application development and deployment lifecycles.
 * Automating deployments to test or acceptance environments for validation.
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Architecture overview of the Azure components involved in a DevOps solution using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
-
-## Architecture
 
 This solution covers a DevOps pipeline for a Node.js web application and database backend. The data flows through the solution as follows:
 

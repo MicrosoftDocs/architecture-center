@@ -20,13 +20,9 @@ You should consider this solution for the following use cases:
 * Classify images for insurance claims
 * Classify telemetry data from screenshots of games.
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Intelligent apps architecture - computer vision][architecture-computer-vision]
-
-## Architecture
 
 This solution covers the back-end components of a web or mobile application, the data flows through the solution as follows:
 

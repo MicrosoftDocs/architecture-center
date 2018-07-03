@@ -14,14 +14,11 @@ You should consider this solution for the following use cases:
 
 * List of example use cases
 
-## Architecture diagram
+## Architecture
 
 The solution diagram below is an example of this solution:
 
 ![Description][architecture]
-
-## Architecture
-
 This solution covers ###What does the solution cover###, the data flows through the solution as follows:
 
 1. Numbered data flow through the solution.
@@ -35,6 +32,8 @@ This solution covers ###What does the solution cover###, the data flows through 
 ### Alternatives
 
 * List of alternative options and why you might use them.
+
+## Considerations
 
 ### Availability
 

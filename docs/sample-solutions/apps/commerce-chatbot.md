@@ -20,13 +20,9 @@ You should consider this solution for the following use cases:
 * Check hotel availability and reserve a room
 * Search available photos and order prints
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Architecture overview of the Azure components involved in a conversational chatbot][architecture]
-
-## Architecture
 
 This solution covers a conversational bot that functions as a concierge for a hotel. The data flows through the solution as follows:
 

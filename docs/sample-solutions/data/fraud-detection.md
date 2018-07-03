@@ -21,13 +21,11 @@ You should consider this solution for the following use cases:
 * Identifying fraudulent credit card transactions for banking institutions.
 * Identifying fraudulent purchases in retail or e-commerce scenarios.
 
-## Architecture diagram
+## Architecture
 
 The architecture of the sample solution is depicted below.
 
 ![Sample solution architecture for real-time fraud detection][architecture-diagram]
-
-## Architecture
 
 This solution covers the back-end components of a real-time analytics pipeline. The data flows through the solution as follows:
 
