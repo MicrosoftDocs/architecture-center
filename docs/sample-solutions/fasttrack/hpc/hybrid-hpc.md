@@ -81,11 +81,13 @@ NV sizes are optimized and designed for remote visualization, streaming, gaming,
 
 ## Deploy a sample solution
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2mikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fdeploycyclevms.json" target="_blank">
+The following deployment will deploy a Jump Box and a Cycle Cloud server to Azure, by default using Standard D2 VM's. 
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fdeploycyclevms.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-  
+Configuration of CycleCloud is required once these have been deployed. To configure CycleCloud please follow the steps detailed [here][cycle-configure].  
 
 ### Alternatives
 
@@ -153,6 +155,7 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [compute-acu]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu
 [compute=benchmark]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores
 [cycle-recipes]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/CycleCloud
+[cycle-configure]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/CycleCloud#4-configure-cyclecloud-server
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a

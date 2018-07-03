@@ -5,6 +5,7 @@
     "vnetName": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "cyclevnet",
       "metadata": {
         "description": "Name of the VNET to add the VMs in"
       }
@@ -12,6 +13,7 @@
     "adminJbIPName": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "adminjb_ip",
       "metadata": {
         "description": "Public IP name for the Admin Jump Box"
       }
@@ -19,6 +21,7 @@
     "adminjbvmSize": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "Standard_D2",
       "metadata": {
         "description": "Azure instance type for the Admin Jump Box VM"
       }
@@ -26,6 +29,7 @@
     "cyclevmSize": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "Standard_D2",
       "metadata": {
         "description": "Azure instance type for the Cycle VM"
       }
@@ -33,6 +37,7 @@
     "adminjbvmStorage": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "Standard_LRS",
       "metadata": {
         "description": "Type of storage for the Admin Jump Box VM: Premium_LRS or Standard_LRS"
       }
@@ -40,6 +45,7 @@
     "cyclevmStorage": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "Standard_LRS",
       "metadata": {
         "description": "Type of storage for the Cycle VM: Premium_LRS or Standard_LRS"
       }
@@ -47,6 +53,7 @@
     "cycleIPName": {
       "maxLength": 32,
       "type": "string",
+      "defaultValue": "cycleserver_ip",
       "metadata": {
         "description": "Public IP name for the Cycle VM"
       }
@@ -54,6 +61,7 @@
     "cycleDownloadUri": {
       "maxLength": 256,
       "type": "securestring",
+      "defaultValue": "https://cycleclouddownload.blob.core.windows.net/cyclecloud680",
       "metadata": {
         "description": "Cycle download URI"
       }
@@ -61,6 +69,7 @@
     "cycleLicenseURL": {
       "maxLength": 256,
       "type": "securestring",
+      "defaultValue": "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?se=2018-06-30&sp=r&sv=2017-04-17&sr=b&sig=nCtLPUSjS7PaOcyq8R6IU32KY/LBktQakyKpnxXtXHE%3D",
       "metadata": {
         "description": "SAS key to Cycle License blob"
       }
