@@ -8,7 +8,7 @@ ms.date: 06/01/2018
 
 This sample solution is applicable for businesses that have an image processing need.
 
-Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and then finally run the images through their custom process to get the data out of the images. 
+Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and then finally run the images through their custom process to get the data out of the images.
 
 By leveraging Azure services such as the Computer Vision API and Azure Functions, companies can remove the undifferentiated heavy lifting of an on-premises or IaaS deployment, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services… This scenario will specifically solve an image processing scenario, however, if you have different AI needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
 
@@ -20,13 +20,9 @@ You should consider this solution for the following use cases:
 * Classify images for insurance claims
 * Classify telemetry data from screenshots of games.
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Intelligent apps architecture - computer vision][architecture-computer-vision]
-
-## Architecture
 
 This solution covers the back-end components of a web or mobile application, the data flows through the solution as follows:
 
@@ -91,8 +87,8 @@ To deploy this sample solution into your account follow the directions below:
 **Prerequisites.** You must have an existing Azure account.
 
 To deploy the solution, perform the following steps.
-1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fai%2Ftemplates%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Wait for the link to open in the Azure portal, then follow these steps: 
+1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fai%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+2. Wait for the link to open in the Azure portal, then follow these steps:
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `computer-vision-solution` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
