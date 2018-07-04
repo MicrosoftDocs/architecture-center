@@ -1,79 +1,65 @@
 ---
-title: Hybrid HPC in Azure
-description: Running hybrid HPC workloads in Azure and on-premises
+title: Native HPC using Azure Batch
+description: Running native HPC workloads in Azure using the Azure Batch service
 author: Mike Warrington and Ben Hummerstone
 ms.date: <publish or update date>
 ---
-# Hybrid HPC in Azure
+# Native HPC in Azure using Azure Batch
 
-High Performance Computing on Azure is somtimes also referred to as Big Compute, as it moves away from the traditional need for on-premises specialist hardware as a major investment. On-demand compute resources can be utilised when a buiness needs it the most, either with hardware for specific HPC scenarios (GPU or RDMA for instance) or general purpose VMs that provide a balance on cost and performance. 
+Batch processing began with mainframe computers and punch cards. Today, it still plays a central role in business, engineering, science, and other areas that require running lots of automated tasks—processing bills and payroll, calculating portfolio risk, designing new products, rendering animated films, testing software, searching for energy, predicting the weather, and finding new cures for disease. Previously, few people had access to the computing power for these scenarios. With Azure Batch, that power is available to you when you need it, without any capital investment.
 
-This sample solution demonstrates how CycleCloud* can be used to orchestrate an IaaS HPC grid running on Azure, while also providing an optional scenario to extend a grid running on-premises to Azure for on demand compute resources.
-
-By using CycleCloud, the manual work to create an IaaS grid in the cloud becomes an efficient process, and can also be used to faciliate a new grid for Disaster Recovery or failover purposes. Additionally, organisations can build multiple grids and be confident there is no infrastructure drift taking place between deployments.
-
-\* CycleCloud has been a recent aquisition for Microsoft, we are currently in the process of intregrating this solution with Azure. During this period the functionality of CycleCloud will not be modified.
+Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes, but it lets you take advantage of the unique features of each environment. With Windows, use your existing Windows code, including Microsoft .NET, to run large-scale compute jobs in Azure. With Linux, choose from popular distributions including CentOS, Ubuntu, and SUSE Linux Enterprise Server to run your compute jobs, or use Docker containers to lift and shift your applications. Batch gives you SDKs and supports a range of development tools including Python and Java.
 
 ## Potential use cases
 
 You should consider this solution for the following use cases:
 
-* If you have been manually building HPC IaaS infrastructures or using an ARM template, but want to further automate the deployment process.
-* Where there is a need to use on-demand compute in Azure while maintaining an on-premises grid.
-* Where a new grid is to be implemented entirely within Azure, while also utilising on-demand compute resources in Azure.
+* You need on-demand HPC compute without the overhead of managing the scheduling of jobs or scaling of resources
+* If you're intending to develop a SaaS (Software as a Service) solution for your own customers
+* You want to use containers as part of your HPC solution in a managed environment
 
 ## Architecture diagram
 
 The solution diagram below is an example of this solution:
 
-![Architecture overview of the components involved in a Hybrid HPC solution using CycleCloud][architecture]
+![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
 
 ## Architecture
 
-This solution covers the workflow when using a head node running on Azure while an optional head node is also deployed on premises, the data flows through the solution as follows:
+This solution covers the workflow when using Azure Batch, the data flows through the solution as follows:
 
-1. User submits job to the CycleCloud server
-2. CycleCloud server decides where to place the job depending on submission criteria
-  - 2a. CycleCloud submits the job to an Azure-based head node
-  - 2b. CycleCloud submits the job to an on-premises head node
-3. The job is queued for execution
-  - 3a. CycleCloud detects a job in the queue and scales the number of execute nodes accordingly
-  - 3b. The on-premises head node submits the job when space is available on the cluster
-4. CycleCloud monitors the head nodes and job queues to gather usage metrics and determine when the job is completed
+1. Upload input files and the applications to process those files to your Azure Storage account
+2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
+3. Download input files and the applications to Batch
+4. Monitor task execution
+5. Upload task output
+6. Download output files
 
-## CycleCloud: Deploying a sample solution manually
-* Please use the following link to deploy CycleCloud which can then be used to orchestrate your grid, you will be manually altering an ARM template to deploy CycleCloud:
-  - CycleCloud Install: [Install][cycle-recipes]
+## Azure Batch: Creating an Azure Batch account and pools manually
+This sample solution is will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
-* The installation consists of the following:
-  - Installing the Azure CLI
-  - Creating a service principal in your Azure Active Directory
-  - Optiona cloning of the CycleCloud GitHub repo
-  - Creating an Azure resource group and VNET
-  - Deploying CycleCloud using a modified ARM template, this will deploy a jumpbox and the CycleCloud server
+[Azure Batch Masterclass][batch-labs-masterclass]
 
-## CycleCloud: Deploying a sample solution using an ARM template
 
-The following deployment will deploy a Jump Box and a Cycle Cloud server to Azure, by default using Standard D2 VM's. Before clicking on the link, some pre-requisites will need to be completed:
+## Azure Batch: Deploying a sample solution using an ARM template
 
-  [CycleCloud Prerequisites][cycle-prereqs]
+The following deployment will deploy a new Azure Batch account with a node pool:
 
-  [Create an SSH keypair][cycle-prereqs-keypair]
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fdeploycyclevms.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-Configuration of CycleCloud is required once the jump box and CycleCloud server have been deployed. To configure CycleCloud please follow the steps detailed [here][cycle-configure]. 
-
 ### Components
+
+Azure Batch builds upon the following Azure technologies:
 
 * [Resource Groups][resource-groups] is a logical container for Azure resources.
 * [Virtual Networks][vnet] are used to for both the Head Node and Compute resources
 * [Storage][storage] accounts are used for the synchronisation and data retention
 * [Virtual Machine Scale Sets][vmss] are utilised by CycleCloud for compute resources
 
-## HPC Machine Sizes
+## Machine Sizes available for Azure Batch
 Compute resources in the VM Scale Sets will depend on a number of factors:
   - Is the Application being run memory bound?
   - Does the Application need to use GPU's? 
@@ -94,17 +80,20 @@ NV sizes are optimized and designed for remote visualization, streaming, gaming,
 
 ### Alternatives
 
-If you are looking to transform current applications or develop anew as a Cloud Native app, then [Azure Batch][batch] might be more appropriate. This is especially true if a SaaS (Software as a Service) offering to your own customers is the end goal. 
+If you require more control over an HPC environment in Azure or need a Hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more and learn about the design principles, please use the following link:
 
-The design principles for Azure Batch can be found [here][batch-arch]
+<Link for IaaS on Azure>
 
-For a complete overview of all the HPC solutions that are available to you in Azure, please see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions].
+For a complete overview of all the HPC solutions that are available to you in Azure, please see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions]
 
 ### Availability
+Monitoring of the Azure Batch components is available through a range of services, tools and APIs. This is discussed further in the [Monitor Batch solutions][batch-monitor] article.
+
 
 ### Scalability
 
-* CycleCloud can scale up or down on demand depending on the criteria you supply.
+Pools within an Azure Batch account can either scale through manual intervention or, by using an formula based on Azure Batch metrics, be scaled automatically. For more information on this, please see the article
+[Create an automatic scaling formula for scaling nodes in a Batch pool][batch-scaling].
 
 ### Security
 
@@ -112,13 +101,18 @@ For a deeper discussion on [security][] please see the relevant article in the a
 
 ### Resiliency
 
-For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
+While there is currently no failover capability in Azure Batch, we recommend using the following steps to ensure availbility in case of an unplanned outage:
+
+* Create a Azure Batch account in an alternate Azure location with an alternate Storage Account
+* Create the same node pools with the same name, with 0 nodes allocated
+* Ensure Applications are created and updated to the alternate Storage Account
+* Upload input files and submit jobs to the alternate Azure Batch account
 
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected needs.
 
-The cost of deploying CycleCloud will depend on the VM sizes that are used for the compute and how long these are allocated and running. Storage and data egress should also be taken into account as these will apply additional costs. The following are examples of costs that could be incurred over a one month period if the resources are utilised on a 24x7 basis:
+The cost of using Azure Batch will depend on the VM sizes that are used for the pools and how long these are allocated and running, there is no cost associated with an Azure Batch account creation. Storage and data egress should also be taken into account as these will apply additional costs. The following are examples of costs that could be incurred over a one month period if the resources are utilised on a 24x7 basis:
 
 
 - High Performance CPU VMs: [Cost Estimate][hpc-est-high]
@@ -133,8 +127,19 @@ The cost of deploying CycleCloud will depend on the VM sizes that are used for t
   
   100 x A4v2 (4 cores, 8GB RAM, Premium Storage 32GB), 2 TB Blob Storage, 1 TB egress
 
+### Low Priority VM Pricing
+
+Azure Batch also supports the use of Low Priority VMs* in the node pools, which can potentially provide a substantial cost saving. For a price comparison between standard VMs and Low Priority VMs, and to find out more about Low Priority VMs, please see [Batch Pricing][batch-pricing].
+
+\* Please note that only certain applications and workloads will be suitable to run on Low Priority VMs.
 
 ## Related Resources
+
+[Azure Batch Overview][batch-overview]
+
+[Azure Batch Documentation][batch-doc]
+
+[Using containers on Azure Batch][batch-containers]
 
 Other resources that are relevant that aren't linked from else where in the doc.
 
@@ -142,8 +147,9 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
-[architecture]: ./media/hybrid-hpc-ref-arch.png
+[architecture]: ./media/native-hpc-ref-arch.png
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+[security]: https://docs.microsoft.com/en-gb/azure/architecture/patterns/category/security
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
 [vmss]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
@@ -159,14 +165,16 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [compute-storage]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-storage
 [compute-acu]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu
 [compute=benchmark]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores
-[cycle-recipes]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/CycleCloud
-[cycle-configure]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/CycleCloud#4-configure-cyclecloud-server
-[cycle-prereqs]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/CycleCloud#2-prerequisites
-[cycle-prereqs-keypair]: https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
+[batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
+[batch-scaling]: https://docs.microsoft.com/en-us/azure/batch/batch-automatic-scaling
 [hpc-alt-solutions]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
-
+[batch-monitor]: https://docs.microsoft.com/en-us/azure/batch/monitoring-overview
+[batch-pricing]: https://azure.microsoft.com/en-gb/pricing/details/batch/
+[batch-doc]: https://docs.microsoft.com/en-us/azure/batch/
+[batch-overview]: https://azure.microsoft.com/en-us/services/batch/
+[batch-containers]: https://github.com/Azure/batch-shipyard
 
 
