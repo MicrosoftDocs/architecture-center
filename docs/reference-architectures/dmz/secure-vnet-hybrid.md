@@ -2,7 +2,7 @@
 title: Implementing a secure hybrid network architecture in Azure
 description: How to implement a secure hybrid network architecture in Azure.
 author: telmosampaio
-ms.date: 11/23/2016
+ms.date: 07/01/2018
 
 pnp.series.title: Network DMZ
 pnp.series.prev: ./index
@@ -12,7 +12,7 @@ cardTitle: DMZ between Azure and on-premises
 ---
 # DMZ between Azure and your on-premises datacenter
 
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited.
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited. [**Deploy this solution**.](#deploy-the-solution)
 
 [![0]][0] 
 
@@ -155,19 +155,65 @@ Traffic between tiers is restricted by using NSGs. The business tier blocks all 
 ### DevOps access
 Use [RBAC][rbac] to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege][security-principle-of-least-privilege]. Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-## Solution deployment
+## Deploy the solution
 
-A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. The reference architecture can be deployed by following the directions below:
+A deployment for a reference architecture that implements these recommendations is available on [GitHub][github-folder]. 
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fdmz%2Fsecure-vnet-hybrid%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click the **Purchase** button.
-3. Wait for the deployment to complete.
-4. The parameter files include hard-coded administrator user name and password for all VMs, and it is strongly recommended that you immediately change both. For each VM in the deployment, select it in the Azure portal and then click **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to save.
+### Prerequisites
+
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
+
+### Deploy resources
+
+1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
+
+2. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
+    ```
+
+3. Run the following command:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
+    ```
+
+### Connect the on-premises and Azure gateways
+
+In this step, you will connect the two local network gateways.
+
+1. In the Azure Portal, navigate to the resource group that you created. 
+
+2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
+
+3. Find the resource named `onprem-vpn-lgw`.
+
+4. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 2.
+
+    ![](./images/local-net-gw.png)
+
+5. Click **Save** and wait for the operation to complete. It can take about 5 minutes.
+
+6. Find the resource named `onprem-vpn-gateway1-pip`. Copy the IP address shown in the **Overview** blade.
+
+7. Find the resource named `ra-vpn-lgw`. 
+
+8. Click the **Configuration** blade. Under **IP address**, paste in the IP address from step 6.
+
+9. Click **Save** and wait for the operation to complete.
+
+10. To verify the connection, go to the **Connections** blade for each gateway. The status should be **Connected**.
+
+### Verify that network traffic reaches the web tier
+
+1. In the Azure Portal, navigate to the resource group that you created. 
+
+2. Find the resource named `int-dmz-lb`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
+
+3. Find the VM named `jb-vm1`. Click **Connect** and use Remote Desktop to connect to the VM. The user name and password are specified in the onprem.json file.
+
+4. From the Remote Desktop Session, open a web browser and navigate to the IP address from step 2. You should see the default Apache2 server home page.
 
 ## Next steps
 

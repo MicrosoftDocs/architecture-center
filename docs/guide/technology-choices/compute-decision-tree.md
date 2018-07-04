@@ -22,6 +22,8 @@ Azure offers a number of ways to host your application code. The term *compute* 
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
 
+For more information about your options for hosting containers in Azure, see https://azure.microsoft.com/overview/containers/.
+
 ## Flowchart
 
 ![](../images/compute-decision-tree.svg)
