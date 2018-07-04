@@ -6,22 +6,26 @@ ms.date: <publish or update date>
 ---
 # Deploy a .NET application to Azure App Service using Visual Studio Team Services as the CI/CD Pipeline
 
-DevOps is the integration of development, quality assurance, and IT operations into a unified culture and set of processes for delivering software.
+DevOps is the integration of development, quality assurance and IT operations. DevOps requires both unified culture and a strong set of processes for delivering software.
 
-This sample solution demonstrates how Visual Studio Team Services can be used by development teams to deploy a .NET Application to Azure App Service. This document also points out a number of the considerations that you should make whilst you architect such a solution using App Service. Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps  you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
+This sample solution demonstrates how Visual Studio Team Services can be used, by development teams, to deploy a .NET Browser based two tier Web Application to Azure App Service. The Web Application is dependent on downstream Azure Platform as a Service (PaaS) services.
+
+This document also points out a number of the considerations that you should make whilst you architect such a solution using Azure Platform as a Service (PaaS).
+
+Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps  you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
 
 By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their solution, rather than the management of the infrastructure to enable it.
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+You should consider DevOps for the following use cases:
 
 * Speeding up application development and development life cycles
 * Building quality and consistency into an automated build and release process
 
 ## Architecture diagram
 
-The solution diagram below is an example of this solution:
+The solution diagram below is an example of the DevOps processes and components:
 
 ![Architecture overview of the Azure components involved in a DevOps solution using Visual Studio Team Services and Azure App Service][architecture]
 
@@ -32,23 +36,23 @@ This solution covers a DevOps pipeline for a .NET web application using Visual S
 1. Change application source code.
 2. Commit application code and Web Apps web.config file.
 3. Continuous integration triggers application build and unit tests.
-4. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+4. Continuous deployment trigger orchestrates deployment of application artifacts *with environment-specific parameterized configuration values*.
 5. Deployment to Azure App Service.
 6. Azure Application Insights collects and analyzes health, performance, and usage data.
 7. Review health, performance, and usage information.
 
 ### Components
 
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
-* [Visual Studio Team Services (VSTS)][vsts] is a service that enables you to manage your development life cycle; from planning and code management through to build and release.
-* [Azure Web Apps][web-apps] is a Platform as a Service (PaaS) service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional options available.
-* [Application Insights][application-insights] is an extensible Application Performance Management (APM) service for web developers on multiple platforms.
+* [Resource Groups][resource-groups] are a logical container for Azure resources and also provide an access control boundary for the management plane - think of a Resource Group as representing a "unit of deployment".
+* [Visual Studio Team Services (VSTS)][vsts] is a service that enables you to manage your development life cycle end-to-end; from planning and project management, to code management, through to build and release.
+* [Azure Web Apps][web-apps] is a Platform as a Service (PaaS) service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional development platform options supported.
+* [Application Insights][application-insights] is a first-party, extensible Application Performance Management (APM) service for web developers on multiple platforms.
 
 ### Alternative DevOps tooling options
 
-Whilst this article focuses on Visual Studio Team Services, [Team Foundation Server][team-foundation-server] or [Jenkins][jenkins-on-azure] could be considered as options to drive the CI/CD pipeline.
+Whilst this article focuses on Visual Studio Team Services, [Team Foundation Server][team-foundation-server] could be used as on premises substitute. Alternatively, you may also find a collection of technologies being used together for an Open Source development pipeline leveraging [Jenkins][jenkins-on-azure].
 
-From an Infrastructure as Code perspective, [Azure Resource Manager (ARM) Templates][arm-templates] are included as part of the Azure DevOps project, but you could consider [terraform][terraform] or [Chef][chef] if you have investments here. If you prefer an Infrastructure as a Service (IaaS) based deployment and require configuration management, then you could consider either [Azure Desired State Configuration][desired-state-configuration], [Ansible][ansible] or [Chef][chef].
+From an Infrastructure as Code perspective, [Azure Resource Manager (ARM) Templates][arm-templates] are included as part of the Azure DevOps project, but you could consider [Terraform][terraform] or [Chef][chef] if you have investments here. If you prefer an Infrastructure as a Service (IaaS) based deployment and require configuration management, then you could consider either [Azure Desired State Configuration][desired-state-configuration], [Ansible][ansible] or [Chef][chef].
 
 ### Alternatives to Web App Hosting
 
@@ -59,8 +63,8 @@ Alternatives to hosting in Azure Web Apps:
 
 Other options include:
 
-* [Service Fabric][service-fabric] - A good option if the workload is architected around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
-* [Serverless Azure functions][azure-functions] - A good option if the workload is architected around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+* [Service Fabric][service-fabric] - A good option if the workload architecture is focused around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
+* [Serverless Azure functions][azure-functions] - A good option if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 
 ### DevOps
 
@@ -171,30 +175,11 @@ Explore the cost of running this solution, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get in your App Service solution.
 
-* [Small][small-pricing]:
-  * App Tier: A standard (S2) Web App Plan, with a single instance (the deploy template configures autoscale). At the time of writing, the service level agreement (SLA) for App Service is 99.95%. 1 IP SSL Connection.
-  * Azure DNS, 1 hosted zone, estimated 1M queries.
-  * Azure SQL Database 4 core Instance, General Purpose Tier, Generation 5 processors, with Transparent Data Encryption (TDE) enabled. (Purchase model by core.)
-  * Azure SQL Database backup storage and retention.
-  * Storage for diagnostics logs.
-  * Application Insights
-* [Medium][medium-pricing]:
-  * App Tier: A standard (S2) Web App Plan, with a single instance (the deploy template configures autoscale). At the time of writing, the service level agreement (SLA) for App Service is 99.95%. 1 IP SSL Connection.
-  * Middle Tier: A standard (S2) Web App Plan for API and background processing (WebJobs), with a single instance. 1 IP SSL Connection.
-  * Standard (C1) Redis Cache.
-  * Azure DNS, 1 hosted zone, estimated 1M queries.
-  * Azure SQL Database 4 core Instance, General Purpose Tier, Generation 5 processors, with Transparent Data Encryption (TDE) enabled. (Purchase model by core.)
-  * Azure SQL Database backup storage and retention.
-  * Storage for diagnostics logs.
-  * Application Insights
-  * CosmosDB - 50GB, 500RUs provisioned. Note: Pricing CosmosDB will depend on the workload. Proof of Concepts & testing are recommended to optimize the correct number of RUs required for production to meet the project workload requirements.
-  * 1 Standard (S1) Unit for Azure search, for a month.
-  * 10Gb Standard (Verizon) CDN.
-  * 5GB Storage queue with 10M Class 1 and 10M Class 2 Operations.
-* [Large][large-pricing]:
-  * This architecture is the "medium deployment" with an additional identical deployment (as a passive or warm standby) in a paired Azure region, for Disaster Recovery (DR) / fail over, with a Traffic Manager profile supporting 50M DNS queries / month.
-  * Traffic Manager (TM) can be used to automatically, or manually fail over customer connections to the secondary region. The data tier, SQL and CosmosDB, is replicated from the primary to secondary region.
-  * Where possible resources in the secondary can be provisioned scaled back until they're required on fail over.
+* [Small][small-pricing]: The Small Web Application Architecture consists of a simple two tier application built out over Azure PaaS services. High Availability (HA) and the ability to scale out and back under burst load are accommodated through a "auto scale" rule. Application Performance Monitoring (APM) is enabled through Application Insights. Sufficient depth of monitoring for an application workload is critical to understand bugs, performance under load. [App Insights can be integrated into VSTS to enable continuous monitoring of the CD pipeline][app-insights-cd-monitoring]. This could be used to enable automatic progression to the next stage, without human intervention, or rollback if an alert is detected.
+* [Medium][medium-pricing]: The Medium Web Application Architecture extends the Small architecture with a more complex and less tightly coupled, three tier application architecture built out over Azure PaaS services. This architecture leverages both traditional Relational data store (SQL DB PaaS) and highly scalable NoSQL store (CosmosDB). Note: Pricing CosmosDB will depend on the workload. Proof of Concepts & testing are recommended to optimize the correct number of RUs required for production to meet the project workload requirements.
+* [Large][large-pricing]: The Large Web Application Architecture extends the Medium architecture by introducing a passive (or warm) standby secondary deployment in the [paired azure region][azure-region-pair-bcdr] to the primary deployment. The Disaster Recovery (DR) capability should be measured against the workloads Recovery Time Objective (RTO) and Recovery Point Objective (RPO). The data tier, SQL Azure DB and CosmosDB allow for continuous data replication and Traffic Manager is used to facilitate a manual or automatic fail over of consumer traffic to the front end Web Application Tier.
+
+Where possible resources in the secondary deployment can be provisioned scaled back, whilst not in use, until they're required on fail over.
 
 Your Visual Studio Team Services costing will depend upon the number of users in your organization that require access, in addition to factors such as the number of concurrent build/releases required, and number of test users. These are detailed further on the [VSTS pricing page][vsts-pricing-page].
 
@@ -256,3 +241,5 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 [azure-functions]:https://docs.microsoft.com/en-us/azure/azure-functions/
 [azure-containers]:https://azure.microsoft.com/en-us/overview/containers/
 [compare-vm-hosting]:https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm
+[app-insights-cd-monitoring]:https://docs.microsoft.com/en-us/azure/application-insights/app-insights-vsts-continuous-monitoring
+[azure-region-pair-bcdr]:https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions
