@@ -22,21 +22,18 @@ You should consider this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Architecture overview of the components involved in a Hybrid HPC solution using CycleCloud][architecture]
+![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
 
 ## Architecture
 
 This solution covers the workflow when using Azure Batch, the data flows through the solution as follows:
 
-1. Input files and Applications are uploaded to an Azure Storage Account
-2. A Batch pool of compute nodes are created
-3. A job is created on the Batch account for the defined node pool
-4. Tasks are added to the job and submitted to the pool
-5. Batch downloads the input files and applications to the nodes in the pool
-6. Batch allocates tasks to nodes in the pool to execute the application
-7. Batch monitors the execution of the tasks
-8. Output from the tasks are uploaded to the Storage Account
-9. Output files are downloaded from the Storage Account
+1. Upload input files and the applications to process those files to your Azure Storage account
+2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
+3. Download input files and the applications to Batch
+4. Monitor task execution
+5. Upload task output
+6. Download output files
 
 ## Azure Batch: Creating an Azure Batch account and pools manually
 This sample solution is will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
@@ -83,7 +80,7 @@ NV sizes are optimized and designed for remote visualization, streaming, gaming,
 
 ### Alternatives
 
-If you require more control on the HPC environment in Azure or need a Hybrid approach, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies, it makes building and maintaining an IaaS grid an efficient process. To find out more and learn about the design principles, please use the following link:
+If you require more control over an HPC environment in Azure or need a Hybrid implementation, then CycleCloud computing can help orchestrate an IaaS grid in the cloud. Using the same underlying Azure technologies as Azure Batch, it makes building and maintaining an IaaS grid an efficient process. To find out more and learn about the design principles, please use the following link:
 
 <Link for IaaS on Azure>
 
@@ -132,9 +129,9 @@ The cost of using Azure Batch will depend on the VM sizes that are used for the 
 
 ### Low Priority VM Pricing
 
-Azure Batch also supports the use of Low Priority VMs* in the node pools, which can potentially provide a substantial cost saving. For a price comparison between standard VMs and Low Priority VMs please see the [Batch Pricing][batch-pricing] article to find out more. 
+Azure Batch also supports the use of Low Priority VMs* in the node pools, which can potentially provide a substantial cost saving. For a price comparison between standard VMs and Low Priority VMs, and to find out more about Low Priority VMs, please see [Batch Pricing][batch-pricing].
 
-\* Please note that only certain applications and workloads will be suitable for Low Priority VM pools
+\* Please note that only certain applications and workloads will be suitable to run on Low Priority VMs.
 
 ## Related Resources
 
@@ -142,13 +139,15 @@ Azure Batch also supports the use of Low Priority VMs* in the node pools, which 
 
 [Azure Batch Documentation][batch-doc]
 
+[Using containers on Azure Batch][batch-containers]
+
 Other resources that are relevant that aren't linked from else where in the doc.
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
-[architecture]: ./media/hybrid-hpc-ref-arch.png
+[architecture]: ./media/native-hpc-ref-arch.png
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [security]: https://docs.microsoft.com/en-gb/azure/architecture/patterns/category/security
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
@@ -176,4 +175,6 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [batch-pricing]: https://azure.microsoft.com/en-gb/pricing/details/batch/
 [batch-doc]: https://docs.microsoft.com/en-us/azure/batch/
 [batch-overview]: https://azure.microsoft.com/en-us/services/batch/
+[batch-containers]: https://github.com/Azure/batch-shipyard
+
 

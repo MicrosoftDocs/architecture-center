@@ -1,0 +1,204 @@
+{
+    "$schema":"http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion":"1.0.0.0",
+    "parameters":{
+      "batchAccountName":{
+        "type":"string",
+        "metadata":{
+          "description":"Batch Account Name"
+        }
+      },
+      "storageID":{
+        "type":"string",
+        "metadata":{
+        "description":"Storage account name"
+        }
+      },
+      "poolName":{
+        "type":"string",
+        "metadata":{
+            "description":"Name of the pool to create"
+        }
+      },
+      "targetDedicatedNodes":{
+        "type":"int",
+        "defaultValue":1,
+        "metadata":{
+          "description":"Initial number of dedicated nodes inside the pool"
+        }
+      },
+      "vmSize":{
+        "type":"string",
+        "defaultValue":"small"
+      }
+    },
+    "variables": {
+        "resourceLocation": "[resourceGroup().location]",
+        "storageID": "[parameters('storageID')]",
+        "poolName": "[parameters('poolName')]"
+    },
+    "resources":[
+        {
+            "name": "[parameters('batchAccountName')]",
+            "type": "Microsoft.Batch/batchAccounts",
+            "apiVersion": "2017-09-01",
+            "location": "string",
+            "tags": {},
+            "properties": {
+              "autoStorage": {
+                "storageAccountId": "[variables('storageID')]"
+              },
+              "location": "[variables('resourceLocation')]",
+              "poolAllocationMode": "BatchService",
+              "keyVaultReference": {
+                "id": "string",
+                "url": "string"
+              }
+            },
+            "resources": []
+          },
+          {
+            "name": "string",
+            "type": "Microsoft.Batch/batchAccounts/pools",
+            "apiVersion": "2017-09-01",
+            "properties": {
+              "displayName": "string",
+              "vmSize": "string",
+              "deploymentConfiguration": {
+                "cloudServiceConfiguration": {
+                  "osFamily": "string",
+                  "targetOSVersion": "string",
+                  "currentOSVersion": "string"
+                },
+                "virtualMachineConfiguration": {
+                  "imageReference": {
+                    "publisher": "string",
+                    "offer": "string",
+                    "sku": "string",
+                    "version": "string",
+                    "id": "string"
+                  },
+                  "osDisk": {
+                    "caching": "string"
+                  },
+                  "nodeAgentSkuId": "string",
+                  "windowsConfiguration": {
+                    "enableAutomaticUpdates": boolean
+                  },
+                  "dataDisks": [
+                    {
+                      "lun": "integer",
+                      "caching": "string",
+                      "diskSizeGB": "integer",
+                      "storageAccountType": "string"
+                    }
+                  ],
+                  "licenseType": "string"
+                }
+              },
+              "scaleSettings": {
+                "fixedScale": {
+                  "resizeTimeout": "string",
+                  "targetDedicatedNodes": "integer",
+                  "targetLowPriorityNodes": "integer",
+                  "nodeDeallocationOption": "string"
+                },
+                "autoScale": {
+                  "formula": "string",
+                  "evaluationInterval": "string"
+                }
+              },
+              "interNodeCommunication": "string",
+              "networkConfiguration": {
+                "subnetId": "string",
+                "endpointConfiguration": {
+                  "inboundNatPools": [
+                    {
+                      "name": "string",
+                      "protocol": "string",
+                      "backendPort": "integer",
+                      "frontendPortRangeStart": "integer",
+                      "frontendPortRangeEnd": "integer",
+                      "networkSecurityGroupRules": [
+                        {
+                          "priority": "integer",
+                          "access": "string",
+                          "sourceAddressPrefix": "string"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "maxTasksPerNode": "integer",
+              "taskSchedulingPolicy": {
+                "nodeFillType": "string"
+              },
+              "userAccounts": [
+                {
+                  "name": "string",
+                  "password": "string",
+                  "elevationLevel": "string",
+                  "linuxUserConfiguration": {
+                    "uid": "integer",
+                    "gid": "integer",
+                    "sshPrivateKey": "string"
+                  }
+                }
+              ],
+              "metadata": [
+                {
+                  "name": "string",
+                  "value": "string"
+                }
+              ],
+              "startTask": {
+                "commandLine": "string",
+                "resourceFiles": [
+                  {
+                    "blobSource": "string",
+                    "filePath": "string",
+                    "fileMode": "string"
+                  }
+                ],
+                "environmentSettings": [
+                  {
+                    "name": "string",
+                    "value": "string"
+                  }
+                ],
+                "userIdentity": {
+                  "userName": "string",
+                  "autoUser": {
+                    "scope": "string",
+                    "elevationLevel": "string"
+                  }
+                },
+                "maxTaskRetryCount": "integer",
+                "waitForSuccess": boolean
+              },
+              "certificates": [
+                {
+                  "id": "string",
+                  "storeLocation": "string",
+                  "storeName": "string",
+                  "visibility": [
+                    "string"
+                  ]
+                }
+              ],
+              "applicationPackages": [
+                {
+                  "id": "string",
+                  "version": "string"
+                }
+              ],
+              "applicationLicenses": [
+                "string"
+              ]
+            }
+          }
+      }
+    ]
+  }
+  
