@@ -32,7 +32,7 @@ Here are the main compute options currently available in Azure:
 - [Azure Container Instances](/azure/container-instances/container-instances-overview) offer the fastest and simplest way to run a container in Azure, without having to provision any virtual machines and without having to adopt a higher-level service.
 - [Azure Functions](/azure/azure-functions/functions-overview) is a managed FaaS service.
 - [Azure Batch](/azure/batch/batch-technical-overview) is a managed service for running large-scale parallel and high-performance computing (HPC) applications.
-- [Cloud Services](/azure/cloud-services/cloud-services-choose-me) is a managed service for running cloud applications which can use both IaaS and PaaS hosting model. 
+- [Cloud Services](/azure/cloud-services/cloud-services-choose-me) is a managed service for running cloud applications which can use both IaaS (not recommended by Microsoft ) and PaaS hosting model. 
 
 When selecting a compute option, here are some factors to consider:
 
