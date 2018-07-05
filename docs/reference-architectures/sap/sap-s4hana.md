@@ -9,14 +9,15 @@ ms.date: 05/11/2018
 
 This reference architecture shows a set of proven practices for running S/4HANA in a high availability environment that supports disaster recovery on Azure. This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs. 
 
-
 ![](./images/sap-s4hana.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
+
+> [!NOTE] 
+> Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
 ## Architecture
  
-> [!NOTE] 
-> Deploying SAP products according to this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
-
 This reference architecture describes a enterprise-grade, production-level system. To suit your business needs, this configuration can be reduced to a single virtual machine. However, the following components are required:
 
 **Virtual network**. The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service securely connects Azure resources to each other. In this architecture, the virtual network connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](../hybrid-networking/hub-spoke.md). The spoke is the virtual network used for the SAP applications.
@@ -192,3 +193,5 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [Azure Community Support](https://azure.microsoft.com/support/community/)
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow](https://stackoverflow.com/tags/sap/)
+
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
