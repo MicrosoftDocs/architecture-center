@@ -6,7 +6,7 @@ This chapter describes using Azure Functions to perform warm-path processing in 
 - Transform the longitude and latitude values into [GeoJSON](https://tools.ietf.org/html/rfc7946) format. This is a standard format for geospatial data.
 - Store the output in Cosmos DB.
 
-Cosmos DB has native support for geospatial data. Cosmos DB collections can be indexed for efficient spatial queries. For example, an application could query for all drones within 1 km of a specified location, or find all drones inside a given area. Cosmos DB can also scale to support very high write throughput. 
+Cosmos DB has native support for [geospatial data](https://docs.microsoft.com/en-us/azure/cosmos-db/geospatial). Cosmos DB collections can be indexed for efficient spatial queries. For example, an application could query for all drones within 1 km of a specified location, or find all drones inside a given area. Cosmos DB can also scale to support very high write throughput. 
 
 These processing requirements are simple enough that they don't require a full-fledged stream processing engine. In particular, the warm path described here does not join streams, aggregate data, or process across time windows. Based on these requirements, Azure Functions is a good fit. 
 
