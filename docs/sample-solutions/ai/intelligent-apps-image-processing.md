@@ -50,11 +50,13 @@ This solution covers the back-end components of a web or mobile application, the
 
 * [Cosmos DB][cosmos-docs]: Cosmos DB is used to hold metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
-## Considerations
+## Alternatives
 
 * [Custom Vision API][custom-vision-docs]: If you need to process images to retrieve information that isn't returned by the Computer Vision API, which returns these [86 categories][cv-categories]. Then you should consider the Custom Vision API.
 
 * [Azure Search][azure-search-docs]: If your use case involves querying the metadata to find images that meet specific criteria then you should consider leverage Azure Search for that purpose.  Currently, in preview, [Cognitive search][cognitive-search] seamlessly integrates this workflow.
+
+## Considerations
 
 ### Availability
 
@@ -63,8 +65,6 @@ More detail to come, but it will focus on the specific considerations around ava
 ### Scalability
 
 You use Cosmos DB in this situation as the lookups will consistently be by the key, and you will not be querying by value.  Which is one of the ways that a NoSQL database excels. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
-
-More detail to come, but it will focus on the specific considerations around scalability for this particular use case.
 
 For other scalability topics please see the  [scalability checklist][] available in the architecure center.
 
@@ -104,7 +104,7 @@ For a guided learning path of this solution please see [Build a serverless web a
 [azure-search-docs]: https://docs.microsoft.com/en-us/azure/search/
 [cognitive-search]: https://docs.microsoft.com/en-us/azure/search/cognitive-search-concept-intro
 [architecture-computer-vision]: ./media/architecture-computer-vision.png
-[serverless]: https://docs.microsoft.com/en-us/learn/build-serverless-app/index
+[serverless]: https://docs.microsoft.com/en-us/azure/functions/tutorial-static-website-serverless-api-with-database
 [cosmos-docs]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [eventgrid-docs]: https://docs.microsoft.com/en-us/azure/event-grid/
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview

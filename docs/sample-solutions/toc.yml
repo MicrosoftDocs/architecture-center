@@ -6,7 +6,7 @@
   items:
   - name: AI
     items:
-    - name: Image Processing
+    - name: Image processing
       href: ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
@@ -16,6 +16,6 @@
       href: apps/devops-with-aks.md
   - name: Data & Analytics
     items:
-    - name:  Real-time Fraud detection
+    - name:  Real-time fraud detection
       href: data/fraud-detection.md
   

@@ -44,7 +44,9 @@ This solution covers a conversational bot that functions as a concierge for a ho
 
 ### Alternatives
 
-Stuff goes here
+* [Speech API][speech-api] Microsoft Speech API can be used to change how customers interface with your bot.
+* [QnA Maker][qna-maker] Azure QnA Maker can be used as to quickly add knowledge to your bot from semi-structured content like an FAQ.
+* [Translator Text]][translator] is a service that you might consider to easily add multi-lingual support to your bot.
 
 ## Considerations
 
@@ -141,7 +143,7 @@ We have provided three sample cost profiles based on the amount of messages you 
 
 ## Related Resources
 
-Links to stuff goes here.
+For a set of guided tutorials on leveraging the Azure Bot Service, see the [tutorial node][botservice-docs] of the documentation.
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
@@ -160,6 +162,9 @@ Links to stuff goes here.
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: /azure/sql-database/
 [sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+[qna-maker]: https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/Overview/overview
+[speech-api]: https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home
+[translator]: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview
 
 [small-pricing]: https://azure.com/e/dce05b6184904c50b38e1a8654f726b6
 [medium-pricing]: https://azure.com/e/304d17106afc480dbc414f9726078a03

@@ -47,7 +47,8 @@ This solution covers a DevOps pipeline for a Node.js web application and databas
 
 ### Alternatives
 
-* [VSTS][vsts] can easily be substituted in for jenkins
+* [Visual Studio Team Services][vsts] and Team Foundation Server help you implement a continuous integration (CI), test, and deployment (CD) pipeline for any app.
+* [Kubernetes][kubernetes] can be run directly on Azure VMs instead of via a managed service if you would like more control over the cluster.
 
 ## Considerations
 
@@ -141,6 +142,8 @@ This solution used Azure Container Registry and Azure Kubernetes Service to stor
 [security]: ../../patterns/category/security.md
 [scalability]: ../../checklist/scalability.md
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
+[vsts]: https://docs.microsoft.com/en-us/vsts/?view=vsts
+[kubernetes]: https://kubernetes.io/
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
 [medium-pricing]: https://azure.com/e/eea0e6d79b4e45618a96d33383ec77ba
