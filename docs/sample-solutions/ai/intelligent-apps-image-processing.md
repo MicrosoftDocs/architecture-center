@@ -10,7 +10,7 @@ This sample solution is applicable for businesses that have an image processing 
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and then finally run the images through their custom process to get the data out of the images.
 
-By leveraging Azure services such as the Computer Vision API and Azure Functions, companies can remove the undifferentiated heavy lifting of an on-premises or IaaS deployment, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services… This scenario will specifically solve an image processing scenario, however, if you have different AI needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
+By leveraging Azure services such as the Computer Vision API and Azure Functions, companies can remove the undifferentiated heavy lifting of an on-premises or IaaS deployment, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services. This scenario will specifically solve an image processing scenario, however, if you have different AI needs, you may want to consider the full suite of [Cognitive Services][cognitive-docs].
 
 ## Potential use cases
 
@@ -38,8 +38,6 @@ This solution covers the back-end components of a web or mobile application, the
 
 ### Components
 
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
-
 * [Computer Vision API][computer-vision-docs] is part of the Cognitive Services suite and is used to retrieve information about each image.
 
 * [Azure Functions][functions-docs]: this provides the backend API for the web application, as well as the event processing for uploaded images.
@@ -60,7 +58,7 @@ This solution covers the back-end components of a web or mobile application, the
 
 ### Availability
 
-More detail to come, but it will focus on the specific considerations around availability for this particular use case.
+All of the components of this solution are managed services that automatically scale.  Azure Functions has a limit of a maximum of 200 instances, so if you are going to scale beyond that you should consider multiple regions / app plans.  
 
 ### Scalability
 
@@ -70,15 +68,13 @@ For other scalability topics please see the  [scalability checklist][] available
 
 ### Security
 
-More detail to come, but it will focus on the specific considerations around security for this particular use case.
+[Managed service identities][msi] (MSI) are used to provide access to other resources internal to your account and then assigned to your Azure Functions. Only allow access to the requisite resources in those identities to ensure that nothing extra is exposed to your functions (and potentially to your customers).  
 
 For a deeper discussion on [security][] please see the relevant article in the architecure center.
 
 ### Resiliency
 
-More detail to come, but it will focus on the specific considerations around resiliency for this particular use case.
-
-For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
+All of the components in this solution are managed, so at a regional level they are all resilient automatically.  For a deeper exploration of [resiliency][] please see the relevant article in the architecure center.
 
 ## Pricing
 
@@ -92,7 +88,9 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 ## Related Resources
 
-For a guided learning path of this solution please see [Build a serverless web app in Azure][serverless]
+For a guided learning path of this solution please see [Build a serverless web app in Azure][serverless].  
+
+Before putting this in a production environment review the Azure Functions [best practices][functions-best-practices].
 
 <!-- links -->
 [pricing]: https://azure.com/e/f9b59d238b43423683db73f4a31dc380
@@ -107,10 +105,11 @@ For a guided learning path of this solution please see [Build a serverless web a
 [serverless]: https://docs.microsoft.com/en-us/azure/functions/tutorial-static-website-serverless-api-with-database
 [cosmos-docs]: https://docs.microsoft.com/en-us/azure/cosmos-db/
 [eventgrid-docs]: https://docs.microsoft.com/en-us/azure/event-grid/
-[resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
 [cognitive-docs]: https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai
 [custom-vision-docs]: https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/home
 [cv-categories]: https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/home#the-86-category-concept
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
 [security]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/security
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[functions-best-practices]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices
+[msi]: https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity
