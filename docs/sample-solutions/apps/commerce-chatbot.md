@@ -43,6 +43,12 @@ This solution covers a conversational bot that functions as a concierge for a ho
 * [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
 * [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
+### Alternatives
+
+Stuff goes here
+
+## Considerations
+
 ### Availability
 
 This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
@@ -85,7 +91,7 @@ This solution is divided into three components for you to explore areas that you
 
 To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fcommerce-chatbot%2Fsample-solutions%2Fevent-driven-apps%2Ftemplates%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
    * Select a region from the **Location** drop-down box.

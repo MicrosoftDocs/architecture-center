@@ -80,22 +80,6 @@ More detail to come, but it will focus on the specific considerations around res
 
 For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
 
-## Deploy the solution
-
-To deploy this sample solution into your account follow the directions below:
-
-**Prerequisites.** You must have an existing Azure account.
-
-To deploy the solution, perform the following steps.
-1. Select the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fai%2Fintelligent-apps-image-processing.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Wait for the link to open in the Azure portal, then follow these steps:
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `computer-vision-solution` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click the **Purchase** button.
-3. Wait for the deployment to complete.
-
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.

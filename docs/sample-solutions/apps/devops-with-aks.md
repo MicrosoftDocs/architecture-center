@@ -45,6 +45,12 @@ This solution covers a DevOps pipeline for a Node.js web application and databas
 * [Azure Monitor][azuremonitor-docs] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
 * [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
 
+### Alternatives
+
+Stuff goes here
+
+## Considerations
+
 ### Availability
 
 To monitor your application performance and report on issues, this solution combines Azure Monitor with Grafana for visual dashboards. These tools let you monitor and troubleshoot performance issues that may require code updates, which can all then be deployed with the CI/CD pipeline.
@@ -91,7 +97,7 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 To deploy this solution with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Faks-devops%2Fdocs%2Fsample-solutions%2Fapp-modernization%2Ftemplates%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.
