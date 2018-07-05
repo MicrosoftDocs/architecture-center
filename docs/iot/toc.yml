@@ -9,7 +9,13 @@
     href: iot-architecture.md
   - name: Data ingestion
     href: data-ingestion.md
+  - name: Device protocols
+    href: device-protocols.md
   - name: Field gateways
     href: field-gateways.md
-  - name: Stream processing with Azure Stream Analytics
-    href: stream-processing-stream-analytics.md
+  - name: Stream processing
+    items:
+    - name: Azure Stream Analytics
+      href: stream-analytics.md
+    - name: Azure Functions
+      href: azure-functions.md
