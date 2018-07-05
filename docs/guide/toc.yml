@@ -68,4 +68,5 @@
     href: pillars.md
 
   - name: Design patterns
-    href: ../patterns/index.md?toc=/azure/architecture/guide/toc.json
+    href: ../patterns/index.md
+    maintainContext: true

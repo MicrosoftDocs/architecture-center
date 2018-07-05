@@ -100,17 +100,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
-
-2. Install [Azure CLI 2.0][azure-cli-2].
-
-3. Install the [Azure building blocks][azbb] npm package.
-
-4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
-
-   ```bash
-   az login
-   ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the simulated on-premises datacenter
 

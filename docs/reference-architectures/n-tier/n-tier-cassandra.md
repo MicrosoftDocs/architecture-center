@@ -142,21 +142,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
-
-2. Make sure you have the Azure CLI 2.0 installed on your computer. To install the CLI, follow the instructions in [Install Azure CLI 2.0][azure-cli-2].
-
-3. Install the [Azure building blocks][azbb] npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using one of the commands below, and follow the prompts.
-
-   ```bash
-   az login
-   ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the solution using azbb
 
