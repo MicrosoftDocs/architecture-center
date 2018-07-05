@@ -2,6 +2,7 @@
   href: /azure/architecture
 
 - name: Sample Solutions
+  href: sample-solutions/index.md
   items:
   - name: AI
     items:
