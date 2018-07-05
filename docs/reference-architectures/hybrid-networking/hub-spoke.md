@@ -121,17 +121,7 @@ The template parameter files refer to these names, so if you change them, update
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][ref-arch-repo] GitHub repository.
-
-2. Install [Azure CLI 2.0][azure-cli-2].
-
-3. Install the [Azure building blocks][azbb] npm package.
-
-4. From a command prompt, bash prompt, or PowerShell prompt, log into your Azure account by using the command below.
-
-   ```bash
-   az login
-   ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the simulated on-premises datacenter
 
@@ -169,7 +159,7 @@ To deploy the hub VNet, perform the following steps.
 
 2. (Optional) For a Linux deployment, set `osType` to `Linux`.
 
-3. For `sharedKey`, enter a shared key for the VPN connection. 
+3. Find both instances of `sharedKey` and enter a shared key for the VPN connection. The values must match.
 
     ```bash
     "sharedKey": "",
@@ -269,7 +259,7 @@ Test conectivity from the simulated on-premises environment to the spoke VNets.
 
 2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `onprem.json` parameter file.
 
-3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
+3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VMs in the spoke VNets.
 
    ```powershell
    Test-NetConnection 10.1.0.68 -CommonTCPPort RDP

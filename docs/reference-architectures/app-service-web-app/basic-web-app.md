@@ -120,7 +120,7 @@ For more information, see [Azure Resource Manager overview](/azure/azure-resourc
 ### Deployment
 Deployment involves two steps:
 
-1. Provisioning the Azure resources. We recommend that you use [Azure Resoure Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure command line interface (CLI).
+1. Provisioning the Azure resources. We recommend that you use [Azure Resource Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure command line interface (CLI).
 2. Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].  
 
 An App Service app always has one deployment slot named `production`, which represents the live production site. We recommend creating a staging slot for deploying updates. The benefits of using a staging slot include:
@@ -194,7 +194,7 @@ Some limitations of App Service authentication:
 * For multi-tenant scenarios, the application must implement the logic to validate the token issuer.
 
 ## Deploy the solution
-An example Resoure Manager template for this architecture is [available on GitHub][paas-basic-arm-template].
+An example Resource Manager template for this architecture is [available on GitHub][paas-basic-arm-template].
 
 To deploy the template using PowerShell, run the following commands:
 

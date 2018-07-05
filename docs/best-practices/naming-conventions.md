@@ -30,7 +30,7 @@ A recommended pattern for naming subscriptions is:
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
 * Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
-* Department is a name within the organization where a group of individuals work. This item within the namespace as optional.
+* Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
 * Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
 * Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
 

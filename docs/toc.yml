@@ -6,6 +6,8 @@
   items:
   - name: Foundational Adoption Stage
     href: cloud-adoption-guide/adoption-intro/overview.md
+  - name: Intermediate Adoption Stage
+    href: cloud-adoption-guide/intermediate-stage/overview.md
     
 - name: Application Architecture Guide
   href: guide/index.md
@@ -21,7 +23,8 @@
   - name: Pillars of software quality
     href: guide/pillars.md
   - name: Design patterns
-    href: patterns/index.md?toc=/azure/architecture/guide/toc.json
+    href: patterns/index.md
+    maintainContext: true
 
 - name: Data Architecture Guide
   href: data-guide/index.md
@@ -129,7 +132,8 @@
   - name: Designing resilient applications
     href: resiliency/index.md
   - name: Resiliency checklist
-    href: checklist/resiliency.md?toc=/azure/architecture/resiliency/toc.json
+    href: checklist/resiliency.md
+    maintainContext: true
   - name: Failure mode analysis
     href: resiliency/failure-mode-analysis.md
 
