@@ -104,3 +104,4 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [scalability]: /azure/architecture/checklist/scalability
 [resiliency]: /azure/architecture/patterns/category/resiliency/
 [security]: /azure/architecture/patterns/category/security
+
