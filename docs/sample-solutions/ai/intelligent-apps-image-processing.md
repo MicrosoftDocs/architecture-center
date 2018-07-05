@@ -2,7 +2,7 @@
 title: Intelligent apps - image processing on Azure
 description: Proven solution for building image processing into your Azure applications.
 author: david-stanford
-ms.date: 06/01/2018
+ms.date: 07/05/2018
 ---
 # Insurance claim image classification on Azure
 

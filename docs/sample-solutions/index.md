@@ -1,110 +1,31 @@
 ---
+title: Azure sample solutions
+description: Landing page for sample solutions
+author: david-stanford
+ms:date: 07/01/2018
 layout: LandingPage
 ms.topic: landing-page
 ---
+# Azure Sample Solutions
 
-# Azure Application Architecture Guide
-
-This guide presents a structured approach for designing applications on Azure that are scalable, resilient, and highly available. It is based on proven practices that we have learned from customer engagements.
-
-<br/>
-
-<img src="./images/guide-steps.svg" style="max-width:800px;"/>
+This guide presents a structured approach for designing data-centric solutions on Microsoft Azure. It is based on proven practices derived from customer engagements.
 
 ## Introduction
 
-The cloud is changing the way applications are designed. Instead of monoliths, applications are decomposed into smaller, decentralized services. These services communicate through APIs or by using asynchronous messaging or eventing. Applications scale horizontally, adding new instances as demand requires. 
-
-These trends bring new challenges. Application state is distributed. Operations are done in parallel and asynchronously. The system as a whole must be resilient when failures occur. Deployments must be automated and predictable. Monitoring and telemetry are critical for gaining insight into the system. The Azure Application Architecture Guide is designed to help you navigate these changes. 
-
-<table>
-<thead>
-    <tr><th>Traditional on-premises</th><th>Modern cloud</th></tr>
-</thead>
-<tbody>
-<tr><td>Monolithic, centralized<br/>
-Design for predictable scalability<br/>
-Relational database<br/>
-Strong consistency<br/>
-Serial and synchronized processing<br/>
-Design to avoid failures (MTBF)<br/>
-Occasional big updates<br/>
-Manual management<br/>
-Snowflake servers</td>
-<td>
-Decomposed, de-centralized<br/>
-Design for elastic scale<br/>
-Polyglot persistence (mix of storage technologies)<br/>
-Eventual consistency<br/>
-Parallel and asynchronous processing<br/>
-Design for failure (MTTR)<br/>
-Frequent small updates<br/>
-Automated self-management<br/>
-Immutable infrastructure<br/>
-</td>
-</tbody>
-</table>
-
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][ebook].
+The cloud is changing the way applications are designed, including how data is processed and stored. Instead of a single general-purpose database that handles all of a solution's data, _polyglot persistence_ solutions use multiple, specialized data stores, each optimized to provide specific capabilities. The perspective on data in the solution changes as a result. There are no longer multiple layers of business logic that read and write to a single data layer. Instead, solutions are designed around a *data pipeline* that describes how data flows through a solution, where it is processed, where it is stored, and how it is consumed by the next component in the pipeline. 
 
 ## How this guide is structured
 
-The Azure Application Architecture Guide is organized as a series of steps, from the architecture and design to implementation. For each step, there is supporting guidance that will help you with the design of your application architecture.
+This guide is structured around two general categories of data solution, *traditional RDBMS workloads* and *big data solutions*. 
 
-### Architecture styles
+**[Traditional RDBMS workloads](./relational-data/index.md)**. These workloads include online transaction processing (OLTP) and online analytical processing (OLAP). Data in OLTP systems is typically relational data with a pre-defined schema and a set of constraints to maintain referential integrity. Often, data from multiple sources in the organization may be consolidated into a data warehouse, using an ETL process to move and transform the source data.
 
-The first decision point is the most fundamental. What kind of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. We have identified several distinct architecture styles. There are benefits and challenges to each.
+![](./images/guide-rdbms.svg)
 
-Learn more:
+**[Big data solutions](./big-data/index.md)**. A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems. The data may be processed in batch or in real time. Big data solutions typically involve a large amount of non-relational data, such as key-value data, JSON documents, or time series data. Often traditional RDBMS systems are not well-suited to store this type of data. The term *NoSQL* refers to a family of databases designed to hold non-relational data. (The term isn't quite accurate, because many non-relational data stores support SQL compatible queries.)
 
-- [Architecture styles][arch-styles]
-- [Azure reference architectures][ref-archs]
+![](./images/guide-big-data.svg)
 
-### Technology choices
+These two categories are not mutually exclusive, and there is overlap between them, but we feel that it's a useful way to frame the discussion. Within each category, the guide discusses **common scenarios**, including relevant Azure services and the appropriate architecture for the scenario. In addition, the guide compares **technology choices** for data solutions in Azure, including open source options. Within each category, we describe the key selection criteria and a capability matrix, to help you choose the right technology for your scenario. 
 
-Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. 
-
-Learn more:
-
-- [Choosing a compute service](./technology-choices/compute-overview.md)
-- [Choosing a data store](./technology-choices/data-store-overview.md)
-
-### Design principles
-
-We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
-
-Learn more:
-
-- [Design principles for Azure applications][design-principles]
-- [Best practices when building for the cloud][best-practices]
-
-### Quality pillars
-
-A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
-
-Learn more:
-
-- [Pillars of software quality][pillars]
-- [Design review checklists][checklists] 
-
-### Cloud design patterns
-
-Design patterns are general solutions to common software design problem. We have identified a set of design patterns that are especially useful when designing distributed applications for the cloud.
-
-Learn more:
-
-- [Catalog of cloud design patterns](../patterns/index.md)
-
-
-[arch-styles]: ./architecture-styles/index.md
-[best-practices]: ../best-practices/index.md
-[checklists]: ../checklist/index.md
-[compute-options]: ./technology-choices/compute-comparison.md
-[design-principles]: ./design-principles/index.md
-[ebook]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
-[patterns]: ../patterns/index.md?toc=/azure/architecture/guide/toc.json
-[pillars]: ./pillars.md
-[ref-archs]: ../reference-architectures/index.md
-[storage-options]: ./technology-choices/data-store-comparison.md
-[technology-choices]: ./technology-choices/index.md
-
+This guide is not intended to teach you data science or database theory &mdash; you can find entire books on those subjects. Instead, the goal is to help you select the right data architecture or data pipeline for your scenario, and then select the Azure services and technologies that best fit your requirements. If you already have an architecture in mind, you can skip directly to the technology choices.

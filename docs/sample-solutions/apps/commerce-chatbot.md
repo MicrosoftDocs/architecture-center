@@ -2,7 +2,7 @@
 title: Conversational Azure chatbot for hotel reservations
 description: Proven solution for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
 author: iainfoulds
-ms.date: 06/22/2018
+ms.date: 07/05/2018
 ---
 # Conversational Azure chatbot for hotel reservations
 
@@ -30,9 +30,8 @@ This solution covers a conversational bot that functions as a concierge for a ho
 2. Using Azure Active Directory B2C (Business 2 Customer), the user is authenticated.
 3. Interacting with the Bot Service, user requests information about hotel availability.
 4. Cognitive Services process the natural language request to understand the customer communication.
-5. The bot's response is reviewed by customer who can refine their question or continue the discussion using natural conversation.
-6. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
-7. Application Insights gathers runtime telemetry throughout the process to help development with bot performance and usage.
+5. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
+6. Application Insights gathers runtime telemetry throughout the process to help development with bot performance and usage.
 
 ### Components
 
@@ -139,6 +138,10 @@ We have provided three sample cost profiles based on the amount of messages you 
 * [Small][small-pricing]: this correlates to processing < 10,000 messages per month.
 * [Medium][medium-pricing]: this correlates to processing < 500,000 messages per month.
 * [Large][large-pricing]: this correlates to processing < 10 million messages per month.
+
+## Related Resources
+
+Links to stuff goes here.
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
