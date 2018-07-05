@@ -46,7 +46,7 @@ This solution covers a conversational bot that functions as a concierge for a ho
 
 * [Speech API][speech-api] Microsoft Speech API can be used to change how customers interface with your bot.
 * [QnA Maker][qna-maker] Azure QnA Maker can be used as to quickly add knowledge to your bot from semi-structured content like an FAQ.
-* [Translator Text]][translator] is a service that you might consider to easily add multi-lingual support to your bot.
+* [Translator Text][translator] is a service that you might consider to easily add multi-lingual support to your bot.
 
 ## Considerations
 
