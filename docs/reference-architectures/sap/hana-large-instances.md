@@ -11,6 +11,8 @@ This reference architecture shows a set of proven practices for running SAP HANA
 
 ![0][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 > [!NOTE]
 > Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
@@ -196,3 +198,5 @@ Communities can answer questions and help you set up a successful deployment. Co
 [type]: /azure/virtual-machines/workloads/sap/hana-installation
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [0]: ./images/sap-hana-large-instances.png "SAP HANA architecture using Azure Large Instances"
+
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
