@@ -2,7 +2,7 @@
 title: Advanced analytics &mdash; Real-time fraud detection 
 description: Proven solution for detecting fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
-ms.date: 06/14/2018
+ms.date: 07/05/2018
 ---
 
 # Real-time fraud detection on Azure
@@ -49,6 +49,8 @@ Many technology choices are available for real-time message ingestion, data stor
 
 Additionally, more complex algorithms for fraud detection can be produced by various machine learning services in Azure. For an overview of these options, see [Technology choices for machine learning](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning) in the Azure Data Architecture Guide.
 
+## Considerations
+
 ### Availability
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor. 
@@ -70,19 +72,6 @@ For general guidance on designing secure solutions, see the [Cloud Security Desi
 ### Resiliency
 
 For general guidance on designing resilient solutions, see the [Cloud Resiliency Design Patterns][resiliency] available in the Azure Architecture Center.
-
-## Deploy the solution
-
-To deploy this sample solution into your existing Azure subscription, perform the following steps.
-
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Farchitecture-center%2Fmaster%2Fsample-solutions%2Fadvanced-analytics%2Ffraud-detection%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings:   
-   * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `fraud-detection-solution` in the text box.
-   * Select the region from the **Location** drop down box.
-   * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   * Click the **Purchase** button.
-3. Wait for the deployment to complete.
 
 ## Pricing
 

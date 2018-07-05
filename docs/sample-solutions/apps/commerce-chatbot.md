@@ -2,7 +2,7 @@
 title: Conversational Azure chatbot for hotel reservations
 description: Proven solution for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
 author: iainfoulds
-ms.date: 06/22/2018
+ms.date: 07/05/2018
 ---
 # Conversational Azure chatbot for hotel reservations
 
@@ -30,9 +30,8 @@ This solution covers a conversational bot that functions as a concierge for a ho
 2. Using Azure Active Directory B2C (Business 2 Customer), the user is authenticated.
 3. Interacting with the Bot Service, user requests information about hotel availability.
 4. Cognitive Services process the natural language request to understand the customer communication.
-5. The bot's response is reviewed by customer who can refine their question or continue the discussion using natural conversation.
-6. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
-7. Application Insights gathers runtime telemetry throughout the process to help development with bot performance and usage.
+5. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
+6. Application Insights gathers runtime telemetry throughout the process to help development with bot performance and usage.
 
 ### Components
 
@@ -42,6 +41,12 @@ This solution covers a conversational bot that functions as a concierge for a ho
 * [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication.
 * [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
 * [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
+
+### Alternatives
+
+Stuff goes here
+
+## Considerations
 
 ### Availability
 
@@ -85,7 +90,7 @@ This solution is divided into three components for you to explore areas that you
 
 To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Fcommerce-chatbot%2Fsample-solutions%2Fevent-driven-apps%2Ftemplates%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
    * Select a region from the **Location** drop-down box.
@@ -133,6 +138,10 @@ We have provided three sample cost profiles based on the amount of messages you 
 * [Small][small-pricing]: this correlates to processing < 10,000 messages per month.
 * [Medium][medium-pricing]: this correlates to processing < 500,000 messages per month.
 * [Large][large-pricing]: this correlates to processing < 10 million messages per month.
+
+## Related Resources
+
+Links to stuff goes here.
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview

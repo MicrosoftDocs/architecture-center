@@ -2,13 +2,13 @@
 title: DevOps with Jenkins and Azure Kubernetes Service
 description: Proven solution for building a DevOps pipeline for a Node.js web app that uses Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
-ms.date: 06/22/2018
+ms.date: 07/05/2018
 ---
 # Deploy a container-based DevOps pipeline for modern application development with Jenkins and Azure Kubernetes Service
 
 This sample solution is applicable to businesses that have a need for modernizing application development by using containers and DevOps workflows. In this solution, a Node.js web app with is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
 
-Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous delivery (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
+Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous deployment (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
 By leveraging Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
@@ -37,13 +37,19 @@ This solution covers a DevOps pipeline for a Node.js web application and databas
 
 ### Components
 
-* [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous delivery (CD). In this solution, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
+* [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this solution, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
 * [Azure Linux Virtual Machines][azurevm-docs] are used to run the Jenkins and Grafana instances.
 * [Azure Container Registry][azureacr-docs] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can replicated to other regions by the Azure platform to speed up deployment times.
 * [Azure Kubernetes Service][azureaks-docs] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
 * [Azure Cosmos DB][azurecosmosdb-docs] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
 * [Azure Monitor][azuremonitor-docs] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
 * [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
+
+### Alternatives
+
+* [VSTS][vsts] can easily be substituted in for jenkins
+
+## Considerations
 
 ### Availability
 
@@ -91,7 +97,7 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 To deploy this solution with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fiainfoulds%2Farchitecture-center%2Faks-devops%2Fdocs%2Fsample-solutions%2Fapp-modernization%2Ftemplates%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.
@@ -109,9 +115,9 @@ To explore the cost of running this solution, all of the Azure service component
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
-* [Small][small-pricing]: this correlates to x container builds per month.
-* [Medium][medium-pricing]: this correlates to x container builds per month.
-* [Large][large-pricing]: this correlates to x container builds per month.
+* [Small][small-pricing]: this correlates to 1000 container builds per month.
+* [Medium][medium-pricing]: this correlates to 100,000 container builds per month.
+* [Large][large-pricing]: this correlates to 1,000,000 container builds per month.
 
 ## Related Resources
 

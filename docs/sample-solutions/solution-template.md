@@ -49,6 +49,10 @@ For a deeper discussion on [security][] please see the relevant article in the a
 
 For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
 
+## Deploy the solution
+
+Directions on how to deploy the solution.
+
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
