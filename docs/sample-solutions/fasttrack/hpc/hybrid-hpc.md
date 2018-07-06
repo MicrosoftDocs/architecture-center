@@ -61,7 +61,7 @@ The following deployment will deploy a Jump Box and a Cycle Cloud server to Azur
   [Create an SSH keypair][cycle-prereqs-keypair]
 
 Deploy a VNET
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fsolutions-release%2Fdocs%2Fsample-solutions%2Ffasttrack%2Fhpc%2Fdeploycyclevms.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fsolutions-release%2Fdocs%2Fsample-solutions%2Ffasttrack%2Fhpc%2Fdeploycyclevnet.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
