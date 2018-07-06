@@ -40,13 +40,16 @@ This sample solution is will provide help in learning how Azure Batch works whil
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-
 ## Azure Batch: Deploying a sample solution using an ARM template
 
-The following deployment will deploy a new Azure Batch account with a node pool:
+The following deployment will deploy:
+  - a new Azure Batch account
+  - a storage account
+  - a node pool associated with the batch account
+  - the node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
+  - the node pool will contain 0 VMs initially and will require scaling manually to add VMs
 
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fdeploycyclevms.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
