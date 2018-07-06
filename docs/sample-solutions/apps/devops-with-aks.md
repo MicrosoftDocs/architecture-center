@@ -6,17 +6,17 @@ ms.date: 07/05/2018
 ---
 # Deploy a container-based DevOps pipeline for modern application development with Jenkins and Azure Kubernetes Service
 
-This sample solution is applicable to businesses that have a need for modernizing application development by using containers and DevOps workflows. In this solution, a Node.js web app with is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
+This sample solution is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this solution, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
 
 Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous deployment (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
-By leveraging Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
+By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+Consider this solution for the following use cases:
 
-* Modernizing application development practices to a microservice, container-based approach.
+* Modernizing application development practices to a microservices, container-based approach.
 * Speeding up application development and deployment lifecycles.
 * Automating deployments to test or acceptance environments for validation.
 
@@ -70,17 +70,17 @@ For other scalability topics, see the [scalability checklist][scalability] avail
 
 ### Security
 
-To minimize the attack footprint, this solutions does not expose the Jenkins VM instance over HTTP. For any management tasks that require you to interact with Jenkins, you create a secure remote connection using an SSH tunnel from your local machine. Only SSH public key authentication is allowed for the Jenkins and Grafana VM instances. Password-based logins are disabled.
+To minimize the attack footprint, this solutions does not expose the Jenkins VM instance over HTTP. For any management tasks that require you to interact with Jenkins, you create a secure remote connection using an SSH tunnel from your local machine. Only SSH public key authentication is allowed for the Jenkins and Grafana VM instances. Password-based logins are disabled. For more information, see [Run a Jenkins server on Azure](../../reference-architectures/jenkins/index.md).
 
 For separation of credentials and permissions, this solution uses a dedicated Azure Active Directory (AD) service principal. The credentials for this service principal are stored as a secure credential object in Jenkins so that they are not directly exposed and visible within scripts or the build pipeline.
 
-For a deeper discussion on [security][], see the relevant article in the architecture center.
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-This solution uses Azure Kubernetes Service for your application. Built in to Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application is able to tolerate a pod or node being unavailable.
+This solution uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
 
-For a deeper discussion on [resiliency][], see the relevant article in the architecture center.
+For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Deploy the solution
 
@@ -98,7 +98,7 @@ For a deeper discussion on [resiliency][], see the relevant article in the archi
 
 To deploy this solution with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
    * Select a region from the **Location** drop-down box.
@@ -112,7 +112,7 @@ It can take 15-20 minutes for the deployment to complete.
 
 ## Pricing
 
-To explore the cost of running this solution, all of the Azure service components are pre-configured in the following cost calculator links.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic. match your expected traffic.
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
@@ -139,10 +139,10 @@ This solution used Azure Container Registry and Azure Kubernetes Service to stor
 [jenkins]: https://jenkins.io/
 [resiliency]: ../../resiliency/index.md
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[security]: ../../patterns/category/security.md
+[security]: /azure/security/
 [scalability]: ../../checklist/scalability.md
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
-[vsts]: https://docs.microsoft.com/en-us/vsts/?view=vsts
+[vsts]: /vsts/?view=vsts
 [kubernetes]: https://kubernetes.io/
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
