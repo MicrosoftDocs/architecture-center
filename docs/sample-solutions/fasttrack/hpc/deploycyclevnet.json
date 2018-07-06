@@ -6,20 +6,7 @@
   
     "parameters": {
   
-      "vnetName": {
-  
-        "maxLength": 32,
-  
-        "type": "string",
-  
-        "metadata": {
-  
-          "description": "Name of the VNET to create"
-  
-        }
-  
-      }
-  
+        
     },
   
     "variables": {
@@ -28,7 +15,9 @@
   
       "resourceLocation": "[resourceGroup().location]",
   
-      "networkApiVersion": "2017-06-01"
+      "networkApiVersion": "2017-06-01",
+
+      "vnetName": "cyclevnet"
   
     },
   
@@ -38,7 +27,7 @@
   
         "type": "Microsoft.Network/virtualNetworks",
   
-        "name": "[parameters('vnetName')]",
+        "name": "[variables('vnetName')]",
   
         "apiVersion": "[variables('networkApiVersion')]",
   

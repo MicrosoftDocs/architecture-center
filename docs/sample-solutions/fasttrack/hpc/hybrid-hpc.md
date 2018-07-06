@@ -54,16 +54,18 @@ This solution covers the workflow when using a head node running on Azure while 
 
 ## CycleCloud: Deploying a sample solution using an ARM template
 
-The following deployment will deploy a Jump Box and a Cycle Cloud server to Azure, by default using Standard D2 VM's. Before clicking on the link, some pre-requisites will need to be completed:
+First a VNET called CycleVNET is required before the VMs can be deployed:
+
+Deploy a VNET called CycleVnet
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fsolutions-release%2Fdocs%2Fsample-solutions%2Ffasttrack%2Fhpc%2Fdeploycyclevnet.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+The following will then deploy a Jump Box and a Cycle Cloud server to Azure, by default using Standard D2 VM's. Before clicking on the link, some pre-requisites will need to be completed:
 
   [CycleCloud Prerequisites][cycle-prereqs]
 
   [Create an SSH keypair][cycle-prereqs-keypair]
-
-Deploy a VNET
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fsolutions-release%2Fdocs%2Fsample-solutions%2Ffasttrack%2Fhpc%2Fdeploycyclevnet.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
 
 Deploy CycleVMs
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fsolutions-release%2Fdocs%2Fsample-solutions%2Ffasttrack%2Fhpc%2Fdeploycyclevms.json" target="_blank">
