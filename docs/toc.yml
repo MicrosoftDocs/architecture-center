@@ -137,6 +137,9 @@
   - name: Failure mode analysis
     href: resiliency/failure-mode-analysis.md
 
+- name: Example Scenarios
+  href: example-scenario/index.md
+  
 - name: Scenario guides
   items:
   - name: Azure for AWS Professionals
