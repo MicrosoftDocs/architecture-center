@@ -1,12 +1,12 @@
 ---
-title: <Article Title>
+title: <E-commerce Solution>
 description: <Article Description>
-author: david-stanford
+author: UmarMohamedUsman
 ms.date: <publish or update date>
 ---
 # Deploying e-commerce using Azure PaaS services
 
-Introductory Paragraphs
+Azure Platform-as-a-Service (PaaS) enables you to deploy enterprise grade e-commerce applications, and lets you adapt to the size and seasonality of your business. When demand for your products or services takes off — predictably or unpredictably — you can be prepared to handle more customers and more transactions automatically. Additionally, take advantage of cloud economics by paying only for the capacity you use. In short, focus on your sales and leave the infrastructure management to your cloud provider.
 
 ## Potential use cases
 
