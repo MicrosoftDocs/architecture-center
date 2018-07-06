@@ -1,0 +1,334 @@
+{
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  
+    "contentVersion": "1.0.0.0",
+  
+    "parameters": {
+  
+        
+    },
+  
+    "variables": {
+  
+      "namingInfix": "[toLower(take(uniqueString(resourceGroup().id), 6))]",
+  
+      "resourceLocation": "[resourceGroup().location]",
+  
+      "networkApiVersion": "2017-06-01",
+
+      "vnetName": "cyclevnet"
+  
+    },
+  
+    "resources": [
+  
+      {
+  
+        "type": "Microsoft.Network/virtualNetworks",
+  
+        "name": "[variables('vnetName')]",
+  
+        "apiVersion": "[variables('networkApiVersion')]",
+  
+        "location": "[variables('resourceLocation')]",
+  
+        "properties": {
+  
+          "addressSpace": {
+  
+            "addressPrefixes": [
+  
+              "10.0.0.0/20"
+  
+            ]
+  
+          },
+  
+          "subnets": [
+  
+            {
+  
+              "name": "cycle",
+  
+              "properties": {
+  
+                "addressPrefix": "10.0.1.0/28"
+  
+              }
+  
+            },
+  
+            {
+  
+              "name": "admin",
+  
+              "properties": {
+  
+                "addressPrefix": "10.0.2.0/28"
+  
+              }
+  
+            },
+  
+            {
+  
+              "name": "user",
+  
+              "properties": {
+  
+                "addressPrefix": "10.0.3.0/24"
+  
+              }
+  
+            },
+  
+            {
+  
+              "name": "compute",
+  
+              "properties": {
+  
+                "addressPrefix": "10.0.4.0/22"
+  
+              }
+  
+            }
+  
+          ],
+  
+          "virtualNetworkPeerings": []
+  
+        },
+  
+        "dependsOn": []
+  
+      },
+  
+      {
+  
+        "type": "Microsoft.Network/networkSecurityGroups",
+  
+        "name": "admin-nsg",
+  
+        "apiVersion": "[variables('networkApiVersion')]",
+  
+        "location": "[variables('resourceLocation')]",
+  
+        "properties": {
+  
+          "securityRules": [
+  
+            {
+  
+              "name": "default-allow-ssh",
+  
+              "properties": {
+  
+                "protocol": "Tcp",
+  
+                "sourcePortRange": "*",
+  
+                "destinationPortRange": "22",
+  
+                "sourceAddressPrefix": "*",
+  
+                "destinationAddressPrefix": "*",
+  
+                "access": "Allow",
+  
+                "priority": 1000,
+  
+                "direction": "Inbound",
+  
+                "sourceAddressPrefixes": [],
+  
+                "destinationAddressPrefixes": []
+  
+              }
+  
+            },
+  
+            {
+  
+              "name": "DenyAllVnetInbound",
+  
+              "properties": {
+  
+                "protocol": "*",
+  
+                "sourcePortRange": "*",
+  
+                "destinationPortRange": "*",
+  
+                "sourceAddressPrefix": "*",
+  
+                "destinationAddressPrefix": "*",
+  
+                "access": "Deny",
+  
+                "priority": 2000,
+  
+                "direction": "Inbound",
+  
+                "sourceAddressPrefixes": [],
+  
+                "destinationAddressPrefixes": []
+  
+              }
+  
+            }
+  
+          ]
+  
+        },
+  
+        "dependsOn": []
+  
+      },
+  
+      {
+  
+        "type": "Microsoft.Network/networkSecurityGroups",
+  
+        "name": "cycle-nsg",
+  
+        "apiVersion": "[variables('networkApiVersion')]",
+  
+        "location": "[variables('resourceLocation')]",
+  
+        "properties": {
+  
+          "securityRules": [
+  
+            {
+  
+              "name": "AllowSecuredCyclePortalInBound",
+  
+              "properties": {
+  
+                "protocol": "Tcp",
+  
+                "sourcePortRange": "*",
+  
+                "destinationPortRange": "443",
+  
+                "sourceAddressPrefix": "Internet",
+  
+                "destinationAddressPrefix": "VirtualNetwork",
+  
+                "access": "Allow",
+  
+                "priority": 2000,
+  
+                "direction": "Inbound",
+  
+                "sourceAddressPrefixes": [],
+  
+                "destinationAddressPrefixes": []
+  
+              }
+  
+            },
+  
+            {
+  
+              "name": "AllowCyclePortalInBound",
+  
+              "properties": {
+  
+                "protocol": "Tcp",
+  
+                "sourcePortRange": "*",
+  
+                "destinationPortRange": "80",
+  
+                "sourceAddressPrefix": "Internet",
+  
+                "destinationAddressPrefix": "VirtualNetwork",
+  
+                "access": "Allow",
+  
+                "priority": 1000,
+  
+                "direction": "Inbound",
+  
+                "sourceAddressPrefixes": [],
+  
+                "destinationAddressPrefixes": []
+  
+              }
+  
+            }
+  
+          ]
+  
+        },
+  
+        "dependsOn": []
+  
+      },
+  
+      {
+  
+        "type": "Microsoft.Network/publicIPAddresses",
+  
+        "name": "adminjb_ip",
+  
+        "apiVersion": "[variables('networkApiVersion')]",
+  
+        "location": "[variables('resourceLocation')]",
+  
+        "properties": {
+  
+          "publicIPAddressVersion": "IPv4",
+  
+          "publicIPAllocationMethod": "Static",
+  
+          "idleTimeoutInMinutes": 4,
+  
+          "dnsSettings": {
+  
+            "domainNameLabel": "[concat('adminjb', variables('namingInfix'))]"
+  
+          }
+  
+        },
+  
+        "dependsOn": []
+  
+      },
+  
+      {
+  
+        "type": "Microsoft.Network/publicIPAddresses",
+  
+        "name": "cycleserver_ip",
+  
+        "apiVersion": "[variables('networkApiVersion')]",
+  
+        "location": "[variables('resourceLocation')]",
+  
+        "properties": {
+  
+          "publicIPAddressVersion": "IPv4",
+  
+          "publicIPAllocationMethod": "Static",
+  
+          "idleTimeoutInMinutes": 4,
+  
+          "dnsSettings": {
+  
+            "domainNameLabel": "[concat('cycleserver', variables('namingInfix'))]"
+  
+          }
+  
+        },
+  
+        "dependsOn": []
+  
+      }
+  
+    ]
+  
+  }

@@ -2,15 +2,7 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "vnetName": {
-      "maxLength": 32,
-      "type": "string",
-      "defaultValue": "cyclevnet",
-      "metadata": {
-        "description": "Name of the VNET to add the VMs in"
-      }
-    },
-    "adminJbIPName": {
+      "adminJbIPName": {
       "maxLength": 32,
       "type": "string",
       "defaultValue": "adminjb_ip",
@@ -82,6 +74,7 @@
     }
   },
   "variables": {
+    "vnetName": "cyclevnet",
     "resourceLocation": "[resourceGroup().location]",
     "adminjbvmSize": "[parameters('adminjbvmSize')]",
     "adminjbvmStorage": "[parameters('adminjbvmStorage')]",
@@ -173,7 +166,7 @@
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('adminJbIPName'))]"
               },
               "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), variables('admin_subnet'))]"
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('admin_subnet'))]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
@@ -296,7 +289,7 @@
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('cycleIPName'))]"
               },
               "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), variables('cycle_subnet'))]"
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('cycle_subnet'))]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
