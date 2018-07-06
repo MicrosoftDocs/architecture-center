@@ -1,10 +1,10 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: david-stanford
+author: Mike Warrington and Ben Hummerstone
 ms.date: <publish or update date>
 ---
-# Article Title
+# Linux and Azure: Hybrid HPC
 
 Introductory Paragraphs
 
@@ -18,7 +18,11 @@ You should consider this solution for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Description][architecture]
+solutions-release
+![Hybrid HPC Architecture](media\AzureBatchArchitecture.png)
+
+## Architecture
+
 This solution covers ###What does the solution cover###, the data flows through the solution as follows:
 
 1. Numbered data flow through the solution.
