@@ -142,7 +142,7 @@ This solution used Azure Container Registry and Azure Kubernetes Service to stor
 [security]: /azure/security/
 [scalability]: ../../checklist/scalability.md
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
-[vsts]: https://docs.microsoft.com/en-us/vsts/?view=vsts
+[vsts]: /vsts/?view=vsts
 [kubernetes]: https://kubernetes.io/
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7

@@ -162,9 +162,9 @@ For a set of guided tutorials on leveraging the Azure Bot Service, see the [tuto
 [sqlavailability-docs]: /azure/sql-database/sql-database-technical-overview#availability-capabilities
 [sqldatabase-docs]: /azure/sql-database/
 [sqlsecurity-docs]: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
-[qna-maker]: https://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/Overview/overview
-[speech-api]: https://docs.microsoft.com/en-us/azure/cognitive-services/speech/home
-[translator]: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-info-overview
+[qna-maker]: /azure/cognitive-services/QnAMaker/Overview/overview
+[speech-api]: /azure/cognitive-services/speech/home
+[translator]: /azure/cognitive-services/translator/translator-info-overview
 
 [small-pricing]: https://azure.com/e/dce05b6184904c50b38e1a8654f726b6
 [medium-pricing]: https://azure.com/e/304d17106afc480dbc414f9726078a03

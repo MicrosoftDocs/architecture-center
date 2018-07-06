@@ -18,4 +18,4 @@ The audience for Azure sample solutions includes: administrators, architects, IT
 
 If you are new to Azure, explore the [architecture design patterns][design-patterns]
 
-[design-patterns]: https://docs.microsoft.com/en-us/azure/architecture/patterns/
+[design-patterns]: /azure/architecture/patterns/
