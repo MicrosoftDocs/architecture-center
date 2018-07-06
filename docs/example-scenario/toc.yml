@@ -1,7 +1,7 @@
 - name: Azure Architecture Center
   href: /azure/architecture
 
-- name: Sample Solutions
+- name: Example Scenario
   href: index.md
   items:
   - name: AI

@@ -137,8 +137,8 @@
   - name: Failure mode analysis
     href: resiliency/failure-mode-analysis.md
 
-- name: Sample Solutions
-  href: sample-solutions/index.md
+- name: Example Scenarios
+  href: example-scenario/index.md
   
 - name: Scenario guides
   items:
