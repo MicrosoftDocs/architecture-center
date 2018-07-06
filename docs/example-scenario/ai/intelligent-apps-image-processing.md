@@ -58,9 +58,11 @@ This solution covers the back-end components of a web or mobile application. Dat
 
 ### Scalability
 
-All of the components of this solution are managed services that automatically scale.  Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond, consider multiple regions or app plans.  
+For the most part all of the components of this solution are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond, consider multiple regions or app plans.
 
-In this scenario, lookups will consistently be by the key, and you will not be querying by value. This is one of the ways that a NoSQL database excels. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
+Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs).  For guidance on estimating your requirements see [request units][request-units] in our documentation. To fully take advantage of the scaling in Cosmos DB you should also take a look at [partition keys][partition-key].
+
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability and partition.  However, in the case of key-value data models which is used in this scenario, transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
 
 For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
@@ -113,3 +115,5 @@ Before putting this in a production environment, review the Azure Functions [bes
 [scalability]: /azure/architecture/checklist/scalability
 [functions-best-practices]: /azure/azure-functions/functions-best-practices
 [msi]: /azure/app-service/app-service-managed-service-identity
+[request-units]: /azure/cosmos-db/request-units
+[partition-key]: /azure/cosmos-db/partition-data
