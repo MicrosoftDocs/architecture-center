@@ -70,7 +70,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Basic web application</h3>
-                        <p>Web application that uses Azure App Service and Azure SQL Database.</p>
+                        <p>Web application with Azure App Service and Azure SQL Database.</p>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>N-tier application with SQL Server</h3>
-                        <p>Virtual machines and a virtual network configured for an N-tier application using SQL Server on Windows.</p>
+                        <p>Virtual machines configured for an N-tier application using SQL Server on Windows.</p>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>N-tier application with Cassandra</h3>
-                        <p>Virtual machines and a virtual network configured for an N-tier application using Apache Cassandra on Linux.</p>
+                        <p>Virtual machines configured for an N-tier application using Apache Cassandra on Linux.</p>
                     </div>
                 </div>
             </div>
@@ -218,7 +218,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Hybrid network using ExpressRoute</h3>
-                        <p>ExpressRoute connections use a private, dedicated connection.</p>
+                        <p>Use a private, dedicated connection to extend an on-premises network to Azure.</p>
                     </div>
                 </div>
             </div>
@@ -238,7 +238,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Hybrid network using ExpressRoute with VPN failover</h3>
-                        <p>Use VPN as a failover connection in case the ExpressRoute circuit loses connectivity.</p>
+                        <p>Use ExpressRoute with a VPN as a failover connection for high availability.</p>
                     </div>
                 </div>
             </div>
@@ -258,7 +258,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Hub-spoke network topology</h3>
-                        <p>Creates a central point of connectivity to your on-premises network, while isolating individual workloads.</p>
+                        <p>Create a central point of connectivity to your on-premises network, while isolating workloads.</p>
                     </div>
                 </div>
             </div>
@@ -278,7 +278,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Hub-spoke topology with shared services</h3>
-                        <p>Extends the hub-spoke topology by including shared services such as Active Directory.</p>
+                        <p>Extend a hub-spoke topology by including shared services such as Active Directory.</p>
                     </div>
                 </div>
             </div>
@@ -343,7 +343,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Integrate with Azure Active Directory</h3>
-                        <p>Integrate on-premises Active Directory domains with Azure Active Directory.</p>
+                        <p>Integrate on-premises AD domains with Azure Active Directory.</p>
                     </div>
                 </div>
             </div>
