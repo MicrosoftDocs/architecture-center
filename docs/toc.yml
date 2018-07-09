@@ -275,7 +275,7 @@
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
 
-  - name: Design microservices on Azure
+  - name: Build microservices on Azure
     items:
     - name: Introduction
       href: microservices/index.md
