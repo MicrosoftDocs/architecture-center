@@ -69,7 +69,7 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
 [architecture]:
-[availability]: /architecture/checklist/availability
+[availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
