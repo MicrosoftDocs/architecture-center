@@ -225,7 +225,7 @@ Access to resources can be either internal (within the corporation's network) or
 > 
 > These tips help you implement secure networking resources.
 
-### Automation
+## Automation
 Managing resources individually is both time-consuming and potentially error prone for certain operations. Azure provides various automation capabilities including Azure Automation, Logic Apps, and Azure Functions. [Azure Automation](/azure/automation/automation-intro) enables administrators to create and define runbooks to handle common tasks in managing resources. You create runbooks by using either a PowerShell code editor or a graphical editor. You can produce complex multi-stage workflows. Azure Automation is often used to handle common tasks such as shutting down unused resources, or creating resources in response to a specific trigger without needing human intervention.
 
 > [!TIP]
