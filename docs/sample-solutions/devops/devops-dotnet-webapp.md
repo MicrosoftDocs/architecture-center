@@ -127,38 +127,13 @@ The consistency and reliability of deployments and integration testing across en
 
 As we will be using Visual Studio Team Services to drive the DevOps pipeline, we cannot leverage ARM Templates to create entities in VSTS. We will leverage the Azure DevOps Project service for the purposes of this sample.
 
-#### Setup Steps
-
-1. Navigate to the [DevOps Project][devops-project] creation blade in the Azure portal.
-2. Select the .NET option.
-3. Select either ASP.NET or ASP.NET Core as appropriate.
-4. Select Web App (Windows).
-5. Select your existing Visual Studio Team Services account
-6. Create a new project
-7. Select **change** next to the Azure heading to allow for advanced editing options
-8. Adjust the values for **subscription**, **resource group**, **web app name**, **location**, **pricing tier** and **application insights location** as appropriate for your deployment.
-9. Click OK, and Select **Done** on the final blade.
-10. Once the deployment has succeeded, click **Go to resource**.
+You can follow the Azure Docs to [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create], if you are not comfortable with this approach.
 
 The DevOps project will deploy an App Service Plan, App Service and app App Insights resource for you, as well as configure the Visual Studio Team Services Project for you.
 
-#### Continuous Integration - Builds
+Once you have completed the DevOps project and the build has complete, review the associated code changes, work items and test results. You will notice no test results are displayed, as the code does not contain any tests to run.
 
-1. From the Azure DevOps Project blade, select **Build Pipelines**.
-2. Select the **Your Project Name - CI** build definition.
-3. Click **Edit**.
-4. Review the tasks included as part of the build definition. Notice  we are including a test task to run appropriate tests as part of our CI pipeline.
-5. Browse to the **Triggers** tab in your build definition, and notice that **Enable Continuous Integration** is enabled.
-6. Select **Queue**, and opt for an appropriate agent queue to build a .NET Project.
-7. Once the build has completed, navigate to the completed build. Review the associated code changes, work items and test results. You will notice no test results are displayed, as the code does not contain any tests to run.
-
-#### Continuous Deployment - Releases
-
-1. From the Azure DevOps Project blade, select **Release Pipelines**.
-2. Select the **Your Project Name - CD** release definition.
-3. Click **Edit**.
-4. Notice that a release pipeline has been setup, releasing our application into Dev. Notice that there is a **continuous deployment trigger** set from our **Drop** build artifact, with automatic releases into our Dev environments.
-5. As part of a Continuous Deployment process, you may see releases span across multiple environments. A release can span both infrastructure (using techniques such as Infrastructure as Code), and also deploy the application packages required as well as any post-configuration tasks.
+Review the Release definitions. Notice that a release pipeline has been setup, releasing our application into Dev. Observe that there is a **continuous deployment trigger** set from the **Drop** build artifact, with automatic releases into the Dev environments. As part of a Continuous Deployment process, you may see releases span across multiple environments. A release can span both infrastructure (using techniques such as Infrastructure as Code), and also deploy the application packages required as well as any post-configuration tasks.
 
 **Additional Considerations.**
 
@@ -243,3 +218,4 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 [compare-vm-hosting]:https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm
 [app-insights-cd-monitoring]:https://docs.microsoft.com/en-us/azure/application-insights/app-insights-vsts-continuous-monitoring
 [azure-region-pair-bcdr]:https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions
+[devops-project-create]: https://docs.microsoft.com/en-gb/vsts/pipelines/apps/cd/azure/azure-devops-project-aspnetcore?view=vsts
