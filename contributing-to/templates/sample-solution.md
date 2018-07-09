@@ -36,9 +36,11 @@ This solution covers ###What does the solution cover###, the data flows through 
 
 ### Availability
 
+For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
+
 ### Scalability
 
-For other availability topics please see the [availability checklist][availability] in the Azure Architecure Center.
+For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
 
 ### Security
 
