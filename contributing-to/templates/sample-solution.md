@@ -10,15 +10,14 @@ Introductory Paragraphs
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+Consider this solution for the following use cases:
 
 * List of example use cases
 
 ## Architecture
 
-The solution diagram below is an example of this solution:
-
 ![Description][architecture]
+
 This solution covers ###What does the solution cover###, the data flows through the solution as follows:
 
 1. Numbered data flow through the solution.
@@ -39,19 +38,19 @@ This solution covers ###What does the solution cover###, the data flows through 
 
 ### Scalability
 
-For other scalability topics please see the  [scalability checklist][] available in the architecure center.
+For other availability topics please see the [availability checklist][availability] in the Azure Architecure Center.
 
 ### Security
 
-For a deeper discussion on [security][] please see the relevant article in the architecure center.
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-For a deeper discussion on [resiliency][] please see the relevant article in the architecure center.
+For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Pricing
 
-Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
+To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
@@ -68,7 +67,8 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
 [architecture]:
-[resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
-[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-[security]:
-[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[availability]: /architecture/checklist/availability
+[resource-groups]: /azure/azure-resource-manager/resource-group-overview
+[resiliency]: /azure/architecture/resiliency/
+[security]: /azure/security/
+[scalability]: /azure/architecture/checklist/scalability
