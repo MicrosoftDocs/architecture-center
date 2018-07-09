@@ -59,7 +59,11 @@ To monitor your application performance and report on issues, this solution comb
 
 As part of the Azure Kubernetes Service cluster, a load balancer distributes application traffic to one or more containers (pods) that run your application. This approach to running containerized applications in Kubernetes provides a highly-available infrastructure for your customers.
 
+<<<<<<< HEAD
 For other availability topics, see the [availability checklist][availability] available in the architecure center.
+=======
+For other scalability topics, see the [availability checklist][availability] available in the architecure center.
+>>>>>>> f0cd6f7bd828137071bef7f1cde9753df13532b5
 
 ### Scalability
 
