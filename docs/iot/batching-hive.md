@@ -1,18 +1,18 @@
 # Batch processing for IoT using HDInsight and Hive
 
 
-This chapter describes using Azure Functions to perform warm-path processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for warm-path processing:
+This chapter describes using HDInsight to perform batch processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application uses batch processing to analyze data about deliveries. For example, batch processing can answer questions like "How long does the average delivery take?" or "How many deliveries failed to be completed?" More complex analyses could correlate this information with external data such as weather data.
 
-The cold path performs batch processing, to get insights over longer time periods (hours, days, month).
-The cold path should capture the raw device telemetry with as little processing as possible. This enables you to run new queries over your historical data, to get new insights. If you filter or aggregate the data before capturing it, then you are losing information.
-When you create a new query, you will run it over your complete data set. As the data set continues to grow, this will take longer.
-Often, you can perform incremental processing, by running the job on a schedule and processing just the new data. You'll need to consider how to merge the data sets, and what happens at the boundaries. For example, in our scenario, we are processing deliveries and looking for start and end times. If you run the job daily on the previous day's data, what happens if a delivery happens just before midnight and spans two days? 
+A *delivery* is a business entity, but from the perspective of the drone, a delivery is a sequence of events: Picking up a package, flying to the destination, and dropping off the package. During the flight, the drone sends its current position at regular intervals. The batch processing job needs to assemble this event sequence into a meaningful business entity for analysis.
 
-Our workflow:
-In the IoT Hub, add storage as a custom endpoint. (See here) – The route query is “true” because we want to get all of the telemetry, and not filter.
-The data is written to blob storage in Avro format. It is written in batches and stored in containers grouped by partition and date (year, month, day, hour, minute).  Hive can read Avro format.
 
-First step in Hive is to define external tables for the data. An external table is a table where the data resides outside of outside of Hive (in this case, blob). The table metadata is stored in Hive.
+## The batch processing pipeline
+
+For batch processing, you should capture and store the raw device telemetry before doing any processing. By keeping the raw data, you can always run new queries to get new insights into the data. If you filter or aggregate the raw data before storing it, then you lose information that might prove valuable later.
+
+To capture the messages from IoT Hub, add a custom endpoint that routes to Azure Blob storage. For more information, see [Save IoT hub messages that contain sensor data to your Azure blob storage](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-store-data-in-azure-table-storage). The data is written in batches and stored in containers grouped by Event Hub partition and date (year, month, day, hour, minute). The data is written to blob storage in Avro format.
+
+Next, the data is processed by a series of Hive queries. The first step is to create external tables. An external table is a table where the data resides outside of outside of Hive (in this case, blob). The table metadata is stored in Hive. This allows Hive to understand the format of the data. 
 
 ```sql
 CREATE EXTERNAL TABLE rawtelemetry
@@ -112,6 +112,17 @@ After the outer SELECT / GROUP BY:
 | 00a8907c-6e9c-495a-af12-99f315df46ee | 6/7/2018 2:32:29 PM | 6/7/2018 2:42:44 PM |
 
 At this point it's possible to load the table into Excel or Power BI for analysis. However, the Hive tables can only be read while the HDInsights cluster is running. Typically, you would copy the output of the analysis (the last query in our example) into another data store such as CosmosDB, to be used by a serving layer.
+
+
+## Incremental processing
+When you create a new query, you will run it over your complete data set. As the data set continues to grow, this will take longer.
+
+Often, you can perform incremental processing, by running the job on a schedule and processing just the new data. You'll need to consider how to merge the data sets, and what happens at the boundaries. For example, in our scenario, we are processing deliveries and looking for start and end times. If you run the job daily on the previous day's data, what happens if a delivery happens just before midnight and spans two days? 
+
+
+
+
+
 For storing the raw telemetry data, we recommend using General-purpose v2 storage. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices. In addition, GPv2 storage supports hot, cool, and archive tiers.
 Consider the following tiering strategy:
 -	Use hot tier to store incoming telemetry for batch processing. 
