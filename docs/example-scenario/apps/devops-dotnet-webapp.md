@@ -18,18 +18,14 @@ By using a platform such as Visual Studio Team Services in addition to Azure ser
 
 ## Potential use cases
 
-You should consider DevOps for the following use cases:
+Consider DevOps for the following use cases:
 
 * Speeding up application development and development life cycles
 * Building quality and consistency into an automated build and release process
 
-## Architecture diagram
-
-The solution diagram below is an example of the DevOps processes and components:
+## Architecture
 
 ![Architecture overview of the Azure components involved in a DevOps solution using Visual Studio Team Services and Azure App Service][architecture]
-
-## Architecture
 
 This solution covers a DevOps pipeline for a .NET web application using Visual Studio Team Services (VSTS). The data flows through the solution as follows:
 
@@ -93,28 +89,39 @@ The consistency and reliability of deployments and integration testing across en
 
 **Continuous Learning** - The most effective monitoring of a CD environment is provided by Application-Performance-Monitoring tools (APM for short), for example Microsoft's [Application Insights][application-insights].
 
+## Considerations
+
 ### Availability
 
-* Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
-* Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For additional considerations concerning availability, please see the [availability checklist][availability] in the architecture center.
+Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
+
+Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
+
+For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
 
 ### Scalability
 
-* When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
-* Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For other scalability topics please see the [scalability checklist][scalability] available in the architecture center.
+When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
+
+Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
+
+For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
 
 ### Security
 
-* Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
-* Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
+Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
+
+Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
+
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security]. 
 
 ### Resiliency
 
-* Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
-* You can find a number of [resiliency recommended practices for App Service][resiliency-app-service] on the architecture center.
-* For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecture center.
+Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
+
+You can find a number of [resiliency recommended practices for App Service][resiliency-app-service] on the architecture center.
+
+For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Deploy the solution
 
@@ -146,7 +153,7 @@ Review the Release definitions. Notice that a release pipeline has been setup, r
 
 ## Pricing
 
-Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
+To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on amount of traffic you expect to get in your App Service solution.
 
@@ -170,52 +177,53 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 [small-pricing]: https://azure.com/e/9bb582ce4ab64617bf328bf13178d328
 [medium-pricing]: https://azure.com/e/9b63ca1ede5b4e6085411660b1e7b8e9
 [large-pricing]: https://azure.com/e/a96bf5d849174a4c95adc5bcfc4531ca
-[ansible]: https://docs.microsoft.com/en-us/azure/ansible/
-[application-insights]: https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview
-[app-service-reference-architecture]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/
+[ansible]: /azure/ansible/
+[application-insights]: /azure/application-insights/app-insights-overview
+[app-service-reference-architecture]: /azure/architecture/reference-architectures/app-service-web-app/
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
-[arm-templates]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment
+[arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
 [architecture]: ./media/devops-dotnet-webapp/architecture-devops-dotnet-webapp.png
-[availability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/availability
-[chef]: https://docs.microsoft.com/en-us/azure/chef/
-[design-patterns-availability]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/availability
-[design-patterns-resiliency]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency
-[design-patterns-scalability]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/performance-scalability
-[design-patterns-security]: https://docs.microsoft.com/en-us/azure/architecture/patterns/category/security
-[desired-state-configuration]: https://docs.microsoft.com/en-us/azure/automation/automation-dsc-overview
-[devops-microsoft]: https://docs.microsoft.com/en-us/azure/devops/devops-at-microsoft/
+[availability]: /azure/architecture/checklist/availability
+[chef]: /azure/chef/
+[design-patterns-availability]: /azure/architecture/patterns/category/availability
+[design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
+[design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
+[design-patterns-security]: /azure/architecture/patterns/category/security
+[desired-state-configuration]: /azure/automation/automation-dsc-overview
+[devops-microsoft]: /azure/devops/devops-at-microsoft/
 [devops-with-vsts]: https://almvm.azurewebsites.net/labs/vsts/
 [application-insights]: https://azure.microsoft.com/en-gb/services/application-insights/
 [cloud-based-load-testing]: https://visualstudio.microsoft.com/team-services/cloud-load-testing/
-[cloud-based-load-testing-on-premises]: https://docs.microsoft.com/en-us/vsts/test/load-test/clt-with-private-machines?view=vsts
-[jenkins-on-azure]: https://docs.microsoft.com/en-us/azure/jenkins/
-[devops-whatis]: https://docs.microsoft.com/en-us/azure/devops/what-is-devops
-[download-keyvault-secrets]: https://docs.microsoft.com/en-us/vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
-[resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
-[resiliency-app-service]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency
-[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
-[vsts]: https://docs.microsoft.com/en-us/vsts/?view=vsts#pivot=services
-[continuous-integration]: https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-integration
-[continuous-delivery]: https://docs.microsoft.com/en-us/azure/devops/what-is-continuous-delivery
-[web-apps]: https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview
-[terraform]: https://docs.microsoft.com/en-us/azure/terraform/
-[vsts-account-create]: https://docs.microsoft.com/en-gb/vsts/organizations/accounts/create-account-msa-or-work-student?view=vsts
-[vsts-approvals]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/approvals?view=vsts
+[cloud-based-load-testing-on-premises]: /vsts/test/load-test/clt-with-private-machines?view=vsts
+[jenkins-on-azure]: /azure/jenkins/
+[devops-whatis]: /azure/devops/what-is-devops
+[download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
+[resource-groups]: /azure/azure-resource-manager/resource-group-overview
+[resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
+[resiliency]: /azure/architecture/checklist/resiliency
+[scalability]: /azure/architecture/checklist/scalability
+[vsts]: /vsts/?view=vsts#pivot=services
+[continuous-integration]: /azure/devops/what-is-continuous-integration
+[continuous-delivery]: /azure/devops/what-is-continuous-delivery
+[web-apps]: /azure/app-service/app-service-web-overview
+[terraform]: /azure/terraform/
+[vsts-account-create]: /vsts/organizations/accounts/create-account-msa-or-work-student?view=vsts
+[vsts-approvals]: /vsts/pipelines/release/approvals/approvals?view=vsts
 [devops-project]: https://portal.azure.com/?feature.customportal=false#create/Microsoft.AzureProject
-[vsts-deployment-gates]: https://docs.microsoft.com/en-us/vsts/pipelines/release/approvals/gates?view=vsts
+[vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
 [vsts-pricing-calculator]: https://azure.com/e/498aa024454445a8a352e75724f900b1
 [vsts-pricing-page]: https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/
-[vsts-release-variables]: https://docs.microsoft.com/en-us/vsts/pipelines/release/variables?view=vsts&tabs=batch
+[vsts-release-variables]: /vsts/pipelines/release/variables?view=vsts&tabs=batch
 [vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
-[azure-key-vault]: https://docs.microsoft.com/en-gb/azure/key-vault/key-vault-overview
+[azure-key-vault]: /azure/key-vault/key-vault-overview
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
 [team-foundation-server]: https://visualstudio.microsoft.com/tfs/
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
-[service-fabric]:https://docs.microsoft.com/en-us/azure/service-fabric/
-[azure-functions]:https://docs.microsoft.com/en-us/azure/azure-functions/
+[service-fabric]:/azure/service-fabric/
+[azure-functions]:/azure/azure-functions/
 [azure-containers]:https://azure.microsoft.com/en-us/overview/containers/
-[compare-vm-hosting]:https://docs.microsoft.com/en-us/azure/app-service/choose-web-site-cloud-service-vm
-[app-insights-cd-monitoring]:https://docs.microsoft.com/en-us/azure/application-insights/app-insights-vsts-continuous-monitoring
-[azure-region-pair-bcdr]:https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions
-[devops-project-create]: https://docs.microsoft.com/en-gb/vsts/pipelines/apps/cd/azure/azure-devops-project-aspnetcore?view=vsts
+[compare-vm-hosting]:/azure/app-service/choose-web-site-cloud-service-vm
+[app-insights-cd-monitoring]:/azure/application-insights/app-insights-vsts-continuous-monitoring
+[azure-region-pair-bcdr]:/azure/best-practices-availability-paired-regions
+[devops-project-create]: /vsts/pipelines/apps/cd/azure/azure-devops-project-aspnetcore?view=vsts
+[security]: /azure/security/
