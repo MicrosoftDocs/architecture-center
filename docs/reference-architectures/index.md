@@ -9,6 +9,7 @@ ms.topic: landing-page
 
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
+Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications) | [N-tier applications](#n-tier-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extending-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads)
 
 ## Big data solutions
 
@@ -238,6 +239,46 @@ Our reference architectures are arranged by scenario, with related architectures
                     <div class="cardText">
                         <h3>Hybrid network using ExpressRoute with VPN failover</h3>
                         <p>Use VPN as a failover connection in case the ExpressRoute circuit loses connectivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Hub spoke -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./hybrid-networking/hub-spoke.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./_images/gateway.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Hub-spoke network topology</h3>
+                        <p>This virtual network topology creates a central point of connectivity to your on-premises network, while isolating individual workloads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Shared services -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./hybrid-networking/hub-spoke.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./_images/gateway.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Hub-spoke topology with shared services</h3>
+                        <p>Extends the hub-spoke topology by including shared services such as Active Directory.</p>
                     </div>
                 </div>
             </div>
