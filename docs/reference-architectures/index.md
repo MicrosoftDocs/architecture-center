@@ -258,7 +258,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                     </div>
                     <div class="cardText">
                         <h3>Hub-spoke network topology</h3>
-                        <p>This virtual network topology creates a central point of connectivity to your on-premises network, while isolating individual workloads.</p>
+                        <p>Creates a central point of connectivity to your on-premises network, while isolating individual workloads.</p>
                     </div>
                 </div>
             </div>
