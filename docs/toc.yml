@@ -453,20 +453,21 @@
     href: checklist/availability.md
   - name: DevOps checklist
     href: checklist/dev-ops.md
-  - name: Resiliency checklist
+  - name: Resiliency checklist (general)
     href: checklist/resiliency.md
   - name: Resiliency checklist (Azure services)
     href: checklist/resiliency-per-service.md
   - name: Scalability checklist
     href: checklist/scalability.md
 
-- name: Azure Cloud Adoption Guide
+- name: Cloud Adoption Guide
   items:
   - name: Introduction
     href: cloud-adoption-guide/index.md
   - name: Foundational Azure adoption
-    href: cloud-adoption-guide/adoption-intro/overview.md
     items:
+      - name: Overview
+        href: cloud-adoption-guide/adoption-intro/overview.md
       - name: Understanding Azure internals
         items:
         - name: "Explainer: how does Azure work?"
