@@ -54,7 +54,7 @@ This solution covers a conversational bot that functions as a concierge for a ho
 
 This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
-For other scalability topics, see the [availability checklist][availability] in the Azure Architecture Center.
+For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 

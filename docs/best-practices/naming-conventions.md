@@ -119,7 +119,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 ## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary
-text strings to identify context and streamline automation.  For example, the tag `"sqlVersion: "sql2014ee"` could identify VMs in a deployment running SQL Server 2014 Enterprise Edition for running an automated script against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
+text strings to identify context and streamline automation.  For example, the tag `"sqlVersion"="sql2014ee"` could identify VMs running SQL Server 2014 Enterprise Edition. Tags should be used to augment and enhance context along side of the naming conventions chosen.
 
 > [!TIP]
 > One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across disparate deployments.
