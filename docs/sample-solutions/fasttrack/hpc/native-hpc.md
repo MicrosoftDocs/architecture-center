@@ -18,6 +18,15 @@ You should consider this solution for the following use cases:
 * If you're intending to develop a SaaS (Software as a Service) solution for your own customers
 * You want to use containers as part of your HPC solution in a managed environment
 
+[Learn more about delivering solutions as a service on Azure Batch][batch-saas]
+
+## Potential Industry use cases
+
+### Rendering
+Run your rendering jobs in the cloud using Batch. Avoid the complexities of managing resources and reduce the time needed to complete your jobs. Check out the samples that let you use Batch together with Blender, a free open-source 3D animation suite that supports all of the 3D pipeline—modeling, rigging, animation, simulation and motion tracking, and game creation. Whether you’re an individual or a studio, you can rely on Batch for photorealistic rendering, fast rigging, and excellent simulations and game creation. Batch gives you the resources to render animation in a realistic time frame to meet project deadlines.
+
+[Learn more about Azure Batch Rendering][batch-rendering]
+
 ## Architecture diagram
 
 The solution diagram below is an example of this solution:
@@ -40,7 +49,7 @@ This sample solution is will provide help in learning how Azure Batch works whil
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-## Azure Batch: Deploying a sample solution using an ARM template
+## Azure Batch: Deploying a sample solution using an ARM (Azure Resource Manager) template
 
 The following deployment will deploy:
   - a new Azure Batch account
@@ -52,6 +61,8 @@ The following deployment will deploy:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
+[Learn more about ARM templates][azure-arm-templates]
 
 ### Components
 
@@ -179,5 +190,8 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [batch-doc]: https://docs.microsoft.com/en-us/azure/batch/
 [batch-overview]: https://azure.microsoft.com/en-us/services/batch/
 [batch-containers]: https://github.com/Azure/batch-shipyard
-
+[batch-rendering]: https://azure.microsoft.com/en-us/services/batch/rendering/
+[batch-saas]: https://customers.microsoft.com/en-us/story/insurance-tech-provider-delivers-disruptive-solutions
+[azure-arm-templates]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment
+#
 
