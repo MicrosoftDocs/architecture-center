@@ -11,18 +11,13 @@ This architectural design shows a set of proven practices for running SAP NetWea
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+Consider this solution for the following use cases:
 
 * Non-Critical SAP productive and non-productive workloads.
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
-
-<!--- Dharmesh, perhaps we should update this diagram based on your work?--->
-![Diagram](media/SAP-Infra-3TierDistributedNoHA_finalversion.png)
-
 ## Architecture
+
+![Diagram](media/sap-3tier/SAP-Infra-3TierDistributedNoHA_finalversion.png)
 
 This solution covers the provision of a single SAP system database and multiple SAP application Servers on multiple  virtual machines, the data flows through the solution as follows:
 
@@ -39,8 +34,8 @@ This solution covers the provision of a single SAP system database and multiple 
 * [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 * [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
 
-
 #### Supported SAP Configurations
+
 * SAP Business Suite 6.x (SAP Netweaver Application 7.x)
 * SAP Business All-in-One
 * SAP Business One
@@ -49,28 +44,33 @@ This solution covers the provision of a single SAP system database and multiple 
 * SAP TREX 7.0
 * SAP LiveCache, SAP Content Server 6.50
 * SAP Business Objects
+
 #### Supported Database Systems
+
 * SQL Server (Windows only)
 * SAP ASE (Windows, SUSE and RHEL only)
 * SAP MaxDB (Windows, SUSE and RHEL only)
 * IBM DB2/UDB (Windows, SUSE and RHEL only)
 * Oracle Database (Windows and OEL only)
 * SAP HANA (SUSE and RHEL)
+
 #### Supported Operating Systems
-*  MS Windows 2008 R2 or greater
+
+* MS Windows 2008 R2 or greater
 * SUSE Enterprise Linux Server for SAP (based on SLES 12)
 * RedHat Enterprise Linux (based on RHEL 7)
 * Oracle Enterprise Linux (Oracle DB only)
 
 Please refer to to [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
-<!---
 ### Alternatives
 
 * List of alternative options and why you might use them.
---->
+
+## Considerations
 
 ### Availability
+
 For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%.
 
 For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)
@@ -110,6 +110,7 @@ Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra La
 * [Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b): An extra large system consists of a VM type M64s for the db server with 64x vCPUs, 1024GB RAM and 2000GB temp storage, additionally seven 1024GB premium storage disks. An SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14GB RAM and 28GB temp storage. Ten VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112GB RAM and 224GB temp storage, additionally ten 128GB premium storage disk.
 
 ## Deployment Example
+
 To deploy a sample solution similar to the solution above, please use the deploy button 
 
 <a
@@ -118,6 +119,7 @@ href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgith
 </a>
 
 ## Alternative deployment examples
+
 For further deployment examples, please refer to the many github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
 
 
@@ -125,10 +127,6 @@ For further deployment examples, please refer to the many github samples templat
 
 Other resources that are relevant that aren't linked from else where in the doc.
 
-[reference architecture]  https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap
-
-[resiliency] https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-
-[security] https://www.microsoft.com/en-us/trustcenter/security/azure-security
-
-[scalability] https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[reference architecture]: /azure/architecture/reference-architectures/sap
+[resiliency]: /azure/architecture/resiliency/
+[scalability]: /azure/architecture/checklist/scalability
