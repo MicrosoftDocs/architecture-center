@@ -15,13 +15,9 @@ You should consider this solution for the following use cases:
 
 * Critical SAP productive workloads
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Diagram](media/SAP-Infra-3TierDistributedHA_finalversion.png)
-
-## Architecture
 
 This solution covers the provision of a dual SAP system databases in a highly available configuration, multiple SAP Central services in a highly available configuration and multiple SAP application Servers each on a virtual machine, the data flows through the solution as follows:
 
@@ -40,6 +36,7 @@ This solution covers the provision of a dual SAP system databases in a highly av
 
 
 #### Supported SAP Configurations
+
 * SAP Business Suite 6.x (SAP Netweaver Application 7.x)
 * SAP Business All-in-One
 * SAP Business One
@@ -48,26 +45,31 @@ This solution covers the provision of a dual SAP system databases in a highly av
 * SAP TREX 7.0
 * SAP LiveCache, SAP Content Server 6.50
 * SAP Business Objects
+
 #### Supported Database Systems
+
 * SQL Server (Windows only)
 * SAP ASE (Windows, SUSE and RHEL only)
 * SAP MaxDB (Windows, SUSE and RHEL only)
 * IBM DB2/UDB (Windows, SUSE and RHEL only)
 * Oracle Database (Windows and OEL only)
 * SAP HANA (SUSE and RHEL)
+
 #### Supported Operating Systems
+
 *  MS Windows 2008 R2 or greater
 * SUSE Enterprise Linux Server for SAP (based on SLES 12)
 * RedHat Enterprise Linux (based on RHEL 7)
 * Oracle Enterprise Linux (Oracle DB only)
 
-<!--
 ### Alternatives
 
 * List of alternative options and why you might use them.
---->
+
+## Considerations
 
 ### Availability
+
 For multiple Instance Virtual Machines across Availability Zones using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.99%.
 
 For multiple Instance Virtual Machines across Availability Sets using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.95%.
@@ -82,9 +84,7 @@ For increased scalablity either consider large VM sizes or the addition of furth
 
 For a deeper discussion on [Azure Security](https://azure.microsoft.com/en-us/services/security-center/) please see the relevant article in the architecure center.
 
-<!---
 ### Resiliency
--->
 
 ## Pricing
 
@@ -110,6 +110,7 @@ Extra Large|250000|2x M64s|6xP30, 1xP30|2x DS11_v2|1x P10|10x DS14_v2|1x P10|[Ex
 * [Extra Large](https://azure.com/e/ec6b516a8dd04b52b5aef53960bbd33f): An extra large system consists of two VM type M64s for the db server with 64x vCPUs, 1024GB RAM and 2000GB temp storage, additionally seven 1024GB premium storage disks. Two SAP Central Instance servers using two DS11_v2 VM types with 2x vCPUs 14GB RAM and 28GB temp storage. Ten VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112GB RAM and 224GB temp storage, additionally ten 128GB premium storage disk.
 
 ## Deployment Example
+
 To deploy a sample solution similar to the solution above, please use the deploy button 
 
 <a
@@ -118,17 +119,13 @@ href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgith
 </a>
 
 ## Alternative deployment examples
-For further deployment examples, please refer to the many github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
 
+For further deployment examples, please refer to the many github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
 
 ## Related Resources
 
 Other resources that are relevant that aren't linked from else where in the doc.
 
-[reference architecture]  https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap
-
-[resiliency] https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-
-[security] https://www.microsoft.com/en-us/trustcenter/security/azure-security
-
-[scalability] https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[reference architecture]: /azure/architecture/reference-architectures/sap
+[resiliency]: /azure/architecture/resiliency/
+[scalability]: /azure/architecture/checklist/scalability
