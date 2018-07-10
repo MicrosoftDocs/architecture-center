@@ -8,9 +8,13 @@ ms.date: <publish or update date>
 
 High Performance Computing on Azure is somtimes also referred to as Big Compute, as it moves away from the traditional need for on-premises specialist hardware as a major investment. On-demand compute resources can be utilised when a buiness needs it the most, either with hardware for specific HPC scenarios (GPU or RDMA for instance) or general purpose VMs that provide a balance on cost and performance. 
 
-This sample solution demonstrates how CycleCloud* can be used to orchestrate an IaaS HPC grid running on Azure, while also providing an optional scenario to extend a grid running on-premises to Azure for on demand compute resources.
+An automated deployment of an IaaS grid in Azure can be created by using Azure Resource Manager (ARM) templates. These allow for an Infrastructure as Code approach to deploying Azure services to create a defined and known infrastructure without the problems that can occur when following manual processes. 
 
-By using CycleCloud, the manual work to create an IaaS grid in the cloud becomes an efficient process, and can also be used to faciliate a new grid for Disaster Recovery or failover purposes. Additionally, organisations can build multiple grids and be confident there is no infrastructure drift taking place between deployments.
+[Learn more about ARM templates][azure-arm-templates]
+
+To further automate this process, and to help orchestrate different workload managers like SLURM, GridEngine and defined schedulers of your choice, CycleCloud* can control every aspect of your grid. By using CycleCloud, the manual work to create an IaaS grid in the cloud becomes an efficient process, and can also be used to faciliate a new grid for Disaster Recovery or failover purposes. Additionally, organisations can build multiple grids and be confident there is no infrastructure drift taking place between deployments. 
+
+The sample solution later on in the document demonstrates how CycleCloud can be used to orchestrate an IaaS HPC grid running on Azure, while also providing an optional scenario to extend a grid running on-premises to Azure for on demand compute resources. 
 
 \* CycleCloud has been a recent aquisition for Microsoft, we are currently in the process of intregrating this solution with Azure. During this period the functionality of CycleCloud will not be modified.
 
@@ -21,6 +25,25 @@ You should consider this solution for the following use cases:
 * If you have been manually building HPC IaaS infrastructures or using an ARM template, but want to further automate the deployment process.
 * Where there is a need to use on-demand compute in Azure while maintaining an on-premises grid.
 * Where a new grid is to be implemented entirely within Azure, while also utilising on-demand compute resources in Azure.
+
+## Industry use cases
+
+HPC technologies running on Azure is open to all industries that need on demand compute, be it rendering video or as part of a workflow for Genomics. The following provides some examples of the types of industries that currently utilise Azure for their HPC needs.
+
+### Financial risk modelling
+When accuracy, rapid decision making, and costs count, financial services firms use Azure and CycleCloud to meet the business needs of actuaries, traders, enterprise risk managers, chief financial officers, and corporate treasuries. Whether the compute workload readily scales out or is computationally intensive, Azure will help you get the work done faster and efficiently.
+
+[Learn more about insurance with HPC on Azure][hpc-insurance]
+
+[Learn more about banking and capital markets with HPC on Azure][hpc-banking]
+
+### Engineering design and simulation
+Increase your productivity by running your computational fluid dynamics, structural analysis, finite element analysis, crash modeling and other computer aided engineering simulations in the cloud. With true HPC capabilities available on Azure, you can now take advantage of the scale and flexibility that the cloud brings to organizations of all sizes. Azure can help you and your team to introduce new, high-quality products to market, while controlling costs within compressed development times.
+
+[Learn more about running Ansys CFD in Azure as an engineering case study][hpc-engineering]
+
+### Life Sciences
+Whether the need is for Genomics research or as part of a clinical pipeline, Azure has a range of hardware that can match performance expectations, with the ability to scale out when demands unexpectedly arise.   
 
 ## Architecture diagram
 
@@ -113,13 +136,18 @@ For a complete overview of all the HPC solutions that are available to you in Az
 
 ### Availability
 
-### Scalability
+For a deeper discussion on increasing the [availability][availability] of cloud applications, please see the relevant article in the architecture center.
 
-* CycleCloud can scale up or down on demand depending on the criteria you supply.
+### Scalability
+For compute resources, CycleCloud can scale up or down on demand depending on the criteria you define.
+
+For a deeper discussion on the [scalability][scalability] of cloud applications, please see the relevant article in the architecture center.
 
 ### Security
 
-For a deeper discussion on [security][] please see the relevant article in the architecure center.
+For an overview on [Azure security][azure-security] please see the trust center article.
+
+For a deeper discussion on [security][] for cloud applications please see the relevant article in the architecure center.
 
 ### Resiliency
 
@@ -155,6 +183,8 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [large-pricing]: https://azure.com/e/
 [architecture]: ./media/hybrid-hpc-ref-arch.png
 [resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
+[availability]: https://docs.microsoft.com/en-gb/azure/architecture/patterns/category/availability
+[security]:https://docs.microsoft.com/en-gb/azure/architecture/patterns/category/security
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
 [vmss]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
@@ -178,6 +208,11 @@ Other resources that are relevant that aren't linked from else where in the doc.
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
 [hpc-alt-solutions]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
+[hpc-insurance]: https://insurance.azure.com/
+[hpc-banking]: https://finance.azure.com/
+[hpc-engineering]: https://azure.microsoft.com/en-us/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/
+[azure-arm-templates]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment
+[azure-security]: https://www.microsoft.com/en-us/trustcenter/security/azure-security
 
 
 
