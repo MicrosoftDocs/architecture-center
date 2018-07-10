@@ -11,18 +11,14 @@ This architectural design shows a set of proven practices for running SAP NetWea
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+Consider this solution for the following use cases:
 
 * Non-Critical SAP non-productive workloads (Sandbox, Development, Test, Quality Assurance)
 * Non-critical SAP Business One workloads
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
-
-![Diagram](media/SAP-Infra-2Tier_finalversion.png)
-
 ## Architecture
+
+![Diagram](media/sap-2tier/SAP-Infra-2Tier_finalversion.png)
 
 This solution covers the provision of a single SAP system database and SAP application Server on a single virtual machine, the data flows through the solution as follows:
 
@@ -39,8 +35,8 @@ This solution covers the provision of a single SAP system database and SAP appli
 * [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 * [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
 
-
 #### Supported SAP Configurations
+
 * SAP Business Suite 6.x (SAP Netweaver Application 7.x)
 * SAP Business All-in-One
 * SAP Business One
@@ -49,14 +45,18 @@ This solution covers the provision of a single SAP system database and SAP appli
 * SAP TREX 7.0
 * SAP LiveCache, SAP Content Server 6.50
 * SAP Business Objects
+
 #### Supported Database Systems
+
 * SQL Server (Windows only)
 * SAP ASE (Windows, SUSE and RHEL only)
 * SAP MaxDB (Windows, SUSE and RHEL only)
 * IBM DB2/UDB (Windows, SUSE and RHEL only)
 * Oracle Database (Windows and OEL only)
 * SAP HANA (SUSE and RHEL)
+
 #### Supported Operating Systems
+
 * MS Windows 2008 R2 or greater
 * SUSE Enterprise Linux Server for SAP (based on SLES 12)
 * RedHat Enterprise Linux (based on RHEL 7)
@@ -64,13 +64,14 @@ This solution covers the provision of a single SAP system database and SAP appli
 
 Please refer to to [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)
 
-<!---
 ### Alternatives
 
 * List of alternative options and why you might use them.
----->
+
+## Considerations
 
 ### Availability
+
 For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%.
 
 For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)
@@ -81,7 +82,7 @@ For greater scalability please consider deploying your SAP infrastructure based 
 
 ### Security
 
-For a deeper discussion on [Azure Security](https://azure.microsoft.com/en-us/services/security-center/) please see the relevant article in the architecure center.
+For a deeper discussion on [Azure Security][security] please see the relevant article in the architecure center.
 
 ### Resiliency
 
@@ -107,7 +108,8 @@ Note: * pricing is a guide, indicates only the VMs and storage costs (excludes, 
 * [Large](https://azure.com/e/ada2e849d68b41c3839cc976000c6931): A large system consists of VM type E32s_v3 with 32x vCPUs, 256GB RAM and 512GB temp storage, additionally three 512GB and one 128GB premium storage disks.
 * [Extra Large](https://azure.com/e/975fb58a965c4fbbb54c5c9179c61cef): An extra large system consists of a VM type M64s with 64x vCPUs, 1024GB RAM and 2000GB temp storage, additionally four 512GB and one 128GB premium storage disks.
 
-## Deployment Example
+## Deployment
+
 To deploy a sample solution similar to the solution above, please use the deploy button
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FAzure%2Ffta-wip%2Fblob%2Fmaster%2FSAP%2Ftemplates%2Fsap-2tier%2Fazuredeploy.json" target="_blank">
@@ -116,16 +118,14 @@ To deploy a sample solution similar to the solution above, please use the deploy
 
 
 ## Alternative deployment examples
+
 For further deployment examples, please refer to many the github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
 
 ## Related Resources
 
 Other resources that are relevant that aren't linked from else where in the doc.
 
-[reference architecture]  https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap
-
-[resiliency] https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-
-[security] https://www.microsoft.com/en-us/trustcenter/security/azure-security
-
-[scalability] https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[reference architecture]:  /azure/architecture/reference-architectures/sap
+[resiliency]: /azure/architecture/resiliency/
+[security]: https://azure.microsoft.com/en-us/services/security-center/
+[scalability]: /azure/architecture/checklist/scalability
