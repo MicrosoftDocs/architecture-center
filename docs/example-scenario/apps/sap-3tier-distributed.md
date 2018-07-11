@@ -114,7 +114,7 @@ Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra La
 To deploy a sample solution similar to the solution above, please use the deploy button 
 
 <a
-href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2FAzure%2Ffta-wip%2Fblob%2Fmaster%2FSAP%2Ftemplates%2Fsap-3tier-distributed%2Fazuredeploy.json" target="_blank">
+href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-3tier-distributed%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
