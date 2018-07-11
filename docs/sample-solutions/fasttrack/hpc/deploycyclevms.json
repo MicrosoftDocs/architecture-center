@@ -1,0 +1,314 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "adminJbIPName": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "adminjb_ip",
+      "metadata": {
+        "description": "Public IP name for the Admin Jump Box"
+      }
+    },
+    "adminjbvmSize": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "Standard_D2",
+      "metadata": {
+        "description": "Azure instance type for the Admin Jump Box VM"
+      }
+    },
+    "cyclevmSize": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "Standard_D2",
+      "metadata": {
+        "description": "Azure instance type for the Cycle VM"
+      }
+    },
+    "adminjbvmStorage": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "Type of storage for the Admin Jump Box VM: Premium_LRS or Standard_LRS"
+      }
+    },
+    "cyclevmStorage": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "metadata": {
+        "description": "Type of storage for the Cycle VM: Premium_LRS or Standard_LRS"
+      }
+    },
+    "cycleIPName": {
+      "maxLength": 32,
+      "type": "string",
+      "defaultValue": "cycleserver_ip",
+      "metadata": {
+        "description": "Public IP name for the Cycle VM"
+      }
+    },
+    "cycleDownloadUri": {
+      "maxLength": 256,
+      "type": "securestring",
+      "defaultValue": "https://cycleclouddownload.blob.core.windows.net/cyclecloud680",
+      "metadata": {
+        "description": "Cycle download URI"
+      }
+    },
+    "cycleLicenseURL": {
+      "maxLength": 256,
+      "type": "securestring",
+      "defaultValue": "https://cyclecloudlicense.blob.core.windows.net/license/license.dat?se=2018-06-30&sp=r&sv=2017-04-17&sr=b&sig=nCtLPUSjS7PaOcyq8R6IU32KY/LBktQakyKpnxXtXHE%3D",
+      "metadata": {
+        "description": "SAS key to Cycle License blob"
+      }
+    },
+    "rsaPublicKey": {
+      "type": "string",
+      "metadata": {
+        "description": "The RSA public key to access the VMs."
+      }
+    }
+  },
+  "variables": {
+    "vnetName": "cyclevnet",
+    "resourceLocation": "[resourceGroup().location]",
+    "adminjbvmSize": "[parameters('adminjbvmSize')]",
+    "adminjbvmStorage": "[parameters('adminjbvmStorage')]",
+    "adminjbName": "adminjb",
+    "adminjbNic": "adminjb-nic",
+    "admin_nsg_name": "admin-nsg",
+    "admin_subnet": "admin",
+
+    "cyclevmSize": "[parameters('cyclevmSize')]",
+    "cyclevmStorage": "[parameters('cyclevmStorage')]",
+    "cycleName": "cycleserver",
+    "cycleNic": "cycle-nic",
+    "cycle_nsg_name": "cycle-nsg",
+    "cycle_subnet": "cycle",
+
+    "cycleInstallScript": ["[uri(deployment().properties.templateLink.uri, 'cyclecloud_install.sh')]"],
+    "cycleInstallCommand": "[concat('bash cyclecloud_install.sh ', parameters('cycleDownloadUri'), ' \"', parameters('cycleLicenseURL'), '\"')]",
+
+    "networkApiVersion": "2017-06-01",
+    "computeApiVersion": "2017-03-30"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[variables('adminjbName')]",
+      "apiVersion": "[variables('computeApiVersion')]",
+      "location": "[variables('resourceLocation')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('adminjbvmSize')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "OpenLogic",
+            "offer": "CentOS",
+            "sku": "7.3",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Linux",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "[variables('adminjbvmStorage')]"  
+            }
+          },
+          "dataDisks": []
+        },
+        "osProfile": {
+          "computerName": "[variables('adminjbName')]",
+          "adminUsername": "cycleadmin",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/cycleadmin/.ssh/authorized_keys",
+                  "keyData": "[parameters('rsaPublicKey')]"
+                }
+              ]
+            }
+          },
+          "secrets": []
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('adminjbNic'))]"
+            }
+          ]
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('adminjbNic'))]"
+      ]
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('adminjbNic')]",
+      "apiVersion": "[variables('networkApiVersion')]",
+      "location": "[variables('resourceLocation')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('adminJbIPName'))]"
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('admin_subnet'))]"
+              },
+              "primary": true,
+              "privateIPAddressVersion": "IPv4"
+            }
+          }
+        ],
+        "dnsSettings": {
+        },
+        "enableAcceleratedNetworking": false,
+        "enableIPForwarding": false,
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('admin_nsg_name'))]"
+        },
+        "primary": true
+      },
+      "dependsOn": [
+      ]
+    },
+
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[variables('cycleName')]",
+      "apiVersion": "[variables('computeApiVersion')]",
+      "location": "[variables('resourceLocation')]",
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "[variables('cyclevmSize')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "OpenLogic",
+            "offer": "CentOS",
+            "sku": "7.3",
+            "version": "latest"
+          },
+          "osDisk": {
+            "osType": "Linux",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "storageAccountType": "[variables('cyclevmStorage')]"  
+            }
+          },
+          "dataDisks": [
+            {
+              "lun": 0,
+              "createOption": "Empty",
+              "caching": "ReadOnly",
+              "managedDisk": {
+                "storageAccountType": "[variables('cyclevmStorage')]"  
+              },
+              "diskSizeGB": 1023
+            }
+          ]
+        },
+        "osProfile": {
+          "computerName": "[variables('cycleName')]",
+          "adminUsername": "cycleadmin",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": true,
+            "ssh": {
+              "publicKeys": [
+                {
+                  "path": "/home/cycleadmin/.ssh/authorized_keys",
+                  "keyData": "[parameters('rsaPublicKey')]"
+                }
+              ]
+            }
+          },
+          "secrets": []
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('cycleNic'))]"
+            }
+          ]
+        }
+      },
+      "resources": [
+        {
+          "type": "extensions",
+          "name": "InstallCycle",
+          "apiVersion": "[variables('computeApiVersion')]",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+            "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": "[variables('cycleInstallScript')]"
+            },
+            "protectedSettings": {
+              "commandToExecute": "[variables('cycleInstallCommand')]"
+            }
+          },
+          "dependsOn": [
+            "[variables('cycleName')]"
+          ]
+        }
+      ],
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('cycleNic'))]"
+      ]
+    },
+
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "name": "[variables('cycleNic')]",
+      "apiVersion": "[variables('networkApiVersion')]",
+      "location": "[variables('resourceLocation')]",
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('cycleIPName'))]"
+              },
+              "subnet": {
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), variables('cycle_subnet'))]"
+              },
+              "primary": true,
+              "privateIPAddressVersion": "IPv4"
+            }
+          }
+        ],
+        "dnsSettings": {
+        },
+        "enableAcceleratedNetworking": false,
+        "enableIPForwarding": false,
+        "networkSecurityGroup": {
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('cycle_nsg_name'))]"
+        },
+        "primary": true
+      },
+      "dependsOn": [
+      ]
+    }
+  ],
+  "outputs": {
+  }
+}
