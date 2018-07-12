@@ -40,13 +40,13 @@ This architecture details key components of an order processing pipeline. The da
 * [Apache Kafka on HDInsight][docs-kafka] is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This solution uses Kafka to process incoming as well as downstream events in the order processing pipeline. 
 * [F#](https://fsharp.org/) is a mature, open source, cross-platform, functional-first programming language. It empowers users and organizations to tackle complex computing problems with simple, maintainable and robust code. F# is an effective language for building microservices that can be deployed and tested independently from other components of the overall system.
 
-### Considerations
+## Considerations
 
 Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. Microservices require a different approach to designing and building applications. Tools such as Docker, Kubernetes, Azure Service Fabric, and Nomad enable the development of microservices-based architectures. For guidance on building and running a microservices-based architecture, see [Designing microservices on Azure](/azure/architecture/microservices/) in the Azure Architecture Center.
 
-## Availability
+### Availability
 
 This solution's event sourcing approach allows system components to be loosely coupled and deployed independently of one another. Cosmos DB offers [high availability][docs-cosmos-db-regional-failover] and helps organization manage the tradeoffs associated with consistency, availability, and performance, all with [corresponding guarantees][docs-cosmos-db-guarantees]. Apache Kafka on HDInsight is also designed for [high availability][docs-kafka-high-availability].
 
