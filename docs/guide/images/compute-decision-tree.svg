@@ -57,11 +57,11 @@
 </g>
 <g id="group1056-307">
 	<g id="shape22-308">
-		<rect x="456.2" y="404.7" class="st1" width="68.7" height="36.2"/>
+		<rect x="456.2" y="404.7" class="st1" width="74" height="36.2"/>
 		<g>
 			<text transform="matrix(1 0 0 1 459.4544 420.2416)" class="st0 st2 st3">Azu</text>
 			<text transform="matrix(1 0 0 1 474.0648 420.2416)" class="st0 st2 st3">r</text>
-			<text transform="matrix(1 0 0 1 477.14 420.2416)" class="st0 st2 st3">e Container</text>
+			<text transform="matrix(1 0 0 1 477.14 420.2416)" class="st0 st2 st3">e Kubernetes</text>
 			<text transform="matrix(1 0 0 1 465.1722 430.4398)" class="st0 st2 st3">Se</text>
 			<text transform="matrix(1 0 0 1 474.3118 430.4398)" class="st0 st2 st3">r</text>
 			<text transform="matrix(1 0 0 1 477.7962 430.4398)" class="st0 st2 st3">vice (AKS)</text>
