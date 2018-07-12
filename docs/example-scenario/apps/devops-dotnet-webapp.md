@@ -2,19 +2,19 @@
 title: DevOps CI/CD for .NET on Azure Web Apps
 description: An example of building and releasing a .NET App to Azure Web Apps
 author: christianreddington
-ms.date: <publish or update date>
+ms.date: 07/11/18
 ---
 # CI/CD pipeline with VSTS
 
 DevOps is the integration of development, quality assurance and IT operations. DevOps requires both unified culture and a strong set of processes for delivering software.
 
-This sample solution demonstrates how Visual Studio Team Services can be used, by development teams, to deploy a .NET Browser based two tier Web Application to Azure App Service. The Web Application is dependent on downstream Azure Platform as a Service (PaaS) services.
+This sample scenario demonstrates how Visual Studio Team Services can be used, by development teams, to deploy a .NET Browser based two tier Web Application to Azure App Service. The Web Application is dependent on downstream Azure Platform as a Service (PaaS) services.
 
-This document also points out a number of the considerations that you should make whilst you architect such a solution using Azure Platform as a Service (PaaS).
+This document also points out a number of the considerations that you should make whilst you architect such a scenario using Azure Platform as a Service (PaaS).
 
-Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps  you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
+Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
 
-By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their solution, rather than the management of the infrastructure to enable it.
+By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their scenario, rather than the management of the infrastructure to enable it.
 
 ## Related use cases
 
@@ -25,9 +25,9 @@ Consider DevOps for the following use cases:
 
 ## Architecture
 
-![Architecture overview of the Azure components involved in a DevOps solution using Visual Studio Team Services and Azure App Service][architecture]
+![Architecture overview of the Azure components involved in a DevOps scenario using Visual Studio Team Services and Azure App Service][architecture]
 
-This solution covers a DevOps pipeline for a .NET web application using Visual Studio Team Services (VSTS). The data flows through the solution as follows:
+This scenario covers a DevOps pipeline for a .NET web application using Visual Studio Team Services (VSTS). The data flows through the scenario as follows:
 
 1. Change application source code.
 2. Commit application code and Web Apps web.config file.
@@ -56,9 +56,6 @@ Alternatives to hosting in Azure Web Apps:
 
 * [VM][compare-vm-hosting] - For workloads that require a high degree of control, or depend on OS components / services that are not possible with Web Apps (e.g. the Windows GAC, or COM)
 * [Container Hosting][azure-containers] - Where there are OS dependencies and hosting portability, or hosting density, are also requirements.
-
-Other options include:
-
 * [Service Fabric][service-fabric] - A good option if the workload architecture is focused around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 * [Serverless Azure functions][azure-functions] - A good option if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
 
@@ -87,7 +84,7 @@ The consistency and reliability of deployments and integration testing across en
 * Use environment agnostic deployment packages and manage environment specific configuration through the release process.
 * Protect sensitive configuration within the release management tooling or by calling out to a Hardware-security-module (HSM), or [Key Vault][azure-key-vault], during the release process. Do not store sensitive configuration within source control.
 
-**Continuous Learning** - The most effective monitoring of a CD environment is provided by Application-Performance-Monitoring tools (APM for short), for example Microsoft's [Application Insights][application-insights].
+**Continuous Learning** - The most effective monitoring of a CD environment is provided by Application-Performance-Monitoring tools (APM for short), for example Microsoft's [Application Insights][application-insights]. Sufficient depth of monitoring for an application workload is critical to understand bugs, performance under load. [App Insights can be integrated into VSTS to enable continuous monitoring of the CD pipeline][app-insights-cd-monitoring]. This could be used to enable automatic progression to the next stage, without human intervention, or rollback if an alert is detected.
 
 ## Considerations
 
@@ -113,7 +110,7 @@ Consider leveraging the [typical design patterns for security][design-patterns-s
 
 Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security]. 
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
@@ -123,7 +120,7 @@ You can find a number of [resiliency recommended practices for App Service][resi
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deploy the solution
+## Deploy the scenario
 
 ### Prerequisites
 
@@ -132,13 +129,11 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Walk through
 
-As we will be using Visual Studio Team Services to drive the DevOps pipeline, we cannot leverage ARM Templates to create entities in VSTS. We will leverage the Azure DevOps Project service for the purposes of this sample.
+In this scenario you'll use the Azure DevOps Project to create your CI/CD pipeline.
 
-You can follow the Azure Docs to [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create], if you are not comfortable with this approach.
+The DevOps project will deploy an App Service Plan, App Service and an App Insights resource for you, as well as configure the Visual Studio Team Services Project for you.
 
-The DevOps project will deploy an App Service Plan, App Service and app App Insights resource for you, as well as configure the Visual Studio Team Services Project for you.
-
-Once you have completed the DevOps project and the build has complete, review the associated code changes, work items and test results. You will notice no test results are displayed, as the code does not contain any tests to run.
+Once you've  the DevOps project and the build is completed, review the associated code changes, work items and test results. You will notice no test results are displayed, as the code does not contain any tests to run.
 
 Review the Release definitions. Notice that a release pipeline has been setup, releasing our application into Dev. Observe that there is a **continuous deployment trigger** set from the **Drop** build artifact, with automatic releases into the Dev environments. As part of a Continuous Deployment process, you may see releases span across multiple environments. A release can span both infrastructure (using techniques such as Infrastructure as Code), and also deploy the application packages required as well as any post-configuration tasks.
 
@@ -153,16 +148,6 @@ Review the Release definitions. Notice that a release pipeline has been setup, r
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
-
-We have provided three sample cost profiles based on amount of traffic you expect to get in your App Service solution.
-
-* [Small][small-pricing]: The Small Web Application Architecture consists of a simple two tier application built out over Azure PaaS services. High Availability (HA) and the ability to scale out and back under burst load are accommodated through a "auto scale" rule. Application Performance Monitoring (APM) is enabled through Application Insights. Sufficient depth of monitoring for an application workload is critical to understand bugs, performance under load. [App Insights can be integrated into VSTS to enable continuous monitoring of the CD pipeline][app-insights-cd-monitoring]. This could be used to enable automatic progression to the next stage, without human intervention, or rollback if an alert is detected.
-* [Medium][medium-pricing]: The Medium Web Application Architecture extends the Small architecture with a more complex and less tightly coupled, three tier application architecture built out over Azure PaaS services. This architecture leverages both traditional Relational data store (SQL DB PaaS) and highly scalable NoSQL store (CosmosDB). Note: Pricing CosmosDB will depend on the workload. Proof of Concepts & testing are recommended to optimize the correct number of RUs required for production to meet the project workload requirements.
-* [Large][large-pricing]: The Large Web Application Architecture extends the Medium architecture by introducing a passive (or warm) standby secondary deployment in the [paired azure region][azure-region-pair-bcdr] to the primary deployment. The Disaster Recovery (DR) capability should be measured against the workloads Recovery Time Objective (RTO) and Recovery Point Objective (RPO). The data tier, SQL Azure DB and CosmosDB allow for continuous data replication and Traffic Manager is used to facilitate a manual or automatic fail over of consumer traffic to the front end Web Application Tier.
-
-Where possible resources in the secondary deployment can be provisioned scaled back, whilst not in use, until they're required on fail over.
-
 Your Visual Studio Team Services costing will depend upon the number of users in your organization that require access, in addition to factors such as the number of concurrent build/releases required, and number of test users. These are detailed further on the [VSTS pricing page][vsts-pricing-page].
 
 * [Visual Studio Team Services (VSTS)][vsts-pricing-calculator] is a service that enables you to manage your development life cycle and is paid for on a per user, per month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users, or user basic licenses.
@@ -172,11 +157,9 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 * [What is DevOps?][devops-whatis]
 * [DevOps at Microsoft - How we work with Visual Studio Team Services][devops-microsoft]
 * [Step-by-step Tutorials: DevOps with Visual Studio Team Services][devops-with-vsts]
+* [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/9bb582ce4ab64617bf328bf13178d328
-[medium-pricing]: https://azure.com/e/9b63ca1ede5b4e6085411660b1e7b8e9
-[large-pricing]: https://azure.com/e/a96bf5d849174a4c95adc5bcfc4531ca
 [ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: /azure/architecture/reference-architectures/app-service-web-app/

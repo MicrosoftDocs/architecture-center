@@ -1,12 +1,12 @@
 ---
 title: DevOps with Jenkins and Azure Kubernetes Service
-description: Proven solution for building a DevOps pipeline for a Node.js web app that uses Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
+description: Proven scenario for building a DevOps pipeline for a Node.js web app that uses Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018
 ---
 # CI/CD pipeline for container-based workloads
 
-This example scenario is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this solution, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
+This example scenario is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this scenario, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
 
 Example application scenarios include providing an automated development environment, validating new code commits, and pushing new deployments into staging or production environments. Traditionally, businesses had to manually build and compile applications and updates, and maintain a large, monolithic code base. With a modern approach to application development that uses continuous integration (CI) and continuous deployment (CD), you can more quickly build, test, and deploy services. This modern approach lets you release applications and updates to your customers faster, and respond to changing business demands in a more agile manner.
 
@@ -14,7 +14,7 @@ By using Azure services such as Azure Kubernetes Service, Container Registry, an
 
 ## Related use cases
 
-Consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
 * Modernizing application development practices to a microservices, container-based approach.
 * Speeding up application development and deployment lifecycles.
@@ -22,9 +22,9 @@ Consider this solution for the following use cases:
 
 ## Architecture
 
-![Architecture overview of the Azure components involved in a DevOps solution using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
+![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
 
-This solution covers a DevOps pipeline for a Node.js web application and database backend. The data flows through the solution as follows:
+This scenario covers a DevOps pipeline for a Node.js web application and database backend. The data flows through the scenario as follows:
 
 1. A developer makes changes to the Node.js web application source code.
 2. The code change is committed to a source control respository, such as GitHub.
@@ -37,7 +37,7 @@ This solution covers a DevOps pipeline for a Node.js web application and databas
 
 ### Components
 
-* [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this solution, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
+* [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this scenario, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
 * [Azure Linux Virtual Machines][azurevm-docs] are used to run the Jenkins and Grafana instances.
 * [Azure Container Registry][azureacr-docs] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can replicated to other regions by the Azure platform to speed up deployment times.
 * [Azure Kubernetes Service][azureaks-docs] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
@@ -55,7 +55,7 @@ This solution covers a DevOps pipeline for a Node.js web application and databas
 
 ### Availability
 
-To monitor your application performance and report on issues, this solution combines Azure Monitor with Grafana for visual dashboards. These tools let you monitor and troubleshoot performance issues that may require code updates, which can all then be deployed with the CI/CD pipeline.
+To monitor your application performance and report on issues, this scenario combines Azure Monitor with Grafana for visual dashboards. These tools let you monitor and troubleshoot performance issues that may require code updates, which can all then be deployed with the CI/CD pipeline.
 
 As part of the Azure Kubernetes Service cluster, a load balancer distributes application traffic to one or more containers (pods) that run your application. This approach to running containerized applications in Kubernetes provides a highly-available infrastructure for your customers.
 
@@ -71,19 +71,19 @@ For other scalability topics, see the [scalability checklist][scalability] avail
 
 ### Security
 
-To minimize the attack footprint, this solutions does not expose the Jenkins VM instance over HTTP. For any management tasks that require you to interact with Jenkins, you create a secure remote connection using an SSH tunnel from your local machine. Only SSH public key authentication is allowed for the Jenkins and Grafana VM instances. Password-based logins are disabled. For more information, see [Run a Jenkins server on Azure](../../reference-architectures/jenkins/index.md).
+To minimize the attack footprint, this scenarios does not expose the Jenkins VM instance over HTTP. For any management tasks that require you to interact with Jenkins, you create a secure remote connection using an SSH tunnel from your local machine. Only SSH public key authentication is allowed for the Jenkins and Grafana VM instances. Password-based logins are disabled. For more information, see [Run a Jenkins server on Azure](../../reference-architectures/jenkins/index.md).
 
-For separation of credentials and permissions, this solution uses a dedicated Azure Active Directory (AD) service principal. The credentials for this service principal are stored as a secure credential object in Jenkins so that they are not directly exposed and visible within scripts or the build pipeline.
+For separation of credentials and permissions, this scenario uses a dedicated Azure Active Directory (AD) service principal. The credentials for this service principal are stored as a secure credential object in Jenkins so that they are not directly exposed and visible within scripts or the build pipeline.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-This solution uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
+This scenario uses Azure Kubernetes Service for your application. Built into Kubernetes are resiliency components that monitor and restart the containers (pods) if there is an issue. Combined with running multiple Kubernetes nodes, your application can tolerate a pod or node being unavailable.
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deploy the solution
+## Deploy the scenario
 
 **Prerequisites.**
 
@@ -92,16 +92,16 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 * You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --name myDevOpsSolution
+    az ad sp create-for-rbac --name myDevOpsScenario
     ```
 
-    Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the solution.
+    Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
 
-To deploy this solution with an Azure Resource Manager template, perform the following steps.
+To deploy this scenario with an Azure Resource Manager template, perform the following steps.
 
 1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
-   * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsSolution* in the text box.
+   * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsScenario* in the text box.
    * Select a region from the **Location** drop-down box.
    * Enter your service principal app ID and password from the `az ad sp create-for-rbac` command.
    * Provide a username and secure password for the Jenkins instance and Grafana console.
@@ -113,7 +113,7 @@ It can take 15-20 minutes for the deployment to complete.
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic. match your expected traffic.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic. match your expected traffic.
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
@@ -123,7 +123,7 @@ We have provided three sample cost profiles based on the number of container ima
 
 ## Related Resources
 
-This solution used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][azureaci-docs].
+This scenario used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][azureaci-docs].
 
 <!-- links -->
 [architecture]: ./media/devops-with-aks/architecture-devops-with-aks.png

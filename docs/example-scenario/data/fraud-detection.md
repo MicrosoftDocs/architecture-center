@@ -1,6 +1,6 @@
 ---
 title: Advanced analytics &mdash; Real-time fraud detection 
-description: Proven solution for detecting fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
+description: Proven scenario for detecting fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
 ms.date: 07/05/2018
 ---
@@ -17,7 +17,7 @@ This sample represents one part of a broader data processing architecture and st
 
 ## Related use cases
 
-Consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
 * Detecting fraudulent mobile-phone calls in telecommunications scenarios.
 * Identifying fraudulent credit card transactions for banking institutions.
@@ -25,9 +25,9 @@ Consider this solution for the following use cases:
 
 ## Architecture
 
-![Architecture overview of the Azure components of a real-time fraud detection solution][architecture-diagram]
+![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture-diagram]
 
-This solution covers the back-end components of a real-time analytics pipeline. Data flows through the solution as follows:
+This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
 1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance. 
 2. A Stream Analytics job is started, which receives data via the event hub source.
@@ -36,9 +36,9 @@ This solution covers the back-end components of a real-time analytics pipeline. 
 
 ### Components
 
-* [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this solution, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
-* [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this solution, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
-* [Blob storage][docs-blob-storage] is used in this solution to store the results of the Stream Analytics job.
+* [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
+* [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
+* [Blob storage][docs-blob-storage] is used in this scenario to store the results of the Stream Analytics job.
 
 ## Considerations
 
@@ -56,9 +56,9 @@ For other availability considerations, see the [availability checklist][availabi
 
 ### Scalability
 
-The components of this solution are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency.  Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
+The components of this scenario are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency.  Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
 
-For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -70,13 +70,13 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deploy the solution
+## Deploy the scenario
 
-To deploy this solution, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the solution. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance. 
+To deploy this scenario, you can follow this [step-by-step tutorial][tutorial] demonstrating how to manually deploy each component of the scenario. This tutorial also provides a .NET client application to generate sample phone call metadata and send that data to an event hub instance.
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected data volume.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected data volume.
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
@@ -86,7 +86,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Related resources
 
-More complex fraud detection scenarios can benefit from a machine learning model. For solutions built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].  
+More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].  
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics/

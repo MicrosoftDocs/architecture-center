@@ -346,7 +346,7 @@
     items:
     - name: Hotel reservation chatbot
       href: example-scenario/apps/commerce-chatbot.md
-    - name: DevOps with Azure Kubernetes Service
+    - name: DevOps with Containers
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with VSTS
       href: example-scenario/apps/devops-dotnet-webapp.md
@@ -356,7 +356,7 @@
       href: example-scenario/data/fraud-detection.md
   - name: Infrastructure
     items:
-    - name: Multi-tier Windows application for regulated industries.
+    - name: Multi-tier Windows
       href: example-scenario/infrastructure/regulated-multitier-app.md
    
 - name: Reference Architectures
