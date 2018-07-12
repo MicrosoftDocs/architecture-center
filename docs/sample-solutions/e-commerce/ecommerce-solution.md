@@ -27,32 +27,32 @@ The solution diagram below is an example of this solution:
 
 This solution covers purchasing tickets from an e-commerce site, the data flows through the solution as follows:
 
-1. Azure Traffic Manager routes a user's request to the e-commerce site.
+1. Azure Traffic Manager routes a user's request to the e-commerce site hosted in Azure App Service.
 2. Azure CDN serves static images and content to the user.
-3. User signs in to the application through a B2C connection.
-4. User searches for products and queries SQL database.
-5. Web site pulls concert catalog from database. 
-6. Web app pulls images from Blob Storage. 
-7. Page output is cached in Azure Redis Cache for better performance.
-8. User submits ticket orders and reviews of performances which are placed in the queue.
-9. Azure Functions processes order payment and reviews.
-10. Cognitive services provide an analysis of the review to determine overall satisfaction.
-11. Application Insights provides performance metrics for monitoring the health of the web application
+3. User signs in to the application through an Azure Active Directory B2C tenant.
+4. User searches for concerts using Azure Search.
+5. Web site pulls concert details from Azure SQL Database. 
+6. Web site refers to purchased ticket images in Blob Storage.
+7. Database query results are cached in Azure Redis Cache for better performance.
+8. User submits ticket orders and concert reviews which are placed in the queue.
+9. Azure Functions processes order payment and concert reviews.
+10. Cognitive services provide an analysis of the concert review to determine the sentiment (positive or negative).
+11. Application Insights provides performance metrics for monitoring the health of the web application.
 
 ### Components
 
-* [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency
-* [Azure Traffic Manager][docs-traffic-manager] control the distribution of user traffic for service endpoints in different Azure datacenters
-* [App Services - Web Apps][docs-webapps] hosts web applications allowing auto-scale and high availability without having to manage infrastructure
-* [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application
-* [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application
-* [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure
-* [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech and vision recognition; and speech and language understanding – into applications
-* [Azure Search][docs-search] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogenous content in web, mobile, and enterprise applications
-* [Storage Blobs][docs-storage-blobs] are optimized to store large amounts of unstructured data, such as text or binary data
-* [Redis Cache][docs-redis-cache] improves the performance and scalability of systems that rely heavily on backend data-stores by temporarily copying frequently accessed data to fast storage located close to the application
-* [SQL Database][docs-sql-database] is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML
-* [Application Insights][docs-application-insights] is designed to help you continuously improve performance and usability by automatically detecting performance anomalies through built-in analytics tools to help understand what users do with an app 
+* [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency.
+* [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure datacenters.
+* [App Services - Web Apps][docs-webapps] hosts web applications allowing auto-scale and high availability without having to manage infrastructure.
+* [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
+* [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
+* [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
+* [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech and vision recognition; and speech and language understanding – into applications.
+* [Azure Search][docs-search] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
+* [Storage Blobs][docs-storage-blobs] are optimized to store large amounts of unstructured data, such as text or binary data.
+* [Redis Cache][docs-redis-cache] improves the performance and scalability of systems that rely heavily on backend data-stores by temporarily copying frequently accessed data to fast storage located close to the application.
+* [SQL Database][docs-sql-database] is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
+* [Application Insights][docs-application-insights] is designed to help you continuously improve performance and usability by automatically detecting performance anomalies through built-in analytics tools to help understand what users do with an app.
 
 ### Alternatives
 
@@ -97,7 +97,7 @@ Other options for the data tier include:
 
 ## Deploy the solution
 
-To deploy this solution, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component of the solution. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. 
+To deploy this solution, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component of the solution. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. It also includes an ARM template to automate the deployment of the majority of the Azure services that are used in the solution.
 
 ## Pricing
 
