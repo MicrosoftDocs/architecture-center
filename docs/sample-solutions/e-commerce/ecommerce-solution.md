@@ -84,6 +84,7 @@ Other options for the data tier include:
 
 * Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
 * Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
+* Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
 * Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
 
 ### Resiliency
@@ -94,26 +95,29 @@ Other options for the data tier include:
 * Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 * For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecture center.
 
+## Deploy the solution
+
+To deploy this solution, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component of the solution. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. 
+
 ## Pricing
 
 Explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+* [Small][small-pricing]: This represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small amount of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app which will be enough to enable autoscaling. Each of the other components are scaled to a basic tier which will allow for a minimum amount of cost but still ensure that there is SLA support for each solution and enough capacity to handle a production level workload.
+* [Medium][medium-pricing]: This represents the components indicative of a moderate size solution. Here we estimate approximately 100,000 users using the system over the course of a month. We have the solution running in a single app service instance with a moderate standard tier. We have allocated moderate tiers of cognative service and search services as well.
+* [Large][large-pricing]: This represents an application meant for high level scale on the range of millions of users per month moving through terabytes of data. This solution is now using high performance, premium tier web apps deployed in multiple regions fronted by traffic manager. The data solutions: storage, databases, and CDN, are configured for terabytes of data.
 
 ## Related Resources
 
-* [Detailed Walkthrough Building this Solution][end-to-end-walkthrough]
 * [Reference Architecture for Multi-Region Web Application][multi-region-web-app]
 * [eShop on Containers Reference Example][microservices-ecommerce]
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
+[small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
+[medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
+[large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/
 [architecture-diagram]: ./media/architecture-diagram-ecommerce-solution.png
 [availability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/availability
@@ -145,5 +149,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [resiliency-app-service]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency-per-service#app-service
 [resiliency]: https://docs.microsoft.com/en-us/azure/architecture/checklist/resiliency
 [scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[secure-development]: https://www.microsoft.com/en-us/SDL/process/design.aspx
 [sql-geo-replication]: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs
