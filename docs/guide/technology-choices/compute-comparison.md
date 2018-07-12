@@ -2,7 +2,6 @@
 title: Criteria for choosing an Azure compute service
 description: Compare Azure compute services across several axes
 author: MikeWasson
-layout: LandingPage
 ms.date: 06/13/2018
 ---
 
