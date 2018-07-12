@@ -52,9 +52,9 @@ This example scenario is based on the [Azure automated enterprise BI reference a
 
 ### Availability
 
-SQL Data Warehouse has [guaranteed SLAs](azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+SQL Data Warehouse has [guaranteed SLAs](http://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](http://azure/sql-data-warehouse/sql-data-warehouse-best-practices).
 
-Azure Analysis Services also has [guaranteed SLAs](azure.microsoft.com/support/legal/sla/analysis-services/v1_0/) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
+Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services/v1_0/) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
 
