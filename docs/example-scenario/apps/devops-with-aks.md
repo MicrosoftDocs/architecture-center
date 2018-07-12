@@ -4,7 +4,7 @@ description: Proven solution for building a DevOps pipeline for a Node.js web ap
 author: iainfoulds
 ms.date: 07/05/2018
 ---
-# Deploy a container-based DevOps pipeline for modern application development with Jenkins and Azure Kubernetes Service
+# CI/CD pipeline for container-based workloads
 
 This example scenario is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this solution, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
 
@@ -12,7 +12,7 @@ Example application scenarios include providing an automated development environ
 
 By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
-## Potential use cases
+## Related use cases
 
 Consider this solution for the following use cases:
 

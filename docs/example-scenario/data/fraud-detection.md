@@ -14,8 +14,8 @@ Potential applications include identifying fraudulent credit card activity or mo
 By using fully managed Azure services such as Event Hubs and Stream Analytics, companies can eliminate the need to manage individual servers, while reducing costs and leveraging Microsoft's expertise in cloud-scale data ingestion and real-time analytics. This scenario specifically addresses the detection of fraudulent activity. If you have other needs for data analytics, you should review the list of available [Azure Analytics services][product-category].
 
 This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
- 
-## Potential use cases
+
+## Related use cases
 
 Consider this solution for the following use cases:
 

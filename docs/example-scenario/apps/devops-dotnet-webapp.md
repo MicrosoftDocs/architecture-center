@@ -4,7 +4,7 @@ description: An example of building and releasing a .NET App to Azure Web Apps
 author: christianreddington
 ms.date: <publish or update date>
 ---
-# Deploy a .NET application to Azure App Service using Visual Studio Team Services as the CI/CD Pipeline
+# CI/CD pipeline with VSTS
 
 DevOps is the integration of development, quality assurance and IT operations. DevOps requires both unified culture and a strong set of processes for delivering software.
 
@@ -16,7 +16,7 @@ Adopting a modern approach to application development using Continuous Integrati
 
 By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their solution, rather than the management of the infrastructure to enable it.
 
-## Potential use cases
+## Related use cases
 
 Consider DevOps for the following use cases:
 

@@ -4,7 +4,7 @@ description: Proven solution for building image processing into your Azure appli
 author: david-stanford
 ms.date: 07/05/2018
 ---
-# Insurance claim image classification on Azure
+# Image classification for insurance claims on Azure
 
 This example scenario is applicable for businesses that need to process images.
 
@@ -12,12 +12,11 @@ Potential applications include classifying images for a fashion website, analyzi
 
 By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services. This scenario specifically addresses an image processing scenario. If you have different AI needs, consider the full suite of [Cognitive Services][cognitive-docs].
 
-## Potential use cases
+## Related use cases
 
 Consider this solution for the following use cases:
 
 * Classify images on a fashion website.
-* Classify images for insurance claims
 * Classify telemetry data from screenshots of games.
 
 ## Architecture

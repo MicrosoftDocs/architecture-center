@@ -4,7 +4,7 @@ description: Proven solution for building a conversational chatbot for commerce 
 author: iainfoulds
 ms.date: 07/05/2018
 ---
-# Conversational Azure chatbot for hotel reservations
+# Conversational chatbot for hotel reservations on Azure
 
 This example scenario is applicable to businesses that need integrate a conversational chatbot into applications. In this solution, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
 
@@ -12,7 +12,7 @@ Example scenarios include providing a way for customers to view hotel availabili
 
 By using Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots.
 
-## Potential use cases
+## Related use cases
 
 Consider this solution for the following use cases:
 

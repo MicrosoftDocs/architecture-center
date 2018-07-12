@@ -4,13 +4,17 @@ description: Proven solution for building a secure, multi-tier web application w
 author: iainfoulds
 ms.date: 06/27/2018
 ---
-# Secure and scalable multi-tier web application on Windows Server for regulated industries
+# Secure Windows web application for regulated industries
 
 This sample solution is applicable to regulated industries that have a need to secure multi-tier applications. In this solution, a front-end ASP.NET application securely connects to a protected back-end Microsoft SQL Server cluster.
 
 Example application scenarios include running operating room applications, patient appointments and records keeping, or prescription refills and ordering. Traditionally, organizations had to maintain legacy on-premises applications and services for these scenarios. With a secure way and scalable way to deploy these Windows Server applications in Azure, organizations can modernize their deployments are reduce their on-premises operating costs and management overhead.
 
-## Potential use cases
+## Problem Statement
+
+This solution was developed to serve as the back-end component of an app that runs on a tablet in an operating room. The application tracks the usage and positioning of surgical instruments, additionally, timing and progress of the procedure is captured to facilitate advanced analytics.
+
+## Related use cases
 
 Consider this solution for the following use cases:
 
@@ -28,20 +32,16 @@ This solution covers a multi-tier regulated industries application that uses ASP
 2. The Application Gateway distributes traffic to VM instances within an Azure virtual machine scale set.
 3. The ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure load balancer. These backend SQL Server instances are in a separate Azure virtual network, secured by network security group rules that limit traffic flow.
 4. The load balancer distributes SQL Server traffic to VM instances in another virtual machine scale set.
-5. A VM that runs Windows Server 2016 within the back-end tier virtual network acts as a file share witness for the SQL Server cluster.
+5. Azure Blob Storage acts as a Cloud Witness for the SQL Server cluster in the backend tier.  The connection from within the VNet is enabled with a VNet Service Endpoint for Azure Storage.
 
 ### Components
 
 * [Azure Application Gateway][appgateway-docs] is a layer 7 web traffic load balancer that is application-aware and can distribute traffic based on specific routing rules. App Gateway can also handle SSL offloading for improved web server performance.
-* [Azure Virtual Network][vnet-docs] allows resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. Two virtual networks are used in this solution to provide a common demilitarized zone (DMZ) and isolation of the application components. Virtual network peering connects the two networks together.
+* [Azure Virtual Network][vnet-docs] allows resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. Two virtual networks combined with the appropriate NSGs are used in this solution to provide a [demilitarized zone][dmz] (DMZ) and isolation of the application components. Virtual network peering connects the two networks together.
 * [Azure virtual machine scale set][scaleset-docs] let you create and manager a group of identical, load balanced, VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this solution - one for the frontend ASP.NET application instances, and one for the backend SQL Server cluster VM instances. PowerShell desired state configuration (DSC) or the Azure custom script extension can be used to provision the VM instances with the required software and configuration settings.
 * [Azure network security groups][nsg-docs] contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this solution are secured with network security group rules that restrict the flow of traffic between the application components.
 * [Azure load balancer][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this solution to distribute traffic from the frontend application tier to the backend SQL Server cluster.
 * [Azure Blob Storage][cloudwitness-docs] acts a Cloud Witness location for the SQL Server cluster. This witness is used for cluster operations and decisions that require an additional vote to decide quorum. Using Cloud Witness removes the need for an additional VM to act as a traditional File Share Witness.
-
-### Alternatives
-
-Fill in.
 
 ## Considerations
 
@@ -63,7 +63,7 @@ For other scalability topics, see the [scalability checklist][scalability] in th
 
 All the virtual network traffic into the frontend application tier and protected by network security groups. Rules limit the flow of traffic so that only the frontend application tier VM instances can access the backend database tier. No outbound Internet traffic is allowed from the database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][nsg-docs].
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+To view guidance on deploying Payment Card Industry Data Security Standards (PCI DSS 3.2) [compliant infrastructure][pci-dss]. For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
@@ -102,7 +102,7 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 ## Related Resources
 
-This solution used a backend virtual machine scale set that runs a Microsoft SQL Server cluster. Azure Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] can be configured to secure traffic between the frontend application tier and Cosmos DB in a similar way that network security groups secure virtual network traffic in this solution. For more information, see [Azure Cosmos DB overview][azurecosmosdb-docs].
+This solution used a backend virtual machine scale set that runs a Microsoft SQL Server cluster. Azure Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] allow you to secure your critical Azure service resources to only your virtual networks. In this scenario, VNet endpoints allow you to secure traffic between the frontend application tier and Cosmos DB. For more information on Cosmos DB, see [Azure Cosmos DB overview][azurecosmosdb-docs].
 
 You also view a thorough [reference architecture for a generic N-tier application with SQL Server][ntiersql-ra].
 
@@ -125,6 +125,8 @@ You also view a thorough [reference architecture for a generic N-tier applicatio
 [vmssautoscale-docs]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
 [vnet-docs]: /azure/virtual-network/virtual-networks-overview
 [vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
+[pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
+[dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
 
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
 [medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
