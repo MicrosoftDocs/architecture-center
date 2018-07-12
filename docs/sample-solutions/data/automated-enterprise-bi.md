@@ -95,7 +95,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [small-pricing]: https://azure.com/e/9444b5ce08b7490a9b9f2207203e67f5
 [medium-pricing]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [large-pricing]: https://azure.com/e/f204c450314141a7ac803d72d2446a24
-[architecture]: ./images/architecture-automated-enterprise-bi.png
+[architecture]: ./images/architecture-diagram-automated-enterprise-bi.png
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/
