@@ -65,7 +65,9 @@ Azure Batch builds upon the following Azure technologies:
 * [Storage][storage] accounts are used for the synchronisation and data retention
 * [Virtual Machine Scale Sets][vmss] are utilised by CycleCloud for compute resources
 
-## Machine Sizes available for Azure Batch
+## Considerations
+
+### Machine Sizes available for Azure Batch
 While most rendering customers whill choose resources with high CPU power, other workloads using VM Scale Sets may choose VM's differently and will depend on a number of factors:
   - Is the Application being run memory bound?
   - Does the Application need to use GPU's? 
@@ -79,8 +81,6 @@ Azure has a wide range of VM sizes that can address each and every one of the ab
     - NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.
   - [Memory optmised VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
   - [General purposes VM sizes][compute-general] General purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
-
-## Considerations
 
 ### Alternatives
 
