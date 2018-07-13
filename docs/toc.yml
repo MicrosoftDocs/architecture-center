@@ -340,7 +340,7 @@
     href: example-scenario/index.md
   - name: AI
     items:
-    - name: Image processing
+    - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
