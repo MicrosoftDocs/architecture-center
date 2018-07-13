@@ -132,7 +132,7 @@ You also view a thorough [reference architecture for a generic N-tier applicatio
 [pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
 [dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
 [cosmos]: /azure/cosmos-db/
-[sql-linux]: sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
+[sql-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
 [medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
