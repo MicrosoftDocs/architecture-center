@@ -1,29 +1,35 @@
 ---
 title: Enterprise BI with SQL Data Warehouse
 description: Use Azure to gain business insights from relational data stored on-premises
-author: alexbuckgit
-ms.date: 04/13/2018
+author: MikeWasson
+ms.date: 07/01/2018
 ---
 
 # Enterprise BI with SQL Data Warehouse
- 
+
 This reference architecture implements an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis. [**Deploy this solution**.](#deploy-the-solution)
 
 ![](./images/enterprise-bi-sqldw.png)
 
 **Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use SQL Data Warehouse to perform analysis using Power BI. 
 
-This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow.
+This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory](./enterprise-bi-adf.md).
 
 ## Architecture
 
 The architecture consists of the following components.
 
-**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a virtual machine in Azure with SQL Server installed. 
+### Data source
+
+**SQL Server**. The source data is located in a SQL Server database on premises. To simulate the on-premises environment, the deployment scripts for this architecture provision a VM in Azure with SQL Server installed. The [Wide World Importers OLTP sample database][wwi] is used as the source data.
+
+### Ingestion and data storage
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into SQL Data Warehouse.
 
 **Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
+
+### Analysis and reporting
 
 **Azure Analysis Services**. [Analysis Services](/azure/analysis-services/) is a fully managed service that provides data modeling capabilities. Use Analysis Services to create a semantic model that users can query. Analysis Services is especially useful in a BI dashboard scenario. In this architecture, Analysis Services reads data from the data warehouse to process the semantic model, and efficiently serves dashboard queries. It also supports elastic concurrency, by scaling out replicas for faster query processing.
 
@@ -31,11 +37,13 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 **Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it queries the semantic model stored in Analysis Services.
 
+### Authentication
+
 **Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
 
-## Data Pipeline
+## Data pipeline
  
-This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as data source. The data pipeline has the following stages:
+This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
 
 1. Export the data from SQL Server to flat files (bcp utility).
 2. Copy the flat files to Azure Blob Storage (AzCopy).
@@ -143,7 +151,7 @@ Avoid running BI dashboard queries directly against the data warehouse. BI dashb
 
 Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
 
-## Scalability Considerations
+## Scalability considerations
 
 ### SQL Data Warehouse
 
@@ -157,7 +165,7 @@ Under high load, query performance can become degraded due to query concurrency.
 
 To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
-## Security Considerations
+## Security considerations
 
 ### IP whitelisting of Analysis Services clients
 
@@ -183,21 +191,13 @@ A deployment for this reference architecture is available on [GitHub][ref-arch-r
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [Azure reference architectures][ref-arch-repo] GitHub repository.
-
-2. Install the [Azure Building Blocks][azbb-wiki] (azbb).
-
-3. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below and following the instructions.
-
-  ```bash
-  az login  
-  ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the simulated on-premises server
 
-First you'll deploy a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. This step also loads the sample [Wide World Importers OLTP database](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) into SQL Server.
+First you'll deploy a VM as a simulated on-premises server, which includes SQL Server 2017 and related tools. This step also loads the [Wide World Importers OLTP database][wwi] into SQL Server.
 
-1. Navigate to the `data\enterprise-bi-sqldw\onprem\templates` folder of the repository you downloaded in the prerequisites above.
+1. Navigate to the `data\enterprise_bi_sqldw\onprem\templates` folder of the repository.
 
 2. In the `onprem.parameters.json` file, replace the values for `adminUsername` and `adminPassword`. Also change the values in the `SqlUserCredentials` section to match the user name and password. Note the `.\\` prefix in the userName property.
     
@@ -211,28 +211,39 @@ First you'll deploy a VM as a simulated on-premises server, which includes SQL S
 3. Run `azbb` as shown below to deploy the on-premises server.
 
     ```bash
-    azbb -s <subscription_id> -g <resource_group_name> -l <location> -p onprem.parameters.json --deploy
+    azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.parameters.json --deploy
     ```
+
+    Specify a region that supports SQL Data Warehouse and Azure Analysis Services. See [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/)
 
 4. The deployment may take 20 to 30 minutes to complete, which includes running the [DSC](/powershell/dsc/overview) script to install the tools and restore the database. Verify the deployment in the Azure portal by reviewing the resources in the resource group. You should see the `sql-vm1` virtual machine and its associated resources.
 
 ### Deploy the Azure resources
 
-This step provisions Azure SQL Data Warehouse and Azure Analysis Services, along with a Storage account. If you want, you can run this step in parallel with the previous step.
+This step provisions SQL Data Warehouse and Azure Analysis Services, along with a Storage account. If you want, you can run this step in parallel with the previous step.
 
-1. Navigate to the `data\enterprise-bi-sqldw\azure\templates` folder of the repository you downloaded in the prerequisites above.
+1. Navigate to the `data\enterprise_bi_sqldw\azure\templates` folder of the repository.
 
-2. Run the following Azure CLI command to create a resource group, replacing the bracketed parameters specified. Note that you can deploy to a different resource group than you used for the on-premises server in the previous step. 
-
-    ```bash
-    az group create --name <resource_group_name> --location <location>  
-    ```
-
-3. Run the following Azure CLI command to deploy the Azure resources, replacing the bracketed parameters specified. The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts. For the `analysisServerAdmin` parameter, use your Azure Active Directory user principal name (UPN).
+2. Run the following Azure CLI command to create a resource group. You can deploy to a different resource group than the previous step, but choose the same region. 
 
     ```bash
-    az group deployment create --resource-group <resource_group_name> --template-file azure-resources-deploy.json --parameters "dwServerName"="<server_name>" "dwAdminLogin"="<admin_username>" "dwAdminPassword"="<password>" "storageAccountName"="<storage_account_name>" "analysisServerName"="<analysis_server_name>" "analysisServerAdmin"="user@contoso.com"
+    az group create --name <resource_group_name> --location <region>  
     ```
+
+3. Run the following Azure CLI command to deploy the Azure resources. Replace the parameter values shown in angle brackets. 
+
+    ```bash
+    az group deployment create --resource-group <resource_group_name> \
+     --template-file azure-resources-deploy.json \
+     --parameters "dwServerName"="<server_name>" \
+     "dwAdminLogin"="<admin_username>" "dwAdminPassword"="<password>" \ 
+     "storageAccountName"="<storage_account_name>" \
+     "analysisServerName"="<analysis_server_name>" \
+     "analysisServerAdmin"="user@contoso.com"
+    ```
+
+    - The `storageAccountName` parameter must follow the [naming rules](../../best-practices/naming-conventions.md#naming-rules-and-restrictions) for Storage accounts.
+    - For the `analysisServerAdmin` parameter, use your Azure Active Directory user principal name (UPN).
 
 4. Verify the deployment in the Azure portal by reviewing the resources in the resource group. You should see a storage account, Azure SQL Data Warehouse instance, and Analysis Services instance.
 
@@ -256,7 +267,7 @@ In this step, you will run a PowerShell script that uses bcp to export the SQL d
 
 3. In the Azure portal, verify that the source data was copied to Blob storage by navigating to the storage account, selecting the Blob service, and opening the `wwi` container. You should see a list of tables prefaced with `WorldWideImporters_Application_*`.
 
-### Execute the data warehouse scripts
+### Run the data warehouse scripts
 
 1. From your Remote Desktop session, launch SQL Server Management Studio (SSMS). 
 
@@ -293,7 +304,7 @@ In SMSS, you should see a set of `prd.*` tables in the `wwi` database. To verify
 SELECT TOP 10 * FROM prd.CityDimensions
 ```
 
-### Build the Azure Analysis Services model
+## Build the Analysis Services model
 
 In this step, you will create a tabular model that imports data from the data warehouse. Then you will deploy the model to Azure Analysis Services.
 
@@ -342,7 +353,7 @@ In this step, you will create a tabular model that imports data from the data wa
 
     ![](./images/analysis-services-models.png)
 
-### Analyze the data in Power BI Desktop
+## Analyze the data in Power BI Desktop
 
 In this step, you will use Power BI to create a report from the data in Analysis Services.
 
@@ -362,11 +373,11 @@ In this step, you will use Power BI to create a report from the data in Analysis
 
 6. In the **Fields** pane, expand **prd.CityDimensions**.
 
-7. Drag **prd.CityDimensions** > **WWI City ID** to the **Axis well**.
+7. Drag **prd.CityDimensions** > **WWI City ID** to the **Axis** well.
 
 8. Drag **prd.CityDimensions** > **City** to the **Legend** well.
 
-9. In the Fields pane, expand **prd.SalesFact**.
+9. In the **Fields** pane, expand **prd.SalesFact**.
 
 10. Drag **prd.SalesFact** > **Total Excluding Tax** to the **Value** well.
 
@@ -399,4 +410,4 @@ To learn more about Power BI Desktop, see [Getting started with Power BI Desktop
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
-
+[wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database

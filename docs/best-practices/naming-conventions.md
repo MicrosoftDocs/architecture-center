@@ -30,7 +30,7 @@ A recommended pattern for naming subscriptions is:
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
 * Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
-* Department is a name within the organization where a group of individuals work. This item within the namespace as optional.
+* Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
 * Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
 * Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
 
@@ -74,7 +74,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, and period (except at end) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
+|Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric |`"key" : "value"` |`"department" : "Central IT"` |
 
@@ -119,7 +119,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 ## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary
-text strings to identify context and streamline automation.  For example, the tag `"sqlVersion: "sql2014ee"` could identify VMs in a deployment running SQL Server 2014 Enterprise Edition for running an automated script against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
+text strings to identify context and streamline automation.  For example, the tag `"sqlVersion"="sql2014ee"` could identify VMs running SQL Server 2014 Enterprise Edition. Tags should be used to augment and enhance context along side of the naming conventions chosen.
 
 > [!TIP]
 > One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across disparate deployments.

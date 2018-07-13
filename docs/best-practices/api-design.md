@@ -243,7 +243,7 @@ Content-Type: application/json
 
 {
     "status":"In progress",
-    "link": { "rel":"cancel", "method":"delete", "href":"/api/status/12345"
+    "link": { "rel":"cancel", "method":"delete", "href":"/api/status/12345" }
 }
 ```
 

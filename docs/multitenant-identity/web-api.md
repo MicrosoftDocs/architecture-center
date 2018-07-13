@@ -63,7 +63,7 @@ The Tailspin application implements delegated user identity. Here are the main d
 In either approach, the web application must get an access token, which is the credential needed to call the web API.
 
 * For delegated user identity, the token has to come from the IDP, which can issue a token on behalf of the user.
-* For client credentials, an application might get the token from the IDP or host its own token server. (But don't write a token server from scratch; use a well-tested framework like [IdentityServer3].) If you authenticate with Azure AD, it's strongly recommended to get the access token from Azure AD, even with client credential flow.
+* For client credentials, an application might get the token from the IDP or host its own token server. (But don't write a token server from scratch; use a well-tested framework like [IdentityServer4].) If you authenticate with Azure AD, it's strongly recommended to get the access token from Azure AD, even with client credential flow.
 
 The rest of this article assumes the application is authenticating with Azure AD.
 
@@ -266,7 +266,7 @@ public void ConfigureServices(IServiceCollection services)
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
 
 [Tailspin Surveys]: tailspin.md
-[IdentityServer3]: https://github.com/IdentityServer/IdentityServer3
+[IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [Update the application manifests]: ./run-the-app.md#update-the-application-manifests
 [Token caching]: token-cache.md
 [tenant sign-up]: signup.md
