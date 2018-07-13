@@ -19,8 +19,8 @@ For production use cases review the SAP reference architectures available below:
 
 Consider this scenario for the following use cases:
 
-* Non-Critical SAP non-productive workloads (Sandbox, Development, Test, Quality Assurance)
-* Non-critical SAP Business One workloads
+* Non-critical SAP non-productive workloads (sandbox, development, test, quality assurance)
+* Non-critical SAP business one workloads
 
 ## Architecture
 
@@ -35,19 +35,17 @@ This scenario covers the provision of a single SAP system database and SAP appli
 
 ### Components
 
-* [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container for Azure resources.
-* [Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) is the basis of network communications within Azure
-* [Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview) Azure Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux Server
-* [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
-* [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
+* [Resource Groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container for Azure resources.
+* [Virtual Networks](/azure/virtual-network/virtual-networks-overview) is the basis of network communications within Azure
+* [Virtual Machine](/azure/virtual-machines/windows/overview) Azure Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux Server
+* [Express Route](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
+* [Network Security Group](/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
 
 ## Considerations
 
 ### Availability
 
-For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%.
-
-For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)
+ Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 
 ### Scalability
 
@@ -90,10 +88,6 @@ To deploy the underlying infrastructure similar to the scenario above, please us
 </a>
 
 \* SAP will not be installed, you'll need to do this after the infrastructure is built manually.
-
-### Alternative deployment examples
-
-For further deployment examples, please refer to many the github samples templates. [Github QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
 
 <!-- links -->
 [reference architecture]:  /azure/architecture/reference-architectures/sap
