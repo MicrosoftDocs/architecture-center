@@ -34,29 +34,6 @@ This sample scenario covers the workflow when using Azure Batch, the data flows 
 
 To simplify this process, you could also use the [Batch Plugins for Maya & 3ds Max][batch-plugins]
 
-## Deploy this scenario
-
-### Creating an Azure Batch account and pools manually
-
-This sample scenario will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
-
-[Azure Batch Masterclass][batch-labs-masterclass]
-
-### Deploying the sample scenario using an Azure Resource Manager (ARM) template
-
-The template will deploy:
-  - A new Azure Batch account
-  - A storage account
-  - A node pool associated with the batch account
-  - The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
-  - The node pool will contain 0 VMs initially and will require scaling manually to add VMs
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-[Learn more about ARM templates][azure-arm-templates]
-
 ### Components
 
 Azure Batch builds upon the following Azure technologies:
@@ -110,6 +87,29 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 * Create the same node pools with the same name, with 0 nodes allocated
 * Ensure Applications are created and updated to the alternate Storage Account
 * Upload input files and submit jobs to the alternate Azure Batch account
+
+## Deploy this scenario
+
+### Creating an Azure Batch account and pools manually
+
+This sample scenario will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
+
+[Azure Batch Masterclass][batch-labs-masterclass]
+
+### Deploying the sample scenario using an Azure Resource Manager (ARM) template
+
+The template will deploy:
+  - A new Azure Batch account
+  - A storage account
+  - A node pool associated with the batch account
+  - The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
+  - The node pool will contain 0 VMs initially and will require scaling manually to add VMs
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+[Learn more about ARM templates][azure-arm-templates]
 
 ## Pricing
 
