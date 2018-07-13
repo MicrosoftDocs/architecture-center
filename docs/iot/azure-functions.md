@@ -96,7 +96,7 @@ if (firstMsgEnqueuedTicksUtc.HasValue)
 }
 ```
 
-The `TrackMetric` function writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring).
+The `TrackMetric` function writes a custom metric to Application Insights. For information about using `TrackMetric` inside an Azure Function, see [Custom telemetry in C# function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring#custom-telemetry-in-c-functions).
 
 If the function is able to keep up with the volume of messages, this metric should stay at a low steady state. (Some latency is unavoidable, so the value will never be zero.) But if the function falls behind, the delta between enqueued time and processing time will start to go up.
 
