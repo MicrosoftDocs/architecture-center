@@ -8,13 +8,9 @@ ms.date: 07/11/18
 
 DevOps is the integration of development, quality assurance and IT operations. DevOps requires both unified culture and a strong set of processes for delivering software.
 
-This sample scenario demonstrates how Visual Studio Team Services can be used, by development teams, to deploy a .NET Browser based two tier Web Application to Azure App Service. The Web Application is dependent on downstream Azure Platform as a Service (PaaS) services.
+This example scenario demonstrates how development teams can use Visual Studio Team Services to deploy a .NET two-tier web application to Azure App Service. The Web Application dependends on downstream Azure Platform as a Service (PaaS) services. This document also points out some considerations that you should make when designing such a scenario using Azure Platform as a Service (PaaS).
 
-This document also points out a number of the considerations that you should make whilst you architect such a scenario using Azure Platform as a Service (PaaS).
-
-Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service.
-
-By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their scenario, rather than the management of the infrastructure to enable it.
+Adopting a modern approach to application development using Continuous Integration (CI) and Continuous Deployment (CD), helps you to accelerate the delivery of value to your users through a robust build, test, deployment and monitoring service. By using a platform such as Visual Studio Team Services in addition to Azure services such as App Service, organizations can ensure they remain focused on the development of their scenario, rather than the management of the infrastructure to enable it.
 
 ## Related use cases
 
