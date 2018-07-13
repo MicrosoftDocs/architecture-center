@@ -1,6 +1,5 @@
 # Batch processing for IoT using HDInsight and Hive
 
-
 This chapter describes using HDInsight to perform batch processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application uses batch processing to analyze data about deliveries. For example, batch processing can answer questions like "How long does the average delivery take?" or "How many deliveries failed to be completed?" More complex analyses could correlate this information with external data such as weather data.
 
 A *delivery* is a business entity, but from the perspective of the drone, a delivery is a sequence of events: Picking up a package, flying to the destination, and dropping off the package. During the flight, the drone sends its current position at regular intervals. The batch processing job needs to assemble this event sequence into a meaningful business entity for analysis.
@@ -71,8 +70,6 @@ Here's what the data looks like after this processing step:
 | ... | ... | ... | ... | ... | ... | ... | ... | ... | ... |
 | 6/7/2018 2:42:44 PM | drone-01.4467 | drone-event-sensor;v1 | 00a8907c-6e9c-495a-af12-99f315df46ee | 60.3 | 2.5 | 47.678758 | -121.891975 | 494.99 | DOP |
 
-
-
 The final HIVE query finds matching start/stop events for each deilvery:
 
 ```sql
@@ -124,19 +121,17 @@ When choosing a data store for the raw telemetry, consider these factors:
 - Storage should be redundant to guard against possible data loss.
 - Must be compatible with your batch processing layer. 
 
-Blob storage meets all of these requirements. For storing the raw telemetry data, we recommend using General-purpose v2 storage. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices. In addition, GPv2 storage supports hot, cool, and archive tiers.
+Blob storage meets all of these requirements. For storing the raw telemetry data, we recommend using General-purpose v2 storage. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices. In addition, GPv2 storage supports [hot, cool, and archive tiers](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers). The hot is optimized for frequently accessed data, the cool tier is optimized for infrequently accessed data, and the archive tier is optimized for data that is rarely accessed but needs to be archived.
 
 Consider the following tiering strategy:
 
-- Use hot tier to store incoming telemetry for batch processing. 
-- After a period of time (say, 1 month), move a blob to cool tier. Cool storage offers similar latency (milliseconds) to hot storage, but the cost it optimized for storage versus data retrieval, so it's intended for longer-term storage of data that is less frequently accessed.
+- Store incoming telemetry in the hot tier for batch processing. 
+- After a period of time (say, 1 month), move blobs to cool tier. Cool storage offers similar latency to hot storage, on the order of milliseconds. However, the cost it optimized for storage versus data retrieval, making it useful for longer-term storage of data that is less frequently accessed.
 - Very old data (say, 3 years) can be moved to archive storage. Archive storage is much less expensive, but has a retrieval time of several hours, so don't use this tier if you expect to run on-demand queries over the data.
 
-Note that changing tiers incurs a one-time cost, so you shouldn't frequently switch a blob between tiers.
+Note that changing tiers incurs a one-time cost, so you shouldn't frequently switch a blob between tiers. Your organization may also have retention policies for regulatory and compliance reasons. 
 
-Your organization may have retention policies for regulatory and compliance reasons. 
-
-Another storage option to consider is Azure Data Lake Store, if you need any of the more advanced features that Data Lake Store offers such as POSIX ACLs to grant file-level permissions. See Comparing Azure Data Lake Store and Azure Blob Storage. However, also be aware that Data Lake Store is available in limited regions. 
+Another storage option to consider is Azure Data Lake Store, if you need any of the more advanced features that Data Lake Store offers such as POSIX ACLs to grant file-level permissions. See [Comparing Azure Data Lake Store and Azure Blob Storage](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-comparison-with-blob-storage). However, also be aware that Data Lake Store is currently available in a limited number of regions. 
 
 
 
