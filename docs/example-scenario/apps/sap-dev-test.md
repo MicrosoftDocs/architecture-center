@@ -1,13 +1,13 @@
-<!---
-title: <SAP on Azure in a 2-Tier Architecture>
+---
+title: SAP for a dev/test environment
 description: <Article Description>
 author: Andrew-Dibbins, Dharmesh-Bhagat
-ms.date: <publish or update date>
---->
+ms.date: 7/11/18
+---
 
-# SAP Deployment in a 2-Tier Architecture on Azure
+# SAP for a dev/test workload
 
-This architectural design shows a set of proven practices for running SAP NetWeaver in a Windows or Linux environment on Azure. The database is AnyDB, the SAP term for any supported DBMS and SAP HANA. This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
+This architectural design shows a set of proven practices for running SAP NetWeaver in a Windows or Linux environment on Azure. The database is AnyDB, the SAP term for any supported DBMS (that isn't SAP HANA). This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
 
 ## Potential use cases
 
@@ -35,35 +35,6 @@ This solution covers the provision of a single SAP system database and SAP appli
 * [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 * [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
 
-#### Supported SAP Configurations
-
-* SAP Business Suite 6.x (SAP Netweaver Application 7.x)
-* SAP Business All-in-One
-* SAP Business One
-* SAP Netweaver Application Server 7.x (ABAP & JAVA)
-* SAP BPC Netweaver
-* SAP TREX 7.0
-* SAP LiveCache, SAP Content Server 6.50
-* SAP Business Objects
-
-#### Supported Database Systems
-
-* SQL Server (Windows only)
-* SAP ASE (Windows, SUSE and RHEL only)
-* SAP MaxDB (Windows, SUSE and RHEL only)
-* IBM DB2/UDB (Windows, SUSE and RHEL only)
-* Oracle Database (Windows and OEL only)
-* SAP HANA (SUSE and RHEL)
-
-#### Supported Operating Systems
-
-* MS Windows 2008 R2 or greater
-* SUSE Enterprise Linux Server for SAP (based on SLES 12)
-* RedHat Enterprise Linux (based on RHEL 7)
-* Oracle Enterprise Linux (Oracle DB only)
-
-Please refer to to [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533)
-
 ### Alternatives
 
 * List of alternative options and why you might use them.
@@ -78,7 +49,7 @@ For more information on Microsoft Azure Service Level Agreement for Virtual Mach
 
 ### Scalability
 
-For greater scalability please consider deploying your SAP infrastructure based on a 3-tier distributed architecture.[SAP 3-Tier Solution](sap-3tier-distributed)
+
 
 ### Security
 
@@ -86,7 +57,7 @@ For a deeper discussion on [Azure Security][security] please see the relevant ar
 
 ### Resiliency
 
-For greater resilience please consider deploying your SAP infrastructure based on a 3-tier distributed High Availability. [SAP 3-Tier High Availability Solution](sap-3tier-distributed-HA.md)
+
 
 ## Pricing
 
@@ -116,16 +87,23 @@ To deploy a sample solution similar to the solution above, please use the deploy
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-
-## Alternative deployment examples
+### Alternative deployment examples
 
 For further deployment examples, please refer to many the github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
 
 ## Related Resources
 
-Other resources that are relevant that aren't linked from else where in the doc.
+Review the SAP reference architectures available in the architecture center to see production grade deployments:
 
+* [SAP netweaver for AnyDB][sap-netweaver]
+* [SAP S/4Hana][sap-hana]
+* [SAP on Azure large instances][sap-large]
+
+<!-- links -->
 [reference architecture]:  /azure/architecture/reference-architectures/sap
 [resiliency]: /azure/architecture/resiliency/
 [security]: https://azure.microsoft.com/en-us/services/security-center/
 [scalability]: /azure/architecture/checklist/scalability
+[sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver
+[sap-hana]: /azure/architecture/reference-architectures/sap/sap-s4hana
+[sap-large]: /azure/architecture/reference-architectures/sap/hana-large-instances
