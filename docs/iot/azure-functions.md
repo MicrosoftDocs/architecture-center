@@ -87,7 +87,6 @@ var ticksUTCNow = DateTimeOffset.UtcNow;
 
 // Track whether messages are arriving at the function late.
 DateTime? firstMsgEnqueuedTicksUtc = messages[0]?.EnqueuedTimeUtc;
-DateTime? firstMsgEnqueuedTicksUtc = messages[0]?.EnqueuedTimeUtc;
 if (firstMsgEnqueuedTicksUtc.HasValue)
 {
     CustomTelemetry.TrackMetric(
