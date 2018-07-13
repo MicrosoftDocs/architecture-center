@@ -18,7 +18,7 @@ In the Azure Functions programming model, you write a small piece of code (a fun
 
 The Azure Function for the warm path uses the Cosmos DB output binding, which is provided with the SDK. By using an output binding, you don't have to write any code to invoke Cosmos DB APIs directly. The function simply adds objects to a collection, and the binding serializes the objects to JSON and writes them to Cosmos DB.  
 
-The function uses the Cosmos DB client SDK to convert the latitutude/longitude values into the expected GeoJSON values:
+The function uses the Cosmos DB client SDK to convert the latitude/longitude values into the expected GeoJSON values:
 
 ```csharp
 foreach (var message in messages)
@@ -78,7 +78,7 @@ As implemented, the warm path has two main potential bottlenecks:
 
 Cosmos DB throttles requests if the throughput exceeds the provisioned RUs. You should monitor Cosmos DB for throttled requests (HTTP 429). If requests are consistently being throttled, scale out the collection to add more RU. Another symptom of throttling is that the average request latency spikes inside the function, due to the functioning retrying the failed requests. 
 
-If the function can't process messages quickly enough, you won't necessarily see any errors. However, the function will lag further and futher behind the input stream. 
+If the function can't process messages quickly enough, you won't necessarily see any errors. However, the function will lag further and further behind the input stream. 
 
 To detect this condition, monitor the difference between the time when a message arrives at IoT Hub, and the time when the function receives the message for processing. The reference implementation includes a custom metric to track this value:
 
@@ -86,7 +86,6 @@ To detect this condition, monitor the difference between the time when a message
 var ticksUTCNow = DateTimeOffset.UtcNow;
 
 // Track whether messages are arriving at the function late.
-DateTime? firstMsgEnqueuedTicksUtc = messages[0]?.EnqueuedTimeUtc;
 DateTime? firstMsgEnqueuedTicksUtc = messages[0]?.EnqueuedTimeUtc;
 if (firstMsgEnqueuedTicksUtc.HasValue)
 {
