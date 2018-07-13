@@ -9,6 +9,12 @@ ms.date: 7/11/18
 
 This example provides guidance for how to run a dev/test implementation of SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB, the SAP term for any supported DBMS (that isn't SAP HANA). This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
 
+For production use cases review the SAP reference architectures available below:
+
+* [SAP netweaver for AnyDB][sap-netweaver]
+* [SAP S/4Hana][sap-hana]
+* [SAP on Azure large instances][sap-large]
+
 ## Related use cases
 
 Consider this scenario for the following use cases:
@@ -23,7 +29,7 @@ Consider this scenario for the following use cases:
 This scenario covers the provision of a single SAP system database and SAP application Server on a single virtual machine, the data flows through the scenario as follows:
 
 1. Customers from the Presentation Tier use their SAP gui, or other user interfaces (Internet Explorer, Excel or other web application) on premise to access the Azure based SAP system.
-2. Connectivity is provided through the use of the established Express Route. The Express Route is terminated in Azure at the Express Route Gateway. Network traffic routes through the Express Route gateway to the Gateway Subnet and from the gateway subnet to the Application Tier Spoke subnet and via a Network Security Gateway to the SAP application virtual machine.
+2. Connectivity is provided through the use of the established Express Route. The Express Route is terminated in Azure at the Express Route Gateway. Network traffic routes through the Express Route gateway to the Gateway Subnet and from the gateway subnet to the Application Tier Spoke subnet (see the [hub-spoke][hub-spoke] pattern) and via a Network Security Gateway to the SAP application virtual machine.
 3. The identity management servers provide authentication services.
 4. The Jump Box provides local management capabilities.
 
@@ -89,15 +95,7 @@ To deploy a sample solution similar to the scenario above, please use the deploy
 
 ### Alternative deployment examples
 
-For further deployment examples, please refer to many the github samples templates. [Github QuickStart Templates] https://github.com/Azure/azure-quickstart-templates
-
-## Related Resources
-
-Review the SAP reference architectures available in the architecture center to see production grade deployments:
-
-* [SAP netweaver for AnyDB][sap-netweaver]
-* [SAP S/4Hana][sap-hana]
-* [SAP on Azure large instances][sap-large]
+For further deployment examples, please refer to many the github samples templates. [Github QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
 
 <!-- links -->
 [reference architecture]:  /azure/architecture/reference-architectures/sap
@@ -107,3 +105,4 @@ Review the SAP reference architectures available in the architecture center to s
 [sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver
 [sap-hana]: /azure/architecture/reference-architectures/sap/sap-s4hana
 [sap-large]: /azure/architecture/reference-architectures/sap/hana-large-instances
+[hub-spoke]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke

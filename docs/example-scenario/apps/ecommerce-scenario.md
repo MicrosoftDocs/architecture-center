@@ -1,10 +1,10 @@
 ---
-title: E-Commerce on Azure Platform as a Service
+title: E-Commerce front-end on Azure
 description: Proven scenario of hosting an e-commerce site on Azure
 author: masonch
 ms.date: 7/13/18
 ---
-# E-Commerce on Azure Platform as a Service
+# E-Commerce front-end on Azure
 
 This example scenario walks you through an implementation of an e-commerce front end using Azure Platform-as-a-Service (PaaS) tools. Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
 
@@ -38,7 +38,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 ### Components
 
 * [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency.
-* [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure datacenters.
+* [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
 * [App Services - Web Apps][docs-webapps] hosts web applications allowing auto-scale and high availability without having to manage infrastructure.
 * [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
 * [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
@@ -59,6 +59,7 @@ Other options for the web tier and functions include:
 * [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 * [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container based solutions which can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
 * [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are usually deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
+* [Service Bus][service-bus] could be used in place of Storage Queue's.
 
 Other options for the data tier include:
 
