@@ -1,7 +1,7 @@
 ---
 title: SAP for a dev/test environment
-description: <Article Description>
-author: Andrew-Dibbins, Dharmesh-Bhagat
+description: SAP scenario for a dev/test environment
+author: AndrewDibbins, DharmeshBhagat
 ms.date: 7/11/18
 ---
 
