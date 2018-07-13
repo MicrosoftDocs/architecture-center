@@ -99,7 +99,7 @@ Pools within an Azure Batch account can either scale through manual intervention
 
 ### Security
 
-For a deeper discussion on [security][security] please see the relevant article in the architecure center.
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
