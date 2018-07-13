@@ -1,8 +1,8 @@
 ---
 title: 3D video rendering on Azure
 description: Running native HPC workloads in Azure using the Azure Batch service
-author: Adam Boeglin, Mike Warrington, and Ben Hummerstone
-ms.date: <publish or update date>
+author: adamboeglin
+ms.date: 07/13/2018
 ---
 # 3D video rendering on Azure
 
@@ -10,7 +10,7 @@ ms.date: <publish or update date>
 
 Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
 
-## Potential industry use cases
+## Related use cases
 
 Other potential use cases that would have a similar environment include:
 
@@ -19,13 +19,9 @@ Other potential use cases that would have a similar environment include:
 * Video transcoding
 * Image processing, color correction, & resizing
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
+## Architecture
 
 ![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
-
-## Architecture
 
 This solution covers the workflow when using Azure Batch, the data flows through the solution as follows:
 
@@ -38,21 +34,23 @@ This solution covers the workflow when using Azure Batch, the data flows through
 
 To simplify this process, you could also use the [Batch Plugins for Maya & 3ds Max][batch-plugins]
 
-## Azure Batch: Creating an Azure Batch account and pools manually
+## Deploy this scenario
+
+### Azure Batch: Creating an Azure Batch account and pools manually
 This sample solution is will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-## Azure Batch: Deploying a sample solution using an ARM (Azure Resource Manager) template
+### Azure Batch: Deploying a sample solution using an ARM (Azure Resource Manager) template
 
 The following deployment will deploy:
-  - a new Azure Batch account
-  - a storage account
-  - a node pool associated with the batch account
-  - the node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
-  - the node pool will contain 0 VMs initially and will require scaling manually to add VMs
+  - A new Azure Batch account
+  - A storage account
+  - A node pool associated with the batch account
+  - The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
+  - The node pool will contain 0 VMs initially and will require scaling manually to add VMs
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmikewarr%2Farchitecture-center%2Fdocs%2Fsample-solutions%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
@@ -82,6 +80,7 @@ Azure has a wide range of VM sizes that can address each and every one of the ab
   - [Memory optmised VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
   - [General purposes VM sizes][compute-general] General purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
 
+## Considerations
 
 ### Alternatives
 
@@ -113,9 +112,9 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 
 ## Pricing
 
-Explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case change the appropriate variables to match your expected needs.
+The cost of using Azure Batch will depend on the VM sizes that are used for the pools and how long these are allocated and running, there is no cost associated with an Azure Batch account creation. Storage and data egress should also be taken into account as these will apply additional costs.
 
-The cost of using Azure Batch will depend on the VM sizes that are used for the pools and how long these are allocated and running, there is no cost associated with an Azure Batch account creation. Storage and data egress should also be taken into account as these will apply additional costs. The following are examples of costs that could be incurred for a job that completes in 8 hours using a different number of servers:
+The following are examples of costs that could be incurred for a job that completes in 8 hours using a different number of servers:
 
 
 - 100 High Performance CPU VMs: [Cost Estimate][hpc-est-high]
@@ -144,44 +143,37 @@ Azure Batch also supports the use of Low Priority VMs* in the node pools, which 
 
 [Using containers on Azure Batch][batch-containers]
 
-Other resources that are relevant that aren't linked from else where in the doc.
-
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
 [architecture]: ./media/native-hpc-ref-arch.png
-[resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview
-[security]: https://docs.microsoft.com/en-gb/azure/architecture/patterns/category/security
-[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/
-[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
-[vmss]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
-[vnet]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-[storage]: https://azure.microsoft.com/en-us/services/storage/
-[batch]: https://azure.microsoft.com/en-us/services/batch/
+[resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
+[security]: https://docs.microsoft.com/azure/security/
+[resiliency]: https://docs.microsoft.com/azure/architecture/resiliency/
+[scalability]: https://docs.microsoft.com/azure/architecture/checklist/scalability
+[vmss]: https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview
+[vnet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
+[storage]: https://azure.microsoft.com/services/storage/
+[batch]: https://azure.microsoft.com/services/batch/
 [batch-arch]: https://azure.microsoft.com/en-gb/solutions/architecture/big-compute-with-azure-batch/
-[compute-hpc]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc
-[compute-gpu]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu
-[compute-compute]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-compute
-[compute-memory]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory
-[compute-general]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-general
-[compute-storage]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-storage
-[compute-acu]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/acu
-[compute=benchmark]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/compute-benchmark-scores
+[compute-hpc]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc
+[compute-gpu]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu
+[compute-compute]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute
+[compute-memory]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory
+[compute-general]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
+[compute-storage]: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage
+[compute-acu]: https://docs.microsoft.com/azure/virtual-machines/windows/acu
+[compute=benchmark]: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores
 [hpc-est-high]: https://azure.com/e/9ac25baf44ef49c3a6b156935ee9544c
 [hpc-est-med]: https://azure.com/e/0286f1d6f6784310af4dcda5aec8c893
 [hpc-est-low]: https://azure.com/e/e39afab4e71949f9bbabed99b428ba4a
 [batch-labs-masterclass]: https://github.com/azurebigcompute/BigComputeLabs/tree/master/Azure%20Batch%20Masterclass%20Labs
-[batch-scaling]: https://docs.microsoft.com/en-us/azure/batch/batch-automatic-scaling
-[hpc-alt-solutions]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
-[batch-monitor]: https://docs.microsoft.com/en-us/azure/batch/monitoring-overview
+[batch-scaling]: https://docs.microsoft.com/azure/batch/batch-automatic-scaling
+[hpc-alt-solutions]: https://docs.microsoft.com/azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
+[batch-monitor]: https://docs.microsoft.com/azure/batch/monitoring-overview
 [batch-pricing]: https://azure.microsoft.com/en-gb/pricing/details/batch/
-[batch-doc]: https://docs.microsoft.com/en-us/azure/batch/
-[batch-overview]: https://azure.microsoft.com/en-us/services/batch/
+[batch-doc]: https://docs.microsoft.com/azure/batch/
+[batch-overview]: https://azure.microsoft.com/services/batch/
 [batch-containers]: https://github.com/Azure/batch-shipyard
-[batch-rendering]: https://azure.microsoft.com/en-us/services/batch/rendering/
-[batch-saas]: https://customers.microsoft.com/en-us/story/insurance-tech-provider-delivers-disruptive-solutions
-[azure-arm-templates]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment
-[batch-plugins]: https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#options-for-submitting-a-render-job
+[azure-arm-templates]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment
+[batch-plugins]: https://docs.microsoft.com/azure/batch/batch-rendering-service#options-for-submitting-a-render-job
 #
 
