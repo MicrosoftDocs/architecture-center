@@ -10,10 +10,6 @@ This sample scenario is applicable to regulated industries that have a need to s
 
 Example application scenarios include running operating room applications, patient appointments and records keeping, or prescription refills and ordering. Traditionally, organizations had to maintain legacy on-premises applications and services for these scenarios. With a secure way and scalable way to deploy these Windows Server applications in Azure, organizations can modernize their deployments are reduce their on-premises operating costs and management overhead.
 
-## Problem statement
-
-This scenario originated as the back-end component of an app that runs on a tablet in an operating room. The application tracks the usage and positioning of surgical instruments, additionally, timing and progress of the procedure is captured to enable advanced analytics.
-
 ## Related use cases
 
 Consider this scenario for the following use cases:
@@ -42,6 +38,14 @@ This scenario covers a multi-tier regulated industries application that uses ASP
 * [Azure network security groups][nsg-docs] contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 * [Azure load balancer][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic from the frontend application tier to the backend SQL Server cluster.
 * [Azure Blob Storage][cloudwitness-docs] acts a Cloud Witness location for the SQL Server cluster. This witness is used for cluster operations and decisions that require an additional vote to decide quorum. Using Cloud Witness removes the need for an additional VM to act as a traditional File Share Witness.
+
+### Alternatives
+
+* *nix, windows can easily be replaced by a variety of other OS's as nothing in the infrastructure depends on the OS.
+
+* [SQL Server for Linux][sql-linux] can replace the back-end data store.
+
+* [Cosmos DB][cosmos] is another another alternative for the data store.
 
 ## Considerations
 
@@ -127,6 +131,8 @@ You also view a thorough [reference architecture for a generic N-tier applicatio
 [vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
 [dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
+[cosmos]: /azure/cosmos-db/
+[sql-linux]: sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
 [medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
