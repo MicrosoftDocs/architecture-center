@@ -1,5 +1,5 @@
 ---
-title: Advanced analytics &mdash; Real-time fraud detection 
+title: Real-time fraud detection on Azure 
 description: Proven scenario for detecting fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
 ms.date: 07/05/2018

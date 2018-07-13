@@ -1,5 +1,5 @@
 ---
-title: DevOps with Jenkins and Azure Kubernetes Service
+title: CI/CD pipeline for container-based workloads
 description: Proven scenario for building a DevOps pipeline for a Node.js web app that uses Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018

@@ -1,5 +1,5 @@
 ---
-title: Windows Server on Azure regulated industries front-end application
+title: Secure Windows web application for regulated industries
 description: Proven scenario for building a secure, multi-tier web application with Windows Server on Azure that uses scale sets, Application Gateway, and load balancers.
 author: iainfoulds
 ms.date: 07/11/2018

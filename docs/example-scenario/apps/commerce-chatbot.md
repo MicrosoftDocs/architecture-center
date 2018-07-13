@@ -1,5 +1,5 @@
 ---
-title: Conversational Azure chatbot for hotel reservations
+title: Conversational chatbot for hotel reservations on Azure
 description: Proven scenario for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
 author: iainfoulds
 ms.date: 07/05/2018

@@ -1,5 +1,5 @@
 ---
-title: DevOps CI/CD for .NET on Azure Web Apps
+title: CI/CD pipeline with VSTS
 description: An example of building and releasing a .NET App to Azure Web Apps
 author: christianreddington
 ms.date: 07/11/18
