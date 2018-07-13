@@ -23,7 +23,7 @@ Other potential use cases that would have a similar environment include:
 
 ![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
 
-This solution covers the workflow when using Azure Batch, the data flows through the solution as follows:
+This sample scenario covers the workflow when using Azure Batch, the data flows through the solution as follows:
 
 1. Upload input files and the applications to process those files to your Azure Storage account
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
@@ -36,14 +36,14 @@ To simplify this process, you could also use the [Batch Plugins for Maya & 3ds M
 
 ## Deploy this scenario
 
-### Azure Batch: Creating an Azure Batch account and pools manually
-This sample solution is will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
+### Creating an Azure Batch account and pools manually
+This sample scenario will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-### Azure Batch: Deploying a sample solution using an ARM (Azure Resource Manager) template
+### Deploying the sample scenario using an Azure Resource Manager (ARM) template
 
-The following deployment will deploy:
+The template will deploy:
   - A new Azure Batch account
   - A storage account
   - A node pool associated with the batch account
@@ -153,7 +153,7 @@ Azure Batch also supports the use of Low Priority VMs* in the node pools, which 
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [storage]: https://azure.microsoft.com/services/storage/
 [batch]: https://azure.microsoft.com/services/batch/
-[batch-arch]: https://azure.microsoft.com/en-gb/solutions/architecture/big-compute-with-azure-batch/
+[batch-arch]: https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/
 [compute-hpc]: /azure/virtual-machines/windows/sizes-hpc
 [compute-gpu]: /azure/virtual-machines/windows/sizes-gpu
 [compute-compute]: /azure/virtual-machines/windows/sizes-compute
@@ -175,5 +175,3 @@ Azure Batch also supports the use of Low Priority VMs* in the node pools, which 
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
 [batch-plugins]: /azure/batch/batch-rendering-service#options-for-submitting-a-render-job
-#
-
