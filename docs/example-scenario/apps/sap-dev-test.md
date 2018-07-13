@@ -83,7 +83,7 @@ Note: * pricing is a guide, indicates only the VMs and storage costs (excludes, 
 
 ## Deployment
 
-To deploy a the underlying infrastructure similar to the scenario above, please use the deploy button
+To deploy the underlying infrastructure similar to the scenario above, please use the deploy button
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
