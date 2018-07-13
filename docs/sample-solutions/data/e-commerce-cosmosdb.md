@@ -1,11 +1,11 @@
 ---
-title: Scalable order processing with Azure Cosmos DB
+title: Scalable order processing on Azure
 description: Example scenario for building a highly scalable order processing pipeline using Azure Cosmos DB.
 author: alexbuckgit
 ms.date: 07/10/2018
 ---
 
-# Scalable order processing with Azure Cosmos DB
+# Scalable order processing on Azure
 
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking. 
 
@@ -38,7 +38,6 @@ This architecture details key components of an order processing pipeline. The da
 
 * [Cosmos DB][docs-cosmos-db] is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This solution uses Cosmos DB for event stream storage and snapshot storage, and leverages Cosmos DB's Change Feed features to provide data consistency and fault recovery. 
 * [Apache Kafka on HDInsight][docs-kafka] is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This solution uses Kafka to process incoming as well as downstream events in the order processing pipeline. 
-* [F#](https://fsharp.org/) is a mature, open source, cross-platform, functional-first programming language. It empowers users and organizations to tackle complex computing problems with simple, maintainable and robust code. F# is an effective language for building microservices that can be deployed and tested independently from other components of the overall system.
 
 ## Considerations
 
@@ -91,7 +90,6 @@ Other related resources include:
 * _[Designing Data-Intensive Applications](https://dataintensive.net/)_ by Martin Kleppmann (O'Reilly Media, 2017).
 * _[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)_ by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 * Other [Cosmos DB use cases][docs-cosmos-db-use-cases]
-* [Microsoft F# Guide][docs-f-sharp]
 * [Real time processing architecture](/azure/architecture/data-guide/big-data/real-time-processing) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/)
 
 <!-- links -->
@@ -107,7 +105,6 @@ Other related resources include:
 [docs-cosmos-db-regional-failover]: /azure/cosmos-db/regional-failover
 [docs-cosmos-db-guarantees]: /azure/cosmos-db/distribute-data-globally#AvailabilityGuarantees
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
-[docs-f-sharp]: /dotnet/fsharp/
 [docs-kafka]: /azure/hdinsight/kafka/apache-kafka-introduction
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
