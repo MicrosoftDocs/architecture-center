@@ -1,7 +1,7 @@
 ---
 title: SAP for a dev/test environment
 description: SAP scenario for a dev/test environment
-author: AndrewDibbins, DharmeshBhagat
+author: AndrewDibbins
 ms.date: 7/11/18
 ---
 
