@@ -7,7 +7,7 @@ ms.date: 7/11/18
 
 # SAP for a dev/test workload
 
-This architectural design shows a set of proven practices for running SAP NetWeaver in a Windows or Linux environment on Azure. The database is AnyDB, the SAP term for any supported DBMS (that isn't SAP HANA). This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
+This example provides guidance for how to run a dev/test implementation of SAP NetWeaver in a Windows or Linux environment on Azure. The database used is AnyDB, the SAP term for any supported DBMS (that isn't SAP HANA). This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
 
 ## Related use cases
 
