@@ -340,7 +340,7 @@
     href: example-scenario/index.md
   - name: AI
     items:
-    - name: Image processing
+    - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
@@ -350,14 +350,22 @@
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with VSTS
       href: example-scenario/apps/devops-dotnet-webapp.md
+    - name: SAP for Dev/Test
+      href: example-scenario/apps/sap-dev-test.md
+    - name: E-commerce front-end
+      href: example-scenario/apps/ecommerce-scenario.md
   - name: Data & Analytics
     items:
     - name: Real-time fraud detection
       href: example-scenario/data/fraud-detection.md
+    - name: Scalable order processing
+      href: example-scenario/data/ecommerce-order-processing.md
   - name: Infrastructure
     items:
     - name: Multi-tier Windows
       href: example-scenario/infrastructure/regulated-multitier-app.md
+    - name: HPC video rendering
+      href: example-scenario/infrastructure/video-rendering.md
    
 - name: Reference Architectures
   items:
