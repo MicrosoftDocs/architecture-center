@@ -12,7 +12,7 @@ Batch gives you a consistent management experience and job scheduling, whether y
 
 ## Related use cases
 
-Other potential use cases that would have a similar environment include:
+Consider this scenario for these similar use cases:
 
 * 3D Modeling
 * Visual FX (VFX) Rendering
@@ -23,7 +23,7 @@ Other potential use cases that would have a similar environment include:
 
 ![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
 
-This sample scenario covers the workflow when using Azure Batch, the data flows through the solution as follows:
+This sample scenario covers the workflow when using Azure Batch, the data flows as follows:
 
 1. Upload input files and the applications to process those files to your Azure Storage account
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
@@ -37,6 +37,7 @@ To simplify this process, you could also use the [Batch Plugins for Maya & 3ds M
 ## Deploy this scenario
 
 ### Creating an Azure Batch account and pools manually
+
 This sample scenario will provide help in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
 [Azure Batch Masterclass][batch-labs-masterclass]
@@ -89,8 +90,8 @@ If you require more control over your rendering environment in Azure or need a h
 For a complete overview of all the HPC solutions that are available to you in Azure, please see the article [HPC, Batch, and Big Compute solutions using Azure VMs][hpc-alt-solutions]
 
 ### Availability
-Monitoring of the Azure Batch components is available through a range of services, tools and APIs. This is discussed further in the [Monitor Batch solutions][batch-monitor] article.
 
+Monitoring of the Azure Batch components is available through a range of services, tools and APIs. This is discussed further in the [Monitor Batch solutions][batch-monitor] article.
 
 ### Scalability
 

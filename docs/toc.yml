@@ -359,7 +359,7 @@
     - name: Real-time fraud detection
       href: example-scenario/data/fraud-detection.md
     - name: Scalable order processing
-      href: example-scenario/data/e-commerce-cosmosdb.md
+      href: example-scenario/data/ecommerce-order-processing.md
   - name: Infrastructure
     items:
     - name: Multi-tier Windows

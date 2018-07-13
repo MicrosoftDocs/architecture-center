@@ -1,8 +1,8 @@
 ---
 title: E-Commerce on Azure Platform as a Service
-description: An example of building an e-commerce site using Azure PaaS components
+description: Proven scenario of hosting an e-commerce site on Azure
 author: masonch
-ms.date: <publish or update date>
+ms.date: 7/13/18
 ---
 # E-Commerce on Azure Platform as a Service
 
@@ -12,20 +12,16 @@ This document will help you will learn about various Azure PaaS components and c
 
 ## Potential use cases
 
-You should consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
 * Building an application that needs elastic scale to handle bursts of users at different times.
 * Building an application that is designed to operate at high availability in different Azure regions around the world.
 
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
-
-![Sample solution architecture for an e-commerce application][architecture-diagram]
-
 ## Architecture
 
-This solution covers purchasing tickets from an e-commerce site, the data flows through the solution as follows:
+![Sample scenario architecture for an e-commerce application][architecture-diagram]
+
+This scenario covers purchasing tickets from an e-commerce site, the data flows through the scenario as follows:
 
 1. Azure Traffic Manager routes a user's request to the e-commerce site hosted in Azure App Service.
 2. Azure CDN serves static images and content to the user.
@@ -68,6 +64,8 @@ Other options for the data tier include:
 
 * [Cosmos DB][docs-cosmosdb] - Microsoft's globally distributed, multi-model database. This provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
+## Considerations
+
 ### Availability
 
 * Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
@@ -95,19 +93,19 @@ Other options for the data tier include:
 * Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
 * For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecture center.
 
-## Deploy the solution
+## Deploy the scenario
 
-To deploy this solution, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component of the solution. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. It also includes an ARM template to automate the deployment of the majority of the Azure services that are used in the solution.
+To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is an ARM template to automate the deployment of most of the Azure resources.
 
 ## Pricing
 
-Explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
+Explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-* [Small][small-pricing]: This represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small amount of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app which will be enough to enable autoscaling. Each of the other components are scaled to a basic tier which will allow for a minimum amount of cost but still ensure that there is SLA support for each solution and enough capacity to handle a production level workload.
-* [Medium][medium-pricing]: This represents the components indicative of a moderate size solution. Here we estimate approximately 100,000 users using the system over the course of a month. We have the solution running in a single app service instance with a moderate standard tier. We have allocated moderate tiers of cognative service and search services as well.
-* [Large][large-pricing]: This represents an application meant for high level scale on the range of millions of users per month moving through terabytes of data. This solution is now using high performance, premium tier web apps deployed in multiple regions fronted by traffic manager. The data solutions: storage, databases, and CDN, are configured for terabytes of data.
+* [Small][small-pricing]: This represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small amount of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app which will be enough to enable autoscaling. Each of the other components are scaled to a basic tier which will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+* [Medium][medium-pricing]: This represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
+* [Large][large-pricing]: This represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
 ## Related Resources
 

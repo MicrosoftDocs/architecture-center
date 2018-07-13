@@ -9,15 +9,15 @@ ms.date: 07/10/2018
 
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking. 
 
-This solution takes an event sourcing approach, using a functional programming model implemented via microservices. Each microservice is treated as an stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
+This scenario takes an event sourcing approach, using a functional programming model implemented via microservices. Each microservice is treated as an stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
 
 Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available [fully managed intelligent database services in Azure][product-category].
 
-## Potential use cases
+## Related use cases
 
-Consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
-* E-commerce or retail point-of-sale front-end systems.
+* E-commerce or retail point-of-sale back-end systems.
 * Inventory management systems.
 * Order fulfillment systems.
 * Other integration scenarios relevant to an order processing pipeline.
@@ -26,7 +26,7 @@ Consider this solution for the following use cases:
 
 ![Example architecture for a scalable order processing pipeline][architecture-diagram]
 
-This architecture details key components of an order processing pipeline. The data flows through the solution as follows:
+This architecture details key components of an order processing pipeline. The data flows through the scenario as follows:
 
 1. Event messages enter the system via customer-facing applications (synchronously over HTTP) and various back-end systems (asynchronously via Apache Kafka). These messages are passed into a command processing pipeline.
 2. Each event message is ingested and mapped to one of a defined set of commands by a command processor microservice. The command processor retrieves any current state relevant to executing the command from an event stream snapshot database. The command is then executed, and the output of the command is emitted as a new event.
@@ -36,8 +36,8 @@ This architecture details key components of an order processing pipeline. The da
 
 ### Components
 
-* [Cosmos DB][docs-cosmos-db] is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This solution uses Cosmos DB for event stream storage and snapshot storage, and leverages Cosmos DB's Change Feed features to provide data consistency and fault recovery. 
-* [Apache Kafka on HDInsight][docs-kafka] is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This solution uses Kafka to process incoming as well as downstream events in the order processing pipeline. 
+* [Cosmos DB][docs-cosmos-db] is Microsoft's globally distributed, multi-model database that enables your solutions to elastically and independently scale throughput and storage across any number of geographic regions. It offers throughput, latency, availability, and consistency guarantees with comprehensive service level agreements (SLAs). This scenario uses Cosmos DB for event stream storage and snapshot storage, and leverages Cosmos DB's Change Feed features to provide data consistency and fault recovery. 
+* [Apache Kafka on HDInsight][docs-kafka] is a managed service implementation of Apache Kafka, an open-source distributed streaming platform for building real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, for publishing and subscribing to named data streams. This scenario uses Kafka to process incoming as well as downstream events in the order processing pipeline. 
 
 ## Considerations
 
@@ -47,7 +47,7 @@ Microservices have become a popular architectural style for building cloud appli
 
 ### Availability
 
-This solution's event sourcing approach allows system components to be loosely coupled and deployed independently of one another. Cosmos DB offers [high availability][docs-cosmos-db-regional-failover] and helps organization manage the tradeoffs associated with consistency, availability, and performance, all with [corresponding guarantees][docs-cosmos-db-guarantees]. Apache Kafka on HDInsight is also designed for [high availability][docs-kafka-high-availability].
+This scenario's event sourcing approach allows system components to be loosely coupled and deployed independently of one another. Cosmos DB offers [high availability][docs-cosmos-db-regional-failover] and helps organization manage the tradeoffs associated with consistency, availability, and performance, all with [corresponding guarantees][docs-cosmos-db-guarantees]. Apache Kafka on HDInsight is also designed for [high availability][docs-kafka-high-availability].
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor. 
 
@@ -56,7 +56,7 @@ For other availability considerations, see the [availability checklist][availabi
 ### Scalability
 
 Kafka on HDInsight allows [configuration of storage and scalability](/azure/hdinsight/kafka/apache-kafka-scalability) for Kafka clusters. Cosmos DB provides fast, predictable performance and [scales seamlessly](/azure/cosmos-db/partition-data) as your application grows.
-The event sourcing microservices-based architecture of this solution also makes it easier to scale your system and expand its functionality.
+The event sourcing microservices-based architecture of this scenario also makes it easier to scale your system and expand its functionality.
 
 For other scalability considerations, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
@@ -64,15 +64,15 @@ For other scalability considerations, see the [scalability checklist][scalabilit
 
 The [Cosmos DB security model](/azure/cosmos-db/secure-access-to-data) authenticates users and provides access to its data and resources. For more information, see [Cosmos DB database security](/en-us/azure/cosmos-db/database-security).
 
-For general guidance on designing secure solutions, see the [Cloud Security Design Patterns][security] available in the Azure Architecture Center.
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
 ### Resiliency
 
-The event sourcing architecture and associated technologies in this example scenario make this solution highly resilient when failures occur. For general guidance on designing resilient solutions, see the [Cloud Resiliency Design Patterns][resiliency] available in the Azure Architecture Center.
+The event sourcing architecture and associated technologies in this example scenario make this scenario highly resilient when failures occur. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Pricing
 
-To examine the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this solution, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
+To examine the cost of running this scenario, all of the services are pre-configured in the cost calculator.  To see how pricing would change for your particular scenario, change the appropriate variables to match your expected data volume. For this scenario, the example pricing includes only Cosmos DB and a Kafka cluster for processing events raised from the Cosmos DB Change Feed. Event processors and microservices for originating systems and other downstream systems are not included, and their cost is highly dependent on the quantity and scale of these services as well as the technologies chosen for implementing them.
 
 The currency of Azure Cosmos DB is the request unit (RU). With request units, you don't need to reserve read/write capacities or provision CPU, memory, and IOPS. Azure Cosmos DB supports various APIs that have different operations, ranging from simple reads and writes to complex graph queries. Because not all requests are equal, requests are assigned a normalized quantity of request units based on the amount of computation required to serve the request. The number of request units required by your solution is dependent on data element size and the number of CRUD operations per second. For more information, see [Request units in Azure Cosmos DB](/azure/cosmos-db/request-units). These estimated prices are based on Cosmos DB running in two Azure regions.
 
@@ -113,4 +113,4 @@ Other related resources include:
 [availability]: /azure/architecture/checklist/availability
 [scalability]: /azure/architecture/checklist/scalability
 [resiliency]: /azure/architecture/patterns/category/resiliency/
-[security]: /azure/architecture/patterns/category/security
+[security]: /azure/security/
