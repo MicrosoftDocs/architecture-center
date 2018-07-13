@@ -60,7 +60,7 @@ The architecture consists of the following components.
 
 All the recommendations for the [hub-spoke][guidance-hub-spoke] reference architecture also apply to the shared services reference architecture. 
 
-ALso, the following recommendations apply for most scenarios under shared services. Follow these recommendations unless you have a specific requirement that overrides them.
+Also, the following recommendations apply for most scenarios under shared services. Follow these recommendations unless you have a specific requirement that overrides them.
 
 ### Identity
 

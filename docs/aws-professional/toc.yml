@@ -1,9 +1,0 @@
-- name: Azure Architecture Center
-  href: /azure/architecture
-  
-- name: Azure for AWS Professionals
-  items:
-  - name: Overview
-    href: index.md
-  - name: Services comparison
-    href: services.md

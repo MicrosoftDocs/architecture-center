@@ -9,10 +9,12 @@ ms.date: 05/11/2018
 
 This reference architecture shows a set of proven practices for running SAP NetWeaver in a Windows environment on Azure with high availability. The database is AnyDB, the SAP term for any supported DBMS besides SAP HANA. This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization's needs.
 
-![](./images/sap-s4hana.png)
- 
+![](./images/sap-netweaver.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
+
 > [!NOTE] 
-> Deploying SAP products according to this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
+> Deploying this reference architecture requires appropriate licensing of SAP products and other non-Microsoft technologies.
 
 ## Architecture
 The architecture consists of the following infrastructure and key software components.
@@ -169,3 +171,4 @@ Communities can answer questions and help you set up a successful deployment. Co
 - [SAP Community](https://www.sap.com/community.html)
 - [Stack Overflow](https://stackoverflow.com/tags/sap/)
 
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/sap-reference-architectures.vsdx
