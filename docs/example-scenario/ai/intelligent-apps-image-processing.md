@@ -1,10 +1,10 @@
 ---
-title: Intelligent apps - image processing on Azure
-description: Proven solution for building image processing into your Azure applications.
+title:  Image classification for insurance claims on Azure
+description: Proven scenario for building image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
 ---
-# Insurance claim image classification on Azure
+# Image classification for insurance claims on Azure
 
 This example scenario is applicable for businesses that need to process images.
 
@@ -12,19 +12,18 @@ Potential applications include classifying images for a fashion website, analyzi
 
 By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services. This scenario specifically addresses an image processing scenario. If you have different AI needs, consider the full suite of [Cognitive Services][cognitive-docs].
 
-## Potential use cases
+## Related use cases
 
-Consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
 * Classify images on a fashion website.
-* Classify images for insurance claims
 * Classify telemetry data from screenshots of games.
 
 ## Architecture
 
 ![Intelligent apps architecture - computer vision][architecture-computer-vision]
 
-This solution covers the back-end components of a web or mobile application. Data flows through the solution as follows:
+This scenario covers the back-end components of a web or mobile application. Data flows through the scenario as follows:
 
 1. Azure Functions acts as the API layer. These APIs enable the application to upload images and retrieve data from Cosmos DB.
 
@@ -58,7 +57,7 @@ This solution covers the back-end components of a web or mobile application. Dat
 
 ### Scalability
 
-For the most part all of the components of this solution are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond, consider multiple regions or app plans.
+For the most part all of the components of this scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond, consider multiple regions or app plans.
 
 Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs).  For guidance on estimating your requirements see [request units][request-units] in our documentation. To fully take advantage of the scaling in Cosmos DB you should also take a look at [partition keys][partition-key].
 
@@ -74,13 +73,13 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-All of the components in this solution are managed, so at a regional level they are all resilient automatically. 
+All of the components in this scenario are managed, so at a regional level they are all resilient automatically.
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on amount of traffic (we assume all images are 100kb in size):
 
@@ -90,7 +89,7 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 
 ## Related Resources
 
-For a guided learning path of this solution, see [Build a serverless web app in Azure][serverless].  
+For a guided learning path of this scenario, see [Build a serverless web app in Azure][serverless].  
 
 Before putting this in a production environment, review the Azure Functions [best practices][functions-best-practices].
 

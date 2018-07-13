@@ -1,20 +1,20 @@
 ---
-title: Conversational Azure chatbot for hotel reservations
-description: Proven solution for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
+title: Conversational chatbot for hotel reservations on Azure
+description: Proven scenario for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
 author: iainfoulds
 ms.date: 07/05/2018
 ---
-# Conversational Azure chatbot for hotel reservations
+# Conversational chatbot for hotel reservations on Azure
 
-This example scenario is applicable to businesses that need integrate a conversational chatbot into applications. In this solution, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
+This example scenario is applicable to businesses that need integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
 
 Example scenarios include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
 
 By using Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots.
 
-## Potential use cases
+## Related use cases
 
-Consider this solution for the following use cases:
+Consider this scenario for the following use cases:
 
 * View restaurant take-out menu and order food
 * Check hotel availability and reserve a room
@@ -24,7 +24,7 @@ Consider this solution for the following use cases:
 
 ![Architecture overview of the Azure components involved in a conversational chatbot][architecture]
 
-This solution covers a conversational bot that functions as a concierge for a hotel. The data flows through the solution as follows:
+This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
 2. Using Azure Active Directory B2C (Business 2 Customer), the user is authenticated.
@@ -52,19 +52,19 @@ This solution covers a conversational bot that functions as a concierge for a ho
 
 ### Availability
 
-This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
+This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-This solution uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the architecture center.
+This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the architecture center.
 
 For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
-This solution uses Azure Active Directory B2C (Business 2 Consumer) to authenticate users. With AAD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see [Azure Active Directory B2C overview][aadb2c-docs].
+This scenario uses Azure Active Directory B2C (Business 2 Consumer) to authenticate users. With AAD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see [Azure Active Directory B2C overview][aadb2c-docs].
 
 Information stored in Azure SQL Database is encrypted at rest with transparent data encryption (TDE). SQL Database also offers Always Encrypted which encrypts data during querying and processing. For more information on SQL Database security, see [Azure SQL Database security and compliance][sqlsecurity-docs].
 
@@ -72,15 +72,15 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-This solution uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running in the event of a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
+This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running in the event of a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
-To monitor the health of your application, this solution uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
+To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deploy the solution
+## Deploy the scenario
 
-This solution is divided into three components for you to explore areas that you are most focused on:
+This scenario is divided into three components for you to explore areas that you are most focused on:
 
 * [Infrastructure components](#deploy-infrastructure-components). Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
 * [Web App Chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
@@ -129,11 +129,11 @@ A sample C# application is available on GitHub:
 
 * [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
 
-The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the solution. Additional information on configuring AAD B2C and the LUIS app can be found in the GitHub repo documentation.
+The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring AAD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on the amount of messages you expect your chatbot to process:
 
