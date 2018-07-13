@@ -41,10 +41,6 @@ This scenario covers the provision of a single SAP system database and SAP appli
 * [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
 * [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
 
-### Alternatives
-
-* List of alternative options and why you might use them.
-
 ## Considerations
 
 ### Availability
@@ -87,11 +83,13 @@ Note: * pricing is a guide, indicates only the VMs and storage costs (excludes, 
 
 ## Deployment
 
-To deploy a sample solution similar to the scenario above, please use the deploy button
+To deploy a the underlying infrastructure similar to the scenario above, please use the deploy button
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
+\* SAP will not be installed, you'll need to do this after the infrastructure is built manually.
 
 ### Alternative deployment examples
 
