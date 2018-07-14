@@ -180,21 +180,7 @@ The parameter files include a hard-coded password in various places. Change thes
 
 ### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures][github] GitHub repository.
-
-2. Install [Azure CLI 2.0][azure-cli-2].
-
-3. Install the [Azure building blocks][azbb] npm package.
-
-   ```bash
-   npm install -g @mspnp/azure-building-blocks
-   ```
-
-4. From a command prompt, bash prompt, or PowerShell prompt, login to your Azure account by using the command below.
-
-   ```bash
-   az login
-   ```
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
 ### Deploy the solution 
 
