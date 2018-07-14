@@ -2,7 +2,7 @@
 title: Run a high availability SharePoint Server 2016 farm in Azure
 description:  Proven practices for setting up a high availability SharePoint Server 2016 farm on Azure.
 author: njray
-ms.date: 07/13/2018
+ms.date: 07/14/2018
 ---
 
 # Run a high availability SharePoint Server 2016 farm in Azure
@@ -227,15 +227,15 @@ The parameter files include a hard-coded password in various places. Change thes
     azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure3.json --deploy
     ```
 
-At this point, you should check the TCP conectivity to the SQL Server availability group listener, as follows:
+At this point, verify that you can make a TCP conection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
 
 1. Use the Azure portal to find the VM named `ra-sp-jb-vm1` in the `ra-sp2016-network-rg` resource group. This is the jumpbox VM.
 
 2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `azure1.json` parameter file.
 
-3. From the Remote Desktop session, log into 10.0.5.4. 
+3. From the Remote Desktop session, log into 10.0.5.4. This is the IP address of the VM named `ra-sp-app-vm1`.
 
-4. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VMs in the spoke VNets.
+4. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the load balancer.
 
     ```powershell
     Test-NetConnection 10.0.3.100 -Port 1433
@@ -252,7 +252,7 @@ SourceAddress    : 10.0.0.132
 TcpTestSucceeded : True
 ```
 
-If it fails, use the Azure Portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait for a minute after the VM restarts for the connection to succeed. 
+If it fails, use the Azure Portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed. 
 
 Now complete the deployment as follows.
 
@@ -287,8 +287,6 @@ Now complete the deployment as follows.
 6.  In the **Windows Security** box, log on to the SharePoint portal using `contoso.local\testuser` for the user name.
 
 This logon tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
-
-
 
 **_Contributors to this reference architecture_** &mdash;  Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
 
