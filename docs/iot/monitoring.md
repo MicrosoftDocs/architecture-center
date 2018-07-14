@@ -16,9 +16,7 @@ It's no good collecting all of this data unless you can see the data and act on 
 
 - **Ad hoc queries**. Distributed systems tend to generate a large volume of logs and traces. To perform root-cause analysis, you must be able to query all of your logs. Azure Log Analytics is an analytics engine that can collect data from Azure Monitor, Application Insights, and other sources.
 
-
 ## Creating a monitoring dashboard
-
 
 A dashboard provides a way to visualize the application metrics. When creating a dashboard, consider the following two options:
 
@@ -52,19 +50,6 @@ For this reason, it's useful to include some metrics that validate the overall s
 
 A final point to consider: Single metrics can be hard to interpret. For example, in the warm path, we track the number of documents written to Cosmos DB per second. Without any other context, this metric is meaningless. How many documents *should* get written? But it has meaning when you compare it to the number of messages ingested by IoT Hub. As the volume of device messages goes up, the number of writes to Cosmos DB should go up proportionally.
 
-## Correlation
-
-To associate messages with their originating device, make sure to include the device ID and timestamp in any processing steps that transform the message payload. For example, if there is processing step that does protocol translation, the output should include device ID and timestamp. You might also have an event ID to correlate messages that relate to the same event. 
-
-
-
-Correlation – hard to correlate individual events, because you are aggregating as they move through the pipeline – compared to transactional data – Why do we need correlation? 
--	If it's to make sure you aren't losing events, then use (a) no telemetry query, (b) monitor metrics at each stage in the pipeline
--	Commands (D2C or C2D) – these you may want to track the entire flow including round trip
-o	Eg connected car, you can lock the car remotely
-
-
-
 For reference, here are the metrics that we tracked during our load testing:
 
 Cold path:
@@ -93,6 +78,23 @@ Device simulator:
 - IoT Hub metrics
 - CPU usage for VMs running the simulator
 - Network Out (bytes of outgoing traffic on all network interfaces)
+
+## Distributed tracing
+
+A common challenge in distributed systems is understanding how messages flow through the system. When a message triggers some action, it's useful to know where the message originated. For IoT, that means including the device ID and timestamp in the message. If there are processing steps that transform the message payload, they should preserve these values. For example, if the pipeline has a protocol translation stage, the output should include the device ID and the timestamp. You might also have an event ID to correlate messages that relate to the same event. 
+
+
+
+(this is the "reduce" step in MapReduce)
+
+Correlation – hard to correlate individual events, because you are aggregating as they move through the pipeline – compared to transactional data – Why do we need correlation? 
+-	If it's to make sure you aren't losing events, then use (a) no telemetry query, (b) monitor metrics at each stage in the pipeline
+-	Commands (D2C or C2D) – these you may want to track the entire flow including round trip
+o	Eg connected car, you can lock the car remotely
+
+
+
+
 
 
 
