@@ -80,18 +80,18 @@ If Traffic Manager fails over, we recommend performing a manual failback rather 
 
 Note that Traffic Manager automatically fails back by default. To prevent this, manually lower the priority of the primary region after a failover event. For example, suppose the primary region is priority 1 and the secondary is priority 2. After a failover, set the primary region to priority 3, to prevent automatic failback. When you are ready to switch back, update the priority to 1.
 
-The following [Azure CLI][install-azure-cli] command updates the priority:
+The following [Azure CLI][azure-cli] command updates the priority:
 
 ```bat
-azure network traffic-manager  endpoint set --resource-group <resource-group> --profile-name <profile>
-    --name <traffic-manager-name> --type AzureEndpoints --priority 3
+az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
+    --name <endpoint-name> --type azureEndpoints --priority 3
 ```    
 
 Another approach is to temporarily disable the endpoint until you are ready to fail back:
 
 ```bat
-azure network traffic-manager  endpoint set --resource-group <resource-group> --profile-name <profile>
-    --name <traffic-manager-name> --type AzureEndpoints --status Disabled
+az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
+    --name <endpoint-name> --type azureEndpoints --endpoint-status Disabled
 ```
 
 Depending on the cause of a failover, you might need to redeploy the resources within a region. Before failing back, perform an operational readiness test. The test should verify things like:
@@ -109,10 +109,10 @@ To configure the availability group:
 * At a minimum, place two domain controllers in each region.
 * Give each domain controller a static IP address.
 * Create a VNet-to-VNet connection to enable communication between the VNets.
-* For each VNet, add the IP addresses of the domain controllers (from both regions) to the DNS server list. You can use the following CLI command. For more information, see [Manage DNS servers used by a virtual network (VNet)][vnet-dns].
+* For each VNet, add the IP addresses of the domain controllers (from both regions) to the DNS server list. You can use the following CLI command. For more information, see [Change DNS servers][vnet-dns].
 
     ```bat
-    azure network vnet set --resource-group dc01-rg --name dc01-vnet --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
+    azure network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
 * Create a [Windows Server Failover Clustering][wsfc] (WSFC) cluster that includes the SQL Server instances in both regions. 
@@ -171,7 +171,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [azure-sla]: https://azure.microsoft.com/support/legal/sla/
 [azure-sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
-[install-azure-cli]: /azure/xplat-cli-install
+[azure-cli]: /cli/azure/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources
@@ -185,7 +185,7 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vnet-dns]: /azure/virtual-network/virtual-networks-manage-dns-in-vnet
+[vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps
 [vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
