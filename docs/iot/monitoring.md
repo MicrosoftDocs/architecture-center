@@ -81,81 +81,48 @@ Device simulator:
 
 ## Distributed tracing
 
-A common challenge in distributed systems is understanding how messages flow through the system. When a message triggers some action, it's useful to know where the message originated. For IoT, that means including the device ID and timestamp in the message. If there are processing steps that transform the message payload, they should preserve these values. For example, if the pipeline has a protocol translation stage, the output should include the device ID and the timestamp. You might also have an event ID to correlate messages that relate to the same event. 
+A common challenge in distributed systems is understanding how messages flow through the system. When a message triggers some action, it's useful to know where the message originated. For IoT scenarios, that means messages should include the device ID and timestamp in the message. You might also include an event ID to correlate several messages that relate to the same event. If there are processing steps that transform the message payload, they should preserve these values. For example, if the pipeline includes a protocol translation stage, the output should include the fields needed for correlation. 
+
+However, there's often a processing stage that aggregates the data stream, for example by computing an average over a time window. At that point, there's no way to correlate individual messages. Instead, you may need to track statistical metrics, such as the data volume going into and out of the pipeline, as a way to validate that messages are being processed.
+
+For cloud-to-device messages, you should correlate the entire data path when possible. For example, consider a connected car application that allows a driver to lock or unlock a car remotely, using a mobile app. In this scenario, the mobile app sends a command to the cloud, which triggers sending a message to the car. The command message that is sent to the car should include a correlation ID that associates it with the mobile app request. That way, if there is a failure or some other issue, you will be able to reconstruct the sequence of events.
+
+## Example of performance monitoring
+
+Here is an example of using monitoring to diagnose a performance issue. All of the screenshots in this section are taken from a load test that we performed on the warm path. During this test, we deliberately stressed the system by 
+
+The first symptom of a problem was receiving a lot of 429 errors from Cosmos DB, indicating that Cosmos DB was throttling the write requests.
+
+![](./_images/cosmosdb-429.png)
+
+In response, we scaled Cosmos DB by increasing the number RUs allocated for the collection, but the errors continued. This seemed strange, because our back-of-envelope calculation showed that Cosmos DB should have no problem keeping up with the volume of write requests. 
+
+Later that day, one of out developers sent the following email to the team:
+
+> I looked at Cosmos DB for the warm path. There's one thing I don't understand. The partition key is deliveryid, however we don't send deliveryid to Cosmos DB. Am I missing something?
+
+That was the clue. Looking at the partition heat map, it turned out that all of the documents were landing on the same partition. 
+
+![](./_images/cosmosdb-partitions.png)
+
+What you want to see in the heat map is an even distrubution across all of the partitions. In this casem because every document was getting written to the same partition, adding RUs didn't help. The problem turned out to be a bug in the code. Although the Cosmos DB collection had a partition key, the Azure Function didn't actually include the partition key in the document.
+
+When the team deployed a code fix and re-ran the test, Cosmos DB stopped throttling.
+For awhile, everything looked good. But at a certain load, telemetry showed that the function was writing fewer documents that it should.
+
+The Azure Function receives two message types from upstream &mdash; drone position and drone state. It ignores the drone state messages, and upserts a Cosmos DB document for each position message. 
+
+In the following diagram, the yellow line is number of messages received per batch, and the green is the number of documents written per batch. These should be proportional. Instead, the number of database write operations per batch drops significantly at about 07:30.
+
+![](./_images/warm-path-dropped-messages.png)
+
+Now let's look at another metric: The latency beween when message arrives at IoT Hub, and when the function processes that message. You can see that at the same point in time, the lateness spikes dramatically, levels off, and the declines.
+
+![](./_images/warm-path-message-lateness.png)
+
+What was happening? Simply put, the function was not writing documents quickly enough to keep up with the incoming volume of messages. Over time, it fell further and further behind. The function has logic to discard messages that are more than 5 minutes old. You can see this in the graph when the lateness metric drops back to zero. In the meantime, data has been lost, because the function was throwing away messages.
+
+Keep in mind that the Cosmos DB collection had RUs to spare. So the problem had nothing to do Cosmos DB being able to handle the load. Once we optimized the function code, we achieved a much higher throughput. For details about the optimized code, see [Optimizing the Azure Function](./azure-functions.md#optimizing-the-azure-function).
 
 
-
-(this is the "reduce" step in MapReduce)
-
-Correlation – hard to correlate individual events, because you are aggregating as they move through the pipeline – compared to transactional data – Why do we need correlation? 
--	If it's to make sure you aren't losing events, then use (a) no telemetry query, (b) monitor metrics at each stage in the pipeline
--	Commands (D2C or C2D) – these you may want to track the entire flow including round trip
-o	Eg connected car, you can lock the car remotely
-
-
-
-
-
-
-
-
-
-
-
-
-Monitoring can also cost money – AI cost model
-AI throttling – take from MSA guidance
-
-
-
-
-
-Example of diagnosing an issue: Warm path performance. This was part of a load test where we deliberately stressed the system by pusing load through it.
-
-Lots of 429s – that means Cosmos DB is throttling
- 
-Strangely, this happened even after we increased the RUs for the collection. This seemed odd because our back-of-envelope calculation indicated that Cosmos DB should have no problem keeping up. 
-Email from someone on the team:
-“I looked at Cosmos DB for the warm path. There's one thing I don't understand. The partition key is deliveryid, however we don't send deliveryid to Cosmos DB.  Am I missing something?”
-That was the clue. Looking at the partition heat map, it turned out that everything was landing on the same partition – due to a code bug that did not include the partition key in the payload.
-
- 
-Fixed the bug, re-ran the test. Now Cosmos DB stopped throttling.
-Everything looks good. But wait – at a certain load, the number of Cosmos DB records being written is not proportional to the number of  messages per batch.
- 
-The yellow line is number of messages received per batch, and the green is the number of documents written per batch. These should be proportional – the warm path writes position messages and ignores drone state messages. 
-Look at the lateness factor – The function isn't keeping up. As it falls behind, the lateness threshold is reached and the function starts discarding messages.
- 
-
-
-ASA
--	High SU spikes
--	Late or dropped messages
--	When ASA stops, look for input/output events drop to zero
-o	But also need to look at other metrics like number of events landing in IoT Hub, so need to correlate time ranges
--	See unprocessed messages (backlog) in the job diagram
-
-
-Custom warm path metrics
- 
-Cosmos DB throttling
- 
-
-
-Function App – requests and request duration (monitor-function-app-requests)
- 
-Device simulator – CPU running hot (device-simulator-cpu)
- 
-
-Cosmos DB – RUs per minute (cosmosdb-ru)
- 
-
-IoT Hub message quota (Total number of messages used – resets daily) (iot-hub-total-messages)
- 
-IoT Hub message sent per minute correlated with endpoint latency (time it takes to reach Event Hub) (iot-hub-endpoint-latency)
- 
-See https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-metrics - d2c.endpoints.latency.builtIn.events
-
-Function app: Messages receives vs documents created (warm-path-cosmosdb-metrics)
- 
 

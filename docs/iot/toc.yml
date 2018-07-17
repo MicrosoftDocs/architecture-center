@@ -13,9 +13,11 @@
     href: field-gateways.md
   - name: Data ingestion
     href: data-ingestion.md
-  - name: Stream processing
-    items:
-    - name: Azure Stream Analytics
-      href: stream-analytics.md
-    - name: Azure Functions
-      href: azure-functions.md
+  - name: Hot path stream processing
+    href: stream-analytics.md
+  - name: Warm path stream processing
+    href: azure-functions.md
+  - name: Cold path batch processing
+    href: batching-hive.md
+  - name: Monitoring
+    href: monitoring.md

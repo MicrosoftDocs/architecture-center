@@ -61,9 +61,7 @@ In order to scale out the Cosmos DB collection, create the collection with a par
 - The partition key for a document won't change.
     - You can't update the partition key on an existing document. If the value changes, you have to delete the document and recreate.
 
-
 The warm path stores exactly one document per drone. The function continually updates the documents with the drone's latest position, using an upsert operation. Therefore, device ID is a good partition key for this scenario. Writes will be evenly distributed across the keys, and the size of each partition is strictly bounded, because there is a single document for each key value. 
-
 
 On the other hand, suppose the function create a separate document for every device message that it received. Message ID would be a better partition key in that case. Using the device ID as a partition key would quickly exceed the 10 GB limit per partition. 
 
@@ -123,6 +121,8 @@ You can see this in the following graph which tracks number of messages received
 ![](./_images/warm-path-dropped-messages.png)
 
 Azure Functions can run in parallel, but in this case, the degree of parallelism is limited by the number of Event Hub partitions, because each partition is assigned one function instance at a time. You can scale out by creating the IoT Hub with more partitions. 
+
+## Optimizing the Azure Function
 
 Another way to increase throughput is to optimize the I/O calls made by the function. Our baseline implementation uses the built-in Cosmos DB output binding. This worked well for the target throughput of 2500 messages per second. However, load tests showed the function fell behind at higher throughput. The reference implementation includes an optimized version of the function for high throughput. This version calls the Cosmos DB client directly, so that database writes can be done in parallel. 
 
