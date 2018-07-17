@@ -1,10 +1,10 @@
 ---
-title: "Explainer: How does Azure work?"
-description: Explains the internal functioning of Azure
+title: How does Azure work?
+description: Explanation of the internal functioning of Azure
 author: petertay
 ---
 
-# Explainer: How does Azure work?
+# How does Azure work?
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
@@ -26,7 +26,7 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-* Now that you understand the internal functioning of Azure, learn about [resource access governance](governance-explainer.md). Then, move on to the first step of adopting Azure, which is to [understand digital identity in Azure](tenant-explainer.md). Once you have completed that step, you are ready to [create your first user in Azure AD][docs-add-users-to-aad].
+* Now that you understand the internal functioning of Azure, learn about [resource access governance](governance-explainer.md). 
 
 <!-- Links -->
 
