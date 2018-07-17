@@ -22,7 +22,7 @@ The audience for this stage of the guide is the following personas within your o
 
 In the foundational adoption stage, you learned some basics about Azure internals and how resources are created, read, updated, and deleted. You also learned about identity and that Azure only trusts Azure Active Directory (AD) to authenticate and authorize users who need access to those resources.
 
-You also started learning about how to configure Azure's governance tools to manage your organization's use of Azure resources. In the foundational stage we looked at how to govern a single team's access to the resources necessary to deploy a simple workload. In reality, your organization is going to be made up of multiple teams working on multiple workloads simultaneously. 
+You also started learning about how to configure Azure's governance tools to manage your organization's use of Azure resources. We looked at how to govern a single team's access to the resources necessary to deploy a simple workload. In reality, your organization is going to be made up of multiple teams working on multiple workloads simultaneously. 
 
 Before we begin, let's take a look at what the term **workload** actually means. It's a term that is typically understood to define an arbitrary unit of functionality such as an application or service. We think about a workload in terms of the code artifacts that are deployed to a server as well as any other services, such as a database, that are necessary. This is a useful definition for an on-premises application or service but in the cloud we need to expand on it. 
 

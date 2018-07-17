@@ -6,7 +6,10 @@ author: petertay
 
 # Adopting Microsoft Azure: Foundational
 
-It can be difficult for an organization that is new to cloud technologies to decide on the right place to start begin their adoption journey. The goal of the foundational adoption stage is to provide a starting point. Once individuals within the organization have worked through this stage they will have all the knowledge and skills necessary to deploy a simple workload to Azure.
+For an organization that is new to cloud technologies, it can be difficult to decide on the right place to begin their adoption journey. The goal of the foundational adoption stage is to provide a starting point. Once individuals within the organization have worked through this stage they will have all the knowledge and skills necessary to deploy the compute resources for a simple workload to Azure. 
+
+> [!NOTE]
+> This guide does not cover application development. For more information about developing applications on Azure, see the [Azure Application Architecture Guide](/azure/architecture/guide/).
 
 The audience for this stage of the guide is the following personas within your organization:
 
@@ -20,11 +23,13 @@ This introductory section is intended for the *finance* and *central IT* persona
 
 ## Section 2: Governance design guide
 
-This audience for this section is the *central IT* and *workload owner* personas. Learn the basics of identity management, resource access permissions, and resource management scope in the [goverance design guide.](governance-how-to.md).
+Now that you understand how Azure works and the basics of cloud goverance, your first step in adopting Azure is learning about [resource access management](azure-resource-access.md) in Azure. This article describes the Azure services for making resource access requests and the controls used to validate those requests.
+
+The next step is learning how to [design a governance model](governance-how-to.md) for a single team. This article describes how to configure the resource access management services and controls you learned about earlier.
 
 ## Section 3: Implementing a basic resource access management model
 
-Now that you understand access permissions in Azure, let's take a look at how to implement a governance model for our simple workload.
+The final step in your adoption journey is to learn how to implement the governance model designed earlier. 
 
 To begin, your organization requires an Azure account. If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information. 
 

@@ -1,14 +1,14 @@
 ---
-title: "How to: configure Azure governance controls for the foundational adoption stage"
+title: Azure governance design guide
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertay
 ---
 
-# Azure governance design guide for the foundational adoption stage
+# Azure governance design guide
 
 The audience for this design guide is the *central IT* persona in your organization. *Central IT* is responsible for designing and implementing your organization's cloud governance architecture. As you learned in the [what is cloud resource governance?](governance-explainer.md) explainer, governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization.
 
-The goal of this guidance is to help you learn the process of designing your organization's governance architecture. To facilitate this, we'll look at a set of hypothetical governance goals and requirements and discuss how to configure Azure's governance tools to meet them. 
+The goal of this guidance is to help you learn the process of designing your organization's governance architecture by looking at a set of hypothetical governance goals and requirements. Then, we'll discuss how to configure Azure's governance tools to meet them. 
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
 * Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
@@ -16,7 +16,7 @@ In the foundational adoption stage, our goal is to deploy a simple workload to A
 
 ## Licensing Azure
 
-Before we begin designing our governance model, it's important to understand how Azure is licensed because the associated administrative accounts have the highest level of access to your Azure resources. These administrative accounts form the basis of our governance model.  
+Before we begin designing our governance model, it's important to understand how Azure is licensed. This is because the administrative accounts associated with your Azure license have the highest level of access to all of your Azure resources. These administrative accounts form the basis of your governance model.  
 
 > [!NOTE]
 > If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information. 
@@ -28,7 +28,7 @@ When Azure added to your organization's Enterprise Agreement, your organization 
 
 ## Identity management
 
-Azure only trusts [Azure AD](/azure/active-directory) to authenticate users and authorize user access to resources, so  Azure AD is our identity management system. The Azure AD global administrator has the highest level of permissions and can perform all actions related to identity, including creating users and assigning permissions. 
+Azure only trusts [Azure AD](/azure/active-directory) to authenticate users and authorize user access to resources, so Azure AD is our identity management system. The Azure AD global administrator has the highest level of permissions and can perform all actions related to identity, including creating users and assigning permissions. 
 
 Our requirement is identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
 
@@ -98,4 +98,4 @@ In this article, you learned:
 
 ## Next steps
 
-Return to the [foundational adoption stage overview](overview.md) and learn about the different types of compute options in Azure. Then, select a type of workload and learn how to deploy it.
+Return to the [foundational adoption stage overview](overview.md) to learn how to implement this goverance model. Then, select a type of workload and learn how to deploy it.
