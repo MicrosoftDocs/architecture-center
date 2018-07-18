@@ -77,10 +77,6 @@ For the output, partitioning depends on the type of output. In the Drone Deliver
 
 Azure Functions are inherently parallel. Each partition will be assigned a Function instance. For Cosmos DB, explicitly specify the partition key when you create the collection. The partition key ensures that documents will be distributed across the physical partitions. 
 
-Assuming a Stream Analytics job is fully parallel, you can allocate 6 SUs for each partition per query step, up to a hard limit of 120 SUs per job. There is also a soft limits on the number of SUs per subscription per region, but that limit can be raised by opening a support ticket. For more information, see [Azure limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits).
-
-In our testing, the hot path could handle about 6K telemetry messages per second. Of course, performance depends on a lot of factors, including the complexity of the queries and the number of partitions. 
-
 Even if your query requires a non-parallel step, sometimes you can break a query into steps, in such as way that step 1 is partitioned, and step 2 groups the result of step 1. For an example of this approach, see [Scale an Azure Stream Analytics job to increase throughput](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-jobs). 
 
 For more information about parallelism in Azure Stream Analytics, see [Leverage query parallelization in Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization).
@@ -153,4 +149,20 @@ For late messages, Stream Analytics applies a lateness policy:
 -	If a message arrives later than the maximum tolerance, Stream Analytics adjusts the timestamp so that it appears to be within the tolerance, and processes the message. 
 
 For early message, Stream Analytics has a 5-minute tolerance. If an event is more than 5 minutes early, Stream Analytics uses the out-of-order policy and either drops the event or adjusts the time stamp.
+
+## Scaling considerations
+
+Assuming a Stream Analytics job is fully parallel, you can allocate 6 SUs for each partition per query step, up to a hard limit of 120 SUs per job. There is also a soft limit on the number of SUs per subscription per region, but this limit can be raised by opening a support ticket. For more information, see [Azure limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits).
+
+In our testing, the hot path could handle about 6K telemetry messages per second. Of course, performance depends on a lot of factors, including the complexity of the queries and the number of partitions. 
+
+When you monitor a Stream Analytics job, look for the following warning signals:
+
+- High SU utilization. 
+- The number of input/output events drops to zero. This can be a sign that the job stopped processing, which might be caused by resource exhaustion.
+- The input events backlog. This metric is available through the [job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagram-with-metrics).
+
+The following graph shows a Stream Analytics job that approaches 100% SU utilization. You should aim to have the SU metric below 80% to account for occasional spikes. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption).
+
+![](./_images/asa-high-load.png)
 

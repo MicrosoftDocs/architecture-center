@@ -51,23 +51,22 @@ When using the Event Hubs endpoint, it's important to understand the streaming m
 
 For more information, see [Event Hubs features overview](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features).
 
-## Scalability considerations
+## Scaling considerations
 
-When you look at throughput, you need to consider how fast IoT Hub can ingest messages, and how fast you can process the messages as they arrive. 
+For IoT Hub, the considerations for scaling include:
 
-### Ingestion
+- The maximum daily quota of messages into IoT Hub.
+- Ingestion throughput. How quickly IoT Hub can ingest messages.
+- Processing throughput: How quickly the incoming messages are processed.
 
-Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling).
+Each IoT hub is provisioned with a certain number of units in a specific tier. The tier and number of units determine the maximum daily quota of messages that devices can send to the hub. For more information, see [IoT Hub quotas and throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling). 
 
-You can scale up a hub without interrupting existing operations. However, IoT Hub does not currently support auto-scaling. You should monitor the [quota metrics](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/getquotametrics) for the hub, and manually scale the hub if needed. 
+You can scale up a hub without interrupting existing operations. However, IoT Hub does not currently support auto-scaling. For production workloads, always monitor the [quota metrics](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/getquotametrics) for the hub, and manually scale the hub if needed. The following graph plots the number of messages applied toward the daily quota. Notice that it resets to zero at the start of each day. 
+
+![](./_images/iot-hub-quota.png)
 
 You can open a support request to increase the maximum quota for a hub. If you still need more throughput than a single IoT Hub instance can provide, you will need to create multiple IoT Hub instances. You can use the IoT Hub Device Provisioning Service to automate the process of assigning devices to hubs, without needing to pre-allocate devices to hubs. For more information, see [Provision devices across load-balanced IoT hubs](https://docs.microsoft.com/en-us/azure/iot-dps/tutorial-provision-multiple-hubs). 
 
-Another approach is to use a field gateway to reduce the volume of data from each device.
+Another way to handle very high traffic is to use a [field gateway](./field-gateways.md) to reduce the volume of data from each device. A field gateway can aggregate or filter the raw telemetry before sending it to the cloud. 
 
-### Processing
-
-When using Event Hubs to process messages, the number of parallel readers may be a bottleneck. The maximum rate that you can process messages is determined by how fast one reader can read over a single partition. Make sure to create enough IoT Hub partitions for your expected load. Use load testing to validate your throughput. In your load tests, scale to your expected message rate and number of devices.
-
-Processing speed is less of a concern for the cold path, because by definition the cold path doesn't need to process in real time.
-
+Ingestion is one side of the equation. The other side is processing messages quickly enough to keep up with the ingestion rate. When using Event Hubs to process messages, the number of parallel readers may be a bottleneck. The maximum rate that you can process messages is determined by how fast one reader can read over a single partition. Make sure to create enough IoT Hub partitions for your expected load. Use load testing to validate your throughput. In your load tests, scale to your expected message rate and number of devices.

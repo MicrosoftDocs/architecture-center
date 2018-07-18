@@ -4,7 +4,6 @@ This chapter describes using HDInsight to perform batch processing in an IoT sol
 
 A *delivery* is a business entity, but from the perspective of the drone, a delivery is a sequence of events: Picking up a package, flying to the destination, and dropping off the package. During the flight, the drone sends its current position at regular intervals. The batch processing job needs to assemble this event sequence into a meaningful business entity for analysis.
 
-
 ## The batch processing pipeline
 
 For batch processing, you should capture and store the raw device telemetry before doing any processing. By keeping the raw data, you can always run new queries to get new insights into the data. If you filter or aggregate the raw data before storing it, then you lose information that might prove valuable later.
