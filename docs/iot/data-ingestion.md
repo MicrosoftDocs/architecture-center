@@ -2,6 +2,9 @@
 
 This chapter describes how to get data from IoT devices into the cloud.
 
+![](./_images/event-ingestion.png)
+
+
 ## Requirements 
 
 **High scale ingestion**. Even a moderately sized IoT solution generates a lot of data. For our basic reference implementation, we targeted 10,000 devices, with each device sending an event every 5 seconds, for a total throughput of 2000 events/second. That's on the low end for an IoT scenario. Even if you start with a small number of devices, that number can grow over time. The price of success is ever greater demands on the system.

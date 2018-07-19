@@ -1,6 +1,10 @@
 # Batch processing for IoT using HDInsight and Hive
 
-This chapter describes using HDInsight to perform batch processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application uses batch processing to analyze data about deliveries. For example, batch processing can answer questions like "How long does the average delivery take?" or "How many deliveries failed to be completed?" More complex analyses could correlate this information with external data such as weather data.
+This chapter describes using HDInsight to perform batch processing in an IoT solution. 
+
+![](./_images/cold-path.png)
+
+As described in the [Introduction](./index.md) to this series, the Drone Delivery application uses batch processing to analyze data about deliveries. For example, batch processing can answer questions like "How long does the average delivery take?" or "How many deliveries failed to be completed?" More complex analyses could correlate this information with external data such as weather data.
 
 A *delivery* is a business entity, but from the perspective of the drone, a delivery is a sequence of events: Picking up a package, flying to the destination, and dropping off the package. During the flight, the drone sends its current position at regular intervals. The batch processing job needs to assemble this event sequence into a meaningful business entity for analysis.
 

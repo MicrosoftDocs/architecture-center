@@ -1,6 +1,10 @@
 # Stream processing for IoT using Azure Stream Analytics
 
-This chapter describes using Azure Stream Analytics to perform hot-path processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for hot-path processing:
+This chapter describes using Azure Stream Analytics to perform hot-path processing in an IoT solution. 
+
+![](./_images/hot-path.png)
+
+As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for hot-path processing:
 
 - Analyze aggregations of telemetry over time windows.
 - Use the analysis to trigger alerts.

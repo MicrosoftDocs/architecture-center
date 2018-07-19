@@ -1,16 +1,20 @@
 # Stream processing for IoT using Azure Functions
 
-This chapter describes using Azure Functions to perform warm-path processing in an IoT solution. As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for warm-path processing:
+This chapter describes using Azure Functions to perform warm-path processing in an IoT solution. 
+
+![](./_images/warm-path.png)
+
+As described in the [Introduction](./index.md) to this series, the Drone Delivery application has the following functional requirements for warm-path processing:
 
 - Read events from IoT Hub
 - Transform the longitude and latitude values into [GeoJSON](https://tools.ietf.org/html/rfc7946) format. This is a standard format for geospatial data.
 - Store the output in Cosmos DB.
 
-Cosmos DB has native support for [geospatial data](https://docs.microsoft.com/en-us/azure/cosmos-db/geospatial). Cosmos DB collections can be indexed for efficient spatial queries. For example, an application could query for all drones within 1 km of a specified location, or find all drones inside a given area. Cosmos DB can also scale to support very high write throughput. 
+Cosmos DB has native support for [geospatial data](https://docs.microsoft.com/en-us/azure/cosmos-db/geospatial)and Cosmos DB collections can be indexed for efficient spatial queries. For example, an application could query for all drones within 1 km of a specified location, or find all drones inside a given area. Cosmos DB can also scale to support very high write throughput.
 
-These processing requirements are simple enough that they don't require a full-fledged stream processing engine. In particular, the warm path described here does not join streams, aggregate data, or process across time windows. Based on these requirements, Azure Functions is a good fit. 
+These processing requirements are simple enough that they don't require a full-fledged stream processing engine. In particular, the warm path described here does not join streams, aggregate data, or process across time windows. Based on these requirements, Azure Functions is a good fit for processing the messages. 
 
-In the Azure Functions programming model, you write a small piece of code (a function). You also declare a [trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the function, which defines how the function is invoked. You can also declare an *output binding* that connects the function to an output.
+In the Azure Functions programming model, you write a small piece of code (a function). You also declare a [trigger](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the function, which defines how the function is invoked. Optionally, you can declare an *output binding* that connects the function to an output such as a data store.
 
 1. As messages arrive in the IoT hub, the function is invoked with a batch of messages.
 2. The function loops through the message to process them, and puts the results into a collection object.
