@@ -4,6 +4,8 @@ The following diagram shows the functional components of a typical IoT solution.
 
  ![](./_images/iot-logical-architecture.png)
 
+This diagram is based on the [Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF download). 
+
 ## Logical architecture
 
 This logical architecture consists of the following functional blocks:

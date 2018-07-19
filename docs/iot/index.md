@@ -22,9 +22,13 @@ In this guidance, we focus especially on the cloud backend of an IoT system:
 - Using batch processing to produce business insights.
 - Monitoring and performance testing.
 
+This guidance is based on a reference implementation that is available on GitHub. 
+
+For a general overview of IoT and how Azure can address challenges in IoT projects, see [Introduction to Azure and the Internet of Things](https://docs.microsoft.com/en-us/azure/iot-fundamentals/iot-introduction).
+
 ## The Drone Delivery application
 
-To explore these issues, we created a reference implementation called the Drone Delivery application. You can find the code in GitHub.
+To explore the challenges of building an IoT application, we created a reference implementation called the Drone Delivery application. You can find the code in GitHub. 
 
 Here is the scenario: Fabrikam, Inc. runs a drone delivery service. The company manages a fleet of drone aircraft, and customers can request a drone to pick up goods for delivery. 
 
