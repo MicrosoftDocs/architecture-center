@@ -100,7 +100,6 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
-|Container registry name | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`awesomeimagesregistry` |
 
 ### Networking
 
@@ -116,6 +115,13 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`http` |
 |Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-agw` |`profx-agw` |
 |Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, hyphen, and period |`<descriptive context>` |`app1` |
+
+### Containers
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Container Registry | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
+
 
 ## Organize resources with tags
 
