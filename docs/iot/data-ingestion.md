@@ -59,6 +59,7 @@ For more information, see [Event Hubs features overview](https://docs.microsoft.
 For IoT Hub, the considerations for scaling include:
 
 - The maximum daily quota of messages into IoT Hub.
+- The quota of [connected devices in an IoT Hub instance](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits).
 - Ingestion throughput. How quickly IoT Hub can ingest messages.
 - Processing throughput: How quickly the incoming messages are processed.
 
@@ -88,5 +89,5 @@ Here are some considerations when creating a device simulator.
 
 - For load testing, the simulator should support configurable step loads. For example, you might run a load test that starts with 1000 simulated devices, and ramps up to 20,000 devices at increments of 1000. When you generate load, consider the target throughput (messages per second), the number of simulated devices, and the number of simultaneous connections.
 
-During load testing, the simulator itself can become a bottleneck. For example, if the simulator creates a thread for each simulated device, the simulator may become thread bound. You should monitor the simulator host for CPU, memory, and I/O consumption. At high scale, a cluster of simulators can also hit networking limits, where adding more simulator instances doesn't help. For example, with a large number of simulated devices, it's possible to experience SNAT port exhaustion. For more inforation, see [Outbound connections in Azure](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections).
+During load testing, the simulator itself can become a bottleneck. For example, if the simulator creates a thread for each simulated device, the simulator may become thread bound. You should monitor the simulator host for CPU, memory, and I/O consumption. At high scale, a cluster of simulators can also hit networking limits, where adding more simulator instances doesn't help. For example, with a large number of simulated devices, it's possible to experience SNAT port exhaustion. For more information, see [Outbound connections in Azure](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections).
 
