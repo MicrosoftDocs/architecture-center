@@ -15,8 +15,7 @@ This chapter describes how to get data from IoT devices into the cloud.
 
 **Durable storage**. Messages should be retained for a period of time, so they can be reprocessed. 
 
-**Device authentication**. The cloud gateway should only accept connections from authenticated devices. There may be thousands or tens of thousands of devices. If devices share the same credentials, and one device is compromised, then all the devices are compromised. Instead, every device should have unique credentials, making it possible to revoke individual devices.
-
+**Device authentication**. The cloud gateway should only accept connections from authenticated devices. There may be thousands or tens of thousands of devices. If devices share the same credentials, and one device is compromised, then all the devices are compromised. Instead, every device should have unique credentials, making it possible to revoke individual devices. In an IoT device manufacturing process with a supply chain, it is critical that keys remain private and protected along the entire process, and that means not to share secrets with other parties at any point in time. That being said, the recommendation is to use [a cryptographic chain of trust as well as Hardware Secure Modules (HSM)](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview).
 
 ## Technology choices
 
