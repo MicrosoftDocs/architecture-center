@@ -75,7 +75,7 @@ Warm path:
 
 Device simulator:
 
-- IoT Hub metrics
+- IoT Hub metrics: number of connected devices, telemetry ingress vs egress, trottling errors and consumed messages quota   
 - CPU usage for VMs running the simulator
 - Network Out (bytes of outgoing traffic on all network interfaces)
 
