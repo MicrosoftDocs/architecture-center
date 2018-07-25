@@ -40,7 +40,7 @@ You should consider this scenario for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Diagram](media/SAP-Infra-3TierDistributedHA_WinLinOra_v3.png)
+![Diagram](media/sap-sample-oracle/SAP-Infra-3TierDistributedHA_WinLinOra_v3.png)
 
 ## Architecture
 
