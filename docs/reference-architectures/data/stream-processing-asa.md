@@ -25,7 +25,7 @@ Stream Analytics jobs scale best if the job can be parallalized. For Event Hubs 
     > [!NOTE]
     > This zip file contains other zip files. Don't extract the child zip files.
 
-The directory structure should look like to the following:
+The directory structure should look like the following:
 
 ```
 /data
