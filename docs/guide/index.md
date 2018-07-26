@@ -77,7 +77,7 @@ Learn more:
 
 A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
 
-- [Quality pillars](./pillars/index.md)
+- [Quality pillars](./pillars.md)
 
 
 [ebook]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
