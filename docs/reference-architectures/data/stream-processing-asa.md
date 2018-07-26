@@ -19,11 +19,11 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
 
-**Power BI**.  Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
+**MicrosoftPower BI**.  Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Togther these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
+To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
 
 The data generator is a .NET core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format. 
 
@@ -120,7 +120,7 @@ Step3 AS (
 )
 ```
 
-Records are joined on a set of record fields that uniquely identify a pair of matching records (Medallion, HackLicense, VendorId, and PickupTime). In addition, the `JOIN` statement must include the partition ID becaause the input streams are partitioned. 
+Records are joined on a set of record fields that uniquely identify a pair of matching records (Medallion, HackLicense, VendorId, and PickupTime). In addition, the `JOIN` statement must include the partition ID because the input streams are partitioned. 
 
 The [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/join-azure-stream-analytics) function specifies a limit on how far two matching records can be separated in time. Otherwise, the job would wait indefinitely to get a match. 
 
@@ -138,7 +138,7 @@ Stream Analytics provides several [windowing functions](https://docs.microsoft.c
 
 ## Scalability considerations
 
-Stream Analytics jobs scale best if the job can be parallalized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
+Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
 
 If it's not possible to parallelize the entire job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams. 
 
@@ -221,7 +221,7 @@ The directory structure should look like the following:
         --resource-group $resourceGroup
     ```
 
-3. In the Azure Portal, navigate to the resource group that was created.
+3. In the Azure portal, navigate to the resource group that was created.
 
 4. Open the blade for the Stream Analytics job.
 
@@ -282,4 +282,4 @@ Created 30000 records for TaxiFare
 ...
 ```
 
-Let the program run for at least 5 minutes, which is the window defined in the Stream Analytics query. To verify the Stream Analytics job is running correctly, open the Azure Portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and view the documents. 
+Let the program run for at least 5 minutes, which is the window defined in the Stream Analytics query. To verify the Stream Analytics job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and view the documents. 
