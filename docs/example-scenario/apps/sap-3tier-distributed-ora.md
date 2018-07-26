@@ -40,7 +40,7 @@ You should consider this scenario for the following use cases:
 
 The solution diagram below is an example of this solution:
 
-![Diagram](media/sap-sample-oracle/SAP-Infra-3TierDistributedHA_WinLinOra_v3.png)
+![Diagram](media/SAP-Infra-3TierDistributedHA_WinLinOra_v3.png)
 
 ## Architecture
 
@@ -112,19 +112,13 @@ Note: pricing is a guide and only indicates the VMs and storage costs (excludes,
 
 ## Deployment Example
 
-You can also deploy the underlying infrastructure similar to the scenario above, please use the [deploy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md) template from GitHub. This template takes a minimum amount of parameters and deploys a VM that is customized for use with SAP NetWeaver.
+You can deploy the underlying infrastructure similar to the scenario above, please use the deploy button
+
+<a
+href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-3tier-distributed-ora%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 Note: SAP and Oracle will not be installed, you'll need to do this after the infrastructure is built manually.
 
-<!---
-To deploy similar scenario, you can follow [deploy](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md) tempate from GitHub. This template takes a minimum amount of parameters and deploys a VM that is customized for use with SAP NetWeaver.
- 
- * SAP and Oracle will not be installed, you'll need to do this after the infrastructure is built manually.
 
-You can also deploy the underlying infrastructure similar to the scenario above, please use the deploy button
-
-<a
-href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-3tier-distributed%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
---->
