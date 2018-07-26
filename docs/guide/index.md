@@ -51,19 +51,33 @@ The Azure Application Architecture Guide is organized as a series of steps, from
 
 The first decision point is the most fundamental. What kind of architecture are you building? It might be a microservices architecture, a more traditional N-tier application, or a big data solution. We have identified several distinct architecture styles. There are benefits and challenges to each.
 
+Learn more:
+
+- [Architecture styles](./architecture-styles/index.md)
+
 ### Technology choices
 
 Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. 
+
+Learn more:
+
+- [Choosing a compute service](./technology-choices/compute-overview.md)
+- [Choosing a data store](./technology-choices/data-store-overview.md)
 
 ### Design principles
 
 We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
 
+Learn more:
+
+- [Design principles](./design-principles/index.md)
+
+
 ### Quality pillars
 
 A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
 
-> [!div class="nextstepaction"]
-> [Architecture styles](./architecture-styles/index.md)
+- [Quality pillars](./pillars/index.md)
+
 
 [ebook]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
