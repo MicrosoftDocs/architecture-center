@@ -61,17 +61,19 @@ The gateway subnet must be named *GatewaySubnet*. Assign the gateway subnet addr
 
 ### VM recommendations
 
-Based on Standard DSv2 virtual machine sizes, this architecture requires a minimum of 38 cores:
+This architecture requires a minimum of 44 cores:
 
 - 8 SharePoint servers on Standard_DS3_v2 (4 cores each) = 32 cores
 - 2 Active Directory domain controllers on Standard_DS1_v2 (1 core each) = 2 cores
-- 2 SQL Server VMs on Standard_DS1_v2 = 2 cores
+- 2 SQL Server VMs on Standard_DS3_v2 = 8 cores
 - 1 majority node on Standard_DS1_v2 = 1 core
 - 1 management server on Standard_DS1_v2 = 1 core
 
-The total number of cores will depend on the VM sizes that you select. For more information, see [SharePoint Server recommendations](#sharepoint-server-recommendations) below.
-
 Make sure your Azure subscription has enough VM core quota for the deployment, or the deployment will fail. See [Azure subscription and service limits, quotas, and constraints][quotas]. 
+
+For all SharePoint roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. For testing, the parameter files for this reference architecture specify the smaller DS3_v2 size for the Search Indexer role. For a production deployment, update the parameter files to use the DS13 size or larger. For more information, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs]. 
+
+For the SQL Server VMs, we recommend a minimum of 4 cores and 8 GB RAM. The parameter files for this reference architecture specify the DS3_v2 size. For a production deployment, you might need to specify a larger VM size. For more information, see [Storage and SQL Server capacity planning and configuration (SharePoint Server)](/sharepoint/administration/storage-and-sql-server-capacity-planning-and-configuration#estimate-memory-requirements). 
  
 ### NSG recommendations
 
@@ -104,18 +106,12 @@ Before configuring the SharePoint farm, make sure you have one Windows Server Ac
 - Cache Super User account
 - Cache Super Reader account
 
-For all roles except the Search Indexer, we recommended using the [Standard_DS3_v2][vm-sizes-general] VM size. The Search Indexer should be at least the [Standard_DS13_v2][vm-sizes-memory] size. 
-
-> [!NOTE]
-> The Resource Manager template for this reference architecture uses the smaller DS3 size for the Search Indexer, for purposes of testing the deployment. For a production deployment, use the DS13 size or larger. 
-
-For production workloads, see [Hardware and software requirements for SharePoint Server 2016][sharepoint-reqs]. 
-
 To meet the support requirement for disk throughput of 200 MB per second minimum, make sure to plan the Search architecture. See [Plan enterprise search architecture in SharePoint Server 2013][sharepoint-search]. Also follow the guidelines in [Best practices for crawling in SharePoint Server 2016][sharepoint-crawling].
 
 In addition, store the search component data on a separate storage volume or partition with high performance. To reduce load and improve throughput, configure the object cache user accounts, which are required in this architecture. Split the Windows Server operating system files, the SharePoint Server 2016 program files, and diagnostics logs across three separate storage volumes or partitions with normal performance. 
 
 For more information about these recommendations, see [Initial deployment administrative and service accounts in SharePoint Server 2016][sharepoint-accounts].
+
 
 ### Hybrid workloads
 
