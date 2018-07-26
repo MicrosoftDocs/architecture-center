@@ -13,9 +13,9 @@ To be successful in adopting the cloud, an enterprise must prepare their organiz
 The high-level process is: 
 1. Identify the stakeholders in your organization participating in the cloud adoption process. 
 2. Conduct regular discussions with the stakeholders.
-  a. Capture stakeholder concerns. 
-  b. Identify the potential gaps in skills, roles, and processes from these concerns. 
-  c. Partner across teams on the overall goals of cloud adoption for the organization. 
+  * Capture stakeholder concerns. 
+  * Identify the potential gaps in skills, roles, and processes from these concerns. 
+  * Partner across teams on the overall goals of cloud adoption for the organization. 
 3. Create a plan to address gaps and concerns. Execute the plan. 
 4. Repeat this process until all gaps and concerns have been addressed.
 
@@ -25,11 +25,11 @@ Adopting cloud technologies and digitally tranforming your business involves not
 
 | Area | Expertise |
 |-----|-----|
-|1. Finance | Financial operation of the enterprise. |
-|2. IT | Operation of the business infrastructure. | 
-|3. Human resources| People management. |
-|4. Compliance/Security | Protecting business assets on both the regulatory and security fronts.|
-|5. Business unit leadership | Business strategy and management at the executive and business unit level. | 
+|Finance | Financial operation of the enterprise. |
+|IT | Operation of the business infrastructure. | 
+|Human resources| People management. |
+|Compliance/Security | Protecting business assets on both the regulatory and security fronts.|
+|Business unit leadership | Business strategy and management at the executive and business unit level. | 
 
 Your enterprise may have additional roles and areas of expertise that require representation by key stakeholders.
 
@@ -61,9 +61,11 @@ Finally, identify the roles that will execute these skills. Some of your existin
 
 ### Partner across teams
 
-As gaps and concerns are identified, skills for  to have a shared understanding of the cloud adoption strategy, the desired outcomes for the organizations, and the dependencies that the will have on each other. 
-Understanding interdependencies 
-As you are capturing the roles, you should also identify the inputs and outputs for that role. The matrix above can be extended. 
+The skills necessary to fill the gaps in your organization's digital tranformation will typically not be confined to a single role, or even a single department. Skills will have relationships and dependencies that can span a single role or multiple roles, and those roles may exist in several departments. For example, a workload owner may require someone in an IT role to provision core resources such as subscriptions and resource groups.
+
+These dependencies represent new processes that your organization implements to manage the workflow between roles. In the above example, there are several different types of process that can support the relationship between the workload owner and the IT role. For example, a workflow tool can be created to manage the process, or, a simple email template can be used.
+
+Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For process that require tooling, ensure that the timeline for deploying any tools aligns with the overal digital transformation schedule.
 
 ### Create a plan and execute
 
