@@ -19,7 +19,9 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
 
-**MicrosoftPower BI**.  Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
+**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
+
+**Azure Monitor**. Azure Monitor collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution. 
 
 ## Data ingestion
 
@@ -29,7 +31,7 @@ The data generator is a .NET core application that reads the records and sends t
 
 Event Hubs uses [partitions](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion. 
 
-In this particular scenario, ride data and fare data should have the same partition ID for a given taxi cab. That will enable Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
+In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. That will enable Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
 ![](./images/stream-processing-eh.png)
 
@@ -140,7 +142,29 @@ Stream Analytics provides several [windowing functions](https://docs.microsoft.c
 
 Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
 
-If it's not possible to parallelize the entire job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams. 
+If it's not possible to parallelize the entire job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams.
+
+Windowing functions and temporal joins require additional SU to hold the events in memory over the window. However, you can ameliorate this by using `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+
+## Monitoring considerations
+
+With any stream processing solution, it's important to monitor the performance and health of the system. Azure Monitor collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
+
+Any of the following warning signals indicate that you should scale out the relevant Azure resource:
+
+- The Stream Analytics job consistently uses more than 80% of allocated Streaming Units (SU).
+- Cosmos DB begins to throttle requests.
+- Event Hubs throttles requests or is close to the daily message quota.
+
+This reference architecture includes a custom dashboard, which is deployed to the Azure portal. To view the dashboard, open the [Azure Portal](https://portal.azure.com) and select `TaxiRidesDashboard` from list of dashboards. You can create a custom dashboard from a set of existing resources in Azure and download an Azure Resource Manager template for the dashboard. By parameterizing the template, you can make it a part of your CI/CD pipeline. For more information, see [Programmatically create Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically).
+
+The following image shows the dashboard after a Stream Analytics was running for about an hour.
+
+![](./images/asa-dashboard.png)
+
+Notice that Event Hubs is throttling requests. This indicates the Event Hubs namespace should have more [throughput units](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units) allocated. 
+
+The SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
 
 ## Deploy the solution
 
@@ -225,7 +249,7 @@ The directory structure should look like the following:
 
 4. Open the blade for the Stream Analytics job.
 
-5. Click **Start** to start the job. Select **Now** as the output start time. 
+5. Click **Start** to start the job. Select **Now** as the output start time. Wait for the job to start.
 
 ### Run the data generator
 
