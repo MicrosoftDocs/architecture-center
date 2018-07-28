@@ -5,7 +5,7 @@ This reference architecture shows how to correlate two streams of data using Azu
 ![](./images/stream-processing-asa.png)
 
 
-**Scenario**: Taxi cabs collect data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts sends information about fares. For example, this might be a mobile app that customers use to pay the fare. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
+**Scenario**: Taxi cabs collect data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
 
 ## Architecture
 
@@ -13,7 +13,7 @@ The architecture consists of the following components.
 
 **Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real scenario, the data sources would be devices installed in the taxi cabs.
 
-**Azure Event Hubs**. Event Hubs is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
+**Azure Event Hubs**. [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
 **Azure Stream Analytics**. Stream Analytics reads the data streams from the two event hubs and performs stream processing.
 
@@ -140,11 +140,21 @@ Stream Analytics provides several [windowing functions](https://docs.microsoft.c
 
 ## Scalability considerations
 
-Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
+### Event Hubs
 
-If it's not possible to parallelize the entire job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams.
+The throughput capacity of Event Hubs is measured in [throughput units]((https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units bassed on traffic, up to a configure maximum.
+
+### Stream Analytics
+
+For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
+
+If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams.
 
 Windowing functions and temporal joins require additional SU to hold the events in memory over the window. However, you can ameliorate this by using `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+
+## Cosmos DB
+
+Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos CB container past 10,000 RU, you must specify a partition key when you create the container, and include the partition key in the document payloads. In this reference architecture, a new document is created once every minute (the hopping window interval), so the throughput requirements are quite low. 
 
 ## Monitoring considerations
 
@@ -162,9 +172,13 @@ The following image shows the dashboard after a Stream Analytics was running for
 
 ![](./images/asa-dashboard.png)
 
-Notice that Event Hubs is throttling requests. This indicates the Event Hubs namespace should have more [throughput units](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units) allocated. 
-
 The SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
+
+Notice that Event Hubs is throttling requests. The Event Hubs client SDK automatically retries if it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units.
+
+The following graph shows a test run using the auto-inflate feature. Auto-inflate was enabled at about the 6:35 mark. Event Hubs automatically scaled up to 3 throughput units (from 1) and the throttling errors stopped.
+
+![](./images/stream-processing-eh-autoscale.png)
 
 ## Deploy the solution
 
