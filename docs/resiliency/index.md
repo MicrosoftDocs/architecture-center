@@ -44,7 +44,7 @@ Resiliency is not an add-on. It must be designed into the system and put into op
 
 In the remainder of this article, we discuss each of these steps in more detail.
 
-## Define your resiliency requirements
+## Define your availability requirements
 Resiliency planning starts with business requirements. Here are some approaches for thinking about resiliency in those terms.
 
 ### Decompose by workload
@@ -181,7 +181,7 @@ When you design a multi-region application, take into account that network laten
 | Network latency | Very low | Low | Mid to high |
 | Virtual network  | VNet | VNet | Cross-region VNet peering |
 
-### Resiliency strategies
+## Implement resiliency strategies
 This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section summarize the general idea behind each technique, with links to further reading.
 
 **Retry transient failures**. Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
