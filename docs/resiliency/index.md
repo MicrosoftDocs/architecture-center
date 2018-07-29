@@ -4,8 +4,6 @@ description: How to build resilient applications in Azure, for high availability
 author: MikeWasson
 ms.date: 05/26/2017
 ms.custom: resiliency
-
-pnp.series.title: Design for Resiliency
 ---
 # Designing resilient applications for Azure
 

@@ -11,7 +11,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Requirements
 
-**Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements).
+**Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see [Designing resilient applications for Azure](../resiliency/index.md).
 
 ## Application Design
 
