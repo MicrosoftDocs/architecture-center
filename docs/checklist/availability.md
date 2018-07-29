@@ -16,7 +16,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Decompose workloads by service-level objective.** If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances to meet their availability requirements.
 
-**Minimize and understand service dependencies.** Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system. This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application. See [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements).
+**Minimize and understand service dependencies.** Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system. This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application.
 
 **Design tasks and messages to be idempotent where possible**. An operation is idempotent if it can be repeated multiple times and produce the same result. Idempotency can ensure that duplicated requests don't cause problems. Message consumers and the operations they carry out should be idempotent so that repeating a previously executed operation does not render the results invalid. This may mean detecting duplicated messages, or ensuring consistency by using an optimistic approach to handling conflicts.
 
