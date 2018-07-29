@@ -4,7 +4,6 @@ This reference architecture shows how to correlate two streams of data using Azu
 
 ![](./images/stream-processing-asa.png)
 
-
 **Scenario**: Taxi cabs collect data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
 
 ## Architecture
@@ -25,7 +24,7 @@ The architecture consists of the following components.
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
+To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset[[1](#note1)]. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
 
 The data generator is a .NET core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format. 
 
@@ -174,11 +173,13 @@ The following image shows the dashboard after a Stream Analytics was running for
 
 The SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
 
-Notice that Event Hubs is throttling requests. The Event Hubs client SDK automatically retries if it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units.
-
-The following graph shows a test run using the auto-inflate feature. Auto-inflate was enabled at about the 6:35 mark. Event Hubs automatically scaled up to 3 throughput units (from 1) and the throttling errors stopped.
+Notice that Event Hubs is throttling requests. The Event Hubs client SDK automatically retries if it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the auto-inflate feature. Auto-inflate was enabled at about the 6:35 mark. Event Hubs automatically scaled up to 3 throughput units (from 1) and the throttling errors stopped.
 
 ![](./images/stream-processing-eh-autoscale.png)
+
+Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. In fact, it's actually common that resolving one performance bottleneck reveals another.
+
+![](./images/stream-processing-su.png)
 
 ## Deploy the solution
 
@@ -186,7 +187,17 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 ### Prerequisites
 
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
+1. Clone, fork, or download the zip file for the [reference architectures](https://github.com/mspnp/reference-architectures) GitHub repository.
+
+2. Install [Docker](https://www.docker.com/) to run the data generator.
+
+3. Install [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
+
+    ```
+    az login
+    ```
 
 ### Download the source data files
 
@@ -321,3 +332,5 @@ Created 30000 records for TaxiFare
 ```
 
 Let the program run for at least 5 minutes, which is the window defined in the Stream Analytics query. To verify the Stream Analytics job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and view the documents. 
+
+[1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
