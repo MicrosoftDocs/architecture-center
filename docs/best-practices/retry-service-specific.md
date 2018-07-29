@@ -18,6 +18,7 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
+| **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#azure-event-hubs)** |Native in client |Programmatic |Client |None |
 | **[Redis Cache](#azure-redis-cache)** |Native in client |Programmatic |Client |TextWriter |
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
@@ -27,7 +28,6 @@ The following table summarizes the retry features for the Azure services describ
 | **[SQL Database with Entity Framework](#sql-database-using-entity-framework-6)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[SQL Database with Entity Framework Core](#sql-database-using-entity-framework-core)** |Native in client |Programmatic |Global per AppDomain |None |
 | **[Storage](#azure-storage)** |Native in client |Programmatic |Client and individual operations |TraceSource |
-| **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 
 > [!NOTE]
 > For most of the Azure built-in retry mechanisms, there is currently no way apply a different retry policy for different types of error or exception. You should configure a policy that provides the optimum average performance and availability. One way to fine-tune the policy is to analyze log files to determine the type of transient faults that are occurring. 
