@@ -2,7 +2,7 @@
 
 This reference architecture shows how to correlate two streams of data using Azure Stream Analytics and calculate a rolling average across a time window.
 
-![](./images/stream-processing-asa.png)
+![](./images/stream-processing-asa/stream-processing-asa.png)
 
 **Scenario**: Taxi cabs collect data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
 
@@ -32,7 +32,7 @@ Event Hubs uses [partitions](https://docs.microsoft.com/en-us/azure/event-hubs/e
 
 In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. That will enable Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
-![](./images/stream-processing-eh.png)
+![](./images/stream-processing-asa/stream-processing-eh.png)
 
 In the data generator, the common data model for both record types has a `PartitionKey` property which is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
@@ -102,8 +102,7 @@ The next step joins the two streams to select matching records from each stream.
 
 ```sql
 Step3 AS (
-  SELECT tr.PartitionId AS TaxiRidePartitionId,
-         tf.PartitionId AS TaxiFarePartitionId,
+  SELECT
          tr.Medallion,
          tr.HackLicense,
          tr.VendorId,
@@ -111,7 +110,8 @@ Step3 AS (
          tr.TripDistanceInMiles,
          tf.TipAmount
     FROM [Step1] tr
-    JOIN [Step2] tf
+    PARTITION BY PartitionId
+    JOIN [Step2] tf PARTITION BY PartitionId
       ON tr.Medallion = tf.Medallion
      AND tr.HackLicense = tf.HackLicense
      AND tr.VendorId = tf.VendorId
@@ -121,7 +121,7 @@ Step3 AS (
 )
 ```
 
-Records are joined on a set of record fields that uniquely identify a pair of matching records (Medallion, HackLicense, VendorId, and PickupTime). In addition, the `JOIN` statement must include the partition ID because the input streams are partitioned. 
+Records are joined on a set of record fields that uniquely identify a pair of matching records (Medallion, HackLicense, VendorId, and PickupTime). In addition, the `JOIN` statement must include the partition ID because the input streams are partitioned.
 
 The [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/join-azure-stream-analytics) function specifies a limit on how far two matching records can be separated in time. Otherwise, the job would wait indefinitely to get a match. 
 
@@ -145,9 +145,20 @@ The throughput capacity of Event Hubs is measured in [throughput units]((https:/
 
 ### Stream Analytics
 
-For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions or input streams, then each partition will be processed in parallel.
+For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions, each partition can be processed in parallel.
 
-If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple partitioned `SELECT` statements. The last step joins the two input streams.
+If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple `SELECT` statements that can 
+
+
+
+The last step joins the two input streams.
+
+
+Use the [job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job.
+
+![](./images/stream-processing-asa/job-diagram.png)
+
+
 
 Windowing functions and temporal joins require additional SU to hold the events in memory over the window. However, you can ameliorate this by using `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
@@ -169,13 +180,13 @@ This reference architecture includes a custom dashboard, which is deployed to th
 
 The following image shows the dashboard after a Stream Analytics was running for about an hour.
 
-![](./images/asa-dashboard.png)
+![](./images/stream-processing-asa/asa-dashboard.png)
 
 The SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
 
 Notice that Event Hubs is throttling requests. The Event Hubs client SDK automatically retries if it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the auto-inflate feature. Auto-inflate was enabled at about the 6:35 mark. Event Hubs automatically scaled up to 3 throughput units (from 1) and the throttling errors stopped.
 
-![](./images/stream-processing-eh-autoscale.png)
+![](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
 
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
