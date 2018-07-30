@@ -145,20 +145,17 @@ The throughput capacity of Event Hubs is measured in [throughput units]((https:/
 
 ### Stream Analytics
 
-For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. As long as your query doesn't join across partitions, each partition can be processed in parallel.
+For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. 
 
-If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture, the first two steps are simple `SELECT` statements that can 
+If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture:
 
-
-
-The last step joins the two input streams.
-
+- The first two steps are simple `SELECT` statements that select records within a single partition. 
+- Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records use the same partition key, and so are guaranteed to have the same partition ID in each input stream.
+- The last step aggregates across all of the partitions. This step cannot be parallelized.
 
 Use the [job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job.
 
 ![](./images/stream-processing-asa/job-diagram.png)
-
-
 
 Windowing functions and temporal joins require additional SU to hold the events in memory over the window. However, you can ameliorate this by using `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
