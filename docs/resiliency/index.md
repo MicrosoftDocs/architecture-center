@@ -4,8 +4,6 @@ description: How to build resilient applications in Azure, for high availability
 author: MikeWasson
 ms.date: 05/26/2017
 ms.custom: resiliency
-
-pnp.series.title: Design for Resiliency
 ---
 # Designing resilient applications for Azure
 
@@ -42,11 +40,11 @@ Resiliency is not an add-on. It must be designed into the system and put into op
 4. **Test** the implementation by simulating faults and triggering forced failovers. 
 5. **Deploy** the application into production using a reliable, repeatable process. 
 6. **Monitor** the application to detect failures. By monitoring the system, you can gauge the health of the application and respond to incidents if necessary. 
-7. **Respond** if there are incidents that require manual interventions.
+7. **Respond** if there are failure that require manual interventions.
 
 In the remainder of this article, we discuss each of these steps in more detail.
 
-## Defining your resiliency requirements
+## Define your availability requirements
 Resiliency planning starts with business requirements. Here are some approaches for thinking about resiliency in those terms.
 
 ### Decompose by workload
@@ -135,7 +133,28 @@ Also, failing over is not instantaneous and can result in some downtime during a
 
 The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
-## Redundancy and designing for failure
+## Design for resiliency
+
+During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
+
+* How will the application detect this type of failure?
+* How will the application respond to this type of failure?
+* How will you log and monitor this type of failure? 
+
+For more information about the FMA process, with specific recommendations for Azure, see [Azure resiliency guidance: Failure mode analysis][fma].
+
+### Example of identifying failure modes and detection strategy
+**Failure point:** Call to an external web service / API.
+
+| Failure mode | Detection strategy |
+| --- | --- |
+| Service is unavailable |HTTP 5xx |
+| Throttling |HTTP 429 (Too Many Requests) |
+| Authentication |HTTP 401 (Unauthorized) |
+| Slow response |Request times out |
+
+
+### Redundancy and designing for failure
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
 
@@ -162,90 +181,44 @@ When you design a multi-region application, take into account that network laten
 | Network latency | Very low | Low | Mid to high |
 | Virtual network  | VNet | VNet | Cross-region VNet peering |
 
-## Designing for resiliency
-During the design phase, you should perform a failure mode analysis (FMA). The goal of an FMA is to identify possible points of failure, and define how the application will respond to those failures.
-
-* How will the application detect this type of failure?
-* How will the application respond to this type of failure?
-* How will you log and monitor this type of failure? 
-
-For more information about the FMA process, with specific recommendations for Azure, see [Azure resiliency guidance: Failure mode analysis][fma].
-
-### Example of identifying failure modes and detection strategy
-**Failure point:** Call to an external web service / API.
-
-| Failure mode | Detection strategy |
-| --- | --- |
-| Service is unavailable |HTTP 5xx |
-| Throttling |HTTP 429 (Too Many Requests) |
-| Authentication |HTTP 401 (Unauthorized) |
-| Slow response |Request times out |
-
-## Resiliency strategies
+## Implement resiliency strategies
 This section provides a survey of some common resiliency strategies. Most of these are not limited to a particular technology. The descriptions in this section summarize the general idea behind each technique, with links to further reading.
 
-### Retry transient failures
-Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
+**Retry transient failures**. Transient failures can be caused by momentary loss of network connectivity, a dropped database connection, or a timeout when a service is busy. Often, a transient failure can be resolved simply by retrying the request. For many Azure services, the client SDK implements automatic retries, in a way that is transparent to the caller; see [Retry service specific guidance][retry-service-specific guidance].
 
-Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt, and limit the total number of failed requests.
+Each retry attempt adds to the total latency. Also, too many failed requests can cause a bottleneck, as pending requests accumulate in the queue. These blocked requests might hold critical system resources such as memory, threads, database connections, and so on, which can cause cascading failures. To avoid this, increase the delay between each retry attempt, and limit the total number of failed requests. 
 
-![Composite SLA](./images/retry.png)
+![](./images/retry.png)
 
-For more information, see [Retry Pattern][retry-pattern].
-
-### Load balance across instances
-For scalability, a cloud application should be able to scale out by adding more instances. This approach also improves resiliency, because unhealthy instances can be removed from rotation.  
-
-For example:
+**Load balance across instances**. For scalability, a cloud application should be able to scale out by adding more instances. This approach also improves resiliency, because unhealthy instances can be removed from rotation. For example:
 
 * Put two or more VMs behind a load balancer. The load balancer distributes traffic to all the VMs. See [Run load-balanced VMs for scalability and availability][ra-multi-vm].
 * Scale out an Azure App Service app to multiple instances. App Service automatically balances load across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
 
-### Replicate data
-Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra.  
-
-It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
+**Replicate data**. Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra. It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
 
 To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
 
-### Degrade gracefully
-If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
+**Degrade gracefully**. If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
 
 * Put a work item on a queue, to be handled later. 
 * Return an estimated value.
 * Use locally cached data. 
 * Show the user an error message. (This option is better than having the application stop responding to requests.)
 
-### Throttle high-volume users
-Sometimes a small number of users create excessive load. That can have an impact on other users, reducing the overall availability of your application.
+**Throttle high-volume users**. Sometimes a small number of users create excessive load. That can have an impact on other users, reducing the overall availability of your application.
 
 When a single client makes an excessive number of requests, the application might throttle the client for a certain period of time. During the throttling period, the application refuses some or all of the requests from that client (depending on the exact throttling strategy). The threshold for throttling might depend on the customer's service tier. 
 
-Throttling does not imply the client was necessarily acting maliciously, only that it exceeded its service quota. In some cases, a consumer might consistently exceed their quota or otherwise behave badly. In that case, you might go further and block the user. Typically, this is done by blocking an API key or an IP address range.
+Throttling does not imply the client was necessarily acting maliciously, only that it exceeded its service quota. In some cases, a consumer might consistently exceed their quota or otherwise behave badly. In that case, you might go further and block the user. Typically, this is done by blocking an API key or an IP address range. For more information, see [Throttling Pattern][throttling-pattern].
 
-For more information, see [Throttling Pattern][throttling-pattern].
+**Use a circuit breaker**. The [Circuit Breaker][circuit-breaker-pattern] pattern can prevent an application from repeatedly trying an operation that is likely to fail. The circuit breaker wraps calls to a service and tracks the number of recent failures. If the failure count exceeds a threshold, the circuit breaker starts returning an error code without calling the service. This gives the service time to recover. 
 
-### Use a circuit breaker
-The Circuit Breaker pattern can prevent an application from repeatedly trying an operation that is likely to fail. This is similar to a physical circuit breaker, a switch that interrupts the flow of current when a circuit is overloaded.
+**Use load leveling to smooth out spikes in traffic**. 
+Applications may experience sudden spikes in traffic, which can overwhelm services on the backend. If a backend service cannot respond to requests quickly enough, it may cause requests to queue (back up), or cause the service to throttle the application. To avoid this, you can use a queue as a buffer. When there is a new work item, instead of calling the backend service immediately, the application queues a work item to run asynchronously. The queue acts as a buffer that smooths out peaks in the load. For more information, see [Queue-Based Load Leveling Pattern][load-leveling-pattern].
 
-The circuit breaker wraps calls to a service. It has three states:
-
-* **Closed**. This is the normal state. The circuit breaker sends requests to the service, and a counter tracks the number of recent failures. If the failure count exceeds a threshold within a given time period, the circuit breaker switches to the Open state. 
-* **Open**. In this state, the circuit breaker immediately fails all requests, without calling the service. The application should use a mitigation path, such as reading data from a replica or simply returning an error to the user. When the circuit breaker switches to Open, it starts a timer. When the timer expires, the circuit breaker switches to the Half-open state.
-* **Half-open**. In this state, the circuit breaker lets a limited number of requests go through to the service. If they succeed, the service is assumed to be recovered, and the circuit breaker switches back to the Closed state. Otherwise, it reverts to the Open state. The Half-Open state prevents a recovering service from suddenly being inundated with requests.
-
-For more information, see [Circuit Breaker Pattern][circuit-breaker-pattern].
-
-### Use load leveling to smooth out spikes in traffic
-Applications may experience sudden spikes in traffic, which can overwhelm services on the backend. If a backend service cannot respond to requests quickly enough, it may cause requests to queue (back up), or cause the service to throttle the application.
-
-To avoid this, you can use a queue as a buffer. When there is a new work item, instead of calling the backend service immediately, the application queues a work item to run asynchronously. The queue acts as a buffer that smooths out peaks in the load. 
-
-For more information, see [Queue-Based Load Leveling Pattern][load-leveling-pattern].
-
-### Isolate critical resources
-Failures in one subsystem can sometimes cascade, causing failures in other parts of the application. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion. 
+**Isolate critical resources**. Failures in one subsystem can sometimes cascade, causing failures in other parts of the application. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion. 
 
 To avoid this, you can partition a system into isolated groups, so that a failure in one partition does not bring down the entire system. This technique is sometimes called the Bulkhead pattern.
 
@@ -255,19 +228,13 @@ Examples:
 * Use separate thread pools to isolate calls to different services. This helps to prevent cascading failures if one of the services fails. For an example, see the Netflix [Hystrix library][hystrix].
 * Use [containers][containers] to limit the resources available to a particular subsystem. 
 
-![Composite SLA](./images/bulkhead.png)
+![](./images/bulkhead.png)
 
-### Apply compensating transactions
-A compensating transaction is a transaction that undoes the effects of another completed transaction.
-
-In a distributed system, it can be very difficult to achieve strong transactional consistency. Compensating transactions are a way to achieve consistency by using a series of smaller, individual transactions that can be undone at each step.
+**Apply compensating transactions**. A [compensating transaction][compensating-transaction-pattern] is a transaction that undoes the effects of another completed transaction. In a distributed system, it can be very difficult to achieve strong transactional consistency. Compensating transactions are a way to achieve consistency by using a series of smaller, individual transactions that can be undone at each step.
 
 For example, to book a trip, a customer might reserve a car, a hotel room, and a flight. If any of these steps fails, the entire operation fails. Instead of trying to use a single distributed transaction for the entire operation, you can define a compensating transaction for each step. For example, to undo a car reservation, you cancel the reservation. In order to complete the whole operation, a coordinator executes each step. If any step fails, the coordinator applies compensating transactions to undo any steps that were completed. 
 
-For more information, see [Compensating Transaction Pattern][compensating-transaction-pattern]. 
-
-
-## Testing for resiliency
+## Test for resiliency
 Generally, you can't test resiliency in the same way that you test application functionality (by running unit tests and so on). Instead, you must test how the end-to-end workload performs under failure conditions which only occur intermittently.
 
 Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
@@ -289,12 +256,12 @@ This is another reason why it's important to analyze possible failure points dur
 
 **Load testing**. Load test the application using a tool such as [Visual Studio Team Services][vsts] or [Apache JMeter][jmeter]. Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.   
 
-## Resilient deployment
+## Deploy using reliable processes
 Once an application is deployed to production, updates are a possible source of errors. In the worst case, a bad update can cause downtime. To avoid this, the deployment process must be predictable and repeatable. Deployment includes provisioning Azure resources, deploying application code, and applying configuration settings. An update may involve all three, or a subset. 
 
 The crucial point is that manual deployments are prone to error. Therefore, it's recommended to have an automated, idempotent process that you can run on demand, and re-run if something fails. 
 
-* Use Resource Manager templates to automate provisioning of Azure resources.
+* Use Azure Resource Manager templates to automate provisioning of Azure resources.
 * Use [Azure Automation Desired State Configuration][dsc] (DSC) to configure VMs.
 * Use an automated deployment process for application code.
 
@@ -310,7 +277,7 @@ Another question is how to roll out an application update. We recommend techniqu
 
 Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. Also, if errors occur, the application logs must indicate which version caused the error. 
 
-## Monitoring and diagnostics
+## Monitor to detect failures
 Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure. 
 
 Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs &mdash; it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
@@ -336,7 +303,7 @@ Application logs are an important source of diagnostics data. Best practices for
 
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics guidance][monitoring-guidance].
 
-## Manual failure responses
+## Respond to failures
 Previous sections have focused on automated recovery strategies, which are critical for high availability. However, sometimes manual intervention is needed.
 
 * **Alerts**. Monitor your application for warning signs that may require proactive intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert so that you can follow up.  
