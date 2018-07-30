@@ -177,9 +177,7 @@ Notice that Event Hubs is throttling requests. The Event Hubs client SDK automat
 
 ![](./images/stream-processing-eh-autoscale.png)
 
-Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. In fact, it's actually common that resolving one performance bottleneck reveals another.
-
-![](./images/stream-processing-su.png)
+Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
 ## Deploy the solution
 
