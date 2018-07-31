@@ -141,7 +141,7 @@ Stream Analytics provides several [windowing functions](https://docs.microsoft.c
 
 ### Event Hubs
 
-The throughput capacity of Event Hubs is measured in [throughput units](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units bassed on traffic, up to a configured maximum. 
+The throughput capacity of Event Hubs is measured in [throughput units](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum. 
 
 ### Stream Analytics
 
@@ -189,7 +189,7 @@ Notice that Event Hubs is throttling requests, shown in the upper right panel. A
 
 ![](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
 
-Auto-inflate was enabled at about the 06:35 mark. You can see the shar drop in throttled requests, as Event Hubs automatically scaled up to 3 throughput units.
+Auto-inflate was enabled at about the 06:35 mark. You can see the p drop in throttled requests, as Event Hubs automatically scaled up to 3 throughput units.
 
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
