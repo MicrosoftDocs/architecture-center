@@ -4,33 +4,33 @@ This reference architecture shows how to correlate two streams of data using Azu
 
 ![](./images/stream-processing-asa/stream-processing-asa.png)
 
-**Scenario**: Taxi cabs collect data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
+**Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
 
 ## Architecture
 
 The architecture consists of the following components.
 
-**Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real scenario, the data sources would be devices installed in the taxi cabs.
+**Data sources**. In this architecture, there are two data sources that generate data streams in real time. The first stream contains ride information, and the second contains fare information. The reference architecture includes a simulated data generator that reads from a set of static files and pushes the data to Event Hubs. In a real application, the data sources would be devices installed in the taxi cabs.
 
 **Azure Event Hubs**. [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-**Azure Stream Analytics**. Stream Analytics reads the data streams from the two event hubs and performs stream processing.
+**Azure Stream Analytics**. [Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/) is an event-processing engine. A Stream Analytics job reads the data streams from the two event hubs and performs stream processing.
 
 **Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
 
 **Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
 
-**Azure Monitor**. Azure Monitor collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution. 
+**Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution. 
 
 ## Data ingestion
 
-To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset[[1](#note1)]. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
+To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[1](#note1)</sup>. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
 
-The data generator is a .NET core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format. 
+The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format. 
 
 Event Hubs uses [partitions](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion. 
 
-In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. That will enable Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
+In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Stream Analytics to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
 ![](./images/stream-processing-asa/stream-processing-eh.png)
 
@@ -98,7 +98,7 @@ Step2 AS (
 ),
 ```
 
-The next step joins the two streams to select matching records from each stream.
+The next step joins the two input streams to select matching records from each stream.
 
 ```sql
 Step3 AS (
@@ -121,9 +121,9 @@ Step3 AS (
 )
 ```
 
-Records are joined on a set of record fields that uniquely identify a pair of matching records (Medallion, HackLicense, VendorId, and PickupTime). In addition, the `JOIN` statement must include the partition ID because the input streams are partitioned.
+This query joins records on a set of fields that uniquely identify matching records (Medallion, HackLicense, VendorId, and PickupTime). The `JOIN` statement also includes the partition ID. As mentioned, this takes advantage of the fact that matching records always have the same partition ID in this scenario.
 
-The [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/join-azure-stream-analytics) function specifies a limit on how far two matching records can be separated in time. Otherwise, the job would wait indefinitely to get a match. 
+In Stream Analytics, joins are *temporal*, meaning records are joined within a particular window of time. Otherwise, the job might need to wait indefinitely for a match. The [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/join-azure-stream-analytics) function specifies how far two matching records can be separated in time for a match. 
 
 The last step in the job computes the average tip per mile, grouped by a hopping window of 5 minutes.
 
@@ -141,25 +141,29 @@ Stream Analytics provides several [windowing functions](https://docs.microsoft.c
 
 ### Event Hubs
 
-The throughput capacity of Event Hubs is measured in [throughput units]((https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units bassed on traffic, up to a configure maximum.
+The throughput capacity of Event Hubs is measured in [throughput units](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units bassed on traffic, up to a configured maximum. 
 
 ### Stream Analytics
 
-For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. 
+For Stream Analytics, the computing resources allocated to a job are measured in Streaming Units. Stream Analytics jobs scale best if the job can be parallelized. That way, Stream Analytics can distribute the job across multiple compute nodes.
 
-If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can be run in parallel before any joins. For example, in this reference architecture:
+For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. 
 
-- The first two steps are simple `SELECT` statements that select records within a single partition. 
-- Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records use the same partition key, and so are guaranteed to have the same partition ID in each input stream.
-- The last step aggregates across all of the partitions. This step cannot be parallelized.
+Windowing functions and temporal joins require additional SU to hold the events in memory over the time window. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
-Use the [job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job.
+If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
+
+- Steps 1 and 2 are simple `SELECT` statements that select records within a single partition. 
+- Step 3 performs a partitioned join across two input streams. This step takes advantage of the fact that matching records share the same partition key, and so are guaranteed to have the same partition ID in each input stream.
+- Step 4 aggregates across all of the partitions. This step cannot be parallelized.
+
+Use the Stream Analytics [job diagram](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagram-with-metrics) to see how many partitions are assigned to each step in the job. The following diagram shows the job diagram for this reference architecture:
 
 ![](./images/stream-processing-asa/job-diagram.png)
 
-Windowing functions and temporal joins require additional SU to hold the events in memory over the window. However, you can ameliorate this by using `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
-## Cosmos DB
+
+### Cosmos DB
 
 Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos CB container past 10,000 RU, you must specify a partition key when you create the container, and include the partition key in the document payloads. In this reference architecture, a new document is created once every minute (the hopping window interval), so the throughput requirements are quite low. 
 
