@@ -161,33 +161,35 @@ Use the Stream Analytics [job diagram](https://docs.microsoft.com/en-us/azure/st
 
 ![](./images/stream-processing-asa/job-diagram.png)
 
-
-
 ### Cosmos DB
 
-Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos CB container past 10,000 RU, you must specify a partition key when you create the container, and include the partition key in the document payloads. In this reference architecture, a new document is created once every minute (the hopping window interval), so the throughput requirements are quite low. 
+Throughput capacity for Cosmos DB is measured in [Request Units](https://docs.microsoft.com/en-us/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document. 
+
+In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
 
 ## Monitoring considerations
 
-With any stream processing solution, it's important to monitor the performance and health of the system. Azure Monitor collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
+With any stream processing solution, it's important to monitor the performance and health of the system. [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) collects metrics and diagnostics logs for the Azure services used in the architecture. Azure Monitor is built into the Azure platform and does not require any additional code in your application.
 
 Any of the following warning signals indicate that you should scale out the relevant Azure resource:
 
+- Event Hubs throttles requests or is close to the daily message quota.
 - The Stream Analytics job consistently uses more than 80% of allocated Streaming Units (SU).
 - Cosmos DB begins to throttle requests.
-- Event Hubs throttles requests or is close to the daily message quota.
 
-This reference architecture includes a custom dashboard, which is deployed to the Azure portal. To view the dashboard, open the [Azure Portal](https://portal.azure.com) and select `TaxiRidesDashboard` from list of dashboards. You can create a custom dashboard from a set of existing resources in Azure and download an Azure Resource Manager template for the dashboard. By parameterizing the template, you can make it a part of your CI/CD pipeline. For more information, see [Programmatically create Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically).
+The reference architecture includes a custom dashboard, which is deployed to the Azure portal. After you deploy the architecture, you can view the dashboard by opening the [Azure Portal](https://portal.azure.com) and selecting `TaxiRidesDashboard` from list of dashboards. For more information about creating and deploying custom dashboards in the Azure portal, see [Programmatically create Azure Dashboards](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
-The following image shows the dashboard after a Stream Analytics was running for about an hour.
+The following image shows the dashboard after the Stream Analytics job ran for about an hour.
 
 ![](./images/stream-processing-asa/asa-dashboard.png)
 
-The SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
+The panel on the lower left shows that the SU consumption for the Stream Analytics job climbs during the first 15 minutes and then levels off. This is a typical pattern as the job reaches a steady state. 
 
-Notice that Event Hubs is throttling requests. The Event Hubs client SDK automatically retries if it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the auto-inflate feature. Auto-inflate was enabled at about the 6:35 mark. Event Hubs automatically scaled up to 3 throughput units (from 1) and the throttling errors stopped.
+Notice that Event Hubs is throttling requests, shown in the upper right panel. An occasional throttled request is not a problem, because the Event Hubs client SDK automatically retries when it receives a throttling error. However, if you see consistent throttling errors, it means the event hub needs more throughput units. The following graph shows a test run using the Event Hubs auto-inflate feature, which automatically scales out the throughput units as needed. 
 
 ![](./images/stream-processing-asa/stream-processing-eh-autoscale.png)
+
+Auto-inflate was enabled at about the 06:35 mark. You can see the shar drop in throttled requests, as Event Hubs automatically scaled up to 3 throughput units.
 
 Interestingly, this had the side effect of increasing the SU utilization in the Stream Analytics job. By throttling, Event Hubs was artificially reducing the ingestion rate for the Stream Analytics job. It's actually common that resolving one performance bottleneck reveals another. In this case, allocating additional SU for the Stream Analytics job resolved the issue.
 
@@ -288,7 +290,7 @@ The directory structure should look like the following:
 
 ### Run the data generator
 
-1. Get the Event Hub connection strings
+1. Get the Event Hub connection strings. You can get these from the Azure portal, or by running the following CLI commands:
 
     ```bash
     # RIDE_EVENT_HUB
