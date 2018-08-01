@@ -4,7 +4,7 @@ description: Describes the process Enterprises can use to prepare their people a
 author: petertaylor9999
 ---
 
-# Organizational readiness
+# Adopting Microsoft Azure: Organizational readiness
 
 For enterprises, the cloud represents an opportunity to digitally transform their business by integrating new technologies in to the business. There are technical challenges to cloud adoption, but there are also challenges to the existing organizational structure. 
 
@@ -44,7 +44,7 @@ Your enterprise may have additional roles and areas of expertise that require re
 
 ## Conduct regular discussions during the transformation process
 
-Once all stakeholders have been identified, set up a regular cadence for meetings to discuss the issues, determine possible solutions and outcomes, and arrive at a decision to move forward. Enumerating these issues for discussion is part of your digital transformation and will be unique to your enterprise. The Azure Enterprise Cloud Adoption guide provides a starting point and in-depth discussion to help with this.
+Once all stakeholders have been identified, set up a regular cadence for meetings to discuss the issues, determine possible solutions and outcomes, and arrive at a decision to move forward. Enumerating these issues for discussion is part of your digital transformation and will be unique to your enterprise. The [Azure Cloud Adoption guide](../index.md) provides a starting point and in-depth discussion to help with this.
 
 ### Capturing concerns
 
@@ -87,7 +87,7 @@ Many methodologies are useful and it is outside the scope of this paper to cover
   * Identify the tasks that are struggling for completion, and identify what issues are blocking. Update the plan with solutions or workarounds for the blocking issues.
 * Be transparent. 
   * Create and publish a matrix that communicates the commitments (gaps/concerns) and their status. Update this with each iteration. 
-  * Promote a team culture that a “red status” is a request for help and not a sign of failure. 
+  * Promote a team culture in which a “red status” is a request for help and not a sign of failure. 
 
   ## Next steps
 
