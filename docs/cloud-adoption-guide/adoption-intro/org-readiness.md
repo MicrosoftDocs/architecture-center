@@ -1,10 +1,10 @@
 ---
-title: Organizational Readiness 
+title: "Adopting Microsoft Azure: organizational readiness" 
 description: Describes the process Enterprises can use to prepare their people and processes for adopting cloud technologies
 author: petertaylor9999
 ---
 
-# Adopting Microsoft Azure: Organizational readiness
+# Adopting Microsoft Azure: organizational readiness
 
 For enterprises, the cloud represents an opportunity to digitally transform their business by integrating new technologies in to the business. There are technical challenges to cloud adoption, but there are also challenges to the existing organizational structure. 
 
