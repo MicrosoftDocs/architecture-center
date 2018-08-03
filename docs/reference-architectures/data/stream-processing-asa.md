@@ -217,7 +217,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 2. Open a web browser and navigate to https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935.
 
-3. Click **Download** to download a zip file of the ride data.
+3. Click the **Download** button on this page to download a zip file of all the taxi data for that year.
 
 4. Extract the zip file to the `DataFile` directory.
 
@@ -310,7 +310,9 @@ The directory structure should look like the following:
         --query primaryConnectionString
     ```
 
-2. Update the values in the file `onprem/main.env` as follows:
+2. Navigate to the directory `data/streaming_asa/onprem` in the GitHub repository
+
+3. Update the values in the file `main.env` as follows:
 
     ```
     RIDE_EVENT_HUB=[Connection string for taxi-ride event hub]
@@ -320,13 +322,19 @@ The directory structure should look like the following:
     PUSH_RIDE_DATA_FIRST=false
     ```
 
-3. Run the following command to build the Docker image.
+4. Run the following command to build the Docker image.
 
     ```bash
     docker build --no-cache -t dataloader .
     ```
 
-4. Run the following command to run the Docker image.
+5. Navigate back to the parent directory, `data/stream_asa`.
+
+    ```bash
+    cd ..
+    ```
+
+6. Run the following command to run the Docker image.
 
     ```bash
     docker run -v `pwd`/DataFile:/DataFile --env-file=onprem/main.env dataloader:latest
