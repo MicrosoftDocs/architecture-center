@@ -56,7 +56,7 @@ This example scenario is based on the [Azure automated enterprise BI reference a
 * Data Factory is designed for automating your data pipeline workflows. For jobs requiring high performance, considering [using Data Factory with Polybase](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse). For one-time or on-demand jobs, you could also use available tools like SQL Server bulk copy (bcp) and AzCopy. For a general comparison, see [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement).
 * If you are working with very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
 * An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance is another option for processing big data. However, the operating costs are often substantially lower using a managed cloud-based solution such as SQL Data Warehouse. 
-* For comparisons of different relevant technology options, see the following in the [Azure Data Architecture Guide](/azure/architecture/data-guide/):
+* For comparisons of different relevant technology options, see the following:
 
     * [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
     * [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
@@ -105,10 +105,10 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 This example scenario is based on a version of this architecture used by  [Maritz Motivation Solutions](https://maritz.com) For more information, see their [customer story][source-document]. 
 
-* Guidance on [data warehousing, online analytical processing (OLAP), and ETL and ELT pipelines](/azure/architecture/data-guide/relational-data/) is available in the Azure Data Architecture Guide.
-* Guidance on [big data architectures](/azure/architecture/data-guide/big-data/) is available in the Azure Data Architecture Guide.
+Guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data architecture is available in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 
 <!-- links -->
+[product-category]: https://azure.microsoft.com/product-categories/analytics/
 [source-customer]: https://www.maritzmotivation.com/
 [source-document]: https://customers.microsoft.com/story/maritz
 [small-pricing]: https://azure.com/e/9444b5ce08b7490a9b9f2207203e67f5
