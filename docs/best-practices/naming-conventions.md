@@ -116,6 +116,13 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-agw` |`profx-agw` |
 |Traffic Manager Profile |Resource Group |1-63 |Case insensitive |Alphanumeric, hyphen, and period |`<descriptive context>` |`app1` |
 
+### Containers
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Container Registry | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
+
+
 ## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary

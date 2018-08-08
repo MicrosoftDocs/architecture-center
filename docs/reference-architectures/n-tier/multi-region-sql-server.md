@@ -6,7 +6,7 @@ description: >-
 
 author: MikeWasson
 
-ms.date: 05/03/2018
+ms.date: 07/19/2018
 
 pnp.series.title: Windows VM workloads
 pnp.series.prev: n-tier

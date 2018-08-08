@@ -30,7 +30,7 @@ In this step, you'll create an Azure AD directory for Tailspin.
 
 1. Sign into the [Azure portal][portal].
 
-2. Click **New** > **Security + Identity** > **Azure Active Directory**.
+2. Click **+ Create a Resource** > **Identity** > **Azure Active Directory**.
 
 3. Enter `Tailspin` for the organization name, and enter a domain name. The domain name will have the form `xxxx.onmicrosoft.com` and must be globally unique. 
 
@@ -62,7 +62,7 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 6. In the **App registrations** blade, select the new **Surveys.WebAPI** application.
  
-7. Click **Properties**.
+7. Click **Settings** > **Properties**.
 
 8. In the **App ID URI** edit box, enter `https://<domain>/surveys.webapi`, where `<domain>` is the domain name of the directory. For example: `https://tailspin.onmicrosoft.com/surveys.webapi`
 
@@ -183,13 +183,13 @@ Now repeat the same steps for the Surveys app, except do not add an entry for `k
 
 The Surveys application uses Redis to cache OAuth 2 access tokens. To create the cache:
 
-1.	Go to [Azure Portal](https://portal.azure.com) and click **New** > **Databases** > **Redis Cache**.
+1.	Go to [Azure Portal](https://portal.azure.com) and click **+ Create a Resource** > **Databases** > **Redis Cache**.
 
 2.	Fill in the required information, including DNS name, resource group, location, and pricing tier. You can create a new resource group or use an existing resource group.
 
 3. Click **Create**.
 
-4. After the Resis cache is created, navigate to the resource in the portal.
+4. After the Redis cache is created, navigate to the resource in the portal.
 
 5. Click **Access keys** and copy the primary key.
 
