@@ -6,7 +6,7 @@ author: petertaylor9999
 
 # Adopting Microsoft Azure: digital transformation example
 
-In the [organizational readiness](), you learned about digitally tranforming an Enterprise's business by adopting cloud technologies. You also learned that the high-level process for preparing the organization for digital transformation is:
+In the [organizational readiness](), you learned about digitally transforming an Enterprise's business by adopting cloud technologies. You also learned that the high-level process for preparing the organization for digital transformation is:
 
 1. Identify the stakeholders in your organization participating in the cloud adoption process. 
 2. Conduct regular discussions with the stakeholders.
@@ -20,7 +20,7 @@ To help you better understand how this process works, let's take a look at an ex
 
 ## Example: identify stakeholders
 
-Every organization is unique and has a distinct organizational structure. However, there are a set of common roles with an associated set of activities they perform. Generally, these roles are:
+Every organization is unique and has a distinct organizational structure. However, there is a set of common roles with an associated set of activities they perform. Generally, these roles are:
 
 | Area | Activities |
 |-----|-----|
@@ -41,12 +41,12 @@ Each stakeholder is responsible for communicating with their organization to dis
 
 Each stakeholder collects these concerns and brings them to the regular digital transformation planning meeting. These concerns are discussed, and through the discussion any gaps in roles, skills, or process are identified. For example, the individuals working on the physical infrastructure are concerned that their job function is no longer required for cloud infrastructure, and this represents a gap in skills. While the stated concern is job security, the actual concern is a lack of skills.
 
-Anoter aspect of these discussions is identifying partnerships across teams. Some concerns and their resulting gaps in roles, skills, or process may not be constrained to a single business unit. Some processes may also require individuals from multiple business units to coordinate. 
+Another aspect of these discussions is identifying partnerships across teams. Some concerns and their resulting gaps in roles, skills, or process may not be constrained to a single business unit. Some processes may also require individuals from multiple business units to coordinate. 
 
-# Example: create a plan to addresss gaps
+## Example: create a plan to address gaps
 
-For each gap in roles, skills, or process, a plan to address the gap is created. For example, the concern of the security stakeholder around deployment of non-compliant resources requires a process that includes both the compliance/security team and the IT team. The security/compliance team drafts the specification for in-compliance resources and the IT team creates the scripts and templates that restrict the deployment to just those resources. 
+For each gap in roles, skills, or process, a plan to address the gap is created. For example, the concern of the security stakeholder around deployment of non-compliant resources requires a process that includes both the compliance/security team and the IT team. The security/compliance team drafts the specification for compliant resource configurations and the IT team creates the scripts and templates that restrict the deployment to just those configurations. The next step is to execute the plan. The security/compliance team drafts the specification, and the IT team implements the scripts and templates that are used to lock down the Enterprise's use of cloud resources.
 
-The next step is to execute the plan. The security/compliance team drafts the specification, and the IT team implements the scripts and templates that are used to lock down the Enterprise's use of cloud resources.
+## Next Steps
 
 Your Enterprise's digital transformation is an iterative process, and there will be many cycles of this process until all concerns are addressed.  
