@@ -159,7 +159,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
 [tm-configure-failover]: /azure/traffic-manager/traffic-manager-configure-failover-routing-method
 [tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
-[tm-ps]: https://msdn.microsoft.com/library/mt125941.aspx
+[tm-ps]: /powershell/module/azurerm.trafficmanager
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
