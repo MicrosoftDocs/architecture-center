@@ -19,8 +19,8 @@ The following table summarizes the retry features for the Azure services describ
 | **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
-| **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
+| **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[Redis Cache](#azure-redis-cache)** |Native in client |Programmatic |Client |TextWriter |
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
