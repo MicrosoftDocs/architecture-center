@@ -142,8 +142,8 @@ Examples are found in [IoT Hub retry policy examples](/azure/iot-hub/iot-hub-rel
 
 ### More information
 
-[IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
-[Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
+* [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
+* [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
 
 ## Azure Redis Cache
 Azure Redis Cache is a fast data access and low latency cache service based on the popular open source Redis Cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
