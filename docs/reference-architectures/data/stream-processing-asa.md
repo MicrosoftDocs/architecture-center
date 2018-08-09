@@ -1,6 +1,6 @@
 # Stream processing with Azure Stream Analytics
 
-This reference architecture shows how to correlate two streams of data using Azure Stream Analytics and calculate a rolling average across a time window.
+This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis.
 
 ![](./images/stream-processing-asa/stream-processing-asa.png)
 
@@ -18,7 +18,7 @@ The architecture consists of the following components.
 
 **Cosmos DB**. The output from the Stream Analytics job is a series of records, which are written as JSON documents to a Cosmos DB document database.
 
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB.
+**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected. You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](https://docs.microsoft.com/en-us/power-bi/service-real-time-streaming).
 
 **Azure Monitor**. [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution. 
 
@@ -137,6 +137,8 @@ SELECT System.Timestamp AS WindowTime,
 
 Stream Analytics provides several [windowing functions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-window-functions). A hopping window moves forward in time by a fixed period, in this case 1 minute per hop. The result is to calculate a moving average over the past 5 minutes.
 
+In the architecture shown here, only the results of the Stream Analytics job are saved to Cosmos DB. For a big data scenario, consider also using [Event Hubs Capture](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview) to save the raw event data into Azure Blob storage. Keeping the raw data will allow you to run batch queries over your historical data at later time, in order to derive new insights from the data.
+
 ## Scalability considerations
 
 ### Event Hubs
@@ -149,7 +151,7 @@ For Stream Analytics, the computing resources allocated to a job are measured in
 
 For Event Hubs input, use the `PARTITION BY` keyword to partition the Stream Analytics job. The data will be divided into subsets based on the Event Hubs partitions. 
 
-Windowing functions and temporal joins require additional SU to hold the events in memory over the time window. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
+Windowing functions and temporal joins require additional SU. When possible, use `PARTITION BY` so that each partition is processed separately. For more information, see [Understand and adjust Streaming Units](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption#windowed-aggregates).
 
 If it's not possible to parallelize the entire Stream Analytics job, try to break the job into multiple steps, starting with one or more parallel steps. That way, the first steps can run in parallel. For example, in this reference architecture:
 
