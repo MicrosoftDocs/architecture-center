@@ -61,7 +61,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/images/azure-analysis-service.svg" />
+                            <img src="./_images/azure-analysis-service.svg" />
                         </div>
                     </div>
                     <div class="cardText">
