@@ -492,17 +492,29 @@
   - name: Infrastructure
     items:
       - name: Setting up a single workload
+        href: cloud-adoption/infrastructure/x.md
       - name: Establishing a Virtual Datacenter
+        href: cloud-adoption/infrastructure/x.md
   - name: Workloads
+    items:
       - name: Planning migrations
+        href: cloud-adoption/workloads/x.md
       - name: Rehost
+        href: cloud-adoption/workloads/x.md
       - name: Refactor
+        href: cloud-adoption/workloads/x.md
       - name: Rearchitect
+        href: cloud-adoption/workloads/x.md
       - name: Rebuild
+        href: cloud-adoption/workloads/x.md
   - name: Operations
+    items:
       - name: Establishing a Fundamental Process
+        href: cloud-adoption/operations/x.md
   - name: Optimization
+    items:
       - name: TBD
+        href: cloud-adoption/workloads/x.md
 - name: Azure Virtual Datacenter
   href: vdc/index.md
 
