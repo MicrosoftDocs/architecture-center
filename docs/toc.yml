@@ -485,55 +485,14 @@
     items:
       - name: What is Cloud Governance?
         href: cloud-adoption/governance/governance-explainer.md
-      - name: About Azure internals
-        items:
-        - name: How does Azure work?
-          href: cloud-adoption/adoption-intro/azure-explainer.md
-        - name: What is cloud resource governance?
-          href: cloud-adoption/adoption-intro/governance-explainer.md
-      - name: About Azure resource access governance
-        items:
-        - name: Understanding resource access management in Azure
-          href: cloud-adoption/adoption-intro/azure-resource-access.md
-        - name: Azure governance design guide
-          href: cloud-adoption/adoption-intro/governance-how-to.md
-      - name: Deploying basic architectures to Azure
-        items:
-        - name: Platform as a Service (PaaS) architecture
-          items: 
-          - name: Deploy a basic web application to Azure
-            href: /azure/app-service
-            maintainContext: true
-          - name: Best practices for web applications in Azure
-            href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
-            maintainContext: true
-        - name: Infrastructure as a service (IaaS)
-          items:
-          - name: What is an Azure virtual network?
-            href: /azure/virtual-network/virtual-networks-overview
-            maintainContext: true
-          - name: Deploy a virtual network to Azure
-            href: /azure/virtual-network/virtual-networks-create-vnet-arm-pportal
-            maintainContext: true
-          - name: Deploy a single Windows VM IaaS workload to Azure
-            href: /azure/virtual-machines/windows/quick-create-portal
-            maintainContext: true
-          - name: Best practices for deploying a Windows VM to Azure
-            href: /azure/architecture/reference-architectures/virtual-machines-windows/single-vm
-            maintainContext: true
-          - name: Deploy a single Linux VM IaaS workload to Azure
-            href: /azure/virtual-machines/linux/quick-create-portal
-            maintainContext: true
-          - name: Best practices for deploying a Linux VM to Azure
-            href: /azure/architecture/reference-architectures/virtual-machines-linux/single-vm
-            maintainContext: true
-  - name: Intermediate Azure adoption
-    items:
-      - name: Overview
-        href: cloud-adoption/intermediate-stage/overview.md
-      - name: Governance design guide
-        href: cloud-adoption/intermediate-stage/governance-design-guide.md
-
+      - name: Resource Access
+        href: cloud-adoption/governance/azure-resource-access.md
+      - name: Understanding Cost
+        href: cloud-adoption/governance/cost.md
+  - name: Infrastructure
+  - name: Workloads
+  - name: Operations
+  - name: Optimization
 - name: Azure Virtual Datacenter
   href: vdc/index.md
 
