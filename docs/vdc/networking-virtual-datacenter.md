@@ -350,48 +350,48 @@ The following features were discussed in this document. Click the links to learn
  - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
 
 <!--Image References-->
-[0]: ./media/networking-virtual-datacenter/redundant-equipment.png "Examples of component overlap" 
-[1]: ./media/networking-virtual-datacenter/vdc-high-level.png "High-level example of hub and spoke vDC"
-[2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "Cluster of hubs and spokes"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
-[4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "Block level diagram of the vDC"
-[5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
-[6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "High-level infrastructure diagram"
-[7]: ./media/networking-virtual-datacenter/highlevel-perimeter-networks.png "High-level infrastructure diagram"
-[8]: ./media/networking-virtual-datacenter/vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
-[9]: ./media/networking-virtual-datacenter/high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
-[10]: ./media/networking-virtual-datacenter/high-level-workloads.png "High-level diagram for Workload"
+[0]: ./images/networking-redundant-equipment.png "Examples of component overlap" 
+[1]: ./images/networking-vdc-high-level.png "High-level example of hub and spoke vDC"
+[2]: ./images/networking-hub-spokes-cluster.png "Cluster of hubs and spokes"
+[3]: ./images/networking-spoke-to-spoke.png "Spoke-to-spoke"
+[4]: ./images/networking-vdc-block-level-diagram.png "Block level diagram of the vDC"
+[5]: ./images/networking-users-groups-subsciptions.png "Users, groups, subscriptions, and projects"
+[6]: ./images/networking-infrastructure-high-level.png "High-level infrastructure diagram"
+[7]: ./images/networking-highlevel-perimeter-networks.png "High-level infrastructure diagram"
+[8]: ./images/networking-vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
+[9]: ./images/networking-high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
+[10]: ./images/networking-high-level-workloads.png "High-level diagram for Workload"
 
 <!--Link References-->
-[Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
-[VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
-[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
-[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
-[VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
-[UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
-[MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
-[AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
-[VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction 
-[NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[SubMgmt]: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance 
-[RGMgmt]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview
-[DMZ]: https://docs.microsoft.com/azure/best-practices-network-security
-[ALB]: https://docs.microsoft.com/azure/load-balancer/load-balancer-overview
-[PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
-[AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
-[WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
-[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
-[ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
-[DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
-[NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
-[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
-[WebApps]: https://docs.microsoft.com/azure/app-service/
-[HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
-[EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
-[ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
-[TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
+[Limits]: /azure/azure-subscription-service-limits
+[Roles]: /azure/role-based-access-control/built-in-roles
+[VNet]: /azure/virtual-network/virtual-networks-overview
+[NSG]: /azure/virtual-network/virtual-networks-nsg
+[DNS]: /azure/dns/dns-overview
+[PrivateDNS]: /azure/dns/private-dns-overview
+[VNetPeering]: /azure/virtual-network/virtual-network-peering-overview 
+[UDR]: /azure/virtual-network/virtual-networks-udr-overview 
+[RBAC]: /azure/role-based-access-control/overview
+[MFA]: /azure/multi-factor-authentication/multi-factor-authentication
+[AAD]: /azure/active-directory/active-directory-whatis
+[VPN]: /azure/vpn-gateway/vpn-gateway-about-vpngateways 
+[ExR]: /azure/expressroute/expressroute-introduction 
+[NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
+[SubMgmt]: /azure/azure-resource-manager/resource-manager-subscription-governance 
+[RGMgmt]: /azure/azure-resource-manager/resource-group-overview
+[DMZ]: /azure/best-practices-network-security
+[ALB]: /azure/load-balancer/load-balancer-overview
+[PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
+[AppGW]: /azure/application-gateway/application-gateway-introduction
+[WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: /azure/monitoring-and-diagnostics/
+[ActLog]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
+[DiagLog]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
+[NSGLog]: /azure/virtual-network/virtual-network-nsg-manage-log
+[OMS]: /azure/operations-management-suite/operations-management-suite-overview
+[NPM]: /azure/log-analytics/log-analytics-network-performance-monitor
+[WebApps]: /azure/app-service/
+[HDI]: /azure/hdinsight/hdinsight-hadoop-introduction
+[EventHubs]: /azure/event-hubs/event-hubs-what-is-event-hubs 
+[ServiceBus]: /azure/service-bus-messaging/service-bus-messaging-overview
+[TM]: /azure/traffic-manager/traffic-manager-overview
