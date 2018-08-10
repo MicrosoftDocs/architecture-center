@@ -529,6 +529,9 @@
 
 - name: Azure Virtual Datacenter
   href: vdc/index.md
+  items:
+  - name: Network perspective
+    href: vdc/networking-virtual-datacenter.md
 
 - name: Azure for AWS Professionals
   items:
