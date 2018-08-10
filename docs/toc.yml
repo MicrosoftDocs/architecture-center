@@ -490,9 +490,19 @@
       - name: Understanding Cost
         href: cloud-adoption/governance/cost.md
   - name: Infrastructure
+    items:
+      - name: Setting up a single workload
+      - name: Establishing a Virtual Datacenter
   - name: Workloads
+      - name: Planning migrations
+      - name: Rehost
+      - name: Refactor
+      - name: Rearchitect
+      - name: Rebuild
   - name: Operations
+      - name: Establishing a Fundamental Process
   - name: Optimization
+      - name: TBD
 - name: Azure Virtual Datacenter
   href: vdc/index.md
 
