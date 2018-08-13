@@ -86,3 +86,39 @@ Consider this architecture style when you need to:
 - **Orchestrate data ingestion**. In some cases, existing business applications may write data files for batch processing directly into Azure storage blob containers, where they can be consumed by HDInsight or Azure Data Lake Analytics. However, you will often need to orchestrate the ingestion of data from on-premises or external data sources into the data lake. Use an orchestration workflow or pipeline, such as those supported by Azure Data Factory or Oozie, to achieve this in a predictable and centrally manageable fashion.
 
 - **Scrub sensitive data early**. The data ingestion workflow should scrub sensitive data early in the process, to avoid storing it in the data lake.
+
+## IoT architecture
+
+Internet of Things (IoT) is a specialized subset of big data solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
+
+![](./images/iot.png)
+
+The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
+
+Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually colocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess the raw device events, performing functions such as filtering, aggregation, or protocol transformation.
+
+After ingestion, events go through one or more **stream processors** that can route the data (for example, to storage) or perform analytics and other processing.
+
+The following are some common types of processing. (This list is certainly not exhaustive.)
+
+- Writing event data to cold storage, for archiving or batch analytics.
+
+- Hot path analytics, analyzing the event stream in (near) real time, to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream. 
+
+- Handling special types of non-telemetry messages from devices, such as notifications and alarms. 
+
+- Machine learning.
+
+The boxes that are shaded gray show components of an IoT system that are not directly related to event streaming, but are included here for completeness.
+
+- The **device registry** is a database of the provisioned devices, including the device IDs and usually device metadata, such as location.
+
+- The **provisioning API** is a common external interface for provisioning and registering new devices.
+
+- Some IoT solutions allow **command and control messages** to be sent to devices.
+
+> This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For a more detailed reference architecture and discussion, see the [Microsoft Azure IoT Reference Architecture][iot-ref-arch] (PDF download).
+
+ <!-- links -->
+
+[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/

@@ -50,42 +50,9 @@ In the logical diagram above, each type of consumer is shown as a single box. In
 - Guaranteed delivery. In some systems, especially in IoT scenarios, it's crucial to guarantee that events are delivered.
 - Processing events in order or exactly once. Each consumer type typically runs in multiple instances, for resiliency and scalability. This can create a challenge if the events must be processed in order (within a consumer type), or if the processing logic is not idempotent.
 
-## IoT architecture
-
-Event-driven architectures are central to IoT solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
-
-![](./images/iot.png)
-
-The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
-
-Devices might send events directly to the cloud gateway, or through a **field gateway**. A field gateway is a specialized device or software, usually colocated with the devices, that receives events and forwards them to the cloud gateway. The field gateway might also preprocess the raw device events, performing functions such as filtering, aggregation, or protocol transformation.
-
-After ingestion, events go through one or more **stream processors** that can route the data (for example, to storage) or perform analytics and other processing.
-
-The following are some common types of processing. (This list is certainly not exhaustive.)
-
-- Writing event data to cold storage, for archiving or batch analytics.
-
-- Hot path analytics, analyzing the event stream in (near) real time, to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream. 
-
-- Handling special types of non-telemetry messages from devices, such as notifications and alarms. 
-
-- Machine learning.
-
-The boxes that are shaded gray show components of an IoT system that are not directly related to event streaming, but are included here for completeness.
-
-- The **device registry** is a database of the provisioned devices, including the device IDs and usually device metadata, such as location.
-
-- The **provisioning API** is a common external interface for provisioning and registering new devices.
-
-- Some IoT solutions allow **command and control messages** to be sent to devices.
-
-> This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For a more detailed reference architecture and discussion, see the [Microsoft Azure IoT Reference Architecture][iot-ref-arch] (PDF download).
-
  <!-- links -->
 
 [competing-consumers]: ../../patterns/competing-consumers.md
-[iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/
 [minimize-coordination]: ../design-principles/minimize-coordination.md
 
 
