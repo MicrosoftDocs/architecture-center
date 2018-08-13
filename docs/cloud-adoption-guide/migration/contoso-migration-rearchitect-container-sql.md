@@ -77,7 +77,7 @@ After pinning down their goals and requirements, Contoso designs and review a de
     - They'll deploy the app using Azure Service Fabric, and pull the Windows container image from the Azure Container Registry (ACR).
     - A prototype for extending the app to include sentiment analysis will be implemented as another service in Service Fabric, connected to Cosmos DB.  This will read information from Tweets, and display on the app.
 
-    ![Scenario architecture](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
+    ![Scenario architecture](./_images/contoso-migration-rearchitect-container-sql/architecture.png) 
 
   
 ### Solution review
@@ -97,7 +97,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 3. They convert the Web tier VM to a Docker container using the Service Fabric SDK tools.
 4. They connect the service fabric cluster and the ACR, and deploy the app using Azure service fabric.
 
-    ![Migration process](./media/contoso-migration-rearchitect-container-sql/migration-process.png) 
+    ![Migration process](./_images/contoso-migration-rearchitect-container-sql/migration-process.png) 
 
 ### Azure services
 
@@ -138,28 +138,28 @@ Here's how Contoso will run the migration:
 
 1. They select to create a SQL Database in Azure. 
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql1.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql1.png)
 
 2. They specify a database  name to match the database running on the on-premises VM (**SmartHotel.Registration**). They place the database in the ContosoRG resource group. This is the resource group they use for production resources in Azure.
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql2.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql2.png)
 
 3. They set up a new SQL Server instance (**sql-smarthotel-eus2**) in the primary region.
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql3.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql3.png)
 
 4. They set the pricing tier to match their server and database needs. And they select to save money with Azure Hybrid Benefit because they already have a SQL Server license.
 5. For sizing they use v-Core-based purchasing, and set the limits for their expected requirements.
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql4.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql4.png)
 
 6. Then they create the database instance.
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql5.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql5.png)
 
 7. After the instance is created, they open the database, and note details they need when they use the Database Migration Assistance for migration.
 
-    ![Provision SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql6.png)
+    ![Provision SQL](./_images/contoso-migration-rearchitect-container-sql/provision-sql6.png)
 
 
 **Need more help?**
@@ -176,11 +176,11 @@ The Azure container is created using the exported files from the Web VM. The con
 
 1. Contoso creates a Container Registry in the Azure portal.
 
-     ![Container Registry](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
+     ![Container Registry](./_images/contoso-migration-rearchitect-container-sql/container-registry1.png)
 
 2. They provide a name for the registry (**contosoacreus2**), and place it in the primary region, in the resource group they use for their infrastructure resources. They enable access for admin users, and set it as a premium SKU so that they can leverage geo-replication.
 
-    ![Container Registry](./media/contoso-migration-rearchitect-container-sql/container-registry2.png)  
+    ![Container Registry](./_images/contoso-migration-rearchitect-container-sql/container-registry2.png)  
 
 
 ## Step 3: Provision Azure Service Fabric
@@ -189,55 +189,55 @@ The SmartHotel container will run in the Azure Service Fabric Sluster. Contoso c
 
 1. Create a Service Fabric resource from the Azure Marketplace
 
-     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric1.png)
+     ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric1.png)
 
 2. In **Basic**, they provide a unique DS name for the cluster, and credentials for accessing the on-premises VM. They place the resource in the production resource group (**ContosoRG**) in the primary East US 2 region.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric2.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric2.png) 
 
 3. In **Node type configuration**, they input a node type name, durability settings, VM size, and app endpoints.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric3.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric3.png) 
 
 
 4. In **Create key vault**, they create a new key vault in their infrastructure resource group, to house the certificate.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric4.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric4.png) 
 
 
 5. In **Access Policies** they eanble access to virtual machines to deploy the key vault.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric5.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric5.png) 
 
 6. They specify a name for the certificate.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric6.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric6.png) 
 
 7. In the summary page, they copy the link that's used to download the certificate. They need this to connect to the Service Fabric Cluster.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric7.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric7.png) 
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric8.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric8.png) 
 
 8. After validation passes, they provision the cluster.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric9.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric9.png) 
 
 9. In the Certificate Import Wizard, they import the downloaded certificate to dev machines. The certificate is used to authenticate to the cluster.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric10.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric10.png) 
 
 10. After the cluster is provisioned, they connect to the Service Fabric Cluster Explorer.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric11.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric11.png) 
 
 11. They need to select the correct certificate.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric12.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric12.png) 
 
 12. The Service Fabric Explorer loads, and the Contoso Admin can manage the cluster.
 
-    ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric13.png) 
+    ![Service Fabric](./_images/contoso-migration-rearchitect-container-sql/service-fabric13.png) 
 
 
 ## Step 3: Migrate the database with DMA
@@ -257,7 +257,7 @@ To connect to the Azure SQL Database, a firewall rule is needed.
 1. In the **Firewall and virtual networks** properties for the database, they allow access to Azure services, and add a rule for the client IP address of the on-premises SQL Server VM.
 2. A server-level firewall rule is created.
 
-    ![Firewall](./media/contoso-migration-rearchitect-container-sql/sql-firewall.png)
+    ![Firewall](./_images/contoso-migration-rearchitect-container-sql/sql-firewall.png)
 
 Need more help?
 
@@ -268,39 +268,39 @@ Need more help?
 1. In the DMA create a new project (**SmartHotelDB**) and select **Migration** 
 2. They select the source server type as **SQL Server**, and the target as **Azure SQL Database**. 
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-1.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-1.png)
 
 3. In the migration details, they add **SQLVM** as the source server, and the **SmartHotel.Registration** database. 
 
-     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-2.png)
+     ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-2.png)
 
 4. They receive an error which seems to be associated with authentication. However after investigating, the issue is the period (.) in the database name. As a workaround, they decided to provision a new SQL database using the name **SmartHotel-Registration**, to resolve the issue. When they run DMA again, they're able to select **SmartHotel-Registration**, and continue with the wizard.
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-3.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-3.png)
 
 5. In **Select Objects**, they select the database tables, and generate a SQL script.
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-4.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-4.png)
 
 6. After DMS creates the script, they click **Deploy schema**.
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-5.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-5.png)
 
 7. DMA confirms that the deployment succeeded.
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-6.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-6.png)
 
 8. Now they start the migration.
 
-    ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-7.png)
+    ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-7.png)
 
 9. After the migration finishes, Contoso can verify that the database is running on the Azure SQL instance.
 
-     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-8.png)
+     ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-8.png)
 
 10. They delete the extra SQL database **SmartHotel.Registration** in the Azure portal.
 
-     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
+     ![DMA](./_images/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
 
@@ -318,17 +318,17 @@ Contoso will convert the app to a container using isual Studio and the SDK Tools
 
     **git clone https://github.com/Microsoft/SmartHotel360-internal-booking-apps.git**
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container1.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container1.png)
 
 2. Using Visual Studio, they open the solution file (SmartHotel.Registration.sln) in the **SmartHotel360-internal-booking-apps\src\Registration** directory of the local repo.  Two apps are shown. The web frontend SmartHotel.Registration.Web nad the WCF service app SmartHotel.Registration.WCF.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container2.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container2.png)
 
 
 3. They right-click the web app > **Add** > **Container Orchestrator Support**.
 4. In **Add Container Orchestra Support**, they select **Service Fabric**.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container3.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container3.png)
 
 5. Contoso repeats the process for SmartHotel.Registration.WCF app.
 6. Now, Contoso checks how the solution has changed.
@@ -336,19 +336,19 @@ Contoso will convert the app to a container using isual Studio and the SDK Tools
     - The new app is **SmartHotel.RegistrationApplication/**
     - It contains two services: **SmartHotel.Registration.WCF** and **SmartHotel.Registration.Web**.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container4.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container4.png)
 
 7. Visual Studio created the Docker file, and pulled down the required images locally to the developer machine.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container5.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container5.png)
 
 8. A manifest file (**ServiceManifest.xml**) is created and opened by Visual Studio. This file tells Service Fabric how to configure the container when it's deployed to Azure.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container6.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container6.png)
 
 9. Another manifest file (**ApplicationManifest.xml) contains the configuration applications for the containers.
 
-    ![Container](./media/contoso-migration-rearchitect-container-sql/container7.png)
+    ![Container](./_images/contoso-migration-rearchitect-container-sql/container7.png)
 
 ## Step 5: Publish the app
 
@@ -361,23 +361,23 @@ Finally, Contoso can publish the app to the ACR and Service Fabric Cluster.
 
 1. In Visual Studio, the update the connection string to connect the app to the Azure SQL Database. The connection string can be found in the database in the Azure portal.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish1.png)
+    ![Publish](./_images/contoso-migration-rearchitect-container-sql/publish1.png)
 
 2. Contoso publishes the app to Service Fabric using Visual Studio. They right-click on the Service Fabric application > **Publish**.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish2.png)
+    ![Publish](./_images/contoso-migration-rearchitect-container-sql/publish2.png)
 
 3. They select the subscription, connection endpoint, and ACR. Then click **Publish**.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish3.png)
+    ![Publish](./_images/contoso-migration-rearchitect-container-sql/publish3.png)
 
 4. After the deployment finishes, SmartHotel will now be running Service Fabric.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish4.png)
+    ![Publish](./_images/contoso-migration-rearchitect-container-sql/publish4.png)
 
 5. To connect to the app, Contoso directs traffic to the public IP address of the Azure load balancer in fron of their Service Fabric nodes.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish5.png)
+    ![Publish](./_images/contoso-migration-rearchitect-container-sql/publish5.png)
 
 ## Step 6: Extend the app and republish
 
@@ -393,16 +393,16 @@ As a first step, Contoso provision an Azure Cosmos database.
 
 1. They create an Azure Cosmos DB resource from the Azure Marketplace.
 
-    ![Extend](./media/contoso-migration-rearchitect-container-sql/extend1.png)
+    ![Extend](./_images/contoso-migration-rearchitect-container-sql/extend1.png)
 
 2. They provide a database name (**contososmarthotel**), select the SQL API, and place the resource in the production resource group, in the primary East US 2 region.
 
-    ![Extend](./media/contoso-migration-rearchitect-container-sql/extend2.png)
+    ![Extend](./_images/contoso-migration-rearchitect-container-sql/extend2.png)
 
 3. In **Getting Started**, they select **Data Explorer**, and add a new collection.
 4. In **Add Collection** they provide IDs and set storage capacity and throughput.
 
-    ![Extend](./media/contoso-migration-rearchitect-container-sql/extend3.png)
+    ![Extend](./_images/contoso-migration-rearchitect-container-sql/extend3.png)
 
 5. In the portal, they open the new database > **Collection** > **Documents** and click **New Document**.
 6. They paste the following JSON code into the document window. This is sample data in the form of a single tweet.
@@ -426,11 +426,11 @@ As a first step, Contoso provision an Azure Cosmos database.
     }
     ```
 
-    ![Extend](./media/contoso-migration-rearchitect-container-sql/extend4.png)
+    ![Extend](./_images/contoso-migration-rearchitect-container-sql/extend4.png)
 
 7. They locate the Cosmos DB endpoint, and the authentication key. These are used in the app to connect to the collection. In the database, they click **Keys**, and copy the URI and primary key to Notepad.
 
-    ![Extend](./media/contoso-migration-rearchitect-container-sql/extend5.png)
+    ![Extend](./_images/contoso-migration-rearchitect-container-sql/extend5.png)
 
 ### Update the sentiment app
 
@@ -438,7 +438,7 @@ With the Cosmos DB provisioned, Contoso can configure the app to connect to it.
 
 1. In Visual Studio, they open file ApplicationModern\ApplicationParameters\cloud.xml in Solution Explorer.
 
-    ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment1.png)
+    ![Sentiment app](./_images/contoso-migration-rearchitect-container-sql/sentiment1.png)
 
 2. They fill in the following two parameters:
 
@@ -450,7 +450,7 @@ With the Cosmos DB provisioned, Contoso can configure the app to connect to it.
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 
-    ![Sentiment app](./media/contoso-migration-rearchitect-container-sql/sentiment2.png)
+    ![Sentiment app](./_images/contoso-migration-rearchitect-container-sql/sentiment2.png)
 
 ### Republish the app
 
@@ -458,19 +458,19 @@ After extending the app, Contoso republishes it to Azure.
 
 1. In the portal, they right-click on the Service Fabric app > **Publish**.
 
-    ![Republish](./media/contoso-migration-rearchitect-container-sql/republish1.png)
+    ![Republish](./_images/contoso-migration-rearchitect-container-sql/republish1.png)
 
 2. They select the subscription, connection endpoint, and ACR. Then click **Publish**.
 
-    ![Republish](./media/contoso-migration-rearchitect-container-sql/republish2.png)
+    ![Republish](./_images/contoso-migration-rearchitect-container-sql/republish2.png)
 
 4. After the deployment finishes, SmartHotel will now be running Service Fabric. The Servie Fabric Management console now shows three services.
 
-    ![Republish](./media/contoso-migration-rearchitect-container-sql/republish3.png)
+    ![Republish](./_images/contoso-migration-rearchitect-container-sql/republish3.png)
 
 5. Contoso can click through the services to see that the SentimentIntegration app is up and running
 
-    ![Republish](./media/contoso-migration-rearchitect-container-sql/republish4.png)
+    ![Republish](./_images/contoso-migration-rearchitect-container-sql/republish4.png)
 
 ## Clean up after migration
 

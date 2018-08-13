@@ -394,7 +394,7 @@ Before they can run a migration to Azure, Contoso need to set up and enable repl
 1. In the vault, under the vault name (ContosoVMVault) they select a replication goal (**Getting Started** > **Site Recovery** > **Prepare infrastructure**.
 2. They specify that their machines are located on-premises, running on VMware, and replicating to Azure.
 
-    ![Replication goal](./media/contoso-migration-rehost-vm-sql-ag/replication-goal.png)
+    ![Replication goal](./_images/contoso-migration-rehost-vm-sql-ag/replication-goal.png)
 
 ### Confirm deployment planning
 
@@ -415,30 +415,30 @@ Contoso perform these steps as follows:
 
 1. In the vault, they download the OVF template from **Prepare Infrastructure** > **Source** > **Configuration Server**.
     
-    ![Download OVF](./media/contoso-migration-rehost-vm-sql-ag/add-cs.png)
+    ![Download OVF](./_images/contoso-migration-rehost-vm-sql-ag/add-cs.png)
 
 2. They import the template into VMware to create and deploy the VM.
 
-    ![OVF template](./media/contoso-migration-rehost-vm-sql-ag/vcenter-wizard.png)
+    ![OVF template](./_images/contoso-migration-rehost-vm-sql-ag/vcenter-wizard.png)
 
 3. When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
 4. After the installation finishes, they sign in to the VM as the administrator. At first sign-in, the Azure Site Recovery Configuration Tool runs by default.
 5. In the tool, they specify a name to use for registering the configuration server in the vault.
 6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which you want to register the configuration server.
 
-    ![Register configuration server](./media/contoso-migration-rehost-vm-sql-ag/config-server-register2.png)
+    ![Register configuration server](./_images/contoso-migration-rehost-vm-sql-ag/config-server-register2.png)
 
 7. The tool performs some configuration tasks and then reboots.
 8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
 9. In the wizard, they select the NIC to receive replication traffic. This setting can't be changed after it's configured.
 10. They select the subscription, resource group, and vault in which to register the configuration server.
-        ![vault](./media/contoso-migration-rehost-vm-sql-ag/cswiz1.png) 
+        ![vault](./_images/contoso-migration-rehost-vm-sql-ag/cswiz1.png) 
 
 10. They then download and install MySQL Server, and VMWare PowerCLI. 
 11. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
 12. They specify the account that they created for automatic discovery, and the credentials that are used to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
 
-    ![vCenter](./media/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
+    ![vCenter](./_images/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
 
 7. After registration finishes, in the Azure portal, Contoso double checks that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
 8. Site Recovery then connects to VMware servers using the specified settings, and discovers VMs.
@@ -460,11 +460,11 @@ Now,  Contoso can create a replication policy.
     - **Recovery point retention**. Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
     - **App-consistent snapshot frequency**. Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
  
-        ![Create replication policy](./media/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
+        ![Create replication policy](./_images/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
 
 5. The policy is automatically associated with the configuration server. 
 
-    ![Associate replication policy](./media/contoso-migration-rehost-vm-sql-ag/replication-policy2.png)
+    ![Associate replication policy](./_images/contoso-migration-rehost-vm-sql-ag/replication-policy2.png)
 
 
 
@@ -475,20 +475,20 @@ Now Contoso can start replicating WebVM.
 1. In **Replicate application** > **Source** > **+Replicate** they select the source settings.
 2. They indicate that they want to enable VMs, select the vCenter server, and the configuration server.
 
-    ![Enable replication](./media/contoso-migration-rehost-vm-sql-ag/enable-replication1.png)
+    ![Enable replication](./_images/contoso-migration-rehost-vm-sql-ag/enable-replication1.png)
 
 3. Now, they specify the target settings, including the resource group and VNet, and the storage account in which replicated data will be stored.
 
-     ![Enable replication](./media/contoso-migration-rehost-vm-sql-ag/enable-replication2.png)
+     ![Enable replication](./_images/contoso-migration-rehost-vm-sql-ag/enable-replication2.png)
 
 3. Contoso selects the WebVM for replication, checks the replication policy, and enables replication. Site Recovery installs the Mobility Service on the VM when replication is enabled.
  
-    ![Enable replication](./media/contoso-migration-rehost-vm-sql-ag/enable-replication3.png)
+    ![Enable replication](./_images/contoso-migration-rehost-vm-sql-ag/enable-replication3.png)
 
 4. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 5. In **Essentials** in the Azure portal, Contoso can see the structure for the VMs replicating to Azure.
 
-    ![Infrastructure view](./media/contoso-migration-rehost-vm-sql-ag/essentials.png)
+    ![Infrastructure view](./_images/contoso-migration-rehost-vm-sql-ag/essentials.png)
 
 
 **Need more help?**
@@ -602,19 +602,19 @@ Running a test failover helps ensure that everything's working as expected befor
 
 1. After verifying that the test failover worked as expected, Contoso create a recovery plan for migration, and add WEBVM to the plan.
 
-     ![Recovery plan](./media/contoso-migration-rehost-vm-sql-ag/recovery-plan.png)
+     ![Recovery plan](./_images/contoso-migration-rehost-vm-sql-ag/recovery-plan.png)
 
 2. They run a failover on the plan. They select the latest recovery point, and specify that Site Recovery should try to shut down the on-premises VM before triggering the failover.
 
-    ![Failover](./media/contoso-migration-rehost-vm-sql-ag/failover1.png)
+    ![Failover](./_images/contoso-migration-rehost-vm-sql-ag/failover1.png)
 
 3. After the failover, they verify that the Azure VM appears as expected in the Azure portal.
 
-    ![Recovery plan](./media/contoso-migration-rehost-vm-sql-ag/failover2.png)
+    ![Recovery plan](./_images/contoso-migration-rehost-vm-sql-ag/failover2.png)
 
 6. After verifying the VM in Azure, they complete the migration to finish the migration process, stop replication for the VM, and stop Site Recovery billing for the VM.
 
-    ![Failover](./media/contoso-migration-rehost-vm-sql-ag/failover3.png)
+    ![Failover](./_images/contoso-migration-rehost-vm-sql-ag/failover3.png)
 
 ### Update the connection string
 
@@ -622,7 +622,7 @@ As the final step in the migration process, Contoso update the connection string
 
 1. Locate the file at C:\inetpub\SmartHotelWeb\web.config.  Change the name of the server to reflect the FQDN of the AOG: shaog.contoso.com.
 
-    ![Failover](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
+    ![Failover](./_images/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. After updating the file and saving it, they restart IIS on WEBVM. They do this using the IISRESET /RESTART from a cmd prompt.
 2. After IIS has been restarted, the application is now using the database running on the SQL MI.

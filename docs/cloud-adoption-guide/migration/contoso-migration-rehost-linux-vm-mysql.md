@@ -71,7 +71,7 @@ In this scenario:
 - The on-premises VMs in the Contoso datacenter will be decommissioned after the migration is done.
 
 
-![Scenario architecture](./media/contoso-migration-rehost-linux-vm-mysql/architecture.png) 
+![Scenario architecture](./_images/contoso-migration-rehost-linux-vm-mysql/architecture.png) 
 
 
 ## Migration process
@@ -90,7 +90,7 @@ To migrate the database:
 2. They set up MySQL workbench, and back up the database locally.
 3. They then restore the database from the local backup to Azure.
 
-![Migration process](./media/contoso-migration-rehost-linux-vm-mysql/migration-process.png) 
+![Migration process](./_images/contoso-migration-rehost-linux-vm-mysql/migration-process.png) 
 
 
 ### Azure services
@@ -144,11 +144,11 @@ Contoso already created the VNet during [Azure infrastructure deployment](contos
     - The storage account must be in the same region as the Recovery Services vault.
     - Contoso uses a general purpose account, with standard storage, and LRS replication.
 
-    ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+    ![Site Recovery storage](./_images/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. With the network and storage account in place, Contoso creates a vault (ContosoMigrationVault), and places it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
-    ![Recovery Services vault](./media/contoso-migration-rehost-linux-vm-mysql/asr-vault.png)
+    ![Recovery Services vault](./_images/contoso-migration-rehost-linux-vm-mysql/asr-vault.png)
 
 **Need more help?**
 
@@ -207,24 +207,24 @@ Contoso provisions a MySQL database instance in the primary East US 2 region.
 
 1. In the Azure portal, they create an Azure Database for MySQL resource. 
 
-    ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-1.png)
+    ![MySQL](./_images/contoso-migration-rehost-linux-vm-mysql/mysql-1.png)
 
 2. They add the name **contosoosticket** for the Azure database. They add the database to the production resource group **ContosoRG**, and specify credentials for it.
 3. The on-premises MySQL database is version 5.7, so they select this version for compatibility. They use the default sizes, which match their database requirements.
 
-     ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-2.png)
+     ![MySQL](./_images/contoso-migration-rehost-linux-vm-mysql/mysql-2.png)
 
 4. For **Backup Redundancy Options**, Contoso selects to use **Geo-Redundant**. This option allows them to restore the database in their secondary Central US region if an outage occurs. They can only configure this option when they provision the database.
 
-     ![Redundancy](./media/contoso-migration-rehost-linux-vm-mysql/db-redundancy.png)
+     ![Redundancy](./_images/contoso-migration-rehost-linux-vm-mysql/db-redundancy.png)
 
 4. In the **VNET-PROD-EUS2** network > **Service endpoints**, they add a service endpoint (a database subnet) for the SQL service.
 
-    ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-3.png)
+    ![MySQL](./_images/contoso-migration-rehost-linux-vm-mysql/mysql-3.png)
 
 5. After adding the subnet, they create a virtual network rule that allows access from the database subnet in the production network.
 
-    ![MySQL](./media/contoso-migration-rehost-linux-vm-mysql/mysql-4.png)
+    ![MySQL](./_images/contoso-migration-rehost-linux-vm-mysql/mysql-4.png)
 
 
 ## Step 4: Replicate the on-premises VMs
@@ -236,7 +236,7 @@ Before they can migrate the web VM to Azure, Contoso sets up and enables replica
 1. In the vault, under the vault name (ContosoVMVault) they set a replication goal (**Getting Started** > **Site Recovery** > **Prepare infrastructure**.
 2. They specify that their machines are located on-premises, that they're VMware VMs, and that they want to replicate to Azure.
 
-    ![Replication goal](./media/contoso-migration-rehost-linux-vm-mysql/replication-goal.png)
+    ![Replication goal](./_images/contoso-migration-rehost-linux-vm-mysql/replication-goal.png)
 
 ### Confirm deployment planning
 
@@ -257,11 +257,11 @@ Contoso perform these steps as follows:
 
 1. They download the OVF template from **Prepare Infrastructure** > **Source** > **Configuration Server**.
     
-    ![Download OVF](./media/contoso-migration-rehost-linux-vm-mysql/add-cs.png)
+    ![Download OVF](./_images/contoso-migration-rehost-linux-vm-mysql/add-cs.png)
 
 2. They import the template into VMware to create the VM, and deploy the VM.
 
-    ![OVF template](./media/contoso-migration-rehost-linux-vm-mysql/vcenter-wizard.png)
+    ![OVF template](./_images/contoso-migration-rehost-linux-vm-mysql/vcenter-wizard.png)
 
 3. When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
 4. After the installation finishes, they sign in to the VM as the administrator. At first sign-in, the Azure Site Recovery Configuration Tool runs by default.
@@ -269,20 +269,20 @@ Contoso perform these steps as follows:
 6. The tool checks that the VM can connect to Azure.
 7. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which they'll register the configuration server.
 
-    ![Register configuration server](./media/contoso-migration-rehost-linux-vm-mysql/config-server-register2.png)
+    ![Register configuration server](./_images/contoso-migration-rehost-linux-vm-mysql/config-server-register2.png)
 
 8. The tool performs some configuration tasks and then reboots.
 9. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
 10. In the wizard, they select the NIC to receive replication traffic. This setting can't be changed after it's configured.
 11. They select the subscription, resource group, and vault in which to register the configuration server.
 
-    ![vault](./media/contoso-migration-rehost-linux-vm-mysql/cswiz1.png) 
+    ![vault](./_images/contoso-migration-rehost-linux-vm-mysql/cswiz1.png) 
 
 12. Now, they download and install MySQL Server, and VMWare PowerCLI. 
 13. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
 14. They input the account that they created for automatic discovery, and the credentials that Site Recovery will use to automatically install the Mobility Service. 
 
-    ![vCenter](./media/contoso-migration-rehost-linux-vm-mysql/cswiz2.png)
+    ![vCenter](./_images/contoso-migration-rehost-linux-vm-mysql/cswiz2.png)
 
 14. After registration finishes, in the Azure portal, Contoso checks that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
 15. With everything in place, Site Recovery connects to VMware servers, and discovers VMs.
@@ -305,11 +305,11 @@ With the source and target set up, Contoso is ready to create a replication poli
     - **Recovery point retention**. Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
     - **App-consistent snapshot frequency**. Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
  
-        ![Create replication policy](./media/contoso-migration-rehost-linux-vm-mysql/replication-policy.png)
+        ![Create replication policy](./_images/contoso-migration-rehost-linux-vm-mysql/replication-policy.png)
 
 5. The policy is automatically associated with the configuration server. 
 
-    ![Associate replication policy](./media/contoso-migration-rehost-linux-vm-mysql/replication-policy2.png)
+    ![Associate replication policy](./_images/contoso-migration-rehost-linux-vm-mysql/replication-policy2.png)
 
 
 **Need more help?**
@@ -325,19 +325,19 @@ Now Contoso can start replicating the **OSTICKETWEB** VM.
 1. In **Replicate application** > **Source** > **+Replicate** they select the source settings.
 2. They indicate that they want to enable virtual machines, and select the source settings, including the vCenter server, and the configuration server.
 
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication-source.png)
+    ![Enable replication](./_images/contoso-migration-rehost-linux-vm-mysql/enable-replication-source.png)
 
 3. Now they specify the target settings. These include the resource group and network in which the Azure VM will be located after failover, and the storage account in which replicated data will be stored. 
 
-     ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication2.png)
+     ![Enable replication](./_images/contoso-migration-rehost-linux-vm-mysql/enable-replication2.png)
 
 3. Contoso selects **OSTICKETWEB** for replication. 
 
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm-mysql/enable-replication3.png)
+    ![Enable replication](./_images/contoso-migration-rehost-linux-vm-mysql/enable-replication3.png)
 
 4. In the VM properties, they select the account that should be used to automatically install the Mobility Service on the VM.
 
-     ![Mobility service](./media/contoso-migration-rehost-linux-vm-mysql/linux-mobility.png)
+     ![Mobility service](./_images/contoso-migration-rehost-linux-vm-mysql/linux-mobility.png)
 
 5. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**. The Mobility service will be automatically installed.
 6.  They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
@@ -358,19 +358,19 @@ Contoso will migrate the database using backup and restore, with MySQL tools. Th
 2. They install MySQL Workbench for Windows in accordance with the [installation instructions](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
 3. In MySQL Workbench, they create a MySQL connection to OSTICKETMYSQL. 
 
-    ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench1.png)
+    ![MySQL Workbench](./_images/contoso-migration-rehost-linux-vm-mysql/workbench1.png)
 
 4. They export the database as **osticket**, to a local self-contained file.
 
-    ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench2.png)
+    ![MySQL Workbench](./_images/contoso-migration-rehost-linux-vm-mysql/workbench2.png)
 
 5. After the database has been backed up locally, they create a connection to the Azure Database for MySQL instance.
 
-    ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench3.png)
+    ![MySQL Workbench](./_images/contoso-migration-rehost-linux-vm-mysql/workbench3.png)
 
 6. Now, Contoso can import (restore) the database in the Azure MySQL instance, from the self-contained file. A new schema (osticket) is created for the instance.
 
-    ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench4.png)
+    ![MySQL Workbench](./_images/contoso-migration-rehost-linux-vm-mysql/workbench4.png)
 
 ## Step 6: Migrate the VMs with Site Recovery
 
@@ -397,23 +397,23 @@ To migrate the VM, Contoso creates a recovery plan that includes the VM, and fai
 
 1. Contoso creates a plan, and adds **OSTICKETWEB** to it.
 
-    ![Recovery plan](./media/contoso-migration-rehost-linux-vm-mysql/recovery-plan.png)
+    ![Recovery plan](./_images/contoso-migration-rehost-linux-vm-mysql/recovery-plan.png)
 
 2. They run a failover on the plan. They select the latest recovery point, and specify that Site Recovery should try to shut down the on-premises VM before triggering the failover. They can follow the failover progress on the **Jobs** page.
 
-    ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover1.png)
+    ![Failover](./_images/contoso-migration-rehost-linux-vm-mysql/failover1.png)
 
 3. During the failover, vCenter Server issues commands to stop the two VMs running on the ESXi host.
 
-    ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/vcenter-failover.png)
+    ![Failover](./_images/contoso-migration-rehost-linux-vm-mysql/vcenter-failover.png)
 
 4. After the failover, Contoso verifies that the Azure VM appears as expected in the Azure portal.
 
-    ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover2.png)  
+    ![Failover](./_images/contoso-migration-rehost-linux-vm-mysql/failover2.png)  
 
 5. After checking the VM, they complete the migration. This stops replication for the VM, and stops Site Recovery billing for the VM.
 
-    ![Failover](./media/contoso-migration-rehost-linux-vm-mysql/failover3.png)
+    ![Failover](./_images/contoso-migration-rehost-linux-vm-mysql/failover3.png)
 
 **Need more help?**
 
@@ -428,29 +428,29 @@ As the final step in the migration process, Contoso update the connection string
 
 1. They make an SSH connection to the OSTICKETWEB VM using Putty or another SSH client. The VM is private so they connect using the private IP address.
 
-    ![Connect to database](./media/contoso-migration-rehost-linux-vm-mysql/db-connect.png)  
+    ![Connect to database](./_images/contoso-migration-rehost-linux-vm-mysql/db-connect.png)  
 
-    ![Connect to database](./media/contoso-migration-rehost-linux-vm-mysql/db-connect2.png)  
+    ![Connect to database](./_images/contoso-migration-rehost-linux-vm-mysql/db-connect2.png)  
 
 2. They update settings so that the **OSTICKETWEB** VM can communicate with the **OSTICKETMYSQL** database. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
 
     **Before the update**
     
-    ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip1.png)  
+    ![Update IP](./_images/contoso-migration-rehost-linux-vm-mysql/update-ip1.png)  
 
     **After the update**
     
-    ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip2.png) 
+    ![Update IP](./_images/contoso-migration-rehost-linux-vm-mysql/update-ip2.png) 
     
-    ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip3.png) 
+    ![Update IP](./_images/contoso-migration-rehost-linux-vm-mysql/update-ip3.png) 
 
 3. They restart the service with **systemctl restart apache2**.
 
-    ![Restart](./media/contoso-migration-rehost-linux-vm-mysql/restart.png) 
+    ![Restart](./_images/contoso-migration-rehost-linux-vm-mysql/restart.png) 
 
 4. Finally, they update the DNS records for **OSTICKETWEB**, on one of the Contoso domain controllers.
 
-    ![Update DNS](./media/contoso-migration-rehost-linux-vm-mysql/update-dns.png) 
+    ![Update DNS](./_images/contoso-migration-rehost-linux-vm-mysql/update-dns.png) 
 
 
 ##  Clean up after migration

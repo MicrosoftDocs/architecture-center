@@ -44,7 +44,7 @@ You can download the sample SmartHotel app that's used in this article from [Git
 
 This diagram shows the current Contoso on-premises infrastructure:
 
-![Current Contoso architecture](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
+![Current Contoso architecture](./_images/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
 
 - Contoso has one main datacenter. The datacenter is located in the city of New York in the Eastern United States.
 - Contoso has three additional local branches across the United States.
@@ -342,7 +342,7 @@ Before running a migration to Azure, Contoso needs to set up replication and ena
 1. In the vault, under the vault name (**ContosoVMVault**), Contoso sets a replication goal (**Getting Started** > **Site Recovery** > **Prepare infrastructure**).
 2. Contoso specifies that its machines are located on-premises, that they're VMware VMs, and that Contoso wants to replicate to Azure.
 
-    ![Prepare infrastructure - Protection goal](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-goal.png)
+    ![Prepare infrastructure - Protection goal](./_images/contoso-migration-rehost-vm-sql-managed-instance/replication-goal.png)
 
 ### Confirm deployment planning
 
@@ -364,31 +364,31 @@ To set up the source environment:
 
 1. Contoso downloads the OVF template from the Azure portal (**Prepare Infrastructure** > **Source** > **Configuration Server**).
     
-    ![Add a configuration server](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
+    ![Add a configuration server](./_images/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
 
 2. Contoso imports the template into VMware to create and deploy the VM.
 
-    ![Deploy OVF template](./media/contoso-migration-rehost-vm-sql-managed-instance/vcenter-wizard.png)
+    ![Deploy OVF template](./_images/contoso-migration-rehost-vm-sql-managed-instance/vcenter-wizard.png)
 
 3.  When Contoso turns on the VM for the first time, the VM starts in a Windows Server 2016 installation experience. Contoso accepts the license agreement and enters an administrator password.
 4. When the installation is finished, Contoso signs in to the VM as the administrator. The first time that Contoso signs in to the VM, the Azure Site Recovery Configuration Tool runs automatically.
 5. In the Site Recovery Configuration Tool, Contoso enters a name to use to register the configuration server in the vault.
 6. The tool checks the VM's connection to Azure. After the connection is established, Contoso selects **Sign in** to sign in to the Azure subscription. The credentials must have access to the vault in which the configuration server is registered. 
 
-    ![Register the configuration server](./media/contoso-migration-rehost-vm-sql-managed-instance/config-server-register2.png)
+    ![Register the configuration server](./_images/contoso-migration-rehost-vm-sql-managed-instance/config-server-register2.png)
 
 7. The tool performs some configuration tasks, and then reboots. Contoso signs in to the machine again. The Configuration Server Management Wizard starts automatically.
 8. In the wizard, Contoso selects the NIC to receive replication traffic. This setting can't be changed after it's configured.
 9. Contoso selects the subscription, resource group, and Recovery Services vault in which to register the configuration server.
 
-    ![Select Recovery Services vault](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png)
+    ![Select Recovery Services vault](./_images/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png)
 
 10. Contoso downloads and installs MySQL Server and VMWare PowerCLI. Then, Contoso validates the server settings.
 11. After validation, Contoso enters the FQDN or IP address of the vCenter Server instance or vSphere host. Contoso leaves the default port and enters a display name for the vCenter Server instance in Azure.
 12. Contoso must specify the account that it created earlier so that Site Recovery can automatically discover VMware VMs that are available for replication. 
 13. Contoso enters credentials, so the Mobility Service is automatically installed when replication is enabled. For Windows machines, the account needs local administrator permissions on the VMs. 
 
-    ![Configure vCenter Server](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
+    ![Configure vCenter Server](./_images/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
 
 7. When registration is finished, in the Azure portal, Contoso verifies again that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more. 
 8. Site Recovery connects to VMware servers by using the specified settings. Site Recovery discovers VMs.
@@ -410,11 +410,11 @@ When the source and target are set up, Contoso creates a replication policy and 
     - **Recovery point retention**: Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
     - **App-consistent snapshot frequency**: Default of 1 hour. This value specifies the frequency at which application-consistent snapshots are created.
  
-    ![Replication policy - Create](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+    ![Replication policy - Create](./_images/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. The policy is automatically associated with the configuration server. 
 
-    ![Replication policy - Associate](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy2.png)
+    ![Replication policy - Associate](./_images/contoso-migration-rehost-vm-sql-managed-instance/replication-policy2.png)
 
 *Need more help?*
 
@@ -428,20 +428,20 @@ Now, Contoso can start replicating WebVM.
 1. In **Replicate application** > **Source** > **Replicate**, Contoso selects the source settings.
 2. Contoso indicates that it wants to enable virtual machines, selects the vCenter Server instance, and sets the configuration server.
 
-    ![Enable replication - Source](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
+    ![Enable replication - Source](./_images/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
  
 3. Contoso specifies the target settings, including the resource group and network in which the Azure VM will be located after failover. Contoso specifies the storage account in which replicated data will be stored.
 
-    ![Enable replication - Target](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
+    ![Enable replication - Target](./_images/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
 
 4. Contoso selects **WebVM** for replication. Site Recovery installs the Mobility Service on each VM when replication is enabled. 
 
-    ![Enable replication - Select the VM](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
+    ![Enable replication - Select the VM](./_images/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
 5. Contoso checks that the correct replication policy is selected. Then, it enables replication for **WEBVM**. Contoso tracks replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 6. In **Essentials** in the Azure portal, Contoso can see the structure for the VMs that are replicating to Azure:
 
-    ![Infrastructure view](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
+    ![Infrastructure view](./_images/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
 
 *Need more help?*
 
@@ -455,7 +455,7 @@ Contoso needs to create a Database Migration Service project, and then migrate t
 
 1. Contoso creates a Database Migration Service project. Contoso selects the **SQL Server** source server type. Contoso selects **Azure SQL Database Managed Instance** as the target.
 
-     ![Database Migration Service - New migration project](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Database Migration Service - New migration project](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
 2. The Migration Wizard opens.
 
@@ -463,15 +463,15 @@ Contoso needs to create a Database Migration Service project, and then migrate t
 
 1. In the Migration Wizard, Contoso specifies the source VM on which the on-premises database is located. Contoso enters the credentials to access the database.
 
-    ![Database Migration Service - Source details](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Database Migration Service - Source details](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
 2. Contoso selects the database to migrate (**SmartHotel.Registration**):
 
-    ![Database Migration Service - Select source databases](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Database Migration Service - Select source databases](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. For the target, Contoso enters the name of the Managed Instance in Azure. Contoso enters access credentials for the Managed Instance.
 
-    ![Database Migration Service - Target details](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Database Migration Service - Target details](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. In **New Activity** > **Run Migration**, Contoso specifies settings to run migration:
     - Source and target credentials.
@@ -481,16 +481,16 @@ Contoso needs to create a Database Migration Service project, and then migrate t
         - The FQDN path to the share must be used.
     - The SAS URI that provides the Database Migration Service with access to the storage account container to which the service uploads the backup files for migration.
 
-        ![Database Migration Service - Configure migration settings](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Database Migration Service - Configure migration settings](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Contoso saves the migration, and then runs it.
 6. In **Overview**, Contoso monitors the migration status.
 
-    ![Database Migration Service - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Database Migration Service - Monitor](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. When migration is finished, Contoso verifies that the target databases exist on the Managed Instance.
 
-    ![Database Migration Service - Verify the database migration](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Database Migration Service - Verify the database migration](./_images/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
 ## Step 7: Migrate the VM by using Site Recovery
 
@@ -513,19 +513,19 @@ Before migrating WEBVM, a test failover helps ensure that everything works as ex
 
 1. After verifying that the test failover worked as expected, Contoso creates a recovery plan for migration. Contoso adds WEBVM to the plan:
 
-     ![Create recovery plan - Select items](./media/contoso-migration-rehost-vm-sql-managed-instance/recovery-plan.png)
+     ![Create recovery plan - Select items](./_images/contoso-migration-rehost-vm-sql-managed-instance/recovery-plan.png)
 
 2. Contoso runs a failover on the plan. Contoso selects the latest recovery point. Contoso specifies that Site Recovery should try to shut down the on-premises VM before it triggers the failover.
 
-    ![Failover](./media/contoso-migration-rehost-vm-sql-managed-instance/failover1.png)
+    ![Failover](./_images/contoso-migration-rehost-vm-sql-managed-instance/failover1.png)
 
 3. After the failover, Contoso verifies that the Azure VM appears as expected in the Azure portal.
 
-   ![Recovery plan details](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
+   ![Recovery plan details](./_images/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
 
 4. After verifying the VM in Azure, Contoso completes the migration to finish the migration process, stop replication for the VM, and stop Site Recovery billing for the VM.
 
-    ![Failover - Complete migration](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
+    ![Failover - Complete migration](./_images/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
 
 ### Update the connection string
 
@@ -533,7 +533,7 @@ As the final step in the migration process, Contoso updates the connection strin
 
 1. In the Azure portal, Contoso finds the connection string by selecting **Settings** > **Connection Strings**.
 
-    ![Connection strings](./media/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
+    ![Connection strings](./_images/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
 
 2. Contoso updates the string with the user name and password of the SQL Database Managed Instance.
 3. After the string is configured, Contoso replaces the current connection string in the web.config file of its application.
@@ -572,7 +572,7 @@ The Contoso security team reviews the Azure VMs and SQL Database Managed Instanc
 - Contoso's security team also is considering securing the data on the disk by using Azure Disk Encryption and Azure Key Vault.
 - The security team enables threat detection on the Managed Instance. Threat detection sends an alert to Contoso's security team/service desk system to open a ticket if a threat is detected. Learn more about [threat detection for Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
 
-     ![Managed Instance security - Threat detection](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
+     ![Managed Instance security - Threat detection](./_images/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
 To learn more about security practices for VMs, see [Security best practices for IaaS workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 
