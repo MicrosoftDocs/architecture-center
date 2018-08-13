@@ -124,21 +124,17 @@ client.RetryPolicy = RetryPolicy.Default;
 
 ## IoT Hub
 
-Azure IoT Hub is an open and flexible service for connecting, monitoring, and managing billions of devices to develop Internet of Things (IoT) applications.
+Azure IoT Hub is a service for connecting, monitoring, and managing devices to develop Internet of Things (IoT) applications.
 
 ### Retry mechanism
 
-Azure IoT device SDK can detect errors in the network, protocol, or application. Based on the error type, the SDK checks if the a retry needs to be performed. If the error is *recoverable*, the SDK begins to retry using the retry policy configured. '
+The Azure IoT device SDK can detect errors in the network, protocol, or application. Based on the error type, the SDK checks whether a retry needs to be performed. If the error is *recoverable*, the SDK begins to retry using the configured retry policy.
 
 The default retry policy is *exponential back-off with random jitter*, but it can be configured.
 
 ### Policy configuration
 
 Policy configuration differs by language. For more details, see [IoT Hub retry policy configuration](/azure/iot-hub/iot-hub-reliability-features-in-sdks#retry-policy-apis).
-
-### Example
-
-Examples are found in [IoT Hub retry policy examples](/azure/iot-hub/iot-hub-reliability-features-in-sdks#net-implementation-guidance).
 
 ### More information
 
