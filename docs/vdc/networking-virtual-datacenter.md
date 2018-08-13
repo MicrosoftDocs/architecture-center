@@ -94,7 +94,7 @@ Deploying ExpressRoute connections involves engaging with an ExpressRoute servic
 ## Virtual Data Center Overview
 
 ### Topology
-Hub and spokes model extended the Virtual Data Center within a single Azure region
+_Hub and spokes_ is a model for extending a Virtual Data Center within a single Azure region.
 
 [![1]][1]
 
