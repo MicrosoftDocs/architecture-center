@@ -57,7 +57,7 @@ When designing a VDC, there are several pivotal issues to consider:
 -   Connectivity to the cloud
 -   Connectivity within the cloud
 
-### *Identity and Directory Service*
+### Identity and Directory Service
 Identity and Directory services are a key aspect of all data centers, both on-premises and in the cloud. Identity is related to all aspects of access and authorization to services within the VDC. To help ensure that only authorized users and processes access your Azure Account and resources, Azure uses several types of credentials for authentication. These include passwords (to access the Azure account), cryptographic keys, digital signatures, and certificates. [*Azure Multi-Factor Authentication* (MFA)][MFA] is an additional layer of security for accessing Azure services. Azure MFA provides strong authentication with a range of easy verification options—phone call, text message, or mobile app notification—and allow customers to choose the method they prefer.
 
 Any large enterprise needs to define an identity management process that describes the management of individual identities, their authentication, authorization, roles, and privileges within or across the VDC. The goals of this process should be to increase security and productivity while decreasing cost, downtime, and repetitive manual tasks.
@@ -70,12 +70,12 @@ All Microsoft online business services rely on Azure Active Directory (AAD) for 
 
 A single global administrator is not required to assign all permissions in a VDC. Instead each specific department (or group of users or services in the Directory Service) can have the permissions required to manage their own resources within a VDC. Structuring permissions requires balancing. Too many permissions can impede performance efficiency, and too few or loose permissions can increase security risks. Azure Role-Based Access Control (RBAC) helps to address this problem, by offering fine-grained access management for VDC resources.
 
-##### *Security Infrastructure*
+#### *Security Infrastructure*
 Security infrastructure, in the context of a VDC, is mainly related to the segregation of traffic in the VDC's specific virtual network segment, and how to control ingress and egress flows throughout the VDC. Azure is based on multi-tenant architecture that prevents unauthorized and unintentional traffic between deployments, using Virtual Network (VNet) isolation, access control lists (ACLs), load balancers, and IP filters, along with traffic flow policies. Network address translation (NAT) separates internal network traffic from external traffic.
 
 The Azure fabric allocates infrastructure resources to tenant workloads and manages communications to and from virtual machines (VMs). The Azure hypervisor enforces memory and process separation between VMs and securely routes network traffic to guest OS tenants.
 
-##### *Connectivity to the cloud*
+#### *Connectivity to the cloud*
 The VDC needs connectivity with external networks to offer services to customers, partners and/or internal users. This usually means connectivity not only to the Internet, but also to on-premises networks and data centers.
 
 Customers can build their security policies to control what and how specific VDC hosted services are accessible to/from the Internet using Network Virtual Appliances (with filtering and traffic inspection), and custom routing policies and network filtering (User Defined Routing and Network Security Groups).
@@ -88,7 +88,7 @@ An [**Azure Site-to-Site VPN**][VPN] is an interconnection service over the Inte
 
 Deploying ExpressRoute connections involves engaging with an ExpressRoute service provider. For customers that need to start quickly, it is common to initially use Site-to-Site VPN to establish connectivity between the VDC and on-premises resources, and then migrate to ExpressRoute connection.
 
-##### *Connectivity within the cloud*
+#### *Connectivity within the cloud*
 [VNets][VNet] and [VNet Peering][VNetPeering] are the basic networking connectivity services inside a VDC. A VNet guarantees a natural boundary of isolation for VDC resources, and VNet peering allows intercommunication between different VNets within the same Azure region or even across regions. Traffic control inside a VNet and between VNets need to match a set of security rules specified through Access Control Lists ([Network Security Group][NSG]), [Network Virtual Appliances][NVA], and custom routing tables ([UDR][UDR]).
 
 ## Virtual Data Center Overview
