@@ -460,7 +460,7 @@ Contoso can now verify machine dependencies and create a group. Then, it runs th
 
 2. To view the assessment, Contoso selects **Manage** > **Assessments**.
 
-Contoso uses the default assessment settings, but you can [customize settings](how-to-modify-assessment.md).
+Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment).
 
 ### Analyze the VM assessment
 
