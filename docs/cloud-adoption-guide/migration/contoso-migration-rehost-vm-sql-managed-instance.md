@@ -84,7 +84,7 @@ In this scenario:
 - Contoso has an on-premises datacenter (**contoso-datacenter**) and an on-premises domain controller (**contosodc1**).
 - The on-premises VMs in the Contoso datacenter will be decommissioned when the migration is finished.
 
-![Scenario architecture](media/contoso-migration-rehost-vm-sql-managed-instance/architecture.png) 
+![Scenario architecture](_images/contoso-migration-rehost-vm-sql-managed-instance/architecture.png) 
 
 ### Azure services
 
@@ -102,7 +102,7 @@ Contoso will migrate the web and data tiers of its SmartHotel app to Azure by co
 2. The data tier will be migrated by using the Data Migration Service. The Data Migration Service connects to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure. Then, the Data Migration Service migrates the database.
 3. The web tier will be migrated by using a lift-and-shift migration by using Site Recovery. The process entails preparing the on-premises VMware environment, setting up and enabling replication, and migrating the VMs by failing them over to Azure.
 
-     ![Migration architecture](media/contoso-migration-rehost-vm-sql-managed-instance/migration-architecture.png) 
+     ![Migration architecture](_images/contoso-migration-rehost-vm-sql-managed-instance/migration-architecture.png) 
 
 ## Prerequisites
 
@@ -151,14 +151,14 @@ Contoso sets up the virtual network as follows:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). This subnet is used to attach a directory to the Managed Instance.
 
-    ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+    ![Managed Instance - Create virtual network](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 6. After the virtual network and subnets are deployed, Contoso peers networks as follows:
 
     - Peers **VNET-SQLMI-EUS2** with **VNET-HUB-EUS2** (the hub virtual network for the East US 2).
     - Peers **VNET-SQLMI-EUS2** with **VNET-PROD-EUS2** (the production network).
 
-    ![Network peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+    ![Network peering](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 7. Contoso sets custom DNS settings. DNS points first to Contoso's Azure domain controllers. Azure DNS is secondary. The Contoso Azure domain controllers are located as follows:
 
@@ -167,7 +167,7 @@ Contoso sets up the virtual network as follows:
     - **CONTOSODC4** address: 10.245.42.5
     - Azure DNS resolver: 168.63.129.16
 
-     ![Network DNS servers](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+     ![Network DNS servers](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Need more help?*
 
@@ -191,15 +191,15 @@ Contoso considers these factors:
 
 1. Contoso creates a UDR table. Contoso creates the route table in the **ContosoNetworkingRG** resource group.
 
-    ![Route table](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
+    ![Route table](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
 
 2. To comply with Managed Instance requirements, after the route table (**MIRouteTable**) is deployed, Contoso adds a route that has an address prefix of 0.0.0.0/0. The **Next hop type** option is set to **Internet**.
 
-    ![Route table prefix](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
+    ![Route table prefix](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
     
 3. Contoso associates the route table with the **SQLMI-DB-EUS2** subnet (in the **VNET-SQLMI-EUS2** network). 
 
-    ![Route table subnet](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
+    ![Route table subnet](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
     
 *Need more help?*
 
@@ -212,14 +212,14 @@ Now, Contoso can provision a SQL Database Managed Instance:
 1. Because the Managed Instance serves a business app, Contoso deploys the Managed Instance in the company's primary East US 2 region. Contoso adds the Managed Instance to the **ContosoRG** resource group.
 2. Contoso selects a pricing tier, size compute, and storage for the instance. Learn more about [Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
-    ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
+    ![Managed Instance](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
 
 3. After the Managed Instance is deployed, two new resources appear in the **ContosoRG** resource group:
 
     - A virtual cluster in case Contoso has multiple Managed Instances.
     - The SQL Server Database Managed Instance. 
 
-    ![Managed Instance](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+    ![Managed Instance](_images/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Need more help?*
 
@@ -236,21 +236,21 @@ To prepare the Database Migration Service, Contoso needs to do a few things:
 Then, Contoso completes the following steps:
 
 1. Contoso registers the database migration provider under its subscription.
-    ![Database Migration Service - Register](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Database Migration Service - Register](_images/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
 2. Contoso creates a Blob storage container. Contoso generates an SAS URI so that the Database Migration Service can access it.
 
-    ![Database Migration Service - Generate an SAS URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+    ![Database Migration Service - Generate an SAS URI](_images/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
 3. Contoso creates a Database Migration Service instance. 
 
-    ![Database Migration Service - Create instance](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Database Migration Service - Create instance](_images/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
 4. Contoso places the Database Migration Service instance in the **PROD-DC-EUS2** subnet of the **VNET-PROD-DC-EUS2** virtual network.
     - Contoso places the Database Migration Service there because the service must be in a virtual network that can access the on-premises SQL Server VM via a VPN gateway.
     - The **VNET-PROD-EUS2** is peered to **VNET-HUB-EUS2** and is allowed to use remote gateways. The **Use remote gateways** option ensures that the Database Migration Service can communicate as required.
 
-        ![Database Migration Service - Configure network](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![Database Migration Service - Configure network](_images/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *Need more help?*
 
@@ -271,11 +271,11 @@ Contoso sets up Site Recovery as follows:
 1. Because the VM is a web front end to the SmartHotel app, Contoso fails over the VM to its existing production network (**VNET-PROD-EUS2**) and subnet (**PROD-FE-EUS2**). The network and subnet are located in the primary East US 2 region. Contoso set up the network when it [deployed the Azure infrastructure](contoso-migration-infrastructure.md).
 2. Contoso creates a storage account (**contosovmsacc20180528**). Contoso uses a general-purpose account. Contoso selects standard storage and locally redundant storage replication.
 
-    ![Site Recovery - Create storage account](media/contoso-migration-rehost-vm-sql-managed-instance/asr-storage.png)
+    ![Site Recovery - Create storage account](_images/contoso-migration-rehost-vm-sql-managed-instance/asr-storage.png)
 
 3. With the network and storage account in place, Contoso creates a vault (**ContosoMigrationVault**). Contoso places the vault in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
-    ![Recovery Services - Create vault](media/contoso-migration-rehost-vm-sql-managed-instance/asr-vault.png)
+    ![Recovery Services - Create vault](_images/contoso-migration-rehost-vm-sql-managed-instance/asr-vault.png)
 
 *Need more help?*
 

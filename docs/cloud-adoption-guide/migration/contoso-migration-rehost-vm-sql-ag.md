@@ -65,7 +65,7 @@ In this scenario:
 - Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
 - The on-premises VMs in the Contoso datacenter will be decommissioned after the migration is done.
 
-![Scenario architecture](media/contoso-migration-rehost-vm-sql-ag/architecture.png) 
+![Scenario architecture](_images/contoso-migration-rehost-vm-sql-ag/architecture.png) 
 
 ### Azure services
 
@@ -88,7 +88,7 @@ In this scenario:
     - With this in place, they can migrate the database
 - After the migration, they'll enable AlwaysOn protection for the database.
 
-![Migration process](media/contoso-migration-rehost-vm-sql-ag/migration-process.png) 
+![Migration process](_images/contoso-migration-rehost-vm-sql-ag/migration-process.png) 
  
 ## Prerequisites
 
@@ -130,7 +130,7 @@ Here's how Contoso set up the cluster:
 
 1. They create two SQL Server VMs by selecting SQL Server 2017 Enterprise Windows Server 2016 image in the Azure Marketplace. 
 
-    ![SQL VM SKU](media/contoso-migration-rehost-vm-sql-ag/sql-vm-sku.png)
+    ![SQL VM SKU](_images/contoso-migration-rehost-vm-sql-ag/sql-vm-sku.png)
 
 2. In the **Create virtual machine Wizard** > **Basics**, they configure:
 
@@ -146,11 +146,11 @@ Here's how Contoso set up the cluster:
     - They place the machines in the production network of the EAST US 2 primary region (**VNET-PROD-EUS2**), in the database subnet (**PROD-DB-EUS2**).
     - They create a new availability set: **SQLAOGAVSET**, with two fault domains and five update domains.
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+    ![SQL VM](_images/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. In **SQL Server settings**, they limit SQL connectivity to the virtual network (private), on default port 1433. For authentication they use the same credentials as they use onsite (**contosoadmin**).
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-db.png)
+    ![SQL VM](_images/contoso-migration-rehost-vm-sql-ag/sql-vm-db.png)
 
 **Need more help?**
 
@@ -178,11 +178,11 @@ Contoso creates a storage account as follows:
 3. They place the account in a third region - South Central US. They place it outside the primary and secondary region so that it remains available in case of regional failure.
 4. They place it in their resource group that holds infrastructure resources - **ContosoInfraRG**.
 
-    ![Cloud witness](media/contoso-migration-rehost-vm-sql-ag/witness-storage.png)
+    ![Cloud witness](_images/contoso-migration-rehost-vm-sql-ag/witness-storage.png)
 
 5. When they create the storage account, primary and secondary access keys are generated for it. They need the primary access key to create the cloud witness. The key appears under the storage account name > **Access Keys**.
 
-    ![Access key](media/contoso-migration-rehost-vm-sql-ag/access-key.png)
+    ![Access key](_images/contoso-migration-rehost-vm-sql-ag/access-key.png)
 
 ### Add SQL Server VMs to Contoso domain
 
@@ -193,15 +193,15 @@ Contoso creates a storage account as follows:
 
 Before setting up the cluster, Contoso takes a snapshot of the OS disk on each machine.
 
-![snapshot](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
+![snapshot](_images/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
 2. Then, they run a script they've put together to create the Windows Failover Cluster.
 
-    ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
+    ![Create cluster](_images/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
 3. After they've created the cluster, they verify that the VMs appear as cluster nodes.
 
-     ![Create cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
+     ![Create cluster](_images/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
 ## Configure the cloud witness
 
@@ -209,7 +209,7 @@ Before setting up the cluster, Contoso takes a snapshot of the OS disk on each m
 2. In the wizard they select to create a cloud witness with the storage account.
 3. After the cloud witness is configured, in appears in the Failover Cluster Manager snap-in.
 
-    ![Cloud witness](media/contoso-migration-rehost-vm-sql-ag/cloud-witness.png)
+    ![Cloud witness](_images/contoso-migration-rehost-vm-sql-ag/cloud-witness.png)
             
 
 ## Enable SQL Server Always On availability groups
@@ -218,7 +218,7 @@ Contoso can now enable Always On:
 
 1. In SQL Server Configuration Manager, they enable **AlwaysOn Availability Groups** for the **SQL Server (MSSQLSERVER)** service.
 
-    ![Enable AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
+    ![Enable AlwaysOn](_images/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
 
 2. They restart the service for changes to take effect.
 
@@ -233,7 +233,7 @@ With AlwaysOn enable, Contoso can set up the AlwaysOn availability group that wi
 
 Contoso now want to deploy an internal load balancer that sits in front of the cluster nodes. The load balancer listens for traffic, and directs it to the appropriate node.
 
-![Load balancing](media/contoso-migration-rehost-vm-sql-ag/architecture-lb.png)
+![Load balancing](_images/contoso-migration-rehost-vm-sql-ag/architecture-lb.png)
 
 They create the load balancer as follows:
 
@@ -242,7 +242,7 @@ They create the load balancer as follows:
 3. They assign it a static IP address: 10.245.40.100.
 4. As a networking element, they deploy the load balancer in the networking resource group **ContosoNetworkingRG**.
 
-    ![Load balancing](media/contoso-migration-rehost-vm-sql-ag/lb-create.png)
+    ![Load balancing](_images/contoso-migration-rehost-vm-sql-ag/lb-create.png)
 
 After the internal load balancer is deployed, Contoso need set it up. They create a backend address pool, set up a health probe, and configure a load balancing rule.
 
@@ -253,7 +253,7 @@ To distribute traffic to the VMs in the cluster, Contoso set up a backend addres
 1. In the load balancer settings in the portal, Contoso add a backend pool: **ILB-PROD-DB-EUS-SQLAOG-BEPOOL**.
 2. They associate the pool with availability set SQLAOGAVSET. The VMs in the set (**SQLAOG1** and **SQLAOG2**) are added to the pool.
 
-    ![Backend pool](media/contoso-migration-rehost-vm-sql-ag/backend-pool.png)
+    ![Backend pool](_images/contoso-migration-rehost-vm-sql-ag/backend-pool.png)
 
 ### Create a health probe
 
@@ -265,7 +265,7 @@ They create the probe as follows:
 2. They set the probe to monitor VMs on TCP port 59999.
 3. They set an interval of 5 seconds between probes, and a threshold of 2. If two probes fail, the VM will be considered unhealthy.
 
-    ![Probe](media/contoso-migration-rehost-vm-sql-ag/nlb-probe.png)
+    ![Probe](_images/contoso-migration-rehost-vm-sql-ag/nlb-probe.png)
 
 ### Configure the load balancer to receive traffic
 
@@ -282,7 +282,7 @@ They create the rule as follows:
 3. They specify the backend pool to which traffic will be routed, and the port on which VMs listen for traffic.
 4. Contoso enables floating IP (direct server return). This is always required for SQL AlwaysOn.
 
-    ![Probe](media/contoso-migration-rehost-vm-sql-ag/nlb-probe.png)
+    ![Probe](_images/contoso-migration-rehost-vm-sql-ag/nlb-probe.png)
 
 **Need more help?**
 
@@ -311,11 +311,11 @@ They set these up as follows:
     - They use a general-purpose account, with standard storage, and LRS replication.
     - The account must be in the same region as the vault.
 
-    ![Site Recovery storage](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+    ![Site Recovery storage](_images/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. With the network and storage account in place, they now create a Recovery Services vault (**ContosoMigrationVault**), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
-    ![Recovery Services vault](media/contoso-migration-rehost-vm-sql-ag/asr-vault.png)
+    ![Recovery Services vault](_images/contoso-migration-rehost-vm-sql-ag/asr-vault.png)
 
 **Need more help?**
 
@@ -511,23 +511,23 @@ Contoso will migrate the SmartHotel database to Azure VM **SQLAOG1** using the D
 1. In the DMA they run a new migration - **SmartHotel**.
 2. They select the **Target server type** as **SQL Server on Azure Virtual Machines**. 
 
-    ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-1.png)
+    ![DMA](_images/contoso-migration-rehost-vm-sql-ag/dma-1.png)
 
 3. In the migration details, they add **SQLVM** as the source server, and **SQLAOG1** as the target. They specify credentials for each machine.
 
-     ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-2.png)
+     ![DMA](_images/contoso-migration-rehost-vm-sql-ag/dma-2.png)
 
 4. They create a local share for the database and configuration information. It must be accessible with write access by the SQL Service account on SQLVM and SQLAOG1.
 
-    ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-3.png)
+    ![DMA](_images/contoso-migration-rehost-vm-sql-ag/dma-3.png)
 
 5. Contoso selects the logins that should be migrated, and starts the migration. After it finishes, DMA shows the migration as successful.
 
-    ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-4.png)
+    ![DMA](_images/contoso-migration-rehost-vm-sql-ag/dma-4.png)
 
 6. They verify that the database is running on **SQLAOG1**.
 
-    ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-5.png)
+    ![DMA](_images/contoso-migration-rehost-vm-sql-ag/dma-5.png)
 
 DMS connects to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure, and then migrates the database.
 
@@ -540,23 +540,23 @@ With the app database running on **SQLAOG1**, Contoso can now protect it using A
 1. In SQL Management Studio, they right-click on **Always on High Availability** to start the **New Availability Group Wizard**.
 2. In **Specify Options**, they name the availability group **SHAOG**. In **Select Databases**, they select the SmartHotel database.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
+    ![AlwaysOn availability group](_images/contoso-migration-rehost-vm-sql-ag/aog-1.png)
 
 3. In **Specify Replicas**, they add the two SQL nodes as availability replicas, and configure them to provide automatic failover with synchronous commit.
 
-     ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-2.png)
+     ![AlwaysOn availability group](_images/contoso-migration-rehost-vm-sql-ag/aog-2.png)
 
 4. They configure a listener for the group (**SHAOG**) and port. The IP address of the internal load balancer is added as a static IP address (10.245.40.100).
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-3.png)
+    ![AlwaysOn availability group](_images/contoso-migration-rehost-vm-sql-ag/aog-3.png)
 
 5. In **Select Data Synchronization**, they enable automatic seeding. With this option, SQL Server automatically creates the secondary replicas for every database in the group, so Contoso don't have to manually back up and restore these. After validation, the availability group is created.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-4.png)
+    ![AlwaysOn availability group](_images/contoso-migration-rehost-vm-sql-ag/aog-4.png)
 
 6. Contoso ran into an issue when creating the group. They aren't using Active Directory Windows Integrated security, and thus need to grant permissions to the SQL login to create the Windows Failover Cluster roles.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-5.png)
+    ![AlwaysOn availability group](_images/contoso-migration-rehost-vm-sql-ag/aog-5.png)
 
 6. After the group is created, Contoso can see it in SQL Management Studio.
 
@@ -564,14 +564,14 @@ With the app database running on **SQLAOG1**, Contoso can now protect it using A
 
 As a last step in setting up the SQL deployment, Contoso configures the internal load balancer as the listener on the cluster, and brings the listener online. They  use a script to do this.
 
-![Cluster listener](media/contoso-migration-rehost-vm-sql-ag/cluster-listener.png)
+![Cluster listener](_images/contoso-migration-rehost-vm-sql-ag/cluster-listener.png)
 
 
 ### Verify the configuration
 
 With everything set up, Contoso now have a functional availability group in Azure that uses the migrated database. They verify this by connecting to the internal load balancer in SQL Management Studio.
 
-![ILB connect](media/contoso-migration-rehost-vm-sql-ag/ilb-connect.png)
+![ILB connect](_images/contoso-migration-rehost-vm-sql-ag/ilb-connect.png)
 
 **Need more help?**
 - Learn about creating an [availability group](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#create-the-availability-group) and [listener](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#configure-listener).

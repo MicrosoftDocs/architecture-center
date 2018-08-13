@@ -86,7 +86,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 
 ## Proposed architecture
 
-![Scenario architecture](media/contoso-migration-refactor-web-app-sql/architecture.png) 
+![Scenario architecture](_images/contoso-migration-refactor-web-app-sql/architecture.png) 
 
 
 ### Migration process
@@ -94,7 +94,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 1. Contoso provision an Azure SQL instance, and migrate the SmartHotel database to it.
 2. They provision and configure Web Apps, and deploy the SmartHotel app to them.
 
-    ![Migration process](media/contoso-migration-refactor-web-app-sql/migration-process.png) 
+    ![Migration process](_images/contoso-migration-refactor-web-app-sql/migration-process.png) 
 
 ### Azure services
 
@@ -130,28 +130,28 @@ Here's how Contoso will run the migration:
 
 1. They select to create a SQL Database in Azure. 
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql1.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql1.png)
 
 2. They specify a database  name to match the database running on the on-premises VM (**SmartHotel.Registration**). They place the database in the ContosoRG resource group. This is the resource group they use for production resources in Azure.
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql2.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql2.png)
 
 3. They set up a new SQL Server instance (**sql-smarthotel-eus2**) in the primary region.
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql3.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql3.png)
 
 4. They set the pricing tier to match their server and database needs. And they select to save money with Azure Hybrid Benefit because they already have a SQL Server license.
 5. For sizing they use v-Core-based purchasing, and set the limits for their expected requirements.
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql4.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql4.png)
 
 6. Then they create the database instance.
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql5.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql5.png)
 
 7. After the instance is created, they open the database, and note details they need when they use the Database Migration Assistance for migration.
 
-    ![Provision SQL](media/contoso-migration-refactor-web-app-sql/provision-sql6.png)
+    ![Provision SQL](_images/contoso-migration-refactor-web-app-sql/provision-sql6.png)
 
 
 **Need more help?**
@@ -175,39 +175,39 @@ Contoso will migrate the SmartHotel database using DMA.
 1. In the DMA create a new project (**SmartHotelDB**) and select **Migration** 
 2. They select the source server type as **SQL Server**, and the target as **Azure SQL Database**. 
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-1.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-1.png)
 
 3. In the migration details, they add **SQLVM** as the source server, and the **SmartHotel.Registration** database. 
 
-     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-2.png)
+     ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-2.png)
 
 4. They receive an error which seems to be associated with authentication. However after investigating, the issue is the period (.) in the database name. As a workaround, they decided to provision a new SQL database using the name **SmartHotel-Registration**, to resolve the issue. When they run DMA again, they're able to select **SmartHotel-Registration**, and continue with the wizard.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-3.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-3.png)
 
 5. In **Select Objects**, they select the database tables, and generate a SQL script.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-4.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-4.png)
 
 6. After DMS creates the script, they click **Deploy schema**.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-5.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-5.png)
 
 7. DMA confirms that the deployment succeeded.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-6.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-6.png)
 
 8. Now they start the migration.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-7.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-7.png)
 
 9. After the migration finishes, Contoso can verify that the database is running on the Azure SQL instance.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-8.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-8.png)
 
 10. They delete the extra SQL database **SmartHotel.Registration** in the Azure portal.
 
-    ![DMA](media/contoso-migration-refactor-web-app-sql/dma-9.png)
+    ![DMA](_images/contoso-migration-refactor-web-app-sql/dma-9.png)
 
 
 ## Step 3: Provision Web Apps
@@ -216,15 +216,15 @@ With the database migrated, Contoso can now provision the two web apps.
 
 1. They select **Web App** in the portal.
 
-    ![Web app](media/contoso-migration-refactor-web-app-sql/web-app1.png)
+    ![Web app](_images/contoso-migration-refactor-web-app-sql/web-app1.png)
 
 2. They provide an app name (**SHWEB-EUS2**), run it on Windows, and place it un the production resources group **ContosoRG**. They create a new app service and plan.
 
-    ![Web app](media/contoso-migration-refactor-web-app-sql/web-app2.png)
+    ![Web app](_images/contoso-migration-refactor-web-app-sql/web-app2.png)
 
 3. After the web app is provisioned, they repeat the process to create a web app for the WCF service (**SHWCF-EUS2**)
 
-    ![Web app](media/contoso-migration-refactor-web-app-sql/web-app3.png)
+    ![Web app](_images/contoso-migration-refactor-web-app-sql/web-app3.png)
 
 4. After they're done, they browse to the address of the apps to check they've been created successfully.
 
@@ -235,15 +235,15 @@ Contoso needs to make sure the web apps and database can all communicate. To do 
 1. In the web app for the WCF service (**SHWCF-EUS2**) > **Settings** > **Application settings**, they add a new connection string named **DefaultConnection**.
 2. The connection string is pulled from the **SmartHotel-Registration** database, and should be updated with the correct credentials.
 
-    ![Connection string](media/contoso-migration-refactor-web-app-sql/string1.png)
+    ![Connection string](_images/contoso-migration-refactor-web-app-sql/string1.png)
 
 3. Using Visual Studio, Contoso opens the solution file from the **SmartHotel360-internal-booking-apps** folder. The **connectionStrings** section of the web.config file for the WCF service SmartHotel.Registration.Wcf should be updated with the connection string.
 
-     ![Connection string](media/contoso-migration-refactor-web-app-sql/string2.png)
+     ![Connection string](_images/contoso-migration-refactor-web-app-sql/string2.png)
 
 4. The **client** section of the web.config file for the SmartHotel.Registration.Web should be changed to point to the new location of the WCF service. This is the URL of the WCF web app hosting the service endpoint.
 
-    ![Connection string](media/contoso-migration-refactor-web-app-sql/strings3.png)
+    ![Connection string](_images/contoso-migration-refactor-web-app-sql/strings3.png)
 
 
 ## Step 5: Publish web apps
@@ -252,23 +252,23 @@ As a final step, Contoso publishes the web apps to Azure.
 
 1. In Visual Studio, they right-click the SmartHotel.REgistration.Wcf project > **Publish**.
 
-    ![Publish](media/contoso-migration-refactor-web-app-sql/publish-web1.png)
+    ![Publish](_images/contoso-migration-refactor-web-app-sql/publish-web1.png)
 
 2. They start publishing.
 
-    ![Publish](media/contoso-migration-refactor-web-app-sql/publish-web2.png)
+    ![Publish](_images/contoso-migration-refactor-web-app-sql/publish-web2.png)
 
 3. They select an existing App Service because they've already created the web app.
 
-    ![Publish](media/contoso-migration-refactor-web-app-sql/publish-web3.png)
+    ![Publish](_images/contoso-migration-refactor-web-app-sql/publish-web3.png)
 
 4. After they select the WCF app, Visual Studio deploys it.
 
-    ![Publish](media/contoso-migration-refactor-web-app-sql/publish-web4.png)
+    ![Publish](_images/contoso-migration-refactor-web-app-sql/publish-web4.png)
 
 5. They then repeat the process to publish the web app - SmartHotel.Registration.Web.
 
-    ![Publish](media/contoso-migration-refactor-web-app-sql/publish-web5.png)
+    ![Publish](_images/contoso-migration-refactor-web-app-sql/publish-web5.png)
 
 
 At this point, the application is successfully migrated to Azure.
