@@ -70,12 +70,12 @@ All Microsoft online business services rely on Azure Active Directory (AAD) for 
 
 A single global administrator is not required to assign all permissions in a VDC. Instead each specific department (or group of users or services in the Directory Service) can have the permissions required to manage their own resources within a VDC. Structuring permissions requires balancing. Too many permissions can impede performance efficiency, and too few or loose permissions can increase security risks. Azure Role-Based Access Control (RBAC) helps to address this problem, by offering fine-grained access management for VDC resources.
 
-#### *Security Infrastructure*
+#### Security infrastructure
 Security infrastructure, in the context of a VDC, is mainly related to the segregation of traffic in the VDC's specific virtual network segment, and how to control ingress and egress flows throughout the VDC. Azure is based on multi-tenant architecture that prevents unauthorized and unintentional traffic between deployments, using Virtual Network (VNet) isolation, access control lists (ACLs), load balancers, and IP filters, along with traffic flow policies. Network address translation (NAT) separates internal network traffic from external traffic.
 
 The Azure fabric allocates infrastructure resources to tenant workloads and manages communications to and from virtual machines (VMs). The Azure hypervisor enforces memory and process separation between VMs and securely routes network traffic to guest OS tenants.
 
-#### *Connectivity to the cloud*
+#### Connectivity to the cloud
 The VDC needs connectivity with external networks to offer services to customers, partners and/or internal users. This usually means connectivity not only to the Internet, but also to on-premises networks and data centers.
 
 Customers can build their security policies to control what and how specific VDC hosted services are accessible to/from the Internet using Network Virtual Appliances (with filtering and traffic inspection), and custom routing policies and network filtering (User Defined Routing and Network Security Groups).
@@ -91,7 +91,7 @@ Deploying ExpressRoute connections involves engaging with an ExpressRoute servic
 #### *Connectivity within the cloud*
 [VNets][VNet] and [VNet Peering][VNetPeering] are the basic networking connectivity services inside a VDC. A VNet guarantees a natural boundary of isolation for VDC resources, and VNet peering allows intercommunication between different VNets within the same Azure region or even across regions. Traffic control inside a VNet and between VNets need to match a set of security rules specified through Access Control Lists ([Network Security Group][NSG]), [Network Virtual Appliances][NVA], and custom routing tables ([UDR][UDR]).
 
-## Virtual Data Center Overview
+## Virtual Data Center overview
 
 ### Topology
 _Hub and spokes_ is a model for extending a Virtual Data Center within a single Azure region.
@@ -166,7 +166,7 @@ A common architecture for these types of multi-tier environments consists of Dev
 
 The presence of different Azure AD tenants enforces the separation between environments. The same group of users (as an example, Central IT) needs to authenticate using a different URI to access a different AD tenant modify the roles or permissions of either the DevOps or production environments of a project. The presence of different user authentication to access different environments reduces possible outages and other issues caused by human errors.
 
-#### Component Type: Infrastructure
+#### Component type: Infrastructure
 This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
 
 [![6]][6]
@@ -237,7 +237,7 @@ Microsoft Azure Application Gateway is a dedicated virtual appliance providing a
 [**Public IPs**][PIP]
 Some Azure features enable you to associate service endpoints to a public IP address that allows to your resource to be accessed from the internet. This endpoint uses Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. The Public IP addresses can be configured to determine which traffic is passed in, and how and where it's translated on to the virtual network.
 
-#### Component Type: Monitoring
+#### Component type: Monitoring
 Monitoring components provide visibility and alerting from all the other components types. All teams should have access to monitoring for the components and services they have access to. If you have a centralized help desk or operations teams, they would need to have integrated access to the data provided by these components.
 
 Azure offers different types of logging and monitoring services to track the behavior of Azure hosted resources. Governance and control of workloads in Azure is based not just on collecting log data, but also the ability to trigger actions based on specific reported events.
@@ -266,27 +266,23 @@ Log Analytics is a service in Azure that helps collect, correlate, search, and a
 
 The [Network Performance Monitor (NPM)][NPM] solution inside OMS can provide detailed network information end-to-end, including a single view of your Azure networks and on-premises networks. With specific monitors for ExpressRoute and public services.
 
-#### Component Type: Workloads
+#### Component type: Workloads
 Workload components are where your actual applications and services reside. It's also where your application development teams spend most of their time.
 
 The workload possibilities are truly endless. The following are just a few of the possible workload types:
 
-**Internal LOB Applications**
-
-Line-of-business applications are computer applications critical to the ongoing operation of an enterprise. LOB applications have some common characteristics:
+**Internal LOB Applications**. Line-of-business applications are computer applications critical to the ongoing operation of an enterprise. LOB applications have some common characteristics:
 
 -   **Interactive**. LOB applications are interactive by nature: data is entered, and result/reports are returned.
 -   **Data driven**. LOB applications are data intensive with frequent access to the databases or other storage.
 -   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
 
-**Customer facing web sites (Internet or Internal facing)**
-Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a VDC. When looking at internal facing web sites, with the VNET integration, you don't need to expose an Internet endpoint for your applications but can use the resources via private non-internet routable addresses from your private VNet instead.
+**Customer facing web sites (Internet or Internal facing)**. Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a VDC. When looking at internal facing web sites, with the VNET integration, you don't need to expose an Internet endpoint for your applications but can use the resources via private non-internet routable addresses from your private VNet instead.
 
 **Big Data/Analytics**
 When data needs to scale up to a very large volume, databases may not scale up properly. Hadoop technology offers a system to run distributed queries in parallel on large number of nodes. Customers have the option to run data workloads in IaaS VMs or PaaS ([HDInsight][HDI]). HDInsight supports deploying into a location-based VNet, can be deployed to a cluster in a spoke of the VDC.
 
-**Events and Messaging**
-[Azure Event Hubs][EventHubs] is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention, enabling you to ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
+**Events and Messaging**. [Azure Event Hubs][EventHubs] is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention, enabling you to ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
 
 A highly reliable cloud messaging service between applications and services, can be implemented through [Azure Service Bus][ServiceBus] that offers asynchronous brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publish/subscribe capabilities.
 
@@ -303,12 +299,12 @@ In addition to SLA concerns, there are several common scenarios where deploying 
 -   Disaster Recovery
 -   Mechanism to divert traffic between DC
 
-#### Regional/Global presence
+#### Regional/global presence
 Azure data centers are present in numerous regions worldwide. When selecting multiple Azure data centers, customers need to consider two related factors: geographical distances and latency. Customers need to evaluate the geographical distance between the VDCs and  the distance between the VDC and the end users, to offer the best user experience.
 
 The Azure Region where VDCs are hosted also need to conform with regulatory requirements established by any legal jurisdiction under which your organization operates.
 
-#### Disaster Recovery
+#### Disaster recovery
 The implementation of a disaster recovery plan is strongly related to the type of workload concerned, and the ability to synchronize the workload state between different VDCs. Ideally, most customers want to synchronize application data between deployments running in two different VDCs to implement a fast fail-over mechanism. Most applications are sensitive to latency, and that can cause potential timeout and delay in data synchronization.
 
 Synchronization or heartbeat monitoring of applications in different VDCs requires communication between them. Two VDCs in different regions can be connected through:
