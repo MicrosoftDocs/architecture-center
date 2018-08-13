@@ -1,5 +1,5 @@
 ---
-title: Refactor a Team Foundation Server deployment to Visual Studio Team Services (VSTS) in Azure | Microsoft Docs
+title: Refactor a Team Foundation Server deployment to Visual Studio Team Services (VSTS) in Azure
 description: Learn how Contoso refactors its on-premises TFS deployment by migrating it to Visual Studio Team Services (VSTS) in Azure.
 services: site-recovery
 author: rayne-wiselman

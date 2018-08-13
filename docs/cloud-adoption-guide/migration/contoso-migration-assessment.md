@@ -1,5 +1,5 @@
 ---
-title: Assess on-premises workloads for Contoso migration to Azure  | Microsoft Docs
+title: Assess on-premises workloads for Contoso migration to Azure 
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
 author: rayne-wiselman

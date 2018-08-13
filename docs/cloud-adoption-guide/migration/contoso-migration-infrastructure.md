@@ -1,5 +1,5 @@
 ---
-title: Contoso-Set up a migration infrastructure | Microsoft Docs
+title: Contoso-Set up a migration infrastructure
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: rayne-wiselman

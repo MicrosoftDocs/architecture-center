@@ -1,5 +1,5 @@
 ---
-title: Rearchitect a Contoso app in an Azure container and Azure SQL Database | Microsoft Docs
+title: Rearchitect a Contoso app in an Azure container and Azure SQL Database
 description: Learn how Contoso rearchitect an app in Azure Windows containers and Azure SQL Database.
 services: site-recovery
 author: rayne-wiselman

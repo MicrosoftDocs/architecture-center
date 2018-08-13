@@ -1,5 +1,5 @@
 ---
-title: Rehost-Migrate and rehost an on-premises Linux app to Azure VMs | Microsoft Docs
+title: Rehost-Migrate and rehost an on-premises Linux app to Azure VMs
 description: Learn how Contoso rehost an on-premises Linux app by migrating to Azure VMs.
 services: site-recovery
 author: rayne-wiselman
