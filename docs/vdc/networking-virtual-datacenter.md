@@ -122,7 +122,7 @@ A single VDC can scale up to large number of spokes, although, as with every IT 
 
 The introduction of multiple hubs increases the cost and management effort of the system and would only be justified by scalability (examples: system limits or redundancy) and regional replication (examples: end-user performance or disaster recovery). In scenarios requiring multiple hubs, all the hubs should strive to offer the same set of services for operational ease.
 
-##### Interconnection between spokes
+#### Interconnection between spokes
 Inside a single spoke, it is possible to implement complex multi-tiers workloads. Multi-tier configurations can be implemented using subnets (one for every tier) in the same VNet and filtering the flows using NSGs.
 
 On the other hand, an architect may want to deploy a multi-tier workload across multiple VNets. Using VNet peering, spokes can connect to other spokes in the same hub or different hubs. A typical example of this scenario is the case where application processing servers are in one spoke (VNet), while the database is deployed in a different spoke (VNet). In this case, it is easy to interconnect the spokes with VNet peering and thereby avoid transiting through the hub. A careful architecture and security review should be performed to ensure that bypassing the hub doesn’t bypass important security or auditing points that may only exist in the hub.
