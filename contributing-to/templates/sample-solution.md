@@ -1,12 +1,14 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: david-stanford
+author: <github username>
 ms.date: <publish or update date>
 ---
 # Article Title
 
-Introductory Paragraphs
+> This should be an introduction of the business problem and why this scenario was built to solve it.
+
+TEXT HERE
 
 ## Potential use cases
 
