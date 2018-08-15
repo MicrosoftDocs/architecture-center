@@ -77,6 +77,7 @@ For more information, see [Analytical data stores](../technology-choices/analyti
 ### Analytics and reporting
 
 - **Jupyter**. Jupyter Notebooks provides a browser-based interface for running code in languages such as R, Python, or Scala. When using R Server or Spark to batch process data, or when using Spark SQL to define a schema of tables for querying, Jupyter can be a good choice for querying the data. When using Spark, you can use the standard Spark dataframe API or the Spark SQL API as well as embedded SQL statements to query the data and produce visualizations.
+- **Drill**. If you wish to perform data exploration on the fly, Apache Drill can offer you that, since it's a schema-free SQL Query Engine. Drill is the first and only distributed SQL engine that doesn't require a schema, which means that you can query data from a variety of different data sources without even specifying a schema, the engine automatically understands the structure of the data and lets you query the data to perform data analytics on the go.
 - **Interactive Hive Clients**. If you use an Interactive Hive cluster to query the data, you can use the Hive view in the Ambari cluster dashboard, the Beeline command line tool, or any ODBC-based tool (using the Hive ODBC driver), such as Microsoft Excel or Power BI.
 
 For more information, see [Data analytics and reporting technology](../technology-choices/analysis-visualizations-reporting.md).
