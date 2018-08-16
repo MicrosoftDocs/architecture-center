@@ -2,29 +2,37 @@
 title: <Article Title>
 description: <Article Description>
 author: <github username>
-ms.date: <publish or update date>
+ms.date: <publish or update date - mm/dd/yyyy>
 ---
 # Article Title
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
 
-TEXT HERE
+This is a business problem that needs to be solved in this industry.  This solution solves this problem by doing this.
 
 ## Potential use cases
 
-Consider this solution for the following use cases:
+> Are there any other use cases or industries where this would be a fit?  How similar or different are they to what's in this article?
+
+These other uses cases have similar design patterns:
 
 * List of example use cases
 
 ## Architecture
 
-![Description][architecture]
+*Architecture Diagram goes here*
 
-This solution covers ###What does the solution cover###, the data flows through the solution as follows:
+> What does the solution look like at a high level?
+>
+> Why did we build the solution this way?
+>
+> What will the customer need to bring to this?  (Software, skills, etc?)
 
-1. Numbered data flow through the solution.
+
 
 ### Components
+
+> Why is each component there? What does it do and why was it necessary?
 
 * List of components with links to documentation.
 
@@ -32,29 +40,41 @@ This solution covers ###What does the solution cover###, the data flows through 
 
 ### Alternatives
 
-* List of alternative options and why you might use them.
+> What alternative technologies were considered and why didn't we use them?
 
 ## Considerations
 
+> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
+
 ### Availability
 
-For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
+> How do I need to think about managing, maintaining, and monitoring this long term?
 
 ### Scalability
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
+> Are there any size considerations around this specific solution?
+> 
+> What scale does this work at?  At what point do things break or not make sense for this architecture?
 
 ### Security
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+> Are there any security considerations (past the typical) that I should know about this?
 
-### Resiliency
+## Deploy this scenario
 
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+> (Optional if it doesn't make sense)
+>
+> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
+
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+> How much will this cost to run?
+> 
+> Are there ways I could save cost?
+> 
+> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?
+
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
@@ -62,15 +82,18 @@ We have provided three sample cost profiles based on amount of traffic you expec
 * [Medium][medium-pricing]: describe what a medium implementation is.
 * [Large][large-pricing]: describe what a large implementation is.
 
-## Related Resources
+## Next Steps & Related Resources
 
-Other resources that are relevant that aren't linked from else where in the doc.
+> Where should I go next if I want to start building this?
+> 
+> Are there any relevant case studies or customers doing something similar?
+
+
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
-[architecture]:
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/
