@@ -7,12 +7,14 @@ ms.date: <publish or update date - mm/dd/yyyy>
 # Article Title
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
-
-This is a business problem that needs to be solved in this industry.  This solution solves this problem by doing this.
+>> What industry is the customer in?  
+>> What prompted them to solve the problem?  
+>> What was the benefits of implementing the solution described blow?
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?  How similar or different are they to what's in this article?
+> Are there any other use cases or industries where this would be a fit?  
+> How similar or different are they to what's in this article?
 
 These other uses cases have similar design patterns:
 
@@ -22,17 +24,15 @@ These other uses cases have similar design patterns:
 
 *Architecture Diagram goes here*
 
-> What does the solution look like at a high level?
->
-> Why did we build the solution this way?
->
-> What will the customer need to bring to this?  (Software, skills, etc?)
-
-
+> What does the solution look like at a high level?  
+> Why did we build the solution this way?  
+> What will the customer need to bring to this?  (Software, skills, etc?)  
+> Is there a data flow that should be described?
 
 ### Components
 
-> Why is each component there? What does it do and why was it necessary?
+> Why is each component there?  
+> What does it do and why was it necessary?
 
 * List of components with links to documentation.
 
@@ -52,9 +52,9 @@ These other uses cases have similar design patterns:
 
 ### Scalability
 
-> Are there any size considerations around this specific solution?
-> 
-> What scale does this work at?  At what point do things break or not make sense for this architecture?
+> Are there any size considerations around this specific solution?  
+> What scale does this work at?  
+> At what point do things break or not make sense for this architecture?
 
 ### Security
 
@@ -66,15 +66,11 @@ These other uses cases have similar design patterns:
 >
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
 
-
 ## Pricing
 
-> How much will this cost to run?
-> 
-> Are there ways I could save cost?
-> 
+> How much will this cost to run?  
+> Are there ways I could save cost?  
 > If it scales linearly, than we should break it down by cost/unit.  If it does not, why?
-
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
@@ -82,10 +78,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 * [Medium][medium-pricing]: describe what a medium implementation is.
 * [Large][large-pricing]: describe what a large implementation is.
 
-## Next Steps & Related Resources
+## Next Steps 
 
-> Where should I go next if I want to start building this?
-> 
+> Where should I go next if I want to start building this?  
+
+## Related Resources
+
 > Are there any relevant case studies or customers doing something similar?
 
 
