@@ -46,17 +46,13 @@ These other uses cases have similar design patterns:
 
 > Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
 
-### Availability
+### Availability, Scalability, and Security
 
 > How do I need to think about managing, maintaining, and monitoring this long term?
-
-### Scalability
 
 > Are there any size considerations around this specific solution?  
 > What scale does this work at?  
 > At what point do things break or not make sense for this architecture?
-
-### Security
 
 > Are there any security considerations (past the typical) that I should know about this?
 
@@ -78,7 +74,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 * [Medium][medium-pricing]: describe what a medium implementation is.
 * [Large][large-pricing]: describe what a large implementation is.
 
-## Next Steps 
+## Next Steps
 
 > Where should I go next if I want to start building this?  
 
