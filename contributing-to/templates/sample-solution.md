@@ -66,7 +66,11 @@ These other uses cases have similar design patterns:
 
 > How much will this cost to run?  
 > Are there ways I could save cost?  
-> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?
+> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
+> What are the components that make up the cost?  
+> How does scale effect the cost  
+> 
+> Link to the pricing calculator with all of the components outlined.  If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
@@ -77,12 +81,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 ## Next Steps
 
 > Where should I go next if I want to start building this?  
+> Are there any reference architectures that help me build this?
 
 ## Related Resources
 
 > Are there any relevant case studies or customers doing something similar?
-
-
+> Is there any other documentation that might be useful?  
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/
