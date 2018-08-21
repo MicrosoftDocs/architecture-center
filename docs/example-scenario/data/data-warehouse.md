@@ -1,63 +1,69 @@
 ---
-title: Example scenario for data consolidation and analytics using a data warehouse in Azure
-description: Use a data warehouse in Azure to consolidate data from multiple systems and optimize data analytics.
+title: Example scenario for data warehousing and analytics in Azure
+description: Use a data warehouse in Azure to consolidate data from multiple sources and optimize data analytics.
 author: alexbuckgit
-ms.date: 07/09/2018
+ms.date: 08/16/2018
 ---
 
-# Example scenario for data consolidation and analytics using a data warehouse in Azure
+# Example scenario for data warehousing and analytics in Azure
 
-This example scenario is relevant to organizations building a data pipeline to integrate multiple data sources into a cloud-scale platform for advanced analysis and business intelligence capabilities. Potential applications include sales and marketing, e-commerce, healthcare, government, or other industry solutions involving large volumes of data that can deliver high business value through analysis. 
+Build a data pipeline to integrate large amounts of data from multiple sources into a cloud-scale analytics platform. This scenario is relevant for:
+    - Sales and marketing
+    - E-commerce and retail
+    - Healthcare
+    - Other solutions requiring advanced analysis of large datasets
 
-In this scenario, a sales and marketing company builds incentive programs that reward customers, suppliers, salespeople, or employees. Data is fundamental to these programs, and the company wants to leverage the capabilities of Azure services to improve the insights gained through data analytics.
+## The scenario
 
-The company has numerous data sources across many different platforms, such as SQL Server on-premises, Oracle on-premises, Azure SQL Database, Azure table storage, and Cosmos DB. The company wants to modernize their data analytics approach to ensure they have the right data at the right time when making decisions. The company's goals include:
-* Consolidating data from numerous heterogenous data sources to a cloud-scale data platform
-* Transforming source data into a common taxonomy and structure for consistency and comparability
-* Leveraging highly parallelized data loading to support thousands of incentive programs without the expense of on-premises infrastructure deployment and maintenance
-* Significantly improving the ratio of time spent gathering and transforming data vs. time spent analyzing data
-    
-Using managed Azure services such as Data Factory and SQL Data Warehouse can significantly reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and analysis. If you have additional data service needs, you should review the list of available [fully managed intelligent database services in Azure][product-category].
+A sales and marketing company builds incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
+
+The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
+* Consolidating data from different kinds of data sources into a cloud-scale platform.
+* Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.
+* Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
+* Greatly reducing the amount of time needed to gather and transform data, so more time can be spent on analyzing the data
 
 ## Potential use cases
 
-Consider this for:
-
-* Establishing a data warehouse that serves as a single source of truth for your organization's data.
-* Integrating relational data with binary data or other non-relational datasets.
-* Analyzing large datasets via a well-defined semantic model and robust visualization tools.
+* Establish a data warehouse to be a single source of truth for your data.
+* Integrate relational data sources with other unstructured datasets.
+* Use semantic modeling and powerful visualization tools for simpler data analysis.
 
 ## Architecture
 
-![Architecture for a data warehouse scenario in Azure][architecture]
+![Architecture for a data warehousing and analysis scenario in Azure][architecture]
 
 The data flows through the solution as follows:
 
-1. Data from each data source is periodically exported into Azure Blob storage, which serves as a staging area for the source data. Each export contains only the data that has changed since the previous export. 
-2. Data Factory incrementally loads the staged data from Blob storage into staging tables in SQL Data Warehouse. Data cleansing and transformation happens at this stage, and Polybase can be used to parallelized the process for large volumes of data.
-3. After a new batch of data is loaded into the warehouse, a previously created Analysis Services tabular model is refreshed. This provides a semantic model that simplifies the analysis of business data and relationships by business analysts.
-4. Business analysts use Power BI to analyze data in the warehouse via the Analysis Services semantic model.
+1. For each data source, any updates are exported periodically into a staging area in Azure Blob storage.
+2. Data Factory incrementally loads the data from Blob storage into staging tables in SQL Data Warehouse. The data is cleansed and transformed during this process. Polybase can parallelize the process for large datasets.
+3. After loading a new batch of data into the warehouse, a previously created Analysis Services tabular model is refreshed. This semantic model simplifies the analysis of business data and relationships.
+4. Business analysts use Power BI to analyze warehoused data via the Analysis Services semantic model.
 
 ### Components
 
-* [SQL Server](/sql/sql-server) databases containing source data may be located on-premises or in cloud-hosted virtual machines.
-* [Azure SQL Database](/azure/sql-database) is a general-purpose relational database managed service in Microsoft Azure that can provide data to a consolidated data warehouse.
-* [Cosmos DB](/azure/cosmos-db/) is a globally distributed, multi-model database service that can provide data to a consolidated data warehouse.
-* [Blob storage](/azure/storage/blobs) provides a staging area for the source data prior to loading it into SQL Data Warehouse.
+The company has data sources on many different platforms:
+    * SQL Server on-premises
+    * Oracle on-premises
+    * Azure SQL Database
+    * Azure table storage
+    * Cosmos DB
+
+Data is loaded from these different data sources using several Azure components:
+* [Blob storage](/azure/storage/blobs) is used to stage source data before it's loaded into SQL Data Warehouse.
 * [Data Factory](/azure/data-factory) orchestrates the transformation of staged data into a common structure in SQL Data Warehouse. Data Factory [uses Polybase when loading data into SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse#use-polybase-to-load-data-into-azure-sql-data-warehouse) to maximize throughput. 
 * [SQL Data Warehouse](/azure/sql-data-warehouse) is a distributed system for performing analytics on large data. Its use of massive parallel processing (MPP) makes it suitable for running high-performance analytics. SQL Data Warehouse can use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to rapidly load data from Blob storage.
-* [Analysis Services](/azure/analysis-services) provides a semantic model for your data and can increase system performance when analyzing your data. 
-* [Power BI](/power-bi) Power BI is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query SQL Data Warehouse directly.
+* [Analysis Services](/azure/analysis-services) provides a semantic model for your data. It can also increase system performance when analyzing your data. 
+* [Power BI](/power-bi) is a suite of business analytics tools to analyze data and share insights. Power BI can query a semantic model stored in Analysis Services, or it can query SQL Data Warehouse directly.
 * [Azure Active Directory (Azure AD)](/azure/active-directory) authenticates users who connect to the Analysis Services server through Power BI. Data Factory can also use Azure AD to authenticate to SQL Data Warehouse via a service principal or Managed Service Identity (MSI).
 
 ### Alternatives
 
-* This example demonstrates using an on-premises SQL Server database and an external dataset as the data sources to integrate via the pipeline. However, this architecture is suitable for loading a wide range of both relational and non-relational data sources.
-* Data Factory is designed for automating your data pipeline workflows. For one-time or on-demand jobs, you can also use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Blob storage, then directly load the data into SQL Data Warehouse using Polybase. For a general comparison, see [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement).
+* The example pipeline includes several different kinds of data sources. This architecture can handle a wide variety of relational and non-relational data sources.
+* Data Factory orchestrates the workflows for your data pipeline. For one-time or on-demand jobs, you can also use tools like SQL Server bulk copy (bcp) and AzCopy to copy data into Blob storage, then directly load the data into SQL Data Warehouse using Polybase.
 * If you are working with very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data.
-* An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance is another option for processing big data. However, the operating costs are often substantially lower using a managed cloud-based solution such as SQL Data Warehouse. 
-* For comparisons of different relevant technology options, see the following:
-
+* An on-premises [SQL Server Parallel Data Warehouse](/sql/analytics-platform-system) appliance can also be used for big data processing. However, operating costs are often much lower with a managed cloud-based solution like SQL Data Warehouse. 
+* For comparisons of other alternatives, see:
     * [Choosing a data pipeline orchestration technology in Azure](/azure/architecture/data-guide/technology-choices/pipeline-orchestration-data-movement)
     * [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
     * [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
@@ -65,55 +71,36 @@ The data flows through the solution as follows:
 
 ## Considerations
 
-### Availability
+The technologies chosen meet the company's requirements for scalability and availability, while helping them control costs.
 
-SQL Data Warehouse has [guaranteed SLAs](http://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](http://azure/sql-data-warehouse/sql-data-warehouse-best-practices).
-
-Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services/v1_0/) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
-
-For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
-
-### Scalability
-
-The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of SQL Data Warehouse provides scalability and high performance. [SQL Data Warehouse Gen2](/azure/sql-data-warehouse/memory-and-concurrency-limits) offers the greatest level of scale (up to 30,000 Data Warehouse Units) and providing unlimited columnar storage. You can also [scale SQL Data Warehouse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute during periods of low demand or inactivity to lower your overall costs.
-
-Azure Analysis Services can be [configured for scale-out](/azure/analysis-services/analysis-services-scale-out). With scale-out, client queries can be distributed among multiple query replicas in a query pool, reducing response times during high query workloads. You can also separate processing from the query pool, ensuring client queries are not adversely affected by processing operations. 
-
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
-
-### Security
-
-The [SQL Data Warehouse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Azure Active Directory (Azure AD) for identity management and user authentication. 
-
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
-
-### Resiliency
-
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+* The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of SQL Data Warehouse provides scalability and high performance.
+* SQL Data Warehouse has [guaranteed SLAs](http://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
+* When analysis activity is low, the company can [scale SQL Data Warehouse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
+* Azure Analysis Services can be [configured for scale-out](/azure/analysis-services/analysis-services-scale-out). With scale-out, client queries can be distributed among multiple query replicas in a query pool, reducing response times during high query workloads. You can also separate processing from the query pool, ensuring client queries are not adversely affected by processing operations. 
+* Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services/v1_0/) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
+* The [SQL Data Warehouse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Azure Active Directory (Azure AD) for identity management and user authentication. 
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+* [SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte.
+* [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload.
+* [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory.
+* [Power BI](https://powerbi.microsoft.com/pricing/) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded/) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.  
 
-* [Small][small-pricing]: this correlates to a small data pipeline with part-time availability.
-* [Medium][medium-pricing]: this correlates to a midsize data pipeline with full availabilty.
-* [Large][large-pricing]: this correlates to a large data pipeline with full availability.
+## Next Steps
 
-## Related Resources
-
-This example scenario is based on a version of the [Azure automated enterprise BI reference architecture](/azure/architecture/reference-architectures/data/enterprise-bi-adf) used by Maritz Motivation Solutions. For more information, see their [customer story][source-document]. 
-
-Guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data architecture is available in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
+* Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) for a deeper technical discussion of this architecture. 
+* Read the [Maritz Motivation Solutions customer story][source-document]. This example scenario is based on a version of their architecture.
+* Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
+* Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](/azure/architecture/).
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics/
 [source-customer]: https://www.maritzmotivation.com/
 [source-document]: https://customers.microsoft.com/story/maritz
-[small-pricing]: https://azure.com/e/9444b5ce08b7490a9b9f2207203e67f5
-[medium-pricing]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[large-pricing]: https://azure.com/e/f204c450314141a7ac803d72d2446a24
+[calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [architecture]: ./images/architecture-diagram-data-warehouse.png
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
