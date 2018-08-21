@@ -8,10 +8,10 @@ ms.date: 08/16/2018
 # Example scenario for data warehousing and analytics in Azure
 
 Build a data pipeline to integrate large amounts of data from multiple sources into a cloud-scale analytics platform. This scenario is relevant for:
-    - Sales and marketing
-    - E-commerce and retail
-    - Healthcare
-    - Other solutions requiring advanced analysis of large datasets
+* Sales and marketing
+* E-commerce and retail
+* Healthcare
+* Other solutions requiring advanced analysis of large datasets
 
 ## The scenario
 
@@ -43,11 +43,11 @@ The data flows through the solution as follows:
 ### Components
 
 The company has data sources on many different platforms:
-    * SQL Server on-premises
-    * Oracle on-premises
-    * Azure SQL Database
-    * Azure table storage
-    * Cosmos DB
+* SQL Server on-premises
+* Oracle on-premises
+* Azure SQL Database
+* Azure table storage
+* Cosmos DB
 
 Data is loaded from these different data sources using several Azure components:
 * [Blob storage](/azure/storage/blobs) is used to stage source data before it's loaded into SQL Data Warehouse.
@@ -91,7 +91,7 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 
 ## Next Steps
 
-* Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf) for a deeper technical discussion of this architecture. 
+* Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf), which includes instructions for deploying an instance of this architecture in Azure.
 * Read the [Maritz Motivation Solutions customer story][source-document]. This example scenario is based on a version of their architecture.
 * Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 * Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](/azure/architecture/).
