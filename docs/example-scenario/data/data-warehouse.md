@@ -18,10 +18,10 @@ Build a data pipeline to integrate large amounts of data from multiple sources i
 A sales and marketing company builds incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
 
 The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
-* Consolidating data from different kinds of data sources into a cloud-scale platform.
+* Consolidating different kinds of data sources into a cloud-scale platform.
 * Transforming source data into a common taxonomy and structure, to make the data consistent and easily compared.
 * Loading data using a highly parallelized approach that can support thousands of incentive programs, without the high costs of deploying and maintaining on-premises infrastructure.
-* Greatly reducing the amount of time needed to gather and transform data, so more time can be spent on analyzing the data
+* Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
 
 ## Potential use cases
 
@@ -76,7 +76,7 @@ The technologies chosen meet the company's requirements for scalability and avai
 * The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of SQL Data Warehouse provides scalability and high performance.
 * SQL Data Warehouse has [guaranteed SLAs](http://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
 * When analysis activity is low, the company can [scale SQL Data Warehouse on demand](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview), reducing or even pausing compute to lower costs.
-* Azure Analysis Services can be [configured for scale-out](/azure/analysis-services/analysis-services-scale-out). With scale-out, client queries can be distributed among multiple query replicas in a query pool, reducing response times during high query workloads. You can also separate processing from the query pool, ensuring client queries are not adversely affected by processing operations. 
+* Azure Analysis Services can be [scaled out](/azure/analysis-services/analysis-services-scale-out) to reduce response times during high query workloads. You can also separate processing from the query pool, so that client queries aren't slowed down by processing operations. 
 * Azure Analysis Services also has [guaranteed SLAs](https://azure.microsoft.com/support/legal/sla/analysis-services/v1_0/) and [recommended practices for achieving high availability](/azure/analysis-services/analysis-services-bcdr).
 * The [SQL Data Warehouse security model](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security) provides connection security, [authentication and authorization](/azure/sql-data-warehouse/sql-data-warehouse-authentication) via Azure AD or SQL Server authentication, and encryption. [Azure Analysis Services](/azure/analysis-services/analysis-services-manage-users) uses Azure Active Directory (Azure AD) for identity management and user authentication. 
 
