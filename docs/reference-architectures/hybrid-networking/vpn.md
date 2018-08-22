@@ -78,7 +78,7 @@ For a list of supported VPN appliances, see [About VPN devices for Site-to-Site 
 > 
 > 
 
-Select the Azure VPN gateway SKU that most closely matches your throughput requirements. Azure VPN gateway is available in four SKUs: Basic, VpnGw1, VpnGw2, VpnGw3. For more info see [Gateway SKUs][azure-gateway-skus]
+Select the Azure VPN gateway SKU that most closely matches your throughput requirements. For more informayion, see [Gateway SKUs][azure-gateway-skus]
 
 > [!NOTE]
 > The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.
@@ -459,8 +459,7 @@ To deploy the solution, perform the following steps.
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
-[azure-gateway-skus]:
-https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
+[azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
