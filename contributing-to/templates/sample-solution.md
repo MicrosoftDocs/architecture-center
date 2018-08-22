@@ -18,6 +18,7 @@ Avoid naming the scenario after the Azure technologies that are used.
 >> What industry is the customer in?  
 >> What prompted them to solve the problem?  
 >> What services were used in building out this solution?
+
 >> What was the benefits of implementing the solution described blow?
 
 ## Potential use cases
@@ -50,6 +51,7 @@ A bullet list of components in the architecture (including all relevant Azure se
 ### Alternatives
 
 Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
+=======
 
 > What alternative technologies were considered and why didn't we use them?
 
@@ -68,6 +70,7 @@ Use this section to talk about alternative Azure services or architectures that 
 > Are there any security considerations (past the typical) that I should know about this?
 
 ## Deploy this scenario
+
 
 > (Optional if it doesn't make sense)
 >
@@ -89,6 +92,12 @@ Example: We have provided three samples showing an estimation of the different c
 * [1 Terabyte/hour][medium-pricing]: Because of the larger amount of data ingested, we had to scale the 1st layer significantly
 * [1 Petabyte/hour][large-pricing]: All components are significantly larger, at this scale we might consider replacing X with Y because it can handle much larger message rates
 
+
+## Next Steps
+
+> Where should I go next if I want to start building this?  
+> Are there any reference architectures that help me build this?
+
 ## Next Steps
 
 > Where should I go next if I want to start building this?  
@@ -99,6 +108,7 @@ Example: We have provided three samples showing an estimation of the different c
 > Are there any relevant case studies or customers doing something similar?
 > Is there any other documentation that might be useful?  
 > Are there product documents that go into more detail on specific technologies not already linked
+
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/
