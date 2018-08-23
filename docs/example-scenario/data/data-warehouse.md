@@ -1,21 +1,17 @@
 ---
-title: Example scenario for data warehousing and analytics in Azure
+title: Building an enterprise data warehouse from multiple data sources
 description: Use a data warehouse in Azure to consolidate data from multiple sources and optimize data analytics.
 author: alexbuckgit
 ms.date: 08/16/2018
 ---
 
-# Example scenario for data warehousing and analytics in Azure
+# Building an enterprise data warehouse from multiple data sources
 
-Build a data pipeline to integrate large amounts of data from multiple sources into a cloud-scale analytics platform. This scenario is relevant for:
-* Sales and marketing
-* E-commerce and retail
-* Healthcare
-* Other solutions requiring advanced analysis of large datasets
+This example scenario builds a data pipeline to integrate large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.
 
 ## The scenario
 
-A sales and marketing company builds incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
+This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
 
 The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
 * Consolidating different kinds of data sources into a cloud-scale platform.
@@ -71,7 +67,7 @@ Data is loaded from these different data sources using several Azure components:
 
 ## Considerations
 
-The technologies chosen meet the company's requirements for scalability and availability, while helping them control costs.
+The technologies in this architecture were chosen because they met the company's requirements for scalability and availability, while helping them control costs.
 
 * The [massively parallel processing architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) of SQL Data Warehouse provides scalability and high performance.
 * SQL Data Warehouse has [guaranteed SLAs](http://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/) and [recommended practices for achieving high availability](/azure/sql-data-warehouse/sql-data-warehouse-best-practices).
@@ -84,9 +80,9 @@ The technologies chosen meet the company's requirements for scalability and avai
 
 Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
 
-* [SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte.
-* [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload.
-* [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory.
+* [SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/) allows you to scale your compute and storage levels independently. Compute resources are charged per hour, and you can scale or pause these resources on demand. Storage resources are billed per terabyte, so your costs will increase as you ingest more data.
+* [Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) costs are based on the number of read/write operations, monitoring operations, and orchestration activities performed in a workload. Your Data Factory costs will increase with each additional data stream and the amount of data processed by each one.
+* [Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/) is available in developer, basic, and standard tiers. Instances are priced based on query processing units (QPUs) and available memory. To keep your costs lower, minimize the number of queries you run, how much data they process, and how often they run.
 * [Power BI](https://powerbi.microsoft.com/pricing/) has different product options for different requirements. [Power BI Embedded](https://azure.microsoft.com/pricing/details/power-bi-embedded/) provides an Azure-based option for embedding Power BI functionality inside your applications. A Power BI Embedded instance is included in the pricing sample above.  
 
 ## Next Steps
