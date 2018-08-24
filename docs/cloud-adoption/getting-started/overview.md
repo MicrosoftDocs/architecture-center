@@ -61,10 +61,10 @@ Once your enterprise has classified all business strategy gaps into these catego
 The following table illustrates several examples:
 
 |Business strategy gap|Category|Solution|
-|-----|------|-------|
-|Services currently hosted on-premises experience issues with availability, resiliency, and scalability during time of peak demand, which is approximately ten percent of usage. Servers in on-premises datacenter are end-of-life. Enterprise IT recommends purchasing new on-premises hardware for datacenter with specfications to handle peak demand.| Cost management | Migrate affected existing on-premises workloads to scalable resources in the cloud, paying for usage only.|
-|External data management laws and regulations require the enterprise to adhere to set of standard controls that require encryption of data at rest, requiring new hardware and software.| Data governance | Move data to Azure storage service encyption for data at rest.|
-|Services hosted in on-premises datacenter been experiencing distributed denial of service (DDoS) attacks on public-facing services. The attacks are difficult to mitigate and require new hardware, software, and security personnel to deal with effectively.| Security |Migrate services to Azure, and take advantage of Azure DDoS protection.|
+|-----|-----|-----|
+| Services currently hosted on-premises experience issues with availability, resiliency, and scalability during time of peak demand, which is approximately ten percent of usage. Servers in on-premises datacenter are end-of-life. Enterprise IT recommends purchasing new on-premises hardware for datacenter with specfications to handle peak demand.| Cost management | Migrate affected existing on-premises workloads to scalable resources in the cloud, paying for usage only. |
+| External data management laws and regulations require the enterprise to adhere to set of standard controls that require encryption of data at rest, requiring new hardware and software. | Data governance | Move data to Azure storage service encyption for data at rest. |
+| Services hosted in on-premises datacenter been experiencing distributed denial of service (DDoS) attacks on public-facing services. The attacks are difficult to mitigate and require new hardware, software, and security personnel to deal with effectively. | Security | Migrate services to Azure, and take advantage of Azure DDoS protection.|
 
 When all of the gaps in business strategy have been enumerated and high-level solutions have been determined, prioritize the list. The list can be prioritized by aligning the business strategy gaps with the enterprise's short and long term goals in each category. For example, if the enterprise has a short term goal to reduce IT spend in the next two fiscal quarters, the business gaps in the *cost management* category may be prioritized by the projected cost saving associated with each.
 
