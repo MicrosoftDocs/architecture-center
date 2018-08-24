@@ -4,9 +4,9 @@ description: Guidance for configuring Azure governance controls for multiple tea
 author: petertay
 ---
 
-# Governance design guide: new development in Azure for multiple teams
+# Governance design guide: multiple teams
 
-The goal of this guidance is to help you learn the process for designing a resource governance model in Azure.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
+The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
 
 Our requirements are:
 * Identity management for multiple teams with different resource access requirements in Azure. The identity management system stores the identity of the following users:
@@ -220,12 +220,47 @@ This management model has the benefits of the second example above. However, the
 
 Therefore, you can select any of these two examples resource management models depending on the priority of your requirements. If you anticipate that your organization will not reach the service limits for a single subscription, you can use a single subscription with multiple resource groups. Conversely, if your organization anticipates many workloads, multiple subscriptions for each environment may be better.
 
-<!-- ## Summary
+## Implementing the resource management model
 
+You've learned about several different models for governing access to Azure resources. Now we'll walk through the steps necessary to implement the resource management model with one subscription for each of the **shared infrastructure**, **production**, and **development** environments from the design guide. We'll have one **subscription owner** for all three environments. Each workload will be isolated in a **resource group** with a **workload owner** added with the **contributor** role.
 
+> [!NOTE]
+> Read [understanding resource access in Azure][understand-resource-access-in-azure] to learn more about the relationship between Azure Accounts and subscriptions. 
 
-## Next steps -->
+Follow these steps:
 
+1. Create an [Azure account](/azure/active-directory/sign-up-organization) if your organization doesn't already have one. The person who signs up for the Azure account becomes the Azure account administrator, and your organization's leadership must select an individual to assume this role. This individual will be responsible for:
+    * Creating subscriptions, and
+    * Creating and administering [Azure Active Directory (AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.    
+2. Your organization's leadership team decides which people are responsible for:
+    * Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal). 
+    * Subscriptions, which means these users:
+        * Manage costs associated with resource usage in that subscription,
+        * Implement and maintain least permission model for resource access, and
+        * Keep track of service limits.
+    * Shared infrastructure services (if your organization decides to use this model), which means this user is responsible for:
+        * On-premises to Azure network connectivity, and 
+        * Ownership of network connectivity within Azure through virtual network peering.
+    * Workload owners. 
+3. The Azure AD global administrator [creates the new user accounts](/azure/active-directory/add-users-azure-active-directory) for:
+    * The person who will be the **subscription owner** for each subscription associated with each environment. Note that this is necessary only if the subscription **service administrator** will not be tasked with managing resource access for each subscription/environment.
+    * The person who will be the **network operations user**, and
+    * The people who are **workload owner(s)**.
+4. The Azure account administrator creates the following three subscriptions using the [Azure account portal](https://account.azure.com):
+    * A subscription for the **shared infrastructure** environment,
+    * A subscription for the **production** environment, and 
+    * A subscription for the **development** environment. 
+5. The Azure account administrator [adds the subscription service owner to each subscription](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-admin-for-a-subscription-in-azure-portal).
+6. Create an approval process for **workload owners** to request the creation of resource groups. The approval process can be implemented in many ways, such as over email, or you can using a process management tool such as [Sharepoint workflows](https://support.office.com/article/introduction-to-sharepoint-workflow-07982276-54e8-4e17-8699-5056eff4d9e3). The approval process can follow these steps:  
+    * The **workload owner** prepares a bill of materials for required Azure resources in either the **development** environment, **production** environment, or both, and submits it to the **subscription owner**.
+    * The **subscription owner** reviews the bill of materials and validates the requested resources to ensure that the requested resources are appropriate for their planned use - for example, checking that the requested [virtual machine sizes](/azure/virtual-machines/windows/sizes) are correct.
+    * If the request is not approved, the **workload owner** is notified. If the request is approved, the **subscription owner** [creates the requested resource group](/azure/azure-resource-manager/resource-group-portal#manage-resource-groups) following your organization's [naming conventions](/azure/architecture/best-practices/naming-conventions), [adds the **workload owner**](/azure/role-based-access-control/role-assignments-portal#add-access) with the [**contributor** role](/azure/role-based-access-control/built-in-roles#contributor) and sends notification to the **workload owner** that the resource group has been created.
+7. Create an approval process for workload owners to request a virtual network peering connection from the shared infrastructure owner. As with the previous step, this approval process can be implemented using email or a process management tool.
+
+Now that you've implemented your governance model, you can deploy your shared infrastructure services.
+
+<!-- links -->
+[understand-resource-access-in-azure]: /azure/role-based-access-control/rbac-and-directory-admin-roles
 
 <!-- links -->
 

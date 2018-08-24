@@ -1,49 +1,23 @@
 ---
-title: "Adopting Azure: Foundational" 
-description: Describes the basic level of knowledge that an enterprise requires to adopt Azure
+title: "Enterprise cloud adoption: deploy a basic workload" 
+description: Describes how to deploy a basic workload to Azure
 author: petertay
 ---
 
-# Adopting Microsoft Azure: Foundational
+# Enterprise cloud adoption: deploy a basic workload
 
-For an organization that is new to cloud technologies, it can be difficult to decide on the right place to begin their adoption journey. The goal of the foundational adoption stage is to provide a starting point. Once individuals within the organization have worked through this stage they will have all the knowledge and skills necessary to deploy the compute resources for a simple workload to Azure. 
+Before we begin, let's take a look at what the term workload actually means. It's a term that is typically understood to define an arbitrary unit of functionality such as an application or service. We think about a workload in terms of the code artifacts that are deployed to a server as well as any other services, such as a database, that are necessary. This is a useful definition for an on-premises application or service but in the cloud we need to expand on it.
+
+In the cloud, a workload not only encompasses all the artifacts but also includes the cloud resources as well. We include cloud resources as part of our definition because of a concept known as infrastructure-as-code. As you learned in the "how does Azure work" explainer, resources in Azure are deployed by an orchestrator service. The orchestrator service exposes this functionality through a web API, and this web API can be called using several tools such as Powershell, the Azure command line interface (CLI), and the Azure portal. This means that we can specify our resources in a machine-readable file that can be stored along with the code artifacts associated with our application.
+
+This enables us to define a workload in terms of code artifacts and the necessary cloud resources, and this further enables us to isolate our workloads. Workloads may be isolated by the way resources are organized, by network topology, or by other attributes. The goal of workload isolation is to associate a workload's specific resources to a team so the team can independently manage all aspects of those resources. This enables multiple teams to share resource management services in Azure while preventing the unintentional deletion or modification of each other's resources.
+
+This isolation also enables another concept known as DevOps. DevOps includes the software development practices that include both software development and IT operations above, but adds the use of automation as much as possible. One of the principles of DevOps is known as continuous integration and continuous delivery (CI/CD). Continuous integration refers to the automated build processes that are run each time a developer commits a code change, and continuous delivery refers to the automated processes that deploy this code to various environments such as a development environment for testing or a production environment for final deployment.
+
+A basic web application or a virtual network (VNet) and virtual machine (VM). For more information about these different types of compute options in Azure, review the [overview of Azure compute options](/azure/architecture/guide/technology-choices/compute-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json).
 
 > [!NOTE]
 > This guide does not cover application development. For more information about developing applications on Azure, see the [Azure Application Architecture Guide](/azure/architecture/guide/).
-
-The audience for this stage of the guide is the following personas within your organization:
-
-- *Finance:* owner of the financial commitment to Azure, responsible for developing policies and procedures for tracking resource consumption costs including billing and chargeback.
-- *Central IT:* responsible for governing your organization's cloud resources including resource management and access, and workload health and monitoring.
-- *Workload owners:* all development roles that are involved in deploying workloads to Azure, including developers, testers, and build engineers.
-
-## Section 1: Azure basics
-
-This introductory section is intended for the *finance* and *central IT* personas. The focus of this section is acquiring a basic understanding of [how Azure works](azure-explainer.md) in preparation for learning about the [concept of cloud governance](governance-explainer.md). It may also be useful for the *workload owners* in your organization to review this content to help them understand how resource access is managed.
-
-## Section 2: Governance design guide
-
-Now that you understand how Azure works and the basics of cloud goverance, your first step in adopting Azure is learning about [resource access management](azure-resource-access.md) in Azure. This article describes the Azure services for making resource access requests and the controls used to validate those requests.
-
-The next step is learning how to [design a governance model](governance-how-to.md) for a single team. This article describes how to configure the resource access management services and controls you learned about earlier.
-
-## Section 3: Implementing a basic resource access management model
-
-The final step in your adoption journey is to learn how to implement the governance model designed earlier. 
-
-To begin, your organization requires an Azure account. If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information. 
-
-When your Azure account is created, you specify a person in your organization to be the Azure **account owner**. An Azure Active Directory (Azure AD) tenant is then created by default. Your Azure **account owner** must [create the user account](/azure/active-directory/add-users-azure-active-directory) for the person in your organization who is the **workload owner**. 
-
-Next, your Azure **account owner** must [create a subscription](https://docs.microsoft.com/partner-center/create-a-new-subscription) and [associate the Azure AD tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) with it.
-
-Finally, now that the subscription is created and your Azure AD tenant is associated with it, you can [add the **workload owner** to the subscription with the built-in **owner** role](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-for-a-subscription-in-azure-portal).
-
-## Section 4: Deploy a basic workload architecture to Azure
-
-The audience for this section is the *workload owner* persona. *Workload owners* define the compute and networking requirements for their workloads, select the correct resources to meet those requirements, and deploy them to Azure. 
-
-For the foundational adoption stage, the workload owner can select either a basic web application or a virtual network (VNet) and virtual machine (VM). For more information about these different types of compute options in Azure, review the [overview of Azure compute options](/azure/architecture/guide/technology-choices/compute-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json).
 
 Regardless of which compute option is selected, each of these deployments requires a **resource group**. Your **workload owner** must [create the resource group](/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy). As part of the deployment, the **workload owner** specifies a name for the resource group. This name will be used in the following sections.
 
@@ -63,7 +37,3 @@ For a simple workload that runs on a virtual machine, the first step is to deplo
 The next step is to decide whether to deploy a single Windows or Linux VM. For a Windows VM, follow the steps to [deploy a Windows VM to Azure with the portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json). Again, when you specify the settings for the virtual machine in the Azure portal, specify the name of the resource group created above.
 
 Once you've followed the steps and deployed the VM, you can learn about [proven practices for running a Windows VM on Azure](/azure/architecture/reference-architectures/virtual-machines-windows/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json). For a Linux VM, follow the steps to [deploy a Linux VM to Azure with the portal](/azure/virtual-machines/linux/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json). You can also learn more about [proven practices for running a Linux VM on Azure](/azure/architecture/reference-architectures/virtual-machines-linux/single-vm?toc=/azure/architecture/cloud-adoption-guide/toc.json).
-
-## Next steps
-
-The next stage in cloud readiness is the [**intermediate stage**](../intermediate-stage/overview.md). In the intermediate stage, you will learn about extending your on-premises network running multiple workloads and governance models for multiple teams.
