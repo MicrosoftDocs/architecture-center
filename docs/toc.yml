@@ -475,46 +475,30 @@
   items:
   - name: Getting Started
     items:
-      - name: Organization Readiness
-        href: cloud-adoption/getting-started/org-readiness.md
-      - name: Readiness Example & Personas
-        href: cloud-adoption/getting-started/personas.md
+      - name: Overview
+        href: cloud-adoption/getting-started/overview.md
       - name: How does Azure work?
         href: cloud-adoption/getting-started/azure-explainer.md
+        name: What is cloud resource governance?
+        href: cloud-adoption/getting-started/governance-explainer.md
+        name: Resource access governance in Azure
+        href: cloud-adoption/getting-started/azure-resource-access.md
   - name: Governance
     items:
-      - name: What is Cloud Governance?
-        href: cloud-adoption/governance/governance-explainer.md
-      - name: Resource Access
-        href: cloud-adoption/governance/azure-resource-access.md
-      - name: Understanding Cost
-        href: cloud-adoption/governance/cost.md
+        name: Governance design for a single team
+        href: cloud-adoption/governance/governance-how-to.md
+        name: Governance design for multiple teams
+        href: cloud-adoption/governance/governance-design-guide.md
   - name: Infrastructure
     items:
-      - name: Setting up a single workload
-        href: cloud-adoption/infrastructure/x.md
-      - name: Establishing a Virtual Datacenter
-        href: cloud-adoption/infrastructure/x.md
+      - name: Deploy a basic workload
+        href: cloud-adoption/infrastucture/overview.md
   - name: Workloads
     items:
-      - name: Planning migrations
-        href: cloud-adoption/workloads/x.md
-      - name: Rehost
-        href: cloud-adoption/workloads/x.md
-      - name: Refactor
-        href: cloud-adoption/workloads/x.md
-      - name: Rearchitect
-        href: cloud-adoption/workloads/x.md
-      - name: Rebuild
-        href: cloud-adoption/workloads/x.md
   - name: Operations
     items:
-      - name: Establishing a Fundamental Process
-        href: cloud-adoption/operations/x.md
   - name: Optimization
     items:
-      - name: TBD
-        href: cloud-adoption/workloads/x.md
 - name: Azure Virtual Datacenter
   href: vdc/index.md
 
