@@ -477,7 +477,7 @@
     items:
       - name: Overview
         href: cloud-adoption/getting-started/overview.md
-      - name: How does Azure work?
+        name: How does Azure work?
         href: cloud-adoption/getting-started/azure-explainer.md
         name: What is cloud resource governance?
         href: cloud-adoption/getting-started/governance-explainer.md
