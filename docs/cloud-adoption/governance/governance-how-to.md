@@ -6,7 +6,7 @@ author: petertay
 
 # Azure governance design guide: simple workload
 
-The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support a single teams and a simple workload.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
+The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support a single team and a simple workload.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
 * Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
