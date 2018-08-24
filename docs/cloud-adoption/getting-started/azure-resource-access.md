@@ -99,4 +99,4 @@ In this article, you learned about how resource access is managed in Azure using
 
 # Next steps
 
-Now that you understand how resource access is managed in Azure, move on to learn how to [design a governance model](governance-how-to.md) using these services.
+Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-how-to.md) or [multiple teams](../governance/governance-design-guide.md) using these services.

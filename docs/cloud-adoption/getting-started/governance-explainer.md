@@ -24,4 +24,4 @@ When configuring these tools, an important consideration is balancing governance
 
 ## Next steps
 
-Now that you understand the concept of cloud resource goverance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning [how to design a governance model](governance-how-to.md).
+Now that you understand the concept of cloud resource goverance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](../governance/governance-how-to.md) or [multiple teams](../governance/governance-design-guide.md).
