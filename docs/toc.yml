@@ -493,12 +493,7 @@
     items:
     - name: Deploy a basic workload
       href: cloud-adoption/infrastructure/overview.md
-  - name: Workloads
-    items:
-  - name: Operations
-    items:
-  - name: Optimization
-    items:
+
 - name: Azure Virtual Datacenter
   href: vdc/index.md
 
