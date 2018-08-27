@@ -493,6 +493,12 @@
     items:
     - name: Deploy a basic workload
       href: cloud-adoption/infrastructure/overview.md
+  - name: Appendix
+    items:
+    - name: Azure enterprise scaffold
+      href: cloud-adoption/appendix/subscription-governance.md
+    - name: Implementing Azure enterprise scaffold
+      href: cloud-adoption/appendix/subscription-governance-examples.md
 
 - name: Azure Virtual Datacenter
   href: vdc/index.md
