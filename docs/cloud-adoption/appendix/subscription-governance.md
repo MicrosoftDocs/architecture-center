@@ -1,21 +1,9 @@
 ---
-title: Best practices for enterprises moving to Azure | Microsoft Docs
+title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
-services: azure-resource-manager
-documentationcenter: na
 author: rdendtler
-manager: timlt
-editor: tysonn
-
-ms.assetid: 8692f37e-4d33-4100-b472-a8da37ce628f
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They are utilizing the cloud's strengths to generate revenue or optimize resources for the business. Microsoft Azure provides a multitude of services that enterprises can assemble like building blocks to address a wide array of workloads and applications. 
