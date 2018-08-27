@@ -122,6 +122,91 @@
     {
         "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    }      
+    },
+    {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-explainer",
+        "redirect_document_id": true
+     },      
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/governance-explainer",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-how-to.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-how-to",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-design-guide",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/index.md",
+        "redirect_url": "/azure/architecture/cloud-adoption",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/subscription-governance-examples",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/subscription-governance",
+        "redirect_document_id": true
+     }
     ] 
   } 
