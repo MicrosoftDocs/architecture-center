@@ -130,8 +130,7 @@
      },      
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
@@ -145,43 +144,35 @@
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
@@ -190,8 +181,7 @@
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview",
-        "redirect_document_id": true
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/index.md",
