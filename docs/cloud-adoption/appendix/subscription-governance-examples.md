@@ -1,21 +1,10 @@
 ---
-title: Scenarios and examples for subscription governance | Microsoft Docs
+title: Scenarios and examples for subscription governance
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
-services: azure-resource-manager
-documentationcenter: na
 author: rdendtler
-manager: timlt
-editor: tysonn
 
-ms.assetid: e8fbeeb8-d7a1-48af-804f-6fe1a6024bcb
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-
 ---
 # Examples of implementing Azure enterprise scaffold
 This article provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
