@@ -67,7 +67,7 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 
 > [!TIP]
 > For naming conventions:
-> * Review and adopt where possible the [Patterns and Practices guidance](../best-practices/naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
+> * Review and adopt where possible the [Patterns and Practices guidance](../../best-practices/naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
 > * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 > * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
@@ -153,7 +153,7 @@ Resource tags are flexible and should be attached to most resources. Examples of
 
 ![tags](./_images/resource-group-tagging.png)
 
-For more examples of tags, see [Recommended naming conventions for Azure resources](../best-practices/naming-conventions.md).
+For more examples of tags, see [Recommended naming conventions for Azure resources](../../best-practices/naming-conventions.md).
 
 > [!TIP]
 > Consider making a policy that mandates tagging for:
