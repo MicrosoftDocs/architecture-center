@@ -11,7 +11,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Requirements
 
-**Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements).
+**Define your customer's availability requirements.** Your customer will have availability requirements for the components in your application and this will affect your application's design. Get agreement from your customer for the availability targets of each piece of your application, otherwise your design may not meet the customer's expectations. For more information, see [Designing resilient applications for Azure](../resiliency/index.md).
 
 ## Application Design
 
@@ -52,7 +52,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Ensure that any third-party service you consume provides an SLA.** If your application depends on a third-party service, but the third party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Your SLA is only as good as the least available component of your application.
 
-**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow design patterns for dealing with transient failures, such as [Retry Pattern][retry-pattern], and [Circuit Breaker Pattern][circuit-breaker]. For more information, see [Resiliency strategies](../resiliency/index.md#resiliency-strategies).
+**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow [design patterns](../patterns/category/resiliency.md) for dealing with transient failures, such as [Retry Pattern][retry-pattern], and [Circuit Breaker Pattern][circuit-breaker]. 
 
 **Implement asynchronous operations whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible. For more information on how to implement asynchronous programming in C#, see [Asynchronous Programming with async and await][asynchronous-c-sharp].
 

@@ -285,7 +285,7 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 ### Add connectivity between spokes
 
-This step is optional. If you want to allow spokes to connect to each other, you must use a newtwork virtual appliance (NVA) as a router in the hub VNet, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, along with user-defined routes (UDRs) to allow the two spoke VNets to connect, perform the following steps:
+This step is optional. If you want to allow spokes to connect to each other, you must use a network virtual appliance (NVA) as a router in the hub VNet, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, along with user-defined routes (UDRs) to allow the two spoke VNets to connect, perform the following steps:
 
 1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
 

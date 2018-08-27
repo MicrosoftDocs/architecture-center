@@ -18,7 +18,9 @@ The following table summarizes the retry features for the Azure services describ
 | --- | --- | --- | --- | --- |
 | **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
 | **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
-| **[Event Hubs](#azure-event-hubs)** |Native in client |Programmatic |Client |None |
+| **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
+| **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
+| **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
 | **[Redis Cache](#azure-redis-cache)** |Native in client |Programmatic |Client |TextWriter |
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
@@ -120,6 +122,25 @@ client.RetryPolicy = RetryPolicy.Default;
 ### More information
 [ .NET Standard client library for Azure Event Hubs](https://github.com/Azure/azure-event-hubs-dotnet)
 
+## IoT Hub
+
+Azure IoT Hub is a service for connecting, monitoring, and managing devices to develop Internet of Things (IoT) applications.
+
+### Retry mechanism
+
+The Azure IoT device SDK can detect errors in the network, protocol, or application. Based on the error type, the SDK checks whether a retry needs to be performed. If the error is *recoverable*, the SDK begins to retry using the configured retry policy.
+
+The default retry policy is *exponential back-off with random jitter*, but it can be configured.
+
+### Policy configuration
+
+Policy configuration differs by language. For more details, see [IoT Hub retry policy configuration](/azure/iot-hub/iot-hub-reliability-features-in-sdks#retry-policy-apis).
+
+### More information
+
+* [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
+* [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
+
 ## Azure Redis Cache
 Azure Redis Cache is a fast data access and low latency cache service based on the popular open source Redis Cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
 
@@ -128,7 +149,7 @@ The guidance in this section is based on using the StackExchange.Redis client to
 Note that the StackExchange.Redis client uses multiplexing through a single connection. The recommended usage is to create an instance of the client at application startup and use this instance for all operations against the cache. For this reason, the connection to the cache is made only once, and so all of the guidance in this section is related to the retry policy for this initial connection—and not for each operation that accesses the cache.
 
 ### Retry mechanism
-The StackExchange.Redis client uses a connection manager class that is configured through a set of options, incuding:
+The StackExchange.Redis client uses a connection manager class that is configured through a set of options, including:
 
 - **ConnectRetry**. The number of times a failed connection to the cache will be retried.
 - **ReconnectRetryPolicy**. The retry strategy to use.

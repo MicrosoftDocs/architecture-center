@@ -1,3 +1,3 @@
 ---
-redirect_url: azure-resource-access.md
+redirect_url: azure-resource-access
 ---
