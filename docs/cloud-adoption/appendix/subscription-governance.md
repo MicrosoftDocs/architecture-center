@@ -1,21 +1,9 @@
 ---
-title: Best practices for enterprises moving to Azure | Microsoft Docs
+title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
-services: azure-resource-manager
-documentationcenter: na
 author: rdendtler
-manager: timlt
-editor: tysonn
-
-ms.assetid: 8692f37e-4d33-4100-b472-a8da37ce628f
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They are utilizing the cloud's strengths to generate revenue or optimize resources for the business. Microsoft Azure provides a multitude of services that enterprises can assemble like building blocks to address a wide array of workloads and applications. 
@@ -79,7 +67,7 @@ The first pillar of the scaffold is naming standards. Well-designed naming stand
 
 > [!TIP]
 > For naming conventions:
-> * Review and adopt where possible the [Patterns and Practices guidance](../best-practices/naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
+> * Review and adopt where possible the [Patterns and Practices guidance](../../best-practices/naming-conventions.md). This guidance helps you decide on a meaningful naming standard.
 > * Use camelCasing for names of resources (such as myResourceGroup and vnetNetworkName). Note: There are certain resources, such as storage accounts, where the only option is to use lower case (and no other special characters).
 > * Consider using Azure Resource Manager policies (described in the next section) to enforce naming standards.
 > 
@@ -165,7 +153,7 @@ Resource tags are flexible and should be attached to most resources. Examples of
 
 ![tags](./_images/resource-group-tagging.png)
 
-For more examples of tags, see [Recommended naming conventions for Azure resources](../best-practices/naming-conventions.md).
+For more examples of tags, see [Recommended naming conventions for Azure resources](../../best-practices/naming-conventions.md).
 
 > [!TIP]
 > Consider making a policy that mandates tagging for:
