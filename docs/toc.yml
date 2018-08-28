@@ -494,7 +494,7 @@
   - name: Infrastructure
     items:
     - name: Deploy a basic workload
-      href: cloud-adoption/infrastructure/overview.md
+      href: cloud-adoption/infrastructure/basic-workload.md
   - name: Appendix
     items:
     - name: Azure enterprise scaffold

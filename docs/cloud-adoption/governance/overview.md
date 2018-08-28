@@ -12,4 +12,4 @@ If you are familiar with the concept of governance, this section covers [governa
 
 ## Next steps
 
-Once you have learned how to design and implment a governance model in Azure, you can move on to learn how to deploy an [infrastructure](../infrastructure/overview.md) to Azure.
+Once you have learned how to design and implment a governance model in Azure, you can move on to learn how to deploy an [infrastructure](../infrastructure/basic-workload.md) to Azure.
