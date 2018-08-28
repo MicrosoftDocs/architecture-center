@@ -108,4 +108,4 @@ In this article, you learned:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn about resource access for a multiple teams](governance-design-guide.md)
+> [Learn about resource access for a multiple teams](governance-multiple-teams.md)

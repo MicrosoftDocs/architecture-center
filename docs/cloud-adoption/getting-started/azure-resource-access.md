@@ -6,7 +6,7 @@ author: petertaylor9999
 
 # Enterprise Cloud Adoption: Resource access management in Azure
 
-In [what is resource governance?](governance-explainer.md), you learned that governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
+In [what is resource governance?](what-is-governance.md), you learned that governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 
 Let's begin by taking a closer look at how are resources are deployed in Azure. 
 
@@ -35,7 +35,7 @@ An Azure subscription is similar to a resource group in that it's a logical cons
 
 ## What is Azure resource manager?
 
-In [how does Azure work?](azure-explainer.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Azure resource manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources. 
+In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Azure resource manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources. 
 
 ![](../_images/governance-1-12.png)   
 *Figure 4. Azure resource manager.*
@@ -99,7 +99,7 @@ In this article, you learned about how resource access is managed in Azure using
 
 ## Next steps
 
-Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-how-to.md) or [multiple teams](../governance/governance-design-guide.md) using these services.
+Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-single-team.md) or [multiple teams](../governance/governance-multiple-teams.md) using these services.
 
 > [!div class="nextstepaction"]
-> [Learn about resource access for a single team](governance-explainer.md)
+> [Learn about resource access for a single team](what-is-governance.md)
