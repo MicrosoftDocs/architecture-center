@@ -23,3 +23,5 @@ If your enterprise is new to Azure, begin with the [overview](getting-started/ov
 
 If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](governance/overview.md) and [infrastructure](infrastructure/basic-workload.md).
 
+> [!div class="nextstepaction"]
+> [Getting Started](getting-started/overview.md)
