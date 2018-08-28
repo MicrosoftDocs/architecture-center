@@ -1,3 +1,3 @@
 ---
-redirect_url: overview.md
+redirect_url: overview
 ---

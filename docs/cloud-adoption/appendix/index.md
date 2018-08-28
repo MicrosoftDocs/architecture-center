@@ -1,3 +1,3 @@
 ---
-redirect_url: azure-scaffold.md
+redirect_url: azure-scaffold
 ---
