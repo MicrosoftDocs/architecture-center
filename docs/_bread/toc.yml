@@ -30,9 +30,22 @@
     - name: Resources
       tocHref: /azure/architecture/resources
       topicHref: /azure/architecture/resources
-    - name: Adoption Guide
-      tocHref: /azure/architecture/cloud-adoption-guide/
-      topicHref: /azure/architecture/cloud-adoption-guide
+    - name: Enterprise Cloud Adoption
+      tocHref: /azure/architecture/cloud-adoption/
+      topicHref: /azure/architecture/cloud-adoption
+      items:
+      - name: Getting Started
+        tocHref: /azure/architecture/cloud-adoption/getting-started/
+        topicHref: /azure/architecture/cloud-adoption/getting-started
+      - name: Governance
+        tocHref: /azure/architecture/cloud-adoption/governance/
+        topicHref: /azure/architecture/cloud-adoption/governance
+      - name: Infrastructure
+        tocHref: /azure/architecture/cloud-adoption/infrastructure/
+        topicHref: /azure/architecture/cloud-adoption/infrastructure
+      - name: Appendix
+        tocHref: /azure/architecture/cloud-adoption/appendix/
+        topicHref: /azure/architecture/cloud-adoption/appendix
     - name: Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
