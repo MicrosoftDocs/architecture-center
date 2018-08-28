@@ -107,10 +107,10 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Virtual Network (VNet) |Resource Group |2-64 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
 |Subnet |Parent VNet |2-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`web` |
-|Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-nic1` |
+|Network Interface |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-vm1-nic1` |
 |Network Security Group |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
 |Network Security Group Rule |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`sql-allow` |
-|Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vm or service name>-pip` |`profx-sql1-pip` |
+|Public IP Address |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<vm or service name>-pip` |`profx-sql1-vm1-pip` |
 |Load Balancer |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-lb` |`profx-lb` |
 |Load Balanced Rules Config |Load Balancer |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`http` |
 |Azure Application Gateway |Resource Group |1-80 |Case insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-agw` |`profx-agw` |
