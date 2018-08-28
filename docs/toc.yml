@@ -473,8 +473,9 @@
     href: checklist/scalability.md
 
 - name: Enterprise Cloud Adoption
-  href: cloud-adoption/index.md
   items:
+  - name: Introduction
+    href: cloud-adoption/overview.md
   - name: Getting Started
     items:
     - name: Overview
