@@ -19,8 +19,8 @@ The high-level process for the digital transformation is:
 3. The cloud strategy team prepares the enterprise by building the business case for digital transformation - enumerates all the current gaps in business strategy and determines the high-level solutions to eliminate them.
 4. Align high-level solutions with business groups. Identify stakeholders in each business group to own the design and implementation for each solution.
 5. Translate existing roles, skills and process to include cloud roles, skills, and process.  
-<!--7. Develop processes for operating in the cloud to make solutions more robust in terms of availability, resiliency, and security. 
-8. Optimize solutions for performance, scalability, and cost efficiency.-->
+<!--6. Develop processes for operating in the cloud to make solutions more robust in terms of availability, resiliency, and security. 
+7. Optimize solutions for performance, scalability, and cost efficiency.-->
 
 ## Step 1: create a cloud strategy team
 
