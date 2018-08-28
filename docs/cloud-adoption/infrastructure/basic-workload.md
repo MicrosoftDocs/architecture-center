@@ -21,7 +21,7 @@ A basic web application or a virtual network (VNet) and virtual machine (VM). Fo
 
 Regardless of which compute option is selected, each of these deployments requires a **resource group**. Your **workload owner** must [create the resource group](/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy). As part of the deployment, the **workload owner** specifies a name for the resource group. This name will be used in the following sections.
 
-### Basic web application (PaaS)
+## Basic web application (PaaS)
 
 For a basic web application, select one of the 5-minute quickstarts from the [web apps documentation](/azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json) and follow the steps. 
 
@@ -30,7 +30,7 @@ For a basic web application, select one of the 5-minute quickstarts from the [we
 
 Once your simple workload has been deployed, you can learn more about the proven practices for deploying a [basic web application](/azure/architecture/reference-architectures/app-service-web-app/basic-web-app?toc=/azure/architecture/cloud-adoption-guide/toc.json) to Azure.
 
-### Single Windows or Linux VM (IaaS)
+## Single Windows or Linux VM (IaaS)
 
 For a simple workload that runs on a virtual machine, the first step is to deploy a virtual network. All IaaS resources in Azure such as virtual machines, load balancers, and gateways require a virtual network. Learn about [Azure virtual networks](/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/cloud-adoption-guide/toc.json), and then follow the steps to [deploy a Virtual Network to Azure using the portal](/azure/virtual-network/quick-create-portal?toc=/azure/architecture/cloud-adoption-guide/toc.json). When you specify the settings for the virtual network in the Azure portal, specify the name of the resource group created above.
 

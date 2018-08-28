@@ -111,7 +111,7 @@ These dependencies represent new processes that your organization implements to 
 
 Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For process that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital transformation schedule.
 
-# Next steps
+## Next steps
 
 The digital transformation is an iterative process, and with each iteration the teams involved will become more efficient. 
 
