@@ -1,3 +1,3 @@
 ---
-redirect_url: subscription-governance.md
+redirect_url: azure-scaffold.md
 ---

@@ -190,12 +190,12 @@
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/appendix/subscription-governance-examples",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold-examples",
         "redirect_document_id": true
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/appendix/subscription-governance",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
         "redirect_document_id": true
      }
     ] 

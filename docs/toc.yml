@@ -500,9 +500,9 @@
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
-      href: cloud-adoption/appendix/subscription-governance.md
+      href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
-      href: cloud-adoption/appendix/subscription-governance-examples.md
+      href: cloud-adoption/appendix/azure-scaffold-examples.md
 
 - name: Azure Virtual Datacenter
   href: vdc/index.md
