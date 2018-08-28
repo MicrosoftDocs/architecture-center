@@ -19,7 +19,7 @@ The audience for the Azure Cloud Adoption Guide includes Enterprise Administrato
 
 ## How to use the Azure Cloud Adoption Guide
 
-If your enterprise is new to Azure, begin with the [overview](getting-started/overview.md) in the *getting started* section. This document contains prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
+If your enterprise is new to Azure, begin with the [overview](getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
 
 If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](governance/overview.md) and [infrastructure](infrastructure/overview.md).
 

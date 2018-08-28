@@ -6,7 +6,7 @@ author: petertay
 
 # Enterprise cloud adoption: deploy a basic workload
 
-Before we begin, let's take a look at what the term workload actually means. It's a term that is typically understood to define an arbitrary unit of functionality such as an application or service. We think about a workload in terms of the code artifacts that are deployed to a server as well as any other services, such as a database, that are necessary. This is a useful definition for an on-premises application or service but in the cloud we need to expand on it.
+Before we begin, let's take a look at what the term workload actually means. It's a term that is typically understood to define an arbitrary unit of functionality such as an application or service. We think about a workload in terms of the code artifacts that are deployed to a server, but also in terms of any other services that are necessary. This is a useful definition for an on-premises application or service but in the cloud we need to expand on it.
 
 In the cloud, a workload not only encompasses all the artifacts but also includes the cloud resources as well. We include cloud resources as part of our definition because of a concept known as infrastructure-as-code. As you learned in the "how does Azure work" explainer, resources in Azure are deployed by an orchestrator service. The orchestrator service exposes this functionality through a web API, and this web API can be called using several tools such as Powershell, the Azure command line interface (CLI), and the Azure portal. This means that we can specify our resources in a machine-readable file that can be stored along with the code artifacts associated with our application.
 
