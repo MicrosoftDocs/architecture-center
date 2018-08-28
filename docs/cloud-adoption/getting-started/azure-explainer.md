@@ -1,10 +1,10 @@
 ---
-title: How does Azure work?
+title: "Enterprise Cloud Adoption: How does Azure work?"
 description: Explanation of the internal functioning of Azure
-author: petertay
+author: petertaylor9999
 ---
 
-# How does Azure work?
+# Enterprise Cloud Adoption: How does Azure work?
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 

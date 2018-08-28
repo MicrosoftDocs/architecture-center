@@ -1,10 +1,10 @@
 ---
-title: Resource access management in Azure
+title: "Enterprise Cloud Adoption: Resource access management in Azure"
 description: "Explanation of resource access management constructs in Azure: Azure resource manager, subscriptions, resource groups, and resources"
-author: petertay
+author: petertaylor9999
 ---
 
-# Resource access management in Azure
+# Enterprise Cloud Adoption: Resource access management in Azure
 
 In [what is resource governance?](governance-explainer.md), you learned that governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 
