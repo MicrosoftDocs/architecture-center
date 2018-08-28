@@ -3,9 +3,7 @@ title: "Enterprise Cloud Adoption: Getting started"
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies
 author: petertaylor9999
 ---
-# Getting started 
-
-![Enterprise Cloud Adoption](../_images/enterprise-cloud-adoption.png)
+# Enterprise Cloud Adoption: Getting started 
 
 The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. 
 
