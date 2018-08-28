@@ -259,6 +259,10 @@ Follow these steps:
 
 Now that you've implemented your governance model, you can deploy your shared infrastructure services.
 
+## Next steps
+> [!div class="nextstepaction"]
+> [Learn about deploying a basic infrastructure](../infrastructure/overview.md)
+
 <!-- links -->
 [understand-resource-access-in-azure]: /azure/role-based-access-control/rbac-and-directory-admin-roles
 

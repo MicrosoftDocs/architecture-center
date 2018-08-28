@@ -105,3 +105,7 @@ In this article, you learned:
 * Azure only trusts Azure AD for identity management.
 * A subscription has the highest scope of resource management, and each subscription is associated with an Azure AD tenant. Only users in the associated Azure AD tenant can access resources in the subscription.
 * There are three levels of resource management scope: subscription, resource group, and resource. Permissions are assigned at each scope using RBAC roles. RBAC roles are inherited from higher scope to lower scope.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Learn about resource access for a multiple teams](governance-design-guide.md)

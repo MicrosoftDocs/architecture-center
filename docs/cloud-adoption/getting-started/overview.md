@@ -114,3 +114,6 @@ Track these dependencies and make note of the processes that will support them, 
 # Next steps
 
 The digital transformation is an iterative process, and with each iteration the teams involved will become more efficient. 
+
+> [!div class="nextstepaction"]
+> [Understand how Azure works](azure-explainer.md)

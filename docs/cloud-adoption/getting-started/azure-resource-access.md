@@ -93,10 +93,13 @@ The final control is a check that the request is within the financial commitment
 ![](../_images/governance-1-21.png)   
 *Figure 13. A financial commitment is associated with a subscription.*
 
-# Summary
+## Summary
 
 In this article, you learned about how resource access is managed in Azure using Azure resource manager.
 
-# Next steps
+## Next steps
 
 Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-how-to.md) or [multiple teams](../governance/governance-design-guide.md) using these services.
+
+> [!div class="nextstepaction"]
+> [Learn about resource access for a single team](governance-explainer.md)
