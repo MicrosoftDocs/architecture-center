@@ -102,4 +102,4 @@ In this article, you learned about how resource access is managed in Azure using
 Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-single-team.md) or [multiple teams](../governance/governance-multiple-teams.md) using these services.
 
 > [!div class="nextstepaction"]
-> [Learn about resource access for a single team](what-is-governance.md)
+> [An overview of governance](../governance/overview.md)

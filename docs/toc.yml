@@ -487,6 +487,8 @@
       href: cloud-adoption/getting-started/azure-resource-access.md
   - name: Governance
     items:
+    - name: Overview
+      href: cloud-adoption/governance/overview.md
     - name: Governance design for a single team
       href: cloud-adoption/governance/governance-single-team.md
     - name: Governance design for multiple teams
