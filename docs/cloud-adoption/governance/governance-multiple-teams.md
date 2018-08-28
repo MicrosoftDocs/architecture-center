@@ -1,10 +1,10 @@
 ---
-title: "Governance design guide: new development in Azure for multiple teams"
+title: "Enterprise Cloud Adoption: Governance design in Azure for multiple teams"
 description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments
-author: petertay
+author: petertaylor9999
 ---
 
-# Governance design guide: multiple teams
+# Enterprise Cloud Adoption: Governance design for multiple teams
 
 The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
 
@@ -258,6 +258,10 @@ Follow these steps:
 7. Create an approval process for workload owners to request a virtual network peering connection from the shared infrastructure owner. As with the previous step, this approval process can be implemented using email or a process management tool.
 
 Now that you've implemented your governance model, you can deploy your shared infrastructure services.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Learn about deploying a basic infrastructure](../infrastructure/basic-workload.md)
 
 <!-- links -->
 [understand-resource-access-in-azure]: /azure/role-based-access-control/rbac-and-directory-admin-roles

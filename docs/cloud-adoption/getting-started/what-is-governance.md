@@ -1,12 +1,12 @@
 ---
-title: What is cloud resource governance?
+title: "Enterprise Cloud Adoption: What is cloud resource governance?"
 description: Explanation of the concept of resource access governance on Azure
-author: petertay
+author: petertaylor9999
 ---
 
-# What is cloud resource governance?
+# Enterprise Cloud Adoption: What is cloud resource governance?
 
-In [how does Azure work?](azure-explainer.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
+In [how does Azure work?](what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
 
 However, while giving unrestricted resource access to developers can make them very agile, it can also lead to unintended cost consequences. For example, a development team might be approved to deploy a set of resources for testing but forget to delete them when testing is complete. These resources will continue to accrue costs even though their use is no longer approved or necessary. 
 
@@ -24,4 +24,7 @@ When configuring these tools, an important consideration is balancing governance
 
 ## Next steps
 
-Now that you understand the concept of cloud resource goverance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](../governance/governance-how-to.md) or [multiple teams](../governance/governance-design-guide.md).
+Now that you understand the concept of cloud resource goverance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](../governance/governance-single-team.md) or [multiple teams](../governance/governance-multiple-teams.md).
+
+> [!div class="nextstepaction"]
+> [Learn about resource access in Azure](azure-resource-access.md)

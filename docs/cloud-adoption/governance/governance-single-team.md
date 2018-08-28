@@ -1,10 +1,10 @@
 ---
-title: Azure governance design guide
+title: "Enterprise Cloud Adoption: Governance design for a simple workload"
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
-author: petertay
+author: petertaylor9999
 ---
 
-# Azure governance design guide: simple workload
+# Enterprise Cloud Adoption: Governance design for a simple workload
 
 The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support a single team and a simple workload.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
 
@@ -105,3 +105,7 @@ In this article, you learned:
 * Azure only trusts Azure AD for identity management.
 * A subscription has the highest scope of resource management, and each subscription is associated with an Azure AD tenant. Only users in the associated Azure AD tenant can access resources in the subscription.
 * There are three levels of resource management scope: subscription, resource group, and resource. Permissions are assigned at each scope using RBAC roles. RBAC roles are inherited from higher scope to lower scope.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Learn about resource access for multiple teams](governance-multiple-teams.md)

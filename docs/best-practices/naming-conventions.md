@@ -194,4 +194,4 @@ It is not possible to modify the name of a storage account or container after it
 
 <!-- links -->
 
-[scaffold]: /azure/azure-resource-manager/resource-manager-subscription-governance
+[scaffold]: /azure/azure-resource-manager/resource-manager-azure-scaffold

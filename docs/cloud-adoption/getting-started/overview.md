@@ -1,10 +1,9 @@
 ---
-title: "Adopting Microsoft Azure: getting started" 
+title: "Enterprise Cloud Adoption: Getting started" 
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies
 author: petertaylor9999
 ---
-
-# Adopting Microsoft Azure: Getting started 
+# Enterprise Cloud Adoption: Getting started 
 
 The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. 
 
@@ -38,7 +37,7 @@ The security team is responsible for designing and implementing the enterprise's
  
 The next step in your enterprise's digital transformation is for the members of the cloud strategy team to learn about how cloud technology will change the way the enterprise does business. This is preparation and planning for the changes to your business, people, and technology. It's important for the members of the cloud strategy team to understand what's new and different in the cloud as compared to on-premises.
 
-The starting point for understanding the cloud is learning [how Azure works](azure-explainer.md) at a high level. Next, learn about the basics of [governance in Azure](governance-explainer.md) in preparation for [understanding resource access management](azure-resource-access.md).
+The starting point for understanding the cloud is learning [how Azure works](what-is-azure.md) at a high level. Next, learn about the basics of [governance in Azure](what-is-governance.md) in preparation for [understanding resource access management](azure-resource-access.md).
 
 For advanced learning, the governance team should review the concepts and design guides in the governance section of the table of contents. The infrastructure and workloads sections are useful for learning about typical architectures and workloads in the cloud.
 
@@ -111,6 +110,9 @@ These dependencies represent new processes that your organization implements to 
 
 Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For process that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital transformation schedule.
 
-# Next steps
+## Next steps
 
 The digital transformation is an iterative process, and with each iteration the teams involved will become more efficient. 
+
+> [!div class="nextstepaction"]
+> [Understand how Azure works](what-is-azure.md)
