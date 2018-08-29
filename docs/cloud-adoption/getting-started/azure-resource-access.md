@@ -40,7 +40,7 @@ In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "f
 ![](../_images/governance-1-12.png)   
 *Figure 4. Azure resource manager.*
 
-The following figure shows three clients: [Powershell](/powershell/azure/overview),[the Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
+The following figure shows three clients: [Powershell](/powershell/azure/overview), [the Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
 ![](../_images/governance-1-13.png)   
 *Figure 5. Azure clients connect to the Azure resource manager RESTful API.*
@@ -55,7 +55,7 @@ When a client makes a request to manage a specific resource, Azure resource mana
 ![](../_images/governance-1-15.png)   
 *Figure 7. Azure resource manager connects to the **Microsoft.compute** resource provider to manage the resource specified in the client request.*
 
-Notice that Azure resource manager required the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource. 
+Azure resource manager requires the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource. 
 
 Now that you have an understanding of how Azure resource manager works, let's return to our discussion of how an Azure subscription is associated with the controls used by Azure resource manager. Before any resource management request can be executed by Azure resource manager, a set of controls are checked. 
 
@@ -76,14 +76,14 @@ The next control is a check that the user has sufficient permission to make the 
 ![](../_images/governance-1-18.png)   
 *Figure 10. Each user in the tenant is assigned one or more RBAC roles.*
 
-An RBAC role specifies a set of permissions a user may take on a specific resource. When the role is assigned to user, those permissions are applied. For example, the [built-in **owner** role](/azure/role-based-access-control/built-in-roles#owner) allows a user to perform any action on a resource.
+An RBAC role specifies a set of permissions a user may take on a specific resource. When the role is assigned to the user, those permissions are applied. For example, the [built-in **owner** role](/azure/role-based-access-control/built-in-roles#owner) allows a user to perform any action on a resource.
 
 The next control is a check that the request is allowed under the settings specified for [Azure resource policy](/azure/azure-policy/). Azure resource policies specify the operations allowed for a specific resource. For example, an Azure resource policy can specify that users are only allowed to deploy a specific type of virtual machine.
 
 ![](../_images/governance-1-19.png)   
 *Figure 11. Azure resource policy.*
 
-The next control is a check that the request does not exceed an [Azure subscription limit](/azure/azure-subscription-service-limits). For example, each subscription has a limit of 980 resource groups per subscription. If a request is received to deploy an additional resource groups once the limit has been reached, it is denied.
+The next control is a check that the request does not exceed an [Azure subscription limit](/azure/azure-subscription-service-limits). For example, each subscription has a limit of 980 resource groups per subscription. If a request is received to deploy an additional resource group once the limit has been reached, it is denied.
 
 ![](../_images/governance-1-20.png)   
 *Figure 12. Azure resource limits.* 
