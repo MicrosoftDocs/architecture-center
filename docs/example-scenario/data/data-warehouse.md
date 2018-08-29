@@ -9,8 +9,6 @@ ms.date: 08/16/2018
 
 This example scenario builds a data pipeline to integrate large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.
 
-## The scenario
-
 This example demonstrates a sales and marketing company that creates incentive programs. These programs reward customers, suppliers, salespeople, and employees. Data is fundamental to these programs, and the company wants to improve the insights gained through data analytics using Azure.
 
 The company needs a modern approach to analysis data, so that decisions are made using the right data at the right time. The company's goals include:
@@ -20,6 +18,8 @@ The company needs a modern approach to analysis data, so that decisions are made
 * Greatly reducing the time needed to gather and transform data, so you can focus on analyzing the data.
 
 ## Potential use cases
+
+You could also use this approach to accomplish the following:
 
 * Establish a data warehouse to be a single source of truth for your data.
 * Integrate relational data sources with other unstructured datasets.
@@ -93,13 +93,6 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 * Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](/azure/architecture/).
 
 <!-- links -->
-[product-category]: https://azure.microsoft.com/product-categories/analytics/
-[source-customer]: https://www.maritzmotivation.com/
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [architecture]: ./images/architecture-diagram-data-warehouse.png
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
