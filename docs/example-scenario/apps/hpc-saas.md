@@ -29,11 +29,11 @@ Other scenarios using this architecture might include:
 
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
-        > What does the solution look like at a high level?  
-        > Why did we build the solution this way?  
-        > What will the customer need to bring to this?  (Software, skills, etc?)  
-        > Is there a data flow that should be described?
-        
+* Users can access NV-series virtual machines with powerful GPUs for rendering and collaborative tasks via a browser with a custom Remote Desktop browser control. Users can edit their designs and view their results. The HPC scheduler spins up additional nodes based on the number of waiting users.
+* Users access a web application hosted in CentOS virtual machines to submit workloads to a queue for execution on available HPC cluster nodes.
+* Complex workloads are executed using nodes in an HPC compute cluster. The HPC scheduler invokes ARM templates to spin up additional nodes based on the depth of the queue.
+* Simpler workloads are executed using an Azure Kubernetes Service cluster.
+
 ### Components
 
 * [H-series virtual machines](/azure/virtual-machines/linux/sizes-hpc) are used to run compute-intensive simulations such as molecular modeling and computational fluid dynamics. The solution also takes advantage of technologies like remote direct memory access (RDMA) connectivity and InfiniBand networking.
@@ -58,7 +58,7 @@ Other scenarios using this architecture might include:
 
 ## Pricing
 
-Review a [pricing sample for a data warehousing scenario][calculator] via the Azure pricing calculator. Adjust the values to see how your requirements affect your costs.
+The following considerations will drive a substantial portion of the costs for this solution.
 
 * Azure virtual machine costs will increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 * Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
