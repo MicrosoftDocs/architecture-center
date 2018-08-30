@@ -98,14 +98,8 @@ Next, your Azure **account owner** must [create a subscription](https://docs.mic
 
 Finally, now that the subscription is created and your Azure AD tenant is associated with it, you can [add the **workload owner** to the subscription with the built-in **owner** role](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-for-a-subscription-in-azure-portal).
 
-## Summary
-
-In this article, you learned:
-
-* Azure only trusts Azure AD for identity management.
-* A subscription has the highest scope of resource management, and each subscription is associated with an Azure AD tenant. Only users in the associated Azure AD tenant can access resources in the subscription.
-* There are three levels of resource management scope: subscription, resource group, and resource. Permissions are assigned at each scope using RBAC roles. RBAC roles are inherited from higher scope to lower scope.
-
 ## Next steps
+> [!div class="nextstepaction"]
+> [Deploy a basic workload to Azure](../governance)
 > [!div class="nextstepaction"]
 > [Learn about resource access for multiple teams](governance-multiple-teams.md)
