@@ -1,14 +1,12 @@
 ---
-title: Azure governance design guide
+title: "Enterprise Cloud Adoption: Governance design for a simple workload"
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
-author: petertay
+author: petertaylor9999
 ---
 
-# Azure governance design guide
+# Enterprise Cloud Adoption: Governance design for a simple workload
 
-The audience for this design guide is the *central IT* persona in your organization. *Central IT* is responsible for designing and implementing your organization's cloud governance architecture. As you learned in the [what is cloud resource governance?](governance-explainer.md) explainer, governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization.
-
-The goal of this guidance is to help you learn the process of designing your organization's governance architecture by looking at a set of hypothetical governance goals and requirements. Then, we'll discuss how to configure Azure's governance tools to meet them. 
+The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support a single team and a simple workload.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements. 
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
 * Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
@@ -21,7 +19,7 @@ Before we begin designing our governance model, it's important to understand how
 > [!NOTE]
 > If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information. 
 
-When Azure added to your organization's Enterprise Agreement, your organization was prompted to create an **Azure account**. During the account creation process, an **Azure account owner** was created, as well as an Azure Active Directory (Azure AD) tenant with a **global administrator** account. An Azure AD tenant is a logical construct that represents a secure, dedicated instance of Azure AD.
+When Azure was added to your organization's Enterprise Agreement, your organization was prompted to create an **Azure account**. During the account creation process, an **Azure account owner** was created, as well as an Azure Active Directory (Azure AD) tenant with a **global administrator** account. An Azure AD tenant is a logical construct that represents a secure, dedicated instance of Azure AD.
 
 ![Azure account with Azure Account Manager and Azure AD global administrator](../_images/governance-3-0.png)
 *Figure 1. An Azure account with an Account Manager and Azure AD Global Administrator.*
@@ -86,16 +84,22 @@ The lowest level of management scope is at the **resource** level. Operations ap
 ![The **workload owner** creates a resource](../_images/governance-1-8.png)
 *Figure 8. The workload owner creates a resource and inherits the built-in owner role at the resource scope.*
 
-The **workload owner** inherits the owner role at the resource scope, which means the workload owner has all permissions for the virtual network. 
+The **workload owner** inherits the owner role at the resource scope, which means the workload owner has all permissions for the virtual network.
 
-## Summary
+## Implementing the basic resource access management model
 
-In this article, you learned:
+Let's move on to learn how to implement the governance model designed earlier. 
 
-* Azure only trusts Azure AD for identity management.
-* A subscription has the highest scope of resource management, and each subscription is associated with an Azure AD tenant. Only users in the associated Azure AD tenant can access resources in the subscription.
-* There are three levels of resource management scope: subscription, resource group, and resource. Permissions are assigned at each scope using RBAC roles. RBAC roles are inherited from higher scope to lower scope.
+To begin, your organization requires an Azure account. If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information. 
+
+When your Azure account is created, you specify a person in your organization to be the Azure **account owner**. An Azure Active Directory (Azure AD) tenant is then created by default. Your Azure **account owner** must [create the user account](/azure/active-directory/add-users-azure-active-directory) for the person in your organization who is the **workload owner**. 
+
+Next, your Azure **account owner** must [create a subscription](https://docs.microsoft.com/partner-center/create-a-new-subscription) and [associate the Azure AD tenant](/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) with it.
+
+Finally, now that the subscription is created and your Azure AD tenant is associated with it, you can [add the **workload owner** to the subscription with the built-in **owner** role](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-for-a-subscription-in-azure-portal).
 
 ## Next steps
-
-Return to the [foundational adoption stage overview](overview.md) to learn how to implement this goverance model. Then, select a type of workload and learn how to deploy it.
+> [!div class="nextstepaction"]
+> [Deploy a basic workload to Azure](../infrastructure/basic-workload.md)
+> [!div class="nextstepaction"]
+> [Learn about resource access for multiple teams](governance-multiple-teams.md)

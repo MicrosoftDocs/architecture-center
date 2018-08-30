@@ -2,6 +2,7 @@
 title: Design to scale out
 description: Cloud applications should be designed for horizontal scaling.
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Design to scale out

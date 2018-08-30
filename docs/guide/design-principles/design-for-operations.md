@@ -2,6 +2,7 @@
 title: Design for operations
 description: Design an application so that the operations team has the tools they need
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Design for operations

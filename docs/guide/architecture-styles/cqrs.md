@@ -2,6 +2,7 @@
 title: CQRS architecture style
 description: Describes benefits, challenges, and best practices for CQRS architectures
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # CQRS architecture style
