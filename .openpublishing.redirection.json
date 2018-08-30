@@ -122,6 +122,10 @@
     {
         "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    }      
+    },
+    {
+        "source_path": "docs/guide/technology-choices.md",
+        "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
+    }
     ] 
   } 
