@@ -1,6 +1,7 @@
 ---
 layout: LandingPage
 ms.topic: landing-page
+ms.custom: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption

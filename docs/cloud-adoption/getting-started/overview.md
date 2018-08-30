@@ -2,6 +2,7 @@
 title: "Enterprise Cloud Adoption: Getting started" 
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies
 author: petertaylor9999
+ms.custom: enterprise-cloud-adoption
 ---
 # Enterprise Cloud Adoption: Getting started 
 
