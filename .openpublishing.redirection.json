@@ -198,8 +198,9 @@
         "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
         "redirect_document_id": true
      }
+     {
         "source_path": "docs/guide/technology-choices.md",
         "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
-    }
+     }
     ] 
   } 
