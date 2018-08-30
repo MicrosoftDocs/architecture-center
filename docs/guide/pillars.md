@@ -2,6 +2,8 @@
 title: Pillars of software quality 
 description: Describes five pillars of software quality, scalability, availability, resiliency, management, and security.
 author: MikeWasson
+ms.date: 08/30/2018
+
 ---
 
 # Pillars of software quality 

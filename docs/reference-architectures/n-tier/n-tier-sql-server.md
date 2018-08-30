@@ -217,7 +217,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     "witnessStorageAccountKey": "[replace-with-storagekey]"
     ```
 
-8. In the `n-tier-windows.json` file, search for all instances `testPassw0rd!23`, `test$!Passw0rd111`, and `AweS0me@SQLServicePW`. Replace them with your own passwords and save the file.
+8. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and replace them with a strong password. Save the file.
 
     > [!NOTE]
     > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file. 

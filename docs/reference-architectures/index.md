@@ -3,6 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures, blueprints, and prescriptive implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
+ms.date: 08/30/2018
 ---
 
 # Azure Reference Architectures
@@ -117,7 +118,7 @@ Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications)
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/scalable-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./app-service-web-app/multi-region.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
