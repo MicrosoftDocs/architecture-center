@@ -2,6 +2,7 @@
 title: Minimize coordination 
 description: Minimize coordination between application services to achieve scalability
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Minimize coordination 
