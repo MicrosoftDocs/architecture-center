@@ -1,6 +1,7 @@
 ---
 layout: LandingPage
 ms.topic: landing-page
+ms.date: 08/30/2018
 ---
 
 # Azure Application Architecture Guide

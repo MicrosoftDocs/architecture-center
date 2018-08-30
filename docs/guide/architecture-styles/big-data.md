@@ -2,6 +2,7 @@
 title: Big data architecture style
 description: Describes benefits, challenges, and best practices for Big Data architectures on Azure
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Big data architecture style

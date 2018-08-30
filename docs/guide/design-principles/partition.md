@@ -2,6 +2,7 @@
 title: Partition around limits
 description: Use partitioning to work around database, network, and compute limits
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Partition around limits
