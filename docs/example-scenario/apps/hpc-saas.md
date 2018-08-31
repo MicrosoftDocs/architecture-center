@@ -34,6 +34,7 @@ Other scenarios using this architecture might include:
 * Complex workloads are executed using nodes in an HPC compute cluster. The HPC scheduler invokes ARM templates to spin up additional nodes based on the depth of the queue.
 * Simpler workloads are executed using an Azure Kubernetes Service cluster.
 
+
 ### Components
 
 * [H-series virtual machines](/azure/virtual-machines/linux/sizes-hpc) are used to run compute-intensive simulations such as molecular modeling and computational fluid dynamics. The solution also takes advantage of technologies like remote direct memory access (RDMA) connectivity and InfiniBand networking.
