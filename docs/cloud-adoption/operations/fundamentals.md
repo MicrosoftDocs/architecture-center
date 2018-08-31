@@ -64,6 +64,33 @@ Flesh out was in the summary above.
 
 Talk about cadence; monthly/quarterly reviews.
 
+---
+1. What are the most important business operations? Create a prioritized list.
+    - what are the (desried) non-functional requirements (NFR) for the business op?
+
+2. Map the business operations to the IT service
+  - understand the constituent components in the service
+  - understand the depedency tree
+  - this is about the **current state**; not the desired or target state
+  - understand the critical path
+3. Is monitoring in-place for the service - this is a critical blocker!
+  - side bar about monitorigin and testing: production workload, synthetic loads, canary
+4. Create a scorecard: do the inidividal component of the service hit the NFR targets?
+5. What is the plan to improve the scorecard?
+    - accounatiblity - who is the engineering owner?
+    - plan - what is the cost? does the NFR target need to be revised in light of the cost?
+    - implement - monitoring should show success of hitting the target
+6. The review cadence
+    - monthly or quarterly
+    - new services should trigger the process
+    - perhaps the business operation priorities are reviewed annually (less than the scorecards for services)
+
+three roles
+1. business owner - decides the NFR targets, decides which business operations are high priority "mission critical"
+2. business advocate - a technical person that understand the buisiness; can map the IT services to the business operations, gets the bigger picture, can translate from business to technical
+3. engineering owner/service owner - responsible for actually implementing NFRs and supporting montioring
+---
+
 ## Assets
 
 Score card
