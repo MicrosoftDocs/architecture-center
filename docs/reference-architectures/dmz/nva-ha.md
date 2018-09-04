@@ -87,6 +87,7 @@ The preceding figure shows an example [ZooKeeper][zookeeper] cluster providing a
 ## Next steps
 * Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-prem] using layer-7 NVAs.
 * Learn how to [implement a DMZ between Azure and the Internet][dmz-internet] using layer-7 NVAs.
+* [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
 
 <!-- links -->
 [cloud-security]: /azure/best-practices-network-security
