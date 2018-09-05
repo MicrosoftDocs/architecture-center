@@ -8,9 +8,6 @@ author: petertaylor9999
 
 The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements.
 
-> [!NOTE]
-> For a more detailed discussion of **environments** see the 
-
 The requirements are:
 * The enterprise plans to transition new cloud roles and responsibilities to a set of users and therefore requires identity management for multiple teams with different resource access needs in Azure. This identity management system is required to store the identity of the following users:
   1. The individual in your organization responsible for ownership of **subscriptions**.
