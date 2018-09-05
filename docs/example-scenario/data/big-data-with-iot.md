@@ -2,7 +2,7 @@
 title: Example scenario for IoT and data analytics in the construction industry.
 description: Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.
 author: alexbuckgit
-ms.date: 08/08/2018
+ms.date: 08/29/2018
 ---
 
 # Example scenario for IoT and data analytics in the construction industry.
@@ -25,9 +25,9 @@ Using managed Azure services such as IoT Hub and HDInsight will allow the custom
 
 Consider this solution for the following use cases:
 
-* Industry specific use cases?
+* Construction, mining, or equipment manufacturing scenarios
 * Large-scale collection of device data for storage and analysis
-* Ingest and analyzing large datasets using a lambda architecture 
+* Ingestion and analysis of large datasets 
 
 ## Architecture
 
@@ -35,85 +35,50 @@ Consider this solution for the following use cases:
 
 The data flows through the solution as follows:
 
-1. Data is gathered by IoT sensors on construction equipment, vehicles, and drones and sent to IoT Hub.
-2. IoT Hub sends the raw data collected to Stream Analytics, where the data is analyzed and the results stored in an Azure SQL database. The raw data collected is also saved in Azure Blob storage.
-3. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data. Batch jobs are initiated by the user of the web app. 
-4. [TBD: Spark / HDInsight: Where does this data come from?]
-5. [TBD: Cassandra: How is this data later used or accessed?]
-6. [TBD: Why is "construction results data" sent through a jumpbox to Cassandra?] 
+1. Construction equipment collects data using Windows Embedded devices and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines running Ubuntu.
+2. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Ubuntu virtual machines.  
+3. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub. 
+4. Image data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing. These images are typically JPG files around 200k in size.
+5. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
+6. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery. 
+7. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster. 
 
-Architecture:
-	- Similar to lambda architecture to handle both real time event and large data stored in Cassandra cluster.
-            
 ### Components
 
 * [IoT Hub][/azure/iot-hub] acts as a central message hub for secure bi-directional communication between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
 * [Azure Stream Analytics][/azure/stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyze data from IoT devices and stores the results in Azure SQL Database. 
 * [Azure SQL Database][/azure/sql-database] contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
-* [Azure Blob storage][/azure/storage/blobs] stores the raw data gathered from the IoT hub devices. The raw data can be queried via the web application.
+* [Azure Blob storage][/azure/storage/blobs] stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
 * [Traffic Manager][/azure/traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
-* [Load Balancer]
-* [Azure Virtual Machines][/azure/virtual-machines] provide a jumpbox or bastion host environment, allowing administrators to securing access the Cassandra cluster and its associated infrastructure.
-* [Web Apps][/azure/web-apps] hosts the end-user web application, which can be used to query and analyze source data such as payload metrics. Users can also initiate batch Spark jobs via the application.
-* [Apache Spark on HDInsight][/azure/hdinsight/spark] supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms to be stored in Cassandra. [TBD: Unclear on source data based on the architecture diagram. Is this sourced from the on-prem KOMTRAX data (existing on-prem infrastructure)?]
-* [Apache Cassandra][cassandra] is a distributed NoSQL datbase that hosts the results of the data analytics jobs run in Spark on HDInsight.
+* [Load Balancer][/azure/load-balancer] lets you scale your applications and create high availability for your services. The load balancer distributes data submissions from construction equipment devices.
+* [Azure Virtual Machines][/azure/virtual-machines] host the web services that receive and ingest the construction results data into the Apache Cassandra database.
+* [Apache Cassandra](http://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
+* [Web Apps][/azure/app-service] hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
+* [Apache Spark on HDInsight][/azure/hdinsight/spark] supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
 
 ### Alternatives
 
-[Cosmos DB] - vs. lack of Cassandra multi-master?
-
-If you are working with very large datasets, consider using [Data Lake Storage](/azure/storage/data-lake-storage/introduction), which provides limitless storage for analytics data, rather than Blob storage.
-
-For comparisons of different relevant technology options, see the following:    
-* [Choosing a batch processing technology in Azure](/azure/architecture/data-guide/technology-choices/batch-processing)
-* [Choosing an analytical data store in Azure](/azure/architecture/data-guide/technology-choices/analytical-data-stores)
-            
+* [Cosmos DB](/azure/cosmos-db) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction). 
+* [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
+* Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
+   
 ## Considerations
 
-Azure advantages
-	Multi-region both globally and domestically
-		Helps with DR domestically
-	Comparatively high speed communication btw regions
-	Contract compliance
-	OSS support
-	Ease of scaling
-	Drastically reduced operating workload
-	Accelerate adoption of new technologies
-	Costs ~ 1/2 of an on-prem solution
+The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high speed communication between regions is also an important factor in this scenario.
 
-### Availability
-
-The example scenario takes advantage of multiple Azure regions, both globally and domestically. Some countries have more than one Azure region, which can help significantly in meeting legal and contractual requirements.
-                
-For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
-    
-### Scalability
-
-TBD: Discuss scalability of Azure specific to the case study vs. just technologies? Scalability of workforce? Lower costs to scale?
-
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
-
-### Security
-            
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
-
-### Resiliency
-
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+Azure support for open source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with significantly lower costs and operating workloads compared to an on-premises solution. 
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+The following considerations will drive a substantial portion of the costs for this solution.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
-
-* [Small][small-pricing]: this correlates to .
-* [Medium][medium-pricing]: this correlates to .
-* [Large][large-pricing]: this correlates to .
+* Azure virtual machine costs will increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
+* [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/) costs are driven by the number of IoT units provisioned as well as the service tier chosen, which determines the number of messages per day per unit allowed. 
+* [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics/) is priced by the number of streaming units required to process the data into the service.
 
 ## Related Resources
 
-This example scenario is based on a version of this architecture used by  [Komatsu][customer-site] For more information, see their [customer story][customer-story]. 
+This example scenario is based on a version of this architecture used by [Komatsu][customer-site] For more information, see their [customer story][customer-story]. 
 
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 
@@ -121,12 +86,4 @@ Guidance for big data architectures is available in the [Azure Data Architecture
 [product-category]: https://azure.microsoft.com/product-categories/analytics/
 [customer-site]: https://home.komatsu/en/
 [customer-story]: https://customers.microsoft.com/story/komatsu-manufacturing-azure-iot-hub-japan
-[small-pricing]: https://azure.com/e/9444b5ce08b7490a9b9f2207203e67f5
-[medium-pricing]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[large-pricing]: https://azure.com/e/f204c450314141a7ac803d72d2446a24
 [architecture]: ./images/architecture-diagram-big-data-with-iot.png
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
