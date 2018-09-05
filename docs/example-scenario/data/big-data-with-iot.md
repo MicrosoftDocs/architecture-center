@@ -45,16 +45,16 @@ The data flows through the solution as follows:
 
 ### Components
 
-* [IoT Hub][/azure/iot-hub] acts as a central message hub for secure bi-directional communication between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
-* [Azure Stream Analytics][/azure/stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyze data from IoT devices and stores the results in Azure SQL Database. 
-* [Azure SQL Database][/azure/sql-database] contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
-* [Azure Blob storage][/azure/storage/blobs] stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
-* [Traffic Manager][/azure/traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
-* [Load Balancer][/azure/load-balancer] lets you scale your applications and create high availability for your services. The load balancer distributes data submissions from construction equipment devices.
-* [Azure Virtual Machines][/azure/virtual-machines] host the web services that receive and ingest the construction results data into the Apache Cassandra database.
+* [IoT Hub](/azure/iot-hub) acts as a central message hub for secure bi-directional communication between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
+* [Azure Stream Analytics](/azure/stream-analytics) is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyze data from IoT devices and stores the results in Azure SQL Database. 
+* [Azure SQL Database](/azure/sql-database) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
+* [Azure Blob storage](/azure/storage/blobs) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
+* [Traffic Manager](/azure/traffic-manager) controls the distribution of user traffic for service endpoints in different Azure regions.
+* [Load Balancer](/azure/load-balancer) lets you scale your applications and create high availability for your services. The load balancer distributes data submissions from construction equipment devices.
+* [Azure Virtual Machines](/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
 * [Apache Cassandra](http://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
-* [Web Apps][/azure/app-service] hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
-* [Apache Spark on HDInsight][/azure/hdinsight/spark] supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
+* [Web Apps](/azure/app-service) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
+* [Apache Spark on HDInsight](/azure/hdinsight/spark) supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
 
 ### Alternatives
 
