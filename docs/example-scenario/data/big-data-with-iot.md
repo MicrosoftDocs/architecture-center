@@ -5,7 +5,7 @@ author: alexbuckgit
 ms.date: 08/29/2018
 ---
 
-# Example scenario for IoT and data analytics in the construction industry.
+# IoT and data analytics in the construction industry
 
 This example scenario is relevant to organizations building solutions that integrate data from many IoT devices into a comprehensive data analysis architecture to improve and automate decision making. Potential applications include construction, mining, manufacturing, or other industry solutions involving large volumes of data from many IoT-based data inputs.
 
