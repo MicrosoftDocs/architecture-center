@@ -9,7 +9,7 @@ ms.date: 07/10/2018
 
 This example scenario is relevant to organizations that need a highly scalable and resilient architecture for online order processing. Potential applications include e-commerce and retail point-of-sale, order fulfillment, and inventory reservation and tracking. 
 
-This scenario takes an event sourcing approach, using a functional programming model implemented via microservices. Each microservice is treated as an stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
+This scenario takes an event sourcing approach, using a functional programming model implemented via microservices. Each microservice is treated as a stream processor, and all business logic is implemented via microservices. This approach enables high availability and resiliency, geo-replication, and fast performance.
 
 Using managed Azure services such as Cosmos DB and HDInsight can help reduce costs by leveraging Microsoft's expertise in globally distributed cloud-scale data storage and retrieval. This scenario specifically addresses an e-commerce or retail scenario; if you have other needs for data services, you should review the list of available [fully managed intelligent database services in Azure][product-category].
 
@@ -78,13 +78,13 @@ The currency of Azure Cosmos DB is the request unit (RU). With request units, yo
 
 We have provided three sample cost profiles based on amount of activity you expect:
 
-* [Small][small-pricing]: this correlates to 5 RUs reserved with a 1TB data store in Cosmos DB and a small (D3 v2) Kafka cluster.
-* [Medium][medium-pricing]: this correlates to 50 RUs reserved with a 10TB data store in Cosmos DB and a midsized (D4 v2) Kafka cluster.
-* [Large][large-pricing]: this correlates to 500 RUs reserved with a 30TB data store in Cosmos DB and a large (D5 v2) Kafka cluster.
+* [Small][small-pricing]: this pricing example correlates to 5 RUs reserved with a 1 TB data store in Cosmos DB and a small (D3 v2) Kafka cluster.
+* [Medium][medium-pricing]: this pricing example correlates to 50 RUs reserved with a 10 TB data store in Cosmos DB and a midsized (D4 v2) Kafka cluster.
+* [Large][large-pricing]: this pricing example correlates to 500 RUs reserved with a 30 TB data store in Cosmos DB and a large (D5 v2) Kafka cluster.
 
 ## Related Resources
 
-This example scenario is based on a more extensive version of this architecture built by [Jet.com](https://jet.com) for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build 2018][source-presentation]. 
+This example scenario is based on a more extensive version of this architecture built by [Jet.com](https://jet.com) for its end-to-end order processing pipeline. For more information, see the [jet.com technical customer profile][source-document] and [jet.com's presentation at Build 2018][source-presentation].
 
 Other related resources include:
 * _[Designing Data-Intensive Applications](https://dataintensive.net/)_ by Martin Kleppmann (O'Reilly Media, 2017).
