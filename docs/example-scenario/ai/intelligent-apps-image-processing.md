@@ -10,7 +10,7 @@ This example scenario is applicable for businesses that need to process images.
 
 Potential applications include classifying images for a fashion website, analyzing text and images for insurance claims, or understanding telemetry data from game screenshots. Traditionally, companies would need to develop expertise in machine learning models, train the models, and finally run the images through their custom process to get the data out of the images.
 
-By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services. This scenario specifically addresses an image processing scenario. If you have different AI needs, consider the full suite of [Cognitive Services][cognitive-docs].
+By using Azure services such as the Computer Vision API and Azure Functions, companies can eliminate the need to manage individual servers, while reducing costs and leveraging the expertise that Microsoft has already developed around processing images with Cognitive services. This example scenario specifically addresses an image-processing use case. If you have different AI needs, consider the full suite of [Cognitive Services][cognitive-docs].
 
 ## Related use cases
 
@@ -57,11 +57,11 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Scalability
 
-For the most part all of the components of this scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond, consider multiple regions or app plans.
+The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs).  For guidance on estimating your requirements see [request units][request-units] in our documentation. To fully take advantage of the scaling in Cosmos DB you should also take a look at [partition keys][partition-key].
+Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs).  For guidance on estimating your requirements see [request units][request-units] in our documentation. To fully take advantage of the scaling in Cosmos DB, explore [partition keys][partition-key].
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability and partition.  However, in the case of key-value data models which is used in this scenario, transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning.  In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
 
 For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
@@ -81,17 +81,17 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided three sample cost profiles based on amount of traffic (we assume all images are 100kb in size):
+We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 kb in size):
 
-* [Small][pricing]: this correlates to processing &lt; 5000 images a month.
-* [Medium][medium-pricing]: this correlates to processing 500,000 images a month.
-* [Large][large-pricing]: this correlates to processing 50 million images a month.
+* [Small][pricing]: this pricing example correlates to processing &lt; 5000 images a month.
+* [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
+* [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
 ## Related Resources
 
 For a guided learning path of this scenario, see [Build a serverless web app in Azure][serverless].  
 
-Before putting this in a production environment, review the Azure Functions [best practices][functions-best-practices].
+Before deploying this example scenario in a production environment, review the Azure Functions [best practices][functions-best-practices].
 
 <!-- links -->
 [pricing]: https://azure.com/e/f9b59d238b43423683db73f4a31dc380

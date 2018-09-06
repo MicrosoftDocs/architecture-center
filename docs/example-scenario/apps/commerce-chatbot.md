@@ -6,7 +6,7 @@ ms.date: 07/05/2018
 ---
 # Conversational chatbot for hotel reservations on Azure
 
-This example scenario is applicable to businesses that need integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
+This example scenario is applicable to businesses that need to integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
 
 Example scenarios include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
 
@@ -38,7 +38,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 * [Azure Active Directory][aad-docs] is Microsoft’s multi-tenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
 * [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 * [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
-* [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand and interpret your user needs through natural methods of communication.
+* [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
 * [SQL Database][sqldatabase-docs] is a fully managed relational cloud database service that provides SQL Server engine compatibility.
 * [Application Insights][appinsights-docs] is an extensible Application Performance Management (APM) service that lets you monitor the performance of applications, such as your chatbot.
 
@@ -72,7 +72,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running in the event of a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
+This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, geo-replication, and automatic backups. These features allow your application to continue running if there is a maintenance event or outage. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
@@ -135,11 +135,11 @@ The sample application includes the Azure Active Directory authentication compon
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided three sample cost profiles based on the amount of messages you expect your chatbot to process:
+We have provided three sample cost profiles based on the number of messages you expect your chatbot to process:
 
-* [Small][small-pricing]: this correlates to processing < 10,000 messages per month.
-* [Medium][medium-pricing]: this correlates to processing < 500,000 messages per month.
-* [Large][large-pricing]: this correlates to processing < 10 million messages per month.
+* [Small][small-pricing]:  this pricing example correlates to processing < 10,000 messages per month.
+* [Medium][medium-pricing]: this pricing example correlates to processing < 500,000 messages per month.
+* [Large][large-pricing]: this pricing example correlates to processing < 10 million messages per month.
 
 ## Related Resources
 
