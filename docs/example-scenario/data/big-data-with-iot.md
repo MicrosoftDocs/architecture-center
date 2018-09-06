@@ -11,7 +11,7 @@ This example scenario is relevant to organizations building solutions that integ
 
 In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
 
-The company wants to build a cloud-based "smart construction" solution for gathering a comprehensive set of data for a construction site and automates the operation and maintenance of the various elements of the site. The company's goals include:
+The company wants to build a cloud-based "smart construction" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:
 * Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.
 * Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling  lower skilled workers to succeed.
 * Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety
