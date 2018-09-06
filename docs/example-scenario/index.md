@@ -17,7 +17,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 <ul  class="panelContent cardsF">
 <!-- SQL Data Warehouse -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./data/enterprise-bi-sqldw.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -41,13 +41,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 <ul  class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -60,13 +60,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/devops-dotnet-webapp.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -79,13 +79,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/devops-with-aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -98,13 +98,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/ecommerce-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -117,13 +117,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/sap-dev-test.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -141,13 +141,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 <ul  class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
-    <a href="./hybrid-networking/vpn.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./data/ecommerce-order-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/vpn.svg" height="140px" />
+                            <img src="./media/vpn.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -161,13 +161,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 </li>
 <!-- ExpressRoute -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./hybrid-networking/expressroute.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./data/fraud-detection.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/expressroute.svg" height="140px" />
+                            <img src="./media/expressroute.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -186,13 +186,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 <ul class="panelContent cardsF">
 <!-- Azure AD -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./identity/azure-ad.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./infrastructure/regulated-multitier-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/azure-active-directory.svg" height="140px" />
+                            <img src="./media/azure-active-directory.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -205,13 +205,13 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./app-service-web-app/basic-web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./infrastructure/video-rendering.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./_images/app-service.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
