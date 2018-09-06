@@ -46,7 +46,7 @@ Azure Batch builds upon the following Azure technologies:
 ## Considerations
 
 ### Machine Sizes available for Azure Batch
-While most rendering customers whill choose resources with high CPU power, other workloads using VM Scale Sets may choose VM's differently and will depend on a number of factors:
+While most rendering customers will choose resources with high CPU power, other workloads using VM Scale Sets may choose VM's differently and will depend on a number of factors:
   - Is the Application being run memory bound?
   - Does the Application need to use GPU's? 
   - Are the job types embarassingly parallel or require Infiniband connectivity for tightly coupled jobs?
