@@ -37,7 +37,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 </li>
 </ul>
 
-## Application Scenarios
+## Application scenarios
 
 <ul  class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
