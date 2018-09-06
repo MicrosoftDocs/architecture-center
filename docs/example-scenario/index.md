@@ -28,7 +28,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>Image processing</h3>
-                        <p>Analyze images using Cognitive services focused on the insurance industry.</p>
+                        <p>Analyze images using cognitive services focused on the insurance industry.</p>
                     </div>
                 </div>
             </div>
