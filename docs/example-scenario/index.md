@@ -23,7 +23,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/images/data-guide.svg" />
+                            <img src="./media/app-service.svg" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -147,7 +147,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/vpn.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -167,7 +167,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/expressroute.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -192,7 +192,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/azure-active-directory.svg" height="140px" />
+                            <img src="./media/app-service.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
