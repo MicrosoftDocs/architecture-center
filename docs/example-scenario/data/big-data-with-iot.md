@@ -35,10 +35,10 @@ Consider this solution for the following use cases:
 
 The data flows through the solution as follows:
 
-1. Construction equipment collects data using Windows Embedded devices and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines running Ubuntu.
-2. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Ubuntu virtual machines.  
-3. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub. 
-4. Image data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing. These images are typically JPG files around 200k in size.
+1. Construction equipment collects sensor data and sends the construction results data at regular intervals to load balanced web services hosted on a cluster of Azure virtual machines.
+2. The custom web services ingest the construction results data and store it in an Apache Cassandra cluster also running on Azure virtual machines.
+3. Another dataset is gathered by IoT sensors on various construction equipment and sent to IoT Hub.
+4. Raw data collected is sent directly from IoT Hub to Azure blob storage and is immediately available for viewing and analysis.
 5. Data collected via IoT Hub is processed in near real time by an Azure Stream Analytics job and stored in an Azure SQL database.
 6. The Smart Construction Cloud web application is available to analysts and end users to view and analyze sensor data and imagery. 
 7. Batch jobs are initiated on demand by users of the web application. The batch job runs in Apache Spark on HDInsight and analyzes new data stored in the Cassandra cluster. 
