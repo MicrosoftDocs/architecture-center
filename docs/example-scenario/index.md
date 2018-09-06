@@ -23,7 +23,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" />
+                            <img src="./media/cognitive.png" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/jenkins.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -123,7 +123,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/sap.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -147,7 +147,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/data-guide.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -167,7 +167,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/data-guide.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -192,7 +192,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/windows.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -211,7 +211,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./media/app-service.svg" height="140px" />
+                            <img src="./media/linux-penguin.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
