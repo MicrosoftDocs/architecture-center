@@ -58,7 +58,7 @@ For other availability topics, see the [availability checklist][availability] in
 
 ### Scalability
 
-This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the architecture center.
+This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the Azure Architecture Center.
 
 For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
 

@@ -71,13 +71,13 @@ Other options for the data tier include:
 
 * Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
 * Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For additional considerations concerning availability, see the [availability checklist][availability] in the architecture center.
+* For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
 * When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 * Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For other scalability topics, see the [scalability checklist][scalability] available in the architecture center.
+* For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -90,9 +90,9 @@ Other options for the data tier include:
 
 * Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
 * Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
-* You can find a number of [recommended practices for App Service][resiliency-app-service] on the architecture center.
+* You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 * Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
-* For a deeper discussion on [resiliency][resiliency], see the relevant article in the architecture center.
+* For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
 ## Deploy the scenario
 

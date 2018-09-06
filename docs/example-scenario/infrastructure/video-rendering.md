@@ -41,7 +41,7 @@ Azure Batch builds upon the following Azure technologies:
 * [Resource Groups][resource-groups] is a logical container for Azure resources.
 * [Virtual Networks][vnet] are used to for both the Head Node and Compute resources
 * [Storage][storage] accounts are used for the synchronization and data retention
-* [Virtual Machine Scale Sets][vmss] are utilized by CycleCloud for compute resources
+* [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources
 
 ## Considerations
 

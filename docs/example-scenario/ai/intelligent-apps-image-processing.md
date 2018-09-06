@@ -61,7 +61,7 @@ The majority of the components used in this example scenario are managed service
 
 Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs).  For guidance on estimating your requirements see [request units][request-units] in our documentation. To fully take advantage of the scaling in Cosmos DB, explore [partition keys][partition-key].
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning.  In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the architecture center.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning.  In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center.
 
 For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 

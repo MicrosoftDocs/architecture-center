@@ -44,7 +44,7 @@ This scenario covers a DevOps pipeline for a .NET web application using Visual S
 
 Whilst this article focuses on Visual Studio Team Services, [Team Foundation Server][team-foundation-server] could be used as on premises substitute. Alternatively, you may also find a collection of technologies being used together for an Open Source development pipeline leveraging [Jenkins][jenkins-on-azure].
 
-From an Infrastructure as Code perspective, [Azure Resource Manager Templates][arm-templates] are included as part of the Azure DevOps project, but you could consider [Terraform][terraform] or [Chef][chef] if you have investments here. If you prefer an Infrastructure as a Service (IaaS) based deployment and require configuration management, then you could consider either [Azure Desired State Configuration][desired-state-configuration], [Ansible][ansible] or [Chef][chef].
+From an Infrastructure as Code perspective, [Azure Resource Manager Templates][arm-templates] are included as part of the Azure DevOps project, but you could consider [Terraform][terraform] or [Chef][chef] if you have investments here. If you prefer an Infrastructure as a Service (IaaS) based deployment and require configuration management, then you could consider either [Azure Automation State Configuration][desired-state-configuration], [Ansible][ansible] or [Chef][chef].
 
 ### Alternatives to Web App Hosting
 
@@ -112,7 +112,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
 
-You can find a number of [recommended practices for App Service][resiliency-app-service] on the architecture center.
+You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 

@@ -6,7 +6,7 @@ ms.date: 07/11/2018
 ---
 # Secure Windows web application for regulated industries
 
-This sample scenario is applicable to regulated industries that have a need to secure multi-tier applications. In this scenario, a frontend ASP.NET application securely connects to a protected backend Microsoft SQL Server cluster.
+This sample scenario is applicable to regulated industries that have a need to secure multi-tier applications. In this scenario, a front-end ASP.NET application securely connects to a protected back-end Microsoft SQL Server cluster.
 
 Example application scenarios include running operating room applications, patient appointments and records keeping, or prescription refills and ordering. Traditionally, organizations had to maintain legacy on-premises applications and services for these scenarios. With a secure way and scalable way to deploy these Windows Server applications in Azure, organizations can modernize their deployments are reduce their on-premises operating costs and management overhead.
 
@@ -41,7 +41,7 @@ This scenario covers a multi-tier regulated industries application that uses ASP
 
 ### Alternatives
 
-* *nix, windows can easily be replaced by a variety of other OSs as nothing in the infrastructure depends on the OS.
+* *nix, windows can easily be replaced by a variety of other operating systems as nothing in the infrastructure depends on the operating system.
 
 * [SQL Server for Linux][sql-linux] can replace the backend data store.
 
@@ -80,7 +80,7 @@ For general guidance on designing resilient scenarios, see [Designing resilient 
 **Prerequisites.**
 
 * You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* To deploy a SQL Server cluster into the backend scale set, you would need an Active Directory Services domain.
+* To deploy a SQL Server cluster into the backend scale set, you would need a domain in Azure Active Directory (AD) Domain Services.
 
 To deploy the core infrastructure for this scenario with an Azure Resource Manager template, perform the following steps.
 

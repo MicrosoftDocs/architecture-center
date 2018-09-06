@@ -38,7 +38,7 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 ### Components
 
 * [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this scenario, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
-* [Azure Linux Virtual Machines][azurevm-docs] is used to run the Jenkins and Grafana instances.
+* [Azure Linux Virtual Machines][azurevm-docs] is the IaaS platform used to run the Jenkins and Grafana instances.
 * [Azure Container Registry][azureacr-docs] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
 * [Azure Kubernetes Service][azureaks-docs] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
 * [Azure Cosmos DB][azurecosmosdb-docs] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
@@ -59,7 +59,7 @@ To monitor your application performance and report on issues, this scenario comb
 
 As part of the Azure Kubernetes Service cluster, a load balancer distributes application traffic to one or more containers (pods) that run your application. This approach to running containerized applications in Kubernetes provides a highly available infrastructure for your customers.
 
-For other availability topics, see the [availability checklist][availability] available in the architecture center.
+For other availability topics, see the [availability checklist][availability] available in the Azure Architecture Center.
 
 ### Scalability
 
@@ -67,7 +67,7 @@ Azure Kubernetes Service lets you scale the number of cluster nodes to meet the 
 
 Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your  infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
 
-For other scalability topics, see the [scalability checklist][scalability] available in the architecture center.
+For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -113,7 +113,7 @@ It can take 15-20 minutes for the deployment to complete.
 
 ## Pricing
 
-To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic. match your expected traffic.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
