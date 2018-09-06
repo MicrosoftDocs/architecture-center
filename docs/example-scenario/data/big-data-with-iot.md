@@ -59,6 +59,7 @@ The data flows through the solution as follows:
 ### Alternatives
 
 * [Cosmos DB](/azure/cosmos-db) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction). 
+* [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 * [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
 * Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
    
