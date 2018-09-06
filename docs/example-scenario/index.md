@@ -28,7 +28,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>Image processing</h3>
-                        <p>ELT (extract-load-transform) pipeline to move data from an on-premises database into SQL Data Warehouse.</p>
+                        <p>Analyze images using Cognitive services focused on the insurance industry.</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>Commerce chatbot</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <p>Conversational chatbot that functions as a concierge for a hotel.</p>
                     </div>
                 </div>
             </div>
@@ -70,8 +70,8 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>DevOps with .Net</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <h3>DevOps with VSTS</h3>
+                        <p>DevOps pipeline that leverages VSTS. </p>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>DevOps with AKS</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <p>DevOps pipeline that leverages containers and jenkins.</p>
                     </div>
                 </div>
             </div>
@@ -108,8 +108,8 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>E-commerce scenario</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <h3>E-commerce frontend</h3>
+                        <p>E-commerce frontend to purchase tickets.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>SAP for a dev/test environment</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <p>SAP deployment for a dev/test environment.</p>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>E-commerce order processing</h3>
-                        <p>Connect an on-premises network to an Azure virtual network.</p>
+                        <p>Scalable order processing pipeline.</p>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>Fraud detection</h3>
-                        <p>Use a private, dedicated connection to extend an on-premises network to Azure.</p>
+                        <p>Real-time fraud detection that analyzes mobile phone metadata.</p>
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>Regulated multi-tier app</h3>
-                        <p>Integrate on-premises AD domains with Azure Active Directory.</p>
+                        <p>Securing multi-tier applications for regulated industries.</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +216,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     </div>
                     <div class="cardText">
                         <h3>HPC video rendering</h3>
-                        <p>Web application with Azure App Service and Azure SQL Database.</p>
+                        <p>3d rendering using an HPC solution.</p>
                     </div>
                 </div>
             </div>
