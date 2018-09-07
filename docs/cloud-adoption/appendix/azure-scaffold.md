@@ -32,7 +32,6 @@ The enterprise scaffold is intended to be the foundation of each new subscriptio
 > [!IMPORTANT]
 > Governance is crucial to the success of Azure. This article targets the technical implementation of an enterprise scaffold but only touches on the broader process and relationships between the components. Policy governance flows from the top down and is determined by what the business wants to achieve. Naturally, the creation of a governance model for Azure includes representatives from IT, but more importantly it should have strong representation from business group leaders, and security and risk management. In the end, an enterprise scaffold is about mitigating business risk to facilitate an organization's mission and objectives.
 >
->
 
 The following image describes the components of the scaffold. The foundation relies on a solid plan for the management hierarchy and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of the scaffold comes from core Azure capabilities and features that enable and connect a secure and manageable environment.
 
@@ -146,11 +145,14 @@ The introduction of initiatives provided enterprises to group logical policies t
 
 After the creation of policies and grouping them into logical initiatives you must assign the policy to a scope, whether it is a management group, a subscription or even a resource group. Assignments allow you to also exclude a sub-scope from the assignment of a policy. For example, if you deny the creation of public ips within a subscription, you could create an assignment with an exclusion for a resource group connected to your protected dmz.
 
+>[!NOTE]
+> You can find a number of example Policy samples that show how Policy and Initiatives can be applied to various resources within Azure on this [GitHub](https://https://github.com/Azure/azure-policy) repository.
+
 ## Identity and Access Management
 
 One of the first, and most crucial, questions you ask yourself when starting with the public cloud is "who should have access to resources?" and "how do I control this access?" Allowing or disallowing access to the Azure portal, and controlling access to resources in the portal is critical to the long term success and safety of your assets in the cloud.
 
-To accomplish the task of securing access to your resources you will first configure your "Identity Provider" and then configure the Roles and access. Azure Active Directory (AAD), connected to your on-premises Active Directory, is the foundation of Azure Identity. That said, AAD is NOT Active Directory and it's important to understand what an AAD tenant is and how it relates.  This [article](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption-guide/adoption-intro/tenant-explainer) provides an excellent explanation of AAD. To connect and synchronize your Active Directory to Azure Active Directory, you will install and configure the [AD Connect tool](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect) on-premises.
+To accomplish the task of securing access to your resources you will first configure your "Identity Provider" and then configure the Roles and access. Azure Active Directory (AAD), connected to your on-premises Active Directory, is the foundation of Azure Identity. That said, AAD is NOT Active Directory and it's important to understand what an AAD tenant is and how it relates to your Azure enrollment.  Review the available [information](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption-guide/adoption-intro/tenant-explainer) to gain a solid undersanding of AAD and AD. To connect and synchronize your Active Directory to Azure Active Directory, you will install and configure the [AD Connect tool](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect) on-premises.
 
 ![arch.png](./_images/arch.png)
 
@@ -172,10 +174,43 @@ Planning and preparing for your identity and access controls and following Azure
 
 ## Security
 
-Intro
-Resource Locks
-ASC
-Secure DevOps Toolkit
+One of the biggest blockers to cloud adoption traditionally has been the concerns over security. IT risk managers and security departments need to ensure that resources in Azure are protected and secure by default. Azure provides a number of capabilities that you can leverage to protect resources, and detect/prevent threats against those resources.
+
+### Azure Security Center
+
+The [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) provides a unified view of the security status of resources across your environment in addition to advanced threat protection. Azure Security Center is an open platform that enables Microsoft partners and independent software vendors to create software that plugs into Azure Security Center to enhance its capabilities. The baseline (free tier) provides insight to your resources via policy and provides assessment and recommendations that will enhance your security posture.
+
+Azure Security Center has a range of capabilities and price points from a free tier to paid tiers that enable additional and valuable capabilities such as Just In Time admin access and adaptive application controls (whitelisting).
+
+> [!TIP] Azure security center is a very powerful toolset that is constantly being enhanced, incorporating new capabilities you can leverage to  detect any threats and protect your enterprise. We strongly advise to using this capability by itself, or along with existing tools, to enable a more secure environment.
+
+### Azure resource locks
+
+As your organization adds core services to subscriptions it becomes increasingly important to ensure disruption to availability to avoid business disruption. One type of disruption that we often see is unintended consequences of scripts and tools working against an Azure subscription deleting resources mistakenly. [Resource Locks](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) enable you to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks to a subscription, resource group,or even an individual resource. Typically, you apply locks to foundational resources such as virtual networks, gateways, and storage accounts.
+
+> [!TIP]
+> Protecting Core network options should be the first area where you use resource locks. Accidental deletion of a gateway, security group or ExpressRoute circuit would cause serious issues for workloads. While Azure will prevent you from deleting a virtual network that is in use, additional controls around other network related objects are very useful. Examples:
+>
+> * Virtual Network: CanNotDelete
+> * Network Security Group: CanNotDelete
+> You can apply similar locks to Application security groups and other controls.
+
+### Secure DevOps Toolkit
+
+The "Secure DevOps Kit for Azure" (AzSK) is a collection of scripts, tools, extensions, automations, etc. originally created by Microsoft's IT Team and released in OpenSource via Github ([link](https://https://github.com/azsk/DevOpsKit-docs)). AzSK caters to the end to end Azure subscription and resource security needs for teams using extensive automation and smoothly integrating security into native dev ops workflows helping accomplish secure dev ops with these 6 focus areas:
+
+* Secure the subscription
+* Enable secure development
+* Integrate security into CICD
+* Continuous Assurance
+* Alerting & Monitoring
+* Cloud Risk Governance
+
+![Azure dev ops Toolkit](_images/Secure_DevOps_Kit_Azure.png)
+
+The AzSK is a rich set of tools, scripts and information that are an important part of a full Azure governance plan and incorporating this into your scaffold is crucial to supporting your organizations risk management goals
+
+Summary
 
 ## Monitor and Alerts
 
@@ -221,6 +256,7 @@ Cost management is a discipline that is core to the effective and efficient runn
 
 Intro
 Azure Automation
+Update Management (TIP?)
 LogicApps&Functions
 Top 5 Recommendations
 
@@ -232,6 +268,12 @@ Azure CLI
 
 ## Core Network
 
+Access to resources can be either internal (within the corporation's network) or external (through the internet). The final component of the Azure scaffold reference model is core to how your organization accesses Azure, in a secure manner. It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premises devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
+
+* **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
+* **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
+
+![core networking](./media/resource-manager-subscription-governance/core-network.png)
 Intro
 VDC (Virtual Data Center)
 VNET
