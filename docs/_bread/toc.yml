@@ -43,6 +43,9 @@
       - name: Infrastructure
         tocHref: /azure/architecture/cloud-adoption/infrastructure/
         topicHref: /azure/architecture/cloud-adoption/infrastructure
+      - name: Operations
+        tocHref: /azure/architecture/cloud-adoption/operations/
+        topicHref: /azure/architecture/cloud-adoption/operations
       - name: Appendix
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
