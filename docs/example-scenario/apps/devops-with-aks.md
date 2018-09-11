@@ -47,7 +47,7 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 
 ### Alternatives
 
-* [Visual Studio Team Services][vsts] and Team Foundation Server help you implement a continuous integration (CI), test, and deployment (CD) pipeline for any app.
+* [Azure Pipelines][azure-pipelines] help you implement a continuous integration (CI), test, and deployment (CD) pipeline for any app.
 * [Kubernetes][kubernetes] can be run directly on Azure VMs instead of via a managed service if you would like more control over the cluster.
 * [Service Fabric][service-fabric] is another alternate container orchestrator that can replace AKS.
 
@@ -143,7 +143,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [security]: /azure/security/
 [scalability]: ../../checklist/scalability.md
 [sshkeydocs]: /azure/virtual-machines/linux/mac-create-ssh-keys
-[vsts]: /vsts/?view=vsts
+[azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io/
 [service-fabric]: /azure/service-fabric/
 

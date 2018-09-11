@@ -148,7 +148,7 @@ Enable [diagnostics logging][diagnostic-logs], including application logging and
 
 Use a service such as [New Relic][new-relic] or [Application Insights][app-insights] to monitor application performance and behavior under load. Be aware of the [data rate limits][app-insights-data-rate] for Application Insights.
 
-Perform load testing, using a tool such as [Visual Studio Team Services][vsts]. For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer][perf-analysis].
+Perform load testing, using a tool such as [Azure DevOps][azure-devops] or [Visual Studio Team Foundation Server][tfs]. For a general overview of performance analysis in cloud applications, see [Performance Analysis Primer][perf-analysis].
 
 Tips for troubleshooting your application:
 
@@ -220,6 +220,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [app-service-security]: /azure/app-service-web/web-sites-security
 [app-settings]: /azure/app-service-web/web-sites-configure
 [arm-template]: /azure/azure-resource-manager/resource-group-overview#resource-groups
+[azure-devops]: /azure/devops/
 [azure-dns]: /azure/dns/dns-overview
 [custom-domain-name]: /azure/app-service-web/web-sites-custom-domain-name
 [deploy]: /azure/app-service-web/web-sites-deploy
@@ -248,9 +249,9 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
 [troubleshoot-blade]: https://azure.microsoft.com/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
+[tfs]: /tfs/index
 [troubleshoot-web-app]: /azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
-[vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup
 [web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#streamlogs
