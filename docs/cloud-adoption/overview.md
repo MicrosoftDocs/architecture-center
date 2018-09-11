@@ -1,6 +1,7 @@
 ---
 layout: LandingPage
 ms.topic: landing-page
+ms.date: 09/10/2018
 ---
 
 # Enterprise Cloud Adoption
