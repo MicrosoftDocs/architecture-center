@@ -7,7 +7,7 @@ ms.date: 07/05/2018
 
 # Real-time fraud detection on Azure
 
-This example scenario is relevant to organizations that need to analyze data in real-time to detect fraudulent transactions or other anomalous activity.
+This example scenario is relevant to organizations that need to analyze data in real time to detect fraudulent transactions or other anomalous activity.
 
 Potential applications include identifying fraudulent credit card activity or mobile phone calls. Traditional online analytical systems might take hours to transform and analyze the data to identify anomalous activity.
 
