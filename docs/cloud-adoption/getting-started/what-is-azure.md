@@ -2,6 +2,7 @@
 title: "Enterprise Cloud Adoption: How does Azure work?"
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
+ms.date: 09/10/2018
 ---
 
 # Enterprise Cloud Adoption: How does Azure work?

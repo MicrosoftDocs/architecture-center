@@ -2,6 +2,7 @@
 title: "Enterprise Cloud Adoption: governance overview"
 description: Overview of governance content for Azure enterprise cloud adoption
 author: petertaylor9999
+ms.date: 09/10/2018
 ---
 
 # Enterprise Cloud Adoption: Governance overview
