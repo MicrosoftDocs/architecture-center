@@ -27,7 +27,7 @@ Consider this scenario for the following use case:
 This sample solution will allow the corporate network access to Linux Virtual Desktops:
 - An ExpressRoute is established between the On-Premises environment and Azure for fast and reliable connectivity to the Cloud
 - Citrix XenDeskop solution deployed for VDI
-- The CitrixVDA run on Ubuntu (or another supported solution)
+- The CitrixVDA run on Ubuntu (or another supported distro)
 - Azure Network Security Groups will apply the correct network ACLs
 - Citrix Netscaler will publish and load balance all the Citrix services
 - Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
