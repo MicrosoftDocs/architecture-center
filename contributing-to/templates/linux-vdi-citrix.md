@@ -26,7 +26,7 @@ Consider this scenario for the following use case:
 
 ## Architecture
 
-*Architecture Diagram goes here*
+![Diagram](azure-citrix-sample-diagram.png)
 
 
 This sample solution will allow the corporate network access to Linux Virtual Desktops:
