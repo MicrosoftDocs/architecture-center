@@ -15,27 +15,31 @@ Some benifits for this sample solution include:
 - Provided access to Linux application to any device (including Non-Linux)
 - Sensitive data can be secured in the Azure datacenter for all distributed employees
 
-
 ## Potential use cases
 
 Consider this scenario for the following use case:
 - Provide secure access to mission-critical, specialized Linux VDI desktops from Linux or non-Linux devices
 
-
-
 ## Architecture
 
 ![Diagram](azure-citrix-sample-diagram.png)
 
-
 This sample solution will allow the corporate network access to Linux Virtual Desktops:
 - An ExpressRoute is established between the On-Premises environment and Azure for fast and reliable connectivity to the Cloud
-- TBD
+- Citrix XenDeskop solution deployed for VDI
+- The CitrixVDA run on Ubuntu (Version TBD)
+- Azure Network Security Groups will apply the correct network ACLs
+- Citrix Netscaler will publish and load balance all the Citrix services
+- Azure Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
+- Azure Hybrid File Sync will enable shared storage across the solution
 
-> What does the solution look like at a high level?  
-> Why did we build the solution this way?  
-> What will the customer need to bring to this?  (Software, skills, etc?)  
-> Is there a data flow that should be described?
+For this sample solution, the following SKUs are recommend:
+- Azure File Servers: TBD
+- Citrix Netscaler: TBD
+- Citrix License Server: TBD
+- Citrix VDA: TBD
+- Citrix Storefront: TBD
+- Citrix Delivery Controller: TBD
 
 ### Components
 
