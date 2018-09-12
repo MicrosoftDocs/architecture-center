@@ -52,9 +52,9 @@ This sample solution will allow the corporate network access to Linux Virtual De
 * [Azure Availabilty Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets) will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted and that your overall solution remains available and operational. 
 * [Citrix Netscaler]() is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4–L7) network traffic for web applications. 
 * [Citrix Storefront](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/citrix-storefront.html) is an enterprise app store that improves security and simplifies deployments, delivering a modern, unmatched near-native user experience across Citrix Receiver on any platform. StoreFront makes it easy to manage multi-site and multi-version Citrix Virtual Apps and Desktops environments. 
-* [Citrix License Server]()
+* [Citrix License Server](https://www.citrix.com/buy/licensing/overview.html) will manage the licenses for Citrix Products.
 * [Citrix Desktop Workers]()
-* [Citrix Delivery Controller]()
+* [Citrix Delivery Controller](https://docs.citrix.com/en-us/xenapp-and-xendesktop/7-15-ltsr/manage-deployment/delivery-controllers.html) is the server-side component that is responsible for managing user access, plus brokering and optimizing connections. Controllers also provide the Machine Creation Services that create desktop and server images.
  
 
 ### Alternatives
