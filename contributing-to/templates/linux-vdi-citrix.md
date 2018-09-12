@@ -27,19 +27,22 @@ Consider this scenario for the following use case:
 This sample solution will allow the corporate network access to Linux Virtual Desktops:
 - An ExpressRoute is established between the On-Premises environment and Azure for fast and reliable connectivity to the Cloud
 - Citrix XenDeskop solution deployed for VDI
-- The CitrixVDA run on Ubuntu (Version TBD)
+- The CitrixVDA run on Ubuntu (or another supported solution)
 - Azure Network Security Groups will apply the correct network ACLs
 - Citrix Netscaler will publish and load balance all the Citrix services
-- Azure Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
-- Azure Hybrid File Sync will enable shared storage across the solution
+- Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
+- Azure Hybrid File Sync will enable shared storage across the solution. For example, it can be used in remote /home solutions.
 
 For this sample solution, the following SKUs are recommend:
-- Azure File Servers: TBD
+
 - Citrix Netscaler: TBD
 - Citrix License Server: TBD
 - Citrix VDA: TBD
 - Citrix Storefront: TBD
 - Citrix Delivery Controller: TBD
+- Domain Controllers: TBD
+- Azure File Servers: TBD
+
 
 ### Components
 
@@ -49,10 +52,9 @@ For this sample solution, the following SKUs are recommend:
 * [Azure Hybrid File Sync](https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md) will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.
 * [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/) is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. It will be used for hosting Citrix databases.
 * [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. 
-* [Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory.
-* [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect) will integrate your on-premises directories with Azure Active Directory.
+* [Active Directory Domain Services](https://docs.microsoft.com/en-us/windows/desktop/ad/about-active-directory-domain-services) for Directory Services (user authentication, etc...) 
 * [Azure Availabilty Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-availability-sets) will ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted and that your overall solution remains available and operational. 
-* [Citrix Netscaler]() is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4–L7) network traffic for web applications. 
+* [Citrix ADC (Netscaler)](https://www.citrix.com/products/citrix-adc/) is an application delivery controller that performs application-specific traffic analysis to intelligently distribute, optimize, and secure Layer 4-Layer 7 (L4–L7) network traffic for web applications. 
 * [Citrix Storefront](https://www.citrix.com/products/citrix-virtual-apps-and-desktops/citrix-storefront.html) is an enterprise app store that improves security and simplifies deployments, delivering a modern, unmatched near-native user experience across Citrix Receiver on any platform. StoreFront makes it easy to manage multi-site and multi-version Citrix Virtual Apps and Desktops environments. 
 * [Citrix License Server](https://www.citrix.com/buy/licensing/overview.html) will manage the licenses for Citrix Products.
 * [Citrix XenDesktops VDA](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops-service.html) enables connections to applications and desktops. The VDA is installed on the machine that runs the applications or virtual desktops for the user. It enables the machines to register with Delivery Controllers and manage the High Definition eXperience (HDX) connection to a user device.
@@ -67,7 +69,7 @@ There are multiple partners with VDI solutions that supported in Azure such as V
 
 * Check the [Citrix Linux Requirements](https://docs.citrix.com/en-us/linux-virtual-delivery-agent/current-release/system-requirements.html) 
 * Latency can have impact on the overall solution. For production environment, test accordingly.
-* Depending on the scenario, the solution may need VMs with GPUs for VDA.
+* Depending on the scenario, the solution may need VMs with GPUs for VDA. For this solution, it is assumed that GPU is not a requirement.
 
 ### Availability, Scalability, and Security
 
