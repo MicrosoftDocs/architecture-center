@@ -61,23 +61,20 @@ There are multiple partners with VDI solutions that supported in Azure such as V
 
 ## Considerations
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
+* Check the [Citrix Linux Requirements](https://docs.citrix.com/en-us/linux-virtual-delivery-agent/current-release/system-requirements.html) 
+* Latency can have impact on the overall solution. For production environment, test accordingly.
+* Depending on the scenario, the solution may need VMs with GPUs for VDA.
 
 ### Availability, Scalability, and Security
 
-> How do I need to think about managing, maintaining, and monitoring this long term?
-
-> Are there any size considerations around this specific solution?  
-> What scale does this work at?  
-> At what point do things break or not make sense for this architecture?
-
-> Are there any security considerations (past the typical) that I should know about this?
+* This sample solution is design for High Availability for all roles besides the licensing server.
+* This sample solution does not include Disaster Recovery capabilities. [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
+* For a production deployment management solutions should be implemented such as [backup](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup), [monitoring](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](https://docs.microsoft.com/en-us/azure/automation/automation-update-management).
+* This sample solution should work for about TBD concurrent users. For production use, load testing should be performed.
 
 ## Deploy this scenario
 
-> (Optional if it doesn't make sense)
->
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
+For deployment information see official [Citrix documentation](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html).
 
 ## Pricing
 
