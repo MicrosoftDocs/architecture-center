@@ -14,7 +14,6 @@ Some benifits for this sample solution include:
 - Increased ROI with Hosted Shared Linux virtual desktops by giving more users access to the same infrastructure
 - Provided access to Linux application to any device (including Non-Linux)
 - Sensitive data can be secured in the Azure datacenter for all distributed employees
-- 
 
 
 ## Potential use cases
@@ -40,7 +39,6 @@ This sample solution will allow the corporate network access to Linux Virtual De
 
 ### Components
 
-
 * [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) allows resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. One Virtual Network will be used  for all resources in the sample scenario.
 * [Azure network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 * [Azure load balancer](/azure/application-gateway/overview) distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic on the Citrix Netscaler.
@@ -59,7 +57,7 @@ This sample solution will allow the corporate network access to Linux Virtual De
 
 ### Alternatives
 
-> What alternative technologies were considered and why didn't we use them?
+There are multiple partners with VDI solutions that supported in Azure such as VMware, Workspot and others. This specific sample architecture is based on real projects that used Citrix.
 
 ## Considerations
 
