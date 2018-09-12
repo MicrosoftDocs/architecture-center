@@ -63,7 +63,9 @@ For this sample solution, the following SKUs are recommend:
 
 ### Alternatives
 
-There are multiple partners with VDI solutions that supported in Azure such as VMware, Workspot and others. This specific sample architecture is based on real projects that used Citrix.
+- There are multiple partners with VDI solutions that supported in Azure such as VMware, Workspot and others. This specific sample architecture is based on real projects that used Citrix.
+- Citrix provides a Cloud Service that abstracts part of this architecture. It could be an alternative for this solution. See [Citrix Cloud](https://www.citrix.com/products/citrix-cloud/)
+
 
 ## Considerations
 
@@ -73,10 +75,15 @@ There are multiple partners with VDI solutions that supported in Azure such as V
 
 ### Availability, Scalability, and Security
 
+#### Availability
 * This sample solution is design for High Availability for all roles besides the licensing server.
 * This sample solution does not include Disaster Recovery capabilities. [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
+
+#### Management
 * For a production deployment management solutions should be implemented such as [backup](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup), [monitoring](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](https://docs.microsoft.com/en-us/azure/automation/automation-update-management).
-* This sample solution should work for about TBD concurrent users. For production use, load testing should be performed.
+
+#### Sizing
+* This sample solution should work for about 250 concurrent users. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed. 
 
 ## Deploy this scenario
 
