@@ -100,8 +100,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Next Steps
 
-> Where should I go next if I want to start building this?  
-> Are there any reference architectures that help me build this?
+- TBD
+- For deploying Citrix ADC (Netscaler) in Azure. Check the ARM templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).
 
 ## Related Resources
 
