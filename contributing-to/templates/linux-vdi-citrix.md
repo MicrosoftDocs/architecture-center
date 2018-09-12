@@ -1,7 +1,7 @@
 ---
 title: Linux Virtual Desktops with Citrix
 description: Proven scenario for building a VDI environment for Linux Desktops using Citrix on Azure.
-author: miguelangelopereira
+author: miguelangelopereira, bowulf
 ms.date: 09/12/2018 
 ---
 # Linux Virtual Desktops with Citrix
