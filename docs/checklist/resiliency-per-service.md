@@ -95,6 +95,10 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 **Use geo-restore to recover from a service outage.** Geo-restore restores a database from a geo-redundant backup.  For more information, see [Recover an Azure SQL database using automated database backups][sql-restore].
 
+## SQL Data Warehouse
+
+**Do not disable Geo-backup.** By default, SQL Data Warehouse takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, on SQL Data Warehouse geo-backups, please visit [here](https://docs.microsoft.com/azure/sql-data-warehouse/backup-and-restore#geo-backups).
+
 ## SQL Server running in a VM
 
 **Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
