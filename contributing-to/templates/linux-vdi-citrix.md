@@ -1,28 +1,37 @@
 ---
-title: <Article Title>
-description: <Article Description>
-author: <github username>
-ms.date: <publish or update date - mm/dd/yyyy>
+title: Linux Virtual Desktops with Citrix
+description: Proven scenario for building a VDI environment for Linux Desktops using Citrix on Azure.
+author: miguelangelopereira
+ms.date: 09/12/2018
 ---
-# Article Title
+# Linux Virtual Desktops with Citrix
 
-> This should be an introduction of the business problem and why this scenario was built to solve it.
->> What industry is the customer in?  
->> What prompted them to solve the problem?  
->> What was the benefits of implementing the solution described blow?
+This sample scenario is aplicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops.
+
+VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. This sample scenario will be based on the Citrix Solution.
+
+Some benifits for this sample solution include:
+- Increased ROI with Hosted Shared Linux virtual desktops by giving more users access to the same infrastructure
+- Provided access to Linux application to any device (including Non-Linux)
+- Sensitive data can be secured in the Azure datacenter for all distributed employees
+- 
+
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?  
-> How similar or different are they to what's in this article?
+Consider this scenario for the following use case:
+- Provide secure access to mission-critical, specialized Linux VDI desktops from Linux or non-Linux devices
 
-These other uses cases have similar design patterns:
 
-* List of example use cases
 
 ## Architecture
 
 *Architecture Diagram goes here*
+
+
+This sample solution will allow the corporate network access to Linux Virtual Desktops:
+- An ExpressRoute is established between the On-Premises environment and Azure for fast and reliable connectivity to the Cloud
+- TBD
 
 > What does the solution look like at a high level?  
 > Why did we build the solution this way?  
@@ -31,12 +40,12 @@ These other uses cases have similar design patterns:
 
 ### Components
 
-> Why is each component there?  
-> What does it do and why was it necessary?
 
-* List of components with links to documentation.
+* [Azure Virtual Network][vnet-docs] allows resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. One Virtual Network will be used  for all resources in the sample scenario.
+* [Azure network security groups][nsg-docs] contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
+* [Azure load balancer][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic on the Citrix Netscaler.
+* [Azure Hybrid File Sync][https://github.com/MicrosoftDocs/azure-docs/edit/master/articles/storage/files/storage-sync-files-planning.md] Azure Files will be used for all shared storage. The storage will replicate to two file servers using Hybrid File Sync.
 
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
 
 ### Alternatives
 
