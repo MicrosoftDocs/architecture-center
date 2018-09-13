@@ -45,7 +45,7 @@ ms.topic: landing-page
     </li>
     <!-- Cloud Adoption -->
     <li>
-        <a href="/azure/architecture/patterns/">
+        <a href="/azure/architecture/cloud-adoption/">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
