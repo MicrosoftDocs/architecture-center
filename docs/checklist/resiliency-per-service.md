@@ -97,7 +97,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 ## SQL Data Warehouse
 
-**Do not disable Geo-backup.** By default, SQL Data Warehouse takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, on SQL Data Warehouse geo-backups, please visit [here](https://docs.microsoft.com/azure/sql-data-warehouse/backup-and-restore#geo-backups).
+**Do not disable geo-backup.** By default, SQL Data Warehouse takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups).
 
 ## SQL Server running in a VM
 
