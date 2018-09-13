@@ -294,7 +294,10 @@ The following topics describe disaster recovery specific Azure services:
 
 | Service | Topic |
 |---------|-------|
+| Azure Database for MySQL | [Overview of business continuity with Azure Database for MySQL](/azure/mysql/concepts-business-continuity) |
+| Azure Database for PostgreSQL | [Overview of business continuity with Azure Database for PostgreSQL](/azure/postgresql/concepts-business-continuity)
 | Cloud Services | [What to do in the event of an Azure service disruption that impacts Azure Cloud Services](/azure/cloud-services/cloud-services-disaster-recovery-guidance) |
+| Cosmos DB | [Automatic regional failover for business continuity in Azure Cosmos DB](/azure/cosmos-db/regional-failover)
 | Key Vault | [Azure Key Vault availability and redundancy](/azure/key-vault/key-vault-disaster-recovery-guidance) |
 |Storage | [What to do if an Azure Storage outage occurs](/azure/storage/storage-disaster-recovery-guidance) |
 | SQL Database | [Restore an Azure SQL Database or failover to a secondary](/azure/sql-database/sql-database-disaster-recovery) |
