@@ -26,6 +26,14 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
+This scenario covers the back-end components that are necessary to create a scalable, secure and monitored private, enterprise blockchain network within a consortium of 2 or more members. Details of how these components are provisioned (i.e. within different subscriptions and resource groups) as well as the connectivity requirements (i.e. VPN or ExpressRoute) are left for your consideration based on your organization's policy requirements. Here's how data flows:
+
+1. Bank A creates/updates an individual's credit record by sending a transaction to the blockchain network via JSON-RPC.
+2. Data flows from Bank A's private application server to the Azure load balancer and subsequently to a validating node VM on the VMSS.
+3. The Etereum PoA network creates a block at a preset time (2 seconds for this scenario).
+4. The transaction is bundled into the created block and validated across the blockchain network.
+5. Bank B can read the credit record created by bank A by communicating with it's own node similarly via JSON-RPC.
+
 ### Components
 
 ### Alternatives
