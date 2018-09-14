@@ -18,8 +18,9 @@ Avoid naming the scenario after the Azure technologies that are used.
 >> What industry is the customer in?  
 >> What prompted them to solve the problem?  
 >> What services were used in building out this solution?
+>> What does this example scenario show? What are the customer's goals?  
 
->> What was the benefits of implementing the solution described blow?
+> What were the benefits of implementing the solution described blow?
 
 ## Potential use cases
 
@@ -51,7 +52,6 @@ A bullet list of components in the architecture (including all relevant Azure se
 ### Alternatives
 
 Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
-=======
 
 > What alternative technologies were considered and why didn't we use them?
 
@@ -82,21 +82,10 @@ Use this section to talk about alternative Azure services or architectures that 
 > Are there ways I could save cost?  
 > If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
 > What are the components that make up the cost?  
-> How does scale effect the cost  
+> How does scale effect the cost?
 > 
-> Link to the pricing calculator with all of the components outlined.  If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
-
-Example: We have provided three samples showing an estimation of the different costs when processing 1 Gigabyte, 1 Terabyte, and 1 Petabyte of data per hour:
-
-* [1 Gigabyte/hour][small-pricing]: At this scale, we only need components X, Y, and Z
-* [1 Terabyte/hour][medium-pricing]: Because of the larger amount of data ingested, we had to scale the 1st layer significantly
-* [1 Petabyte/hour][large-pricing]: All components are significantly larger, at this scale we might consider replacing X with Y because it can handle much larger message rates
-
-
-## Next Steps
-
-> Where should I go next if I want to start building this?  
-> Are there any reference architectures that help me build this?
+> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.  
+> If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
 ## Next Steps
 
@@ -111,9 +100,7 @@ Example: We have provided three samples showing an estimation of the different c
 
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
+[calculator]: https://azure.com/e/
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/
