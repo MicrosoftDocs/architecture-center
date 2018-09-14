@@ -354,6 +354,8 @@
       href: example-scenario/apps/sap-dev-test.md
     - name: E-commerce front-end
       href: example-scenario/apps/ecommerce-scenario.md
+    - name: E-commerce API Management
+      href: example-scenario/apps/apim-api-scenario.md
   - name: Data & Analytics
     items:
     - name: Real-time fraud detection
