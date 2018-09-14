@@ -133,6 +133,8 @@ Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
 **Data encryption.** Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
 
+**DDoS protection**. We recommend enabling [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which provides additional DDoS mitigation for resources in a VNet. Although basic DDoS protection is automatically enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure Virtual Network resources.  
+
 ## Deploy the solution
 
 A deployment is available on [GitHub][github-folder]. It deploys the following:
