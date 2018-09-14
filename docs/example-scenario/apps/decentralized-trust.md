@@ -36,6 +36,12 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Components
 
+* Virtual Machines within Virtual Machine Scale Sets provides the on-demand compute facility to host the validator processes for the blockchain
+* Key Vault is used as the secure storage facility for the private keys of each validator
+* Load Balancer spreads the RPC, peering and Governance DApp requests
+* Storage hosting persistent network information and coordinating leasing
+* Operations Management Suite (a bundline of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
+
 ### Alternatives
 
 The Ethereum PoA approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start an Ethereum PoA blockchain, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
