@@ -1,91 +1,54 @@
 <!---
-title: <SAP on Azure in a 4-Tier Architecture>
-description: <Article Description>
-author: Andrew-Dibbins, Dharmesh-Bhagat
-ms.date: <publish or update date>
+title: SAP production workloads on Azure virtual machines using an Oracle database
+description: An example scenario showing an SAP production deployment in Azure using an Oracle database. 
+author: AndrewDibbins, DharmeshBhagat
+ms.date: 9/12/2018
 --->
 
-# SAP deployment for Windows/Linux with Oracle database
+# SAP production workloads on Azure virtual machines using an Oracle database
 
-This is sample scenario to show case SAP deployment on Windows or Linux virtual machines on Azure with Oracle database with High Availability (HA). Oracle database is approved and supported DBMS by SAP. Depending upon organization needs customer can use multiple virtual machines (VM) of different sizes. 
+SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient when failures occur. 
 
-<!---
-As this is sample scenario it can used for non-production environments.
---->
+Building a highly available SAP environment requires eliminating single points of failures in your system architecture and processes. Single points of failure can be caused by site failures, errors in system components, or even human error.
 
-## Production use cases
-
-Why High Availability is required?
-
-SAP systems runs mission critical business application and any outage causes disruption in business flow and processes which in turn is loss in business value and its capabilities
-* Successful HA prevents downtime and data loss to eliminate single point of failure.
-* Single point of failure could be due to human error, system error or even site failure.
-
-Refer [High availability](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) for SAP NetWeaver on Azure VMs for more information.
-
-For other SAP on Azure production use cases review the SAP reference architectures available below:
-* [SAP NetWeaver for AnyDB](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver) 
-* [SAP S/4Hana](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana)
-* [SAP on Azure large instances](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/hana-large-instances)
-
+This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with an Oracle database with High Availability (HA). Oracle databases are supported for running SAP workloads. You can can use multiple VMs of different sizes based on your requirements. 
 
 ## Related use cases
-You should consider this scenario for the following use cases:
 
-* Non-critical SAP non-productive workloads for Windows and/or Linux Virtual machines and Oracle as database.
-* Non-critical SAP business workload to test high availability functionality.
+Consider this example for the following scenarios:
 
-
-## Architecture diagram
-
-The solution diagram below is an example of this solution:
-
-![Diagram](media/architecture-diagram-sap-distributed.png)
+* Mission-critical workloads running on SAP
+* Non-critical SAP workloads 
+* Test environments for SAP that simulate a high-availability environment.
 
 ## Architecture
 
-This sample scenario covers high level architecture of a SAP system with highly available configuration for Oracle database, SAP Central services and multiple SAP application Servers each on differnt virtual machines, the data flows through the solution as follows:
+![Architecture overview of a production SAP environment in Azure][architecture]
 
-1. Customers from the Presentation Tier use their SAP gui, or other user interfaces (Internet Explorer, Excel or other web application) on premise to access the Azure based SAP system.
-2. Connectivity is provided through the use of the established Express Route. The Express Route is terminated in Azure at the Express Route Gateway. Network traffic routes through the Express Route gateway to the Gateway Subnet and from the gateway subnet to the Application Tier Spoke subnet and via a Network Security Gateway to the SAP application virtual machine.
-3. The identity management servers provide authentication services to the solution.
-4. The Jump Box provides local management capabilities to the solution.
-5. High availability, Refers to a set of technologies that minimize IT disruptions by providing business continuity of IT services through redundant, fault-tolerant, or failover-protected components inside the same data center.
+This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology][/azure/architecture/reference-architectures/hybrid-networking/hub-spoke] for security purposes. The data flows through the solution as follows:
+
+1. Users access the SAP system via the SAP user interface, a web browser, or other client tools like Microsoft Excel. An ExpressRoute connection provides access from the organization's physical location to resources running in Azure. 
+2. The ExpressRoute terminates in Azure at the ExpressRoute virtual network (VNet) gateway. Network traffic is routed through the ExpressRoute gateway to a gateway subnet created in the hub VNet.
+3. The hub VNet is peered to a spoke VNet. The application tier subnet hosts the virtual machines running SAP in an availability set.
+4. The identity management servers provide authentication services for the solution.
+5. The jump box is used by system administrators to securely manage resources deployed in Azure.
 
 ### Components
 
-* [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical container for Azure resources.
-* [Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) is the basis of network communications within Azure
-* [Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview) Azure Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure using Windows or Linux Server
-* [Express Route](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
-* [Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) lets you limit network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
-* [High availability of SAP applications on Azure IaaS](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios
-) to achieve full SAP system high availability, you must protect all critical SAP system components. 
-* [Design and implement an Oracle database in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design). Oracle Data Guard is the most comprehensive solution available to eliminate single points of failure for mission critical Oracle Databases.
-
-
-## SAP on Azure compatibility for Oracle
-Microsoft Azure offers infrastructure services that can be utilized for deployment of SAP products with the Oracle Database. This [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions describes, which Oracle products Database versions and operating system are supported in a Microsoft Azure environment for SAP
+* [Virtual Networks](/azure/virtual-network/virtual-networks-overview) is the basis of network communications within Azure.
+* [Virtual Machine](/azure/virtual-machines/windows/overview) Azure Virtual Machines provides on-demand, high-scale, secure, virtualized infrastructure running Windows or Linux.
+* [Express Route](/azure/expressroute/expressroute-introduction) lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider.
+* [Network Security Group](/azure/virtual-network/security-overview) limits network traffic to resources in a virtual network. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. 
+* [Resource Groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
 ### Alternatives
 SAP gives flexibility to use DB/OS combinations, and Azure VM types in a Microsoft Azure VM Services (IaaS) environment. This [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533) - SAP Applications on Azure: Supported Products and Azure VM types describes, which SAP products, DB/OS combinations and Azure VM types are currently supported.
 
 ## Considerations
 
-### Availability
+Microsoft Azure offers infrastructure services that can be utilized for deployment of SAP products with the Oracle Database. This [SAP note 2039619](https://launchpad.support.sap.com/#/notes/2039619) - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions describes, which Oracle products Database versions and operating system are supported in a Microsoft Azure environment for SAP
+
 Microsoft offers a service level agreement (SLA) for single VM instannces. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/)
-
-### Scalability
-
-For general guidance on designing scalable solutions, see the [Scalability Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/checklist/scalability) in the Azure Architecture Center.
-
-### Security
-
-For general guidance on designing secure solutions, see the [Azure Security](https://review.docs.microsoft.com/en-us/azure/security/).
-
-### Resiliency
-
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure](https://review.docs.microsoft.com/en-us/azure/architecture/resiliency/)
 
 ## Pricing
 
@@ -112,13 +75,28 @@ Note: pricing is a guide and only indicates the VMs and storage costs (excludes,
 
 ## Deployment Example
 
-You can deploy the underlying infrastructure similar to the scenario above, please use the deploy button
+Click here to deploy the underlying infrastructure for this scenario.
 
 <a
 href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-3tier-distributed-ora%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-Note: SAP and Oracle will not be installed, you'll need to do this after the infrastructure is built manually.
+Note: SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.
+
+## Related resources
 
 
+Refer [High availability](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) for SAP NetWeaver on Azure VMs for more information.
+
+For other SAP on Azure production use cases review the SAP reference architectures available below:
+* [SAP NetWeaver for AnyDB](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver) 
+* [SAP S/4Hana](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana)
+* [SAP on Azure large instances](https://review.docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/hana-large-instances)
+
+* [High availability of SAP applications on Azure IaaS](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
+) to achieve full SAP system high availability, you must protect all critical SAP system components. 
+* [Design and implement an Oracle database in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/oracle-design). Oracle Data Guard is the most comprehensive solution available to eliminate single points of failure for mission critical Oracle Databases.
+
+<!-- links -->
+[architecture]: media/architecture-diagram-sap-distributed.png
