@@ -65,30 +65,6 @@
         href: guide/design-principles/build-for-business.md
     - name: Pillars of software quality
       href: guide/pillars.md
-    - name: Best practices for cloud architectures
-      items:
-      - name: API design
-        href: best-practices/api-design.md
-      - name: API implementation
-        href: best-practices/api-implementation.md
-      - name: Autoscaling
-        href: best-practices/auto-scaling.md
-      - name: Background jobs
-        href: best-practices/background-jobs.md
-      - name: Caching
-        href: best-practices/caching.md
-      - name: Content Delivery Network
-        href: best-practices/cdn.md
-      - name: Data partitioning
-        href: best-practices/data-partitioning.md
-      - name: Monitoring and diagnostics
-        href: best-practices/monitoring.md
-      - name: Naming conventions
-        href: best-practices/naming-conventions.md
-      - name: Transient fault handling
-        href: best-practices/transient-faults.md
-      - name: Retry guidance for specific services
-        href: best-practices/retry-service-specific.md
 
   - name: Data architecture guide
     items:
@@ -253,6 +229,31 @@
       href: patterns/throttling.md
     - name: Valet Key
       href: patterns/valet-key.md
+
+  - name: Best practices for cloud applications
+    items:
+    - name: API design
+      href: best-practices/api-design.md
+    - name: API implementation
+      href: best-practices/api-implementation.md
+    - name: Autoscaling
+      href: best-practices/auto-scaling.md
+    - name: Background jobs
+      href: best-practices/background-jobs.md
+    - name: Caching
+      href: best-practices/caching.md
+    - name: Content Delivery Network
+      href: best-practices/cdn.md
+    - name: Data partitioning
+      href: best-practices/data-partitioning.md
+    - name: Monitoring and diagnostics
+      href: best-practices/monitoring.md
+    - name: Naming conventions
+      href: best-practices/naming-conventions.md
+    - name: Transient fault handling
+      href: best-practices/transient-faults.md
+    - name: Retry guidance for specific services
+      href: best-practices/retry-service-specific.md
 
   - name: Performance antipatterns
     items:
