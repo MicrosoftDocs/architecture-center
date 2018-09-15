@@ -423,6 +423,7 @@
       href: reference-architectures/sharepoint/index.md
 
 - name: Design Guides
+  items:
   - name: Build microservices on Azure
     items:
     - name: Introduction
