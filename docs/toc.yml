@@ -276,6 +276,13 @@
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
 
+  - name: Azure for AWS Professionals
+    items:
+    - name: Overview
+      href: aws-professional/index.md
+    - name: Services comparison
+      href: aws-professional/services.md
+
 - name: Example Scenarios
   items:
   - name: Overview
@@ -539,13 +546,3 @@
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
-
-- name: Azure Virtual Datacenter
-  href: vdc/index.md
-
-- name: Azure for AWS Professionals
-  items:
-  - name: Overview
-    href: aws-professional/index.md
-  - name: Services comparison
-    href: aws-professional/services.md
