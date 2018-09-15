@@ -275,65 +275,6 @@
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
 
-  - name: Build microservices on Azure
-    items:
-    - name: Introduction
-      href: microservices/index.md
-    - name: Domain analysis
-      href: microservices/domain-analysis.md
-    - name: Identifying microservice boundaries
-      href: microservices/microservice-boundaries.md
-    - name: Data considerations
-      href: microservices/data-considerations.md
-    - name: Interservice communication
-      href: microservices/interservice-communication.md
-    - name: API design
-      href: microservices/api-design.md
-    - name: Ingestion and workflow
-      href: microservices/ingestion-workflow.md
-    - name: API gateways
-      href: microservices/gateway.md
-    - name: Logging and monitoring
-      href: microservices/logging-monitoring.md
-    - name: CI/CD
-      href: microservices/ci-cd.md
-
-  - name: Manage multitenant identity
-    items:
-    - name: Introduction
-      href: multitenant-identity/index.md
-    - name: The Tailspin scenario
-      href: multitenant-identity/tailspin.md
-    - name: Authentication
-      href: multitenant-identity/authenticate.md
-    - name: Claims-based identity
-      href: multitenant-identity/claims.md
-    - name: Tenant sign-up
-      href: multitenant-identity/signup.md
-    - name: Application roles
-      href: multitenant-identity/app-roles.md
-    - name: Authorization
-      href: multitenant-identity/authorize.md
-    - name: Secure a web API
-      href: multitenant-identity/web-api.md
-    - name: Cache access tokens
-      href: multitenant-identity/token-cache.md
-    - name: Client assertion
-      href: multitenant-identity/client-assertion.md
-    - name: Protect application secrets
-      href: multitenant-identity/key-vault.md
-    - name: Federate with a customer's AD FS
-      href: multitenant-identity/adfs.md
-    - name: Run the Surveys application
-      href: multitenant-identity/run-the-app.md
-      
-  - name: Migrate from Cloud Services to Service Fabric
-    items:
-    - name: Migrate a Cloud Services application to Service Fabric
-      href: service-fabric/migrate-from-cloud-services.md
-    - name: Refactor a Service Fabric application
-      href: service-fabric/refactor-migrated-app.md
-
 - name: Example Scenarios
   items:
   - name: Overview
@@ -480,6 +421,66 @@
 
     - name: SharePoint Server 2016
       href: reference-architectures/sharepoint/index.md
+
+- name: Design Guides
+  - name: Build microservices on Azure
+    items:
+    - name: Introduction
+      href: microservices/index.md
+    - name: Domain analysis
+      href: microservices/domain-analysis.md
+    - name: Identifying microservice boundaries
+      href: microservices/microservice-boundaries.md
+    - name: Data considerations
+      href: microservices/data-considerations.md
+    - name: Interservice communication
+      href: microservices/interservice-communication.md
+    - name: API design
+      href: microservices/api-design.md
+    - name: Ingestion and workflow
+      href: microservices/ingestion-workflow.md
+    - name: API gateways
+      href: microservices/gateway.md
+    - name: Logging and monitoring
+      href: microservices/logging-monitoring.md
+    - name: CI/CD
+      href: microservices/ci-cd.md
+
+  - name: Manage multitenant identity
+    items:
+    - name: Introduction
+      href: multitenant-identity/index.md
+    - name: The Tailspin scenario
+      href: multitenant-identity/tailspin.md
+    - name: Authentication
+      href: multitenant-identity/authenticate.md
+    - name: Claims-based identity
+      href: multitenant-identity/claims.md
+    - name: Tenant sign-up
+      href: multitenant-identity/signup.md
+    - name: Application roles
+      href: multitenant-identity/app-roles.md
+    - name: Authorization
+      href: multitenant-identity/authorize.md
+    - name: Secure a web API
+      href: multitenant-identity/web-api.md
+    - name: Cache access tokens
+      href: multitenant-identity/token-cache.md
+    - name: Client assertion
+      href: multitenant-identity/client-assertion.md
+    - name: Protect application secrets
+      href: multitenant-identity/key-vault.md
+    - name: Federate with a customer's AD FS
+      href: multitenant-identity/adfs.md
+    - name: Run the Surveys application
+      href: multitenant-identity/run-the-app.md
+      
+  - name: Migrate from Cloud Services to Service Fabric
+    items:
+    - name: Migrate a Cloud Services application to Service Fabric
+      href: service-fabric/migrate-from-cloud-services.md
+    - name: Refactor a Service Fabric application
+      href: service-fabric/refactor-migrated-app.md
 
 - name: Design Review Framework
   items:
