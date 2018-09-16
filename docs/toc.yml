@@ -347,15 +347,6 @@
     - name: Overview
       href: reference-architectures/index.md
 
-    - name: App Service web application
-      items:
-      - name: Basic web application
-        href: reference-architectures/app-service-web-app/basic-web-app.md
-      - name: Improved scalability
-        href: reference-architectures/app-service-web-app/scalable-web-app.md
-      - name: Multi-region deployment
-        href: reference-architectures/app-service-web-app/multi-region.md
-
     - name: Big data
       items:
       - name: Enterprise BI with SQL Data Warehouse
@@ -393,7 +384,7 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
-    - name: N-tier application
+    - name: N-tier applications
       items:
       - name: N-tier application with SQL Server
         href: reference-architectures/n-tier/n-tier-sql-server.md
@@ -424,11 +415,21 @@
       - name: SAP HANA on Azure Large Instances
         href: reference-architectures/sap/hana-large-instances.md
 
-    - name: Jenkins server
-      href: reference-architectures/jenkins/index.md
+    - name: VM workloads
+      items:
+      - name: Jenkins server
+        href: reference-architectures/jenkins/index.md
+      - name: SharePoint Server 2016
+        href: reference-architectures/sharepoint/index.md
 
-    - name: SharePoint Server 2016
-      href: reference-architectures/sharepoint/index.md
+    - name: Web applications
+      items:
+      - name: Basic web application
+        href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Improved scalability
+        href: reference-architectures/app-service-web-app/scalable-web-app.md
+      - name: Multi-region deployment
+        href: reference-architectures/app-service-web-app/multi-region.md
 
 - name: Design Guides
   items:
