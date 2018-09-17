@@ -106,11 +106,9 @@ Figure 6. How the central firewall uses load balancers and traffic routing.
 
 Contoso is expecting a large amount of traffic between their on-premises network and workloads hosted on the virtual datacenter. To handle the load and provide redundancy, the central firewall will consist of multiple NVAs. Two load balancers, using the [High Availability Ports](/azure/load-balancer/load-balancer-ha-ports-overview) feature, will distribute traffic: A front-end load balancer handles traffic going to the workspaces from the network on-premises, and a back-end load balancer handles traffic going from workloads to the network on-premises.
 
-See also
-
-[Secure networks with virtual appliances](/azure/virtual-network/virtual-network-scenario-udr-gw-nva)
-
-[User-defined routes and IP forwarding](/azure/virtual-network/virtual-networks-udr-overview)
+See also:
+- [Secure networks with virtual appliances](/azure/virtual-network/virtual-network-scenario-udr-gw-nva)
+- [User-defined routes and IP forwarding](/azure/virtual-network/virtual-networks-udr-overview)
 
 #### Gateways and perimeter networks
 
@@ -125,11 +123,9 @@ This gateway is configured in a subnet of the central IT infrastructure's hub vi
 
 In any case where the perimeter borders an untrusted source such as a public Internet connection, the Azure Virtual Datacenter model requires a full DMZ. To use this option, Contoso's perimeter network would include UDRs to send traffic to NVAs hosted on a DMZ subnet. This traffic gets processed, and only approved requests make it through either to the outside world or into the secured central IT hub virtual network, where it can be forwarded to the appropriate workspace spoke network.
 
-See also
-
-[Azure Reference Architectures: Connect an On-premises Network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
-
-[Azure Reference Architectures: DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
+See also:
+- [Azure Reference Architectures: Connect an On-premises Network to Azure](/azure/architecture/reference-architectures/hybrid-networking/)
+- [Azure Reference Architectures: DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
 #### Administration and management
 
@@ -140,11 +136,9 @@ Jumpboxes are created inside a management subnet, and NSG rules applied to this 
 ![]()
 Figure 8. Administrators on-premises use hardened jumpboxes (bastion hosts) to remotely configure the central firewall and manage virtual machines and NVAs over the virtual network. NSGs restrict access to specific ports and IP addresses.
 
-See also
-
-[Implementing Secure Administrative Hosts](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)
-
-[Filter network traffic with network security groups](/azure/virtual-network/virtual-networks-nsg)
+See also:
+- [Implementing Secure Administrative Hosts](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)
+- [Filter network traffic with network security groups](/azure/virtual-network/virtual-networks-nsg)
 
 #### Shared services
 
@@ -152,9 +146,8 @@ The shared services subnet provides a central place to deploy core functionality
 
 Contoso will provide DNS services by creating a primary and secondary domain controller running Azure Active Directory Domain Services in the central IT infrastructure environment, configured to handle DNS resolution for the virtual datacenter. These servers are configured to forward DNS requests from the virtual datacenter to the on-premises environment, and the on-premises DNS servers are likewise configured to forward DNS requests for names of workspace resources to the shared services DNS servers.
 
-See also
-
-[Name Resolution for VMs and Role Instances](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
+See also:
+- [Name Resolution for VMs and Role Instances](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)
 
 ## Centralize access control and connect workspaces
 
@@ -213,12 +206,9 @@ Contoso wants to provide a common identity for managing resources on their virtu
 
 Individual workloads and applications hosted in virtual datacenter workspaces may or may not make use of the shared identity services, but all management of Azure resources will use Azure AD for access control.
 
-See also
-
-[Microsoft hybrid identity solutions](/azure/active-directory/choose-hybrid-identity-solution)
-
-[Azure AD Connect and federation](/azure/active-directory/connect/active-directory-aadconnectfed-whatis)
-
+See also:
+- [Microsoft hybrid identity solutions](/azure/active-directory/choose-hybrid-identity-solution)
+- [Azure AD Connect and federation](/azure/active-directory/connect/active-directory-aadconnectfed-whatis)
 
 ## Deploy workloads within workspaces
 
@@ -249,13 +239,10 @@ The second pattern, [virtual network service endpoints](https://azure.microsoft.
 
 Azure Storage and SQL Database follow this pattern. Additional Azure services are planning to support this feature in the future.
 
-See also
-
-[Virtual network integration for Azure services](/azure/virtual-network/virtual-network-for-azure-services)
-
-[Announcing Virtual Network integration for Azure Storage and Azure SQL](https://azure.microsoft.com/en-us/blog/announcing-virtual-network-integration-for-azure-storage-and-azure-sql/)
-
-[Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
+See also:
+- [Virtual network integration for Azure services](/azure/virtual-network/virtual-network-for-azure-services)
+- [Announcing Virtual Network integration for Azure Storage and Azure SQL](https://azure.microsoft.com/en-us/blog/announcing-virtual-network-integration-for-azure-storage-and-azure-sql/)
+- [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 ### Auditing and logging
 
@@ -271,9 +258,8 @@ Figure 10. Virtual datacenter activities are continuously logged and monitored. 
 
 Contoso wants to extend the standard monitoring framework already used for their on-premises systems and integrate the logs generated by virtual datacenter resources. If they want to keep logging activities in the cloud, they can use OMS. Its log analyzer helps to collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components.
 
-See also
-
-[Azure Logging and Auditing](/azure/security/azure-log-audit)
+See also:
+- [Azure Logging and Auditing](/azure/security/azure-log-audit)
 
 ### Use Azure security and monitoring tools
 
@@ -281,10 +267,7 @@ Continuous monitoring, auditing, and reporting are critical to proper governance
 
 | Tool | Description |
 | --- | --- |
-| [OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) |
-- Gives teams visibility and control across hybrid cloud implementations with simplified operations management and security.
-- Offers real-time operational insights through integrated search and custom dashboards that analyze all the records across all workloads in a virtual datacenter.
- |
+| [OMS](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) | <ul><li>Gives teams visibility and control across hybrid cloud implementations with simplified operations management and security.</li><li>Offers real-time operational insights through integrated search and custom dashboards that analyze all the records across all workloads in a virtual datacenter.</li></ul> |
 | [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) |
 - Monitors across Azure resources.
 - Supports performance metrics and diagnostic logging.
@@ -309,13 +292,10 @@ Continuous monitoring, auditing, and reporting are critical to proper governance
 - Shows configurations and views of all network logs and alerts.
  |
 
-See also
-
-[Azure Operational Security best practices](/azure/security/azure-operational-security-best-practices)
-
-[Best practices for creating management solutions in Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-solutions-best-practices)
-
-[Azure Architecture Center - Best Practices: Monitoring and diagnostics](/azure/architecture/best-practices/monitoring)
+See also:
+- [Azure Operational Security best practices](/azure/security/azure-operational-security-best-practices)
+- [Best practices for creating management solutions in Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-solutions-best-practices)
+- [Azure Architecture Center - Best Practices: Monitoring and diagnostics](/azure/architecture/best-practices/monitoring)
 
 ## Final Contoso architecture
 
