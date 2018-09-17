@@ -506,7 +506,17 @@
       href: cloud-adoption/appendix/azure-scaffold-examples.md
 
 - name: Azure Virtual Datacenter
-  href: vdc/index.md
+  items:
+  - name: Overview
+    href: vdc/index.md
+  - name: Datacenter transformation
+    href: vdc/cloud-datacenter-transformation.md
+  - name: Understand the framework
+    href: vdc/framework-overview.md
+  - name: Compose a trustworthy datacenter
+    href: vdc/compose-trustworthy-datacenter.md
+  - name: Networking perspective
+    href: vdc/networking-virtual-datacenter.md
 
 - name: Azure for AWS Professionals
   items:

@@ -46,6 +46,9 @@
       - name: Appendix
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
+    - name: Virtual Datacenter
+      tocHref: /azure/architecture/vdc/
+      topicHref: /azure/architecture/vdc
     - name: Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
