@@ -20,7 +20,7 @@ A virtual datacenter is an isolated environment (like a building with walls) for
 
 A key tenet of the Azure Virtual Datacenter framework is to place as little trust as possible in the surrounding hosting environment. Therefore, the virtual datacenter must impose isolation, security, and compliance measures within its environment just as a physical datacenter would. The main difference is how these measures are implemented. Azure Virtual Datacenter relies on the following essential components:
  
-![Compliance with security and policy is the foundation of the Azure Virtual Datacenter approach to trust, where automated auditing capabilities uncover potential issues.](/images/vdc-components.svg)
+![Compliance with security and policy is the foundation of the Azure Virtual Datacenter approach to trust, where automated auditing capabilities uncover potential issues.](images/vdc-components.svg)
 
 * **Software-defined networking** provides virtual abstractions for your physical network elements, such as network topologies, firewalls, intrusion detection mechanisms, load balancers, and routing policy. You can create, configure, and manage [network topologies, support isolation, and provision perimeter networks](networking-virtual-datacenter.md).
 
@@ -172,4 +172,4 @@ The Azure platform has the largest compliance portfolio in the industry and cont
 The Microsoft [Compliance Manager](https://servicetrust.microsoft.com/) tool provides transparency into the controls managed by the platform and the controls you are responsible for managing. The tool also helps you understand compliance for those controls. Whether that involves a configuration on the platform such as encryption or multi-factor authentication or a knowledgebase article on a process like role assignments, the goal is the same. 
 
 > [!div class="nextstepaction"]
-> [Compose trustworhty datacenter](trustworthy-datacenter.md)
+> [Compose trustworhty datacenter](compose-trustworthy-datacenter.md)

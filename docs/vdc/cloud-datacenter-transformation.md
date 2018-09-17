@@ -12,7 +12,7 @@ Cloud datacenter transformation is an ongoing process to modernize your IT infra
 
 As part of any cloud datacenter transformation, enterprise IT and governance teams have two high-level goals: the ability to create isolation boundaries around applications, and the ability to enforce those boundaries with policy. Developers and their line-of-business (LOB) sponsors have goals, too: to make the most of the agility cloud platforms offer to drive competitive advantages.  Striking a balance between these two factors is the objective of the Azure Virtual Datacenter model.
 
- ![Enterprise IT and governance should be balanced against developer agility in a successful cloud datacenter transformation.](/images/concepts1-agility-vs-governance.png)
+ ![Enterprise IT and governance should be balanced against developer agility in a successful cloud datacenter transformation.](images/concepts1-agility-vs-governance.png)
 
 Enterprise IT wants their cloud-based applications to be governed by many of the same policies as their on-premises implementations. Even born-in-the-cloud applications, especially multitenant PaaS offerings and SaaS application such as Office 365, need to have well defined isolation boundaries and role-based policy enforcement. The Azure Virtual Datacenter model begins to give enterprise IT the controls they need to enforce governance.
 
@@ -23,7 +23,7 @@ In the datacenter and application transformation journey, three distinct workloa
 * IaaS with data using cloud-based storage, but with minimal use of other PaaS (besides storage).
 * Cloud applications composed entirely of multiple platform services.
   
-![Virtual datacenter patterns showing the range of platform services used. On one end, IaaS virtual machines use only on-premises data; on the other, the full use of cloud-based PaaS services.](/images/concepts1-range-of-services.png)
+![Virtual datacenter patterns showing the range of platform services used. On one end, IaaS virtual machines use only on-premises data; on the other, the full use of cloud-based PaaS services.](images/concepts1-range-of-services.png)
 
 The first pattern is usually called a partial lift and shift, or strictly IaaS, where no multitenant platform services are consumed. In this pattern, the virtual machines processing data are hosted in the cloud, but all data is stored on-premises and accessed over ExpressRoute. Even Active Directory services are located on-premises. This pattern includes scenarios where the data can flow to the cloud in an anonymized or tokenized fashion. Such scenarios remove much of the data sensitivity but severely limit what types of processing that can be done with that data. 
 
