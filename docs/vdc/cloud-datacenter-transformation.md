@@ -1,10 +1,10 @@
 ---
-title: "Azure Virtual Datacenter Concepts: The cloud datacenter transformation" 
+title: "Azure Virtual Datacenter: The cloud datacenter transformation" 
 description: An introduction to the patterns of the Azure Virtual Datacenter framework.
 author: telmosampaio
 ---
 
-# Azure Virtual Datacenter Concepts: The cloud datacenter transformation
+# Azure Virtual Datacenter: The cloud datacenter transformation
 
 Cloud datacenter transformation is an ongoing process to modernize your IT infrastructure and take advantage of the cloud. As part of this process, your organization needs to plan how to make use of the Azure cloud, and how to best structure workloads to most efficiently use your existing on-premises assets in combination with cloud resources. The Azure Virtual Datacenter model offers a starting point on this journey.
 
@@ -40,4 +40,4 @@ Future editions of this model will show how additional elements can be used to a
 Future models will also support secure Internet access directly from the virtual datacenter.
 
 > [!div class="nextstepaction"]
-> [Understand the Azure Virtual Datacenter framework](framework-overview.md)
+> [Understand the framework](framework-overview.md)

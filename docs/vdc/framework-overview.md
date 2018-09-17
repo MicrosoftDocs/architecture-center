@@ -4,7 +4,7 @@ description: An overview of the Azure Virtual Datacenter framework.
 author: telmosampaio
 ---
 
-# What is Azure Virtual Datacenter?
+# Azure Virtual Datacenter: What is Azure Virtual Datacenter?
 
 Azure Virtual Datacenter is a framework used to accelerate the adoption of Azure by enterprises that want to move their application estate to a cloud-based architecture while preserving key aspects of their current IT governance and taking advantage of cloud computing’s agility. 
 
@@ -172,4 +172,4 @@ The Azure platform has the largest compliance portfolio in the industry and cont
 The Microsoft [Compliance Manager](https://servicetrust.microsoft.com/) tool provides transparency into the controls managed by the platform and the controls you are responsible for managing. The tool also helps you understand compliance for those controls. Whether that involves a configuration on the platform such as encryption or multi-factor authentication or a knowledgebase article on a process like role assignments, the goal is the same. 
 
 > [!div class="nextstepaction"]
-> [Compose trustworhty datacenter](compose-trustworthy-datacenter.md)
+> [Compose a trustworhty datacenter](compose-trustworthy-datacenter.md)
