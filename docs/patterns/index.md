@@ -2,6 +2,7 @@
 title: Cloud Design Patterns
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
+ms.date: 06/23/2017
 ---
 # Cloud Design Patterns
 

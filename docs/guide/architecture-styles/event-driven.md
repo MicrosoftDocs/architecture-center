@@ -2,6 +2,7 @@
 title: Event-driven architecture style
 description: Describes benefits, challenges, and best practices for event-driven and IoT architectures on Azure
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Event-driven architecture style

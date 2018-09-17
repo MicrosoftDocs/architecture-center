@@ -122,6 +122,85 @@
     {
         "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    }      
+    },
+    {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-azure",
+        "redirect_document_id": true
+     },      
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-governance",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-how-to.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-single-team",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-multiple-teams",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/index.md",
+        "redirect_url": "/azure/architecture/cloud-adoption",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold-examples",
+        "redirect_document_id": true
+     }, 
+     {
+        "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
+        "redirect_document_id": true
+     },
+     {
+        "source_path": "docs/guide/technology-choices.md",
+        "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
+     }
     ] 
   } 

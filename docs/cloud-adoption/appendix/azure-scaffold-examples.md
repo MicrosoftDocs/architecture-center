@@ -1,24 +1,13 @@
 ---
-title: Scenarios and examples for subscription governance | Microsoft Docs
+title: Scenarios and examples for subscription governance
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
-services: azure-resource-manager
-documentationcenter: na
 author: rdendtler
-manager: timlt
-editor: tysonn
 
-ms.assetid: e8fbeeb8-d7a1-48af-804f-6fe1a6024bcb
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-
 ---
 # Examples of implementing Azure enterprise scaffold
-This article provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](subscription-governance.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
+This article provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](azure-scaffold.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
 
 ## Background
 Contoso is a worldwide company that provides supply chain solutions for customers. They provide everything from a Software as a Service model to a packaged model deployed on-premises.  They develop software across the globe with significant development centers in India, the United States, and Canada.
@@ -32,7 +21,7 @@ The following personas are used in this article:
 * Dave is the ETS Azure administrator.
 * Alice is Contoso's Director of Development in the supply chain business unit.
 
-Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](subscription-governance.md) article, and  is now ready to implement the recommendations.
+Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](azure-scaffold.md) article, and  is now ready to implement the recommendations.
 
 ## Scenario 1: line-of-business application
 Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.  

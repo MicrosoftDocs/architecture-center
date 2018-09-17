@@ -2,6 +2,7 @@
 title: Use the best data store for the job
 description: Pick the storage technology that is the best fit for your data and how it will be used
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Use the best data store for the job

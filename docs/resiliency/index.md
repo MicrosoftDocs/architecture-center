@@ -254,7 +254,7 @@ Measure the recovery times and verify that your business requirements are met. T
 
 This is another reason why it's important to analyze possible failure points during the design phase. The results of that analysis should be inputs into your test plan.
 
-**Load testing**. Load test the application using a tool such as [Visual Studio Team Services][vsts] or [Apache JMeter][jmeter]. Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.   
+**Load testing**. Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.   
 
 ## Deploy using reliable processes
 Once an application is deployed to production, updates are a possible source of errors. In the worst case, a bad update can cause downtime. To avoid this, the deployment process must be predictable and repeatable. Deployment includes provisioning Azure resources, deploying application code, and applying configuration settings. An update may involve all three, or a subset. 
@@ -350,4 +350,3 @@ Here are the major points to take away from this article:
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
-[vsts]: https://www.visualstudio.com/features/vso-cloud-load-testing-vs.aspx

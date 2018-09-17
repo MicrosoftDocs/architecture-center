@@ -4,7 +4,7 @@ description: Proven scenario of hosting an e-commerce site on Azure
 author: masonch
 ms.date: 7/13/18
 ---
-# E-Commerce front-end on Azure
+# E-Commerce frontend on Azure
 
 This example scenario walks you through an implementation of an e-commerce front end using Azure Platform-as-a-Service (PaaS) tools. Many e-commerce websites face seasonality and traffic variability over time. When demand for your products or services takes off, whether predictably or unpredictably, using PaaS tools will allow you to handle more customers and more transactions automatically. Additionally, this scenario takes advantage of cloud economics by paying only for the capacity you use.
 
@@ -30,7 +30,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 5. Web site pulls concert details from Azure SQL Database. 
 6. Web site refers to purchased ticket images in Blob Storage.
 7. Database query results are cached in Azure Redis Cache for better performance.
-8. User submits ticket orders and concert reviews which are placed in the queue.
+8. User submits ticket orders and concert reviews, which are placed in the queue.
 9. Azure Functions processes order payment and concert reviews.
 10. Cognitive services provide an analysis of the concert review to determine the sentiment (positive or negative).
 11. Application Insights provides performance metrics for monitoring the health of the web application.
@@ -43,7 +43,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 * [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
 * [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
 * [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure.
-* [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech and vision recognition; and speech and language understanding – into applications.
+* [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into applications.
 * [Azure Search][docs-search] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
 * [Storage Blobs][docs-storage-blobs] are optimized to store large amounts of unstructured data, such as text or binary data.
 * [Redis Cache][docs-redis-cache] improves the performance and scalability of systems that rely heavily on backend data-stores by temporarily copying frequently accessed data to fast storage located close to the application.
@@ -57,13 +57,13 @@ Many other technologies are available for building a customer facing application
 Other options for the web tier and functions include:
 
 * [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
-* [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container based solutions which can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
-* [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are usually deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
+* [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
+* [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
 * [Service Bus][service-bus] could be used in place of Storage Queue's.
 
 Other options for the data tier include:
 
-* [Cosmos DB][docs-cosmosdb] - Microsoft's globally distributed, multi-model database. This provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+* [Cosmos DB][docs-cosmosdb] - Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
@@ -71,13 +71,13 @@ Other options for the data tier include:
 
 * Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
 * Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For additional considerations concerning availability, please see the [availability checklist][availability] in the architecture center.
+* For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
 * When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 * Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-* For other scalability topics please see the [scalability checklist][scalability] available in the architecture center.
+* For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
@@ -90,13 +90,13 @@ Other options for the data tier include:
 
 * Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
 * Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
-* You can find a number of [resiliency recommended practices for App Service][resiliency-app-service] on the architecture center.
+* You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 * Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
-* For a deeper discussion on [resiliency][resiliency] please see the relevant article in the architecture center.
+* For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
 ## Deploy the scenario
 
-To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is an ARM template to automate the deployment of most of the Azure resources.
+To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
 
 ## Pricing
 
@@ -104,9 +104,9 @@ Explore the cost of running this scenario, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-* [Small][small-pricing]: This represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small amount of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app which will be enough to enable autoscaling. Each of the other components are scaled to a basic tier which will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
-* [Medium][medium-pricing]: This represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
-* [Large][large-pricing]: This represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
+* [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components are scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+* [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
+* [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 
 ## Related Resources
 

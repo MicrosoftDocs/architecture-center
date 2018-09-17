@@ -2,6 +2,7 @@
 title: Make all things redundant
 description: Avoid single points of failure by building redundancy into your application.
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Make all things redundant

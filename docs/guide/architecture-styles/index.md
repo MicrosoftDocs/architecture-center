@@ -2,6 +2,7 @@
 title: Architecture styles
 description: Common architecture styles for cloud applications
 layout: LandingPage
+ms.date: 08/30/2018
 ---
 
 # Architecture styles

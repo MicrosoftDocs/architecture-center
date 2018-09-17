@@ -2,6 +2,7 @@
 title: Big compute architecture style
 description: Describes benefits, challenges, and best practices for Big Compute architectures on Azure
 author: MikeWasson
+ms.date: 08/30/2018
 ---
 
 # Big compute architecture style

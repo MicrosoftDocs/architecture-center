@@ -136,6 +136,8 @@ Consider adding a network virtual appliance (NVA) to create a DMZ between the In
 
 Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
+We recommend enabling [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which provides additional DDoS mitigation for resources in a VNet. Although basic DDoS protection is automatically enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure Virtual Network resources.  
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. 
