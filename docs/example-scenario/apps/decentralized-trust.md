@@ -64,6 +64,18 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
+## Next Steps
+
+To get started right away, first deploy an [Ethereum PoA blockchain on Azure][deploy], then go through the [README of the scenario source code][source].
+
+## Related Resources
+
+For more information on using the Ethereum Proof-of-Authority solution template for Azure, have a look at this [usage guide][guide].
+
+<!-- links -->
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
+[guide]: https://docs.microsoft.com/en-us/azure/blockchain-workbench/ethereum-poa-deployment
+[deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
+[source]: https://github.com/vitoc/creditscoreblockchain
