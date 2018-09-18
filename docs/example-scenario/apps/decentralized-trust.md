@@ -52,13 +52,21 @@ For other extended or different scenarios, concerns such as transaction privacy 
 * Quorum
 * Hyperledger
 
+## Considerations
+
+### Availability
+
+[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics. 
+
+For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
+
 ## Deploy this scenario
 
 Here's the sequence that you can follow to get an immersive experience of this scenario:
 
 ### Deploying the blockchain
 
-To deploy the Ethereum PoA blockchain, click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+To deploy the Ethereum PoA blockchain, click the **Deploy to Azure** button:<br/><br/><a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 ### Walkthrough all of the functionalities of the application
 
@@ -95,3 +103,4 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [guide]: https://docs.microsoft.com/en-us/azure/blockchain-workbench/ethereum-poa-deployment
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
+[monitor]: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
