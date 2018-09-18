@@ -66,6 +66,12 @@ A popular concern for blockchain is the number of transactions that a blockchain
 
 For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
+### Security
+
+[Azure Key Vault][vault] is used to easily store and manage the private keys of validators in the solution used for this scenario. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet gateway connections. The steps for this are included in the related resources section below.
+
+For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+
 ## Deploy this scenario
 
 Here's the sequence that you can follow to get an immersive experience of this scenario:
@@ -114,3 +120,4 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 [scalability]: /azure/architecture/checklist/scalability
 [resiliency]: ../../resiliency/index.md
 [security]: /azure/security/
+[vault]: https://azure.microsoft.com/en-us/services/key-vault/
