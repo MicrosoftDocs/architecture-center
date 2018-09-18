@@ -28,11 +28,9 @@ Other scenarios using this architecture might include:
 
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
-* Users can access NV-series virtual machines with powerful GPUs for rendering and collaborative tasks via a browser with a custom Remote Desktop browser control. Users can edit their designs and view their results. The HPC scheduler spins up additional nodes based on the number of waiting users.
-* Users access a web application hosted in CentOS virtual machines to submit workloads to a queue for execution on available HPC cluster nodes.
-* Complex workloads are executed using nodes in an HPC compute cluster. The HPC scheduler invokes Resource Manager templates to spin up additional nodes based on the depth of the queue.
-* Simpler workloads are executed using an Azure Kubernetes Service cluster.
-
+* Users can access NV-series virtual machines (VMs) via a browser with a HTML5-based RDP connection using the Apache Guacamole service (http://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The Altair PBSWorks or open-source PBS Professional scheduler spins up additional nodes based on user-defined heuristics and could alternatively leverage a solution based on Azure functions.
+* From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to auto-scale based on load or queue depth based on active user demand for compute resources.
+* Azure Kubernetes Service (AKS) is used to host the web resources available to end users. 
 
 ### Components
 
@@ -47,12 +45,12 @@ Other scenarios using this architecture might include:
 
 * [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
 * [HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
-* [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines in a cluster. When a new set of virtual machines is needed, they are provisioned using the latest definition specified in a PowerShell DSC configuration script.
+* [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with auto-scaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
 
 ## Considerations
 
-* While using an infrastructure-as-code approach is a great way to manage virtual machine build definitions, it can take a long time to provision a new virtual machine using a script. This solution found a good middle ground by using the DSC script to periodically create a golden image, which can then be used to provision a new virtual machine much more quickly.
-* Balancing overall solution costs with fast availability of compute resources is a key consideration. Provisioning a pool of virtual machine instances and putting them in a deallocated state lowers the operating costs. When an additional virtual machine is needed, reallocating an existing instance is much faster than provisioning a new instance.
+* While using an infrastructure-as-code approach is a great way to manage virtual machine build definitions, it can take a long time to provision a new virtual machine using a script. This solution found a good middle ground by using the DSC script to periodically create a golden image, which can then be used to provision a new virtual machine faster than completely building a VM on demand using DSC. Azure DevOps Services or other CI/CD tooling can periodically refresh golden images using DSC scripts.
+* Balancing overall solution costs with fast availability of compute resources is a key consideration. Provisioning a pool of N-series virtual machine instances and putting them in a deallocated state lowers the operating costs. When an additional virtual machine is needed, reallocating an existing instance will involve powering up the virtual machine on a different host, but the PCI bus detection time required by the OS to identify and install drivers for the GPU is eliminated because a virtual machine that is de-provisioned and then re-provisioned will retain the same PCI bus for the GPU upon restart.
 * The original architecture relied entirely on Azure virtual machines for running simulations. In order to reduce costs for workloads that didn't require all the capabilities of a virtual machine, these workloads were containerized and deployed to Azure Kubernetes Service (AKS).
 * The company's workforce had existing skills in open source technologies. They can take advantage of these skills by building on technologies like Linux and Kubernetes. 
 
