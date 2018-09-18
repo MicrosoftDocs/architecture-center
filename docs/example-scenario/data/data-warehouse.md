@@ -1,11 +1,11 @@
 ---
-title: Building an enterprise data warehouse from multiple data sources
+title: Data warehousing and analytics for sales and marketing
 description: Use a data warehouse in Azure to consolidate data from multiple sources and optimize data analytics.
 author: alexbuckgit
-ms.date: 08/16/2018
+ms.date: 09/15/2018
 ---
 
-# Building an enterprise data warehouse from multiple data sources
+# Data warehousing and analytics for sales and marketing
 
 This example scenario builds a data pipeline to integrate large amounts of data from multiple sources into a unified analytics platform in Azure. This specific scenario is based on a sales and marketing solution, but the design patterns are relevant for many industries requiring advanced analytics of large datasets such as e-commerce, retail, and healthcare.
 
@@ -88,7 +88,7 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 ## Next Steps
 
 * Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf), which includes instructions for deploying an instance of this architecture in Azure.
-* Read the [Maritz Motivation Solutions customer story][source-document]. This example scenario is based on a version of their architecture.
+* Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
 * Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 * Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](/azure/architecture/).
 
