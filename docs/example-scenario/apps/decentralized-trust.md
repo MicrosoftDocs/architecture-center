@@ -10,9 +10,9 @@ This example scenario is useful for banks or any other institutions that want to
 
 Traditionally, banks within a financial system rely on centralized sources such as credit bureaus for information on an individuals's credit score and history. A centralized approach presents a concentration of operational risk and sometimes an unnecessary third party.
 
-With DLTs (distributed ledger technology), a consortium of banks can establish a decentralized system that can be more efficient, less susceptible to attack and serve as a new platform where innovative structures can be implemented to solve traditional challenges with privacy, speed and cost.
+With DLTs (distributed ledger technology), a consortium of banks can establish a decentralized system that can be more efficient, less susceptible to attack, and serve as a new platform where innovative structures can be implemented to solve traditional challenges with privacy, speed, and cost.
 
-This example will show you how Azure services such as VMSS, Virtual Network, Key Vault, Storage, Load Balancer and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
+This example will show you how Azure services such as virtual machine scale set, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
 ## Potential use cases
 
@@ -26,27 +26,27 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-This scenario covers the back-end components that are necessary to create a scalable, secure and monitored private, enterprise blockchain network within a consortium of 2 or more members. Details of how these components are provisioned (i.e. within different subscriptions and resource groups) as well as the connectivity requirements (i.e. VPN or ExpressRoute) are left for your consideration based on your organization's policy requirements. Here's how data flows:
+This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups) as well as the connectivity requirements (that is, VPN or ExpressRoute) are left for your consideration based on your organization's policy requirements. Here's how data flows:
 
 1. Bank A creates/updates an individual's credit record by sending a transaction to the blockchain network via JSON-RPC.
-2. Data flows from Bank A's private application server to the Azure load balancer and subsequently to a validating node VM on the VMSS.
-3. The Etereum PoA network creates a block at a preset time (2 seconds for this scenario).
+2. Data flows from Bank A's private application server to the Azure load balancer and subsequently to a validating node VM on the virtual machine scale set.
+3. The Ethereum PoA network creates a block at a preset time (2 seconds for this scenario).
 4. The transaction is bundled into the created block and validated across the blockchain network.
-5. Bank B can read the credit record created by bank A by communicating with it's own node similarly via JSON-RPC.
+5. Bank B can read the credit record created by bank A by communicating with its own node similarly via JSON-RPC.
 
 ### Components
 
 * Virtual Machines within Virtual Machine Scale Sets provides the on-demand compute facility to host the validator processes for the blockchain
 * Key Vault is used as the secure storage facility for the private keys of each validator
-* Load Balancer spreads the RPC, peering and Governance DApp requests
+* Load Balancer spreads the RPC, peering, and Governance DApp requests
 * Storage hosting persistent network information and coordinating leasing
-* Operations Management Suite (a bundline of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
+* Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
 
 ### Alternatives
 
-The Ethereum PoA approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start an Ethereum PoA blockchain, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
+The Ethereum PoA approach is chosen for this example because it is a good entry point for a consortium of organizations that want to create an environment where information can be exchanged and shared with one another easily in a trusted, decentralized, and easy to understand way. The available Azure solution templates also provide a fast and convenient way not just for a consortium leader to start an Ethereum PoA blockchain, but also for member organizations in the consortium to spin up their own Azure resources within their own resource group and subscription to join an existing network.
 
-For other extended or different scenarios, concerns such as transaction privacy may arise. For example, in a securities transfer scenario, members in a consortium may not want their transactions to be visible even to other members. Other alternatives to Ethereum PoA exists that addresses these concerns in their own way:
+For other extended or different scenarios, concerns such as transaction privacy may arise. For example, in a securities transfer scenario, members in a consortium may not want their transactions to be visible even to other members. Other alternatives to Ethereum PoA exist that addresses these concerns in their own way:
 
 * Corda
 * Quorum
@@ -62,13 +62,13 @@ For other availability topics, see the [availability checklist][availability] in
 
 ### Scalability
 
-A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority based networks, concensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
+A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority based networks, consensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
 
 For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
-[Azure Key Vault][vault] is used to easily store and manage the private keys of validators in the solution used for this scenario. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for this are included in the related resources section below.
+[Azure Key Vault][vault] is used to easily store and manage the private keys of validators. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for configuring a VPN are included in the related resources section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
 
