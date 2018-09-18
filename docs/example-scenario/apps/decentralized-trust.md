@@ -60,6 +60,12 @@ For other extended or different scenarios, concerns such as transaction privacy 
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 
+### Scalability
+
+A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority based networks, concensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
+
+For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
+
 ## Deploy this scenario
 
 Here's the sequence that you can follow to get an immersive experience of this scenario:
