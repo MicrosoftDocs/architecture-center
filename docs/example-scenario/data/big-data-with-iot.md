@@ -79,7 +79,7 @@ The following considerations will drive a substantial portion of the costs for t
 
 ## Related Resources
 
-This example scenario is based on a version of this architecture used by [Komatsu][customer-site] For more information, see their [customer story][customer-story]. 
+To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
 
 Guidance for big data architectures is available in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
 
