@@ -45,7 +45,7 @@ The data flows through the solution as follows:
 
 ### Components
 
-* [IoT Hub](/azure/iot-hub) acts as a central message hub for secure bi-directional communication between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline.
+* [IoT Hub](/azure/iot-hub) acts as a central message hub for secure bi-directional communication with per-device identity between the cloud platform and the construction equipment and other site elements. IoT Hub can rapidly collect data for each device for ingestion into the data analytics pipeline. 
 * [Azure Stream Analytics](/azure/stream-analytics) is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. In this scenario, Stream Analytics ingests and analyzes data from IoT devices and stores the results in Azure SQL Database. 
 * [Azure SQL Database](/azure/sql-database) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
 * [Azure Blob storage](/azure/storage/blobs) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
@@ -62,7 +62,7 @@ The data flows through the solution as follows:
 * [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 * [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
 * Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
-   
+
 ## Considerations
 
 The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high speed communication between regions is also an important factor in this scenario.
