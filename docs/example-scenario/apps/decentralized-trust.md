@@ -86,7 +86,7 @@ Here's the sequence that you can follow to get an immersive experience of this s
 
 To deploy the Ethereum PoA blockchain, click the **Deploy to Azure** button:<br/><br/><a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-### Walkthrough all of the functionalities of the application
+### Go through the functionalities of the application
 
 **The entire source code of the application** is [available here][source], including the Solidity contract used and the client used to update and retrieve credit scores. The [README][source] is structured in a way that you can follow along from contract compilation, wallet creation up to actual usage of creating and updating credit scores with different banks involved.
 
