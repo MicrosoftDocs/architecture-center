@@ -33,15 +33,17 @@ This sample solution will allow the corporate network access to Linux Virtual De
 - Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
 - Azure Hybrid File Sync will enable shared storage across the solution. For example, it can be used in remote /home solutions.
 
-For this sample solution, the following SKUs are recommend:
+For this sample solution, the following SKUs are used:
 
-- Citrix ADC (Netscaler): TBD
-- Citrix License Server: TBD
-- Citrix VDA: TBD
-- Citrix Storefront: TBD
-- Citrix Delivery Controller: TBD
-- Domain Controllers: TBD
-- Azure File Servers: TBD
+- Citrix ADC (Netscaler): 2 x D4sv3 with [NetScaler 12.0 VPX Standard Edition 200 MBPS PAYG image](https://azuremarketplace.microsoft.com/pt-br/marketplace/apps/citrix.netscalervpx-120?tab=PlansAndPrice)
+- Citrix License Server: 1 x D2s v3
+- Citrix VDA: 4 x D8s v3
+- Citrix Storefront: 2 x D2s v3
+- Citrix Delivery Controller: 2 x D2s v3
+- Domain Controllers: 2 x D2sv3
+- Azure File Servers: 2 x D2sv3
+
+> Note: All the licenses (besides Netscaler are BYOL)
 
 
 ### Components
@@ -76,14 +78,14 @@ For this sample solution, the following SKUs are recommend:
 ### Availability, Scalability, and Security
 
 #### Availability
-* This sample solution is design for High Availability for all roles besides the licensing server.
+* This sample solution is design for High Availability for all roles besides the licensing server.Because the environment continues to function in a 30-day grace period if the license server is offline, no additional redundancies are required on that server. 
 * This sample solution does not include Disaster Recovery capabilities. [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
 
 #### Management
 * For a production deployment management solutions should be implemented such as [backup](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup), [monitoring](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview) and [update management](https://docs.microsoft.com/en-us/azure/automation/automation-update-management).
 
 #### Sizing
-* This sample solution should work for about 250 concurrent users. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed. 
+* This sample solution should work for about 250 concurrent (about 50-60 per VDA server) users with a mixed usage. But that will greatly depended on the type of applications being used. For production use, rigorous load testing should be performed. 
 
 ## Deploy this scenario
 
@@ -91,36 +93,13 @@ For deployment information see official [Citrix documentation](https://docs.citr
 
 ## Pricing
 
-> How much will this cost to run?  
-> Are there ways I could save cost?  
-> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
-> What are the components that make up the cost?  
-> How does scale effect the cost  
-> 
-> Link to the pricing calculator with all of the components outlined.  If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
-
-We have provided three sample cost profiles based on amount of traffic you expect to get:
-
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+The solution has an aproximate cost of 7k per month. 
+- The Citrix XenDestop licences are not included in the estimate
+- The Citrix Netscaler licence is include in a PAYG model
+- Using reserved instances will greatly reduce the compute cost for the solution
+- The ExpressRoute cost is not included
 
 ## Next Steps
 
-- TBD
-- For deploying Citrix ADC (Netscaler) in Azure. Check the ARM templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).
-
-## Related Resources
-
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?  
-
-<!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
+- Check Citrix documentation for planning and deployment [here](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure.html)
+- For deploying Citrix ADC (Netscaler) in Azure. Check the ARM templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates). 
