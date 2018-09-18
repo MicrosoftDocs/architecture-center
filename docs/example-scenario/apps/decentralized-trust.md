@@ -51,3 +51,19 @@ For other extended or different scenarios, concerns such as transaction privacy 
 * Corda
 * Quorum
 * Hyperledger
+
+## Pricing
+
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected performance and availability requirements.
+
+We have provided three sample cost profiles based on the number of scale set VM instances that run your applications (the instances can reside in different regions).
+
+* [Small][small-pricing]: this pricing example correlates to 2 VMs per month with monitoring turned off
+* [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
+* [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
+
+The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
+
+[small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
+[medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
+[large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
