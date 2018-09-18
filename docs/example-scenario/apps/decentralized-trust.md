@@ -68,9 +68,15 @@ For general guidance on designing scalable scenario, see the [scalability checkl
 
 ### Security
 
-[Azure Key Vault][vault] is used to easily store and manage the private keys of validators in the solution used for this scenario. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet gateway connections. The steps for this are included in the related resources section below.
+[Azure Key Vault][vault] is used to easily store and manage the private keys of validators in the solution used for this scenario. The default deployment in this example creates a blockchain network that is accessible via the internet. For production scenario where a private network is desired, members can be connected to each other via VNet-to-VNet VPN gateway connections. The steps for this are included in the related resources section below.
 
 For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+
+### Resiliency
+
+The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A Proof-of-Authority based blockchain allows network resilience to be even more planned and deliberate.
+
+For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Deploy this scenario
 
