@@ -30,7 +30,7 @@ Consider this scenario for the following use cases along with the above goals, w
 
 ![Screenshot](media/architecture-diagram-realtime-analytics-vehicle-data1.png)
 
-Big Data pipelines in Azure implements Lambda architecture. The solution falls into the speed layer (the layer that processes data in motion) of Lambda architecture. The data flows through the solution as follows:
+In a typical big data processing pipeline implementation, the data flows from left to right. In this real time big data processing pipeline, the data flows through the solution as follows:
 
 1. Events (or messages), generated from the IoT data sources, are ingested (sent from event producers) real time into the stream ingestion layer through Azure HDInsight Kafka, as a stream of messages.  HDInsight Kafka stores streams of data in topics, for a configurable of time.
 2. Kafka Consumers, Azure Databricks, picks up the message in real time from the Kafka topic, in the analytics and transformation layer, to process the data based on the business logic and can then send to Serving layer for storage.
@@ -90,6 +90,5 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/en-us/pricing/deta
 * Review the [Real-time analytics](https://azure.microsoft.com/en-us/solutions/architecture/real-time-analytics/) reference architecture that includes big data pipeline flow.
 * Review the [Advanced analytics on big data](https://azure.microsoft.com/en-gb/solutions/architecture/advanced-analytics-on-big-data/) reference architecture to get a peek on how different azure components can help build a big data pipeline.
 * Read the [Real time processing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/real-time-processing)azure documentation to get a quick view of how different Azure components help in processing streams of data in real time 
-* Read the article [Azure Cosmos DB: Implement a lambda architecture on the Azure platform](https://docs.microsoft.com/en-us/azure/cosmos-db/lambda-architecture) to get to know lambda architecture.
 * Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](https://review.docs.microsoft.com/en-us/azure/architecture/data-guide/).
 * Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](https://review.docs.microsoft.com/en-us/azure/architecture/).
