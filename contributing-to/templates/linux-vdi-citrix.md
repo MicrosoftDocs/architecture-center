@@ -43,7 +43,7 @@ For this sample solution, the following SKUs are used:
 - Domain Controllers: 2 x D2sv3
 - Azure File Servers: 2 x D2sv3
 
-> Note: All the licenses (besides Netscaler are BYOL)
+> Note: All the licenses (besides Netscaler) are BYOL
 
 
 ### Components
