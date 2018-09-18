@@ -52,6 +52,22 @@ For other extended or different scenarios, concerns such as transaction privacy 
 * Quorum
 * Hyperledger
 
+## Deploy this scenario
+
+Here's the sequence that you can follow to get an immersive experience of this scenario:
+
+### Deploying the blockchain
+
+To deploy the Ethereum PoA blockchain, click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+
+### Walkthrough all of the functionalities of the application
+
+**The entire source code of the application** is [available here][source], including the Solidity contract used and the client used to update and retrieve credit scores. The [README][source] is structured in a way that you can follow along from contract compilation, wallet creation up to actual usage of creating and updating credit scores with different banks involved.
+
+### Add more members to your consortium
+
+Get other banks and organizations to join your consortium! You can point them to this page and the resources in the sections below for more information on how they can join this blockchain.
+
 ## Pricing
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected performance and availability requirements.
