@@ -151,6 +151,8 @@ Consider adding a network virtual appliance (NVA) to create a DMZ between the In
 
 Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault]. It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
+We recommend enabling [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which provides additional DDoS mitigation for resources in a VNet. Although basic DDoS protection is automatically enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure Virtual Network resources.  
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github-folder]. Note that the entire deployment can take up to two hours, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
@@ -217,7 +219,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     "witnessStorageAccountKey": "[replace-with-storagekey]"
     ```
 
-8. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and replace them with a strong password. Save the file.
+8. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` replace them with a strong password. Save the file.
 
     > [!NOTE]
     > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file. 

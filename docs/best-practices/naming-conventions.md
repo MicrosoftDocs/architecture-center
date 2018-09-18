@@ -41,7 +41,7 @@ A recommended pattern for naming subscriptions is:
 | Contoso |IT |InternalApps |Production |Contoso IT InternalApps Production |
 | Contoso |IT |InternalApps |Dev |Contoso IT InternalApps Dev |
 
-For more information on how to organize subscriptions for larger enterprises, read our [prescriptive subscription governance guidance][scaffold].
+For more information on how to organize subscriptions for larger enterprises, see [Azure enterprise scaffold - prescriptive subscription governance][scaffold].
 
 ## Use affixes to avoid ambiguity
 
@@ -194,4 +194,4 @@ It is not possible to modify the name of a storage account or container after it
 
 <!-- links -->
 
-[scaffold]: /azure/azure-resource-manager/resource-manager-azure-scaffold
+[scaffold]: /azure/architecture/cloud-adoption/appendix/azure-scaffold
