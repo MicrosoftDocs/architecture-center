@@ -113,7 +113,7 @@ It can take 15-20 minutes for the deployment to complete.
 
 ## Pricing
 
-To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic. match your expected traffic.
+To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
