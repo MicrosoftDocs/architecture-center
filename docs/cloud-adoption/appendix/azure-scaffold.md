@@ -3,7 +3,7 @@ title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
 ms.date: 03/31/2017
-ms.author: rodend;karlku;tomfitz
+ms.author: rodend;karlku;tomfitz;salean
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 
@@ -82,7 +82,7 @@ When deciding on your Departments and Accounts (or management groups), you are p
 
 Of the three patterns above, the first two are the most commonly used patterns and are both highly recommended. The Lifecycle approach is appropriate for most organizations and in this case, the general recommendation is to utilize two base subscriptions "Production" and "Non-Production" and then utilize Resource Groups to break out the environments further.
 
-### Resource group
+### Resource groups
 
 Azure Resource Manager enables you to put resources into meaningful groups for management, billing, or natural affinity. Resource groups are containers of resources that have a common life cycle or share an attribute such as "all SQL servers" or "Application A".
 
@@ -136,7 +136,7 @@ The introduction of initiatives provided enterprises to group logical policies t
 
 * **Enable monitoring in Azure Security Center** - this is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
 * **Regulatory specific initiative** - Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **example 3** - Think of another common one
+* **Resource Types & SKUs** - Creating an initative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organisation is only deploying resources that your team have the skillset and procedures to support. 
 
 > [!TIP]
 > We recommend that you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
@@ -234,13 +234,14 @@ These are tools to provide you instant information on cost as well as the abilit
 
 * **Azure Cost Management** : This product is the result of the purchase of Cloudyn by Microsoft and allows you to manage and analyze your Azure spend as well what you spend on other Public Cloud providers. There are both free and paid tiers, with a great wealth of capabilities as seen in the [overview](https://docs.microsoft.com/en-us/azure/cost-management/overview).
 
-* **Azure Budgets and Action Groups** Knowing what somethings costs and doing something about it until recently has been more of a manual exercise. With the introduction of Azure Budgets and it's APIs, it's now possible to create actions (as seen in [this](https://channel9.msdn.com/Shows/Azure-Friday/Managing-costs-with-the-Azure-Budgets-API-and-Action-Groups) example) when costs hit a threshold. For example, shutting down a "test" resource group when it hits 100% of it's budget, or [another example].
+* **Azure Budgets and Action Groups** Knowing what something costs and doing something about it until recently has been more of a manual exercise. With the introduction of Azure Budgets and it's APIs, it's now possible to create actions (as seen in [this](https://channel9.msdn.com/Shows/Azure-Friday/Managing-costs-with-the-Azure-Budgets-API-and-Action-Groups) example) when costs hit a threshold. For example, shutting down a "test" resource group when it hits 100% of it's budget, or shutting down resources when budgets have been spent.
 
 * **Azure Advisor** Knowing what something costs is only half the battle, the other half is knowing what to do with that information. [Azure Advisor](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview) provides you recommendations on actions to take to save money, improve reliability or even increase security.
 
 ### External Cost Management Tools
 
 * **PowerBI Azure Consumption Insights** - Do you want to create your own visualizations for your organization? If so, then the Azure Consumption Insights content pack for PowerBI is your tool of choice. Using this content pack and PowerBI you can create custom visualizations to represent your organization, do deeper analysis on costs and add in other data sources for further enrichment.
+
 * **Consumption API** - The [consumption APIs](https://docs.microsoft.com/en-us/rest/api/consumption/) give you programmatic access to cost and usage data in addition to information on budgets, reserved instances and marketplace charges. These APIs are accessible only for Enterprise Enrollments and some Web Direct subscriptions however they give you the ability to integrate your cost data into your own tools and data warehouses. You can also access these APIs by using the Azure CLI, seen [here](https://docs.microsoft.com/en-us/cli/azure/consumption?view=azure-cli-latest).
 
 > [!NOTE]
@@ -258,7 +259,10 @@ Intro
 Azure Automation
 Update Management (TIP?)
 LogicApps&Functions
-Top 5 Recommendations
+
+### Top 5 Recommendations
+* Look at automating shutdown and startup of VMs using tags and an Azure Automation script, either creating your own or using something like the 3rd party one avaialable on the gallery [here](https://gallery.technet.microsoft.com/scriptcenter/Start-Stop-VMs-in-Azure-615384b6)
+* 
 
 ## Templates & DevOps
 
