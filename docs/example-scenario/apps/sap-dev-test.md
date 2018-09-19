@@ -61,7 +61,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ## Pricing
 
-To help you explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To help you explore the cost of running this scenario, all of the services are pre-configured in the cost calculator examples below. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided four sample cost profiles based on amount of traffic you expect to receive:
 
