@@ -14,7 +14,7 @@ To simplify the creation, management, operations and optimization of HPC cluster
 
 ## Potential use cases
 
-Consider this scenario for these similar use cases where CFD applications could be used:
+Consider this scenario for these industries where CFD applications could be used:
 
 * Aeronautics
 * Automotive
