@@ -373,7 +373,7 @@ The following features were discussed in this document. Click the links to learn
 [VPN]: /azure/vpn-gateway/vpn-gateway-about-vpngateways 
 [ExR]: /azure/expressroute/expressroute-introduction 
 [NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
-[SubMgmt]: /azure/azure-resource-manager/resource-manager-azure-scaffold 
+[SubMgmt]: /azure/architecture/cloud-adoption/appendix/azure-scaffold 
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
