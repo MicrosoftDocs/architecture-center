@@ -42,7 +42,8 @@ This example includes a high availability configuration for an Oracle database, 
 * [Resource Groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
 ### Alternatives
-SAP gives flexibility to use DB/OS combinations, and Azure VM types in a Microsoft Azure VM Services (IaaS) environment. This [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533) - SAP Applications on Azure: Supported Products and Azure VM types describes, which SAP products, DB/OS combinations and Azure VM types are currently supported.
+
+SAP provides flexible options for different combinations of operating system, database management system, and VM types in an Azure environment. For more information, see [SAP note 1928533](https://launchpad.support.sap.com/#/notes/1928533), "SAP Applications on Azure: Supported Products and Azure VM Types".
 
 ## Considerations
 
@@ -55,7 +56,7 @@ Microsoft Azure offers infrastructure services that can be used to deploy SAP pr
 
 ## Pricing
 
-Explore the cost of running this soTo explore the cost of running this scenario, all of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+To help you explore the cost of running this scenario, all of the services are pre-configured in the cost calculator examples below. To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
 We have provided four sample cost profiles based on amount of traffic you expect to receive:
 
