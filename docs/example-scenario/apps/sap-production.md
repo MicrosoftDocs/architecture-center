@@ -95,4 +95,4 @@ For other SAP production use cases running in Azure, review the following SAP re
 * [SAP on Azure large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
 
 <!-- links -->
-[architecture]: media/architecture-diagram-sap-distributed.png
+[architecture]: media/architecture-diagram-sap-production.png
