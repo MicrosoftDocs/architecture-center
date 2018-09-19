@@ -95,4 +95,4 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 <!-- links -->
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
-[architecture]: ./images/architecture-diagram-data-warehouse.png
+[architecture]: ./media/architecture-diagram-data-warehouse.png
