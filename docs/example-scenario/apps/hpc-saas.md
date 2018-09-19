@@ -30,7 +30,7 @@ Other scenarios using this architecture might include:
 
 * Users can access NV-series virtual machines (VMs) via a browser with a HTML5-based RDP connection using the Apache Guacamole service (http://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The Altair PBSWorks or open-source PBS Professional scheduler spins up additional nodes based on user-defined heuristics and could alternatively leverage a solution based on Azure functions.
 * From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to auto-scale based on load or queue depth based on active user demand for compute resources.
-* Azure Kubernetes Service (AKS) is used to host the web resources available to end users. 
+* Azure Kubernetes Service (AKS) is used to host the web resources available to end users.
 
 ### Components
 
@@ -40,6 +40,7 @@ Other scenarios using this architecture might include:
 * [Application Gateway](/azure/application-gateway/) load balances the requests coming into the web servers.
 * [Azure Kubernetes Service (AKS)](/azure/aks/) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
 * [Altair PBS Works Suite](https://www.pbsworks.com/PBSProduct.aspx?n=PBS-Works-Suite&c=Overview-and-Capabilities) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
+* [Blob storage](/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs. 
 
 ### Alternatives
 
@@ -56,9 +57,10 @@ Other scenarios using this architecture might include:
 
 ## Pricing
 
-The following considerations will drive a substantial portion of the costs for this solution.
+To help you explore the cost of running this scenario, many of the required services are pre-configured in a [cost calculator example][calculator]. The costs of your solution are dependent on the number and scale of services needed to meet your requirements.
 
-* Azure virtual machine costs will increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
+The following considerations will drive a substantial portion of the costs for this solution:
+* Azure virtual machine costs increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 * Azure Kubernetes Services costs are based on the VM type chosen to support the workload. The costs will increase linearly based on the number of VMs in the cluster.
 
 ## Next Steps
@@ -70,4 +72,4 @@ The following considerations will drive a substantial portion of the costs for t
 <!-- links -->
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure
 [architecture]: ./media/architecture-diagram-hpc-saas.png
-[calculator]: https://azure.com/e/
+[calculator]: https://azure.com/e/3cb9ccdc893f41ffbcdb00c328178ccf
