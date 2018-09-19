@@ -115,7 +115,7 @@ Once you've deployed the sample, please find more information about Azure CycleC
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
-[cyclearch]: media/native-hpc-ref-arch.png
+[cyclearch]: media/Hybrid-HPC-Ref-Arch.png
 [vmss]: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview
 [cyclecloud]: https://docs.microsoft.com/en-us/azure/cyclecloud/
 [rdma]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
