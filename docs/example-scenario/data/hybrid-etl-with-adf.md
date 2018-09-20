@@ -25,16 +25,16 @@ Traditionally, SSIS has been the tool of choice for many SQL Server data profess
 
 1. Data is sourced from Blob storage into Data Factory.
 2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the Data Factory Integrated Runtime.
-3.The data cleansing jobs are executed to prepare the data for downstream consumption.
-4. Once the data cleansing task completes successfully, a copy task is executed to load the clean data into Azure.
+3. The data cleansing jobs are executed to prepare the data for downstream consumption
+4. Once the data cleansing task completes successfully, a copy task is executed to load the clean data into Azure
 5. The clean data is then loaded into tables in the SQL Data Warehouse.
 
 ### Components
 
-• [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
-• [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
-• [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and load the data into a data warehouse.
-• [SQL Data Warehouse][docs-sql-data-warehouse] is used to centralize data in the cloud for easy access using standard ANSI SQL queries.
+* [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
+* [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
+* [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and load the data into a data warehouse.
+* [SQL Data Warehouse][docs-sql-data-warehouse] is used to centralize data in the cloud for easy access using standard ANSI SQL queries.
 
 ### Alternatives
 
