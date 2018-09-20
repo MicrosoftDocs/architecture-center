@@ -1,11 +1,11 @@
 ---
-title: Migrating a Monolithic Web Application to an API-based Architecture on Azure
-description: An scenario based approach to use Azure API Management
+title: Migrating a Legacy Web Application to an API-based Architecture on Azure
+description: An scenario based approach on to use Azure API Management to modernize a legacy web application.
 author: begim
 ms.date: 09/13/2018
 ---
 
-# Migrating a Monolithic Web Application to an API-based Architecture on Azure
+# Migrating a Legacy Web Application to an API-based Architecture on Azure
 
 An e-commerce company in the travel industry is modernizing their legacy browser-based software stack. While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. In the future, they are considering additional revenue streams from monetizing some of the internal Intellectual Property (IP) that's been built.
 
@@ -53,7 +53,7 @@ The API-M instance will be configured to map the legacy HTTP services to a new A
   * In the on premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN Gateway & Site-to-site IPSec VPN connection][azure-vpn] or [Express Route][azure-er] making this a [hybrid Azure - On-Premises scenario][azure-hybrid].
 * It's possible to keep the API Management instance private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information on [connecting API-M, in internal mode, to a VNET, see here.][apim-vnet-internal]
 
->[!NOTE] For general information on connecting API Management to a VNET, [see here.][apim-vnet]
+[!NOTE] For general information on connecting API Management to a VNET, [see here.][apim-vnet]
 
 ### Availability & Scalability
 
@@ -76,7 +76,7 @@ API Management is offered in four tiers – developer, basic, standard, and prem
 
 Customers can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
 
-> Note: The Developer tier can be used for evaluation of the API Management features, but should not be used for production.
+[!NOTE] The Developer tier can be used for evaluation of the API Management features, but should not be used for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Pricing Calculator][pricing-calculator].
 
@@ -85,33 +85,33 @@ To view projected costs and customize to your deployment needs, you can modify t
 Check out the extensive Azure API Management [documentation and reference articles.][apim]
 
 <!-- links -->
-[apim-create]:/azure/api-management/get-started-create-service-instance
-[apim-git]:/azure/api-management/api-management-configuration-repository-git
-[apim-multi-regions]:/azure/api-management/api-management-howto-deploy-multi-region
-[apim-autoscale]:/azure/api-management/api-management-howto-autoscale
-[apim-scaleout]:/azure/api-management/upgrade-and-scale
-[azure-apim-ai]:/azure/api-management/api-management-howto-app-insights
-[azure-ai]:/azure/application-insights/
-[azure-mon]:/azure/monitoring-and-diagnostics/monitoring-overview
-[azure-appgw]:/azure/application-gateway/application-gateway-introduction
-[apim-vnet-internal]:/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
-[apim-vnet]:/azure/api-management/api-management-using-with-vnet
-[azure-hybrid]:/azure/architecture/reference-architectures/hybrid-networking/
-[azure-er]:/azure/expressroute/expressroute-introduction
-[azure-vpn]:/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[azure-vnet]:/azure/virtual-network/virtual-networks-overview
-[azure-appservice-auth]:/azure/app-service/app-service-authentication-overview#identity-providers
-[apim-faq-vip]:/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
-[azure-appservice-ip-restrict]:/azure/app-service/app-service-ip-restrictions
-[azure-api-apps]:/azure/app-service/
-[apim-ssl]:/azure/api-management/api-management-howto-manage-protocols-ciphers
-[apim-mutualcert-auth]:/azure/api-management/api-management-howto-mutual-certificates
-[apim-whitelist-ip]:/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
-[anti-corruption-layer-pattern]:/azure/architecture/patterns/anti-corruption-layer
-[apim]:azure/api-management/api-management-key-concepts
-[apim-api-design-guidance]:/azure/architecture/best-practices/api-design
-[visualstudio-youtube-solid-design]:https://youtu.be/agkWYPUcLpg
-[azure-vm-lift-shift]:https://azure.microsoft.com/en-gb/resources/azure-virtual-datacenter-lift-and-shift-guide/
+[apim-create]: /azure/api-management/get-started-create-service-instance
+[apim-git]: /azure/api-management/api-management-configuration-repository-git
+[apim-multi-regions]: /azure/api-management/api-management-howto-deploy-multi-region
+[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
+[apim-scaleout]: /azure/api-management/upgrade-and-scale
+[azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
+[azure-ai]: /azure/application-insights/
+[azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
+[azure-appgw]: /azure/application-gateway/application-gateway-introduction
+[apim-vnet-internal]: /azure/api-management/api-management-howto-integrate-internal-vnet-appgateway
+[apim-vnet]: /azure/api-management/api-management-using-with-vnet
+[azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking/
+[azure-er]: /azure/expressroute/expressroute-introduction
+[azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[azure-vnet]: /azure/virtual-network/virtual-networks-overview
+[azure-appservice-auth]: /azure/app-service/app-service-authentication-overview#identity-providers
+[apim-faq-vip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[azure-appservice-ip-restrict]: /azure/app-service/app-service-ip-restrictions
+[azure-api-apps]: /azure/app-service/
+[apim-ssl]: /azure/api-management/api-management-howto-manage-protocols-ciphers
+[apim-mutualcert-auth]: /azure/api-management/api-management-howto-mutual-certificates
+[apim-whitelist-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[anti-corruption-layer-pattern]: /azure/architecture/patterns/anti-corruption-layer
+[apim]: /azure/api-management/api-management-key-concepts
+[apim-api-design-guidance]: /azure/architecture/best-practices/api-design
+[visualstudio-youtube-solid-design]: https://youtu.be/agkWYPUcLpg
+[azure-vm-lift-shift]: https://azure.microsoft.com/en-gb/resources/azure-virtual-datacenter-lift-and-shift-guide/
 [standard-pricing-calc]: https://azure.com/e/
 [premium-pricing-calc]: https://azure.com/e/
 [apim-pricing]:https://azure.microsoft.com/en-gb/pricing/details/api-management/
