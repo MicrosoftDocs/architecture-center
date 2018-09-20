@@ -53,19 +53,19 @@ However, there is another important part to making it practical to break up: a p
 
 To get to this final, decomposed application, we used an iterative approach. We started with a large IIS/ASP.Net web site on a server farm. A single node of the server farm is pictured below. It contains the original web site with several VDirs, an additional Windows Service the site calls, and an executable that does some periodic site archive maintenance.
 
-![](file:///C:/Users/tomta/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+![](figures/clip_image004.png)
 
 On the first development iteration, the IIS site and its VDirs placed in a Windows [Container](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-containers-overview). Doing this allows the site to remain operational, but not tightly bound to the underlying server node OS. The container is just run and orchestrated by the underlying Service Fabric node, but the node does not have to have any state that the site is dependent on (registry entries, files, etc). All of those items are in the container. We have also placed the Indexing service in a Windows Container for the same reasons. The containers can be deployed, versioned, and scaled independently. Finally, we hosted the Archive Service a simple [stand-alone exe](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-guest-executables-introduction) since it is a self-contained exe with no special requirements.
 
 The picture below shows how our large web site is now partially decomposed into independent units and poised to be decomposed more as time allows in further iterations.
 
-![](file:///C:/Users/tomta/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+![](figures/clip_image006.png)
 
 Further development iterations focus on separating the single large Default Web site container pictured above. Each of the VDir ASP.Net apps are removed from the container one at a time and ported to ASP.Net Core [reliable services](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-introduction).
 
 Once each of the VDirs have been factored out, the Default Web site is written as an ASP.Net Core reliable service which accepts incoming browser requests and routes them to the correct ASP.Net app. The picture below shows the decomposed state we set out to achieve:
 
-![](file:///C:/Users/tomta/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+![](figures/clip_image002.png)
 
 Availability, Scalability, and Security
 ---------------------------------------
