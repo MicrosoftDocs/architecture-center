@@ -1,7 +1,7 @@
 ---
 title: SAP production workloads on Azure virtual machines using an Oracle database
 description: An example scenario showing an SAP production deployment in Azure using an Oracle database. 
-author: AndrewDibbins, DharmeshBhagat
+author: DharmeshBhagat
 ms.date: 9/12/2018
 ---
 
