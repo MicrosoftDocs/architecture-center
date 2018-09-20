@@ -88,7 +88,7 @@ For general guidance on designing resilient scenarios, see [Designing resilient 
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided a pre-configured [cost profile][pricing] based on the architecture diagram provided above. To configure the pricing calculator for your use case there are a couple main things to consider:
+We have provided a pre-configured [cost profile][pricing] based on the architecture diagram provided above. To configure the pricing calculator for your use case, there are a couple main things to consider:
 
 * How much traffic are you expecting in terms of GB/month? The amount of traffic will have the biggest impact on your cost, as it will impact the number of VMs that are required to surface the data in the virtual machine scale set.  Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
 
