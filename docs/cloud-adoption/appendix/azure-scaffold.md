@@ -220,7 +220,7 @@ Collecting and analyzing telemetry that provides line of sight into the activiti
 * **Metrics** are numerical information emitted from within a resource that describe the performance and health of a resource
 * **Diagnostic Logs** are emitted by an Azure service and provide rich, frequent data about the operation of that service.
 
-This information can be viewed and acted upon at multiple levels and are continually being improved. Azure provides shared, core and deep monitoring capabilities of Azure resources through the services outlined in the diagram below.
+This information can be viewed and acted upon at multiple levels and are continually being improved. Azure provides **shared**, **core** and **deep** monitoring capabilities of Azure resources through the services outlined in the diagram below.
 ![monitoring](./_images/monitoring.png)
 
 ### Shared Capabilities
@@ -302,23 +302,27 @@ Top 5 Recommendations
 
 Intro
 Templates
+Azure DevOps
 Azure CLI
 
 ## Core Network
 
-Access to resources can be either internal (within the corporation's network) or external (through the internet). The final component of the Azure scaffold reference model is core to how your organization accesses Azure, in a secure manner. It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premises devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
+The final component of the Azure scaffold reference model is core to how your organization accesses Azure, in a secure manner. Access to resources can be either internal (within the corporation's network) or external (through the internet). It is easy for users in your organization to inadvertently put resources in the wrong spot, and potentially open them to malicious access. As with on-premises devices, enterprises must add appropriate controls to ensure that Azure users make the right decisions. For subscription governance, we identify core resources that provide basic control of access. The core resources consist of:
 
 * **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
-* **Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
+* **User Defined Routes** allow you to manipulate the route table within a subnet enabling you to send traffic through a network virtual appliance or to a remote gateway on a peered virtual network.
+* **Virtual Network Peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub & spoke designs or shared services networks.
+* **Service Endpoints** in the past, PaaS services relied on different methods to secure access to those resources from your virtual networks. Service endpoints allow you to secure access to enabled PaaS services from ONLY connected endpoints, increasing overall security.
+* **Security groups** are an extensive set of rules which provide you the ability to allow or deny inbound and outbound traffic to/from Azure Resources. [Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) consist of Security Rules, which can be augmented with **Service Tags** (which define common Azure services such as AzureKeyVault, Sql and others) and **Application Groups** (which define and application structure, such as WebServers, AppServers and such)
 
-* **Application security groups**
-* **Azure Firewall**
+> [!TIP]
+> Use Service tags and Application groups in your network security groups to not only enhance the readability of your rules -which is crucial to understanding impact- but also to enable effective micro-segmentation within a larger subnet, reducing sprawl and increasing flexibility.
 
-VDC (Virtual Data Center)
+### Virtual Data Center
+
+Azure provides you both internal capabilities and third party capabilities from our extensive partner network that enable you to have an effective security stance. More importantly, Microsoft provides best practices and guidance in the form of the [Azure Virtual Data Center](https://docs.microsoft.com/en-us/azure/architecture/vdc/networking-virtual-datacenter). As you move from a single workload to multiple workloads which leverage hybrid capabilities, the VDC guidance will provide you with "recipe" to enable a flexible, network that will grow as your workloads in Azure grow.  
 
 ## Next steps
 
 * Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](azure-scaffold-examples.md).
 
-> [!div class="nextstepaction"]
-> [Implement an example](azure-scaffold-examples.md)
