@@ -1,5 +1,8 @@
 <!-- links -->
 
+THIS IS A TEST OF THE INCLUDE FUNCTIONALITY.
+
+
 [docs-blob-storage]: /azure/storage/blobs/
 [docs-data-factory]: /azure/data-factory/introduction
 [docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
