@@ -25,9 +25,9 @@ Consider this example for the following scenarios:
 
 ![Architecture overview of a production SAP environment in Azure][architecture]
 
-This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology][/azure/architecture/reference-architectures/hybrid-networking/hub-spoke] for security purposes. The data flows through the solution as follows:
+This example includes a high availability configuration for an Oracle database, SAP central services, and multiple SAP application servers running on different virtual machines. The Azure network uses a [hub-and-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) for security purposes. The data flows through the solution as follows:
 
-1. Users access the SAP system via the SAP user interface, a web browser, or other client tools like Microsoft Excel. An ExpressRoute connection provides access from the organization's physical location to resources running in Azure. 
+1. Users access the SAP system via the SAP user interface, a web browser, or other client tools like Microsoft Excel. An ExpressRoute connection provides access from the organization's on-premises network to resources running in Azure. 
 2. The ExpressRoute terminates in Azure at the ExpressRoute virtual network (VNet) gateway. Network traffic is routed through the ExpressRoute gateway to a gateway subnet created in the hub VNet.
 3. The hub VNet is peered to a spoke VNet. The application tier subnet hosts the virtual machines running SAP in an availability set.
 4. The identity management servers provide authentication services for the solution.
