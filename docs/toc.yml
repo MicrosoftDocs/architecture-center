@@ -502,8 +502,8 @@
     items:
     - name: Overview
       href: cloud-adoption/operations/overview.md
-    - name: Establish a Fundamentals Process
-      href: cloud-adoption/operations/fundamentals.md
+    - name: Establish a Operational Fitness Review
+      href: cloud-adoption/operations/operational-fitness-review.md
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
