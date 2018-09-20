@@ -1,19 +1,22 @@
 ---
 title: Linux Virtual Desktops with Citrix
 description: Proven scenario for building a VDI environment for Linux Desktops using Citrix on Azure.
-author: miguelangelopereira, bowulf
+author: miguelangelopereira, bagwyth 
 ms.date: 09/12/2018 
 ---
 # Linux Virtual Desktops with Citrix
 
-This sample scenario is aplicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops.
+This sample scenario is applicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops.
 
 VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. This sample scenario will be based on the Citrix Solution.
 
-Some benifits for this sample solution include:
-- Increased ROI with Hosted Shared Linux virtual desktops by giving more users access to the same infrastructure
-- Provided access to Linux application to any device (including Non-Linux)
-- Sensitive data can be secured in the Azure datacenter for all distributed employees
+It is common for organizations to have heterogeneous environments with multiple devices and operating systems being used by employees. Providing a consistent and simplified access to applications while maintaining a high level of security is a key challenge. A VDI solution for Linux Desktops will allow your organization to provide access to Linux Desktops independently of the device or OS utilized by the end user.
+
+Some benefits for this sample solution include:
+- Increased ROI with Hosted Shared Linux virtual desktops by giving more users access to the same infrastructure. By consolidating resources on a centralized VDI environment, you will be able to rationalize cost as the end user devices don't need to be as powerful.
+- Performance will be consistent independently of the end user device.
+- Provides access to Linux application to any device (including Non-Linux).
+- Sensitive data can be secured in the Azure datacenter for all distributed employees.
 
 ## Potential use cases
 
@@ -30,7 +33,7 @@ This sample solution will allow the corporate network access to Linux Virtual De
 - The CitrixVDA run on Ubuntu (or another supported distro)
 - Azure Network Security Groups will apply the correct network ACLs
 - Citrix ADC (Netscaler) will publish and load balance all the Citrix services
-- Active Directory Domain Services will be used to domain join the Citrix Servers. VDA serves will not be domain joined.
+- Active Directory Domain Services will be used to domain join the Citrix Servers. VDA servers will not be domain joined.
 - Azure Hybrid File Sync will enable shared storage across the solution. For example, it can be used in remote /home solutions.
 
 For this sample solution, the following SKUs are used:
@@ -78,7 +81,8 @@ For this sample solution, the following SKUs are used:
 ### Availability, Scalability, and Security
 
 #### Availability
-* This sample solution is design for High Availability for all roles besides the licensing server.Because the environment continues to function in a 30-day grace period if the license server is offline, no additional redundancies are required on that server. 
+* This sample solution is designed for High Availability for all roles besides the licensing server.Because the environment continues to function in a 30-day grace period if the license server is offline, no additional redundancy is required on that server. 
+* All servers providing similar roles should be deployed in [Availability Sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 * This sample solution does not include Disaster Recovery capabilities. [Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview) could be a good add-on to this design.
 
 #### Management
@@ -93,7 +97,7 @@ For deployment information see official [Citrix documentation](https://docs.citr
 
 ## Pricing
 
-The solution has an aproximate cost of 7k per month. 
+The solution has an approximate cost of 7k per month. 
 - The Citrix XenDestop licences are not included in the estimate
 - The Citrix Netscaler licence is include in a PAYG model
 - Using reserved instances will greatly reduce the compute cost for the solution
