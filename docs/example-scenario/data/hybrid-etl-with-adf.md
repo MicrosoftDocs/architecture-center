@@ -4,6 +4,7 @@ description: Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 author: alexbuckgit
 ms.date: 9/20/2018
 ---
+
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 
 This example scenario is relevant to organizations that need a cloud-based extract-transform-load (ETL) process and want to incorporate existing SQL Server Integration Services (SSIS) packages into their new cloud data workflow. Organizations often have already invested greatly in developing ETL packages using SSIS for specific tasks. Rewriting these packages can be a daunting task.  In addition, many on-premises SSIS packages may have dependencies on local resources, preventing migration to the cloud. 
@@ -20,21 +21,20 @@ Traditionally, SSIS has been the tool of choice for many SQL Server data profess
 
 ## Architecture
 
-*Architecture Diagram goes here*
+![Architecture overview of a hybrid ETL process using Data Factory][architecture-diagram]
 
-> What does the solution look like at a high level?  
-> Why did we build the solution this way?  
-> What will the customer need to bring to this?  (Software, skills, etc?)  
-> Is there a data flow that should be described?
+1. Data is sourced from Azure Storage into Data Factory.
+2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the ADF Integrated Runtime.
+3.The data cleansing jobs are executed to prepare the data for downstream consumption.
+4. Once the data cleansing task completes successfully, a copy task is executed to load the clean data into Azure.
+5. The clean data is then loaded into tables in the SQL Data Warehouse.
 
 ### Components
 
-> Why is each component there?  
-> What does it do and why was it necessary?
-
-* List of components with links to documentation.
-
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
+• [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
+• [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
+• [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and load the data into a data warehouse.
+• [SQL Data Warehouse][docs-sql-data-warehouse] is used to centralize data in the cloud for easy access using standard ANSI SQL queries.
 
 ### Alternatives
 
@@ -87,6 +87,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 > Is there any other documentation that might be useful?  
 
 <!-- links -->
+[architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf.png
 [small-pricing]: https://azure.com/e/
 [medium-pricing]: https://azure.com/e/
 [large-pricing]: https://azure.com/e/
@@ -95,3 +96,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
+
+[!INCLUDE [docs-links](../../_includes/links-docs.md)]
+
