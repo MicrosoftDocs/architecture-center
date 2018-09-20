@@ -37,7 +37,7 @@ This scenario uses a managed Azure environment to host an application and data t
 ### Components
 
 - [Azure App Service][Azure App Service] is a PaaS service for building and hosting apps in managed virtual machines. The underlying compute infrastructures on which your apps run is managed for you. App Service provides monitoring of resource usage quotas and app metrics, logging of diagnostic information, and alerts based on metrics. Even better, you can use Application Insights to create [availability tests][availability tests] for testing your application from different regions.
-- [Application Insights][Application Insights] is an extensible Application Performance Management (APM) service for developers and supports multiple platforms. It monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal.
+- [Application Insights][Application Insights] is an extensible Application Performance Management (APM) service for developers and supports multiple platforms. It monitors the application, detects application anomalies such as poor performance and failures, and sends telemetry to the Azure portal.  Application Insights can also be used for logging, distributed tracing, and custom application metrics.
 - [Azure Monitor][Azure Monitor] provides base-level infrastructure [metrics and logs][metrics and logs] for most services in Azure. You can interact with the metrics in several ways, including charting them in Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Monitor also offers its data directly into [Log Analytics and other services], where you can query and combine it with data from other sources on premises or in the cloud.
 - [Log Analytics][Log Analytics] helps correlate the usage and performance data collected by Application Insights with configuration and performance data across the Azure resources that support the app. This scenario uses the [Azure Log Analytics agent][Azure Log Analytics agent] to push SQL Server audit logs into Log Analytics. You can write queries and view data in the Log Analytics blade of the Azure portal.
 
@@ -58,13 +58,16 @@ Azure Monitor, Application Insights, and Log Analytics all send [alerts](/azure/
 This article describes conveniently available monitoring options with popular features, but you have many choices, including the option to create your own logging mechanisms. A best practice is to add monitoring services as you build out tiers in a solution. Here are some possible extensions and alternatives:
 
 - Consolidate Azure Monitor and Application Insights metrics in Grafana using the [Azure Monitor Data Source For Grafana][Azure Monitor Data Source For Grafana].
+- [Data Dog][data-dog] features a connector for Azure Monitor
 - Automate monitoring functions using [Azure Automation][Azure Automation].
-- Add communication with [ITSM solutions][ITSM solutions]).
+- Add communication with [ITSM solutions][ITSM solutions].
 - Extend Log Analytics with a [management solution][management solution].
 
 ### Scalability and availability
 
 This scenario focuses on PaaS solutions for monitoring in large part because they conveniently handle availability and scalability for you and are backed by service-level agreements (SLAs). For example, App Services provides a guaranteed [SLA][SLA] for its availability.
+
+Application Insights has [limits][app-insights-limits] on how many requests can be processed per second.  If you exceed the request limit, you may experience message throttling.  To prevent this, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
 High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](#scalability-considerations) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
@@ -147,3 +150,7 @@ Check out these resources designed to help you get started with your own monitor
 [Collect data about Azure Virtual Machines]: /azure/log-analytics/log-analytics-quick-collect-azurevm
 [Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview
 [Find and diagnose run-time exceptions with Azure Application Insights]: /azure/application-insights/app-insights-tutorial-runtime-exceptions
+[data-dog]: https://www.datadoghq.com/blog/azure-monitoring-enhancements/
+[app-insights-limits]: /azure/azure-subscription-service-limits#application-insights-limits
+[message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
+[message-sampling]: /azure/application-insights/app-insights-sampling
