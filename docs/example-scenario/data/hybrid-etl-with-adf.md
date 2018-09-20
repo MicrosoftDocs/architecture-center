@@ -5,8 +5,6 @@ author: alexbuckgit
 ms.date: 9/20/2018
 ---
 
-[!INCLUDE [docs-links](../../_includes/links-docs.md)]
-
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 
 This example scenario is relevant to organizations that need a cloud-based extract-transform-load (ETL) process and want to incorporate existing SQL Server Integration Services (SSIS) packages into their new cloud data workflow. Organizations often have already invested greatly in developing ETL packages using SSIS for specific tasks. Rewriting these packages can be a daunting task.  In addition, many on-premises SSIS packages may have dependencies on local resources, preventing migration to the cloud. 
@@ -25,8 +23,8 @@ Traditionally, SSIS has been the tool of choice for many SQL Server data profess
 
 ![Architecture overview of a hybrid ETL process using Data Factory][architecture-diagram]
 
-1. Data is sourced from Azure Storage into Data Factory.
-2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the ADF Integrated Runtime.
+1. Data is sourced from Blob storage into Data Factory.
+2. The Data Factory pipeline invokes a stored procedure to execute an SSIS job hosted on-premises via the Data Factory Integrated Runtime.
 3.The data cleansing jobs are executed to prepare the data for downstream consumption.
 4. Once the data cleansing task completes successfully, a copy task is executed to load the clean data into Azure.
 5. The clean data is then loaded into tables in the SQL Data Warehouse.
@@ -40,7 +38,7 @@ Traditionally, SSIS has been the tool of choice for many SQL Server data profess
 
 ### Alternatives
 
-> What alternative technologies were considered and why didn't we use them?
+Data Factory could invoke data cleansing procedures implemented using other technologies, such as a Databricks notebook, Python script, or SSIS instance running in a virtual machine.
 
 ## Considerations
 
@@ -99,4 +97,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 
+[docs-blob-storage]: /azure/storage/blobs/
+[docs-data-factory]: /azure/data-factory/introduction
+[docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
+[docs-ssis]: /sql/integration-services/sql-server-integration-services
 
