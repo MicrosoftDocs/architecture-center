@@ -1,7 +1,7 @@
 ---
 title: "Enterprise Cloud Adoption: Operational Fundamentals"
 description: Guidance on operational fundamentals
-author: petertay
+author: petertaylor9999
 ---
 
 # Establishing an Operational Fitness Review
