@@ -50,7 +50,7 @@ The data flows through the solution as follows:
 * [Azure SQL Database](/azure/sql-database) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
 * [Azure Blob storage](/azure/storage/blobs) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
 * [Traffic Manager](/azure/traffic-manager) controls the distribution of user traffic for service endpoints in different Azure regions.
-* [Load Balancer](/azure/load-balancer) lets you scale your applications and create high availability for your services. The load balancer distributes data submissions from construction equipment devices.
+* [Load Balancer](/azure/load-balancer) distributes data submissions from construciton equipment devices across the VM-based web services to provide high availability.
 * [Azure Virtual Machines](/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
 * [Apache Cassandra](http://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
 * [Web Apps](/azure/app-service) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
@@ -59,6 +59,7 @@ The data flows through the solution as follows:
 ### Alternatives
 
 * [Cosmos DB](/azure/cosmos-db) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction). 
+* [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for Azure. It is integrated with Azure to provide one-click setup, streamlined workflows, and an interactive collaborative workspace.
 * [Data Lake Storage](/azure/storage/data-lake-storage) is an alternative to Blob storage. For this scenario, Data Lake Storage was not available in the targeted region.
 * [Web Apps](/azure/app-service) could also be used to host the web services for ingesting construction results data.
 * Many technology options are available for real-time message ingestion, data storage, stream processing, storage of analytical data, and analytics and reporting. For an overview of these options, their capabilities, and key selection criteria, see [Big data architectures: Real-time processing](/azure/architecture/data-guide/technology-choices/real-time-ingestion) in the [Azure Data Architecture Guide](/azure/architecture/data-guide/).
