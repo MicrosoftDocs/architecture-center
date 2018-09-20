@@ -1,3 +1,5 @@
+[!INCLUDE [docs-links](../../_includes/links-docs.md)]
+
 ---
 title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 description: Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
@@ -97,5 +99,4 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 
-[!INCLUDE [docs-links](../../_includes/links-docs.md)]
 
