@@ -23,7 +23,7 @@ Architecture
 
 Using Service Fabric as the hosting platform, we could turn a large IIS web site into a collection of microservices as shown below:
 
-![](file:///C:/Users/tomta/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+![](file:///./figures/clip_image002.png)
 
 In the picture above, we decomposed all the parts of a large IIS application into:
 
