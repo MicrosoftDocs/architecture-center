@@ -32,6 +32,8 @@ Some non-functional requirements can be specified in terms of a service level ag
 
 The key to maintaining the performance and continuity of an enterprise's services is to implement an _operational fitness review_ process.
 
+![An overview of the operational fitness review process](_images/ofr-flow.png)
+
 At a high level, the process has two phases. In the prerequisites phase, the requirements are established and mapped to supporting services. This occurs less frequently; perhaps annually or when new operations are introduced. The output of the prerequisites phase is used in the flow phase. The flow phase occurs more frequently; we recommend monthly.
 
 ### Prerequisites Phase
