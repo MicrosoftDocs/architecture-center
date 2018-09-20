@@ -88,11 +88,13 @@ For general guidance on designing resilient scenarios, see [Designing resilient 
 
 To explore the cost of running this scenario, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
 
-We have provided three sample cost profiles based on the number of scale set VM instances that run your applications.
+We have provided a pre-configured [cost profile][pricing] based on the architecture diagram provided above. To configure this for your use case there are a couple main things you are going to want to consider.
 
-* [Small][small-pricing]: this pricing example correlates to two frontend and two backend VM instances.
-* [Medium][medium-pricing]: this pricing example correlates to 20 frontend and 5 backend VM instances.
-* [Large][large-pricing]: this pricing example correlates to 100 frontend and 10 backend VM instances.
+* How much traffic are you expecting in terms of GB/month? This will have the biggest impact on your cost, as it will impact the number of VMs that are required to surface the data in the virtual machine scale set.  Additionally, it will directly correlate with the amount of data that is surfaced via the CDN.
+
+* How much new data are you going to be writing to your website? This will correlate with how much data is mirrored across the regions, and it will speak to your hard disk sizes required.
+
+* How much of your content is dynamic? How much is static?  These two numbers will influence how much has to be retrieved from the database tier versus how much will be cached in the CDN.
 
 <!-- links -->
 [architecture]: ./media/secure-scalable-wordpress.png
@@ -107,16 +109,9 @@ We have provided three sample cost profiles based on the number of scale set VM 
 [sql-linux]: /azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview
 [mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
 [scaleset-docs]: /azure/virtual-machine-scale-sets/overview
-
-
-[availability]: /architecture/checklist/availability
-[ntiersql-ra]: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
-[resiliency]: /azure/architecture/resiliency/ 
 [security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability 
+[availability]: /architecture/checklist/availability
+[resiliency]: /azure/architecture/resiliency/
+[scalability]: /azure/architecture/checklist/scalability
 [vmssautoscale-docs]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
-
-[small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
-[medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
-[large-pricing]: https://azure.com/e/1d99d8b92f90496787abecffa1473a93
+[pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b
