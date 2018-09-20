@@ -58,9 +58,7 @@ The API-M instance will be configured to map the legacy HTTP services to a new A
 
 ### Availability & Scalability
 
-Azure API Management can be:
-
-* [Scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
+* Azure API Management can be [Scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
 * Scaling also happen [automatically with auto scaling][apim-autoscale].
 * [Deploying across multiple regions][apim-multi-regions] will enable fail over options and can be done in the [Premium tier][apim-pricing].
 * Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
