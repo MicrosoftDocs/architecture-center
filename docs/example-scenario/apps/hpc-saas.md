@@ -68,7 +68,6 @@ The following considerations will drive a substantial portion of the costs for t
 
 * Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
 * Review other [Big Compute solutions](https://azure.microsoft.com/en-us/solutions/big-compute/) available in Azure.
-* Learn proven practices for building Azure-based solutions in the [Azure Architecture Center](/azure/architecture/).
 
 <!-- links -->
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure
