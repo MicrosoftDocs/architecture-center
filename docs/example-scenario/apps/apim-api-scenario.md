@@ -53,7 +53,8 @@ The API-M instance will be configured to map the legacy HTTP services to a new A
   * In the on premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN Gateway & Site-to-site IPSec VPN connection][azure-vpn] or [Express Route][azure-er] making this a [hybrid Azure - On-Premises scenario][azure-hybrid].
 * It's possible to keep the API Management instance private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information on [connecting API-M, in internal mode, to a VNET, see here.][apim-vnet-internal]
 
-[!NOTE] For general information on connecting API Management to a VNET, [see here.][apim-vnet]
+> [!NOTE]
+> For general information on connecting API Management to a VNET, [see here.][apim-vnet]
 
 ### Availability & Scalability
 
@@ -76,7 +77,8 @@ API Management is offered in four tiers – developer, basic, standard, and prem
 
 Customers can scale API Management by adding and removing units. Each unit has capacity that depends on its tier.
 
-[!NOTE] The Developer tier can be used for evaluation of the API Management features, but should not be used for production.
+> [!NOTE]
+> The Developer tier can be used for evaluation of the API Management features, but should not be used for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Pricing Calculator][pricing-calculator].
 
