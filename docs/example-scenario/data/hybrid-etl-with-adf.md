@@ -1,11 +1,11 @@
-[!INCLUDE [docs-links](../../_includes/links-docs.md)]
-
 ---
 title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 description: Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 author: alexbuckgit
 ms.date: 9/20/2018
 ---
+
+[!INCLUDE [docs-links](../../_includes/links-docs.md)]
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 
