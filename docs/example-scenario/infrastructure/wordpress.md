@@ -35,6 +35,7 @@ The second is how authors add new content:
 * [Azure Virtual Network][vnet-docs] allows resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. Two virtual networks combined with the appropriate NSGs are used in this scenario to provide a [demilitarized zone][dmz] (DMZ) and isolation of the application components. Virtual network peering connects the two networks together.
 * [Azure network security groups][nsg-docs] contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 * [Azure load balancer][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internal load balancer is used in this scenario to distribute traffic from the frontend application tier to the backend SQL Server cluster.
+* [Azure virtual machine scale set][scaleset-docs] let you create and manager a group of identical, load balanced, VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the frontend ASP.NET application instances, and one for the backend SQL Server cluster VM instances. PowerShell desired state configuration (DSC) or the Azure custom script extension can be used to provision the VM instances with the required software and configuration settings.
 * [Azure Files][azure-files-docs] provides a fully managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
 * [Azure Key Vault][azure-key-vault-docs] is used to store and tightly control access to passwords, certificates, and keys.
 * [Azure Active Directory][aad-docs] is a multi-tenant, cloud-based directory and identity management service.  In this scenario it is used to authenticate into the website and the VPN tunnels.
@@ -49,15 +50,17 @@ The second is how authors add new content:
 
 ### Availability
 
-The VM instances in this scenario are deployed across Availability Zones. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A minimum of three zones are available in all enabled regions. This distribution of VM instances across zones provides high availability to the application tiers. For more information, see [what are Availability Zones in Azure?][azureaz-docs]
+The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and master slave replication for the MariaDB clusters.
 
-The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, which allows the application to continue to be available. For more information, see [Overview of Always On availability groups for SQL Server][sqlalwayson-docs].
+Each region is made up of one or more datacenters equipped with independent power, cooling, and networking. A minimum of three zones are available in all enabled regions. This distribution of VM instances across zones provides high availability to the application tiers. For more information, see [what are Availability Zones in Azure?][azureaz-docs]
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
 
 ### Scalability
 
-This scenario uses virtual machine scale sets for the frontend and backend components. With scale sets, the number of VM instances that run the frontend application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][vmssautoscale-docs].
+This scenario uses virtual machine scale sets for the frontend. With scale sets, the number of VM instances that run the frontend application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][vmssautoscale-docs].
+
+The backend is a MariaDB cluster in an availability set.  For more information see the [MariaDB cluster tutorial][mariadb-tutorial].
 
 For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
 
@@ -97,6 +100,11 @@ to be added
 [azure-key-vault-docs]: /azure/key-vault/key-vault-overview
 [aad-docs]: /azure/active-directory/fundamentals/active-directory-whatis
 [mysql-docs]: /azure/mysql/overview
+[sql-linux]: /azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview
+[mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
+
+
+
 
 
 [availability]: /architecture/checklist/availability
