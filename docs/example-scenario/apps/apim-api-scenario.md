@@ -7,13 +7,13 @@ ms.date: 09/13/2018
 
 # Migrating a Monolithic Web Application to an API-based Architecture on Azure
 
-An e-commerce company in the travel industry is modernizing their legacy browser-based software stack.  While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. In the future, they are considering additional revenue streams from monetizing some of the internal Intellectual Property (IP) that's been built.
+An e-commerce company in the travel industry is modernizing their legacy browser-based software stack. While their existing stack is mostly monolithic, some [SOAP-based HTTP services][soap] exist from a recent project. In the future, they are considering additional revenue streams from monetizing some of the internal Intellectual Property (IP) that's been built.
 
 The goal of the project is address technical debt, improve ongoing maintenance and enable features to be delivered faster and with less regression.  The project will follow a stepped approach to avoid risk, with some steps running in parallel:
 
-* The development team will begin work modernizing the application back-end (these comprise of Relational Databases hosted on VMs)
-* Their in house development team will start writing net new business functionality, which will be exposed over new HTTP APIs.
-* A contract development team will build a new browser-based UI to be hosted on the Azure Cloud.
+* The development team will modernize the application back-end, which is composed of relational databases hosted on VMs
+* Their in-house development team will write new business functionality, which will be exposed over new HTTP APIs.
+* A contracted development team will build a new browser-based UI, which will be hosted on the Azure Cloud.
 
 The new applications features will be delivered in stages and will *gradually replace* the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
 
@@ -30,20 +30,20 @@ The new UI will be hosted as Platform-as-a-Service on Azure, and will depend on 
 ### Components and Security
 
 1. The existing web application, hosted on-premises continues to directly consume the existing web services, also hosted on-premises.
-2. The calls from the existing web app to the existing HTTP services are unchanged, these are internal calls within the corporate network. The security team does not require any additional security for this communication.
-3. Inbound calls from the cloud to the existing internal services:
+2. The calls from the existing web app to the existing HTTP services are unchanged, these are internal calls within the corporate network.
+3. Inbound calls are made from the cloud to the existing internal services:
     * The security team allow traffic from the Azure API-M instance to communicate, through the corporate firewall, with the existing on-premises services, [using secure transport (HTTPs/SSL)][apim-ssl].
     * The operations team will allow only inbound calls to the services from the API-M instance. This requirement is met by [white-listing the IP address of the API-M instance][apim-whitelist-ip] within the corporate network perimeter.
     * A new module is configured into the on-premise HTTP services request pipeline (to act upon ONLY those connections originating externally) that will check for and validate [a certificate which API-M will provide][apim-mutualcert-auth].
 4. The new API:
-    * Is surfaced only through the API-M instance, which will provide the API facade, the new API will not be accessed directly.
+    * Is surfaced only through the API-M instance, which will provide the API facade, the new API won't be accessed directly.
     * Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
     * Is white-listed (via [Web App settings][azure-appservice-ip-restrict]) to accept only the [API-M VIP][apim-faq-vip].
     * Is hosted in Azure Web Apps with Secure Transport/SSL turned on.
     * Has Authorization turned on, [provided by the Azure App Service][azure-appservice-auth] using Azure Active Directory and OAuth2.
 5. The new browser-based Web Application will depend on the Azure API-Management instance for *both* the existing HTTP API and the new API.
 
-The API-M instance will be configured to map the legacy HTTP services to a new API contract, which is consistent with the new HTTP APIs being developed. In this way, the new Web UI is unaware it's integrating with a set of legacy services/APIs *and* new APIs. In the future, the project team plan to gradually port functionality across to the new APIs and eventually retire the original services. These changes will be handled within API-M configuration leaving the front-end UI unaffected and avoiding costly redevelopment work.
+The API-M instance will be configured to map the legacy HTTP services to a new API contract. By doing this, the new Web UI is unaware it's integrating with a set of legacy services/APIs and new APIs. In the future, the project team plans to gradually port functionality to the new APIs and retire the original services. These changes will be handled within API-M configuration leaving the front-end UI unaffected and avoiding redevelopment work.
 
 ### Alternatives
 
@@ -51,7 +51,7 @@ The API-M instance will be configured to map the legacy HTTP services to a new A
 * If the customer had decided to keep the existing endpoints private and not expose them publicly, their API Management instance could be linked to an [Azure Virtual Network (VNET)][azure-vnet]:
   * In an [Azure lift & shift scenario][azure-vm-lift-shift] linked to their deployed Azure Virtual Network, the customer could directly address the back-end service through private IP addresses.
   * In the on premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN Gateway & Site-to-site IPSec VPN connection][azure-vpn] or [Express Route][azure-er] making this a [hybrid Azure - On-Premises scenario][azure-hybrid].
-* It is possible to keep the API Management instance private by deploying the API Management instance in Internal mode. The deployment could then be used in conjunction with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs whilst others remain internal. For more information on [connecting API-M, in internal mode, to a VNET, see here.][apim-vnet-internal]
+* It's possible to keep the API Management instance private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information on [connecting API-M, in internal mode, to a VNET, see here.][apim-vnet-internal]
 
 >[!NOTE] For general information on connecting API Management to a VNET, [see here.][apim-vnet]
 
@@ -68,7 +68,7 @@ Azure API Management can be:
 
 To get started, [create an Azure API Management instance in the portal.][apim-create]
 
-Alternatively, you can choose from an existing Azure Resource Manager [quick start template][azure-quickstart-templates-apim] that aligns to your specific use case.
+Alternatively, you can choose from an existing Azure Resource Manager [quickstart template][azure-quickstart-templates-apim] that aligns to your specific use case.
 
 ## Pricing
 
