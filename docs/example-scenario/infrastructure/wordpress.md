@@ -17,7 +17,7 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-[![Architecture overview of the Azure components involved in a scalable & secure WordPress deployment][architecture]][architecture#lightbox]
+[![Architecture overview of the Azure components involved in a scalable & secure WordPress deployment](media/secure-scalable-wordpress.png)](media/secure-scalable-wordpress.png#lightbox)
 
 This scenario covers a scalable & secure installation of WordPress that uses Ubuntu web servers and MariaDB. There are two distinct data flows in this scenario the first is the website is consumed:
 
