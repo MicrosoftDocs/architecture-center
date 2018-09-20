@@ -6,7 +6,7 @@ author: petertay
 
 # Establishing an Operational Fitness Review
 
-As your enterprise begins to operate workloads in Azure, the next step is to establish an **operational fitness review** process to enumerate, implement, and iteratively review the **non-functional** requirements for these workloads. _Non-functional_ requirements are related to the expected operational behavior of the service. There are five essential categories of non-functional requirements referred to as the [pillars of software quality](../guide/pillars): scalability, availability, resiliency (including business continuity and disaster recovery), management, and security. The purpose of an operational fitness review process is ensuring that your mission critical workloads meet the expectations of your business with respect to the quality pillars.
+As your enterprise begins to operate workloads in Azure, the next step is to establish an **operational fitness review** process to enumerate, implement, and iteratively review the **non-functional** requirements for these workloads. _Non-functional_ requirements are related to the expected operational behavior of the service. There are five essential categories of non-functional requirements referred to as the [pillars of software quality](../../guide/pillars): scalability, availability, resiliency (including business continuity and disaster recovery), management, and security. The purpose of an operational fitness review process is ensuring that your mission critical workloads meet the expectations of your business with respect to the quality pillars.
 
 It is for this reason that your enterprise should undertake an operational fitness review process to fully understand the issues that result from running the workload in a production environment, determine how to remediate the issues, then resolve them. This article outlines a high level operational fitness review process that your enterprise can use to achieve this goal.
 
@@ -18,15 +18,15 @@ These processes followed by Microsoft form the basis for those outlined in this 
 
 ## Understanding the problem
 
-As you learned in [Getting Started](../cloud-adoption/overview.md) the first step in an enterprise's digital transformation is identifying the business problems to be solved by adopting Azure. The next step is to determine a high-level solution to the problem, such as migrating a workload to the cloud, or, adapting an existing on-premises service to include cloud functionality. Finally, the solution is designed and implemented.
+As you learned in [Getting Started](../../cloud-adoption/overview.md) the first step in an enterprise's digital transformation is identifying the business problems to be solved by adopting Azure. The next step is to determine a high-level solution to the problem, such as migrating a workload to the cloud, or, adapting an existing on-premises service to include cloud functionality. Finally, the solution is designed and implemented.
 
 During this process, the focus is often on the _features_ of the service. That is, there are a set of desired _functional_ requirements for the service to perform. For example, a product delivery service requires features for determining the source and destination locations of the product, tracking the product during delivery, customer notifications, and others.
 
-In contrast, the _non-functional_ requirements relate to properties such as the service's [availability](../checklist/availability.md), [resiliency](../resiliency/index.md), and [scalability](../checklist/scalability.md). These properties differ from the functional requirements in that they do not directly affect the final function of any particular feature in the service. However, these non-functional requirements are related to the _performance_ and _continuity_ of the service.
+In contrast, the _non-functional_ requirements relate to properties such as the service's [availability](../../checklist/availability.md), [resiliency](../../resiliency/index.md), and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements in that they do not directly affect the final function of any particular feature in the service. However, these non-functional requirements are related to the _performance_ and _continuity_ of the service.
 
 Some non-functional requirements can be specified in terms of a service level agreement (SLA). For example, with regard to service continuity, an availability requirement for the service can be expressed as a percentage such as **available 99.99% of the time**. Other non-functional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer facing service might start facing unanticipated throughput requirements after a surge of popularity.
 
-![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../resiliency/#define-your-availability-requirements).
+![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/#define-your-availability-requirements).
 
 ## Operational Fitness Review process
 
@@ -79,7 +79,7 @@ The operational fitness review team is composed of three roles:
 
 ## Fundamentals review example
 
-Contoso is an online retailer that has recently added the sales of event tickets to their business. Contoso creates a new [e-commerce front-end on Azure](../example-scenario/apps/ecommerce-scenario.md) to perform the following functions:
+Contoso is an online retailer that has recently added the sales of event tickets to their business. Contoso creates a new [e-commerce front-end on Azure](../../example-scenario/apps/ecommerce-scenario.md) to perform the following functions:
 
 - Host the tickets sales web site front end. Users sign in to view concert details, order tickets, check the status of ordered tickets, and view and show tickets to gain entry to the concert venue. Images and other static content are served to the user through a content delivery network (CDN).
 - Payments are made using a third-party payment-processing system.
@@ -117,11 +117,11 @@ Each time the team meets, they work through the following tasks:
 
 ## Recommended Resources
 
-- [Pillars of software quality](../guide/pillars.md)
+- [Pillars of software quality](../../guide/pillars.md)
 This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
-- [Ten design principles for Azure applications](../guide/design-principles/index.md)
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md)
 This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
-- [Designing resilient applications for Azure](../resiliency/index.md)
+- [Designing resilient applications for Azure](../../resiliency/index.md)
 This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
-- [Cloud Design Patterns](../patterns/index.md)
+- [Cloud Design Patterns](../../patterns/index.md)
 These design patterns are useful for engineering teams when building applications on the pillars of software quality.
