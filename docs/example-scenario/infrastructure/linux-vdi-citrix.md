@@ -25,7 +25,7 @@ Consider this scenario for the following use case:
 
 ## Architecture
 
-![Architecture Diagram](./media/azure-citrix-sample-diagram.png)
+[![](./media/azure-citrix-sample-diagram.png "Architecture Diagram")](./media/azure-citrix-sample-diagram.png#lightbox)
 
 This sample solution will allow the corporate network access to Linux Virtual Desktops:
 
