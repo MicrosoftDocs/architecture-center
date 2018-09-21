@@ -136,7 +136,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 * **Enable monitoring in Azure Security Center** - this is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
 * **Regulatory specific initiative** - Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **Resource Types & SKUs** - Creating an initative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organisation is only deploying resources that your team have the skillset and procedures to support. 
+* **Resource Types & SKUs** - Creating an initative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organisation is only deploying resources that your team have the skillset and procedures to support.
 
 > [!TIP]
 > We recommend you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription or management group, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
