@@ -12,6 +12,7 @@ This example scenario is relevant to organizations building solutions that integ
 In this scenario, a construction equipment manufacturer builds vehicles, meters, and drones that use IoT and GPS technologies to emit telemetry data. The company wants to modernize their data architecture to better monitor operating conditions and equipment health. Replacing the company's legacy solution using on-premises infrastructure would be both time and labor intensive, and would not be able to scale sufficiently to handle the anticipated data volume.
 
 The company wants to build a cloud-based "smart construction" solution. It should gather a comprehensive set of data for a construction site and automate the operation and maintenance of the various elements of the site. The company's goals include:
+
 * Integrating and analyzing all construction site equipment and data to minimize equipment downtime and reduce theft.
 * Remotely and automatically controlling construction equipment to mitigate the effects of a labor shortage, ultimately requiring fewer workers and enabling  lower skilled workers to succeed.
 * Minimizing the operating costs and labor requirements for the supporting infrastructure, while increasing productivity and safety
@@ -20,14 +21,14 @@ The company wants to build a cloud-based "smart construction" solution. It shoul
 * Using open-source software to maximize the investment in workers' current skills.
 
 Using managed Azure services such as IoT Hub and HDInsight will allow the customer to rapidly build and deploy a comprehensive solution with a lower operating cost. If you have additional data analytics needs, you should review the list of available [fully managed data analytics services in Azure][product-category].
-            
+
 ## Potential use cases
 
 Consider this solution for the following use cases:
 
 * Construction, mining, or equipment manufacturing scenarios
 * Large-scale collection of device data for storage and analysis
-* Ingestion and analysis of large datasets 
+* Ingestion and analysis of large datasets
 
 ## Architecture
 
@@ -50,7 +51,7 @@ The data flows through the solution as follows:
 * [Azure SQL Database](/azure/sql-database) contains the results of analyzed data from IoT devices and meters, which can be viewed by analysts and users via an Azure-based Web application. 
 * [Azure Blob storage](/azure/storage/blobs) stores image data gathered from the IoT hub devices. The image data can be viewed via the web application.
 * [Traffic Manager](/azure/traffic-manager) controls the distribution of user traffic for service endpoints in different Azure regions.
-* [Load Balancer](/azure/load-balancer) distributes data submissions from construciton equipment devices across the VM-based web services to provide high availability.
+* [Load Balancer](/azure/load-balancer) distributes data submissions from construction equipment devices across the VM-based web services to provide high availability.
 * [Azure Virtual Machines](/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
 * [Apache Cassandra](http://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
 * [Web Apps](/azure/app-service) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
@@ -66,9 +67,9 @@ The data flows through the solution as follows:
 
 ## Considerations
 
-The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high speed communication between regions is also an important factor in this scenario.
+The broad availability of Azure regions is an important factor for this scenario. Having more than one region in a single country can provide disaster recovery while also enabling compliance with contractual obligations and law enforcement requirements. Azure's high-speed communication between regions is also an important factor in this scenario.
 
-Azure support for open source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with significantly lower costs and operating workloads compared to an on-premises solution. 
+Azure support for open-source technologies allowed the customer to take advantage of their existing workforce skills. The customer can also accelerate the adoption of new technologies with lower costs and operating workloads compared to an on-premises solution. 
 
 ## Pricing
 
