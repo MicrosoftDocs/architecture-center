@@ -500,6 +500,12 @@
     items:
     - name: Deploy a basic workload
       href: cloud-adoption/infrastructure/basic-workload.md
+  - name: Operations
+    items:
+    - name: Overview
+      href: cloud-adoption/operations/overview.md
+    - name: Establish an operational fitness review
+      href: cloud-adoption/operations/operational-fitness-review.md
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
