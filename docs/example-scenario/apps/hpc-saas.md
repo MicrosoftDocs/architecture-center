@@ -1,17 +1,20 @@
 ---
-title: Computer-aided engineering through high performance computing on Azure
-description: <Article Description>
+title: Computer-Aided Engineering SaaS Platform on Azure
+description: This scenario demonstrates best practices for run a Computer-aided engineering (CAE) software-as-a-service (SaaS) platform on Azure
 author: alexbuckgit
 ms.date: 08/22/2018
 ---
 
-# Computer-aided engineering through high performance computing on Azure
+# Computer-Aided Engineering (CAE) SaaS Platform on Azure
 
 This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure. This scenario is based on an engineering software solution. However, the architecture is relevant to other industries requiring HPC resources such as image rendering, complex modeling, and financial risk calculation.
 
-This example demonstrates an engineering software provider that delivers computer-aided engineering (CAE) applications to engineering firms and manufacturing enterprises. CAE solutions enable innovation, reduce development times, and lower costs throughout the lifetime of a product's design. These solutions require substantial compute resources and often process high data volumes. The high costs of an on-premises HPC appliance or high-end workstations often put these technologies out of reach for small engineering firms, entrepreneurs, and students. 
+This example demonstrates an engineering software provider that delivers computer-aided engineering (CAE) applications to engineering firms and manufacturing enterprises. CAE solutions enable innovation, reduce development times, and lower costs throughout the lifetime of a product's design. These solutions require substantial compute resources and often process high data volumes. The high costs of an on-premises HPC appliance or high-end workstations often put these technologies out of reach for small engineering firms, entrepreneurs, and students.
 
-The company wants to expand the market for its applications by building a SaaS platform backed by cloud-based HPC technologies. Their customers should be able to pay for compute resources as needed and access massive computing power that would be unaffordable otherwise. The company's goals include:
+The company wants to expand the market for its applications by building a SaaS platform backed by cloud-based HPC technologies. Their customers should be able to pay for compute resources as needed and access massive computing power that would be unaffordable otherwise.
+
+The company's goals include:
+
 * Taking advantage of HPC capabilities in Azure to accelerate the product design and testing process
 * Using the latest hardware innovations to run complex simulations, while minimizing the costs for simpler simulations  
 * Enabling true-to-life visualization and rendering in a web browser, without requiring a high-end engineering workstation
