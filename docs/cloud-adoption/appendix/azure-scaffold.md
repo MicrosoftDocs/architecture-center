@@ -2,8 +2,9 @@
 title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
-ms.date: 09/21/2018
-ms.author: rodend;karlku;tomfitz
+
+ms.date: 03/31/2017
+ms.author: rodend;karlku;tomfitz;salean
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 
@@ -81,7 +82,7 @@ When deciding on your Departments and Accounts (or management groups), you are p
 
 Of the three patterns above, the first two are the most commonly used patterns and are both highly recommended. The Lifecycle approach is appropriate for most organizations and in this case, the general recommendation is to utilize two base subscriptions "Production" and "Non-Production" and then utilize Resource Groups to break out the environments further.
 
-### Resource group
+### Resource groups
 
 Azure Resource Manager enables you to put resources into meaningful groups for management, billing, or natural affinity. Resource groups are containers of resources that have a common life cycle or share an attribute such as "all SQL servers" or "Application A".
 
@@ -135,7 +136,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 * **Enable monitoring in Azure Security Center** - this is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
 * **Regulatory specific initiative** - Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **Enforce SKU Restrictions** - Limiting choices and enforcing consistency across an enterprise that has permissive (with respect to resource creation) standards. An initiative to restrict VM creation to a given SKU and enforcing a resource tagging on those VMs would accommodate the need to both allow users to freely create resources while guaranteeing their cost limits and mandating compliance with a tagging schema.
+* **Resource Types & SKUs** - Creating an initative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organisation is only deploying resources that your team have the skillset and procedures to support. 
 
 > [!TIP]
 > We recommend you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription or management group, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
@@ -267,7 +268,8 @@ These are tools to provide you instant information on cost as well as the abilit
 ### External Cost Management Tools
 
 * **PowerBI Azure Consumption Insights** - Do you want to create your own visualizations for your organization? If so, then the Azure Consumption Insights content pack for PowerBI is your tool of choice. Using this content pack and PowerBI you can create custom visualizations to represent your organization, do deeper analysis on costs and add in other data sources for further enrichment.
-* **Consumption API** - The [consumption APIs](https://docs.microsoft.com/en-us/rest/api/consumption/) give you programmatic access to cost and usage data in addition to information on budgets, reserved instance usage and marketplace charges. These APIs are accessible only for Enterprise Enrollments and some Web Direct subscriptions however they give you the ability to integrate your cost data into your own tools and data warehouses. You can also access these APIs by using the Azure CLI, seen [here](https://docs.microsoft.com/en-us/cli/azure/consumption?view=azure-cli-latest).
+
+* **Consumption API** - The [consumption APIs](https://docs.microsoft.com/en-us/rest/api/consumption/) give you programmatic access to cost and usage data in addition to information on budgets, reserved instances and marketplace charges. These APIs are accessible only for Enterprise Enrollments and some Web Direct subscriptions however they give you the ability to integrate your cost data into your own tools and data warehouses. You can also access these APIs by using the Azure CLI, seen [here](https://docs.microsoft.com/en-us/cli/azure/consumption?view=azure-cli-latest).
 
 > [!NOTE]
 > When we look across customers who have used the cloud for a long time and are "mature" in their use, we see a number of highly recommended practices
