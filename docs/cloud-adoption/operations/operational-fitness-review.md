@@ -78,33 +78,11 @@ The operational fitness review team is composed of the following roles:
 
 4. **Service owner**. This role is responsible for operating the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify issues and verify fixes once deployed.
 
-## Fundamentals review example
+## Operational fitness review meeting
 
-Contoso is an online retailer that has recently added the sales of event tickets to their business. Contoso creates a new [e-commerce front-end on Azure](../../example-scenario/apps/ecommerce-scenario.md) to perform the following functions:
+We recommend that your operational fitness review team meet on a regular basis. For example, the could team meet on a monthly cadence and report status and metrics to senior leadership on a quarterly basis.
 
-- Host the ticket sales web site. Users sign in to view concert details, order tickets, check the status of ordered tickets, and view and show tickets to gain entry to the concert venue. Images and other static content are served to the user through a content delivery network (CDN).
-- Payments are made using a third-party payment-processing system.
-- Users can post concert reviews after the event. Machine learning is applied to the reviews to determine concert-goer sentiment, which is provided to the concert promoter.
-
-Contoso has recently sold tickets for several popular concerts but has received complaints from customers that it's difficult to view concert details and order tickets once they go on sale. Several customers have also complained that they are randomly logged out of the site. Contoso has analyzed the performance of the application code and determined that there are no bugs in any feature that caused the performance degradations or issues with authentication.
-
-### Goals and expected outcomes
-
-Contoso has made a large investment in the business relationship with concert promoters and the development of the concert ticket sales site. Selling tickets is a mission critical function for Contoso, so they prioritize fixing the issues with the site as its highest priority.
-
-Contoso begins the fundamentals process by defining the service level objective (SLO) for the concert ticket sales application. The service level objective is comprised of the following objectives: 
-* Recovery point objective (RPO), the maximum acceptable time period in which data might be lost during an incident. 
-* Recovery time objective (RTO), the maximum acceptable time period for the service to be unavailable.
-
-The concert ticket sales application is very sensitive to data loss, because user's ticket images are stored. If the ticket image is unavailable, it prevents a user from being able to attend a concert they had paid for. 
-
-Contoso's customers are also very sensitive to the application being unavailable. If the application isn't available, a customer doesn't necessarily know whether the application is down, or is running but is too busy to serve them. The customer might feel they are missing out on the chance to buy tickets, because other customers are buying them and the concert will be sold out.
-
-### Process
-
-The operational fitness review team meets on a regular basis. The team meets on a monthly cadence and reports status and metrics to senior leadership on a quarterly basis.
-
-Each time the team meets, they work through the following tasks:
+The details of the process and meeting should be adapted to fit your specific needs. We recommend the following tasks as a starting point:
 
 1. The business owner and business advocate enumerate and determine the non-functional requirements for each business operation, with input from the engineering and service owners. For business operations that have been previously identified, the priority is reviewed and verified. For new business operations, a priority in the existing list is assigned.
 
