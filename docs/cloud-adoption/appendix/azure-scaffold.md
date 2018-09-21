@@ -30,7 +30,7 @@ The scaffold is based on practices we have gathered from many engagements with c
 The enterprise scaffold is intended to be the foundation of each new subscription within Azure. It enables administrators to ensure workloads meet the minimum governance requirements of an organization without preventing business groups and developers from quickly meeting their own goals. Our experience shows that this greatly speeds, rather than impedes, Public Cloud growth.
 
 > [!IMPORTANT]
-> Governance is crucial to the success of Azure. This article targets the technical implementation of an enterprise scaffold but only touches on the broader process and relationships between the components. Policy governance flows from the top down and is determined by what the business wants to achieve. Naturally, the creation of a governance model for Azure includes representatives from IT, but more importantly it should have strong representation from business group leaders, and security and risk management. In the end, an enterprise scaffold is about mitigating business risk to facilitate an organization's mission and objectives.
+> Microsoft has released into preview a new capability that called Azure Blueprint that will enable you to package, managed and deploy common images, templates, policies and scripts across subscriptions and management groups. This capability is the bridge between the scaffold's purpose as reference model and deploying that model to your organization.
 >
 
 The following image describes the components of the scaffold. The foundation relies on a solid plan for the management hierarchy and subscriptions. The pillars consist of Resource Manager policies and strong naming standards. The rest of the scaffold comes from core Azure capabilities and features that enable and connect a secure and manageable environment.
@@ -65,7 +65,7 @@ Though each of these patterns has it's place, the **business unit** pattern is i
 
 ### Management Groups
 
-Microsoft has recently released a preview of a new way of modeling your hierarchy: Management Groups ([link](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management-groups-overview)). Management groups are much more flexible than departments and accounts and can be nested up to six levels. Management Groups allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. While Management Groups can mirror your billing hierarchy -and often enterprises start that way- the power of the management group is when you use it to model your organization where common subscriptions -regardless where they are in the billing hierarchy -are grouped together to provide common RBAC, Policies & Initiatives and other capabilities over time.  A few examples
+Microsoft has recently released a preview of a new way of modeling your hierarchy: [Management Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts and can be nested up to six levels. Management Groups allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. While Management Groups can mirror your billing hierarchy -and often enterprises start that way- the power of the management group is when you use it to model your organization where common subscriptions -regardless where they are in the billing hierarchy -are grouped together to provide common RBAC, Policies & Initiatives and other capabilities over time. A few examples:
 
 * **Production/Non-Production** - Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 * **Internal Services/External Services** - much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
@@ -92,7 +92,7 @@ Resource groups can't be nested, and resources can only belong to one resource g
 * "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups often  reflect the layers of deployment (such as Web Tier, App Tier) and management.
 
 > [!NOTE]
-> Understanding your workload helps you develop a resource >group strategy. These patterns can be mixed and matched as well, for example, shared services type of resource group in the same subscription as "Agile" resource groups.
+> Understanding your workload helps you develop a resource group strategy. These patterns can be mixed and matched as well, for example, shared services type of resource group in the same subscription as "Agile" resource groups.
 
 ## Naming standards
 
@@ -136,7 +136,7 @@ The introduction of initiatives provided enterprises to group logical policies t
 
 * **Enable monitoring in Azure Security Center** - this is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
 * **Regulatory specific initiative** - Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **example 3** - Think of another common one
+* **Enforce SKU Restrictions** - Limiting choices and enforcing consistency across an enterprise that has permissive (with respect to resource creation) standards. An initiative to restrict VM creation to a given SKU and enforcing a resource tagging on those VMs would accommodate the need to both allow users to freely create resources while guaranteeing their cost limits and mandating compliance with a tagging schema.
 
 > [!TIP]
 > We recommend that you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
@@ -210,7 +210,9 @@ The "Secure DevOps Kit for Azure" (AzSK) is a collection of scripts, tools, exte
 
 The AzSK is a rich set of tools, scripts and information that are an important part of a full Azure governance plan and incorporating this into your scaffold is crucial to supporting your organizations risk management goals
 
-Summary
+### Azure Update Management
+
+One of the key tasks you can do to keep your environment safe is to ensure that your servers are patched with the latest updates. While there are many tools to accomplish this, Azure provides the [Azure Update Management](https://docs.microsoft.com/en-us/azure/automation/automation-update-management) solution to address the identification and rollout of critical OS patches.  It makes use of Azure Automation (which is covered in the [Automate](#automate) section, later in this guide.
 
 ## Monitor and Alerts
 
@@ -292,11 +294,18 @@ Cost management is a discipline that is core to the effective and efficient runn
 
 ## Automate
 
-Intro
-Azure Automation
-Update Management (TIP?)
-LogicApps&Functions
-Top 5 Recommendations
+One of the many capabilities that differentiates the maturity of organizations using cloud providers is the level of automation that they have incorporated.  Automation is a never-ending process and as your organization moves to the cloud it is any area that you need to invest resources and time in building.  Automation serves many purposes including consistent rollout of resources (where it ties directly to another core scaffold concept, Templates & DevOps) to the remediation of issues.  Automation is the "connective tissue" of the Azure scaffold and links each area together.
+
+There are a number of tools that are available as you build out this capability, from first party tools such as Azure Automation, EventGrid and AzureCLI to an extensive amount of third party tools such as Terraform, Jenkins, Chef, and Puppet (to name a few). Core to your operations team ability to automate are Azure Automation, Event Grid and the Azure Cloud Shell:
+
+* **Azure Automation**: Is a cloud-based capability that allows to you author Runbooks (in either PowerShell or Python) and allows you automate processes, configure resources, and even apply patches.  [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-intro) has an extensive set of cross platform capabilities that are integral to your deployment but are too extensive to be covered in depth here.
+* **Event Grid**: this [service](https://docs.microsoft.com/en-us/azure/event-grid) is a fully-managed event routing system that let's you react to events within your Azure environment. Like Automation is the connective tissue of mature cloud organizations, Event Grid is the connective tissue of good automation. Using Event Grid, you can create a simple, serverless, action to send an email to an administrator whenever a new resource is created and log that resource in a database. That same Event Grid can notify when a resource is deleted and remove the item from the database.
+* **Azure Cloud Shell**: is an interactive, browser-based [shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) for managing resources in Azure. It provides a complete environment for either PowerShell or Bash that is launched as needed (and maintained for you) so that you have a consistent environment from which to run your scripts. The Azure Cloud Shell provides access to additional key tools -already installed-- to automate your environment including [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), [Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure) and a growing list of additional [tools](https://azure.microsoft.com/en-us/updates/cloud-shell-new-cli-tools-and-font-size-selection/) to manage containers, databases (sqlcmd) and more.
+
+> [!IMPORTANT]
+> Automation is a full time job and it will rapidly become one of the most important operational tasks within your cloud team. Organizations that take the approach of "automate first" have greater success in using Azure:
+>* Managing costs: actively seeking opportunities and creating automation to re-size resources, scale-up/down and turn off unused resources.
+>* Operational flexibility: through the use of automation (along with Templates and DevOps) you gain a level of repeatability that increases availability, increases security and enables your team to focus on solving business problems.
 
 ## Templates & DevOps
 
@@ -324,5 +333,6 @@ Azure provides you both internal capabilities and third party capabilities from 
 
 ## Next steps
 
-* Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](azure-scaffold-examples.md).
+Governance is crucial to the success of Azure. This article targets the technical implementation of an enterprise scaffold but only touches on the broader process and relationships between the components. Policy governance flows from the top down and is determined by what the business wants to achieve. Naturally, the creation of a governance model for Azure includes representatives from IT, but more importantly it should have strong representation from business group leaders, and security and risk management. In the end, an enterprise scaffold is about mitigating business risk to facilitate an organization's mission and objectives
 
+Now that you have learned about subscription governance, it's time to see these recommendations in practice. See [Examples of implementing Azure subscription governance](azure-scaffold-examples.md).
