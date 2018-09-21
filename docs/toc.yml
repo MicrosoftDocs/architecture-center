@@ -344,33 +344,33 @@
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
-    - name: Computer-Aided Engineering SaaS
+    - name: Computer-aided engineering SaaS
       href: example-scenario/apps/hpc-saas.md
     - name: Decentralized trust between banks
       href: example-scenario/apps/decentralized-trust.md
-    - name: Web Application Monitoring
+    - name: Web application monitoring
       href: example-scenario/apps/app-monitoring.md
     - name: Hotel reservation chatbot
       href: example-scenario/apps/commerce-chatbot.md
-    - name: DevOps with Containers
+    - name: DevOps with containers
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with Azure DevOps
       href: example-scenario/apps/devops-dotnet-webapp.md
-    - name: SAP for Dev/Test
+    - name: SAP for dev/test
       href: example-scenario/apps/sap-dev-test.md
-    - name: SAP for Production
+    - name: SAP for production
       href: example-scenario/apps/sap-production.md
     - name: E-commerce front-end
       href: example-scenario/apps/ecommerce-scenario.md
-    - name: E-commerce API Management
+    - name: E-commerce API management
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
-  - name: Data & Analytics
+  - name: Data and Analytics
     items:
-    - name: IoT for Construction
+    - name: IoT for construction
       href: example-scenario/data/big-data-with-iot.md
-    - name: Data Warehousing and Analytics
+    - name: Data warehousing and analytics
       href: example-scenario/data/data-warehouse.md
     - name: Automotive IOT data
       href: example-scenario/data/realtime-analytics-vehicle-iot.md
@@ -380,11 +380,11 @@
       href: example-scenario/data/ecommerce-order-processing.md
   - name: Infrastructure
     items:
-    - name: Computational Fluid Dynamics (CFD)
+    - name: Computational fluid dynamics (CFD)
       href: example-scenario/infrastructure/hpc-cfd.md
-    - name: Linux Virtual Desktops
+    - name: Linux virtual desktops
       href: example-scenario/infrastructure/linux-vdi-citrix.md
-    - name: Decomposing Monolithic Applications
+    - name: Decomposing monolithic applications
       href: example-scenario/infrastructure/ServiceFabricMicroservices.md
     - name: Highly scalable WordPress
       href: example-scenario/infrastructure/wordpress.md
