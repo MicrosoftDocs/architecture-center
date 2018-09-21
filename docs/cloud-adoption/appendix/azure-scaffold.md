@@ -2,9 +2,6 @@
 title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
-
-ms.date: 03/31/2017
-ms.author: rodend;karlku;tomfitz;salean
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 
@@ -91,7 +88,7 @@ Resource groups can't be nested, and resources can only belong to one resource g
 * "Traditional IT" workloads are most commonly grouped by items within the same life cycle, such as an application. Grouping by application allows for individual application management.
 * "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups often reflect the layers of deployment (such as Web Tier, App Tier) and management.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Understanding your workload helps you develop a resource group strategy. These patterns can be mixed and matched as well, for example, shared services type of resource group in the same subscription as "Agile" resource groups.
 
 ## Naming standards
@@ -110,7 +107,7 @@ Note, concentrate your naming standards on those resources that are more commonl
 ### Resource Tags
 
 Resource tags are tightly aligned with naming standards. As resources are added to subscriptions, it becomes increasingly important to logically categorize them for billing, management and operational purposes. Tagging resources is covered in the article [Use tags to organize your Azure Resource](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags).
-> [!NOTE]
+> [!IMPORTANT]
 > Tags can contain personal information and may fall under the regulations of GDPR. Plan for management of your tags carefully. If you're looking for general info about GDPR, see the GDPR section of the [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 Tags are used in many ways beyond billing and management. They are often used as part of automation (see later section). This can cause conflicts if not considered up front. The recommended practice is to identify all the common tags at the enterprise level (such as ApplicationOwner, CostCenter) and apply them consistently when deploying resources using automation.
@@ -119,7 +116,7 @@ Tags are used in many ways beyond billing and management. They are often used as
 
 The second pillar of the scaffold involves using [Azure Policy and Initiatives](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) to manage risk by enforcing rules (with effects) over the resources and services in your subscriptions. Azure Initiatives are collections of policies that are designed to achieve a single goal. Azure policy and initiatives are then assigned to a resource scope to begin enforcement of the particular policies.
 <IMG of Initiatives/Policies/Assignments>
-> [!NOTE]
+> [!IMPORTANT]
 > Azure Policy and Initiatives are even more powerful when used with the Management groups we mentioned earlier.  Management groups enable the assignment of an initiative or policy to an entire set of subscriptions.
 
 ### Common uses of Resource Manager policies
@@ -136,7 +133,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 * **Enable monitoring in Azure Security Center** - this is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
 * **Regulatory specific initiative** - Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **Resource Types & SKUs** - Creating an initative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organisation is only deploying resources that your team have the skillset and procedures to support.
+* **Resource Types & SKUs** - Creating an initiative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organization is only deploying resources that your team have the skillset and procedures to support.
 
 > [!TIP]
 > We recommend you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription or management group, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
@@ -145,7 +142,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 After the creation of policies and grouping them into logical initiatives you must assign the policy to a scope, whether it is a management group, a subscription or even a resource group. Assignments allow you to also exclude a sub-scope from the assignment of a policy. For example, if you deny the creation of public IPs within a subscription, you could create an assignment with an exclusion for a resource group connected to your protected DMZ.
 
->[!NOTE]
+>[!IMPORTANT]
 > You will find several Policy examples that show how Policy and Initiatives can be applied to various resources within Azure on this [GitHub](https://https://github.com/Azure/azure-policy) repository.
 
 ## Identity and Access Management
@@ -166,7 +163,7 @@ When implementing role-based access, the following are highly recommended:
 * Add Azure users to a group (for example, Application X Owners) in Active Directory. Use the synced group to provide group members the appropriate rights to manage the resource group containing the application.
 * Follow the principle of granting the **least privilege** required to do the expected work.
 
-> [!NOTE]
+> [!IMPORTANT]
 >Consider using [Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure), Azure [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted) and [Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal) capabilities to provide better security and more visibility to administrative actions across your Azure subscriptions. These capabilities come from a valid Azure AD Premium license (depending on the feature) to further secure and manage your identity. AAD PIM enables "Just-in-Time" administrative access with approval workflow, as well as a full audit of administrator activations and activities. Azure MFA is another critical capability and enables two-step verification for login to the Azure portal. When combined with Conditional Access Controls you can effectively manage your risk of compromise.
 
 Planning and preparing for your identity and access controls and following Azure Identity Management best practice ([link](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices)) is one of the best risk mitigation strategies that you can employ and should be considered mandatory for every deployment.
@@ -179,7 +176,8 @@ One of the biggest blockers to cloud adoption traditionally has been concerns ov
 
 The [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) provides a unified view of the security status of resources across your environment in addition to advanced threat protection. Azure Security Center is an open platform that enables Microsoft partners to create software that plugs into and enhance its capabilities. The baseline capabilities of Azure Security Center (free tier) provides assessment and recommendations that will enhance your security posture. Its paid tiers enable additional and valuable capabilities such as Just In Time admin access and adaptive application controls (whitelisting).
 
-> [!TIP] Azure security center is a very powerful tool that is constantly being enhanced and incorporating new capabilities you can leverage to detect threats and protect your enterprise. It is highly recommended to always enable ASC.
+> [!TIP] 
+>Azure security center is a very powerful tool that is constantly being enhanced and incorporating new capabilities you can leverage to detect threats and protect your enterprise. It is highly recommended to always enable ASC.
 
 ### Azure resource locks
 
@@ -271,7 +269,7 @@ These are tools to provide you instant information on cost as well as the abilit
 
 * **Consumption API** - The [consumption APIs](https://docs.microsoft.com/en-us/rest/api/consumption/) give you programmatic access to cost and usage data in addition to information on budgets, reserved instances and marketplace charges. These APIs are accessible only for Enterprise Enrollments and some Web Direct subscriptions however they give you the ability to integrate your cost data into your own tools and data warehouses. You can also access these APIs by using the Azure CLI, seen [here](https://docs.microsoft.com/en-us/cli/azure/consumption?view=azure-cli-latest).
 
-> [!NOTE]
+> [!IMPORTANT]
 > When we look across customers who have used the cloud for a long time and are "mature" in their use, we see a number of highly recommended practices
 >* **Actively Monitor Costs**: Organizations that are mature Azure users constantly monitor costs and take actions when needed. Some organizations even dedicate people to do analysis and suggest changes to usage, and these people more than pay for themselves the first time they find an unused HDInsight cluster that's been running for months.
 >* **Use Reserved Instances**: Another key tenant for managing costs in the cloud is to use the right tool for the job. If you have an IaaS VM that must stay on 24x7, then using a Reserved Instance will save you significant money. Finding the right balance between automating the shutdown of VMs and using RIs takes experience and analysis.
