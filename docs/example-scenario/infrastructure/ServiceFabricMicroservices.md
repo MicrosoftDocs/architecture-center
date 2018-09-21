@@ -16,7 +16,7 @@ By moving from a monolithic to a microservice architecture, we can achieve the f
 - The small units of code can easily and discretely be distributed over multiple development teams
 - New developers can quickly and easily grasp the discrete functionality of the unit
 
-A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can run on Linux as the underlying OS also. It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
+A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can also run on Linux as the underlying OS . It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
 
 ## Related Use Cases
 
