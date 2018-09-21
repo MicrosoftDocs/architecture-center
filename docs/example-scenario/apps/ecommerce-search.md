@@ -46,7 +46,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 * You could use **in-database search** capabilities, for example, through SQL Server full-text search, but then your transactional store also processes queries (increasing the need for processing power) and the search capabilities inside the database are more limited.
 * You could host the open-source [Apache Lucene][apache-lucene] (on which Azure Search is built upon) on Azure Virtual Machines, but then you are back to managing Infrastructure-as-a-Service (IaaS) and don't benefit from the many features that Azure Search provides on top of Lucene.
-* You could also consider deploying [Elasticsearch][elastic-marketplace] from the Azure Marketplace, which is an alternative and very capable search product from a third-party vendor, but also in this case you are running an IaaS workload.
+* You could also consider deploying [Elasticsearch][elastic-marketplace] from the Azure Marketplace, which is an alternative and capable search product from a third-party vendor, but also in this case you are running an IaaS workload.
 
 Other options for the data tier include:
 
