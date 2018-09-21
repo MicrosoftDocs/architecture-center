@@ -344,26 +344,50 @@
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
+    - name: Computer-Aided Engineering SaaS
+      href: example-scenario/apps/hpc-saas.md
+    - name: Decentralized trust between banks
+      href: example-scenario/apps/decentralized-trust.md
+    - name: Web Application Monitoring
+      href: example-scenario/apps/app-monitoring.md
     - name: Hotel reservation chatbot
       href: example-scenario/apps/commerce-chatbot.md
     - name: DevOps with Containers
       href: example-scenario/apps/devops-with-aks.md
-    - name: DevOps with VSTS
+    - name: DevOps with Azure DevOps
       href: example-scenario/apps/devops-dotnet-webapp.md
     - name: SAP for Dev/Test
       href: example-scenario/apps/sap-dev-test.md
+    - name: SAP for Production
+      href: example-scenario/apps/sap-production.md
     - name: E-commerce front-end
       href: example-scenario/apps/ecommerce-scenario.md
     - name: E-commerce API Management
       href: example-scenario/apps/apim-api-scenario.md
+    - name: E-commerce product search
+      href: example-scenario/apps/ecommerce-search.md
   - name: Data & Analytics
     items:
+    - name: IoT for Construction
+      href: example-scenario/data/big-data-with-iot.md
+    - name: Data Warehousing and Analytics
+      href: example-scenario/data/data-warehouse.md
+    - name: Automotive IOT data
+      href: example-scenario/data/realtime-analytics-vehicle-iot.md
     - name: Real-time fraud detection
       href: example-scenario/data/fraud-detection.md
     - name: Scalable order processing
       href: example-scenario/data/ecommerce-order-processing.md
   - name: Infrastructure
     items:
+    - name: Computational Fluid Dynamics (CFD)
+      href: example-scenario/infrastructure/hpc-cfd.md
+    - name: Linux Virtual Desktops
+      href: example-scenario/infrastructure/linux-vdi-citrix.md
+    - name: Decomposing Monolithic Applications
+      href: example-scenario/infrastructure/ServiceFabricMicroservices.md
+    - name: Highly scalable WordPress
+      href: example-scenario/infrastructure/wordpress.md
     - name: Multi-tier Windows
       href: example-scenario/infrastructure/regulated-multitier-app.md
     - name: HPC video rendering
