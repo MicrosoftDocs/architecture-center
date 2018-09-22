@@ -2,16 +2,18 @@
 title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
+ms.author: rodend
+ms.date: 9/22/2018
 ---
 # Azure enterprise scaffold - prescriptive subscription governance
 
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They utilize the cloud's strengths to generate revenue and optimize resource usage for the business. Microsoft Azure provides a multitude of services and capabilities that enterprises assemble like building blocks to address a wide array of workloads and applications.
 
-Deciding to use Microsoft Azure is only the first step to achieving the benefit of the Cloud. The second step is understanding how the enterprise can effectively use Azure and identify the baseline capabilities that need to be in place to address questions like:
+Deciding to use Microsoft Azure is only the first step to achieving the benefit of the cloud. The second step is understanding how the enterprise can effectively use Azure and identify the baseline capabilities that need to be in place to address questions like:
 
 * "I'm concerned about data sovereignty; how can I ensure that my data and systems meet our regulatory requirements?"
 * "How do I know what every resource is supporting so I can account for it and bill it back accurately?"
-* "I want to make sure that everything we deploy or do in the Public Cloud starts with the mindset of security first, how do I help facilitate that?"
+* "I want to make sure that everything we deploy or do in the public cloud starts with the mindset of security first, how do I help facilitate that?"
 
 The prospect of an empty subscription with no guard rails is daunting. This blank space can hamper your move to Azure.
 
@@ -149,7 +151,7 @@ After the creation of policies and grouping them into logical initiatives you mu
 
 One of the first, and most crucial, questions you ask yourself when starting with the public cloud is "who should have access to resources?" and "how do I control this access?" Allowing or disallowing access to the Azure portal, and controlling access to resources in the portal is critical to the long term success and safety of your assets in the cloud.
 
-To accomplish the task of securing access to your resources you will first configure your "Identity Provider" and then configure Roles and access. Azure Active Directory (AAD), connected to your on-premises Active Directory, is the foundation of Azure Identity. That said, AAD is NOT Active Directory and it's important to understand what an AAD tenant is and how it relates to your Azure enrollment.  Review the available [information](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption-guide/adoption-intro/tenant-explainer) to gain a solid foundation on AAD and AD. To connect and synchronize your Active Directory to Azure Active Directory, you will install and configure the [AD Connect tool](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect) on-premises.
+To accomplish the task of securing access to your resources you will first configure your identity provider and then configure Roles and access. Azure Active Directory (Azure AD), connected to your on-premises Active Directory, is the foundation of Azure Identity. That said, Azure AD is *not* Active Directory and it's important to understand what an Azure AD tenant is and how it relates to your Azure enrollment.  Review the available [information](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption-guide/adoption-intro/tenant-explainer) to gain a solid foundation on Azure AD and AD. To connect and synchronize your Active Directory to Azure AD, you will install and configure the [AD Connect tool](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect) on-premises.
 
 ![arch.png](./_images/arch.png)
 
@@ -164,7 +166,7 @@ When implementing role-based access, the following are highly recommended:
 * Follow the principle of granting the **least privilege** required to do the expected work.
 
 > [!IMPORTANT]
->Consider using [Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure), Azure [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted) and [Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal) capabilities to provide better security and more visibility to administrative actions across your Azure subscriptions. These capabilities come from a valid Azure AD Premium license (depending on the feature) to further secure and manage your identity. AAD PIM enables "Just-in-Time" administrative access with approval workflow, as well as a full audit of administrator activations and activities. Azure MFA is another critical capability and enables two-step verification for login to the Azure portal. When combined with Conditional Access Controls you can effectively manage your risk of compromise.
+>Consider using [Azure AD Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure), Azure [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted) and [Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal) capabilities to provide better security and more visibility to administrative actions across your Azure subscriptions. These capabilities come from a valid Azure AD Premium license (depending on the feature) to further secure and manage your identity. Azure AD PIM enables "Just-in-Time" administrative access with approval workflow, as well as a full audit of administrator activations and activities. Azure MFA is another critical capability and enables two-step verification for login to the Azure portal. When combined with Conditional Access Controls you can effectively manage your risk of compromise.
 
 Planning and preparing for your identity and access controls and following Azure Identity Management best practice ([link](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices)) is one of the best risk mitigation strategies that you can employ and should be considered mandatory for every deployment.
 
