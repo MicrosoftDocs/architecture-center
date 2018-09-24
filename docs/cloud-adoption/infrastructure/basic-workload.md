@@ -5,7 +5,7 @@ author: petertaylor9999
 ms.date: 09/10/2018
 ---
 
-# Enterprise Cloud Adoption: deploy a basic workload
+# Enterprise Cloud Adoption: Deploy a basic workload
 
 The term **workload** is typically understood to define an arbitrary unit of functionality such as an application or service. We think about a workload in terms of the code artifacts that are deployed to a server, but also in terms of any other services that are necessary. This is a useful definition for an on-premises application or service but in the cloud we need to expand on it.
 
