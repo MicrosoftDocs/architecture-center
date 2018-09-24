@@ -5,7 +5,7 @@ author: rdendtler
 ms.author: rodend
 ms.date: 9/22/2018
 ---
-# Azure enterprise scaffold - prescriptive subscription governance
+# Azure enterprise scaffold: Prescriptive subscription governance
 
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They utilize the cloud's strengths to generate revenue and optimize resource usage for the business. Microsoft Azure provides a multitude of services and capabilities that enterprises assemble like building blocks to address a wide array of workloads and applications.
 
