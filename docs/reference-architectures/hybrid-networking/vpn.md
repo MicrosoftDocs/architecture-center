@@ -484,8 +484,6 @@ To deploy the solution, perform the following steps.
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
-[solution-script]: https://github.com/mspnp/reference-architectures/hybrid-networking/vpn/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://github.com/mspnp/hybrid-networking/vpn/deploy-reference-architecture.sh
 [virtualNetworkGateway-parameters]: https://github.com/mspnp/hybrid-networking/vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
