@@ -358,5 +358,3 @@ ms.topic: landing-page
         </a>
     </li>
 </ul>   
-
-**[More interactive learning...](/learn/browse/?products=azure)**
