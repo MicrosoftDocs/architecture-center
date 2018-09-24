@@ -73,6 +73,20 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
   * If the data source is geo-replicated, you should generally point each indexer of each regional Azure Search service to its local data source replica. However, that approach is not recommended for large datasets stored in Azure SQL Database. The reason is that Azure Search cannot perform incremental indexing from secondary SQL Database replicas, only from primary replicas. Instead, point all indexers to the primary replica. After a failover, point the Azure Search indexers at the new primary replica.  
   * If the data source is not geo-replicated, point multiple indexers at the same data source, so that Azure Search services in multiple regions continuously and independently index from the data source. For more information, see [Azure Search performance and optimization considerations][search-optimization].
 
+## Service Bus
+**Use premium for Production scenarios**. Service Bus Premium Messaging procures dedicated and reserved processing resources, and memory capacity to support predictable performance and throughput. Premium Messaging tier also gives you access to new features that are available only to premium customers at first. You can decide the number of messaging units based on expected workloads.
+
+**Handle duplicate messages**. If a publisher fails immediately after sending a message, or experiences network or system issues, it may erroneously believe that the prior message delivery did not occur and may send the same message to the system twice. Service Bus can handle this issue by enabling duplicate detection. For more information, see [Duplicate detection] (https://docs.microsoft.com/azure/service-bus-messaging/duplicate-detection)
+
+**Handle exceptions**. Messaging APIs generate exceptions when a user, configuration, or other error occurs. The client code (senders and receivers) should handle these exceptions in their code. It is important in batch processing, where exception handling can be utilized to avoid losing an entire batch of messages. For more information, see [Service Bus messaging exceptions](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions)
+
+**Retry policy**. Service Bus allows you to pick the best retry policy for your applications. The default policy is to allow 9 maximum retry attempts, and wait for 30 seconds but this can be further adjusted. For more information, see [Retry policy – Service Bus] (https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific#service-bus)  
+
+**Use a dead-letter queue**. If a message cannot be processed or delivered to any receiver in spite of multiple retries, it is moved to a Dead Letter queue. It can be removed from the Dead Letter Queue, and inspected and remediated. Depending on the scenario, you might retry the message as-is, or make changes and retry, or discard it. For more information, see [Dead-letter queues]( https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dead-letter-queues) 
+
+**Use Geo-Disaster Recovery**. Geo-disaster recovery ensures that data processing continues to operate in a different region or datacenter when an entire Azure region or datacenter goes down due to a disaster. For more information, see [Azure Service Bus Geo-disaster recovery](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-geo-dr)
+
+
 ## Storage
 
 **For application data, use read-access geo-redundant storage (RA-GRS).** RA-GRS storage replicates the data to a secondary region, and provides read-only access from the secondary region. If there is a storage outage in the primary region, the application can read the data from the secondary region. For more information, see [Azure Storage replication](/azure/storage/storage-redundancy/).
