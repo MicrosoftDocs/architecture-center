@@ -49,6 +49,9 @@
       - name: Appendix
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
+    - name: Example Scenarios
+      tocHref: /azure/architecture/example-scenario/
+      topicHref: /azure/architecture/example-scenario/
     - name: Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
