@@ -52,7 +52,7 @@
     - name: Example Scenarios
       tocHref: /azure/architecture/example-scenario/
       topicHref: /azure/architecture/example-scenario
-    - name: Guide
+    - name: Application Architecture Guide
       tocHref: /azure/architecture/guide
       topicHref: /azure/architecture/guide
     - name: Data Architecture Guide
