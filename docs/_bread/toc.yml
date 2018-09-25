@@ -7,29 +7,26 @@
     topicHref: /azure/architecture
     items:
     - name: Best Practices
-      tocHref: /azure/architecture/best-practices
+      tocHref: /azure/architecture/best-practices/
       topicHref: /azure/architecture/best-practices
     - name: Azure for AWS Professionals
-      tocHref: /azure/architecture/aws-professional
+      tocHref: /azure/architecture/aws-professional/
       topicHref: /azure/architecture/aws-professional
     - name: Design for Resiliency
-      tocHref: /azure/architecture/resiliency
+      tocHref: /azure/architecture/resiliency/
       topicHref: /azure/architecture/resiliency
     - name: Design Review Checklists
-      tocHref: /azure/architecture/checklist
+      tocHref: /azure/architecture/checklist/
       topicHref: /azure/architecture/checklist
     - name: Manage Identity in Multitenant Applications
-      tocHref: /azure/architecture/multitenant-identity
+      tocHref: /azure/architecture/multitenant-identity/
       tocHref: /azure/architecture/multitenant-identity
     - name: Reference Architectures
-      tocHref: /azure/architecture/reference-architectures
+      tocHref: /azure/architecture/reference-architectures/
       topicHref: /azure/architecture/reference-architectures
     - name: Cloud Design Patterns
-      tocHref: /azure/architecture/patterns
+      tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
-    - name: Resources
-      tocHref: /azure/architecture/resources
-      topicHref: /azure/architecture/resources
     - name: Enterprise Cloud Adoption
       tocHref: /azure/architecture/cloud-adoption/
       topicHref: /azure/architecture/cloud-adoption
@@ -49,15 +46,18 @@
       - name: Appendix
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
-    - name: Guide
-      tocHref: /azure/architecture/guide
+    - name: Example Scenarios
+      tocHref: /azure/architecture/example-scenario/
+      topicHref: /azure/architecture/example-scenario
+    - name: Application Architecture Guide
+      tocHref: /azure/architecture/guide/
       topicHref: /azure/architecture/guide
     - name: Data Architecture Guide
-      tocHref: /azure/architecture/data-guide
+      tocHref: /azure/architecture/data-guide/
       topicHref: /azure/architecture/data-guide
     - name: Design Microservices
-      tocHref: /azure/architecture/microservices
+      tocHref: /azure/architecture/microservices/
       topicHref: /azure/architecture/microservices
     - name: Performance Antipatterns
-      tocHref: /azure/architecture/antipatterns
-      topicHref: /azure/architecture/
+      tocHref: /azure/architecture/antipatterns/
+      topicHref: /azure/architecture/antipatterns
