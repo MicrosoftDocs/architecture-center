@@ -30,7 +30,7 @@ This scenario is relevant to organizations with large monolithic Web application
 
 Using Service Fabric as the hosting platform, we could turn a large IIS web site into a collection of microservices as shown below:
 
-![Full Architecture Diagram](./media/service-fabric-microservices/clip_image002.png)
+![Full Architecture Diagram](./media/service-fabric-microservices/service-fabric-complete.png)
 
 In the picture above, we decomposed all the parts of a large IIS application into:
 
@@ -47,13 +47,13 @@ Service Fabric was chosen because it is capable of supporting running all the mi
 
 To get to this final, decomposed application, we used an iterative approach. We started with a large IIS/ASP.Net web site on a server farm. A single node of the server farm is pictured below. It contains the original web site with several virtual directories (VDirs), an additional Windows Service the site calls, and an executable that does some periodic site archive maintenance.
 
-![Monolithic Architecture Diagram](./media/service-fabric-microservices/clip_image004.png)
+![Monolithic Architecture Diagram](./media/service-fabric-microservices/service-fabric-monolith.png)
 
 On the first development iteration, the IIS site and its VDirs placed in a [Windows Container](/azure/service-fabric/service-fabric-containers-overview). Doing this allows the site to remain operational, but not tightly bound to the underlying server node OS. The container is run and orchestrated by the underlying Service Fabric node, but the node does not have to have any state that the site is dependent on (registry entries, files, etc.). All of those items are in the container. We have also placed the Indexing service in a Windows Container for the same reasons. The containers can be deployed, versioned, and scaled independently. Finally, we hosted the Archive Service a simple [stand-alone exe](/azure/service-fabric/service-fabric-guest-executables-introduction) since it is a self-contained exe with no special requirements.
 
 The picture below shows how our large web site is now partially decomposed into independent units and ready to be decomposed more as time allows.
 
-![Partially Decomposed Architecture Diagram](./media/service-fabric-microservices/clip_image006.png)
+![Partially Decomposed Architecture Diagram](./media/service-fabric-microservices/service-fabric-midway.png)
 
 Further development focuses on separating the single large Default Web site container pictured above. Each of the VDir ASP.Net apps is removed from the container one at a time and ported to ASP.Net Core [reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction).
 
