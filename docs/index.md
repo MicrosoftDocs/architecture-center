@@ -265,3 +265,96 @@ ms.topic: landing-page
         </a>
     </li>
 </ul>
+
+---
+
+## Build your skills with Microsoft Learn
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/pillars-of-a-great-azure-architecture/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/pillars-of-a-great-azure-architecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Pillars of a great Azure architecture</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-security-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-security-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Design for security in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-performance-and-scalability-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-performance-and-scalability-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for performance and scalability in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-efficiency-and-operations-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-efficiency-and-operations-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for efficiency and operations in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-availability-and-recoverability-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-availability-and-recoverability-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for availability and recoverability in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
