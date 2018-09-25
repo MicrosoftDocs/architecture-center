@@ -22,7 +22,7 @@
       tocHref: /azure/architecture/multitenant-identity
       tocHref: /azure/architecture/multitenant-identity
     - name: Reference Architectures
-      tocHref: /azure/architecture/reference-architectures
+      tocHref: /azure/architecture/reference-architectures/
       topicHref: /azure/architecture/reference-architectures
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns
@@ -50,7 +50,7 @@
         tocHref: /azure/architecture/cloud-adoption/appendix/
         topicHref: /azure/architecture/cloud-adoption/appendix
     - name: Example Scenarios
-      tocHref: /azure/architecture/example-scenario
+      tocHref: /azure/architecture/example-scenario/
       topicHref: /azure/architecture/example-scenario
     - name: Guide
       tocHref: /azure/architecture/guide
