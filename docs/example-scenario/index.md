@@ -18,9 +18,10 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Featured landing pages</h3>
-                        <a class="barLink" href="/en-us/azure/virtual-machines/linux/index" data-linktype="absolute-path">Donec ullamcorper non justo at tempor.</a>
-                        <a class="barLink" href="/en-us/azure/virtual-machines/windows/index" data-linktype="absolute-path">Donec ornare augue ut fermentum porta.</a>
+                        <h3>Recently Published Scenarios</h3>
+                        <a class="barLink" href="/azure/architecture/example-scenario/apps/ecommerce-search" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/wordpress" data-linktype="absolute-path">Highly scalable and secure WordPress website</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/data/data-warehouse" data-linktype="absolute-path">Data warehousing & analytics for sales and marketing</a>
                     </div>
                 </div>
             </div>
@@ -31,35 +32,29 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Quickstarts</h3>
+                        <h3>Scenario Topics</h3>
                         <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_NET.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
+                            <a href="#ai-scenarios">
+                                <img src="../_images/icons/cognitive.png" alt="">
+                                <span>Artificial Intelligence</span>
                             </a>
                         </div>
                         <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_php.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
+                            <a href="#application-scenarios">
+                                <img src="../_images/icons/app-service.svg" alt="">
+                                <span>Applications</span>
                             </a>
                         </div>
                         <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_nodejs.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
+                            <a href="#data-scenarios">
+                                <img src="../_images/icons/data-guide.svg" alt="">
+                                <span>Data</span>
                             </a>
                         </div>
                         <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
-                            </a>
-                        </div>
-                        <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
+                            <a href="#infrastructure-scenarios">
+                                <img src="../_images/icons/gateway.svg" alt="" >
+                                <span>Infrastructure</span>
                             </a>
                         </div>
                     </div>
@@ -72,8 +67,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>More features</h3>
-                        <a class="barLink" href="/en-us/azure/sql-database/index" data-linktype="absolute-path">Another landing page</a>
+                        <h3>Top Scenarios</h3>
+                        <a class="barLink" href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing" data-linktype="absolute-path">Image classification for insurance claims</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/apps/commerce-chatbot" data-linktype="absolute-path">Conversational chatbot for hotel reservations</a>
                     </div>
                 </div>
             </div>
