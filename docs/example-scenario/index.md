@@ -53,7 +53,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                         </div>
                         <div class="ico48Link">
                             <a href="#infrastructure-scenarios">
-                                <img src="../_images/icons/gateway.svg" alt="" >
+                                <img src="../_images/icons/azure-analysis-service.svg" alt="" >
                                 <span>Infrastructure</span>
                             </a>
                         </div>
