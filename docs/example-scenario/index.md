@@ -12,14 +12,7 @@ These example scenarios are based on real-world customer examples. They are inte
 
 Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios) 
 
-<ul id="cardtypes-L" class="cardsL">
-    <li>
-        <div class="container intro">
-            <h2 class="likeAnH1">Get started panel</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum libero at
-                orci finibus egestas. Duis viverra erat tincidunt efficitur dapibus.</p>
-        </div>
-    </li>
+<ul class="panelContent cardsL">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -81,29 +74,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     <div class="cardText">
                         <h3>More features</h3>
                         <a class="barLink" href="/en-us/azure/sql-database/index" data-linktype="absolute-path">Another landing page</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>More technologies</h3>
-                        <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_java.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
-                            </a>
-                        </div>
-                        <div class="ico48Link">
-                            <a href="http://microsoft.com" data-linktype="external">
-                                <img src="https://docs.microsoft.com/media/logos/logo_python.svg" alt="" data-linktype="external">
-                                <span>Tech label</span>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
