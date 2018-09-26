@@ -12,7 +12,6 @@ These example scenarios are based on real-world customer examples. They are inte
 
 Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios) 
 
-<a href="#cardtypes-L" data-linktype="self-bookmark">cardsL</a>
 <ul id="cardtypes-L" class="cardsL">
     <li>
         <div class="container intro">
@@ -111,8 +110,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </li>
 </ul>
-</li>
-<li>
 
 ## AI scenarios
 
