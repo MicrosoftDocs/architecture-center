@@ -77,30 +77,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </li>
 </ul>
 
-## AI scenarios
 
-<ul  class="panelContent cardsC">
-<!-- SQL Data Warehouse -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./ai/media/architecture-computer-vision.png" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Image processing</h3>
-                        <p>Analyze images using cognitive services focused on the insurance industry.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-</ul>
 
 ## Application scenarios
 
@@ -194,6 +171,31 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     <div class="cardText">
                         <h3>SAP for a dev/test environment</h3>
                         <p>SAP deployment for a dev/test environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+## AI scenarios
+
+<ul  class="panelContent cardsC">
+<!-- SQL Data Warehouse -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./ai/media/architecture-computer-vision.png" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Image processing</h3>
+                        <p>Analyze images using cognitive services focused on the insurance industry.</p>
                     </div>
                 </div>
             </div>
