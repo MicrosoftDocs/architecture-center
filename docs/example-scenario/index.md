@@ -14,7 +14,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## AI scenarios
 
-<ul  class="panelContent cardsC">
+<ul  class="panelContent cardsA">
 <!-- SQL Data Warehouse -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -39,7 +39,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## Application scenarios
 
-<ul  class="panelContent cardsF">
+<ul  class="panelContent cardsW">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
