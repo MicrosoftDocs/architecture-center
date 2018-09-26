@@ -14,7 +14,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## AI scenarios
 
-<ul  class="panelContent cardsA">
+<ul  class="panelContent cardsC">
 <!-- SQL Data Warehouse -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -39,7 +39,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## Application scenarios
 
-<ul  class="panelContent cardsW">
+<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -47,7 +47,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/app-service.svg" height="140px" />
+                            <img src="./apps/media/commerce-chatbot/architecture-commerce-chatbot.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +66,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/app-service.svg" height="140px" />
+                            <img src="./apps/media/devops-dotnet-webapp/architecture-devops-dotnet-webapp.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -85,7 +85,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/jenkins.svg" height="140px" />
+                            <img src="./apps/media/devops-with-aks/architecture-devops-with-aks.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -104,7 +104,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/app-service.svg" height="140px" />
+                            <img src="./apps/media/architecture-diagram-ecommerce-solution.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -123,7 +123,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/sap.svg" height="140px" />
+                            <img src="./apps/media/sap-2tier/SAP-Infra-2Tier_finalversion.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -139,7 +139,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## Data scenarios
 
-<ul  class="panelContent cardsF">
+<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/ecommerce-order-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -147,7 +147,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/data-guide.svg" height="140px" />
+                            <img src="./data/media/architecture-diagram-cosmos-db.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -167,7 +167,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/data-guide.svg" height="140px" />
+                            <img src="./data/media/architecture-diagram-fraud-detection.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -183,7 +183,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## Infrastructure scenarios
 
-<ul class="panelContent cardsF">
+<ul class="panelContent cardsC">
 <!-- Azure AD -->
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/regulated-multitier-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -192,7 +192,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/windows.svg" height="140px" />
+                            <img src="./infrastructure/media/regulated-multitier-app/architecture-regulated-multitier-app.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -211,7 +211,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/linux-penguin.svg" height="140px" />
+                            <img src="./infrastructure/media/native-hpc-ref-arch.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
