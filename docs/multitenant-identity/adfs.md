@@ -175,7 +175,7 @@ The customer must do the following:
 
 
 <!-- Links -->
-[Azure AD Connect]: /azure/active-directory/active-directory-aadconnect/
+[Azure AD Connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [federation trust]: https://technet.microsoft.com/library/cc770993(v=ws.11).aspx
 [account partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
 [resource partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx
