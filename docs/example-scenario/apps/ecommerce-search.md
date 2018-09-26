@@ -120,7 +120,7 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 [search-languages]: /rest/api/searchservice/language-support
 [search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
-[search-samples]: /resources/samples/?service=search&sort=0
+[search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
 [search-demo]: http://azjobsdemo.azurewebsites.net/
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd
 [medium-pricing]: https://azure.com/e/a5ad0706c9e74add811e83ef83766a1c

@@ -121,7 +121,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 ### Prerequisites
 
 * You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
-* You must have an existing Visual Studio Team Services (VSTS) account. Find out more details about [creating a Visual Studio Team Services (VSTS) account][vsts-account-create].
+* You must sign up for an Azure DevOps organization. For more information, see [Quickstart: Create your organization][vsts-account-create].
 
 ### Walk through
 
@@ -158,7 +158,7 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 <!-- links -->
 [ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
-[app-service-reference-architecture]: /azure/architecture/reference-architectures/app-service-web-app/
+[app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
 [architecture]: ./media/devops-dotnet-webapp/architecture-devops-dotnet-webapp.png
@@ -186,7 +186,7 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 [continuous-delivery]: /azure/devops/what-is-continuous-delivery
 [web-apps]: /azure/app-service/app-service-web-overview
 [terraform]: /azure/terraform/
-[vsts-account-create]: /vsts/organizations/accounts/create-account-msa-or-work-student?view=vsts
+[vsts-account-create]: /azure/devops/organizations/accounts/create-organization-msa-or-work-student?view=vsts
 [vsts-approvals]: /vsts/pipelines/release/approvals/approvals?view=vsts
 [devops-project]: https://portal.azure.com/?feature.customportal=false#create/Microsoft.AzureProject
 [vsts-deployment-gates]: /vsts/pipelines/release/approvals/gates?view=vsts
@@ -204,5 +204,5 @@ Your Visual Studio Team Services costing will depend upon the number of users in
 [compare-vm-hosting]:/azure/app-service/choose-web-site-cloud-service-vm
 [app-insights-cd-monitoring]:/azure/application-insights/app-insights-vsts-continuous-monitoring
 [azure-region-pair-bcdr]:/azure/best-practices-availability-paired-regions
-[devops-project-create]: /vsts/pipelines/apps/cd/azure/azure-devops-project-aspnetcore?view=vsts
+[devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
 [security]: /azure/security/
