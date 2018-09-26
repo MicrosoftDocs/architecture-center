@@ -14,7 +14,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 ## AI scenarios
 
-<ul  class="panelContent cardsF">
+<ul  class="panelContent cardsC">
 <!-- SQL Data Warehouse -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -23,7 +23,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/cognitive.png" />
+                            <img src="./ai/media/architecture-computer-vision.png" />
                         </div>
                     </div>
                     <div class="cardText">
