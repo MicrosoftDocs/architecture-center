@@ -122,4 +122,4 @@ Typical uses for this architecture:
 [adfs]: ./adfs.md
 
 [azure-active-directory]: /azure/active-directory-domain-services/active-directory-ds-overview
-[azure-ad-connect]: /azure/active-directory/active-directory-aadconnect
+[azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity

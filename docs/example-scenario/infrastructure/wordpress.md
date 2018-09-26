@@ -110,7 +110,7 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 [mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
 [scaleset-docs]: /azure/virtual-machine-scale-sets/overview
 [security]: /azure/security/
-[availability]: /architecture/checklist/availability
+[availability]: ../../checklist/availability.md
 [resiliency]: /azure/architecture/resiliency/
 [scalability]: /azure/architecture/checklist/scalability
 [vmssautoscale-docs]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
