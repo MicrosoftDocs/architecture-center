@@ -57,16 +57,6 @@ This reference architecture uses video footage of an orangutan in a tree. You ca
 4. Use AzCopy to copy the individual frames into your blob container.
 At this stage, the video footage is in a form that can be used for style transfer.
 
-## Cost considerations
-
-Compared to the storage and scheduling components, the compute resources used in this reference architecture by far dominate in terms of costs. One of the main challenges is effectively parallelizing the work across a cluster of GPU-enabled machines. Thus, we must take precautions to minimize incurred costs.
-
-Batch AI can cluster size to automatically scale up and down depending on the jobs in the queue. You can enable auto-scale with Batch AI in one of two ways. You can do so programmatically, which can be configured in the `.env` file that is part of the deployment tutorial, or you can change the scale formula directly in the portal after the cluster is created.
-
-For work that doesn't require immediate processing, configure the auto-scale formula so the default state (minimum) is a cluster of zero nodes, and set the maximum cluster size to the maximum number of Batch AI jobs that could occur at any given time. With this configuration, the cluster's default state is zero nodes, and the cluster only scales up when it detects jobs in the queue. This setting enables significant cost savings for scenarios where the batch scoring process only happens a few times a day or less.
-
-Auto-scaling may not be appropriate for batch jobs that happen too close to each other in time. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
-
 ## Performance considerations
 
 ### GPU vs CPU
@@ -89,26 +79,7 @@ Another parameter that must be configured is the number of images to process per
 
 When using Batch AI, you can choose multiple storage options depending on the throughput needed for your scenario. For workloads with low throughput requirements, using blobfuse should be enough. Alternatively, Batch AI also supports a Batch AI File Server, a managed single-node NFS, which can be automatically mounted on cluster nodes to provide a centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS isn't appropriate for your workloads, Batch AI supports other storage options, including Azure Storage or custom solutions such as a Gluster or Lustre file system.
 
-## Monitoring and logging considerations
-
-### Monitoring Batch AI jobs
-
-While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes. 
-
-To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also be accessible in the Jobs blade in the Azure Portal. 
-
-Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the Batch AI cluster and its jobs.
-
-### Logging in Batch AI
-
-Batch AI will automatically log all stdout/stderr to the associate blob storage account. Using a storage navigation tool such as Storage Explorer will provide a much easier experience for navigating log files. 
-
-![](./_images/batch-ai-logging.png)
-
-The deployment steps for this reference architecture show how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as illustrated above.
-Use logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
-
-## Security Considerations
+## Security considerations
 
 ### Restricting access to Azure blob storage
 
@@ -131,6 +102,35 @@ In scenarios where there are multiple users, make sure that sensitive data is pr
 - Use RBAC to limit users' access to only the resources they need.
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This will ensure that external users cannot modify any executable files (to inject malicious code), and don't have access to logfiles, which could hold sensitive content.
 - Make sure that appropriate retry policies are set in Batch AI. Otherwise, malicious users can DDOS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors. 
+
+## Monitoring and logging
+
+### Monitoring Batch AI jobs
+
+While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes. 
+
+To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also be accessible in the Jobs blade in the Azure Portal. 
+
+Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the Batch AI cluster and its jobs.
+
+### Logging in Batch AI
+
+Batch AI will automatically log all stdout/stderr to the associate blob storage account. Using a storage navigation tool such as Storage Explorer will provide a much easier experience for navigating log files. 
+
+![](./_images/batch-ai-logging.png)
+
+The deployment steps for this reference architecture show how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as illustrated above.
+Use logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
+
+## Cost considerations
+
+Compared to the storage and scheduling components, the compute resources used in this reference architecture by far dominate in terms of costs. One of the main challenges is effectively parallelizing the work across a cluster of GPU-enabled machines. Thus, we must take precautions to minimize incurred costs.
+
+Batch AI can cluster size to automatically scale up and down depending on the jobs in the queue. You can enable auto-scale with Batch AI in one of two ways. You can do so programmatically, which can be configured in the `.env` file that is part of the deployment tutorial, or you can change the scale formula directly in the portal after the cluster is created.
+
+For work that doesn't require immediate processing, configure the auto-scale formula so the default state (minimum) is a cluster of zero nodes, and set the maximum cluster size to the maximum number of Batch AI jobs that could occur at any given time. With this configuration, the cluster's default state is zero nodes, and the cluster only scales up when it detects jobs in the queue. This setting enables significant cost savings for scenarios where the batch scoring process only happens a few times a day or less.
+
+Auto-scaling may not be appropriate for batch jobs that happen too close to each other in time. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
 
 ## Deploy the solution
 
