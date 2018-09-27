@@ -66,7 +66,7 @@ Before deploying in Azure, some pre-requisites are required, run through these s
 2. [SSH Key pair][cycle-ssh] to sign in securely to the CycleCloud server
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 3. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster

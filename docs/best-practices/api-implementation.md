@@ -19,7 +19,7 @@ Consider the following points when you implement the code to handle requests.
 The code that implements these requests should not impose any side-effects. The same request repeated over the same resource should result in the same state. For example, sending multiple DELETE requests to the same URI should have the same effect, although the HTTP status code in the response messages may be different. The first DELETE request might return status code 204 (No Content), while a subsequent DELETE request might return status code 404 (Not Found).
 
 > [!NOTE]
-> The article [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
+> The article [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
 >
 
 ### POST actions that create new resources should not have unrelated side-effects
@@ -30,7 +30,7 @@ If a POST request is intended to create a new resource, the effects of the reque
 
 Support POST, PUT and DELETE requests over resource collections. A POST request can contain the details for multiple new resources and add them all to the same collection, a PUT request can replace the entire set of resources in a collection, and a DELETE request can remove an entire collection.
 
-The OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, [Introducing Batch Support in Web API and Web API OData](http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx).
+The OData support included in ASP.NET Web API 2 provides the ability to batch requests. A client application can package up several web API requests and send them to the server in a single HTTP request, and receive a single HTTP response that contains the replies to each request. For more information, [Introducing Batch Support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata/).
 
 ### Follow the HTTP specification when sending a response 
 
@@ -51,7 +51,7 @@ The HATEOAS approach enables a client to navigate and discover resources from an
 Currently there are no standards that govern the implementation of HATEOAS, but the following example illustrates one possible approach. In this example, an HTTP GET request that finds the details for a customer returns a response that include HATEOAS links that reference the orders for that customer:
 
 ```HTTP
-GET http://adventure-works.com/customers/2 HTTP/1.1
+GET https://adventure-works.com/customers/2 HTTP/1.1
 Accept: text/json
 ...
 ```
@@ -64,23 +64,23 @@ Content-Type: application/json; charset=utf-8
 Content-Length: ...
 {"CustomerID":2,"CustomerName":"Bert","Links":[
     {"rel":"self",
-    "href":"http://adventure-works.com/customers/2",
+    "href":"https://adventure-works.com/customers/2",
     "action":"GET",
     "types":["text/xml","application/json"]},
     {"rel":"self",
-    "href":"http://adventure-works.com/customers/2",
+    "href":"https://adventure-works.com/customers/2",
     "action":"PUT",
     "types":["application/x-www-form-urlencoded"]},
     {"rel":"self",
-    "href":"http://adventure-works.com/customers/2",
+    "href":"https://adventure-works.com/customers/2",
     "action":"DELETE",
     "types":[]},
     {"rel":"orders",
-    "href":"http://adventure-works.com/customers/2/orders",
+    "href":"https://adventure-works.com/customers/2/orders",
     "action":"GET",
     "types":["text/xml","application/json"]},
     {"rel":"orders",
-    "href":"http://adventure-works.com/customers/2/orders",
+    "href":"https://adventure-works.com/customers/2/orders",
     "action":"POST",
     "types":["application/x-www-form-urlencoded"]}
 ]}
@@ -115,11 +115,11 @@ The HTTP GET operation retrieves the customer data from storage and constructs a
 
 The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
 
-* An HTTP GET request to the URI `http://adventure-works.com/customers/2` to fetch the details of the customer (again). The data can be returned as XML or JSON.
-* An HTTP PUT request to the URI `http://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
-* An HTTP DELETE request to the URI `http://adventure-works.com/customers/2` to delete the customer. The request does not expect any additional information or return data in the response message body.
-* An HTTP GET request to the URI `http://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
-* An HTTP PUT request to the URI `http://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
+* An HTTP GET request to the URI `https://adventure-works.com/customers/2` to fetch the details of the customer (again). The data can be returned as XML or JSON.
+* An HTTP PUT request to the URI `https://adventure-works.com/customers/2` to modify the details of the customer. The new data must be provided in the request message in x-www-form-urlencoded format.
+* An HTTP DELETE request to the URI `https://adventure-works.com/customers/2` to delete the customer. The request does not expect any additional information or return data in the response message body.
+* An HTTP GET request to the URI `https://adventure-works.com/customers/2/orders` to find all the orders for the customer. The data can be returned as XML or JSON.
+* An HTTP PUT request to the URI `https://adventure-works.com/customers/2/orders` to create a new order for this customer. The data must be provided in the request message in x-www-form-urlencoded format.
 
 ## Handling exceptions
 
@@ -127,7 +127,7 @@ Consider the following points if an operation throws an uncaught exception.
 
 ### Capture exceptions and return a meaningful response to clients
 
-The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
+The code that implements an HTTP operation should provide comprehensive exception handling rather than letting uncaught exceptions propagate to the framework. If an exception makes it impossible to complete the operation successfully, the exception can be passed back in the response message, but it should include a meaningful description of the error that caused the exception. The exception should also include the appropriate HTTP status code rather than simply returning status code 500 for every situation. For example, if a user request causes a database update that violates a constraint (such as attempting to delete a customer that has outstanding orders), you should return status code 409 (Conflict) and a message body indicating the reason for the conflict. If some other condition renders the request unachievable, you can return status code 400 (Bad Request). You can find a full list of HTTP status codes on the [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) page on the W3C website.
 
 The code example traps different conditions and returns an appropriate response.
 
@@ -193,7 +193,7 @@ In a distributed environment such as that involving a web server and client appl
 The HTTP 1.1 protocol supports caching in clients and intermediate servers through which a request is routed by the use of the Cache-Control header. When a client application sends an HTTP GET request to the web API, the response can include a Cache-Control header that indicates whether the data in the body of the response can be safely cached by the client or an intermediate server through which the request has been routed, and for how long before it should expire and be considered out-of-date. The following example shows an HTTP GET request and the corresponding response that includes a Cache-Control header:
 
 ```HTTP
-GET http://adventure-works.com/orders/2 HTTP/1.1
+GET https://adventure-works.com/orders/2 HTTP/1.1
 ```
 
 ```HTTP
@@ -334,7 +334,7 @@ A client application can issue a subsequent GET request to retrieve the same res
 * The client constructs a GET request containing the ETag for the currently cached version of the resource referenced in an If-None-Match HTTP header:
 
     ```HTTP
-    GET http://adventure-works.com/orders/2 HTTP/1.1
+    GET https://adventure-works.com/orders/2 HTTP/1.1
     If-None-Match: "2147483648"
     ```
 * The GET operation in the web API obtains the current ETag for the requested data (order 2 in the above example), and compares it to the value in the If-None-Match header.
@@ -447,7 +447,7 @@ To enable updates over previously cached data, the HTTP protocol supports an opt
 * The client constructs a PUT request containing the new details for the resource and the ETag for the currently cached version of the resource referenced in an If-Match HTTP header. The following example shows a PUT request that updates an order:
 
     ```HTTP
-    PUT http://adventure-works.com/orders/1 HTTP/1.1
+    PUT https://adventure-works.com/orders/1 HTTP/1.1
     If-Match: "2282343857"
     Content-Type: application/x-www-form-urlencoded
     Content-Length: ...
@@ -566,7 +566,7 @@ If you are hosting a service by using IIS, the HTTP.sys driver automatically det
 If you are building client applications by using the .NET Framework, then all POST and PUT messages will first send messages with Expect: 100-Continue headers by default. As with the server-side, the process is handled transparently by the .NET Framework. However, this process results in each POST and PUT request causing two round-trips to the server, even for small requests. If your application is not sending requests with large amounts of data, you can disable this feature by using the `ServicePointManager` class to create `ServicePoint` objects in the client application. A `ServicePoint` object handles the connections that the client makes to a server based on the scheme and host fragments of URIs that identify resources on the server. You can then set the `Expect100Continue` property of the `ServicePoint` object to false. All subsequent POST and PUT requests made by the client through a URI that matches the scheme and host fragments of the `ServicePoint` object will be sent without Expect: 100-Continue headers. The following code shows how to configure a `ServicePoint` object that configures all requests sent to URIs with a scheme of `http` and a host of `www.contoso.com`.
 
 ```csharp
-Uri uri = new Uri("http://www.contoso.com/");
+Uri uri = new Uri("https://www.contoso.com/");
 ServicePoint sp = ServicePointManager.FindServicePoint(uri);
 sp.Expect100Continue = false;
 ```
@@ -596,7 +596,7 @@ public class OrdersController : ApiController
 }
 ```
 
-A client application can issue a request to retrieve 30 orders starting at offset 50 by using the URI `http://www.adventure-works.com/api/orders?limit=30&offset=50`.
+A client application can issue a request to retrieve 30 orders starting at offset 50 by using the URI `https://www.adventure-works.com/api/orders?limit=30&offset=50`.
 
 > [!TIP]
 > Avoid enabling client applications to specify query strings that result in a URI that is more than 2000 characters long. Many web clients and servers cannot handle URIs that are this long.
@@ -626,7 +626,7 @@ Options for implementing notifications include:
 
 - Using an Azure Notification Hub to push asynchronous responses to client applications. For more information, see [Azure Notification Hubs Notify Users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification/).
 - Using the Comet model to retain a persistent network connection between the client and the server hosting the web API, and using this connection to push messages from the server back to the client. The MSDN magazine article [Building a Simple Comet Application in the Microsoft .NET Framework](https://msdn.microsoft.com/magazine/jj891053.aspx) describes an example solution.
-- Using SignalR to push data in real-time from the web server to the client over a persistent network connection. SignalR is available for ASP.NET web applications as a NuGet package. You can find more information on the [ASP.NET SignalR](http://signalr.net/) website.
+- Using SignalR to push data in real-time from the web server to the client over a persistent network connection. SignalR is available for ASP.NET web applications as a NuGet package. You can find more information on the [ASP.NET SignalR](https://www.asp.net/signalr) website.
 
 ### Ensure that each request is stateless
 
@@ -657,7 +657,7 @@ To make a web API available for client applications, the web API must be deploye
 * Regulatory requirements might mandate logging and auditing of all requests and responses.
 * To ensure availability, it may be necessary to monitor the health of the server hosting the web API and restart it if necessary.
 
-It is useful to be able to decouple these issues from the technical issues concerning the implementation of the web API. For this reason, consider creating a [façade](http://en.wikipedia.org/wiki/Facade_pattern), running as a separate process and that routes requests to the web API. The façade can provide the management operations and forward validated requests to the web API. Using a façade can also bring many functional advantages, including:
+It is useful to be able to decouple these issues from the technical issues concerning the implementation of the web API. For this reason, consider creating a [façade](https://en.wikipedia.org/wiki/Facade_pattern), running as a separate process and that routes requests to the web API. The façade can provide the management operations and forward validated requests to the web API. Using a façade can also bring many functional advantages, including:
 
 * Acting as an integration point for multiple web APIs.
 * Transforming messages and translating communications protocols for clients built by using varying technologies.
@@ -780,10 +780,10 @@ You can use this information to determine whether a particular web API or operat
 >
 
 ## More information
-* [ASP.NET Web API OData](http://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
-* [Introducing Batch Support in Web API and Web API OData](http://blogs.msdn.com/b/webdev/archive/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata.aspx) describes how to implement batch operations in a web API by using OData.
-* [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
-* [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
+* [ASP.NET Web API OData](https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api) contains examples and further information on implementing an OData web API by using ASP.NET.
+* [Introducing Batch Support in Web API and Web API OData](https://blogs.msdn.microsoft.com/webdev/2013/11/01/introducing-batch-support-in-web-api-and-web-api-odata/) describes how to implement batch operations in a web API by using OData.
+* [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog provides an overview of idempotency and how it relates to data management operations.
+* [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) on the W3C website contains a full list of HTTP status codes and their descriptions.
 * [Run background tasks with WebJobs](/azure/app-service-web/web-sites-create-web-jobs/) provides information and examples on using WebJobs to perform background operations.
 * [Azure Notification Hubs Notify Users](/azure/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification/) shows how to use an Azure Notification Hub to push asynchronous responses to client applications.
 * [API Management](https://azure.microsoft.com/services/api-management/) describes how to publish a product that provides controlled and secure access to a web API.

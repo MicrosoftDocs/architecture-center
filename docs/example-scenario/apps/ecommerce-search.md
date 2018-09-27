@@ -112,7 +112,7 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 [apache-lucene]: https://lucene.apache.org/
 [elastic-marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.elasticsearch
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
-[search-sla]: http://go.microsoft.com/fwlink/?LinkId=716855
+[search-sla]: https://go.microsoft.com/fwlink/?LinkId=716855
 [search-tier]: /azure/search/search-sku-tier
 [search-capacity]: /azure/search/search-capacity-planning
 [search-security]: /azure/search/search-security-overview
@@ -121,7 +121,7 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 [search-analyzers]: /rest/api/searchservice/custom-analyzers-in-azure-search
 [search-scoring]: /rest/api/searchservice/add-scoring-profiles-to-a-search-index
 [search-samples]: https://azure.microsoft.com/resources/samples/?service=search&sort=0
-[search-demo]: http://azjobsdemo.azurewebsites.net/
+[search-demo]: https://azjobsdemo.azurewebsites.net/
 [small-pricing]: https://azure.com/e/db2672a55b6b4d768ef0060a8d9759bd
 [medium-pricing]: https://azure.com/e/a5ad0706c9e74add811e83ef83766a1c
 [large-pricing]: https://azure.com/e/57f95a898daa487795bd305599973ee6

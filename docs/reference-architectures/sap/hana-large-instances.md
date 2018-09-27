@@ -124,8 +124,6 @@ Based on your business requirements, choose from several options available for [
 | Log backup         | Required for point in time recovery.                                                                   |                                                            |
 | Other backup tools | Redundant backup location.                                                                             | Additional licensing costs.                                |
 
-In addition, SapHanaTutorial.com provides a helpful article, [Comparison between HANA backup options][sap-hana-tutorial].
-
 ## Manageability considerations
 Monitor HANA Large Instances resources such as CPU, memory, network bandwidth, and storage space using SAP HANA Studio, SAP HANA Cockpit, SAP Solution Manager, and other native Linux tools. HANA Large Instances does not come with built-in monitoring tools. Microsoft offers resources to help you [troubleshoot and monitor][hli-troubleshoot] according to your organization’s requirements, and the Microsoft support team can assist you in troubleshooting technical issues. 
 
@@ -178,7 +176,7 @@ Communities can answer questions and help you set up a successful deployment. Co
 [running-SAP]: https://blogs.msdn.microsoft.com/saponsqlserver/2016/06/07/sap-on-sql-general-update-for-customers-partners-june-2016/
 [region]: https://azure.microsoft.com/global-infrastructure/services/
 [running-sap-blog]: https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/04/sap-on-azure-general-update-for-customers-partners-april-2017/
-[quick-sizer]: http://service.sap.com/quicksizing
+[quick-sizer]: https://service.sap.com/quicksizing
 [sap-1793345]: https://launchpad.support.sap.com/#/notes/1793345
 [sap-1872170]: https://launchpad.support.sap.com/#/notes/1872170
 [sap-2121330]: https://launchpad.support.sap.com/#/notes/2121330
@@ -186,12 +184,11 @@ Communities can answer questions and help you set up a successful deployment. Co
 [sap-1736976]: https://launchpad.support.sap.com/#/notes/1736976
 [sap-2296290]: https://launchpad.support.sap.com/#/notes/2296290
 [sap-community]: https://www.sap.com/community.html
-[sap-hana-tutorial]: http://saphanatutorial.com/comparison-between-hana-backup-options/
 [sap-security]: https://archive.sap.com/documents/docs/DOC-62943
 [scripts]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery
 [sku]: /azure/expressroute/expressroute-about-virtual-network-gateways
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[stack-overflow]: http://stackoverflow.com/tags/sap/info
+[stack-overflow]: https://stackoverflow.com/tags/sap/info
 [stonith]: /azure/virtual-machines/workloads/sap/ha-setup-with-stonith
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [swd]: https://help.sap.com/doc/saphelp_nw70ehp2/7.02.16/en-us/48/8fe37933114e6fe10000000a421937/frameset.htm

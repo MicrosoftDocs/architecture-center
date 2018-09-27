@@ -254,6 +254,6 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 [app roles]: app-roles.md
 [Tailspin]: tailspin.md
 
-[state]: http://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
+[state]: https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest
 [Authentication]: authenticate.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
