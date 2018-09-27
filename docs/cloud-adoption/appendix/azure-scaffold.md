@@ -145,7 +145,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 After the creation of policies and grouping them into logical initiatives you must assign the policy to a scope, whether it is a management group, a subscription or even a resource group. Assignments allow you to also exclude a sub-scope from the assignment of a policy. For example, if you deny the creation of public IPs within a subscription, you could create an assignment with an exclusion for a resource group connected to your protected DMZ.
 
-You will find several Policy examples that show how Policy and Initiatives can be applied to various resources within Azure on this [GitHub](https://https://github.com/Azure/azure-policy) repository.
+You will find several Policy examples that show how Policy and Initiatives can be applied to various resources within Azure on this [GitHub](https://github.com/Azure/azure-policy) repository.
 
 ## Identity and access management
 
