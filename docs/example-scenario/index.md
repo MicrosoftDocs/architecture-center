@@ -131,7 +131,7 @@ These example scenarios are based on real-world customer examples. They are inte
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="/media/common/i_feedback.svg" alt="" data-linktype="external">
+                                                        <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
