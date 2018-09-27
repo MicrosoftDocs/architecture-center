@@ -119,27 +119,27 @@ These example scenarios are based on real-world customer examples. They are inte
         </div>
     </li>
     <li>
-        <div class="cardsG panelContent">
+        <div class="cardsG cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Create a Scenario</h3>
                         <p>Do you have a scenario that you'd like us to create?  Would you like to build one yourself?</p>
                         <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRy0ZnoKOXdVBqaBz653YPElUNjlNMEpPMDNSSU1aWEIxMFNFNlY2T0E3NC4u">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3 class="x-hidden-focus">Submit your idea for a new scenario</h3>
-                                                </div>
+                            <div class="cardSize">
+                                <div class="cardPadding">
+                                    <div class="card">
+                                        <div class="cardImageOuter">
+                                            <div class="cardImage">
+                                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
                                             </div>
                                         </div>
+                                        <div class="cardText">
+                                            <h3 class="x-hidden-focus">Submit your idea for a new scenario</h3>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
