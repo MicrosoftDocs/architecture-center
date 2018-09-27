@@ -120,12 +120,25 @@ These example scenarios are based on real-world customer examples. They are inte
     </li>
     <li>
     <ul id="cardtypes-G" class="cardsG panelContent" style="display: flex; margin-top: -374px;">
-                            <li class="fullSpan">
-                                <div class="container intro">
-                                    <p class="x-hidden-focus">Panel intro: n sed lacus sit amet ipsum aliquam faucibus. Phasellus varius sed erat eu
-                                        fringilla. Pellentesque ante leo, blandit quis nunc ornare, egestas aliquet augue.
-                                        Vivamus bibendum metus a lorem mattis lacinia et ut lacus.</p>
-                                </div>
+        <li>
+                                <a href="">
+                                    <div class="cardSize">
+                                        <div class="cardPadding x-hidden-focus">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/hubs/dotnet/net-docs-web-1.svg" alt="" data-linktype="external">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Lorem ipsum dolor sit amet</h3>
+                                                    <p>Mauris ultricies mi sapien, vel pulvinar arcu lacinia a. Proin quis ligula
+                                                        enim. Nullam ac tellus a enim rutrum aliquet.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>
     </ul>
     <!--
