@@ -69,7 +69,7 @@ These example scenarios are based on real-world customer examples. They are inte
         </a>
     </li>
     <li>
-        <a href="#" data-linktype="relative-path">
+        <a href="#infrastructure-scenarios" data-linktype="relative-path">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -113,6 +113,19 @@ These example scenarios are based on real-world customer examples. They are inte
                         <a class="barLink" href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing" data-linktype="absolute-path">Image classification for insurance claims</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/apps/commerce-chatbot" data-linktype="absolute-path">Conversational chatbot for hotel reservations</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/regulated-multitier-app" data-linktype="absolute-path">Secure Windows web application for regulated industries</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>New Scenarios</h3>
+                        <p>Do you have a scenario that you'd like us to create?  Would you like to build one yourself?</p>
+                        <a class="barLink" href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRy0ZnoKOXdVBqaBz653YPElUNjlNMEpPMDNSSU1aWEIxMFNFNlY2T0E3NC4u" data-linktype="absolute-path">Submit your idea for a new scenario</a>
                     </div>
                 </div>
             </div>
