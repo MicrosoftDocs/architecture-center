@@ -119,30 +119,7 @@ These example scenarios are based on real-world customer examples. They are inte
         </div>
     </li>
     <li>
-    <div id="cardtypes-G" class="cardsG panelContent" style="display: flex; margin-top: -374px;">
-        <li>
-            <a href="">
-                <div class="cardSize">
-                    <div class="cardPadding x-hidden-focus">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="https://docs.microsoft.com/media/hubs/dotnet/net-docs-web-1.svg" alt="" data-linktype="external">
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Lorem ipsum dolor sit amet</h3>
-                                <p>Mauris ultricies mi sapien, vel pulvinar arcu lacinia a. Proin quis ligula
-                                    enim. Nullam ac tellus a enim rutrum aliquet.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-    </div>
-    <!--
-        <div class="cardSize">
+        <div class="cardsG panelContent">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -167,7 +144,7 @@ These example scenarios are based on real-world customer examples. They are inte
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
     </li>
 </ul>
 
