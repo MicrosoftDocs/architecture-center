@@ -119,7 +119,7 @@ These example scenarios are based on real-world customer examples. They are inte
         </div>
     </li>
     <li>
-        <div class="cardsG cardSize">
+        <div class="cardsF cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
