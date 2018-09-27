@@ -78,11 +78,8 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </li>
 </ul>
 
-
 ## AI Scenarios
 
-<ul  class="panelContent cardsC">
-		
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -109,8 +106,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 ## Application Scenarios
 
 <ul  class="panelContent cardsC">
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/apim-api-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -130,8 +125,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/app-monitoring.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -151,8 +144,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -172,8 +163,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/decentralized-trust.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -193,8 +182,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/devops-dotnet-webapp.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -214,8 +201,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/devops-with-aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -235,8 +220,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/ecommerce-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -256,8 +239,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/ecommerce-search.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -277,8 +258,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/hpc-saas.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -298,8 +277,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/sap-dev-test.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -319,8 +296,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./apps/sap-production.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -346,8 +321,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 ## Data Scenarios
 
 <ul  class="panelContent cardsC">
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/big-data-with-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -367,8 +340,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/data-warehouse.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -388,8 +359,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/ecommerce-order-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -409,8 +378,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/fraud-detection.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -430,8 +397,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./data/realtime-analytics-vehicle-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -457,8 +422,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 ## Infrastructure Scenarios
 
 <ul  class="panelContent cardsC">
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/ServiceFabricMicroservices.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -478,8 +441,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/hpc-cfd.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -499,8 +460,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/linux-vdi-citrix.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -520,8 +479,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/regulated-multitier-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -541,8 +498,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/video-rendering.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -562,8 +517,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </a>
 </li>
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/wordpress.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -584,3 +537,4 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </a>
 </li>
 </ul>
+

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Parse and generate index file
+# Usage (Bash or WSL): ./build_index.sh > articles.md
+
 for folder in $(ls -d */ | cut -f1 -d'/'); do
 
 	if [[ "$folder" == "ai" ]]; then
@@ -23,8 +26,6 @@ for folder in $(ls -d */ | cut -f1 -d'/'); do
 		image="./${folder}/$(cat $article | grep media | grep -e ".png" -e ".jpg" | head -1 | sed -n 's/.*\(media.*\(png\|jpg\)\).*/\1/p')"
 
 		cat <<EOF
-		
-<ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
     <a href="${url}" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
