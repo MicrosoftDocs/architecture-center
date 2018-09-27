@@ -10,33 +10,49 @@ ms.topic: landing-page
 
 These example scenarios are based on real-world customer examples. They are intended to accelerate and facilitate building out your own use case. Each solution contains: a diagram of the architecture, explores some of the alternatives that you can substitute in to satisfy your own business need, rough pricing of the solution.  Most will also contain a method to easily deploy the solution in your own Azure account.
 
-<div class="container x-hidden-focus">
 <ul class="featuredContent">
     <li>
-        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Scenario Topics</h3>
-                        <div class="ico48Link">
+                        <div class="card">
                             <a href="#ai-scenarios">
                                 <img src="../_images/icons/cognitive.png" alt="">
                                 <span>Artificial Intelligence</span>
                             </a>
                         </div>
-                        <div class="ico48Link">
+                    </div>
+                </div>
+            </div>
+        </li>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                             <a href="#application-scenarios">
                                 <img src="../_images/icons/app-service.svg" alt="">
                                 <span>Applications</span>
                             </a>
                         </div>
-                        <div class="ico48Link">
+                    </div>
+                </div>
+            </div>
+                </li>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                             <a href="#data-scenarios">
                                 <img src="../_images/icons/data-guide.svg" alt="">
                                 <span>Data</span>
                             </a>
                         </div>
-                        <div class="ico48Link">
+                    </div>
+                </div>
+            </div>
+                    </li>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                             <a href="#infrastructure-scenarios">
                                 <img src="../_images/icons/azure-analysis-service.svg" alt="" >
                                 <span>Infrastructure</span>
@@ -45,10 +61,8 @@ These example scenarios are based on real-world customer examples. They are inte
                     </div>
                 </div>
             </div>
-        </div>
     </li>
 </ul>
-</div>
 
 <ul class="panelContent cardsL">
     <li>
