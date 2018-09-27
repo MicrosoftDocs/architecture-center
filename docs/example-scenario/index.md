@@ -134,7 +134,9 @@ These example scenarios are based on real-world customer examples. They are inte
                                         </div>
                                         <div class="cardText">
                                             <h3 class="x-hidden-focus">Submit your idea for a new scenario</h3>
-                                            <p>Do you have a scenario that you'd like us to create? Would you like to build one yourself?  Submit your idea here!</p>
+                                            <p>Do you have a scenario that you'd like us to create?</p>
+                                            <p>Would you like to build one yourself?</p>
+                                            <p>Submit your idea here!</p>
                                         </div>
                                     </div>
                                 </div>
