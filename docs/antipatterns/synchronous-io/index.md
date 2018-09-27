@@ -194,7 +194,7 @@ requests per second. Moreover, the average response time is relatively constant 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
 
 
-[async-wrappers]: http://blogs.msdn.com/b/pfxteam/archive/2012/03/24/10287244.aspx
+[async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods/
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 

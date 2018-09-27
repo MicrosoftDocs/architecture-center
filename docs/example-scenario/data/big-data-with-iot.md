@@ -53,7 +53,7 @@ The data flows through the solution as follows:
 * [Traffic Manager](/azure/traffic-manager) controls the distribution of user traffic for service endpoints in different Azure regions.
 * [Load Balancer](/azure/load-balancer) distributes data submissions from construction equipment devices across the VM-based web services to provide high availability.
 * [Azure Virtual Machines](/azure/virtual-machines) host the web services that receive and ingest the construction results data into the Apache Cassandra database.
-* [Apache Cassandra](http://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
+* [Apache Cassandra](https://cassandra.apache.org/) is a distributed NoSQL database used to store construction data for later processing by Apache Spark.
 * [Web Apps](/azure/app-service) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
 * [Apache Spark on HDInsight](/azure/hdinsight/spark) supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
 

@@ -104,7 +104,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ## Cassandra
 ### Reading or writing to a node fails.
-**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client may have other exception types.  For more information, see [Cassandra error handling done right](http://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
+**Detection**. Catch the exception. For .NET clients, this will typically be `System.Web.HttpException`. Other client may have other exception types.  For more information, see [Cassandra error handling done right](https://www.datastax.com/dev/blog/cassandra-error-handling-done-right).
 
 **Recovery**
 
@@ -447,7 +447,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [azure-alerts]: /azure/monitoring-and-diagnostics/insights-alerts-portal/
 [azure-log-analytics]: /azure/log-analytics/log-analytics-overview/
 [BrokeredMessage.TimeToLive]: https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
-[cassandra-error-handling]: http://www.datastax.com/dev/blog/cassandra-error-handling-done-right
+[cassandra-error-handling]: https://www.datastax.com/dev/blog/cassandra-error-handling-done-right
 [circuit-breaker]: https://msdn.microsoft.com/library/dn589784.aspx
 [cosmosdb-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [elasticsearch-azure]: ../elasticsearch/index.md
@@ -463,7 +463,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
 [redis-monitor]: /azure/redis-cache/cache-how-to-monitor/
 [redis-retry]: ../best-practices/retry-service-specific.md#azure-redis-cache
-[resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
+[resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
 [rm-locks]: /azure/azure-resource-manager/resource-group-lock-resources/

@@ -21,7 +21,7 @@ There are several options for ingesting data into Azure, depending on your needs
 **NoSQL databases**
 
 - [Azure Cosmos DB](/azure/cosmos-db/)
-- [HBase on HDInsight](http://hbase.apache.org/)
+- [HBase on HDInsight](https://hbase.apache.org/)
 
 ## Azure Storage blobs
 
@@ -64,7 +64,7 @@ Azure Cosmos DB features:
 
 ## HBase on HDInsight
 
-[Apache HBase](http://hbase.apache.org/) is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semi-structured data in a schemaless database organized by column families.
+[Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semi-structured data in a schemaless database organized by column families.
 
 Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
@@ -109,7 +109,7 @@ The following tables summarize the key differences in capabilities.
 |------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 |       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
 |         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |
-|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](http://phoenix.apache.org/) JDBC driver)                                      |
+|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](https://phoenix.apache.org/) JDBC driver)                                      |
 |            Consistency             |                   Strong, bounded-staleness, session, consistent prefix, eventual                   |                                                                   Strong                                                                   |
 | Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
 |   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |

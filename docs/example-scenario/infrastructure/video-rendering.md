@@ -109,7 +109,7 @@ The template will deploy:
 * The node pool will contain zero VMs initially and will require you to manually scale to add VMs
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 [Learn more about Resource Manager templates][azure-arm-templates]
