@@ -119,6 +119,16 @@ These example scenarios are based on real-world customer examples. They are inte
         </div>
     </li>
     <li>
+    <ul id="cardtypes-G" class="cardsG panelContent" style="display: flex; margin-top: -374px;">
+                            <li class="fullSpan">
+                                <div class="container intro">
+                                    <p class="x-hidden-focus">Panel intro: n sed lacus sit amet ipsum aliquam faucibus. Phasellus varius sed erat eu
+                                        fringilla. Pellentesque ante leo, blandit quis nunc ornare, egestas aliquet augue.
+                                        Vivamus bibendum metus a lorem mattis lacinia et ut lacus.</p>
+                                </div>
+                            </li>
+    </ul>
+    <!--
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -144,7 +154,7 @@ These example scenarios are based on real-world customer examples. They are inte
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </li>
 </ul>
 
