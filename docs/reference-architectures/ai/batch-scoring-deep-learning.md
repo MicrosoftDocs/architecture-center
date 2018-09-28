@@ -12,7 +12,7 @@ This reference architecture shows how to apply style transfer to a video, using 
  
 ![](./_images/batch-ai-deep-learning.png)
 
-**Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. 
+**Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about style transfer algoroithms, see [Image Style Transfer Using Convolutional Neural Networks](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf) (PDF).
 
 ![](./_images/batch-ai-style-transfer.png)
 
@@ -33,26 +33,26 @@ This architecture consists of the following components.
 
 ### Compute
 
-**Azure Batch AI**. Batch AI is used to run the style transfer algorithm. Batch AI supports deep learning workloads by providing containerized environments that are pre-configured for deep learning frameworks, on GPU-enabled VMs. 
+**[Azure Batch AI](/azure/batch-ai/)** is used to run the style transfer algorithm. Batch AI supports deep learning workloads by providing containerized environments that are pre-configured for deep learning frameworks, on GPU-enabled VMs. 
 
 ### Storage
 
-**Blob Storage**. Blob storage is used to store all images (input images, style images, and output images) as well as all logs produced from Batch AI. Blob storage integrates with Batch AI via [blobfuse](https://github.com/Azure/azure-storage-fuse), an open-source virtual filesystem that is backed by Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
+**Blob Storage**. [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used to store all images (input images, style images, and output images) as well as all logs produced from Batch AI. Blob storage integrates with Batch AI via [blobfuse](https://github.com/Azure/azure-storage-fuse), an open-source virtual filesystem that is backed by Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
 
 ### Trigger / Scheduling
 
-**Logic Apps**. Logic Apps is used to trigger the workflow. When the logic app detects that a blob has been added to the container, it triggers the Batch AI process. Using logic app is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
+**Azure Logic Apps**. [Logic Apps](/azure/logic-apps/) is used to trigger the workflow. When the logic app detects that a blob has been added to the container, it triggers the Batch AI process. Using logic app is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
 
-**Azure Container Instances**. Container Instances are used to run the Python scripts that create the AI Batch jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use Container Instances because there it has pre-built Logic Apps connector for it, which allows the logic app to trigger the AI Batch job. Container Instances is a convenient way to spin up stateless processes quickly.
+**Azure Container Instances**. [Container Instances](/azure/container-instances/) are used to run the Python scripts that create the AI Batch jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use Container Instances because there it has pre-built Logic Apps connector for it, which allows the logic app to trigger the AI Batch job. Container Instances is a convenient way to spin up stateless processes quickly.
 
-DockerHub. DockerHub is used to store the Docker image that Container Instances uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. Azure Container Registry can also be used for this architecture.
+**DockerHub**. DockerHub is used to store the Docker image that Container Instances uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. Azure Container Registry can also be used for this architecture.
 
 ### Data Preparation
 
-This reference architecture uses video footage of an orangutan in a tree. You can download the footage from [here](https://happypathspublic.blob.core.windows.net/videos/) and process it for the workflow by following these steps:
+This reference architecture uses video footage of an orangutan in a tree. You can download the footage from [here](https://happypathspublic.blob.core.windows.net/videos/orangutan.mp4) and process it for the workflow by following these steps:
 
-1. Use AzCopy to download the video from the public blob.
-2. Use FFmpeg to extract the audio file, so that the audio file can be stitched back into the output video later.
+1. Use [AzCopy](/azure/storage/common/storage-use-azcopy-linux) to download the video from the public blob.
+2. Use [FFmpeg](https://www.ffmpeg.org/) to extract the audio file, so that the audio file can be stitched back into the output video later.
 3. Use FFmpeg to break the video into individual frames. The frames will be processed independently, in parallel.
 4. Use AzCopy to copy the individual frames into your blob container.
 At this stage, the video footage is in a form that can be used for style transfer.
@@ -126,7 +126,7 @@ Use logs to monitor how long it takes for each job and each image to process. Th
 
 Compared to the storage and scheduling components, the compute resources used in this reference architecture by far dominate in terms of costs. One of the main challenges is effectively parallelizing the work across a cluster of GPU-enabled machines. Thus, we must take precautions to minimize incurred costs.
 
-Batch AI can cluster size to automatically scale up and down depending on the jobs in the queue. You can enable auto-scale with Batch AI in one of two ways. You can do so programmatically, which can be configured in the `.env` file that is part of the deployment tutorial, or you can change the scale formula directly in the portal after the cluster is created.
+The Batch AI cluster size can automatically scale up and down depending on the jobs in the queue. You can enable auto-scale with Batch AI in one of two ways. You can do so programmatically, which can be configured in the `.env` file that is part of the [deployment steps][deployment], or you can change the scale formula directly in the portal after the cluster is created.
 
 For work that doesn't require immediate processing, configure the auto-scale formula so the default state (minimum) is a cluster of zero nodes, and set the maximum cluster size to the maximum number of Batch AI jobs that could occur at any given time. With this configuration, the cluster's default state is zero nodes, and the cluster only scales up when it detects jobs in the queue. This setting enables significant cost savings for scenarios where the batch scoring process only happens a few times a day or less.
 
@@ -134,4 +134,6 @@ Auto-scaling may not be appropriate for batch jobs that happen too close to each
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub repo](https://github.com/Azure/batch-scoring-for-dl-models).
+To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
+
+[deployment]: https://github.com/Azure/batch-scoring-for-dl-models
