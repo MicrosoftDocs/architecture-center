@@ -84,7 +84,7 @@ For general guidance on designing resilient scenarios, see [Designing resilient 
 
 To deploy the core infrastructure for this scenario with an Azure Resource Manager template, perform the following steps.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    * Choose to **Create new** resource group, then provide a name such as *myWindowsscenario* in the text box.
    * Select a region from the **Location** drop-down box.
@@ -114,7 +114,7 @@ You also view a thorough [reference architecture for a generic N-tier applicatio
 [appgateway-docs]: /azure/application-gateway/overview
 [architecture]: ./media/regulated-multitier-app/architecture-regulated-multitier-app.png
 [autoscaling]: /azure/architecture/best-practices/auto-scaling
-[availability]: /architecture/checklist/availability
+[availability]: ../../checklist/availability.md
 [azureaz-docs]: /azure/availability-zones/az-overview
 [azurecosmosdb-docs]: /azure/cosmos-db/introduction
 [cloudwitness-docs]: /windows-server/failover-clustering/deploy-cloud-witness

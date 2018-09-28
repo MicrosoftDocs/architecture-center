@@ -84,7 +84,7 @@ Note: pricing is a guide and only indicates the VMs and storage costs. It exclud
 Click here to deploy the underlying infrastructure for this scenario.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 Note: SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.

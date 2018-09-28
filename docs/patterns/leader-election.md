@@ -38,7 +38,7 @@ The system must provide a robust mechanism for selecting the leader. This method
 There are several strategies for electing a leader among a set of tasks in a distributed environment, including:
 - Selecting the task instance with the lowest-ranked instance or process ID.
 - Racing to acquire a shared, distributed mutex. The first task instance that acquires the mutex is the leader. However, the system must ensure that, if the leader terminates or becomes disconnected from the rest of the system, the mutex is released to allow another task instance to become the leader.
-- Implementing one of the common leader election algorithms such as the [Bully Algorithm](http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html) or the [Ring Algorithm](http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
+- Implementing one of the common leader election algorithms such as the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html) or the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html). These algorithms assume that each candidate in the election has a unique ID, and that it can communicate with the other candidates reliably.
 
 ## Issues and considerations
 
@@ -193,7 +193,7 @@ The following guidance might also be relevant when implementing this pattern:
 - [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx). It's possible to start and stop instances of the task hosts as the load on the application varies. Autoscaling can help to maintain throughput and performance during times of peak processing.
 - [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx). This guidance describes how to allocate tasks to hosts in a cloud service in a way that helps to minimize running costs while maintaining the scalability, performance, availability, and security of the service.
 - The [Task-based Asynchronous Pattern](https://msdn.microsoft.com/library/hh873175.aspx).
-- An example illustrating the [Bully Algorithm](http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html).
-- An example illustrating the [Ring Algorithm](http://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html).
-- [Apache Curator](http://curator.apache.org/) a client library for Apache ZooKeeper.
+- An example illustrating the [Bully Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/BullyExample.html).
+- An example illustrating the [Ring Algorithm](https://www.cs.colostate.edu/~cs551/CourseNotes/Synchronization/RingElectExample.html).
+- [Apache Curator](https://curator.apache.org/) a client library for Apache ZooKeeper.
 - The article [Lease Blob (REST API)](https://msdn.microsoft.com/library/azure/ee691972.aspx) on MSDN.

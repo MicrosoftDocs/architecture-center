@@ -197,7 +197,7 @@ If you navigate to this address in a web browser, you should see the default Apa
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: /azure/architecture/best-practices/naming-conventions.md
+[naming-conventions]: ../../best-practices/naming-conventions.md
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/virtual-networks-nsg#default-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance

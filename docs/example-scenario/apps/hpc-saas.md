@@ -31,7 +31,7 @@ Other scenarios using this architecture might include:
 
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
-* Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](http://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
+* Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](https://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
 * From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to auto-scale based on load or queue depth based on active user demand for compute resources.
 * Azure Kubernetes Service (AKS) is used to host the web resources available to end users.
 
@@ -43,7 +43,7 @@ Other scenarios using this architecture might include:
 * [Application Gateway](/azure/application-gateway/) load balances the requests coming into the web servers.
 * [Azure Kubernetes Service (AKS)](/azure/aks/) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
 * [Altair PBS Works Suite](https://www.pbsworks.com/PBSProduct.aspx?n=PBS-Works-Suite&c=Overview-and-Capabilities) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
-* [Blob storage](/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs. 
+* [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs. 
 
 ### Alternatives
 

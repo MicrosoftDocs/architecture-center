@@ -170,7 +170,7 @@ After deployment completes, you can test conectivity from the simulated on-premi
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
+[capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
 [GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/

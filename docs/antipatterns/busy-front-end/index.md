@@ -204,7 +204,7 @@ The following graph shows the results of a load test. The overall volume of requ
 [sync-io]: ../synchronous-io/index.md
 [web-queue-worker]: /azure/architecture/guide/architecture-styles/web-queue-worker
 
-[WebJobs]: http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
+[WebJobs]: https://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
 [ComputePartitioning]: https://msdn.microsoft.com/library/dn589773.aspx
 [ServiceBusQueues]: https://msdn.microsoft.com/library/azure/hh367516.aspx
 [AppDynamics-Transactions-Front-End-Requests]: ./_images/AppDynamicsPerformanceStats.jpg
