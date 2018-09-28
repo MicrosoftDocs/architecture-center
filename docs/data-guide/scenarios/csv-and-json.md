@@ -40,6 +40,14 @@ CSV and JSON file formats both make it easy to exchange data between dissimilar 
 
 Azure provides several solutions for working with CSV and JSON files, depending on your needs. The primary landing place for these files is either Azure Storage or Azure Data Lake Store. Most Azure services that work with these and other text-based files integrate with either object storage service. In some situations, however, you may opt to directly import the data into Azure SQL or some other data store. SQL Server has native support for storing and working with JSON documents, which makes it easy to [import and process those types of files](/sql/relational-databases/json/import-json-documents-into-sql-server). You can use a utility like SQL Bulk Import to easily [import CSV files](/sql/relational-databases/json/import-json-documents-into-sql-server).
 
+For JSON files it is also possibile to query them directly from Azure Blob Store without need to import them into Azure SQL. An extensive article with a detailed code sample is available here:
+
+[Work with JSON files with Azure SQL](https://medium.com/@mauridb/work-with-json-files-with-azure-sql-8946f066ddd4)
+
+For CSV files this option is not yet available but it is possible to automatically import a CSV file as soon as it is dropped into an Azure Blob Storage using Azure Functions. Detailed description and complete solution available here:
+
+[Automatic import of CSV data using Azure Functions and Azure SQL](https://medium.com/@mauridb/automatic-import-of-csv-data-using-azure-functions-and-azure-sql-63e1070963cf)
+
 Depending on the scenario, you may perform [batch processing](../big-data/batch-processing.md) or [real-time processing](../big-data/real-time-processing.md) of the data.
 
 ## Challenges
