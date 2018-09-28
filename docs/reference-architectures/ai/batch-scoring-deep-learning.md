@@ -37,15 +37,15 @@ This architecture consists of the following components.
 
 ### Storage
 
-**Blob Storage**. [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used to store all images (input images, style images, and output images) as well as all logs produced from Batch AI. Blob storage integrates with Batch AI via [blobfuse](https://github.com/Azure/azure-storage-fuse), an open-source virtual filesystem that is backed by Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
+**[Blob storage](/azure/storage/blobs/storage-blobs-introduction)** is used to store all images (input images, style images, and output images) as well as all logs produced from Batch AI. Blob storage integrates with Batch AI via [blobfuse](https://github.com/Azure/azure-storage-fuse), an open-source virtual filesystem that is backed by Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
 
 ### Trigger / Scheduling
 
-**Azure Logic Apps**. [Logic Apps](/azure/logic-apps/) is used to trigger the workflow. When the logic app detects that a blob has been added to the container, it triggers the Batch AI process. Using logic app is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
+**[Azure Logic Apps](/azure/logic-apps/)** is used to trigger the workflow. When the logic app detects that a blob has been added to the container, it triggers the Batch AI process. Using logic app is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
 
-**Azure Container Instances**. [Container Instances](/azure/container-instances/) are used to run the Python scripts that create the AI Batch jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use Container Instances because there it has pre-built Logic Apps connector for it, which allows the logic app to trigger the AI Batch job. Container Instances is a convenient way to spin up stateless processes quickly.
+**[Azure Container Instances](/azure/container-instances/)** are used to run the Python scripts that create the AI Batch jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use Container Instances because there it has pre-built Logic Apps connector for it, which allows the logic app to trigger the AI Batch job. Container Instances is a convenient way to spin up stateless processes quickly.
 
-**DockerHub**. DockerHub is used to store the Docker image that Container Instances uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. Azure Container Registry can also be used for this architecture.
+**[DockerHub](https://hub.docker.com/)** is used to store the Docker image that Container Instances uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. [Azure Container Registry](/azure/container-registry/) can also be used for this architecture.
 
 ### Data Preparation
 
