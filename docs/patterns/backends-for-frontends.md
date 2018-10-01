@@ -29,7 +29,7 @@ Create one backend per user interface. Fine tune the behavior and performance of
 
 Because each backend is specific to one interface, it can be optimized for that interface. As a result, it will be smaller, less complex, and likely faster than a generic backend that tries to satisfy the requirements for all interfaces. Each interface team has autonomy to control their own backend and doesn't rely on a centralized backend development team. This gives the interface team flexibility in language selection, release cadence, prioritization of workload, and feature integration in their backend.
 
-For more information, see [Pattern: Backends For Frontends](http://samnewman.io/patterns/architectural/bff/).
+For more information, see [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/).
 
 ## Issues and considerations
 

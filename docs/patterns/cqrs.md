@@ -241,8 +241,6 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - [Materialized View Pattern](materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
 
-- The patterns & practices guide [CQRS Journey](http://aka.ms/cqrs). In particular, [Introducing the Command Query Responsibility Segregation Pattern](https://msdn.microsoft.com/library/jj591573.aspx) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](https://msdn.microsoft.com/library/jj591568.aspx) helps you understand some of the issues that come up when using this pattern.
+- The patterns & practices guide [CQRS Journey](https://aka.ms/cqrs). In particular, [Introducing the Command Query Responsibility Segregation Pattern](https://msdn.microsoft.com/library/jj591573.aspx) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](https://msdn.microsoft.com/library/jj591568.aspx) helps you understand some of the issues that come up when using this pattern.
 
-- The post [CQRS by Martin Fowler](http://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.
-
-- [Greg Young’s posts](http://codebetter.com/gregyoung/), which explore many aspects of the CQRS pattern.
+- The post [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.

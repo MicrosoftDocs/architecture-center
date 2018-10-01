@@ -396,7 +396,7 @@ The following features were discussed in this document. Click the links to learn
 [vWAN]: /azure/virtual-wan/virtual-wan-about
 [NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
 [AzFW]: /azure/firewall/overview
-[SubMgmt]: /azure/azure-resource-manager/resource-manager-azure-scaffold 
+[SubMgmt]: /azure/architecture/cloud-adoption/appendix/azure-scaffold 
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview

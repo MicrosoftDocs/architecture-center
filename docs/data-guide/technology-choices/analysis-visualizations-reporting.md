@@ -89,7 +89,7 @@ The following tables summarize the key differences in capabilities.
 
 [2] With the use of Power BI Desktop.
 
-[2] You can search the [Maven repository](http://search.maven.org/) for community-contributed packages.
+[2] You can search the [Maven repository](https://search.maven.org/) for community-contributed packages.
 
 [3] Python packages can be installed using either pip or conda. R packages can be installed from CRAN or GitHub. Packages in F# can be installed via nuget.org using the [Paket dependency manager](https://fsprojects.github.io/Paket/).
 

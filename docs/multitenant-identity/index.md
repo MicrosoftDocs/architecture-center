@@ -90,7 +90,7 @@ This guidance does not consider other aspects of multitenancy such as data parti
 
 
 <!-- Links -->
-[ADConnect]: /azure/active-directory/active-directory-aadconnect
+[ADConnect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [AzureAD]: /azure/active-directory
 
 [Federating with a customer's AD FS]: adfs.md

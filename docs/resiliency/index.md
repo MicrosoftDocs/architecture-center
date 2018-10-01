@@ -328,16 +328,16 @@ Here are the major points to take away from this article:
 
 <!-- links -->
 
-[blue-green]: http://martinfowler.com/bliki/BlueGreenDeployment.html
-[canary-release]: http://martinfowler.com/bliki/CanaryRelease.html
+[blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[canary-release]: https://martinfowler.com/bliki/CanaryRelease.html
 [circuit-breaker-pattern]: https://msdn.microsoft.com/library/dn589784.aspx
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: /azure/automation/automation-dsc-overview
-[contingency-planning-guide]: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
+[contingency-planning-guide]: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
 [fma]: failure-mode-analysis.md
-[hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
-[jmeter]: http://jmeter.apache.org/
+[hystrix]: https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362
+[jmeter]: https://jmeter.apache.org/
 [load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
 [monitoring-guidance]: ../best-practices/monitoring.md
 [ra-basic-web]: ../reference-architectures/app-service-web-app/basic-web-app.md

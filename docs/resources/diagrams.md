@@ -1,3 +1,3 @@
 ---
-redirect_url: http://aka.ms/CnESymbols
+redirect_url: https://aka.ms/CnESymbols
 ---

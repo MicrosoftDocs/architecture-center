@@ -302,7 +302,7 @@ This logon tunnels from the Fabrikam.com domain used by the on-premises network 
 [sharepoint-reqs]: https://technet.microsoft.com/library/cc262485(v=office.16).aspx
 [sharepoint-search]: https://technet.microsoft.com/library/dn342836.aspx
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
 [sql-server-capacity-planning]: https://technet.microsoft.com/library/cc298801(v=office.16).aspx
 [sql-quorum]: https://technet.microsoft.com/library/cc731739(v=ws.11).aspx
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx
