@@ -59,7 +59,7 @@ The article [Monitoring and diagnostics](../best-practices/monitoring.md) descri
 
 ## Distributed tracing
 
-As mentioned, one challenge in microservices is understanding the flow of events across services. A single operation or transaction may involve calls to multiple services. To reconstruct the entire sequence of steps, each service should propagate a *correlation ID* that acts as a unique identifier for that operation. The correlation ID enables [distributed tracing](http://microservices.io/patterns/observability/distributed-tracing.html) across services.
+As mentioned, one challenge in microservices is understanding the flow of events across services. A single operation or transaction may involve calls to multiple services. To reconstruct the entire sequence of steps, each service should propagate a *correlation ID* that acts as a unique identifier for that operation. The correlation ID enables [distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html) across services.
 
 The first service that receives a client request should generate the correlation ID. If the service makes an HTTP call to another service, it puts the correlation ID in a request header. Similarly, if the service sends an asynchronous message, it puts the correlation ID into the message. Downstream services continue to propagate the correlation ID, so that it flows through the entire system. In addition, all code that writes application metrics or log events should include the correlation ID.
 
@@ -109,7 +109,7 @@ Another option is to send logs to Operations Management Suite (OMS) Log Analytic
 
 ## Example: Logging with correlation IDs
 
-To illustrate some of the points discussed in this chapter, here is an extended example of how the Package service implements logging. The Package service was written in TypeScript and uses the [Koa](http://koajs.com/) web framework for Node.js. There are several Node.js logging libraries to choose from. We picked [Winston](https://github.com/winstonjs/winston), a popular logging library that met our performance requirements when we tested it.
+To illustrate some of the points discussed in this chapter, here is an extended example of how the Package service implements logging. The Package service was written in TypeScript and uses the [Koa](https://koajs.com/) web framework for Node.js. There are several Node.js logging libraries to choose from. We picked [Winston](https://github.com/winstonjs/winston), a popular logging library that met our performance requirements when we tested it.
 
 To encapsulate the implementation details, we defined an abstract  `ILogger` interface:
 

@@ -65,30 +65,6 @@
         href: guide/design-principles/build-for-business.md
     - name: Pillars of software quality
       href: guide/pillars.md
-    - name: Best practices for cloud architectures
-      items:
-      - name: API design
-        href: best-practices/api-design.md
-      - name: API implementation
-        href: best-practices/api-implementation.md
-      - name: Autoscaling
-        href: best-practices/auto-scaling.md
-      - name: Background jobs
-        href: best-practices/background-jobs.md
-      - name: Caching
-        href: best-practices/caching.md
-      - name: Content Delivery Network
-        href: best-practices/cdn.md
-      - name: Data partitioning
-        href: best-practices/data-partitioning.md
-      - name: Monitoring and diagnostics
-        href: best-practices/monitoring.md
-      - name: Naming conventions
-        href: best-practices/naming-conventions.md
-      - name: Transient fault handling
-        href: best-practices/transient-faults.md
-      - name: Retry guidance for specific services
-        href: best-practices/retry-service-specific.md
 
   - name: Data architecture guide
     items:
@@ -254,6 +230,31 @@
     - name: Valet Key
       href: patterns/valet-key.md
 
+  - name: Best practices for cloud applications
+    items:
+    - name: API design
+      href: best-practices/api-design.md
+    - name: API implementation
+      href: best-practices/api-implementation.md
+    - name: Autoscaling
+      href: best-practices/auto-scaling.md
+    - name: Background jobs
+      href: best-practices/background-jobs.md
+    - name: Caching
+      href: best-practices/caching.md
+    - name: Content Delivery Network
+      href: best-practices/cdn.md
+    - name: Data partitioning
+      href: best-practices/data-partitioning.md
+    - name: Monitoring and diagnostics
+      href: best-practices/monitoring.md
+    - name: Naming conventions
+      href: best-practices/naming-conventions.md
+    - name: Transient fault handling
+      href: best-practices/transient-faults.md
+    - name: Retry guidance for specific services
+      href: best-practices/retry-service-specific.md
+
   - name: Performance antipatterns
     items:
     - name: Overview
@@ -275,6 +276,163 @@
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
 
+  - name: Azure for AWS Professionals
+    items:
+    - name: Overview
+      href: aws-professional/index.md
+    - name: Services comparison
+      href: aws-professional/services.md
+
+- name: Example Scenarios
+  items:
+  - name: Overview
+    href: example-scenario/index.md
+  - name: AI
+    items:
+    - name: Image classification
+      href: example-scenario/ai/intelligent-apps-image-processing.md
+  - name: Apps
+    items:
+    - name: Computer-aided engineering SaaS
+      href: example-scenario/apps/hpc-saas.md
+    - name: Decentralized trust between banks
+      href: example-scenario/apps/decentralized-trust.md
+    - name: Web application monitoring
+      href: example-scenario/apps/app-monitoring.md
+    - name: Hotel reservation chatbot
+      href: example-scenario/apps/commerce-chatbot.md
+    - name: DevOps with containers
+      href: example-scenario/apps/devops-with-aks.md
+    - name: DevOps with Azure DevOps
+      href: example-scenario/apps/devops-dotnet-webapp.md
+    - name: SAP for dev/test
+      href: example-scenario/apps/sap-dev-test.md
+    - name: SAP for production
+      href: example-scenario/apps/sap-production.md
+    - name: E-commerce front-end
+      href: example-scenario/apps/ecommerce-scenario.md
+    - name: E-commerce API management
+      href: example-scenario/apps/apim-api-scenario.md
+    - name: E-commerce product search
+      href: example-scenario/apps/ecommerce-search.md
+  - name: Data and Analytics
+    items:
+    - name: IoT for construction
+      href: example-scenario/data/big-data-with-iot.md
+    - name: Data warehousing and analytics
+      href: example-scenario/data/data-warehouse.md
+    - name: Automotive IOT data
+      href: example-scenario/data/realtime-analytics-vehicle-iot.md
+    - name: Real-time fraud detection
+      href: example-scenario/data/fraud-detection.md
+    - name: Scalable order processing
+      href: example-scenario/data/ecommerce-order-processing.md
+  - name: Infrastructure
+    items:
+    - name: Computational fluid dynamics (CFD)
+      href: example-scenario/infrastructure/hpc-cfd.md
+    - name: Linux virtual desktops
+      href: example-scenario/infrastructure/linux-vdi-citrix.md
+    - name: Decomposing monolithic applications
+      href: example-scenario/infrastructure/ServiceFabricMicroservices.md
+    - name: Highly scalable WordPress
+      href: example-scenario/infrastructure/wordpress.md
+    - name: Multi-tier Windows
+      href: example-scenario/infrastructure/regulated-multitier-app.md
+    - name: HPC video rendering
+      href: example-scenario/infrastructure/video-rendering.md
+   
+- name: Reference Architectures
+  items:
+    - name: Overview
+      href: reference-architectures/index.md
+
+    - name: Big data
+      items:
+      - name: Enterprise BI with SQL Data Warehouse
+        href: reference-architectures/data/enterprise-bi-sqldw.md
+      - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
+        href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Stream processing with Azure Stream Analytics
+        href: reference-architectures/data/stream-processing-stream-analytics.md
+
+    - name: Hybrid networks
+      items:
+      - name: Overview
+        href: reference-architectures/hybrid-networking/index.md
+      - name: VPN
+        href: reference-architectures/hybrid-networking/vpn.md
+      - name: ExpressRoute
+        href: reference-architectures/hybrid-networking/expressroute.md
+      - name: ExpressRoute with VPN failover
+        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.md
+      - name: Hub-spoke topology
+        href: reference-architectures/hybrid-networking/hub-spoke.md
+      - name: Hub-spoke topology with shared services
+        href: reference-architectures/hybrid-networking/shared-services.md
+
+    - name: Identity management
+      items:
+      - name: Overview
+        href: reference-architectures/identity/index.md
+      - name: Integrate on-premises AD with Azure AD
+        href: reference-architectures/identity/azure-ad.md
+      - name: Extend AD DS to Azure
+        href: reference-architectures/identity/adds-extend-domain.md
+      - name: Create an AD DS forest in Azure
+        href: reference-architectures/identity/adds-forest.md
+      - name: Extend AD FS to Azure
+        href: reference-architectures/identity/adfs.md
+
+    - name: N-tier applications
+      items:
+      - name: N-tier application with SQL Server
+        href: reference-architectures/n-tier/n-tier-sql-server.md
+      - name: Multi-region N-tier application
+        href: reference-architectures/n-tier/multi-region-sql-server.md
+      - name: N-tier application with Cassandra
+        href: reference-architectures/n-tier/n-tier-cassandra.md
+      - name: Deploy a Linux VM
+        href: reference-architectures/n-tier/linux-vm.md
+      - name: Deploy a Windows VM
+        href: reference-architectures/n-tier/windows-vm.md
+
+    - name: Network DMZ
+      items:
+      - name: DMZ between Azure and on-premises
+        href: reference-architectures/dmz/secure-vnet-hybrid.md
+      - name: DMZ between Azure and the Internet
+        href: reference-architectures/dmz/secure-vnet-dmz.md
+      - name: Highly available network virtual appliances
+        href: reference-architectures/dmz/nva-ha.md
+
+    - name: SAP
+      items:
+      - name: SAP NetWeaver for AnyDB
+        href: reference-architectures/sap/sap-netweaver.md
+      - name: SAP S/4HANA
+        href: reference-architectures/sap/sap-s4hana.md
+      - name: SAP HANA on Azure Large Instances
+        href: reference-architectures/sap/hana-large-instances.md
+
+    - name: VM workloads
+      items:
+      - name: Jenkins server
+        href: reference-architectures/jenkins/index.md
+      - name: SharePoint Server 2016
+        href: reference-architectures/sharepoint/index.md
+
+    - name: Web applications
+      items:
+      - name: Basic web application
+        href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Improved scalability
+        href: reference-architectures/app-service-web-app/scalable-web-app.md
+      - name: Multi-region deployment
+        href: reference-architectures/app-service-web-app/multi-region.md
+
+- name: Design Guides
+  items:
   - name: Build microservices on Azure
     items:
     - name: Introduction
@@ -334,127 +492,6 @@
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
 
-- name: Example Scenarios
-  items:
-  - name: Overview
-    href: example-scenario/index.md
-  - name: AI
-    items:
-    - name: Image classification
-      href: example-scenario/ai/intelligent-apps-image-processing.md
-  - name: Apps
-    items:
-    - name: Hotel reservation chatbot
-      href: example-scenario/apps/commerce-chatbot.md
-    - name: DevOps with Containers
-      href: example-scenario/apps/devops-with-aks.md
-    - name: DevOps with VSTS
-      href: example-scenario/apps/devops-dotnet-webapp.md
-    - name: SAP for Dev/Test
-      href: example-scenario/apps/sap-dev-test.md
-    - name: E-commerce front-end
-      href: example-scenario/apps/ecommerce-scenario.md
-  - name: Data & Analytics
-    items:
-    - name: Real-time fraud detection
-      href: example-scenario/data/fraud-detection.md
-    - name: Scalable order processing
-      href: example-scenario/data/ecommerce-order-processing.md
-  - name: Infrastructure
-    items:
-    - name: Multi-tier Windows
-      href: example-scenario/infrastructure/regulated-multitier-app.md
-    - name: HPC video rendering
-      href: example-scenario/infrastructure/video-rendering.md
-   
-- name: Reference Architectures
-  items:
-    - name: Overview
-      href: reference-architectures/index.md
-
-    - name: App Service web application
-      items:
-      - name: Basic web application
-        href: reference-architectures/app-service-web-app/basic-web-app.md
-      - name: Improved scalability
-        href: reference-architectures/app-service-web-app/scalable-web-app.md
-      - name: Multi-region deployment
-        href: reference-architectures/app-service-web-app/multi-region.md
-
-    - name: Big data
-      items:
-      - name: Enterprise BI with SQL Data Warehouse
-        href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
-        href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Stream processing with Azure Stream Analytics
-        href: reference-architectures/data/stream-processing-stream-analytics.md
-
-    - name: Hybrid networks
-      items:
-      - name: Overview
-        href: reference-architectures/hybrid-networking/index.md
-      - name: VPN
-        href: reference-architectures/hybrid-networking/vpn.md
-      - name: ExpressRoute
-        href: reference-architectures/hybrid-networking/expressroute.md
-      - name: ExpressRoute with VPN failover
-        href: reference-architectures/hybrid-networking/expressroute-vpn-failover.md
-      - name: Hub-spoke topology
-        href: reference-architectures/hybrid-networking/hub-spoke.md
-      - name: Hub-spoke topology with shared services
-        href: reference-architectures/hybrid-networking/shared-services.md
-
-    - name: Identity management
-      items:
-      - name: Overview
-        href: reference-architectures/identity/index.md
-      - name: Integrate on-premises AD with Azure AD
-        href: reference-architectures/identity/azure-ad.md
-      - name: Extend AD DS to Azure
-        href: reference-architectures/identity/adds-extend-domain.md
-      - name: Create an AD DS forest in Azure
-        href: reference-architectures/identity/adds-forest.md
-      - name: Extend AD FS to Azure
-        href: reference-architectures/identity/adfs.md
-
-    - name: N-tier application
-      items:
-      - name: N-tier application with SQL Server
-        href: reference-architectures/n-tier/n-tier-sql-server.md
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.md
-      - name: N-tier application with Cassandra
-        href: reference-architectures/n-tier/n-tier-cassandra.md
-      - name: Deploy a Linux VM
-        href: reference-architectures/n-tier/linux-vm.md
-      - name: Deploy a Windows VM
-        href: reference-architectures/n-tier/windows-vm.md
-
-    - name: Network DMZ
-      items:
-      - name: DMZ between Azure and on-premises
-        href: reference-architectures/dmz/secure-vnet-hybrid.md
-      - name: DMZ between Azure and the Internet
-        href: reference-architectures/dmz/secure-vnet-dmz.md
-      - name: Highly available network virtual appliances
-        href: reference-architectures/dmz/nva-ha.md
-
-    - name: SAP
-      items:
-      - name: SAP NetWeaver for AnyDB
-        href: reference-architectures/sap/sap-netweaver.md
-      - name: SAP S/4HANA
-        href: reference-architectures/sap/sap-s4hana.md
-      - name: SAP HANA on Azure Large Instances
-        href: reference-architectures/sap/hana-large-instances.md
-
-    - name: Jenkins server
-      href: reference-architectures/jenkins/index.md
-
-    - name: SharePoint Server 2016
-      href: reference-architectures/sharepoint/index.md
-
 - name: Design Review Framework
   items:
   - name: Design for resiliency
@@ -498,19 +535,15 @@
     items:
     - name: Deploy a basic workload
       href: cloud-adoption/infrastructure/basic-workload.md
+  - name: Operations
+    items:
+    - name: Overview
+      href: cloud-adoption/operations/overview.md
+    - name: Establish an operational fitness review
+      href: cloud-adoption/operations/operational-fitness-review.md
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
-
-- name: Azure Virtual Datacenter
-  href: vdc/index.md
-
-- name: Azure for AWS Professionals
-  items:
-  - name: Overview
-    href: aws-professional/index.md
-  - name: Services comparison
-    href: aws-professional/services.md

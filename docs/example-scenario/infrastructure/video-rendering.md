@@ -6,7 +6,7 @@ ms.date: 07/13/2018
 ---
 # 3D video rendering on Azure
 
-3D rendering is a time consuming process that requires a significant amount of CPU time co complete.  On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing.  Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to.  However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
+3D rendering is a time consuming process that requires a significant amount of CPU time to complete.  On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing.  Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to.  However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
 
 Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
 
@@ -109,7 +109,7 @@ The template will deploy:
 * The node pool will contain zero VMs initially and will require you to manually scale to add VMs
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 [Learn more about Resource Manager templates][azure-arm-templates]

@@ -79,7 +79,7 @@ The next control is a check that the user has sufficient permission to make the 
 
 An RBAC role specifies a set of permissions a user may take on a specific resource. When the role is assigned to the user, those permissions are applied. For example, the [built-in **owner** role](/azure/role-based-access-control/built-in-roles#owner) allows a user to perform any action on a resource.
 
-The next control is a check that the request is allowed under the settings specified for [Azure resource policy](/azure/azure-policy/). Azure resource policies specify the operations allowed for a specific resource. For example, an Azure resource policy can specify that users are only allowed to deploy a specific type of virtual machine.
+The next control is a check that the request is allowed under the settings specified for [Azure resource policy](/azure/governance/policy/). Azure resource policies specify the operations allowed for a specific resource. For example, an Azure resource policy can specify that users are only allowed to deploy a specific type of virtual machine.
 
 ![](../_images/governance-1-19.png)   
 *Figure 11. Azure resource policy.*

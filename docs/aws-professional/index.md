@@ -151,7 +151,7 @@ The syntax and structure of these interfaces are different from their AWS
 equivalents, but they provide comparable capabilities. In addition, many third
 party management tools used on AWS, like [Hashicorp's
 Terraform](https://www.terraform.io/docs/providers/azurerm/) and [Netflix
-Spinnaker](http://www.spinnaker.io/), are also available on Azure.
+Spinnaker](https://www.spinnaker.io/), are also available on Azure.
 
 ### See also
 
@@ -223,7 +223,7 @@ creating a full copy of your solution in both regions.
 
 ## Services
 
-Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms.
+For a listing of how services map between platforms, see [AWS to Azure services comparison](./services.md).
 
 Not all Azure products and
 services are available in all regions. Consult the [Products by
@@ -249,8 +249,6 @@ similar way, there are differences in the RAM, CPU, and storage capabilities.
     (Linux)](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)
 
 Unlike AWS' per second billing, Azure on-demand VMs are billed by the minute.
-
-Azure has no equivalent to EC2 Spot Instances or Dedicated Hosts.
 
 #### EBS and Azure Storage for VM disks
 
@@ -620,12 +618,6 @@ services are needed for those delivery types.
 
 ## Next steps
 
--   [Complete AWS and Azure service comparison
-    matrix](https://aka.ms/azure4aws-services)
-
--   [Interactive Azure Platform Big
-    Picture](http://azureplatform.azurewebsites.net/)
-
 -   [Get started with Azure](https://azure.microsoft.com/get-started/)
 
 -   [Azure solution
@@ -633,12 +625,6 @@ services are needed for those delivery types.
 
 -   [Azure Reference
     Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture/)
-
--   [Patterns & Practices: Azure
-    Guidance](https://azure.microsoft.com/documentation/articles/guidance/)
-
--   [Free Online Course: Microsoft Azure for AWS
-    Experts](http://aka.ms/azureforaws)
 
 
 <!-- links -->
