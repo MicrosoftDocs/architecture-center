@@ -1,6 +1,6 @@
 ---
 title: Batch scoring on Azure for deep learning models
-description: This reference architecture shows how to apply style transfer to a video, using Azure Batch AI
+description: This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI
 author: jiata
 ms.date: 09/28/2018
 ms.author: jiata
@@ -8,23 +8,26 @@ ms.author: jiata
 
 # Batch scoring on Azure for deep learning models
 
-This reference architecture shows how to apply style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
  
 ![](./_images/batch-ai-deep-learning.png)
 
-**Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about style transfer algoroithms, see [Image Style Transfer Using Convolutional Neural Networks](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf) (PDF).
+**Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Gatys_Image_Style_Transfer_CVPR_2016_paper.pdf) (PDF).
 
-![](./_images/batch-ai-style-transfer.png)
+| Style image: | Input/content video: | Output video: | 
+|--------|--------|---------|
+| <img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg" width="300"> | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4 "Input Video") *click to view video* | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4 "Output Video") *click to view video* |
 
-This reference architecture is designed for work that is triggered by the presence of new media to process which can be done manually. 
+This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.
 
 The end-to-end steps that this reference architecture covers are as follows:
 
 1. Upload a selected style image (like a Van Gogh painting) and a style transfer script to Blob Storage.
 2. Create an autoscaling Batch AI cluster that is ready to start taking work.
 3. Split the video file into individual frames and upload those frames into Blob Storage.
-4. Uploading the frames triggers a Logic App that creates a container running in Azure Container Instance.
-5. The container runs a script that creates the Batch AI jobs. Each job applies the style transfer in parallel across the nodes of the Batch AI cluster.
+4. Once all frames are uploaded, upload a trigger file to Blob Storage.
+4. The trigger file will trigger a Logic App that creates a container running in Azure Container Instance.
+5. The container runs a script that creates the Batch AI jobs. Each job applies the neural style transfer in parallel across the nodes of the Batch AI cluster.
 6. Once the images are generated, they are saved back to Blob Storage.
 7. Download the generated frames, and stitch back the images into a video.
 
@@ -33,7 +36,7 @@ This architecture consists of the following components.
 
 ### Compute
 
-**[Azure Batch AI](/azure/batch-ai/)** is used to run the style transfer algorithm. Batch AI supports deep learning workloads by providing containerized environments that are pre-configured for deep learning frameworks, on GPU-enabled VMs. 
+**[Azure Batch AI](/azure/batch-ai/)** is used to run the neural style transfer algorithm. Batch AI supports deep learning workloads by providing containerized environments that are pre-configured for deep learning frameworks, on GPU-enabled VMs. Batch AI also provides utility to help connect the cluster to Blob storage.
 
 ### Storage
 
@@ -41,11 +44,11 @@ This architecture consists of the following components.
 
 ### Trigger / Scheduling
 
-**[Azure Logic Apps](/azure/logic-apps/)** is used to trigger the workflow. When the logic app detects that a blob has been added to the container, it triggers the Batch AI process. Using logic app is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
+**[Azure Logic Apps](/azure/logic-apps/)** is used to trigger the workflow. When the Logic App detects that a blob has been added to the container, it triggers the Batch AI process. Using Logic App is a great fit for this reference architecture because it is an easy way to detect change to blob storage and provides an easy process for changing the trigger.
 
-**[Azure Container Instances](/azure/container-instances/)** are used to run the Python scripts that create the AI Batch jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use Container Instances because there it has pre-built Logic Apps connector for it, which allows the logic app to trigger the AI Batch job. Container Instances is a convenient way to spin up stateless processes quickly.
+**[Azure Container Instances (ACI)](/azure/container-instances/)** are used to run the Python scripts that create the Batch AI jobs. Running these scripts inside a Docker container is a convenient way to run them on demand. For this architecture, we use ACI because it has a pre-built Logic App connector for it, which allows the Logic App to trigger the Batch AI job. ACI is a convenient way to spin up stateless processes quickly.
 
-**[DockerHub](https://hub.docker.com/)** is used to store the Docker image that Container Instances uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. [Azure Container Registry](/azure/container-registry/) can also be used for this architecture.
+**[DockerHub](https://hub.docker.com/)** is used to store the Docker image that ACI uses to execute the job creation process. DockerHub was chosen for this architecture because it is easy to use and is the default image repository for Docker users. [Azure Container Registry](/azure/container-registry/) can also be used for this architecture.
 
 ### Data Preparation
 
@@ -55,7 +58,8 @@ This reference architecture uses video footage of an orangutan in a tree. You ca
 2. Use [FFmpeg](https://www.ffmpeg.org/) to extract the audio file, so that the audio file can be stitched back into the output video later.
 3. Use FFmpeg to break the video into individual frames. The frames will be processed independently, in parallel.
 4. Use AzCopy to copy the individual frames into your blob container.
-At this stage, the video footage is in a form that can be used for style transfer.
+
+At this stage, the video footage is in a form that can be used for neural style transfer. 
 
 ## Performance considerations
 
@@ -69,15 +73,15 @@ GPUs are not enabled by default in all regions. Make sure to select a region wit
 
 When running a style transfer process as a batch job, the jobs that run primarily on GPUs will have to be parallelized across VMs. Two approaches are possible: You can create a larger cluster using VMs that have a single GPU, or create a smaller cluster using VMs with many GPUs. 
 
-For this workload, these two options will be comparable in terms of performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job isn't very large for this workload, so you won't observe much throttling in Azure blob.
+For this workload, these two options will be comparable in terms of performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job for this workload is not very big, so you won't observe much throttling by blob storage.
 
 ### Configuring the number of images to process per Batch AI job
 
-Another parameter that must be configured is the number of images to process per Batch AI job. On the one hand, you want to ensure that work is spread broadly across the nodes. That points to having many Batch AI jobs and thus a low number of images to process per job. On the other hand, if too few images are processed per job, the setup/startup time becomes disproportionately large. The sweet spot is to have enough jobs to run on all nodes of the cluster, while also minimizing the total setup time across all jobs. Processing between 50 to 100 images per job tends to work well for shorter videos. 
+Another parameter that must be configured is the number of images to process per Batch AI job. On the one hand, you want to ensure that work is spread broadly across the nodes and that if a job fails, you don't have to retry too many images. That points to having many Batch AI jobs and thus a low number of images to process per job. On the other hand, if too few images are processed per job, the setup/startup time becomes disproportionately large. You can set the number of jobs to equal the maximum number of nodes in the cluster. This will be the most performant assuming that no jobs fail because we minimize the amount of setup/startup cost. However, if a job fails, this may also mean having to retry a large number of images.
 
 ### File Servers
 
-When using Batch AI, you can choose multiple storage options depending on the throughput needed for your scenario. For workloads with low throughput requirements, using blobfuse should be enough. Alternatively, Batch AI also supports a Batch AI File Server, a managed single-node NFS, which can be automatically mounted on cluster nodes to provide a centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If NFS isn't appropriate for your workloads, Batch AI supports other storage options, including Azure Storage or custom solutions such as a Gluster or Lustre file system.
+When using Batch AI, you can choose multiple storage options depending on the throughput needed for your scenario. For workloads with low throughput requirements, using blob storage (via blobfuse) should be enough. Alternatively, Batch AI also supports a Batch AI File Server, a managed single-node NFS, which can be automatically mounted on cluster nodes to provide a centrally accessible storage location for jobs. For most cases, only one file server is needed in a workspace, and you can separate data for your training jobs into different directories. If a single-node NFS isn't appropriate for your workloads, Batch AI supports other storage options, including Azure Files or custom solutions such as a Gluster or Lustre file system.
 
 ## Security considerations
 
@@ -97,11 +101,11 @@ When deploying your Batch AI cluster, you can configure your cluster to be provi
 
 ### Protecting against malicious activity
 
-In scenarios where there are multiple users, make sure that sensitive data is protected against malicious activity. If other users are given access to this deployment to customize the input data, the following precautions should be taken:
+In scenarios where there are multiple users, make sure that sensitive data is protected against malicious activity. If other users are given access to this deployment to customize the input data, take note of the following precautions and considerations:
 
 - Use RBAC to limit users' access to only the resources they need.
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This will ensure that external users cannot modify any executable files (to inject malicious code), and don't have access to logfiles, which could hold sensitive content.
-- Make sure that appropriate retry policies are set in Batch AI. Otherwise, malicious users can DDOS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors. 
+- Malicious users can DDOS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors. 
 
 ## Monitoring and logging
 
@@ -109,7 +113,7 @@ In scenarios where there are multiple users, make sure that sensitive data is pr
 
 While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes. 
 
-To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also be accessible in the Jobs blade in the Azure Portal. 
+To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Jobs blade in the Azure Portal. 
 
 Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the Batch AI cluster and its jobs.
 
@@ -117,10 +121,10 @@ Monitoring can be further enriched by connecting logs to Application Insights or
 
 Batch AI will automatically log all stdout/stderr to the associate blob storage account. Using a storage navigation tool such as Storage Explorer will provide a much easier experience for navigating log files. 
 
-![](./_images/batch-ai-logging.png)
+The deployment steps for this reference architecture also shows how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as illustrated below.
+Use these logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
 
-The deployment steps for this reference architecture show how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as illustrated above.
-Use logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
+![](./_images/batch-ai-logging.png)
 
 ## Cost considerations
 
@@ -128,7 +132,7 @@ Compared to the storage and scheduling components, the compute resources used in
 
 The Batch AI cluster size can automatically scale up and down depending on the jobs in the queue. You can enable auto-scale with Batch AI in one of two ways. You can do so programmatically, which can be configured in the `.env` file that is part of the [deployment steps][deployment], or you can change the scale formula directly in the portal after the cluster is created.
 
-For work that doesn't require immediate processing, configure the auto-scale formula so the default state (minimum) is a cluster of zero nodes, and set the maximum cluster size to the maximum number of Batch AI jobs that could occur at any given time. With this configuration, the cluster's default state is zero nodes, and the cluster only scales up when it detects jobs in the queue. This setting enables significant cost savings for scenarios where the batch scoring process only happens a few times a day or less.
+For work that doesn't require immediate processing, configure the auto-scale formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster's default state is zero nodes, and the cluster only scales up when it detects jobs in the queue. This setting enables significant cost savings for scenarios where the batch scoring process only happens a few times a day or less.
 
 Auto-scaling may not be appropriate for batch jobs that happen too close to each other in time. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
 
