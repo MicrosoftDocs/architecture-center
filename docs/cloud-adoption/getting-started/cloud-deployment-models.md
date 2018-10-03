@@ -38,4 +38,4 @@ Multi-cloud models across multiple cloud vendors can theoretically distribute ri
 > [!TIP]
 > Consolidating deployments with a single cloud vendor produces opportunities to create a stronger buying position & in some cases, better pricing.  
 
-To begin planning for Cloud adoption in Azure, you may want to read  ["Getting Started"](getting-started.md)
+To begin planning for Cloud adoption in Azure, you may want to read  [Getting Started](overview.md)
