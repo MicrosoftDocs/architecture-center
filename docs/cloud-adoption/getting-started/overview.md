@@ -42,7 +42,7 @@ The next step in your enterprise's digital transformation is for the members of 
 
 ![Cloud strategy, governance, and security teams learn best practices for operating in the cloud.](../_images/getting-started-overview-2.png)
 
-The starting point for understanding the cloud is learning [how Azure works](what-is-azure.md) at a high level. Next, learn about the basics of [governance in Azure](what-is-governance.md) in preparation for [understanding resource access management](azure-resource-access.md).
+The starting point for understanding the cloud is learning [how Azure works](what-is-azure.md) at a high level. This will help inform the strategy team's decision when choosing a [Cloud Deployment Model](clouddeploymentmodel.md). Next, learn about the basics of [governance in Azure](what-is-governance.md) in preparation for [understanding resource access management](azure-resource-access.md).
 
 For advanced learning, the governance team should review the concepts and design guides in the governance section of the table of contents. The infrastructure and workloads sections are useful for learning about typical architectures and workloads in the cloud.
 
