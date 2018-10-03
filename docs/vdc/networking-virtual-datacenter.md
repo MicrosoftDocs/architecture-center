@@ -400,7 +400,7 @@ The following features were discussed in this document. Click the links to learn
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
-[DDOS]: azure/virtual-network/ddos-protection-overview
+[DDOS]: /azure/virtual-network/ddos-protection-overview
 [PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
 [AFD]: https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
