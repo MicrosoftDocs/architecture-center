@@ -1,6 +1,11 @@
 { 
     "redirections": [ 
       {
+         "source_path": "docs/blueprints/hybrid-networking/index.md",
+         "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
+         "redirect_document_id": true
+      }, 
+      {
          "source_path": "docs/compliance/fedramp/index.md",
          "redirect_url": "/azure/security/blueprints/fedramp",
          "redirect_document_id": true
