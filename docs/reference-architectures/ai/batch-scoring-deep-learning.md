@@ -2,7 +2,7 @@
 title: Batch scoring on Azure for deep learning models
 description: This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI
 author: jiata
-ms.date: 09/28/2018
+ms.date: 10/02/2018
 ms.author: jiata
 ---
 
