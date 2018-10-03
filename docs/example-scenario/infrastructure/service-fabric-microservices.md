@@ -1,12 +1,13 @@
 ---
-title: Using Service Fabric to break up monolithic applications
-description: A scenario for decomposing a large monolithic application into microservices
+title: Using Service Fabric to decompose monolithic applications
+description: Decompose a large monolithic application into microservices.
 author: timomta
 ms.date: 09/20/2018
 ---
-# Using Service Fabric to break up monolithic applications
 
-In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application.  Here we consider an iterative approach to decomposing an IIS/ASP.Net web site into an application composed of multiple, manageable microservices.
+# Using Service Fabric to decompose monolithic applications
+
+In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.Net web site into an application composed of multiple, manageable microservices.
 
 By moving from a monolithic to a microservice architecture, we can achieve the following benefits:
 
@@ -18,7 +19,7 @@ By moving from a monolithic to a microservice architecture, we can achieve the f
 
 A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can also run on Linux as the underlying OS . It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
 
-## Related Use Cases
+## Relevant use cases
 
 This scenario is relevant to organizations with large monolithic Web applications that are experiencing:
 
@@ -30,7 +31,7 @@ This scenario is relevant to organizations with large monolithic Web application
 
 Using Service Fabric as the hosting platform, we could turn a large IIS web site into a collection of microservices as shown below:
 
-![Full Architecture Diagram](./media/service-fabric-microservices/service-fabric-complete.png)
+![Full Architecture Diagram](./media/architecture-service-fabric-complete.png)
 
 In the picture above, we decomposed all the parts of a large IIS application into:
 
@@ -47,13 +48,13 @@ Service Fabric was chosen because it is capable of supporting running all the mi
 
 To get to this final, decomposed application, we used an iterative approach. We started with a large IIS/ASP.Net web site on a server farm. A single node of the server farm is pictured below. It contains the original web site with several virtual directories (VDirs), an additional Windows Service the site calls, and an executable that does some periodic site archive maintenance.
 
-![Monolithic Architecture Diagram](./media/service-fabric-microservices/service-fabric-monolith.png)
+![Monolithic Architecture Diagram](./media/architecture-service-fabric-monolith.png)
 
 On the first development iteration, the IIS site and its VDirs placed in a [Windows Container](/azure/service-fabric/service-fabric-containers-overview). Doing this allows the site to remain operational, but not tightly bound to the underlying server node OS. The container is run and orchestrated by the underlying Service Fabric node, but the node does not have to have any state that the site is dependent on (registry entries, files, etc.). All of those items are in the container. We have also placed the Indexing service in a Windows Container for the same reasons. The containers can be deployed, versioned, and scaled independently. Finally, we hosted the Archive Service a simple [stand-alone exe](/azure/service-fabric/service-fabric-guest-executables-introduction) since it is a self-contained exe with no special requirements.
 
 The picture below shows how our large web site is now partially decomposed into independent units and ready to be decomposed more as time allows.
 
-![Partially Decomposed Architecture Diagram](./media/service-fabric-microservices/service-fabric-midway.png)
+![Partially Decomposed Architecture Diagram](./media/architecture-service-fabric-midway.png)
 
 Further development focuses on separating the single large Default Web site container pictured above. Each of the VDir ASP.Net apps is removed from the container one at a time and ported to ASP.Net Core [reliable services](/azure/service-fabric/service-fabric-reliable-services-introduction).
 
@@ -87,7 +88,7 @@ From the standpoint of your current application, begin to think about its differ
 
 ## Related Resources
 
-- [Building Microservices on Azure](/azure/architecture/microservices/)
+- [Building Microservices on Azure](/azure/architecture/microservices)
 - [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)
 - [Service Fabric Programming Model](/azure/service-fabric/service-fabric-choose-framework)
 - [Service Fabric Availability](/azure/service-fabric/service-fabric-availability-services)

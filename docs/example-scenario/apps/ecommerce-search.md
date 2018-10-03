@@ -1,10 +1,11 @@
 ---
-title: Intelligent product search engine for E-commerce
-description: Shows an example scenario where Azure Search is used to provide a world-class search experience in an e-commerce application
+title: Intelligent product search engine for e-commerce
+description: Provide a world-class search experience in an e-commerce application.
 author: jelledruyts
 ms.date: 09/14/2018
 ---
-# Intelligent product search engine for E-commerce
+
+# Intelligent product search engine for e-commerce
 
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
@@ -12,7 +13,7 @@ Search is the primary mechanism through which customers find and ultimately purc
 
 Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. And because Azure Search is a Platform-as-a-Service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
 
-## Potential use cases
+## Relevant use cases
 
 These other uses cases have similar design patterns:
 
@@ -46,11 +47,11 @@ This scenario covers an e-commerce solution where customers can search through a
 
 * You could use **in-database search** capabilities, for example, through SQL Server full-text search, but then your transactional store also processes queries (increasing the need for processing power) and the search capabilities inside the database are more limited.
 * You could host the open-source [Apache Lucene][apache-lucene] (on which Azure Search is built upon) on Azure Virtual Machines, but then you are back to managing Infrastructure-as-a-Service (IaaS) and don't benefit from the many features that Azure Search provides on top of Lucene.
-* You could also consider deploying [Elasticsearch][elastic-marketplace] from the Azure Marketplace, which is an alternative and capable search product from a third-party vendor, but also in this case you are running an IaaS workload.
+* You could also consider deploying [Elastic Search][elastic-marketplace] from the Azure Marketplace, which is an alternative and capable search product from a third-party vendor, but also in this case you are running an IaaS workload.
 
 Other options for the data tier include:
 
-* [Cosmos DB][docs-cosmosdb] - Microsoft's globally distributed, multi-model database. Costmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Azure Search also supports indexing the data from Cosmos DB directly.
+* [Cosmos DB](/azure/cosmos-db/introduction) - Microsoft's globally distributed, multi-model database. Costmos DB provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage. Azure Search also supports indexing the data from Cosmos DB directly.
 
 ## Considerations
 
@@ -101,16 +102,15 @@ We have provided three sample cost profiles based on amount of traffic you expec
 To learn more about Azure Search, visit the [documentation center][docs-search], check out the [samples][search-samples], or see a full fledged [demo site][search-demo] in action.
 
 <!-- links -->
-[architecture]: ./media/ecommerce-search/architecture-ecommerce-search.png
+[architecture]: ./media/architecture-ecommerce-search.png
 [docs-sql-fts]: /sql/relational-databases/search/query-with-full-text-search
 [docs-search]: /azure/search/search-what-is-azure-search
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [docs-botservice]: /azure/bot-service/
 [docs-cognitive]: /azure/cognitive-services/
-[docs-cosmosdb]: /azure/cosmos-db/
 [apache-lucene]: https://lucene.apache.org/
-[elastic-marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.elasticsearch
+[elastic-marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [search-sla]: https://go.microsoft.com/fwlink/?LinkId=716855
 [search-tier]: /azure/search/search-sku-tier

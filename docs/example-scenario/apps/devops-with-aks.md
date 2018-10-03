@@ -1,9 +1,10 @@
 ---
 title: CI/CD pipeline for container-based workloads
-description: Proven scenario for building a DevOps pipeline for a Node.js web app that uses Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
+description: An example scenario for building a DevOps pipeline for a Node.js web app that using Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018
 ---
+
 # CI/CD pipeline for container-based workloads
 
 This example scenario is applicable to businesses that want to modernize application development by using containers and DevOps workflows. In this scenario, a Node.js web app is built and deployed by Jenkins into an Azure Container Registry and Azure Kubernetes Service. For a globally distributed database tier, Azure Cosmos DB is used. To monitor and troubleshoot application performance, Azure Monitor integrates with a Grafana instance and dashboard.
@@ -12,7 +13,7 @@ Example application scenarios include providing an automated development environ
 
 By using Azure services such as Azure Kubernetes Service, Container Registry, and Cosmos DB, companies can use the latest in application development techniques and tools to simplify the process of implementing high availability.
 
-## Related use cases
+## Relevant use cases
 
 Consider this scenario for the following use cases:
 
@@ -24,7 +25,7 @@ Consider this scenario for the following use cases:
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Jenkins, Azure Container Registry, and Azure Kubernetes Service][architecture]
 
-This scenario covers a DevOps pipeline for a Node.js web application and database backend. The data flows through the scenario as follows:
+This scenario covers a DevOps pipeline for a Node.js web application and database back end. The data flows through the scenario as follows:
 
 1. A developer makes changes to the Node.js web application source code.
 2. The code change is committed to a source control repository, such as GitHub.
@@ -32,7 +33,7 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 4. The Jenkins build job uses a dynamic build agent in Azure Kubernetes Service to perform a container build process.
 5. A container image is created from the code in source control, and is then pushed to an Azure Container Registry.
 6. Through continuous deployment (CD), Jenkins deploys this updated container image to the Kubernetes cluster.
-7. The Node.js web application uses Azure Cosmos DB as it's backend. Both Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.
+7. The Node.js web application uses Cosmos DB as its back end. Both Cosmos DB and Azure Kubernetes Service report metrics to Azure Monitor.
 8. A Grafana instance provides visual dashboards of the application performance based on the data from Azure Monitor.
 
 ### Components
@@ -41,7 +42,7 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 * [Azure Linux Virtual Machines][azurevm-docs] is the IaaS platform used to run the Jenkins and Grafana instances.
 * [Azure Container Registry][azureacr-docs] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
 * [Azure Kubernetes Service][azureaks-docs] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
-* [Azure Cosmos DB][azurecosmosdb-docs] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
+* [Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
 * [Azure Monitor][azuremonitor-docs] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
 * [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
 
@@ -126,12 +127,11 @@ We have provided three sample cost profiles based on the number of container ima
 This scenario used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][azureaci-docs].
 
 <!-- links -->
-[architecture]: ./media/devops-with-aks/architecture-devops-with-aks.png
+[architecture]: ./media/architecture-devops-with-aks.png
 [autoscaling]: ../../best-practices/auto-scaling.md
 [availability]: ../../checklist/availability.md
 [azureaci-docs]: /azure/container-instances/container-instances-overview
 [azureacr-docs]: /azure/container-registry/container-registry-intro
-[azurecosmosdb-docs]: /azure/cosmos-db/introduction
 [azureaks-docs]: /azure/aks/intro-kubernetes
 [azuremonitor-docs]: /azure/monitoring-and-diagnostics/monitoring-overview
 [azurevm-docs]: /azure/virtual-machines/linux/overview
