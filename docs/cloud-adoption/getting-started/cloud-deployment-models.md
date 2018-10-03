@@ -4,7 +4,7 @@ description: Intro to Cloud Deployment Models
 author: BrianBlanchard
 ms.date: 10/02/2018
 ---
-# Choosing a Cloud Deployment Model
+# What Cloud Deployment Models are available?
 
 Businesses use different models to deploy cloud resources. In this article, we build on ["How Azure works"](what-is-azure.md), by discussing the four cloud models: Private, Public, Hybrid, and Multi-Cloud.
 
