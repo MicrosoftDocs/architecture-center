@@ -12,6 +12,31 @@ Our reference architectures are arranged by scenario, with related architectures
 
 Jump to: [Big data](#big-data-solutions) | [Web applications](#web-applications) | [N-tier applications](#n-tier-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extending-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads)
 
+## AI and machine learning
+
+<ul  class="panelContent cardsF">
+<!-- SQL Data Warehouse -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/batch-ai.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring for deep learning models</h3>
+                        <p>Apply neural style transfer to a video, using Azure Batch AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
 ## Big data solutions
 
 <ul  class="panelContent cardsF">
