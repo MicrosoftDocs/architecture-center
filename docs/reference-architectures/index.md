@@ -28,7 +28,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
                     </div>
                     <div class="cardText">
                         <h3>Batch scoring for deep learning models</h3>
-                        <p>Run batch jobs to apply neural style transfer to a video.</p>
+                        <p>Automate running batch jobs that apply neural style transfer to a video.</p>
                     </div>
                 </div>
             </div>
