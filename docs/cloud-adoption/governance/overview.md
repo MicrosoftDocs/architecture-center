@@ -1,7 +1,7 @@
 ---
 title: "Enterprise Cloud Adoption: governance overview"
 description: Overview of governance content for Azure enterprise cloud adoption
-author: Brian Blanchard
+author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Cloud Deployment Models" 
-description: Intro to Cloud Deployment Models
+description: What Cloud Deployment Models are available?
 author: BrianBlanchard
 ms.date: 10/02/2018
 ---
