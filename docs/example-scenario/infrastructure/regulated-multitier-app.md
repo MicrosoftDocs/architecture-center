@@ -107,9 +107,9 @@ We have provided three sample cost profiles based on the number of scale set VM 
 
 ## Related Resources
 
-This scenario used a back-end virtual machine scale set that runs a Microsoft SQL Server cluster. Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] allows you to secure your critical Azure service resources to only your virtual networks. In this scenario, VNet endpoints allow you to secure traffic between the front-end application tier and Cosmos DB. For more information, see the [Azure Cosmos DB overview(/azure/cosmos-db/introduction).
+This scenario used a back-end virtual machine scale set that runs a Microsoft SQL Server cluster. Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] allows you to secure your critical Azure service resources to only your virtual networks. In this scenario, VNet endpoints allow you to secure traffic between the front-end application tier and Cosmos DB. For more information, see the [Azure Cosmos DB overview][docs-cosmos-db](/azure/cosmos-db/introduction).
 
-You also view a thorough [reference architecture for a generic N-tier application with SQL Server][ntiersql-ra].
+You can also view a detailed [reference architecture for a generic N-tier application using SQL Server][ntiersql-ra].
 
 <!-- links -->
 [appgateway-docs]: /azure/application-gateway/overview

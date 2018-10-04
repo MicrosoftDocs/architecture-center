@@ -46,7 +46,7 @@ The second workflow is how authors contribute new content:
 * [Virtual networks](/azure/virtual-network/virtual-networks-overview) allow resources such as VMs to securely communicate with each other, the Internet, and on-premises networks. Virtual networks provide isolation and segmentation, filter and route traffic, and allow connection between locations. The two networks are connected via Vnet peering.
 * [Network security groups](/azure/virtual-network/security-overview) contain a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol. The virtual networks in this scenario are secured with network security group rules that restrict the flow of traffic between the application components.
 * [Load balancers](/azure/load-balancer/load-balancer-overview) distribute inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. A load balancer is used in this scenario to distribute traffic from the content deliver network to the front-end web servers.
-* [Virtual machine scale sets][scaleset-docs] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end webservers used to author new content.
+* [Virtual machine scale sets][docs-vmss] let you create and manage a group of identical load-balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Two separate virtual machine scale sets are used in this scenario - one for the front-end web-servers serving content, and one for the front-end webservers used to author new content.
 * [Azure Files](/azure/storage/files/storage-files-introduction) provides a fully-managed file share in the cloud that hosts all of the WordPress content in this scenario, so that all of the VMs have access to the data.
 * [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store and tightly control access to passwords, certificates, and keys.
 * [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) is a multi-tenant, cloud-based directory and identity management service. In this scenario, Azure AD provides authentication services for the website and the VPN tunnels.
@@ -66,7 +66,7 @@ For other availability topics, see the [availability checklist][availability] in
 
 ### Scalability
 
-This scenario uses virtual machine scale sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][vmssautoscale-docs].
+This scenario uses virtual machine scale sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][docs-vmss-autoscale].
 
 The back end is a MariaDB cluster in an availability set. For more information, see the [MariaDB cluster tutorial][mariadb-tutorial].
 
@@ -74,7 +74,7 @@ For other scalability topics, see the [scalability checklist][scalability] in th
 
 ### Security
 
-All the virtual network traffic into the front-end application tier and protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][nsg-docs].
+All the virtual network traffic into the front-end application tier and protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][docs-nsg].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
@@ -97,10 +97,11 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 <!-- links -->
 [architecture]: ./media/architecture-secure-scalable-wordpress.png
 [mariadb-tutorial]: /azure/virtual-machines/linux/classic/mariadb-mysql-cluster
-[scaleset-docs]: /azure/virtual-machine-scale-sets/overview
+[docs-vmss]: /azure/virtual-machine-scale-sets/overview
+[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[docs-nsg]: /azure/virtual-network/security-overview
 [security]: /azure/security/
 [availability]: ../../checklist/availability.md
 [resiliency]: /azure/architecture/resiliency/
 [scalability]: /azure/architecture/checklist/scalability
-[vmssautoscale-docs]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
 [pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b

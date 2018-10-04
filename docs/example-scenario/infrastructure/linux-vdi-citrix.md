@@ -1,6 +1,6 @@
 ---
 title: Linux virtual desktops with Citrix
-description: Biuld a VDI environment for Linux Desktops using Citrix on Azure.
+description: Build a VDI environment for Linux Desktops using Citrix on Azure.
 author: miguelangelopereira 
 ms.date: 09/12/2018 
 ---
@@ -9,13 +9,13 @@ ms.date: 09/12/2018
 
 This example scenario is applicable to any industry that needs a Virtual Desktop Infrastructure (VDI) for Linux Desktops. VDI refers to the process of running a user desktop inside a virtual machine that lives on a server in the datacenter. The customer in this scenario chose to use a Citrix-based solution for their VDI needs.
 
-It's common for organizations to have heterogeneous environments with multiple devices and operating systems being used by employees. Providing consistent access to applications while maintaining a high level of security can be a challenge. A VDI solution for Linux desktops will allow your organization to provide access independently of the device or OS utilized by the end user.
+Organizations often have heterogeneous environments with multiple devices and operating systems being used by employees. It can be challenging to provide consistent access to applications while maintaining a secure environment. A VDI solution for Linux desktops will allow your organization to provide access irrespective of the device or OS used by the end user.
 
-Some benefits for this sample solution include:
-* Increased ROI with shared Linux virtual desktops by giving more users access to the same infrastructure. By consolidating resources on a centralized VDI environment, the end user devices don't need to be as powerful.
+Some benefits for this sample solution include the following:
+* Return on investment will be higher with shared Linux virtual desktops by giving more users access to the same infrastructure. By consolidating resources on a centralized VDI environment, the end user devices don't need to be as powerful.
 * Performance will be consistent regardless of the end user device.
-* Provides access to Linux applications on any device (including Non-Linux).
-* Sensitive data can be secured in the Azure datacenter for all distributed employees.
+* Users can access Linux applications from any device (including non-Linux devices).
+* Sensitive data can be secured in the Azure data center for all distributed employees.
 
 ## Relevant use cases
 

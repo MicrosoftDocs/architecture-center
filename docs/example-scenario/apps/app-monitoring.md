@@ -7,7 +7,7 @@ ms.date: 09/12/2018
 
 # Web application monitoring on Azure
 
-Platform-as-a-service (PaaS) offerings on Azure manage compute resources for you and in some ways change how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they use.
+Platform as a service (PaaS) offerings on Azure manage compute resources for you and in some ways change how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they use.
 
 This scenario addresses the monitoring services you can use and describes a dataflow model for use with multiple data sources. When it comes to monitoring, many tools and services work with Azure deployments. In this scenario, we choose readily available services precisely because they are easy to consume. Other monitoring options are discussed later in this article.
 

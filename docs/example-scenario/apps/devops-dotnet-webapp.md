@@ -9,7 +9,7 @@ ms.date: 07/11/18
 
 DevOps is the integration of development, quality assurance, and IT operations. DevOps requires both unified culture and a strong set of processes for delivering software.
 
-This example scenario demonstrates how development teams can use Azure DevOps to deploy a .NET two-tier web application to Azure App Service. The Web Application depends on downstream Azure platform-as-a-service (PaaS) services. This document also points out some considerations that you should make when designing such a scenario using Azure PaaS.
+This example scenario demonstrates how development teams can use Azure DevOps to deploy a .NET two-tier web application to Azure App Service. The Web Application depends on downstream Azure platform as a service (PaaS) services. This document also points out some considerations that you should make when designing such a scenario using Azure PaaS.
 
 Adopting a modern approach to application development using Continuous Integration and Continuous Deployment (CI/CD), helps you to accelerate the delivery of value to your users through a robust build, test, deployment, and monitoring service. By using a platform such as Azure DevOps along with Azure services such as App Service, organizations can focus on the development of their scenario rather than the management of the supporting infrastructure.
 

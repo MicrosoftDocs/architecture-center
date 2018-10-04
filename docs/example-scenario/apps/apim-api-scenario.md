@@ -23,7 +23,7 @@ The management team does not want to modernize unnecessarily. They also want to 
 
 ![Architecture diagram][architecture]
 
-The new UI will be hosted as a platform-as-a-service (PaaS) application on Azure, and will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces enabling better performance, easier integration, and future extensibility.
+The new UI will be hosted as a platform as a service (PaaS) application on Azure, and will depend on both existing and new HTTP APIs. These APIs will ship with a better-designed set of interfaces enabling better performance, easier integration, and future extensibility.
 
 ### Components and Security
 

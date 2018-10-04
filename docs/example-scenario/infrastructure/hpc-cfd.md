@@ -1,15 +1,15 @@
 ---
 title: Running computational fluid dynamics (CFD) simulations on Azure
-description: Running computational fluid dynamics (CFD) simulations on Azure.
+description: Execute computational fluid dynamics (CFD) simulations on Azure.
 author: mikewarr
 ms.date: 09/20/2018
 ---
 
 # Running computational fluid dynamics (CFD) simulations on Azure
 
-Computational Fluid Dynamics (CFD) simulations require a significant compute time along with specialized hardware. As cluster usage increases, simulation times and overall grid use grow, leading to issues with spare capacity and long queue times. Adding additional physical hardware can be expensive, and may not align to the usage peaks and valleys business goes through. By taking advantage of Azure, many of these challenges can be overcome, all without any capital expenditure.
+Computational Fluid Dynamics (CFD) simulations require significant compute time along with specialized hardware. As cluster usage increases, simulation times and overall grid use grow, leading to issues with spare capacity and long queue times. Adding physical hardware can be expensive, and may not align to the usage peaks and valleys that a business goes through. By taking advantage of Azure, many of these challenges can be overcome with no capital expenditure.
 
-Azure provides the hardware you need to run your CFD jobs on both GPU and CPU virtual machines. RDMA (Remote Direct Memory Access) enabled VM sizes have FDR InfiniBand based networking allowing for low latency MPI (Message Passing Interface) communication. Combined with the Avere vFXT, which provides an enterprise-scale clustered file system, customers can ensure maximum throughput for read operations in Azure.
+Azure provides the hardware you need to run your CFD jobs on both GPU and CPU virtual machines. RDMA (Remote Direct Memory Access) enabled VM sizes have FDR InfiniBand-based networking which allows for low latency MPI (Message Passing Interface) communication. Combined with the Avere vFXT, which provides an enterprise-scale clustered file system, customers can ensure maximum throughput for read operations in Azure.
 
 To simplify the creation, management, and optimization of HPC clusters, Azure CycleCloud can be used to provision clusters and orchestrate data in both hybrid and cloud scenarios. By monitoring the pending jobs, CycleCloud will automatically launch on-demand compute, where you only pay for what you use, connected to the workload scheduler of your choice.
 
@@ -27,7 +27,7 @@ Consider this scenario for these industries where CFD applications could be used
 
 ![Architecture diagram][architecture]
 
-The diagram provides a high-level overview of a typical hybrid design providing job monitoring of the on-demand nodes in Azure:
+This diagram shows a high-level overview of a typical hybrid design providing job monitoring of the on-demand nodes in Azure:
 
 1. Connect to the Azure CycleCloud server to configure the cluster.
 2. Configure and create the cluster head node, using RDMA enabled machines for MPI.
@@ -42,8 +42,8 @@ The diagram provides a high-level overview of a typical hybrid design providing 
 
 * [Azure CycleCloud][cyclecloud] a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
 * [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
-* [Virtual Machine Scale Sets (virtual machine scale set)][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
 * [Azure Virtual Machines (VMs)][vms] are used to create a static set of compute instances.
+* [Virtual Machine Scale Sets (virtual machine scale set)][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
 * [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
 * [Virtual Networks](/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
@@ -51,38 +51,38 @@ The diagram provides a high-level overview of a typical hybrid design providing 
 
 Customers can also use Azure CycleCloud to create a grid entirely in Azure. In this setup, the Azure CycleCloud server is run within your Azure subscription.
 
-For a modern application approach where management of a workload scheduler is not needed, [Azure Batch][batch] can help. Azure Batch can run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure batch allows you define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Batch schedules compute-intensive tasks and dynamically adds and removes compute resources based on your requirements
+For a modern application approach where management of a workload scheduler is not needed, [Azure Batch][batch] can help. Azure Batch can run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch allows you define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Azure Batch schedules compute-intensive tasks and dynamically adds and removes compute resources based on your requirements.
 
 ### Scalability, and Security
 
-Scaling the execute nodes on Azure CycleCloud can be accomplished either manually or by using autoscaling, see [CycleCloud Autoscaling][cycle-scale]
+Scaling the execute nodes on Azure CycleCloud can be accomplished either manually or using autoscaling. For more information, see [CycleCloud Autoscaling][cycle-scale].
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+For general guidance on designing secure solutions, see the [Azure security documentation][security].
 
 ## Deploy this scenario
 
-Before deploying in Azure, some pre-requisites are required, run through these steps before deploying the Resource Manager template:
-1. [Service Principal][cycle-svcprin] to retrieve the appId, displayname, password, and tenant
-2. [SSH Key pair][cycle-ssh] to sign in securely to the CycleCloud server
+Before deploying in Azure, some pre-requisites are required. Follow these steps before deploying the Resource Manager template:
+1. Create a [service principal][cycle-svcprin] for retrieving the appId, displayName, name, password, and tenant.
+2. Generate an [SSH key pair][cycle-ssh] to sign in securely to the CycleCloud server.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
-3. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster
-4. [Create a cluster][cycle-create] 
+3. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster.
+4. [Create a cluster][cycle-create].
 
-The Avere Cache is an optional solution, which can drastically speed up read throughput for the application job data. Avere vFXT for Azure solves the problem of running these enterprise HPC applications in the cloud while leveraging data stored on-premises or in Azure Blob storage.
+The Avere Cache is an optional solution that can drastically increase read throughput for the application job data. Avere vFXT for Azure solves the problem of running these enterprise HPC applications in the cloud while leveraging data stored on-premises or in Azure Blob storage.
 
-For organizations that are planning on a hybrid infrastructure situation with on-premises storage and cloud computing, HPC applications can “burst” into Azure using data stored in NAS devices and spin up as many virtual CPUs on an as needed basis. The data set itself never completely moves into the cloud. The requested bytes are temporarily cached using an Avere cluster while processing.
+For organizations that are planning for a hybrid infrastructure with both on-premises storage and cloud computing, HPC applications can “burst” into Azure using data stored in NAS devices and spin up virtual CPUs as needed. The data set is never moved completely into the cloud. The requested bytes are temporarily cached using an Avere cluster during processing.
 
-To set up and configure an Avere vFXT installation, follow the [Avere Setup and Configuration][avere] guide.
+To set up and configure an Avere vFXT installation, follow the [Avere Setup and Configuration guide][avere].
 
 ## Pricing
 
-The cost of running an HPC implementation using CycleCloud server will differ depending on a number of factors. For example, CycleCloud is charged by the amount of compute time that is used, with the Master and CycleCloud server typically being constantly allocated and running. The cost of running the Execute nodes will depend on how long these are up and running for in addition to which size is used. The normal Azure charges for Storage and Networking also apply.
+The cost of running an HPC implementation using CycleCloud server will vary depending on a number of factors. For example, CycleCloud is charged by the amount of compute time that is used, with the Master and CycleCloud server typically being constantly allocated and running. The cost of running the Execute nodes will depend on how long these are up and running as well as what size is used. The normal Azure charges for storage and networking also apply.
 
-This scenario is intended to show how CFD applications can be run in Azure, so the machines will require RDMA functionality, which is only available on specific VM sizes. The following are examples of costs that could be incurred for a scale set that is allocated continuously for 8 hours a day for a month, with an egress of 1 TB of data. It also includes the pricing for the Azure CycleCloud server and the Avere vFXT for Azure install:
+This scenario shows how CFD applications can be run in Azure, so the machines will require RDMA functionality, which is only available on specific VM sizes. The following are examples of costs that could be incurred for a scale set that is allocated continuously for eight hours per day for one month, with data egress of 1 TB. It also includes pricing for the Azure CycleCloud server and the Avere vFXT for Azure install:
 
 * Region: North Europe
 * Azure CycleCloud Server: 1 x Standard D3 (4 x CPUs, 14 GB Memory, Standard HDD 32 GB)
@@ -91,18 +91,16 @@ This scenario is intended to show how CFD applications can be run in Azure, so t
 * Avere vFXT on Azure Cluster: 3 x D16s v3 (200 GB OS, Premium SSD 1-TB data disk)
 * Data Egress: 1 TB
 
-Use the following link to review a [price estimate][pricing] for the hardware listed above.
+Review this [price estimate][pricing] for the hardware listed above.
 
 ## Next Steps
 
-Once you've deployed the sample, learn more information about Azure CycleCloud in the [Azure CycleCloud Documentation][cyclecloud]
+Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud].
 
 ## Related Resources
 
 * [RDMA Capable Machine Instances][rdma]
 * [Customizing an RDMA Instance VM][rdma-custom]
-
-
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png

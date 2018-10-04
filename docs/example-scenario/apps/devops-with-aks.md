@@ -39,11 +39,11 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 ### Components
 
 * [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this scenario, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
-* [Azure Linux Virtual Machines][azurevm-docs] is the IaaS platform used to run the Jenkins and Grafana instances.
-* [Azure Container Registry][azureacr-docs] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
-* [Azure Kubernetes Service][azureaks-docs] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
-* [Azure Cosmos DB](/azure/cosmos-db/introduction) is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
-* [Azure Monitor][azuremonitor-docs] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
+* [Azure Linux Virtual Machines][docs-virtual-machines] is the IaaS platform used to run the Jenkins and Grafana instances.
+* [Azure Container Registry][docs-acr] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
+* [Azure Kubernetes Service][docs-aks] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
+* [Azure Cosmos DB][docs-cosmos-db] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
+* [Azure Monitor][docs-azure-monitor] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
 * [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
 
 ### Alternatives
@@ -124,17 +124,18 @@ We have provided three sample cost profiles based on the number of container ima
 
 ## Related Resources
 
-This scenario used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][azureaci-docs].
+This scenario used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png
 [autoscaling]: ../../best-practices/auto-scaling.md
 [availability]: ../../checklist/availability.md
-[azureaci-docs]: /azure/container-instances/container-instances-overview
-[azureacr-docs]: /azure/container-registry/container-registry-intro
-[azureaks-docs]: /azure/aks/intro-kubernetes
-[azuremonitor-docs]: /azure/monitoring-and-diagnostics/monitoring-overview
-[azurevm-docs]: /azure/virtual-machines/linux/overview
+[docs-aci]: /azure/container-instances/container-instances-overview
+[docs-acr]: /azure/container-registry/container-registry-intro
+[docs-aks]: /azure/aks/intro-kubernetes
+[docs-azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview
+[docs-cosmos-db]: /azure/cosmos-db/introduction
+[docs-virtual-machines]: /azure/virtual-machines/linux/overview
 [createsp]: /cli/azure/ad/sp#az-ad-sp-create
 [grafana]: https://grafana.com/
 [jenkins]: https://jenkins.io/
