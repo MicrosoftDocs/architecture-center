@@ -79,7 +79,7 @@ The following considerations will drive a substantial portion of the costs for t
 * [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) costs are driven by the number of IoT units provisioned as well as the service tier chosen, which determines the number of messages per day per unit allowed. 
 * [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) is priced by the number of streaming units required to process the data into the service.
 
-## Related Resources
+## Related resources
 
 To see an implementation of a similar architecture, read the [Komatsu customer story][customer-story].
 

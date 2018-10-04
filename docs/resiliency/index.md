@@ -349,4 +349,4 @@ Here are the major points to take away from this article:
 [throttling-pattern]: ../patterns/throttling.md
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
-[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager

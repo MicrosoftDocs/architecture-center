@@ -26,13 +26,13 @@ Consider this scenario for the following use cases:
 This scenario uses a managed Azure environment to host an application and data tier. The data flows through the scenario as follows:
 
 1. A user interacts with the application.
-1. The browser and app service emit telemetry.
-1. Application Insights collects and analyzes application health, performance, and usage data.
-2. Developers and administrators can review health, performance, and usage information.
-3. Azure SQL Database emits telemetry.
-4. Azure Monitor collects and analyzes infrastructure metrics and quotas.
-5. Log Analytics collects and analyzes logs and metrics.
-6. Developers and administrators can review health, performance, and usage information.
+2. The browser and app service emit telemetry.
+3. Application Insights collects and analyzes application health, performance, and usage data.
+4. Developers and administrators can review health, performance, and usage information.
+5. Azure SQL Database emits telemetry.
+6. Azure Monitor collects and analyzes infrastructure metrics and quotas.
+7. Log Analytics collects and analyzes logs and metrics.
+8. Developers and administrators can review health, performance, and usage information.
 
 ### Components
 

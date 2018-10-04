@@ -1,6 +1,6 @@
 ---
 title: CI/CD pipeline with Azure DevOps
-description: Build release a .NET app to Azure Web Apps using Azure DevOps.
+description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: christianreddington
 ms.date: 07/11/18
 ---
@@ -141,7 +141,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 
 * [Azure DevOps][vsts-pricing-calculator] is a service that enables you to manage your development life cycle. It is paid for on a per-user per-month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users or user basic licenses.
 
-## Related Resources
+## Related resources
 
 * [What is DevOps?][devops-whatis]
 * [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]

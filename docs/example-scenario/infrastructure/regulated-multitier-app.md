@@ -1,6 +1,6 @@
 ---
 title: Secure Windows web application for regulated industries
-description: Building a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.
+description: Build a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.
 author: iainfoulds
 ms.date: 07/11/2018
 ---
@@ -105,7 +105,7 @@ We have provided three sample cost profiles based on the number of scale set VM 
 * [Medium][medium-pricing]: this pricing example correlates to 20 front-end and 5 back-end VM instances.
 * [Large][large-pricing]: this pricing example correlates to 100 front-end and 10 back-end VM instances.
 
-## Related Resources
+## Related resources
 
 This scenario used a back-end virtual machine scale set that runs a Microsoft SQL Server cluster. Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] allows you to secure your critical Azure service resources to only your virtual networks. In this scenario, VNet endpoints allow you to secure traffic between the front-end application tier and Cosmos DB. For more information, see the [Azure Cosmos DB overview][docs-cosmos-db](/azure/cosmos-db/introduction).
 

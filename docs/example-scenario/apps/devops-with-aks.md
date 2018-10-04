@@ -1,6 +1,6 @@
 ---
 title: CI/CD pipeline for container-based workloads
-description: An example scenario for building a DevOps pipeline for a Node.js web app that using Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
+description: Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018
 ---
@@ -122,9 +122,9 @@ We have provided three sample cost profiles based on the number of container ima
 * [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
 * [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
 
-## Related Resources
+## Related resources
 
-This scenario used Azure Container Registry and Azure Kubernetes Service to store and run your container-based applications. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
+This scenario used Azure Container Registry and Azure Kubernetes Service to store and run a container-based application. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png

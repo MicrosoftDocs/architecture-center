@@ -138,7 +138,7 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 > [!NOTE] 
 > Low-priority VMs are only suitable for certain applications and workloads.
 
-## Related Resources
+## Related resources
 
 [Azure Batch Overview][batch-overview]
 

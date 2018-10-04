@@ -97,7 +97,7 @@ The above pricing is for one consortium member to start or join a blockchain net
 
 To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure, then go through the [README of the scenario source code][source].
 
-## Related Resources
+## Related resources
 
 For more information on using the Ethereum Proof-of-Authority solution template for Azure, review this [usage guide][guide].
 

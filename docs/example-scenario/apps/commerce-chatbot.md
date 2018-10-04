@@ -142,7 +142,7 @@ We have provided three sample cost profiles based on the number of messages you 
 * [Medium][medium-pricing]: this pricing example correlates to processing < 500,000 messages per month.
 * [Large][large-pricing]: this pricing example correlates to processing < 10 million messages per month.
 
-## Related Resources
+## Related resources
 
 For a set of guided tutorials on leveraging the Azure Bot Service, see the [tutorial node][botservice-docs] of the documentation.
 

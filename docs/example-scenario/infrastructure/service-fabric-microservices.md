@@ -85,7 +85,7 @@ To see a demonstration of Service Fabric for an existing .NET application, deplo
 
 From the standpoint of your current application, begin to think about its different functions. Choose one of them and think through how you can separate only that function from the whole. Take it one discrete, understandable, piece at a time.
 
-## Related Resources
+## Related resources
 
 - [Building Microservices on Azure](/azure/architecture/microservices)
 - [Service Fabric Overview](/azure/service-fabric/service-fabric-overview)

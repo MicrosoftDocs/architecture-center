@@ -79,7 +79,7 @@ We have provided three sample cost profiles based on amount of traffic (we assum
 * [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
 * [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
-## Related Resources
+## Related resources
 
 For a guided learning path of this scenario, see [Build a serverless web app in Azure][serverless].
 

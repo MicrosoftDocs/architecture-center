@@ -54,7 +54,7 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
 > [!NOTE]
 > For general information on connecting API Management to a VNET, [see here][apim-vnet].
 
-### Availability and Scalability
+### Availability and scalability
 
 * Azure API Management can be [scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
 * Scaling also happen [automatically with auto scaling][apim-autoscale].
@@ -78,7 +78,7 @@ Customers can scale API Management by adding and removing units. Each unit has c
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azue Pricing Calculator][pricing-calculator].
 
-## Related Resources
+## Related resources
 
 Check out the extensive Azure API Management [documentation and reference articles.][apim]
 

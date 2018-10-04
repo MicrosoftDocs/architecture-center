@@ -97,7 +97,7 @@ Review this [price estimate][pricing] for the hardware listed above.
 
 Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud].
 
-## Related Resources
+## Related resources
 
 * [RDMA Capable Machine Instances][rdma]
 * [Customizing an RDMA Instance VM][rdma-custom]
