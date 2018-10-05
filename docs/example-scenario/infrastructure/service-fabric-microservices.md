@@ -11,7 +11,7 @@ In this example scenario, we walk through an approach using [Service Fabric](/az
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
 * You can change one small, understandable unit of code and deploy only that unit.
-* Each code units requires just a few minutes or less to deploy.
+* Each code unit requires just a few minutes or less to deploy.
 * If there is an error in that small unit, only that unit stops working, not the whole application.
 * Small units of code can be distributed easily and discretely among multiple development teams.
 * New developers can quickly and easily grasp the discrete functionality of each unit.
@@ -23,7 +23,7 @@ A large IIS application on a server farm is used in this example, but the concep
 This scenario is relevant to organizations with large monolithic Web applications that are experiencing:
 
 - Errors in small code changes that break the entire website.
-- Releases taking multiple days due to the need to release unpdate the entire website.
+- Releases taking multiple days due to the need to release update the entire website.
 - Long ramp-up times when onboarding new developers or teams due to the complex code base, requiring a single individual to know more than is feasible.
 
 ## Architecture

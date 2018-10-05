@@ -51,9 +51,10 @@ From an infrastructure-as-code perspective, [Azure Resource Manager Templates][a
 You could consider these alternatives to hosting in Azure Web Apps:
 
 * [Azure Virtual Machines][compare-vm-hosting] &mdash; For workloads that require a high degree of control, or depend on OS components and services that are not possible with Web Apps (for example, the Windows GAC, or COM).
-* [Container Hosting][azure-containers] &mdash; if specific OS dependencies and hosting portability, or hosting density, are required.
 * [Service Fabric][service-fabric] &mdash; a good option if the workload architecture is focused around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 * [Azure Functions][azure-functions] - an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+
+This [decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree) may help when choosing the right path to take for a migration.
 
 ### DevOps
 
@@ -146,6 +147,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 * [What is DevOps?][devops-whatis]
 * [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
 * [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
+* [Devops Checklist][devops-checklist]
 * [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
@@ -164,6 +166,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 [desired-state-configuration]: /azure/automation/automation-dsc-overview
 [devops-microsoft]: /azure/devops/devops-at-microsoft/
 [devops-with-vsts]: https://almvm.azurewebsites.net/labs/vsts/
+[devops-checklist]: /azure/architecture/checklist/dev-ops
 [application-insights]: https://azure.microsoft.com/services/application-insights/
 [cloud-based-load-testing]: https://visualstudio.microsoft.com/team-services/cloud-load-testing/
 [cloud-based-load-testing-on-premises]: /vsts/test/load-test/clt-with-private-machines?view=vsts

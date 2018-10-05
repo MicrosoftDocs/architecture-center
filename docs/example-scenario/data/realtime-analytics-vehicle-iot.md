@@ -62,7 +62,7 @@ The technologies in this architecture were chosen based on the scale needed to p
 * Azure Databricks integrates deeply with Azure databases and stores: [Azure SQL Data Warehouse](/azure/sql-data-warehouse), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), and [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
     * Auto-scaling and auto-termination for Spark clusters to automatically minimize costs.
     * Performance optimizations including caching, indexing, and advanced query optimization, which can improve performance by as much as 10-100x over traditional Apache Spark deployments in cloud or on-premises environments.
-    * Integration with Azure Active Directoryenables you to run complete Azure-based solutions using Azure Databricks.
+    * Integration with Azure Active Directory enables you to run complete Azure-based solutions using Azure Databricks.
     * Role-based access in Azure Databricks enables fine-grained user permissions for notebooks, clusters, jobs, and data.
     * Comes with Enterprise-grade SLAs.
 * Azure Cosmos DB is Microsoft’s globally distributed, multi-model database. Azure Cosmos DB was built from the ground up with global distribution and horizontal scale at its core. It offers turnkey global distribution across any number of Azure regions by transparently scaling and replicating your data wherever your users are. You can elastically scale throughput and storage worldwide, and pay only for the throughput and storage you need.
