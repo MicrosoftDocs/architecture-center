@@ -536,6 +536,12 @@
       href: cloud-adoption/getting-started/overview.md
     - name: How does Azure work?
       href: cloud-adoption/getting-started/what-is-azure.md
+    - name: What is cloud security?
+      href: cloud-adoption/getting-started/what-is-cloud-security.md
+    - name: What is regulatory compliance?
+      href: cloud-adoption/getting-started/what-is-regulatory-compliance.md
+    - name: Intro to Deployment Models
+      href: cloud-adoption/getting-started/cloud-deployment-models.md
     - name: What is cloud resource governance?
       href: cloud-adoption/getting-started/what-is-governance.md
     - name: Resource access governance in Azure

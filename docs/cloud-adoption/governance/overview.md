@@ -9,35 +9,22 @@ ms.date: 10/03/2018
 
 This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of goverance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](../getting-started/azure-resource-access.md) in the [getting started](../getting-started/overview.md) section.
 
-## Governance in relation to corporate GRC Functions
+## Actionable governance guidance in the Enterprise Cloud Adoption Framework
 
-Governance, risk management, and compliance (GRC) are three facets that help to ensure an organization meets the following corporate objectives:
+Currently, the scope of this framework limits the conversation to initial governance design when preparing to deploy a workload. If you are familiar with the concept of governance, this section covers [governance design for a simple workload](governance-single-team.md) and [governance design for multiple teams and multiple workloads](governance-multiple-teams.md). Both of these documents include an implementation guide.
 
-* Governance is a set of rules or processes which regulate how a business is operated.
-* Risk management is the process of predicting, understanding, and managing risks that could otherwise hinder or prevent the organizations success
-* Compliance refers to detecting and preventing violations of policies and procedures established by the company, or third party laws and regulations
+## Governance position of the Enterprise Cloud Adoption Framework
 
-![Governance, Risk, & Compliance Triangle](../_images/GRC-Triangle.png)
-*Figure 1. Governance, Risk, and Compliance (GRC) Triangle.*
+Governance is a broadly used term. In the concept of governance in this framework focuses on the policies, management disciplines, and governance automation required to safely govern Cloud Adoption.
 
-GRC is a discipline that aims to synchronize information and activity across governance, risk management, and compliance to operate more efficiently, facilitate effective information sharing, more effectively report activities, and avoid wasteful overlap.
-The goals, therefore, of any GRC program within an IT organization would include the following:
+![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/GRC-Triangle.png)
+*Figure 1. Governance Disciplines.*
 
-* Clear communication of rules and processes
-* Requirements for systems and services uptime
-* Classifications and rules governing the protection of customer data and other sensitive corporate data
-* Documented consensus regarding corporate risk tolerance and risk profile
-* Processes to keep technical risk within acceptable levels
-* Logs which record adherence to and violations of relevant laws and regulation
-* Plans to execute proper processes when any violations are encountered
+**Policy & Compliance:** The cloud offers many options for implementing management functions. However, a tool with no policy can have mixed results. When considering any governance strategy, it is wise to start with a corporate policy. In some cases, regulatory compliance will supercede corporate policy and require a set of more stringent guidelines. In either case, policies that reflect business risk and tolerance for risk are the root of any governance strategy.
 
-In general, GRC is not normally a “net-new” function for the cloud. It extends existing activities and requires slight updates to many organizations' GRC policies. GRC professionals should therefore fully understand the implications that the cloud has for their areas and extend existing practices. The links in the next section can aid in understanding the design considerations needed to govern cloud deployed workloads.
+**Management Disciplines:** This framework focuses on five core management disciplines which extend corporate policies into the cloud to support safe Cloud Adoption. Those disciplines include Cost Management, Security Management, Identity Management, Resource Management, and Configuration Management.
 
-## Governance in this section of the Enterprise Cloud Adoption Framework
-
-Currently, the scope of this framework limits the conversation to initial governance design when preparing to deploy a workload. Over time, this scope will expand.
-
-If you are familiar with the concept of governance, this section covers [governance design for a simple workload](governance-single-team.md) and [governance design for multiple teams and multiple workloads](governance-multiple-teams.md). Both of these documents include an implementation guide.
+**Governance Automation:** Throughout ECA, governance automation is defined as the tools and approaches to logging, monitoring, notification, and automated enforcement of policy & compliance across operational management disciplines.
 
 ## Next steps
 
