@@ -294,5 +294,5 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [readme]: ./run-the-app.md
 [Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md
-[user-secrets]: http://go.microsoft.com/fwlink/?LinkID=532709
+[user-secrets]: /aspnet/core/security/app-secrets
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

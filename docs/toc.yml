@@ -293,7 +293,7 @@
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
     items:
-    - name: Computer-aided engineering SaaS
+    - name: Computer-aided engineering
       href: example-scenario/apps/hpc-saas.md
     - name: Decentralized trust between banks
       href: example-scenario/apps/decentralized-trust.md
@@ -321,7 +321,7 @@
       href: example-scenario/data/big-data-with-iot.md
     - name: Data warehousing and analytics
       href: example-scenario/data/data-warehouse.md
-    - name: Automotive IOT data
+    - name: Automotive IoT data
       href: example-scenario/data/realtime-analytics-vehicle-iot.md
     - name: Real-time fraud detection
       href: example-scenario/data/fraud-detection.md
@@ -334,7 +334,7 @@
     - name: Linux virtual desktops
       href: example-scenario/infrastructure/linux-vdi-citrix.md
     - name: Decomposing monolithic applications
-      href: example-scenario/infrastructure/ServiceFabricMicroservices.md
+      href: example-scenario/infrastructure/service-fabric-microservices.md
     - name: Highly scalable WordPress
       href: example-scenario/infrastructure/wordpress.md
     - name: Multi-tier Windows

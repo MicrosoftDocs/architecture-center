@@ -1,47 +1,46 @@
 ---
 title: 3D video rendering on Azure
-description: Running native HPC workloads in Azure using the Azure Batch service
+description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
 ---
 # 3D video rendering on Azure
 
-3D rendering is a time consuming process that requires a significant amount of CPU time to complete.  On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing.  Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to.  However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
+3D video rendering is a time consuming process that requires a significant amount of CPU time to complete. On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing. Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to. However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
 
 Batch gives you a consistent management experience and job scheduling, whether you select Windows Server or Linux compute nodes. With Batch, you can use your existing Windows or Linux applications, including AutoDesk Maya and Blender, to run large-scale render jobs in Azure.
 
-## Related use cases
+## Relevant use cases
 
 Consider this scenario for these similar use cases:
 
-* 3D Modeling
-* Visual FX (VFX) Rendering
+* 3D modeling
+* Visual FX (VFX) rendering
 * Video transcoding
-* Image processing, color correction, & resizing
+* Image processing, color correction, and resizing
 
 ## Architecture
 
 ![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
 
-This sample scenario covers the workflow when using Azure Batch, the data flows as follows:
+This scenario shows a workflow that uses Azure Batch. The data flows as follows:
 
-1. Upload input files and the applications to process those files to your Azure Storage account
+1. Upload input files and the applications to process those files to your Azure Storage account.
 2. Create a Batch pool of compute nodes in your Batch account, a job to run the workload on the pool, and tasks in the job.
-3. Download input files and the applications to Batch
-4. Monitor task execution
-5. Upload task output
-6. Download output files
+3. Download input files and the applications to Batch.
+4. Monitor task execution.
+5. Upload task output.
+6. Download output files.
 
-To simplify this process, you could also use the [Batch Plugins for Maya & 3ds Max][batch-plugins]
+To simplify this process, you could also use the [Batch Plugins for Maya and 3ds Max][batch-plugins]
 
 ### Components
 
 Azure Batch builds upon the following Azure technologies:
 
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
-* [Virtual Networks][vnet] are used to for both the Head Node and Compute resources
-* [Storage][storage] accounts are used for the synchronization and data retention
-* [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources
+* [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
+* [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+* [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources.
 
 ## Considerations
 
@@ -52,11 +51,11 @@ While most rendering customers will choose resources with high CPU power, other 
 * Is the application being run memory bound?
 * Does the application need to use GPUs? 
 * Are the job types embarrassingly parallel or require infiniband connectivity for tightly coupled jobs?
-* Require fast I/O to storage on the compute Nodes
+* Require fast I/O to access storage on the compute Nodes.
 
 Azure has a wide range of VM sizes that can address each and every one of the above application requirements, some are specific to HPC, but even the smallest sizes can be utilized to provide an effective grid implementation:
 
-* [HPC VM sizes][compute-hpc] Due to the CPU bound nature of rendering, Microsoft typically suggests the Azure H-Series VMs.  This type of VM is built specifically for high end computational needs, they have 8 and 16 core vCPU sizes available, and features DDR4 memory, SSD temporary storage, and Haswell E5 Intel technology.
+* [HPC VM sizes][compute-hpc] Due to the CPU bound nature of rendering, Microsoft typically suggests the Azure H-Series VMs. This type of VM is built specifically for high end computational needs, they have 8 and 16 core vCPU sizes available, and features DDR4 memory, SSD temporary storage, and Haswell E5 Intel technology.
 * [GPU VM sizes][compute-gpu] GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
 * NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.
 * [Memory optimized VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
@@ -94,11 +93,11 @@ While there is currently no failover capability in Azure Batch, we recommend usi
 
 ### Creating an Azure Batch account and pools manually
 
-This sample scenario helps in learning how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
+This scenario demonstrates how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-### Deploying the sample scenario using an Azure Resource Manager template
+### Deploying the example scenario using an Azure Resource Manager template
 
 The template will deploy:
 
@@ -109,7 +108,7 @@ The template will deploy:
 * The node pool will contain zero VMs initially and will require you to manually scale to add VMs
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 [Learn more about Resource Manager templates][azure-arm-templates]
@@ -129,16 +128,17 @@ The following are examples of costs that could be incurred for a job that comple
   50 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
 * 10 High-Performance CPU VMs: [Cost Estimate][hpc-est-low]
-  
+
   10 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
-### Low-Priority VM Pricing
+### Pricing for low-priority VMs
 
-Azure Batch also supports the use of Low-Priority VMs* in the node pools, which can potentially provide a substantial cost saving. For a price comparison between standard VMs and Low-Priority VMs, and to find out more about Low-Priority VMs, see [Batch Pricing][batch-pricing].
+Azure Batch also supports the use of low-priority VMs in the node pools, which can potentially provide a substantial cost saving. For more information, including a price comparison between standard VMs and low-priority VMs, see [Azure Batch Pricing][batch-pricing].
 
-\* Please note that only certain applications and workloads will be suitable to run on Low-Priority VMs.
+> [!NOTE] 
+> Low-priority VMs are only suitable for certain applications and workloads.
 
-## Related Resources
+## Related resources
 
 [Azure Batch Overview][batch-overview]
 
@@ -147,13 +147,12 @@ Azure Batch also supports the use of Low-Priority VMs* in the node pools, which 
 [Using containers on Azure Batch][batch-containers]
 
 <!-- links -->
-[architecture]: ./media/native-hpc-ref-arch.png
+[architecture]: ./media/architecture-video-rendering.png
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [security]: /azure/security/
 [resiliency]: /azure/architecture/resiliency/
 [scalability]: /azure/architecture/checklist/scalability
 [vmss]: /azure/virtual-machine-scale-sets/overview
-[vnet]: /azure/virtual-network/virtual-networks-overview
 [storage]: https://azure.microsoft.com/services/storage/
 [batch]: https://azure.microsoft.com/services/batch/
 [batch-arch]: https://azure.microsoft.com/solutions/architecture/big-compute-with-azure-batch/
@@ -172,7 +171,7 @@ Azure Batch also supports the use of Low-Priority VMs* in the node pools, which 
 [batch-scaling]: /azure/batch/batch-automatic-scaling
 [hpc-alt-solutions]: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fbatch%2ftoc.json
 [batch-monitor]: /azure/batch/monitoring-overview
-[batch-pricing]: https://azure.microsoft.com/en-gb/pricing/details/batch/
+[batch-pricing]: https://azure.microsoft.com/pricing/details/batch/
 [batch-doc]: /azure/batch/
 [batch-overview]: https://azure.microsoft.com/services/batch/
 [batch-containers]: https://github.com/Azure/batch-shipyard

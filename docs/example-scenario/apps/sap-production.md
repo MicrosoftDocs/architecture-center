@@ -1,19 +1,19 @@
 ---
-title: Running SAP in Production using an Oracle Database on Azure
-description: An example scenario showing an SAP production deployment in Azure using an Oracle database. 
+title: Running SAP production workloads using an Oracle database on Azure
+description: Run an SAP production deployment in Azure using an Oracle database.
 author: DharmeshBhagat
 ms.date: 9/12/2018
 ---
 
-# Running SAP in Production using an Oracle Database on Azure
+# Running SAP production workloads using an Oracle Database on Azure
 
 SAP systems are used to run mission-critical business applications. Any outage disrupts key processes and can cause increased expenses or lost revenue. Avoiding these outcomes requires an SAP infrastructure that is highly available and resilient when failures occur.
 
 Building a highly available SAP environment requires eliminating single points of failures in your system architecture and processes. Single points of failure can be caused by site failures, errors in system components, or even human error.
 
-This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with a High Availability (HA) Oracle database.  For your SAP deployment, you can use VMs of different sizes based on your requirements.
+This example scenario demonstrates an SAP deployment on Windows or Linux virtual machines (VMs) on Azure, along with a High Availability (HA) Oracle database. For your SAP deployment, you can use VMs of different sizes based on your requirements.
 
-## Related use cases
+## Relevant use cases
 
 Consider this example for the following scenarios:
 
@@ -37,7 +37,7 @@ This example includes a high availability configuration for an Oracle database, 
 
 * [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used in this scenario to create a virtual hub-and-spoke topology in Azure.
 * [Virtual Machines](/azure/virtual-machines/windows/overview) provide the compute resources for each tier of the solution. Each cluster of virtual machines is configured as an [availability set](/azure/virtual-machines/windows/regions-and-availability#availability-sets).
-* [Express Route](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection established by a connectivity provider.
+* [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection established by a connectivity provider.
 * [Network Security Groups (NSG)](/azure/virtual-network/security-overview) limit network access to the resources in a virtual network. An NSG contains a list of security rules that allow or deny network traffic based on source or destination IP address, port, and protocol. 
 * [Resource Groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
@@ -67,7 +67,8 @@ We have provided four sample cost profiles based on amount of traffic you expect
 Large|180000|E32s_v3|5xP30, 1xP20|DS11_v2|1x P10|6x DS14_v2|1x P10|[Large](https://azure.com/e/f70fccf571e948c4b37d4fecc07cbf42)|
 Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b)|
 
-Note: pricing is a guide and only indicates the VMs and storage costs. It excludes networking, backup storage, and data ingress/egress charges.
+> [!NOTE]
+> This pricing is a guide and only indicates the VMs and storage costs. It excludes networking, backup storage, and data ingress/egress charges.
 
 * [Small](https://azure.com/e/45880ba0bfdf47d497851a7cf2650c7c): A small system consists of VM type DS13_v2 for the database server with 8x vCPUs, 56-GB RAM, and 112-GB temp storage, additionally five 512-GB premium storage disks. An SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28-GB temp storage. A single VM type DS13_v2 for the SAP application server with 8x vCPUs, 56-GB RAM, and 400-GB temp storage, additionally one 128-GB premium storage disk.
 
@@ -83,7 +84,7 @@ Use the following link to deploy the underlying infrastructure for this scenario
 
 <a
 href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-3tier-distributed-ora%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 > [!NOTE]
@@ -91,10 +92,10 @@ href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.
 
 ## Related resources
 
-For other SAP production use cases running in Azure, review the following SAP reference architectures:
+For other information about running SAP production workloads in Azure, review the following reference architectures:
 * [SAP NetWeaver for AnyDB](/azure/architecture/reference-architectures/sap/sap-netweaver) 
-* [SAP S/4Hana](/azure/architecture/reference-architectures/sap/sap-s4hana)
-* [SAP on Azure large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
+* [SAP S/4HANA](/azure/architecture/reference-architectures/sap/sap-s4hana)
+* [SAP HANA large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
 
 <!-- links -->
-[architecture]: media/architecture-diagram-sap-production.png
+[architecture]: media/architecture-sap-production.png

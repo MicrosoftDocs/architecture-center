@@ -34,11 +34,11 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Create a separate storage account for logs.** Don't use the same storage account for logs and application data. This helps to prevent logging from reducing application performance.
 
-**Monitor performance.** Use a performance monitoring service such as [New Relic](http://newrelic.com/) or [Application Insights](/azure/application-insights/app-insights-overview/) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
+**Monitor performance.** Use a performance monitoring service such as [New Relic](https://newrelic.com/) or [Application Insights](/azure/application-insights/app-insights-overview/) to monitor application performance and behavior under load.  Performance monitoring gives you real-time insight into the application. It enables you to diagnose issues and perform root-cause analysis of failures.
 
 ## Application Gateway
 
-**Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_0/), you must provision two or more medium or larger instances.
+**Provision at least two instances.** Deploy Application Gateway with at least two instances. A single instance is a single point of failure. Use two or more instances for redundancy and scalability. In order to qualify for the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway), you must provision two or more medium or larger instances.
 
 ## Cosmos DB
 

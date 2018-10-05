@@ -175,13 +175,13 @@ For more information on deploying this sample reference architecture using Azure
 
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
-[cassandra-consistency]: http://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
-[cassandra-replication]: http://www.planetcassandra.org/data-replication-in-nosql-databases-explained/
+[cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
+[cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
 
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [chef]: https://www.chef.io/solutions/azure/
-[datastax]: http://www.datastax.com/products/datastax-enterprise
+[datastax]: https://www.datastax.com/products/datastax-enterprise
 [git]: https://github.com/mspnp/template-building-blocks
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
 [lb-external-create]: /azure/load-balancer/load-balancer-get-started-internet-portal
@@ -200,8 +200,8 @@ For more information on deploying this sample reference architecture using Azure
 [vnet faq]: /azure/virtual-network/virtual-networks-faq
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [Nagios]: https://www.nagios.org/
-[Zabbix]: http://www.zabbix.com/
-[Icinga]: http://www.icinga.org/
+[Zabbix]: https://www.zabbix.com/
+[Icinga]: https://www.icinga.org/
 [0]: ./images/n-tier-cassandra.png "N-tier architecture using Microsoft Azure"
 
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview 
