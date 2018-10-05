@@ -347,6 +347,11 @@
     - name: Overview
       href: reference-architectures/index.md
 
+    - name: AI
+      items:
+      - name: Batch scoring for deep learning models
+        href: reference-architectures/ai/batch-scoring-deep-learning.md
+
     - name: Big data
       items:
       - name: Enterprise BI with SQL Data Warehouse

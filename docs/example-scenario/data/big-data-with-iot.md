@@ -57,6 +57,7 @@ The data flows through the solution as follows:
 * [Web Apps](/azure/app-service/app-service-web-overview) hosts the end-user web application, which can be used to query and view source data and images. Users can also initiate batch jobs in Apache Spark via the application.
 * [Apache Spark on HDInsight](/azure/hdinsight/spark/apache-spark-overview) supports in-memory processing to boost the performance of big-data analytic applications. In this scenario, Spark is used to run complex algorithms over the data stored in Apache Cassandra.
 
+
 ### Alternatives
 
 * [Cosmos DB](/azure/cosmos-db/introduction) is an alternative NoSQL database technology. Cosmos DB provides [multi-master support at global scale](/azure/cosmos-db/multi-region-writers) with [multiple well-defined consistency levels](/azure/cosmos-db/consistency-levels) to meet various customer requirements. It also supports the [Cassandra API](/azure/cosmos-db/cassandra-introduction). 
