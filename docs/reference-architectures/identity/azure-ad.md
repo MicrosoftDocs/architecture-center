@@ -258,7 +258,7 @@ A deployment for a reference architecture that implements these recommendations 
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
+[sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
 
 

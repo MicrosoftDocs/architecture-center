@@ -1,18 +1,19 @@
 ---
 title: Conversational chatbot for hotel reservations on Azure
-description: Proven scenario for building a conversational chatbot for commerce applications with Azure Bot Service, Cognitive Services and LUIS, Azure SQL Database, and Application Insights.
+description: Build a conversational chatbot for commerce applications with Azure Bot Service.
 author: iainfoulds
 ms.date: 07/05/2018
 ---
+
 # Conversational chatbot for hotel reservations on Azure
 
 This example scenario is applicable to businesses that need to integrate a conversational chatbot into applications. In this scenario, a C# chatbot is used for a hotel chain that allows customers to check availability and book accommodation through a web or mobile application.
 
-Example scenarios include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
+Potential uses include providing a way for customers to view hotel availability and book rooms, review a restaurant take-out menu and place a food order, or search for and order prints of photographs. Traditionally, businesses would need to hire and train customer service agents to respond to these customer requests, and customers would have to wait until a representative is available to provide assistance.
 
 By using Azure services such as the Bot Service and Language Understanding or Speech API services, companies can assist customers and process orders or reservations with automated, scalable bots.
 
-## Related use cases
+## Relevant use cases
 
 Consider this scenario for the following use cases:
 
@@ -137,11 +138,11 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on the number of messages you expect your chatbot to process:
 
-* [Small][small-pricing]:  this pricing example correlates to processing < 10,000 messages per month.
+* [Small][small-pricing]: this pricing example correlates to processing < 10,000 messages per month.
 * [Medium][medium-pricing]: this pricing example correlates to processing < 500,000 messages per month.
 * [Large][large-pricing]: this pricing example correlates to processing < 10 million messages per month.
 
-## Related Resources
+## Related resources
 
 For a set of guided tutorials on leveraging the Azure Bot Service, see the [tutorial node][botservice-docs] of the documentation.
 
@@ -150,7 +151,7 @@ For a set of guided tutorials on leveraging the Azure Bot Service, see the [tuto
 [aad-docs]: /azure/active-directory/
 [appinsights-docs]: /azure/application-insights/app-insights-overview
 [appservice-docs]: /azure/app-service/
-[architecture]: ./media/commerce-chatbot/architecture-commerce-chatbot.png
+[architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
 [availability]: ../../checklist/availability.md
 [botservice-docs]: /azure/bot-service/
