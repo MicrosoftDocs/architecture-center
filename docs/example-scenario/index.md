@@ -8,86 +8,11 @@ ms.topic: landing-page
 ---
 # Azure Example Scenarios
 
-These example scenarios are based on real-world customer examples. They are intended to accelerate and facilitate building out your own use case. Each solution contains: a diagram of the architecture, explores some of the alternatives that you can substitute in to satisfy your own business need, rough pricing of the solution.  Most will also contain a method to easily deploy the solution in your own Azure account.
+Example scenarios walk through the process of solving specific architectural and business problems on Azure.  Each scenario is based on a real customer example and is intended to provide fast, easy to read guidance to help accelerate your own implementation.
 
-<ul class="cardsY panelContent featuredContent">
-    <li>
-        <a href="#ai-scenarios" data-linktype="relative-path">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img data-hoverimage="../_images/icons/cognitive.png" src="../_images/icons/cognitive.png" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3 class="x-hidden-focus">Artificial Intelligence</h3>
-                            <p>Artificial Intelligence and Machine Learning</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="#application-scenarios" data-linktype="relative-path">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img data-hoverimage="../_images/icons/app-service.svg" src="../_images/icons/app-service.svg" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3 class="x-hidden-focus">Applications</h3>
-                            <p>Application design and implementation</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="#data-scenarios" data-linktype="relative-path">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img data-hoverimage="../_images/icons/data-guide.svg" src="../_images/icons/data-guide.svg" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3 class="x-hidden-focus">Data</h3>
-                            <p>Data management and warehousing</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <li>
-        <a href="#infrastructure-scenarios" data-linktype="relative-path">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img data-hoverimage="../_images/icons/azure-analysis-service.svg" src="../_images/icons/azure-analysis-service.svg" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3 class="x-hidden-focus">Infrastructure</h3>
-                            <p>Infrastructure design and management</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-</ul>
+Within each scenario you can find an architecture diagram, data flows, and details of all of the components.  You can also learn about alternatives technologies that may better fit your business need, rough pricing of the solution, and considerations when running the solution in production.  Many scenarios will also contain a method to easily deploy the solution in your own Azure account.
+
+Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios)
 
 <ul class="panelContent cardsL">
     <li>
