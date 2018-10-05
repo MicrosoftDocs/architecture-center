@@ -161,6 +161,6 @@ If the primary database fails, perform a manual failover to the secondary databa
 [tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-ps]: /powershell/module/azurerm.trafficmanager
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
-[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
-[traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
+[traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx

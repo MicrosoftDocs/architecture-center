@@ -206,6 +206,16 @@
      {
         "source_path": "docs/guide/technology-choices.md",
         "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
+     },
+     {
+        "source_path": "docs/example-scenario/infrastructure/ServiceFabricMicroservices.md",
+        "redirect_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
+        "redirect_document_id": true
+     },
+     {
+        "source_path": "docs/example-scenario/apps/commerce-chatbot.md",
+        "redirect_url": "/azure/architecture/example-scenario/ai/commerce-chatbot",
+        "redirect_document_id": true
      }
     ] 
   } 
