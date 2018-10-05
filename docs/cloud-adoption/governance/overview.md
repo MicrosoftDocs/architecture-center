@@ -17,7 +17,7 @@ Currently, the scope of this framework limits the conversation to initial govern
 
 Governance is a broadly used term. In the concept of governance in this framework focuses on the policies, management disciplines, and governance automation required to safely govern Cloud Adoption.
 
-![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/GRC-Triangle.png)
+![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/governance-and-services.png)
 *Figure 1. Governance Disciplines.*
 
 **Policy & Compliance:** The cloud offers many options for implementing management functions. However, a tool with no policy can have mixed results. When considering any governance strategy, it is wise to start with a corporate policy. In some cases, regulatory compliance will supercede corporate policy and require a set of more stringent guidelines. In either case, policies that reflect business risk and tolerance for risk are the root of any governance strategy.
