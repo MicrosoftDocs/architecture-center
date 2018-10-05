@@ -3,6 +3,25 @@
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
+    <a href="./ai/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./ai/media/architecture-commerce-chatbot.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Conversational chatbot for hotel reservations on Azure</h3>
+                        <p>Build a conversational chatbot for commerce applications with Azure Bot Service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
     <a href="./ai/intelligent-apps-image-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -59,25 +78,6 @@
                     <div class="cardText">
                         <h3>Web application monitoring on Azure</h3>
                         <p>Monitor a web application hosted in Azure App Service.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./apps/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./apps/media/architecture-commerce-chatbot.png" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Conversational chatbot for hotel reservations on Azure</h3>
-                        <p>Build a conversational chatbot for commerce applications with Azure Bot Service.</p>
                     </div>
                 </div>
             </div>
