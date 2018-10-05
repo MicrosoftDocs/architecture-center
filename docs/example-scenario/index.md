@@ -21,7 +21,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>New Scenarios</h3>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/ecommerce-search" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/wordpress" data-linktype="absolute-path">Highly scalable and secure WordPress website</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/data/data-warehouse" data-linktype="absolute-path">Data warehousing & analytics for sales and marketing</a>
                     </div>
