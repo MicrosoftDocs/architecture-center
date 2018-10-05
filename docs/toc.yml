@@ -289,6 +289,8 @@
     href: example-scenario/index.md
   - name: AI
     items:
+    - name: Hotel reservation chatbot
+      href: example-scenario/ai/commerce-chatbot.md
     - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
   - name: Apps
@@ -299,8 +301,6 @@
       href: example-scenario/apps/decentralized-trust.md
     - name: Web application monitoring
       href: example-scenario/apps/app-monitoring.md
-    - name: Hotel reservation chatbot
-      href: example-scenario/apps/commerce-chatbot.md
     - name: DevOps with containers
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with Azure DevOps
