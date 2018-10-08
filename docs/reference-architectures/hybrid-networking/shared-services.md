@@ -112,7 +112,7 @@ This step deploys the simulated on-premises datacenter as an Azure VNet.
 
 2. Open the `onprem.json` file. 
 
-3. Search for all instances of `Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
+3. Search for all instances of `UserName`, `adminUserName`,`Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
 
 4. Run the following command:
 
