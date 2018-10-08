@@ -206,11 +206,46 @@ Consider using a set of network virtual appliances that logs detailed informatio
 
 ## Deploy the solution
 
-A solution is available on [GitHub][github] to deploy this reference architecture. You will need the latest version of the [Azure CLI][azure-cli] to run the Powershell script that deploys the solution. To deploy the reference architecture, follow these steps:
+A deployment for this architecture is available on [GitHub][github]. 
 
-1. Download or clone the solution folder from [GitHub][github] to your local machine.
+### Prerequisites
 
-2. Open the Azure CLI and navigate to the local solution folder.
+[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
+
+### Deploy the simulated on-premises datacenter
+
+1. Navigate to the `identity/adfs` folder of the GitHub repository.
+
+2. Open the `onprem.json` file. Search for instances of `adminPassword`, `Password`, and `SafeModeAdminPassword` and update the passwords.
+
+3. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
+    ```
+
+### Deploy the Azure infrastructure
+
+1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords. 
+
+2. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
+    ```
+
+
+### Set up the AD FS farm
+
+1. Open the `adfs-farm-first.json` file.  Search for and `Password` and replace the default password. 
+
+2. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-first.json --deploy
+    ```
+
+<!-- old -->
 
 3. Run the following command:
 
