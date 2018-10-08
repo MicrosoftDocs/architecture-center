@@ -15,20 +15,22 @@ Currently, the scope of this framework limits the conversation to initial govern
 
 ## Governance position of the Enterprise Cloud Adoption Framework
 
-Governance is a broadly used term. In the concept of governance in this framework focuses on the policies, management disciplines, and governance automation required to safely govern Cloud Adoption.
+Governance is a broadly used term, referring both to the high level **concept of governance**, as outlined in the [Governance, Risk, and Compliance triangle](governance-risk-compliance-concept.md) and **governance practices** as outlined in this article. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, management disciplines, and governance automation required to safely govern Cloud Adoption.
+
 
 ![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/governance-and-services.png)
 *Figure 1. Governance Disciplines.*
 
-**Policy & Compliance:** The cloud offers many options for implementing management functions. However, a tool with no policy can have mixed results. When considering any governance strategy, it is wise to start with a corporate policy. In some cases, regulatory compliance will supercede corporate policy and require a set of more stringent guidelines. In either case, policies that reflect business risk and tolerance for risk are the root of any governance strategy.
 
-**Management Disciplines:** This framework focuses on five core management disciplines which extend corporate policies into the cloud to support safe Cloud Adoption. Those disciplines include Cost Management, Security Management, Identity Management, Resource Management, and Configuration Management.
+**Policy & Compliance:** The cloud offers many options for implementing management tools. However, a tool that is not grounded in pragmatic policies can produce unsatisfactory results. When defining a cloud governance strategy, it is wise to start with existing corporate policy, but apply a Growth Mindset accepting the inevitability of policy change. In some cases, regulatory compliance will supercede corporate policy and require a set of more stringent guidelines. Mature, enforceable, and flexible policies are the root of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, as opposed to technical dogma, the policies and resultant strategy can be molded to align with the Cloud or any other form of technical deployment.
 
-**Governance Automation:** Throughout ECA, governance automation is defined as the tools and approaches to logging, monitoring, notification, and automated enforcement of policy & compliance across operational management disciplines.
+**Management Disciplines:** This framework focuses on five core management disciplines which extend corporate policies into the cloud to support safe Cloud Adoption. Those disciplines include [Cost Management](what-is-cost-management.md), [Security Management](what-is-security-management.md), [Identity Management](what-is-identity-management.md), [Resource Management](what-is-resource-management.md), and [Configuration Management](what-is-configuration-management.md). When policy focuses on risk & tolerance, management disciplines can extend those policies by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
+
+**Governance Automation:** Throughout ECA, governance automation is defined as the tools and approaches that enable effective enforcement of policy across multiple management disciplines. In this context, Governance Automation includes logging, monitoring, notification, and automated enforcement of policy & compliance across management disciplines and [deployment models](../getting-started/cloud-deployment-models).
 
 ## Next steps
 
-Once you have learned how to design and implement a governance model in Azure, you can move on to learn how to deploy an [infrastructure](../infrastructure/basic-workload.md) to Azure.
+The first step to taking action in any governance strategy, is a [policy review](what-is-a-policy-review.md). [Policy and Compliance](What-is-policy-and-compliance.md) could be a useful guide during your policy review.
 
 > [!div class="nextstepaction"]
-> [Learn about resource access for a single team](governance-single-team.md)
+> [Prepare for a policy review](what-is-a-policy-review.md)
