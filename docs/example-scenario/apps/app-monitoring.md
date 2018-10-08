@@ -121,7 +121,7 @@ Check out these resources designed to help you get started with your own monitor
 [Log Analytics and other services]: /azure/log-analytics/log-analytics-azure-storage
 [log-analytics]: /azure/log-analytics/log-analytics-overview
 [Azure Log Analytics agent]: https://blogs.msdn.microsoft.com/sqlsecurity/2017/12/28/azure-log-analytics-oms-agent-now-collects-sql-server-audit-logs/
-[application-insights-pricing]: /azure.microsoft.com/pricing/details/application-insights/
+[application-insights-pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [Application Insights SDKs]: /azure/application-insights/app-insights-asp-net
 [Application Insights Status Monitor]: https://azure.microsoft.com/updates/application-insights-status-monitor-and-sdk-updated/
 [analyzing data across sources]: /azure/log-analytics/log-analytics-dashboards
