@@ -1,5 +1,5 @@
 ---
-title: Dev/test enviroments for SAP workloads on Azure
+title: Dev/test environments for SAP workloads on Azure
 description: Build a dev/test environment for SAP workloads.
 author: AndrewDibbins
 ms.date: 7/11/18
@@ -24,7 +24,7 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-![Architecture diagram for dev/test enviroments for SAP workloads](media/architecture-sap-dev-test.png)
+![Architecture diagram for dev/test environments for SAP workloads](media/architecture-sap-dev-test.png)
 
 This scenario demonstrates provisioning a single SAP system database and SAP application server on a single virtual machine. The data flows through the scenario as follows:
 
