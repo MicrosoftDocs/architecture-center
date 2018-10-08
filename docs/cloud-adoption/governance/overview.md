@@ -7,7 +7,7 @@ ms.date: 10/03/2018
 
 # Enterprise Cloud Adoption: Governance overview
 
-This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of goverance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](../getting-started/azure-resource-access.md) in the [getting started](../getting-started/overview.md) section.
+This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of governance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](../getting-started/azure-resource-access.md) in the [getting started](../getting-started/overview.md) section.
 
 ## Actionable governance guidance in the Enterprise Cloud Adoption Framework
 
