@@ -23,7 +23,7 @@ Let's take a look at an example that deploys a virtual network resource. First, 
 Next, let's provide values for the `VNetSettings` object:
 
 > [!NOTE]
-> To learn how to provide parameter values during deploment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates]. 
+> To learn how to provide parameter values during deployment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates]. 
 
 ```json
 "parameters":{
