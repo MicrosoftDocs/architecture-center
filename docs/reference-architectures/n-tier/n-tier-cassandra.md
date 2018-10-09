@@ -152,7 +152,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 
 1. Navigate to the `virtual-machines\n-tier-linux` folder for the repository you cloned in step 1 of the pre-requisites above.
 
-2. The parameter file specifies a default adminstrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-linux.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.   Save the file.
+2. The parameter file specifies a default administrator user name and password for each VM in the deployment. You must change these before you deploy the reference architecture. Open the `n-tier-linux.json` file and replace each **adminUsername** and **adminPassword** field with your new settings.   Save the file.
 
 3. Deploy the reference architecture using the **azbb** command line tool as shown below.
 
