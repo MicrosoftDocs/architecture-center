@@ -35,7 +35,7 @@ A sample cloud native policy for Identity across cloud and on-premises directori
 * Just-in-time, just-enough access granted on a task-by-task basis to limit exposure of over-privileged admin credentials
 * Extended user identity and access to policies across multiple environments through Azure Active Directory
 
-While it is important to understand [Identity Management](../identity-management/) in the context of Security Management, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Management](../identity-management/) as its own discipline, separate from security management. 
+While it is important to understand [Identity Management](../identity-management/overview.md) in the context of Security Management, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Management](../identity-management/overview.md) as its own discipline, separate from security management. 
 
 ### Network Access Policies
 
@@ -57,7 +57,7 @@ One of the keys to data protection in the cloud is accounting for the possible s
 * Azure Key Vault enables users to safeguard and control cryptographic keys and other secrets used by cloud apps and services
 * Azure Information Protection will help classify, label, and protect your sensitive data in apps
 
-While these features are built into Azure, each of the above requires configuration and could increase costs. Alignment of each Cloud Native feature with a [data classification strategy](what-is-date-governance.md) is highly suggested.
+While these features are built into Azure, each of the above requires configuration and could increase costs. Alignment of each Cloud Native feature with a [data classification strategy](../what-is-data-governance.md) is highly suggested.
 
 ### Security Monitoring
 
@@ -80,7 +80,7 @@ Even with this investment in Cloud Native Security Management, it is suggested t
 
 ## Next steps
 
-Now that you've reviewed the sample Security Management policy for Cloud Native solutions, return to the [policy review guide](policy-compliance/what-is-a-cloud-policy-review.md) to start building on this sample to create your own policies for cloud adoption.
+Now that you've reviewed the sample Security Management policy for Cloud Native solutions, return to the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md) to start building on this sample to create your own policies for cloud adoption.
 
 > [!div class="nextstepaction"]
-> [Build your own policies using the Policy Review Guide](policy-compliance/what-is-a-cloud-policy-review.md)
+> [Build your own policies using the Policy Review Guide](../policy-compliance/what-is-a-cloud-policy-review.md)

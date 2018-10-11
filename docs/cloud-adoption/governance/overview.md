@@ -7,11 +7,11 @@ ms.date: 10/03/2018
 
 # Enterprise Cloud Adoption: Governance overview
 
-This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of governance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](../getting-started/azure-resource-access.md) in the [getting started](../getting-started/overview.md) section.
+This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of governance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](resource-management/azure-resource-access.md).
 
 ## Actionable governance guidance in the Enterprise Cloud Adoption Framework
 
-Currently, the scope of this framework limits the conversation to initial governance design when preparing to deploy a workload. If you are familiar with the concept of governance, this section covers [governance design for a simple workload](governance-single-team.md) and [governance design for multiple teams and multiple workloads](governance-multiple-teams.md). Both of these documents include an implementation guide.
+Currently, the scope of this framework limits the conversation to initial governance design when preparing to deploy a workload. If you are familiar with the concept of governance, this section covers [governance design for a simple workload](resource-management/governance-single-team.md) and [governance design for multiple teams and multiple workloads](resource-management/governance-multiple-teams.md). Both of these documents include an implementation guide.
 
 ## Governance position of the Enterprise Cloud Adoption Framework
 
@@ -26,7 +26,7 @@ Governance is a broadly used term, referring both to the high level **concept of
 
 **Management Disciplines:** This framework focuses on five core management disciplines which extend corporate policies into the cloud to support safe Cloud Adoption. Those disciplines include [Cost Management](cost-management/overview.md), [Security Management](security-management/overview.md), [Identity Management](identity-management/overview.md), [Resource Management](resource-management/overview.md), and [Configuration Management](configuration-management/overview.md). When policy focuses on risk & tolerance, management disciplines can extend those policies by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
 
-**Monitoring & Enforcement:** Throughout ECA, monitoring & enforcement focuses on the tools and approaches that enable effective enforcement of policy across multiple management disciplines. In this context, Monitoring & Enforcement includes logging, monitoring, notification, and automated enforcement of policy & compliance across management disciplines and [deployment models](../getting-started/cloud-deployment-models).
+**Monitoring & Enforcement:** Throughout ECA, monitoring & enforcement focuses on the tools and approaches that enable effective enforcement of policy across multiple management disciplines. In this context, Monitoring & Enforcement includes logging, monitoring, notification, and automated enforcement of policy & compliance across management disciplines and [deployment models](../getting-started/cloud-deployment-models.md).
 
 ## Next steps
 
