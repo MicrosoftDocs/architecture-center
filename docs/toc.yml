@@ -653,7 +653,7 @@
     - name: Virtual Machines
       items:
         - name: Deploy a basic workload
-        href: cloud-adoption/infrastructure/basic-workload.md
+          href: cloud-adoption/infrastructure/basic-workload.md
   - name: Operations
     items:
     - name: Overview
