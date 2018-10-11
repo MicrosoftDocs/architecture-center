@@ -530,7 +530,15 @@
   items:
   - name: Introduction
     href: cloud-adoption/overview.md
-  - name: Getting Started
+  - name: Transformation Journeys
+    items:
+    - name: Operational Transformation
+      href: cloud-adoption/transformation-journeys/operational-transformation.md
+    - name: Incremental Transformation
+      href: cloud-adoption/transformation-journeys/incremental-transformation.md
+    - name: Disruptive Transformation
+      href: cloud-adoption/transformation-journeys/disruptive-transformation.md
+  - name: Foundational Concepts
     items:
     - name: Overview
       href: cloud-adoption/getting-started/overview.md
@@ -564,6 +572,20 @@
       href: cloud-adoption/culture-strategy/translate-roles-skills-processes-to-the-cloud.md  
     - name: How to ensure the team has the necessary skills?
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
+  - name: Migration
+    items:
+    - name: Plan
+      items:
+    - name: Architect
+      items:
+    - name: Migrate
+      items:
+    - name: Operate
+      items:
+    - name: Govern
+      items:
+    - name: Protect
+      items:
   - name: Governance
     items:
     - name: Overview
@@ -616,14 +638,44 @@
       href: cloud-adoption/governance/what-is-data-governance.md
   - name: Infrastructure
     items:
-    - name: Deploy a basic workload
+    - name: Overview - How to build a virtual data center (VDC)?
       href: cloud-adoption/infrastructure/basic-workload.md
+    - name: Subscription
+      items:
+    - name: Software Defined Network
+      items:
+    - name: Identity
+      items:
+    - name: Encryption
+      items:
+    - name: Logs & Reports
+      items:
+    - name: Virtual Machines
+      items:
+        - name: Deploy a basic workload
+        href: cloud-adoption/infrastructure/basic-workload.md
   - name: Operations
     items:
     - name: Overview
       href: cloud-adoption/operations/overview.md
-    - name: Establish an operational fitness review
-      href: cloud-adoption/operations/operational-fitness-review.md
+    - name: Monitoring
+      items:
+    - name: Remediation
+      items:
+    - name: Automated Remediation
+      items:
+    - name: Operational Fitness Review
+      items:
+      - name: Establish an operational fitness review
+        href: cloud-adoption/operations/operational-fitness-review.md
+  - name: Optimization
+    items:
+    - name: Benchmarking
+      items:
+    - name: Tuning (Performance & Cost)
+      items:
+    - name: Scaling Resources
+      items:
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
