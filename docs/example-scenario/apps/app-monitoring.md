@@ -94,7 +94,7 @@ Telemetry from Application Insights is sent to the Azure portal during debugging
 
 After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of performance indicators. This data is not stored---you are viewing real-time metrics---but the telemetry can be collected and analyzed later. There is no charge for Live Stream data.
 
-Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
+Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace. 
 
 ## Next steps
 
