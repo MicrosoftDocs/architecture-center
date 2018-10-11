@@ -2,7 +2,7 @@
 title: "Enterprise Cloud Adoption: Cloud Native - Security Management Policy"
 description: What is Cloud Native - Security Management Policy?
 author: BrianBlanchard
-ms.date: 10/03/2018
+ms.date: 10/10/2018
 ---
 
 # Enterprise Cloud Adoption: What is Cloud Native - Security Management Policy?

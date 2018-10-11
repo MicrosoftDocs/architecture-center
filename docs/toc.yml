@@ -536,32 +536,56 @@
       href: cloud-adoption/getting-started/overview.md
     - name: How does Azure work?
       href: cloud-adoption/getting-started/what-is-azure.md
-    - name: What is cloud security?
-      href: cloud-adoption/getting-started/what-is-cloud-security.md
-    - name: What is regulatory compliance?
-      href: cloud-adoption/getting-started/what-is-regulatory-compliance.md
-    - name: Intro to Deployment Models
-      href: cloud-adoption/getting-started/cloud-deployment-models.md
-    - name: What is cloud resource governance?
-      href: cloud-adoption/getting-started/what-is-governance.md
-    - name: What is data governance?
-      href: cloud-adoption/getting-started/what-is-data-governance.md
-    - name: Resource access governance in Azure
-      href: cloud-adoption/getting-started/azure-resource-access.md
-    - name: What is Cloud Security?
-      href: cloud-adoption/getting-started/what-is-cloud-security.md
-    - name: What is Regulatory Compliance?
-      href: cloud-adoption/getting-started/what-is-regulatory-compliance.md
     - name: Intro to Deployment Models
       href: cloud-adoption/getting-started/cloud-deployment-models.md
   - name: Governance
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Governance design for a single team
-      href: cloud-adoption/governance/governance-single-team.md
-    - name: Governance design for multiple teams
-      href: cloud-adoption/governance/governance-multiple-teams.md
+    - name: Policy & Compliance
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/policy-compliance/
+        - name: What is Regulatory Compliance?
+          href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+    - name: Cost Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/cost-management/
+    - name: Security Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/security-management/
+        - name: Sample Policy - Cloud Native Solution
+          href: cloud-adoption/governance/security-management/cloud-native-policy.md          
+        - name: Additional Security Guidance in Azure
+          href: cloud-adoption/governance/security-management/azure-security-guidance.md          
+    - name: Identity Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/identity-management/
+    - name: Resource Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/resource-management/
+        - name: Resource access governance in Azure
+          href: cloud-adoption/getting-started/resource-management/azure-resource-access.md
+        - name: Resouce governance design for a single team
+          href: cloud-adoption/governance/resource-management/governance-single-team.md
+        - name: Resouce governance design for multiple teams
+          href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
+    - name: Configuration Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/configuration-management/
+    - name: Monitoring & Enforcement
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/monitoring-enforcement/
+    - name: How can a CISO prepare for the cloud?
+      href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+    - name: What is Data Governance?
+      href: cloud-adoption/governance/what-is-data-governance.md
   - name: Infrastructure
     items:
     - name: Deploy a basic workload

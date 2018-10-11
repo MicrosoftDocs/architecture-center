@@ -1,6 +1,6 @@
 ---
 title: "Enterprise Cloud Adoption: Intro to Regulatory Compliance"
-description: How do I ensure regulatory compliance
+description: What is regulatory compliance
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
