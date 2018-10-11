@@ -34,7 +34,7 @@ For each of these disciplines, this process calls for the following steps:
 * If the risk still exists, re-write the policy by documenting the necessary mitigation, not the technical solution
 * Review the updated policy with the Cloud Migration team to understand potential solutions to the required mitigation
 
-## Policy Review Process Example
+## Example of a policy review for a legacy policy
 
 To provide an example of the process, lets again leverage the Tape Backup policy in the prior section:
 

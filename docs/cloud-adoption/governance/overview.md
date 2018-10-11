@@ -22,7 +22,7 @@ In some cases, [regulatory compliance](policy-compliance/what-is-regulatory-comp
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/overview.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
+The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
 
 > [!div class="nextstepaction"]
 > [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)
