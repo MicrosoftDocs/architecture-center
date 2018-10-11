@@ -7,7 +7,7 @@ ms.date: 10/03/2018
 
 # Enterprise Cloud Adoption: Governance overview
 
-Governance is a broadly used term, referring both to the high level **concept of governance**, as outlined in the [Governance, Risk, and Compliance triangle](governance-risk-compliance-concept.md) and **governance practices** as outlined in this article. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is suggested to safely govern Cloud Adoption.
+Governance is a broadly used term. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is vital to ensure Cloud Adoption is safely governed.
 
 ![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/governance-and-services.png)
 *Figure 1. Governance Disciplines.*
@@ -22,7 +22,7 @@ In some cases, [regulatory compliance](policy-compliance/what-is-regulatory-comp
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/what-is-policy-and-compliance.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
+The first step to taking action in any governance strategy, is a [policy review](policy-compliance/overview.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
 
 > [!div class="nextstepaction"]
 > [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)
