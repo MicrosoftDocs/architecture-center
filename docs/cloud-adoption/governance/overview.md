@@ -7,30 +7,22 @@ ms.date: 10/03/2018
 
 # Enterprise Cloud Adoption: Governance overview
 
-This section of Azure enterprise cloud adoption covers the topic of *governance*. If you are new to the topic of governance in Azure, you can begin with [what is cloud resource governance?](../getting-started/what-is-governance.md) and [resource access management in Azure](resource-management/azure-resource-access.md).
-
-## Actionable governance guidance in the Enterprise Cloud Adoption Framework
-
-Currently, the scope of this framework limits the conversation to initial governance design when preparing to deploy a workload. If you are familiar with the concept of governance, this section covers [governance design for a simple workload](resource-management/governance-single-team.md) and [governance design for multiple teams and multiple workloads](resource-management/governance-multiple-teams.md). Both of these documents include an implementation guide.
-
-## Governance position of the Enterprise Cloud Adoption Framework
-
-Governance is a broadly used term, referring both to the high level **concept of governance**, as outlined in the [Governance, Risk, and Compliance triangle](governance-risk-compliance-concept.md) and **governance practices** as outlined in this article. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, management disciplines, and governance automation required to safely govern Cloud Adoption.
-
+Governance is a broadly used term, referring both to the high level **concept of governance**, as outlined in the [Governance, Risk, and Compliance triangle](governance-risk-compliance-concept.md) and **governance practices** as outlined in this article. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is suggested to safely govern Cloud Adoption.
 
 ![Governance disciplines: Cost, Security, Identity, Resource, & Configuration management each emanating from Policies and Compliance](../_images/governance-and-services.png)
 *Figure 1. Governance Disciplines.*
 
+**Policy & Compliance:** The cloud offers many options for implementing management tools. However, a tool that is not grounded in pragmatic policies can't provide true governance. When defining a cloud governance strategy, it is wise to start with existing corporate policy, but apply a Growth Mindset accepting the inevitability of policy change. 
 
-**Policy & Compliance:** The cloud offers many options for implementing management tools. However, a tool that is not grounded in pragmatic policies can produce unsatisfactory results. When defining a cloud governance strategy, it is wise to start with existing corporate policy, but apply a Growth Mindset accepting the inevitability of policy change. In some cases, regulatory compliance will supercede corporate policy and require a set of more stringent guidelines. Mature, enforceable, and flexible policies are the root of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, as opposed to technical dogma, the policies and resultant strategy can be molded to align with the Cloud or any other form of technical deployment.
+In some cases, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) will supercede corporate policy and require a set of more stringent guidelines. Enforceable yet flexible policies are the root of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, as opposed to technical dogma, the policies and resultant strategy can be molded to align with the Cloud, or any other form of technical deployment.
 
-**Management Disciplines:** This framework focuses on five core management disciplines which extend corporate policies into the cloud to support safe Cloud Adoption. Those disciplines include [Cost Management](cost-management/overview.md), [Security Management](security-management/overview.md), [Identity Management](identity-management/overview.md), [Resource Management](resource-management/overview.md), and [Configuration Management](configuration-management/overview.md). When policy focuses on risk & tolerance, management disciplines can extend those policies by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
+**Management Disciplines:** This framework focuses on five disciplines of cloud governance, each implements a different aspect of corporate policies to support safe Cloud Adoption. Those disciplines include [Cost Management](cost-management/overview.md), [Security Management](security-management/overview.md), [Identity Management](identity-management/overview.md), [Resource Management](resource-management/overview.md), and [Configuration Management](configuration-management/overview.md). When policy focuses on risk & tolerance, management disciplines can extend those policies by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
 
 **Monitoring & Enforcement:** Throughout ECA, monitoring & enforcement focuses on the tools and approaches that enable effective enforcement of policy across multiple management disciplines. In this context, Monitoring & Enforcement includes logging, monitoring, notification, and automated enforcement of policy & compliance across management disciplines and [deployment models](../getting-started/cloud-deployment-models.md).
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](what-is-a-cloud-policy-review.md). [Policy and Compliance](What-is-policy-and-compliance.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
+The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/what-is-policy-and-compliance.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
 
 > [!div class="nextstepaction"]
-> [Prepare for a policy review](what-is-a-cloud-policy-review.md)
+> [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)
