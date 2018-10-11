@@ -538,16 +538,32 @@
       href: cloud-adoption/getting-started/what-is-azure.md
     - name: Intro to Deployment Models
       href: cloud-adoption/getting-started/cloud-deployment-models.md
+  - name: Business Justification
+    items:
+    - name: Overview
+      href: business-strategy/overview.md  
+    - name: What are Business Outcomes?
+      href: business-strategy/outcomes.md  
+    - name: How to use Business Outcomes?
+      href: business-strategy/outcome-guide.md  
+    - name: Outcome Types - Fiscal Outcomes
+      href: business-strategy/fiscal-outcomes.md  
+    - name: Outcome Types - Agility Outcomes
+      href: business-strategy/agility-outcomes.md  
+    - name: Outcome Types - Reach Outcomes
+      href: business-strategy/reach-outcomes.md  
+    - name: Outcome Types - Engagement Outcomes
+      href: business-strategy/engagement-outcomes.md  
   - name: Cultural Change
     items:
     - name: Overview
-      href: culture-strategy/overview.md  
+      href: cloud-adoption/culture-strategy/overview.md  
     - name: What is a Cloud Strategy Team?
-      href: culture-strategy/what-is-a-cloud-strategy-team.md  
+      href: cloud-adoption/culture-strategy/what-is-a-cloud-strategy-team.md  
     - name: How to translate roles, skills, & processes to the cloud?
-      href: culture-strategy/translate-roles-skills-processes-to-the-cloud.md  
+      href: cloud-adoption/culture-strategy/translate-roles-skills-processes-to-the-cloud.md  
     - name: How to ensure the team has the necessary skills?
-      href: culture-strategy/skills-readiness-path.md
+      href: cloud-adoption/culture-strategy/skills-readiness-path.md
   - name: Governance
     items:
     - name: Overview
@@ -581,7 +597,7 @@
         - name: Overview
           href: cloud-adoption/governance/resource-management/overview.md
         - name: Resource access governance in Azure
-          href: cloud-adoption/getting-started/resource-management/azure-resource-access.md
+          href: cloud-adoption/governance/resource-management/azure-resource-access.md
         - name: Resouce governance design for a single team
           href: cloud-adoption/governance/resource-management/governance-single-team.md
         - name: Resouce governance design for multiple teams
