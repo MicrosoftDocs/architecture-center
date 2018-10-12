@@ -86,35 +86,21 @@ Consider taking a microservices approach, where each Function App represents one
 
 Use Function [bindings][functions-bindings] when possible. Bindings provide a declarative way to connect your code to data and integrate with other Azure services. An input binding populates an input parameter from an external data source. An output binding sends the function's return value to a data sink, such as a queue or database.
 
-For example, the GetStatus function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. 
+For example, the `GetStatus` function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
 
 ```csharp
 [FunctionName("GetStatusFunction")]
 public static Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequest req,     
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
     [CosmosDB(
-        databaseName: "%cosmos-db-database-name%",
-        collectionName: "%cosmos-db-collection-name%",
-        ConnectionStringSetting = "CosmosDBConnection",
+        databaseName: "%COSMOSDB_DATABASE_NAME%",
+        collectionName: "%COSMOSDB_DATABASE_COL%",
+        ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
         Id = "{Query.deviceId}",
         PartitionKey = "{Query.deviceId}")] dynamic deviceStatus, 
     ILogger log)
 {
-    log.LogInformation("Processing GetStatus request.");
-
-    return req.HandleIfAuthorizedForRoles(new[] { GetDeviceStatusRoleName },
-        async () =>
-        {
-            string deviceId = req.Query["deviceId"];
-            if (deviceId == null)
-            {
-                return new BadRequestObjectResult("Missing DeviceId");
-            }
-
-            return await Task.FromResult<IActionResult>(deviceStatus != null
-                    ? (ActionResult)new OkObjectResult(deviceStatus)
-                    : new NotFoundResult());
-        });
+    ...
 }
 ```
 
@@ -122,7 +108,7 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 ## Scalability considerations
 
-**Functions**. For consumption plan, the HTTP trigger autoscales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time.  For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale]. 
+**Functions**. For consumption plan, the HTTP trigger scales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time. For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale]. 
 
 **Cosmos DB**. Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a partition key when you create the container and include the [partition key][partition-key] in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
@@ -174,75 +160,44 @@ Also add a policy to API Management to pre-authorize the request by validating t
 
 In many applications, the backend API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. 
 
-Some claims are provided inside the ID token that Azure AD returns to the client. You can get these claims from within the Function app by examining the X-MS-CLIENT-PRINCIPAL header in the request. 
-
-For other claims, use [Microsoft Graph][graph] to query Azure Active Directory (requires user consent during sign-in). 
+Some claims are provided inside the ID token that Azure AD returns to the client. You can get these claims from within the Function app by examining the X-MS-CLIENT-PRINCIPAL header in the request. For other claims, use [Microsoft Graph][graph] to query Azure Active Directory (requires user consent during sign-in). 
 
 For example, when you register an application in Azure AD, you can define a set of application roles in the application's registration manifest. When a user signs into the application, Azure AD includes a "roles" claim for each role that the user has been granted (including roles that are inherited through group membership). 
 
-The following extension method checks whether the user is a member of a specified role: 
+In the reference implementation, the function checks whether the authenticated user is a member of the `GetStatus` application role. If not, the function returns an HTTP Unauthorized (401) response. 
 
 ```csharp
-public static class HttpRequestAuthorizationExtensions
-{
-    public const string ClientPrincipalHeaderKey = "X-MS-CLIENT-PRINCIPAL";
-
-    public static Task<IActionResult> HandleIfAuthorizedForRoles(this HttpRequest request, string[] roles, Func<Task<IActionResult>> handler)
-    {
-        return request.HandleIfAuthorizedByClaims(
-            claims =>
-            {
-                var principalRoles = new HashSet<string>(claims.Where(kvp => kvp.Key == "roles").Select(kvp => kvp.Value));
-                return roles.All(r => principalRoles.Contains(r));
-            },
-            handler);
-    }
-
-    public static async Task<IActionResult> HandleIfAuthorizedByClaims(this HttpRequest request, Func<IEnumerable<KeyValuePair<string, string>>, bool> authorizeClaims, Func<Task<IActionResult>> handler)
-    {
-        return request.GetResultIfUnauthorized(authorizeClaims) ?? await handler();
-    }
-
-    public static IActionResult GetResultIfUnauthorized(this HttpRequest request, Func<IEnumerable<KeyValuePair<string, string>>, bool> authorizeClaims)
-    {
-        return request.Headers.TryGetValue(ClientPrincipalHeaderKey, out var values)
-            && values.ToArray() is var principals
-            && principals.Length == 1
-            && JObject.Parse(Encoding.UTF8.GetString(Convert.FromBase64String(principals[0]))) is var token
-            && token["claims"] is JArray claimsArray
-            && claimsArray.Select(c => new KeyValuePair<string, string>(c["typ"].Value<string>(), c["val"].Value<string>())) is var claims
-            && authorizeClaims(claims) ? null : new UnauthorizedResult();
-    }
-}
-```
-
-The following code shows how a function calls `HandleIfAuthorizeForRoles` to check whether the user has been granted the "GetStatus" role. If not, the function returns an HTTP Unauthorized (401) response.
-
-```csharp
-public const string GetDeviceStatusRoleName = "GetStatus";
-
 [FunctionName("GetStatusFunction")]
-public static Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, ILogger log)
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+    [CosmosDB(
+        databaseName: "%COSMOSDB_DATABASE_NAME%",
+        collectionName: "%COSMOSDB_DATABASE_COL%",
+        ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
+        Id = "{Query.deviceId}",
+        PartitionKey = "{Query.deviceId}")] dynamic deviceStatus, 
+    ILogger log)
 {
+    log.LogInformation("Processing GetStatus request.");
+
     return req.HandleIfAuthorizedForRoles(new[] { GetDeviceStatusRoleName },
         async () =>
         {
-            log.LogInformation("Processing GetStatus request.");
-
-            string deviceId = req.Query["DeviceId"];
+            string deviceId = req.Query["deviceId"];
             if (deviceId == null)
             {
                 return new BadRequestObjectResult("Missing DeviceId");
             }
 
-            var deviceStatus = await Repository.GetStatusDocumentAsync(deviceId, log);
-
-            return deviceStatus != null
+            return await Task.FromResult<IActionResult>(deviceStatus != null
                     ? (ActionResult)new OkObjectResult(deviceStatus)
-                    : new NotFoundResult();
-        });
+                    : new NotFoundResult());
+        },
+        log);
 }
 ```
+
+In this code example, `HandleIfAuthorizedForRoles` is an extension method that checks for the role claim and returns HTTP 401 if the claim isn't found. You can find the source code [here][HttpRequestAuthorizationExtensions]. Notice that `HandleIfAuthorizedForRoles` takes an `ILogger` parameter. You should log unauthorized requests so that you have an audit trail and can diagnose issues if needed. At the same time, avoid leaking any detailed information inside the HTTP 401 response.
 
 ### CORS
 
@@ -275,7 +230,7 @@ For maximum security, require HTTPS throughout the request pipeline
 
 - Static website hosting. Enable the "[Secure transfer required][storage-https]" option on the Storage account. When this option is enabled, the storage account only allows requests to the account from secure HTTPS connections. 
 
-    > ![NOTE]
+    > [!NOTE]
     >  To use SSL with a custom domain name, you must use CDN.
 
 - API Management. Configure the APIs to use HTTPS protocol only. You can configure this in the Azure portal or through a Resource Manager template:
@@ -341,7 +296,6 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
 [functions-scale]: /azure/azure-functions/functions-scale
 [functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
-[github]: https://github.com/mspnp/reference-architectures
 [graph]: https://developer.microsoft.com/graph/docs/concepts/overview
 [key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../microservices/domain-analysis.md
@@ -351,3 +305,8 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview/
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
+
+<!-- TODO: Update these links! -->
+
+[github]: https://github.com/mspnp/reference-architectures
+[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/reference-architectures
