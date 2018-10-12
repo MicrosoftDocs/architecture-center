@@ -7,8 +7,12 @@ ms.date: 10/10/2018
 
 # Enterprise Cloud Adoption: What is a digital estate?
 
-Coming soon
+Coming soon - An explanation of the assets, IP, and data that defines a customer's digital estate
 
-# Enterprise Cloud Adoption: How can a digital estate be measured?
+## How can a digital estate be measured?
 
-Also coming soon
+Also coming soon - Aligning to Transformation Metrics to understand approaches to measuring a digital estate
+
+## How can a financial model be updated to reflect the digital estate?
+
+Coming eventually (Soon is overused) - Instructions on importing data from the digital estate into common financial models.

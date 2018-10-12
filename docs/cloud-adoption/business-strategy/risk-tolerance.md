@@ -7,8 +7,8 @@ ms.date: 10/10/2018
 
 # Enterprise Cloud Adoption: What business risks are associated with a Cloud Transformation?
 
-Coming soon
+Coming soon - Demonstrate key examples of business risks & the approach for understanding those risks
 
 ## Gaging the business' tolerance for risk
 
-Also coming soon
+Also coming soon - Demonstrate & explain risk tolerance decisions commonly made by the business

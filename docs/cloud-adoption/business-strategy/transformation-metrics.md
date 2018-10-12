@@ -7,4 +7,4 @@ ms.date: 10/10/2018
 
 # Enterprise Cloud Adoption: Aligning to proper transformation metrics
 
-Coming soon
+Coming soon - Mapping each business outcome to accompanying transformation metrics that can be used to track progress and measure the digital estate

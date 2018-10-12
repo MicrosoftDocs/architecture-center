@@ -7,4 +7,4 @@ ms.date: 10/10/2018
 
 # Enterprise Cloud Adoption: How to create a financial model for cloud transformation?
 
-Coming soon
+Coming soon - discussion about ways to build out a financial model based on key transformation metrics
