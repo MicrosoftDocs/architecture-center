@@ -350,7 +350,7 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [event-driven]: ../../guide/architecture-styles/event-driven.md
-[event-processing-ra]: ./event-processing-with-functions.md
+[event-processing-ra]: ./event-processing.md
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start/
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
