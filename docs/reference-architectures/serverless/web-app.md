@@ -4,23 +4,18 @@ This reference architecture shows a serverless web application. The application 
 
 ![](./_images/serverless-web-app.png)
  
-A reference implementation for this architecture is available on [GitHub][github]. The reference implementation includes two workloads:
-
-- An interactive workload (shown here)
-- An event ingestion workload, which is described in a separate reference architecture, [Event processing using Azure Functions][event-processing-ra].
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 The term serverless has two distinct but related meanings:
 
 - **Backend as a service** (BaaS). Backend cloud services, such as databases and storage, provide APIs then enable client applications to connect directly to these services. 
 - **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code. 
 
-What both definitions have in common is that developers and DevOps personnel using these services don't have to deploy, configure, or manage servers. A strict definition of serverless FaaS includes these characteristics:
+What both definitions have in common is that developers and DevOps personnel using these services don't have to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage is an example of BaaS. Some important characteristics of FaaS are:
 
 1. Compute resources are allocated dynamically as needed by the platform.
 1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
 1. The compute resources scale on demand based on traffic, without the developer needing to do any configuration.
-
-This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage is an example of BaaS.
 
 ## Architecture
 The architecture consists of the following components.
@@ -57,7 +52,7 @@ If you don't need all of the functionality provided by API Management, another o
 
 Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running.  With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size. 
 
-Note that the App Service plan is not strictly serverless according to the definition given above. The programming model is the same, however &mdash; the same code can run in a consumption or an App Service plan.
+Note that the App Service plan is not strictly serverless, according to the definition given above. The programming model is the same, however &mdash; the same code can run in a consumption or an App Service plan.
 
 Here are some factors to consider when choosing which type of plan to use:
 
@@ -65,7 +60,7 @@ Here are some factors to consider when choosing which type of plan to use:
 - **Timeout period**.  In the consumption plan, a function execution times out after a [configurable][functions-timeout] period of time (to a maximum of 10 minuts)
 - **Virtual network isolation**. Using an App Service plan allows to run functions inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
 - **Pricing model**. Consumption plan is billed by the number of executions and resource consumptione (memory x execution time). The App Service plan is billed hourly based on VM instance SKU.  The consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, an App Service plan may cost less.
-- **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the App Service plan. 
+- **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the App plan. 
 
 ## Design considerations
 
@@ -127,17 +122,11 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 ## Scalability considerations
 
-### Functions
+**Functions**. For consumption plan, the HTTP trigger autoscales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time.  For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale]. 
 
-For consumption plan, the HTTP trigger autoscales based on the traffic. There is a limit to the number of concurrent function instances, but each instance can process more than one request at a time.  For an App Service plan, the HTTP trigger scales according to the number of VM instances, which can be a fixed value or can autoscale based on a set of autoscaling rules. For information, see [Azure Functions scale and hosting][functions-scale]. 
+**Cosmos DB**. Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a partition key when you create the container and include the [partition key][partition-key] in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
-### Cosmos DB
-
-Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput of the GET of a 1-KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a partition key when you create the container and include the [partition key][partition-key] in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
-
-### API Management
-
-API Management can scale out and supports rule-based autoscaling. Note that the scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
+**API Management**. API Management can scale out and supports rule-based autoscaling. Note that the scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
 
 ## Disaster recovery considerations
 
@@ -347,7 +336,6 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [event-driven]: ../../guide/architecture-styles/event-driven.md
-[event-processing-ra]: ./event-processing.md
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start/
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https

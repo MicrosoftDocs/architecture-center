@@ -4,12 +4,7 @@ This reference architecture shows a serverless, event-driven architecture that i
 
 ![](./_images/serverless-event-processing.png)
  
-**Scenario**: A fleet of drones sends a stream of sensor data (position, battery, engine status). The data is ingested into Azure, processed, and the results are written to a data store. The event source could be any data stream. 
-
-A reference implementation for this architecture is available on GitHub. The reference implementation includes two workloads:
-
-- An event ingestion workload (shown here)
-- An interactive workload, which is described in a separate reference architecture, [Serverless web application](./web-app.md)
+**Scenario**: A fleet of drones sends a stream of sensor data (position, battery, engine status). The data is ingested into Azure, processed, and the results are written to a data store. The event source could be any data stream. A reference implementation for this architecture is available on [GitHub][github].
 
 ## Architecture
 
@@ -118,6 +113,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 **Azure Storage**: Use RA-GRS storage for the dead letter queue. 
 
+[github]: https://github.com/mspnp/reference-architectures
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
