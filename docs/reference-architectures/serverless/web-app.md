@@ -1,6 +1,6 @@
 # Serverless web application 
 
-This reference architecture shows a serverless web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app. A reference implementation for this architecture is available on [GitHub][github]. [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows a serverless web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app. A reference implementation for this architecture is available on [GitHub][github].
 
 ![](./_images/serverless-web-app.png)
  
