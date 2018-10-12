@@ -11,7 +11,7 @@ In [how does Azure work?](../../getting-started/what-is-azure.md), you learned t
 
 However, while giving unrestricted resource access to developers can make them very agile, it can also lead to unintended cost consequences. For example, a development team might be approved to deploy a set of resources for testing but forget to delete them when testing is complete. These resources will continue to accrue costs even though their use is no longer approved or necessary. 
 
-The solution to this problem is resource access **governance**. [Cloud Governance](overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management, resource access governance is one component of the resource management discipline. 
+The solution to this problem is resource access **governance**. [Cloud Governance](../overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management, resource access governance is one component of the resource management discipline. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2ii94] 
 
