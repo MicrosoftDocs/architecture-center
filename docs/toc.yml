@@ -546,22 +546,34 @@
       href: cloud-adoption/getting-started/what-is-azure.md
     - name: Intro to Deployment Models
       href: cloud-adoption/getting-started/cloud-deployment-models.md
-  - name: Business Justification
+  - name: Business Outcome Framework
     items:
     - name: Overview
-      href: business-strategy/overview.md  
-    - name: What are Business Outcomes?
-      href: business-strategy/outcomes.md  
-    - name: How to use Business Outcomes?
-      href: business-strategy/outcome-guide.md  
-    - name: Outcome Types - Fiscal Outcomes
-      href: business-strategy/fiscal-outcomes.md  
-    - name: Outcome Types - Agility Outcomes
-      href: business-strategy/agility-outcomes.md  
-    - name: Outcome Types - Reach Outcomes
-      href: business-strategy/reach-outcomes.md  
-    - name: Outcome Types - Engagement Outcomes
-      href: business-strategy/engagement-outcomes.md  
+      href: cloud-adoption/business-strategy/overview.md
+      items:
+      - name: Business Outcomes
+        - name: What are Business Outcomes?
+          href: cloud-adoption/business-strategy/business-outcomes/overview.md
+        - name: How to use Business Outcomes?
+          href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
+        - name: Outcome Types - Fiscal Outcomes
+          href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
+        - name: Outcome Types - Agility Outcomes
+          href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md  
+        - name: Outcome Types - Reach Outcomes
+          href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md  
+        - name: Outcome Types - Engagement Outcomes
+          href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md  
+      - name: Transformation Metrics
+        href: cloud-adoption/business-strategy/transformation-metrics.md
+      - name: Financial Models
+        href: cloud-adoption/business-strategy/financial-models.md
+      - name: Digital Estate
+        href: cloud-adoption/business-strategy/digital-estate.md
+      - name: Risk & Tolerance
+        href: cloud-adoption/business-strategy/risk-tolerance.md
+      - name: Cloud Accounting
+        href: cloud-adoption/business-strategy/cloud-accounting.md
   - name: Cultural Change
     items:
     - name: Overview
