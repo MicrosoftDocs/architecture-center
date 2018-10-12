@@ -1,14 +1,14 @@
 # Event processing using Azure Functions
 
-This reference architecture shows a serverless, event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database.
+This reference architecture shows a serverless, event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database. [**Deploy this solution**.](#deploy-the-solution)
 
 ![](./_images/serverless-event-processing.png)
  
-**Scenario**: A fleet of drones sends a stream of sensor data (position, battery, engine status). The data is ingested into Azure, processed, and the results are written to a data store. The event source could be any data stream. A reference implementation for this architecture is available on [GitHub][github].
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 ## Architecture
 
-**Event Hubs** ingests the data stream from the devices. Event Hubs is designed for high throughput data streaming scenarios.
+**Event Hubs** ingests the data stream. [Event Hubs][eh] is designed for high-throughput data streaming scenarios.
 
 > [!NOTE]
 > For IoT scenarios, we recommend IoT Hub. IoT Hub has a built-in endpoint that’s compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the backend processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
@@ -17,12 +17,12 @@ This reference architecture shows a serverless, event-driven architecture that i
 
 Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider Apache Spark using Azure Databricks, or Azure Stream Analytics.
 
-**Cosmos DB**. Cosmos DB is a multi-model database service. For this scenario, the event-processing function stores JSON records, using the Cosmos DB SQL API. 
+**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service. For this scenario, the event-processing function stores JSON records, using the Cosmos DB SQL API. 
 Storage Queue for dead letter messages. If an error occurs while processing an event, the function stores the event data in a dead letter queue for later processing. For more information, see Resiliency Considerations.
 
-**Monitor**. Azure Monitor collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
+**Monitor**. [Monitor][monitor] collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution.
 
-**Azure Pipelines** is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+**Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 ## Scalability considerations
 
@@ -109,19 +109,30 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 **Function App**: Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead letter queue.
 
-**Cosmos DB**: [Cosmos DB][cosmosdb] supports multiple master regions, which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
+**Cosmos DB**: Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
 
 **Azure Storage**: Use RA-GRS storage for the dead letter queue. 
 
+## Deploy the solution
+
+To deploy this reference architecture, view the [GitHub readme][readme]. 
+
+<!-- links -->
+
 [cosmosdb]: /azure/cosmos-db/introduction
+[cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
+[eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
 [eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[monitor]: /azure/azure-monitor/overview
 [partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
 [queue-binding]: /azure/azure-functions/functions-bindings-storage-queue#output
 [ru]: /azure/cosmos-db/request-units
 
 [github]: https://github.com/mspnp/serverless-reference-implementation
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md

@@ -1,6 +1,6 @@
 # Serverless web application 
 
-This reference architecture shows a serverless web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
+This reference architecture shows a serverless web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app. [**Deploy this solution**.](#deploy-the-solution)
 
 ![](./_images/serverless-web-app.png)
  
@@ -268,6 +268,10 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Deploy the solution
 
+To deploy this reference architecture, view the [GitHub readme][readme]. 
+
+<!-- links -->
+
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
@@ -307,3 +311,4 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 [github]: https://github.com/mspnp/serverless-reference-implementation
 [HttpRequestAuthorizationExtensions]: https://github.com/mspnp/serverless-reference-implementation/blob/master/src/DroneStatus/dotnet/DroneStatusFunctionApp/HttpRequestAuthorizationExtensions.cs
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md
