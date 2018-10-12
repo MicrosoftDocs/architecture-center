@@ -9,7 +9,7 @@ ms.date: 10/10/2018
 
 As discussed in Business Outcomes, it can be difficult to bridge the gap between business and technical conversations. This simple template is designed to help team uniformly capture business outcomes to be used later in the development of customer Transformation Journey strategies.
 
-Download the [Business Outcome Template Spreadsheet](BusinessOutcomeTemplate.xlsx) to begin brainstorming and tracking business outcomes. Continue reading to learn how to use the template. Check out Business Outcomes for ideas on potential business outcomes that could come up in executive conversations.
+Download the [Business Outcome Template Spreadsheet](business-outcome-template.xlsx) to begin brainstorming and tracking business outcomes. Continue reading to learn how to use the template. Check out Business Outcomes for ideas on potential business outcomes that could come up in executive conversations.
 
 ## How do you use the Business Outcome Template?
 Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, Business Outcomes focus on three topics referenced in the house diagram below: 
