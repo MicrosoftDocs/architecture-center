@@ -101,6 +101,8 @@ public class DeadLetterMessage
 }
 ```
 
+Use [Azure Monitor][monitor] to monitor the event hub. If you see there is input but no output, it means that messages are not being processed. In that case, go into [Log Analytics][log-analytics] and look for exceptions or other errors.
+
 ## Disaster recovery considerations
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
@@ -128,6 +130,7 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
+[log-analytics]: /azure/log-analytics/log-analytics-queries
 [monitor]: /azure/azure-monitor/overview
 [partition-key]: /azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index

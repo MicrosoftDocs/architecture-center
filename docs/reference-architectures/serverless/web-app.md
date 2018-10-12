@@ -27,11 +27,12 @@ The architecture consists of the following components.
 > [!NOTE]
 > Static website hosting is currently in [preview][static-hosting-preview].
 
-**CDN**. Use [Azure Content Delivery Network][cdn] (CDN) to cache content for lower latency and faster delivery of content as well as provide a HTTPS endpoint.
+**CDN**. Use [Azure Content Delivery Network][cdn] (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
 **Function Apps**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request through API Management. 
 
 **API Management**. [API Management][apim] provides a API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
+
 API Management can also be used to implement cross-cutting concerns such as:
 
 - Enforcing usage quotas and rate limits
@@ -61,9 +62,9 @@ Note that the App Service plan is not strictly serverless, according to the defi
 Here are some factors to consider when choosing which type of plan to use:
 
 - **Cold start**. With the consumption plan, a function that hasn't been invoked recently will incur some additional latency the next time it runs. This additional latency is due to allocating and preparing the runtime environment. It is usually on the order of seconds but depends on several factors, including the number of dependencies that need to be loaded. For more information, see [Understanding Serverless Cold Start][functions-cold-start]. Cold start is usually more of a concern for interactive workloads (HTTP triggers) than asynchronous message-driven workloads (queue or event hubs triggers), because the additional latency is directly observed by users.
-- **Timeout period**.  In the consumption plan, a function execution times out after a [configurable][functions-timeout] period of time (to a maximum of 10 minuts)
+- **Timeout period**.  In the consumption plan, a function execution times out after a [configurable][functions-timeout] period of time (to a maximum of 10 minutes)
 - **Virtual network isolation**. Using an App Service plan allows to run functions inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
-- **Pricing model**. Consumption plan is billed by the number of executions and resource consumptione (memory x execution time). The App Service plan is billed hourly based on VM instance SKU.  The consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, an App Service plan may cost less.
+- **Pricing model**. Consumption plan is billed by the number of executions and resource consumption (memory x execution time). The App Service plan is billed hourly based on VM instance SKU.  The consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, an App Service plan may cost less.
 - **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the App plan. 
 
 ### Function App boundaries
@@ -218,7 +219,7 @@ In this example, the **allow-credentials** attribute is **true**. This authorize
 
 For maximum security, require HTTPS throughout the request pipeline
 
-- CDN. Azure CDN supports HTTPS on the *.azureedge.net subdomain by default. To enable SSL in the CDN for custom domain names, see [Tutorial: Configure HTTPS on an Azure CDN custom domain][cdn-https].
+- CDN. Azure CDN supports HTTPS on the *.azureedge.net subdomain by default. To enable SSL in the CDN for custom domain names, see [Tutorial: Configure HTTPS on an Azure CDN custom domain][cdn-https]. 
 
 - Static website hosting. Enable the "[Secure transfer required][storage-https]" option on the Storage account. When this option is enabled, the storage account only allows requests to the account from secure HTTPS connections. 
 
