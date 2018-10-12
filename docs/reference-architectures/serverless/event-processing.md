@@ -119,10 +119,10 @@ The deployment shown here resides in a single Azure region. For a more resilient
 **Azure Storage**: Use RA-GRS storage for the dead letter queue. 
 
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
-[eh-autoscale]: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-auto-inflate
-[eh-dr]: [https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr]
-[eh-throughput]: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-features#throughput-units
-[iot]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-compare-event-hubs
+[eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
+[eh-dr]: /azure/event-hubs/event-hubs-geo-dr
+[eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
+[iot]: /azure/iot-hub/iot-hub-compare-event-hubs
 [partition-key]: /azure/cosmos-db/partition-data
-[queue-binding]: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#output
+[queue-binding]: /azure/azure-functions/functions-bindings-storage-queue#output
 [ru]: /azure/cosmos-db/request-units

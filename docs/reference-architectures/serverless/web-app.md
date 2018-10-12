@@ -335,7 +335,7 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Deploy the solution
 
-[api-versioning]: ../../best-practices/api-design#versioning-a-restful-web-api.md
+[api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
 [app-service-auth]: /azure/app-service/app-service-authentication-overview
