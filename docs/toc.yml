@@ -550,30 +550,30 @@
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
-      - name: Business Outcomes
-        items:
-        - name: What are Business Outcomes?
-          href: cloud-adoption/business-strategy/business-outcomes/overview.md
-        - name: How to use Business Outcomes?
-          href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
-        - name: Outcome Types - Fiscal Outcomes
-          href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
-        - name: Outcome Types - Agility Outcomes
-          href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md  
-        - name: Outcome Types - Reach Outcomes
-          href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md  
-        - name: Outcome Types - Engagement Outcomes
-          href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md  
-      - name: Transformation Metrics
-        href: cloud-adoption/business-strategy/transformation-metrics.md
-      - name: Financial Models
-        href: cloud-adoption/business-strategy/financial-models.md
-      - name: Digital Estate
-        href: cloud-adoption/business-strategy/digital-estate.md
-      - name: Risk & Tolerance
-        href: cloud-adoption/business-strategy/risk-tolerance.md
-      - name: Cloud Accounting
-        href: cloud-adoption/business-strategy/cloud-accounting.md
+    - name: Business Outcomes
+      items:
+      - name: What are Business Outcomes?
+        href: cloud-adoption/business-strategy/business-outcomes/overview.md
+      - name: How to use Business Outcomes?
+        href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
+      - name: Outcome Types - Fiscal Outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
+      - name: Outcome Types - Agility Outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md  
+      - name: Outcome Types - Reach Outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md  
+      - name: Outcome Types - Engagement Outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md  
+    - name: Transformation Metrics
+      href: cloud-adoption/business-strategy/transformation-metrics.md
+    - name: Financial Models
+      href: cloud-adoption/business-strategy/financial-models.md
+    - name: Digital Estate
+      href: cloud-adoption/business-strategy/digital-estate.md
+    - name: Risk & Tolerance
+      href: cloud-adoption/business-strategy/risk-tolerance.md
+    - name: Cloud Accounting
+      href: cloud-adoption/business-strategy/cloud-accounting.md
   - name: Cultural Change
     items:
     - name: Overview
