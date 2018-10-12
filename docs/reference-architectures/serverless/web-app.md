@@ -55,20 +55,17 @@ If you don't need all of the functionality provided by API Management, another o
 
 ## Recommendations
 
-Azure Functions support two hosting models:
+Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running.  With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size. 
 
-- Consumption plan. With this plan, compute power is automatically allocated when your code is running. 
-- App Service plan. With this plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size. 
-
-Note that the App Service plan is not strictly serverless according to the definition given above. The programming model is the same, however – the same code can run in a consumption or an App Service plan.
+Note that the App Service plan is not strictly serverless according to the definition given above. The programming model is the same, however &mdash; the same code can run in a consumption or an App Service plan.
 
 Here are some factors to consider when choosing which type of plan to use:
 
 - **Cold start**. With the consumption plan, a function that hasn't been invoked recently will incur some additional latency the next time it runs. This additional latency is due to allocating and preparing the runtime environment. It is usually on the order of seconds but depends on several factors, including the number of dependencies that need to be loaded. For more information, see [Understanding Serverless Cold Start][functions-cold-start]. Cold start is usually more of a concern for interactive workloads (HTTP triggers) than asynchronous message-driven workloads (queue or event hubs triggers), because the additional latency is directly observed by users.
 - **Timeout period**.  In the consumption plan, a function execution times out after a [configurable][functions-timeout] period of time (to a maximum of 10 minuts)
-- **Virtual network isolation**. Using a dedicated plan allows to run functions inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
-- **Pricing model**. Consumption plan is billed by the number of executions and resource consumptione (memory x execution time). The dedicated plan is billed hourly based on VM instance SKU.  The consumption model can be cheaper than a dedicated plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, the dedicated plan may cost less.
-- **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the dedicated plan. 
+- **Virtual network isolation**. Using an App Service plan allows to run functions inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
+- **Pricing model**. Consumption plan is billed by the number of executions and resource consumptione (memory x execution time). The App Service plan is billed hourly based on VM instance SKU.  The consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, an App Service plan may cost less.
+- **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the App Service plan. 
 
 ## Design considerations
 
@@ -82,7 +79,7 @@ In this architecture, all dynamic interaction happens through JavaScript code ma
 
 Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
-## Function App boundaries
+### Function App boundaries
 
 A *function app* hosts the execution of one or more functions. You can use a function app to group several functions together as a logical unit. Within a function app, the functions share the same application settings, hosting plan, and deployment. Each function app has its own hostname.  
 
@@ -281,7 +278,7 @@ In this example, the **allow-credentials** attribute is **true**. This authorize
 > [!NOTE] 
 > Be very careful about setting **allow-credentials** to **true**, because it means a website can send the user's credentials to your API on the user's behalf, without the user being aware. You must trust the allowed origin.
 
-## Enforce HTTPS
+### Enforce HTTPS
 
 For maximum security, require HTTPS throughout the request pipeline
 
