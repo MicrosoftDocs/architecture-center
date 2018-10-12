@@ -17,10 +17,12 @@ What both definitions have in common is that developers and DevOps personnel usi
 1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
 1. The compute resources scale on demand based on traffic, without the developer needing to do any configuration.
 
+Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
+
 ## Architecture
 The architecture consists of the following components.
 
-**Blob Storage**. Static files are stored in Azure Blob Storage and served to client by using [static website hosting][static-hosting]. This makes it possible to deliver web content without managing any servers. 
+**Blob Storage**. Static files are stored in Azure Blob Storage and served to client by using [static website hosting][static-hosting]. This makes it possible to deliver web content without managing any servers. All dynamic interaction happens through JavaScript code making calls to the backend APIs. There is no server-side code to render the web page.
 
 > [!NOTE]
 > Static website hosting is currently in [preview][static-hosting-preview].
@@ -50,6 +52,8 @@ If you don't need all of the functionality provided by API Management, another o
 
 ## Recommendations
 
+### Function App plans
+
 Azure Functions supports two hosting models. With the **consumption plan**, compute power is automatically allocated when your code is running.  With the **App Service** plan, a set of VMs are allocated for your code. The App Service plan defines the number of VMs and the VM size. 
 
 Note that the App Service plan is not strictly serverless, according to the definition given above. The programming model is the same, however &mdash; the same code can run in a consumption or an App Service plan.
@@ -61,18 +65,6 @@ Here are some factors to consider when choosing which type of plan to use:
 - **Virtual network isolation**. Using an App Service plan allows to run functions inside of an [App Service Environment][ase], which is a dedicated and isolated hosting environment.
 - **Pricing model**. Consumption plan is billed by the number of executions and resource consumptione (memory x execution time). The App Service plan is billed hourly based on VM instance SKU.  The consumption plan can be cheaper than an App Service plan, because you pay only for the compute resources that you use. However, if an application experiences constant high-volume throughput, an App Service plan may cost less.
 - **Scaling**. A big advantage of the consumption model is that it scales to as many VMs as needed based on the incoming traffic. While this scaling occurs quickly, there is a ramp-up period. For some workloads, you might want to deliberately overprovision the VMs in order to handle bursts with zero ramp-up time, in which case you should consider the App plan. 
-
-## Design considerations
-
-Here are some design considerations for this architecture:
-
-### Single-page application
-
-In this architecture, all dynamic interaction happens through JavaScript code making calls to the backend APIs. There is no server-side code to render the web application.
-
-### Event-driven
-
-Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
 ### Function App boundaries
 
