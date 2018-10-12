@@ -550,8 +550,8 @@
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
-      items:
       - name: Business Outcomes
+        items:
         - name: What are Business Outcomes?
           href: cloud-adoption/business-strategy/business-outcomes/overview.md
         - name: How to use Business Outcomes?
