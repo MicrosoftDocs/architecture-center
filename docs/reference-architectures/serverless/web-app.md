@@ -29,9 +29,9 @@ The architecture consists of the following components.
 
 **CDN**. Use [Azure Content Delivery Network][cdn] (CDN) to cache content for lower latency and faster delivery of content as well as provide a HTTPS endpoint.
 
-**Function Apps**. Azure Functions is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request through API Management. 
+**Function Apps**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request through API Management. 
 
-**API Management**. API Management provides a API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
+**API Management**. [API Management][apim] provides a API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
 API Management can also be used to implement cross-cutting concerns such as:
 
 - Enforcing usage quotas and rate limits
@@ -40,15 +40,15 @@ API Management can also be used to implement cross-cutting concerns such as:
 - Caching responses
 - Monitoring and logging requests  
 
-If you don't need all of the functionality provided by API Management, another option is to use Functions Proxies. This feature of Azure Functions allows you define a single API surface for multiple function apps, by defining routes to back-end functions. While function proxies can transform the HTTP request and response, they don't provide the same rich policy-based capabilities of API Management.
+If you don't need all of the functionality provided by API Management, another option is to use [Functions Proxies][functions-proxy]. This feature of Azure Functions allows you define a single API surface for multiple function apps, by defining routes to back-end functions. While function proxies can transform the HTTP request and response, they don't provide the same rich policy-based capabilities of API Management.
 
-**Cosmos DB**. Cosmos DB is a multi-model database  service. For this scenario, the function app fetches documents from Cosmos DB in response to HTTP GET requests from the client application.
+**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database  service. For this scenario, the function app fetches documents from Cosmos DB in response to HTTP GET requests from the client application.
 
 **Azure Active Directory** (Azure AD). Users sign into the web application by using their Azure AD credentials. 
 
-**Azure Monitor**. Azure Monitor collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. 
+**Azure Monitor**. [Monitor][monitor] collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get visibility into the health of the solution. 
 
-**Azure Pipelines** is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
+**Azure Pipelines**. [Pipelines][pipelines] is a continuous integration (CI) and continuous delivery (CD) service that builds, tests, and deploys the application.
 
 ## Recommendations
 
@@ -110,9 +110,9 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of geo-distribution features in the various services:
 
-- Azure API Management supports multi-region deployment, which can be used to distribute a single API Management instance across any number of Azure regions. 
+- API Management supports multi-region deployment, which can be used to distribute a single API Management instance across any number of Azure regions. 
 
-- Use Traffic Manager to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
+- Use [Traffic Manager][tm] to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
 
 - Cosmos DB supports multiple master regions, which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
@@ -269,6 +269,7 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 ## Deploy the solution
 
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
+[apim]: /azure/api-management/api-management-key-concepts
 [apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
 [app-service-auth]: /azure/app-service/app-service-authentication-overview
@@ -280,25 +281,29 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 [cdn]: https://azure.microsoft.com/services/cdn/
 [cdn-https]: /azure/cdn/cdn-custom-ssl
 [cors-policy]: /azure/api-management/api-management-cross-domain-policies
+[cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-input-binding]: /azure/azure-functions/functions-bindings-cosmosdb-v2#input
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [event-driven]: ../../guide/architecture-styles/event-driven.md
+[functions]: /azure/azure-functions/functions-overview
 [functions-bindings]: /azure/azure-functions/functions-triggers-bindings
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start/
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
+[functions-proxy]: /azure-functions/functions-proxies
 [functions-scale]: /azure/azure-functions/functions-scale
 [functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
 [graph]: https://developer.microsoft.com/graph/docs/concepts/overview
 [key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../microservices/domain-analysis.md
+[monitor]: /azure/azure-monitor/overview
 [oauth-flow]: https://auth0.com/docs/api-auth/which-oauth-flow-to-use
 [partition-key]: /azure/cosmos-db/partition-data
+[pipelines]: /azure/devops/pipelines/index
 [ru]: /azure/cosmos-db/request-units
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview/
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
+[tm]: /azure/traffic-manager/traffic-manager-overview
 
-<!-- TODO: Update these links! -->
-
-[github]: https://github.com/mspnp/reference-architectures
-[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/reference-architectures
+[github]: https://github.com/mspnp/serverless-reference-implementation
+[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/serverless-reference-implementation/blob/master/src/DroneStatus/dotnet/DroneStatusFunctionApp/HttpRequestAuthorizationExtensions.cs

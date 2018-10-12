@@ -13,7 +13,7 @@ This reference architecture shows a serverless, event-driven architecture that i
 > [!NOTE]
 > For IoT scenarios, we recommend IoT Hub. IoT Hub has a built-in endpoint that’s compatible with the Azure Event Hubs API, so you can use either service in this architecture with no major changes in the backend processing. For more information, see [Connecting IoT Devices to Azure: IoT Hub and Event Hubs][iot].
 
-**Function App**. Azure Functions is a serverless compute option. It uses an event-driven model, where a piece of code (a “function”) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, it triggers a function that processes the events and writes the results to storage. 
+**Function App**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a “function”) is invoked by a trigger. In this architecture, when events arrive at Event Hubs, it triggers a function that processes the events and writes the results to storage. 
 
 Function Apps are suitable for processing individual records from Event Hubs. For more complex stream processing scenarios, consider Apache Spark using Azure Databricks, or Azure Stream Analytics.
 
@@ -109,16 +109,19 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 **Function App**: Deploy a second function app that is waiting to read from the secondary Event Hubs namespace. This function writes to a secondary storage account for dead letter queue.
 
-**Cosmos DB**: Cosmos DB supports multiple master regions, which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
+**Cosmos DB**: [Cosmos DB][cosmosdb] supports multiple master regions, which enables writes to any region that you add to your Cosmos DB account. If you don’t enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don’t need to update any application configuration settings.
 
 **Azure Storage**: Use RA-GRS storage for the dead letter queue. 
 
-[github]: https://github.com/mspnp/reference-architectures
+[cosmosdb]: /azure/cosmos-db/introduction
 [cosmosdb-scale]: /azure/cosmos-db/partition-data
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
 [eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
+[functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
 [partition-key]: /azure/cosmos-db/partition-data
 [queue-binding]: /azure/azure-functions/functions-bindings-storage-queue#output
 [ru]: /azure/cosmos-db/request-units
+
+[github]: https://github.com/mspnp/serverless-reference-implementation
