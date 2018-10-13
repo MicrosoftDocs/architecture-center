@@ -420,6 +420,13 @@
       - name: SAP HANA on Azure Large Instances
         href: reference-architectures/sap/hana-large-instances.md
 
+    - name: Serverless
+      items:
+      - name: Serverless web application
+        href: reference-architectures/serverless/web-app.md
+      - name: Serverless event processing
+        href: reference-architectures/serverless/event-processing.md
+
     - name: VM workloads
       items:
       - name: Jenkins server
