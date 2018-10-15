@@ -652,8 +652,8 @@
       href: cloud-adoption/governance/what-is-data-governance.md
   - name: Infrastructure
     items:
-    - name: Overview - How to build a virtual data center (VDC)?
-      href: cloud-adoption/infrastructure/basic-workload.md
+    - name: Overview
+      href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
     - name: Subscription
       items:
     - name: Resource Tags
@@ -669,11 +669,15 @@
     - name: Virtual Machines
       items:
         - name: Deploy a basic workload
-          href: cloud-adoption/infrastructure/basic-workload.md
+          href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
     - name: Mainframe Migration
       items:
         - name: Can a mainframe be migrated to Azure?
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+    - name: Build a virtual data center (VDC)
+      href: cloud-adoption/infrastructure/misc/virtual-datacenter-VDC.md
+    - name: Create Hybrid Cloud Consistency
+      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
     items:
     - name: Overview

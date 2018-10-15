@@ -1,3 +1,3 @@
 ---
-redirect_url: basic-workload
+redirect_url: basic-workload.md
 ---
