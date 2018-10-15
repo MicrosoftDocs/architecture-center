@@ -590,12 +590,12 @@
     items:
     - name: Plan
       items:
-    - name: Architect
+    - name: Build
       items:
     - name: Migrate
       items:
-    - name: Operate
-      items:
+      - name: Migration Execution Options 
+        href: cloud-adoption/migration/migration-options.md
     - name: Govern
       items:
     - name: Protect
