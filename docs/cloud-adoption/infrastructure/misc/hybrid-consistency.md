@@ -6,7 +6,7 @@ ms.date: 10/11/2018
 ---
 # Enterprise Cloud Adoption: How To: Create Hybrid Cloud Consistency
 
-The [Infrastructure section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), clarifies the components required to migrate core infrastructure services to Azure. This section of the framework, expands on that topic by specifically guiding the reader through the high level approaches that could create hybrid consistency.
+The [Infrastructure section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), clarifies the components required to migrate core infrastructure services to Azure. This section of the framework, expands on that topic by specifically guiding the reader through the high level approaches that could create hybrid consistency.
 
 [Hybrid models](../../getting-started/cloud-deployment-models.md) during [migration](../../migration/overview.md) can reduce risk and contribute to a smooth transition. Cloud platforms offer the greatest level of flexibility when it comes to business processes, but many organizations are hesitant to make the move, preferring instead to keep full control over their most sensitive data. Unfortunately, on-premises servers don’t allow for the same rate of innovation. Hybrid cloud options allow for the best of both worlds: The speed of cloud innovation AND the comfort of on-prem management.
 
