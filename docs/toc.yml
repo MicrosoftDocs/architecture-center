@@ -610,6 +610,8 @@
         href: cloud-adoption/migration/operate/remediate.md
       - name: Benchmark and Optimize
         href: cloud-adoption/migration/operate/optimize.md
+      - name: Sample Operations Tasks
+        href: cloud-adoption/migration/operate/sample-tasks.md
     - name: Protect
       items:
   - name: Governance
