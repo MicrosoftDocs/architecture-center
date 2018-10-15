@@ -656,6 +656,8 @@
       href: cloud-adoption/infrastructure/basic-workload.md
     - name: Subscription
       items:
+    - name: Resource Tags
+      items:
     - name: Software Defined Network
       items:
     - name: Identity
@@ -668,6 +670,10 @@
       items:
         - name: Deploy a basic workload
           href: cloud-adoption/infrastructure/basic-workload.md
+    - name: Mainframe Migration
+      items:
+        - name: Can a mainframe be migrated to Azure?
+          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
   - name: Operations
     items:
     - name: Overview
