@@ -167,7 +167,7 @@ ms.date: 09/28/2018
     </li>
     <!-- design patterns -->
     <li>
-        <a href="/azure/architecture/microservices">
+        <a href="/azure/architecture/patterns">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
