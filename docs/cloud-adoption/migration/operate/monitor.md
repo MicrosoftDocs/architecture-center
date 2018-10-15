@@ -13,3 +13,14 @@ Monitoring is the act of collecting and analyzing data to determine the performa
 
 * Core monitoring: Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.
 * Deep application and infrastructure monitoring: Azure services provide rich capabilities for collecting and analyzing monitoring data at a deeper level. These services build on core monitoring and take advantage of common functionality in Azure. They provide powerful analytics with collected data to give you unique insights into your applications and infrastructure.
+
+## Security Monitoring
+
+Rely on the Azure Security Center for unified security monitoring and advanced threat notification across your hybrid cloud workloads. The Security Center gives full visibility into and control over the security of cloud applications in Azure. Quickly detect and take action to respond to threats, and reduce exposure by enabling adaptive threat protection. The built-in dashboard provides instant insights into security alerts and vulnerabilities that require attention. Azure Security Center can help with many functions:
+
+* Centralized policy monitoring: Ensure compliance with company or regulatory security requirements by centrally managing security policies across hybrid cloud workloads.
+* Continuous security assessment: Monitor the security of machines, networks, storage and data services, and applications to discover potential security issues.
+* Actionable recommendations: Remediate security vulnerabilities before they can be exploited by attackers with prioritized and actionable security recommendations.
+* Advanced cloud defenses: Reduce threats with just in time access to management ports and whitelists to control applications running on your VMs.
+* Prioritized alerts and incidents: Focus on the most critical threats first with prioritized security alerts and incidents.
+* Integrated security solutions: Collect, search, and analyze security data from a variety of sources, including connected partner solutions.
