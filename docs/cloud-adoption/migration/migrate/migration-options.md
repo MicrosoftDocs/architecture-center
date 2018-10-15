@@ -6,12 +6,12 @@ ms.date: 10/11/2018
 ---
 # Enterprise Cloud Adoption: Understanding Migration Options
 
-The [Migration section](overview.md) of the [Enterprise Cloud Adoption framework](../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on that topic by discussing options to executing those migration processes.
+The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on that topic by discussing options to executing those migration processes.
 
-## What happens after you have developed a [migration plan & strategy](plan/overview.md) and [built out an Azure environment for migration](build/overview.md)?
+## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
 
-Now it’s time to start the [migration process](migrate/overview.md). In this process, the team will perform the actual migration of apps to the cloud.
-Unlike the collaborative and problem solving tasks in [Plan](plan/overview.md) and [Build](build/overview.md), migration tends to be repetitive & largely turnkey.
+Now it’s time to start the [migration process](../migrate/overview.md). In this process, the team will perform the actual migration of apps to the cloud.
+Unlike the collaborative and problem solving tasks in [Plan](../plan/overview.md) and [Build](../build/overview.md), migration tends to be repetitive & largely turnkey.
 
 During Plan, Build, or Migrate, a company generally has three execution options:
 
@@ -24,11 +24,11 @@ During Plan, Build, or Migrate, a company generally has three execution options:
 If an organization is planning an Azure migration on its own, Microsoft is always there to assist throughout the migration journey. To help fast-track migration to Azure, Microsoft and its partners have developed an extensive set of architectures, guides, tools, and services to reduce risk and speed migration of virtual machines, applications, and databases. These tools and services support a broad selection of operating systems, programming languages, frameworks, and databases.
 
 * Assessment and migration tools: Azure allows you to leverage a wide range of tools to be used in different phases for your cloud transformation, including assessing your existing infrastructure. For more details on the tool, you can refer to the Assess section in the Migration chapter below.
-* [Enterprise Cloud Adoption framework](../overview.md): This guide presents a structured approach for [migrating to Azure](overview.md). It is based on proven practices that Microsoft has prepared from different customer engagements. It is organized as a series of steps, from architecture and design to implementation. For each step, supporting guidance will help you with the design of your application architecture.
-* [Cloud design patterns](../../patterns/): Azure provides a number of useful cloud design patterns for building reliable, scalable, secure applications in the cloud. Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. However, most of the patterns are relevant to any distributed system, whether hosted on Azure or on other cloud platforms.
-* [Cloud fundamentals](../../building-blocks/): Fundamental help teach the basic approaches to implementation of core concepts. This guide helps technicians think about solutions that go beyond a single Azure service.
-* [Example Scenarios](../../example-scenario/): The guide provides references from real customer implementations, outlining the tools, approaches, and processes that past customers have followed to accomplish specific business goals.
-* [Reference architectures](../../reference-architectures/): Reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
+* [Enterprise Cloud Adoption framework](../../overview.md): This guide presents a structured approach for [migrating to Azure](../overview.md). It is based on proven practices that Microsoft has prepared from different customer engagements. It is organized as a series of steps, from architecture and design to implementation. For each step, supporting guidance will help you with the design of your application architecture.
+* [Cloud design patterns](../../../patterns/): Azure provides a number of useful cloud design patterns for building reliable, scalable, secure applications in the cloud. Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. However, most of the patterns are relevant to any distributed system, whether hosted on Azure or on other cloud platforms.
+* [Cloud fundamentals](../../../building-blocks/): Fundamental help teach the basic approaches to implementation of core concepts. This guide helps technicians think about solutions that go beyond a single Azure service.
+* [Example Scenarios](../../../example-scenario/): The guide provides references from real customer implementations, outlining the tools, approaches, and processes that past customers have followed to accomplish specific business goals.
+* [Reference architectures](../../../reference-architectures/): Reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 ## Microsoft FastTrack for Azure
 [FastTrack for Azure](https://azure.microsoft.com/en-us/roadmap/fasttrack-for-azure/)  provides direct assistance from Azure engineers, working hand in hand with partners, to help customers build Azure solutions quickly and confidently. FastTrack brings best practices and tools from real customer experiences to guide customers from setup, configuration, and development to production of Azure solutions, including:
