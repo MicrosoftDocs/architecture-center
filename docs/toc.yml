@@ -556,14 +556,16 @@
         href: cloud-adoption/business-strategy/business-outcomes/overview.md
       - name: How to use Business Outcomes?
         href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
-      - name: Outcome Types - Fiscal Outcomes
+      - name: Fiscal Outcomes
         href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
-      - name: Outcome Types - Agility Outcomes
+      - name: Agility Outcomes
         href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md  
-      - name: Outcome Types - Reach Outcomes
+      - name: Reach Outcomes
         href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md  
-      - name: Outcome Types - Engagement Outcomes
+      - name: Engagement Outcomes
         href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md  
+      - name: Performance Outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/performance-outcomes.md  
     - name: Transformation Metrics
       href: cloud-adoption/business-strategy/transformation-metrics.md
     - name: Financial Models

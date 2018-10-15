@@ -17,10 +17,10 @@ To learn more about business outcomes and the business outcome template, check o
 
 The following are a few business outcomes that tend to trigger conversations with various personas, use these to start a conversation:
 
-• Finance Leadership: Increase profitability while driving compliance
-• Marketing: Acquire and retain customers, build reputation
-• Sales: Accelerate sales, improve customer lifetime value
-• HR: Retain, recruit, and empower employees
+* **Finance Leadership:** Increase profitability while driving compliance
+* **Marketing:** Acquire and retain customers, build reputation
+* **Sales:** Accelerate sales, improve customer lifetime value
+* **HR:** Retain, recruit, and empower employees
 
 # Sample outcomes by Category
 
