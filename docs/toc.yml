@@ -588,16 +588,28 @@
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
   - name: Migration
     items:
+    - name: Program Overview
+      href: cloud-adoption/migration/overview.md
     - name: Plan
       items:
     - name: Build
       items:
     - name: Migrate
       items:
+      - name: Process Overview 
+        href: cloud-adoption/migration/migrate/overview.md
       - name: Migration Execution Options 
         href: cloud-adoption/migration/migrate/migration-options.md
-    - name: Govern
+    - name: Operate
       items:
+      - name: Process Overview 
+        href: cloud-adoption/migration/operate/overview.md
+      - name: Monitor
+        href: cloud-adoption/migration/operate/monitor.md
+      - name: Remediate
+        href: cloud-adoption/migration/operate/remediate.md
+      - name: Benchmark and Optimize
+        href: cloud-adoption/migration/operate/optimize.md
     - name: Protect
       items:
   - name: Governance
