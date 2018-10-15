@@ -6,7 +6,7 @@ ms.date: 10/11/2018
 ---
 # Enterprise Cloud Adoption: Understanding Migration Options
 
-The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on that topic by discussing options to executing those migration processes.
+The [Migrate section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on that topic by discussing options to executing those migration processes.
 
 ## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
 
@@ -66,3 +66,10 @@ Get help from partners with ready-made or custom Azure solutions and partners wh
 
 * [Find a Cloud Solutions Partner](https://www.microsoft.com/solution-providers/home/) – A certified CSP can help take full advantage of the cloud by assessing business goals for cloud adoption, identifying the right cloud solution that meets business needs and help the business become more agile and efficient.
 * [Find a Managed Service Partner](https://www.microsoft.com/solution-providers/search?cacheId=16a3b49b-fef2-449d-bdf0-628008114cca) – Azure Managed Service Partner (MSP) helps transition to Azure by guiding all aspects of the cloud journey. From consulting to migrations and operations management, cloud MSPs show customers all the benefits that come with cloud adoption. They also act as a one-stop shop for common support, provisioning, and billing experience—all with a flexible pay-as-you-go (PAYG) business model.
+
+## Next steps
+
+Once a migration path is chosen, continue to the [Migrate section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), to learn about the migration process.
+
+> [!div class="nextstepaction"]
+> [Migrate Process Guidance](overview.md)
