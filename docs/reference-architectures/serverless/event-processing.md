@@ -1,4 +1,12 @@
-# Event processing using Azure Functions
+---
+title: Serverless event processing using Azure Functions
+description: Reference architecture that shows serverless event ingestion and processing
+author: MikeWasson
+ms.date: 10/16/2018
+---
+
+
+# Serverless event processing using Azure Functions
 
 This reference architecture shows a serverless, event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database. A reference implementation for this architecture is available on [GitHub][github].
 
