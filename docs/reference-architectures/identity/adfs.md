@@ -234,16 +234,53 @@ A deployment for this architecture is available on [GitHub][github].
     azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
     ```
 
-
 ### Set up the AD FS farm
 
-1. Open the `adfs-farm-first.json` file.  Search for and `Password` and replace the default password. 
+1. Open the `adfs-farm-first.json` file.  Search for `AdminPassword` and replace the default password. 
 
-2. Run the following command and wait for the deployment to finish:
+2. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-first.json --deploy
     ```
+3. Open the `adfs-farm-rest.json` file.  Search for `AdminPassword` and replace the default password. 
+
+4. Run the following command and wait for the deployment to finish:
+
+    ```bash
+    azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-rest.json --deploy
+    ```
+
+### Configure AD FS
+
+1. Open a remote desktop session with the VM named `ra-adfs-proxy-vm1`. 
+
+2. Open a PowerShell window.
+
+3. Open the `adfs-webproxy.ps1` file on your local computer and paste the contents into the PowerShell window on the VM. Execute this script.
+
+4. In the same PowerShell session, execute the following commands:
+
+    ```powershell
+    $cd = @{
+        AllNodes = @(
+            @{
+                NodeName = 'localhost'
+                PSDscAllowPlainTextPassword = $true
+                PSDscAllowDomainUser = $true
+            }
+        )
+    }
+
+    $c1 = Get-Credential -UserName testuser -Message "Enter password"
+    ## This step will prompt for the password
+
+    InstallWebProxyApp -DomainName contoso.com -FederationName adfs.contoso.com -WebApplicationProxyName "Contoso App" -AdminCreds $c1 -ConfigurationData $cd
+    Start-DscConfiguration ./InstallWebProxyApp
+    ```
+
+    When the `Get-Credential` command executes, you will be prompted to enter the 
+
 
 <!-- old -->
 
