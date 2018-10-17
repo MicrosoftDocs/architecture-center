@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 
 Cloud migration significantly impacts the daily operations of an IT department, broadening the scope of IT operations as organizations move to the cloud. Cloud adoption creates new management challenges for IT teams. Instead of utilizing disjointed solutions for individual IT operations, organizations may want to take advantage of cloud-scale infrastructure to simplify deployment through unified IT management as a service. Management capabilities such as monitoring, backup, automation, and so forth are delivered as a service from the cloud that connects all of the servers in all environments (on-premises, Azure, and other clouds), allowing IT staff to centrally manage operations.
 
-The following table outlines tasks to be covered in this section of the Migration guide:
+The following table outlines a number of common tasks required to operate cloud assets, as a basic reference. For a deeper understanding of operation tasks, the [Governance section](../../governance/overview.md) of [Enterprise Cloud Adoption (ECA) framework](../../overview.md) could be a helpful guide.
 
 |Function  |On-premises function  |Cloud function  |
 |---------|---------|---------|

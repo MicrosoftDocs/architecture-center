@@ -6,7 +6,7 @@ ms.date: 10/11/2018
 ---
 # Enterprise Cloud Adoption: Understanding Migration Options
 
-The [Migrate section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on that topic by discussing options to executing those migration processes.
+The [Migration section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
 
 ## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
 

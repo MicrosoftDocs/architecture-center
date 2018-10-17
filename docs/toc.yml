@@ -594,12 +594,12 @@
       items:
     - name: Build
       items:
-    - name: Migrate
+    - name: Execute
       items:
       - name: Process Overview 
-        href: cloud-adoption/migration/migrate/overview.md
+        href: cloud-adoption/migration/execute/overview.md
       - name: Migration Execution Options 
-        href: cloud-adoption/migration/migrate/migration-options.md
+        href: cloud-adoption/migration/execute/migration-options.md
     - name: Operate
       items:
       - name: Process Overview 
@@ -612,7 +612,7 @@
         href: cloud-adoption/migration/operate/optimize.md
       - name: Sample Operations Tasks
         href: cloud-adoption/migration/operate/sample-tasks.md
-    - name: Protect
+    - name: Govern
       items:
   - name: Governance
     items:
