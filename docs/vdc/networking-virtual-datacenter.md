@@ -228,11 +228,11 @@ The preceding diagram shows the enforcement of two perimeters with access to the
 
 [**Azure Firewall**][AzFW] is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources. It allows outside firewalls to identify traffic that originates from your virtual network. The service is fully integrated with Azure Monitor for logging and analytics.
 
-[**Network virtual appliances**][NVA]. In the hub, the perimeter network with access to the internet is normally managed through an Azure Firewall instance or a farm of firewalls and/or web application firewall (WAF).
+[**Network virtual appliances**][NVA]. In the hub, the perimeter network with access to the internet is normally managed through an Azure Firewall instance or a farm of firewalls or web application firewall (WAF).
 
-Different LOBs commonly use many web applications, and these applications tend to suffer from various vulnerabilities and potential exploits. Web application firewall is a special type of product used to detect attacks against web applications, HTTP or HTTPS, in more depth than a generic firewall. Compared with tradition firewall technology, WAF has a set of specific features to protect internal web servers from threats.
+Different LOBs commonly use many web applications, and these applications tend to suffer from various vulnerabilities and potential exploits. Web application firewall is a special type of product that detects attacks against web applications, HTTP or HTTPS, in more depth than a generic firewall. Compared with tradition firewall technology, WAF has a set of specific features to protect internal web servers from threats.
 
-An Azure Firewall instance or NVA firewall farms use a common administration plane, with a set of security rules to protect the workloads hosted in the spokes and control access to on-premises networks. Azure Firewall has scalability built in, whereas NVA firewalls can be manually scaled behind a load balancer. Generally, a firewall farm has less specialized software compared to WAF. But it has a broader application scope to filter and inspect any type of traffic in egress and ingress. If an NVA approach is used, they can be found and deployed from the Azure Marketplace.
+An Azure Firewall instance or NVA firewall farms use a common administration plane. A set of security rules protect the workloads that are hosted in the spokes and control access to on-premises networks. Azure Firewall has scalability built in, whereas NVA firewalls can be manually scaled behind a load balancer. Generally, a firewall farm has less specialized software compared to WAF. But it has a broader application scope to filter and inspect any type of traffic in egress and ingress. If an NVA approach is used, they can be found and deployed from the Azure Marketplace.
 
 We recommend that you use one set of Azure Firewall instances, or NVAs, for traffic originating on the internet. Use another for traffic originating on-premises. Using only one set of firewalls for both is a security risk, as it provides no security perimeter between the two sets of network traffic. Using separate firewall layers reduces the complexity of checking security rules and makes it clear which rules correspond to which incoming network request.
 
@@ -240,13 +240,25 @@ Most large enterprises manage multiple domains. [Azure DNS][DNS] can be used to 
 
 [**Azure Load Balancer**][ALB] offers a high-availability Layer 4, TCP or UDP, service. It can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints, public or private IP, can be redistributed with or without address translation to a set of back-end IP address pools. Examples are network virtual appliances or VMs.
 
-Azure Load Balancer can probe the health of the various server instances as well. When a probe fails to respond, the load balancer stops sending traffic to the unhealthy instance. In a VDC, we have the presence of an external load balancer in the hub, for instance, to balance the traffic to NVAs, and in the spokes, to perform tasks like balancing traffic between different VMs of a multi-tier application.
+Azure Load Balancer can probe the health of the various server instances as well. When a probe fails to respond, the load balancer stops sending traffic to the unhealthy instance. In a VDC, an external load balancer in the hub balances the traffic to NVAs, for example. In the spokes, it does tasks like balancing traffic between different VMs of a multi-tier application.
 
-[**Azure Front Door**][AFD] is Microsoft's highly available and scalable web application acceleration platform, global HTTP load balancer, application protection, and content delivery network. Front Door runs in more than 100 locations at the edge of Microsoft's global network. By using Front Door, you can build, operate, and scale out your dynamic web applications and static content. Front Door provides your application with world-class end-user performance, unified regional or stamp maintenance automation, BCDR automation, unified client or user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications, and auditable security practices developed, operated, and supported natively by Azure.
+[**Azure Front Door**][AFD] is Microsoft's highly available and scalable web application acceleration platform, global HTTP load balancer, application protection, and content delivery network. Front Door runs in more than 100 locations at the edge of Microsoft's global network. By using Front Door, you can build, operate, and scale out your dynamic web applications and static content. Front Door provides your application the following benefits: 
+* World-class end-user performance.
+* Unified regional or stamp maintenance automation.
+* BCDR automation.
+* Unified client or user information. 
+* Caching. 
+* Service insights. 
+The platform offers performance, reliability and support SLAs, compliance certifications, and auditable security practices that are developed, operated, and supported natively by Azure.
 
-[**Application Gateway**][AppGW] is a dedicated virtual appliance that provides application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. You can optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway instance. It also provides other layer 7 routing capabilities. Examples include round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway instance. Web application firewall (WAF) is also provided as part of the Application Gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an internet-facing gateway, an internal-only gateway, or a combination of both. 
+[**Application Gateway**][AppGW] is a dedicated virtual appliance that provides application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. You can optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway instance. It also provides other layer 7 routing capabilities that include the following examples: 
+* Round robin distribution of incoming traffic. 
+* Cookie-based session affinity. 
+* URL path-based routing. 
+* The ability to host multiple websites behind a single Application Gateway instance. 
+Web application firewall (WAF) is also provided as part of the Application Gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an internet-facing gateway, an internal-only gateway, or a combination of both. 
 
-[**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. Public IP addresses can be configured to determine which traffic is passed in and how and where it's translated onto the virtual network.
+[**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine which traffic is passed in and how and where it's translated onto the virtual network.
 
 [**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
 
@@ -265,14 +277,14 @@ There are two major types of logs in Azure:
 
 [![9]][9]
 
-In a VDC, it's extremely important to track the NSG logs, particularly this information:
+In a VDC, it's important to track the NSG logs, particularly this information:
 
 -   [Event logs][NSGLog] provide information on what NSG rules are applied to VMs and instance roles based on MAC address.
 -   [Counter logs][NSGLog] track how many times each NSG rule was run to deny or allow traffic.
 
-All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When the logs are stored in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
+All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
 
-Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][../log-analytics/log-analytics-overview.md], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you can have it up and running quickly with minimal investment in infrastructure services. Log Analytics can also integrate with System Center components such as System Center Operations Manager to extend your existing management investments into the cloud. 
+Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][../log-analytics/log-analytics-overview.md], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components such as System Center Operations Manager to extend your existing management investments into the cloud. 
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights by using integrated search and custom dashboards to analyze all the records across all your workloads in a VDC.
 
@@ -303,20 +315,20 @@ The workload possibilities are endless. The following are just a few of the poss
 -   **Data driven**. LOB applications are data intensive with frequent access to databases or other storage.
 -   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
 
-**Customer-facing websites (internet or internal facing)**. Most applications that interact with the internet are websites. Azure offers the capability to run a website on an IaaS VM or from a [Web Apps feature of Microsoft Azure App Service][WebApps] site (PaaS). Web Apps supports integration with virtual networks that allow the deployment of Web Apps in the spoke of a VDC. When looking at internal-facing websites, with virtual network integration, you don't need to expose an internet endpoint for your applications. But you can use the resources via private non-internet routable addresses from your private virtual network instead.
+**Customer-facing websites (internet or internal facing)**. Most applications that interact with the internet are websites. Azure offers the ability to run a website on an IaaS VM or from a [Web Apps feature of Microsoft Azure App Service][WebApps] site (PaaS). Web Apps supports integration with virtual networks that allow the deployment of Web Apps in the spoke of a VDC. When looking at internal-facing websites, with virtual network integration, you don't need to expose an internet endpoint for your applications. But you can use the resources via private non-internet routable addresses from your private virtual network instead.
 
-**Big data and analytics**. When data needs to scale up to a very large volume, databases might not scale up properly. Apache Hadoop technology offers a system to run distributed queries in parallel on a large number of nodes. Customers have the option to run data workloads in IaaS VMs or PaaS, [Azure HDInsight][HDI]. HDInsight supports deploying into a location-based virtual network. It can be deployed to a cluster in a spoke of the VDC.
+**Big data and analytics**. When data needs to scale up to a large volume, databases might not scale up properly. Apache Hadoop technology offers a system to run distributed queries in parallel on a large number of nodes. Customers can run data workloads in IaaS VMs or PaaS, [Azure HDInsight][HDI]. HDInsight supports deploying into a location-based virtual network. It can be deployed to a cluster in a spoke of the VDC.
 
 **Events and messaging**. [Azure Event Hubs][EventHubs] is a hyperscale telemetry-ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention. So you can ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
 
-You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publish and subscribe capabilities.
+You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publishes and subscribe capabilities.
 
 [![10]][10]
 
 ### Multiple VDCs
-So far, this article has focused on a single VDC, describing the basic components and architecture that contribute to a resilient VDC. Azure features such as Azure Load Balancer, NVAs, availability sets, scale sets, and other mechanisms contribute to a system that allows you to build solid SLA levels into your production services.
+So far, this article has focused on a single VDC, describing the basic components and architecture that contribute to a resilient VDC. Azure features like Load Balancer, NVAs, availability sets, scale sets, and other mechanisms contribute to a system that allows you to build solid SLA levels into your production services.
 
-However, a single VDC is hosted within a single region and is vulnerable to a major outage that might affect that entire region. Customers that want to achieve high SLAs need to protect the services through deployments of the same project in two or more VDCs, placed in different regions.
+However, a single VDC is hosted within a single region. It's vulnerable to a major outage that might affect that entire region. Customers that want to achieve high SLAs need to protect the services through deployments of the same project in two or more VDCs, placed in different regions.
 
 In addition to SLA concerns, there are several common scenarios where deploying multiple VDCs makes sense:
 
@@ -325,12 +337,12 @@ In addition to SLA concerns, there are several common scenarios where deploying 
 -   A mechanism to divert traffic between datacenters.
 
 #### Regional and global presence
-Azure datacenters are present in numerous regions worldwide. When they select multiple Azure datacenters, customers need to consider two related factors: geographical distances and latency. To offer the best user experience, customers need to evaluate the geographical distance between the VDCs and the distance between the VDC and the end users.
+Azure datacenters are present in many regions worldwide. When they select multiple Azure datacenters, customers need to consider two related factors: geographical distances and latency. To offer the best user experience, customers need to evaluate the geographical distance between the VDCs and the distance between the VDC and the end users.
 
 The Azure region where VDCs are hosted also needs to conform with regulatory requirements established by any legal jurisdiction under which your organization operates.
 
 #### Disaster recovery
-The implementation of a disaster recovery plan is strongly related to the type of workload concerned and the ability to synchronize the workload state between different VDCs. Ideally, most customers want to synchronize application data between deployments that run in two different VDCs to implement a fast fail-over mechanism. Most applications are sensitive to latency, and that can cause potential timeout and delay in data synchronization.
+The implementation of a disaster recovery plan is related to the type of workload concerned and the ability to synchronize the workload state between different VDCs. Ideally, most customers want to synchronize application data between deployments that run in two different VDCs to implement a fast fail-over mechanism. Most applications are sensitive to latency, and that can cause potential timeout and delay in data synchronization.
 
 Synchronization or heartbeat monitoring of applications in different VDCs requires communication between them. Two VDCs in different regions can be connected as follows:
 
@@ -339,17 +351,17 @@ Synchronization or heartbeat monitoring of applications in different VDCs requir
 -   Multiple ExpressRoute circuits connected via your corporate backbone and your VDC mesh connected to the ExpressRoute circuits.
 -   Site-to-site VPN connections between your VDC hubs in each Azure region.
 
-Usually, virtual network peering or ExpressRoute connections are the preferred mechanism due to higher bandwidth and consistent latency when transiting through the Microsoft backbone.
+Usually, virtual network peering or ExpressRoute connections are the preferred mechanism because of higher bandwidth and consistent latency when transiting through the Microsoft backbone.
 
 There's no magic recipe to validate an application distributed between two or more different VDCs located in different regions. Customers should run network qualification tests to verify the latency and bandwidth of the connections. Then target whether synchronous or asynchronous data replication is appropriate and what the optimal recovery time objective (RTO) can be for your workloads.
 
 #### Mechanism to divert traffic between datacenters
-One effective technique to divert the traffic incoming in one datacenter to another is based on the Domain Name System (DNS). [Azure Traffic Manager][TM] uses the DNS mechanism to direct end-user traffic to the most appropriate public endpoint in a specific VDC. Through probes, Traffic Manager periodically checks the service health of public endpoints in different VDCs and, in case of failure of those endpoints, it routes automatically to the secondary VDC.
+One effective technique to divert the traffic incoming in one datacenter to another is based on the Domain Name System (DNS). [Azure Traffic Manager][TM] uses the DNS mechanism to direct end-user traffic to the most appropriate public endpoint in a specific VDC. Through probes, Traffic Manager periodically checks the service health of public endpoints in different VDCs. If those endpoints fail, it routes automatically to the secondary VDC.
 
-Traffic Manager works on Azure public endpoints and can be used, for example, to control or divert traffic to Azure VMs and Web Apps in the appropriate VDC. Traffic Manager is resilient even in the face of an entire Azure region failing. It can control the distribution of user traffic for service endpoints in different VDCs based on several criteria. Examples are failure of a service in a specific VDC or selecting the VDC with the lowest network latency for the client.
+Traffic Manager works on Azure public endpoints. For example, it can control or divert traffic to Azure VMs and Web Apps in the appropriate VDC. Traffic Manager is resilient even in the face of an entire Azure region failing. It can control the distribution of user traffic for service endpoints in different VDCs based on several criteria. Examples are service failure in a specific VDC or selecting the VDC with the lowest network latency for the client.
 
 ### Conclusion
-The virtual datacenter is an approach to datacenter migration into the cloud that uses a combination of features and capabilities to create a scalable architecture in Azure. It maximizes cloud resource use, reduces costs, and simplifies system governance. The VDC concept is based on a hub-spokes topology that provides common shared services in the hub and allows specific applications or workloads in the spokes. A VDC matches the structure of company roles, where different departments work together. Examples are the central IT, Azure DevOps, and operations and maintenance. Each department has a specific list of roles and duties. A VDC satisfies the requirements for a **lift and shift** migration. But it also provides many advantages to native cloud deployments.
+The virtual datacenter is an approach to datacenter migration into the cloud that uses a combination of features and capabilities to create a scalable architecture in Azure. It maximizes cloud resource use, reduces costs, and simplifies system governance. The VDC concept is based on a hub-spokes topology that provides common shared services in the hub. It allows specific applications or workloads in the spokes. A VDC matches the structure of company roles, where different departments work together. Examples are the central IT, Azure DevOps, and operations and maintenance. Each department has a specific list of roles and duties. A VDC satisfies the requirements for a **lift and shift** migration. But it also provides many advantages to native cloud deployments.
 
 ## References
 Learn more about the following features discussed in this article:
@@ -366,7 +378,7 @@ Learn more about the following features discussed in this article:
 ## Next steps
  - Explore [virtual network peering][VNetPeering], the underpinning technology for VDC hub and spoke designs.
  - Implement [Azure AD][AAD] to get started with [RBAC][RBAC] exploration.
- - Develop a subscription and resource management model and an RBAC model to meet the structure, requirements, and polices of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, and other possibilities.
+ - Develop a subscription and resource management model and an RBAC model to meet the structure, requirements, and policies of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, and other possibilities.
 
 <!--Image References-->
 [0]: ./images/networking-redundant-equipment.png "Examples of component overlap" 
