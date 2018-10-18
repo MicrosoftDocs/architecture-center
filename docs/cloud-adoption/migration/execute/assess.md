@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Migration Execution"
+title: "Enterprise Cloud Adoption: Migration Assessment Activities"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: Migration Execution
+# Enterprise Cloud Adoption: Migration Assessment Activities
 
 The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Assessing a workload within a given iteration.
   
@@ -25,7 +25,7 @@ Validate that all assets and associated dependencies are compatible with the cho
 
 To define activities, the framework assumes an intention to migration to Azure. In the [Migration Execution Process](overview.md), the following list also assumes an intention to leverage Azure Migrate (also known as Azure Site Recovery) for [replication activities](replicate.md). For alternative tools, see [Replication Options](replicate-options.md).
 
-This article is not intended to capture all possible assessment activities. It is assumed that each environment and business outcome will dictate specific assessment requirements. To help accelerate the creation of those requirements, the remainder of this article shares a few common assessment activities related to [Infrastructure](#common-infrastructure-assessment-activities), [Database](#common-database-assessment-activities), and [Network assessments](#common-network-assessment-activities).
+This article is not intended to capture all possible assessment activities. It is assumed that each environment and business outcome will dictate specific assessment requirements. To help accelerate the creation of those requirements, the remainder of this article shares a few common assessment activities related to [Infrastructure](#common-infrastructure-assessment-activities), [Database](#common-database-assessment-activities), and [Network](#common-network-assessment-activities) assessments.
 
 ## Common infrastructure assessment activities
 
