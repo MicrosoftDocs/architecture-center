@@ -73,7 +73,7 @@ Identity and directory services are a key aspect of all datacenters, both on-pre
 
 Any large enterprise needs to define an identity management process that describes the management of individual identities and their authentication, authorization, roles, and privileges within or across the VDC. The goals of this process are to increase security and productivity while lowering cost, downtime, and repetitive manual tasks.
 
-Enterprises and organizations can require a demanding mix of services for different lines of business (LOBs). And employees often have different roles when involved with different projects. A VDC requires good cooperation between different teams, each with specific role definitions, to get systems running with good governance. The matrix of responsibilities, access, and rights can be complex. Identity management in VDC is implemented through [Azure Active Directory (Azure AD)][AAD] and role-based access control (RBAC).
+Enterprises and organizations can require a demanding mix of services for different lines of business. And employees often have different roles when involved with different projects. A VDC requires good cooperation between different teams, each with specific role definitions, to get systems running with good governance. The matrix of responsibilities, access, and rights can be complex. Identity management in VDC is implemented through [Azure Active Directory (Azure AD)][AAD] and role-based access control (RBAC).
 
 A directory service is a shared information infrastructure that locates, manages, administers, and organizes everyday items and network resources. These resources can include volumes, folders, files, printers, users, groups, devices, and other objects. Each resource on the network is considered an object by the directory server. Information about a resource is stored as a collection of attributes associated with that resource or object.
 
@@ -230,7 +230,7 @@ The preceding diagram shows the enforcement of two perimeters with access to the
 
 [**Network virtual appliances**][NVA]. In the hub, the perimeter network with access to the internet is normally managed through an Azure Firewall instance or a farm of firewalls or web application firewall (WAF).
 
-Different LOBs commonly use many web applications, and these applications tend to suffer from various vulnerabilities and potential exploits. Web application firewall is a special type of product that detects attacks against web applications, HTTP or HTTPS, in more depth than a generic firewall. Compared with tradition firewall technology, WAF has a set of specific features to protect internal web servers from threats.
+Different lines of business commonly use many web applications, and these applications tend to suffer from various vulnerabilities and potential exploits. Web application firewall is a special type of product that detects attacks against web applications, HTTP or HTTPS, in more depth than a generic firewall. Compared with tradition firewall technology, WAF has a set of specific features to protect internal web servers from threats.
 
 An Azure Firewall instance or NVA firewall farms use a common administration plane. A set of security rules protects the workloads that are hosted in the spokes and controls access to on-premises networks. Azure Firewall has scalability built in, whereas NVA firewalls can be manually scaled behind a load balancer. Generally, a firewall farm has less specialized software compared to WAF. But it has a broader application scope to filter and inspect any type of traffic in egress and ingress. If an NVA approach is used, they can be found and deployed from the Azure Marketplace.
 
@@ -263,7 +263,7 @@ Web application firewall (WAF) is also provided as part of the Application Gatew
 [**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
 
 #### Component type: Monitoring
-Monitoring components provide visibility and alerting from all the other components types. All teams should have access to monitoring for the components and services they have access to. If you have a centralized help desk or operation teams, they would need to have integrated access to the data provided by these components.
+Monitoring components provide visibility and alerting from all the other components types. All teams should have access to monitoring for the components and services they have access to. If you have a centralized help desk or operation teams, they need to have integrated access to the data provided by these components.
 
 Azure offers different types of logging and monitoring services to track the behavior of Azure-hosted resources. Governance and control of workloads in Azure is based not just on collecting log data but also on the ability to trigger actions based on specific reported events.
 
@@ -284,7 +284,7 @@ In a VDC, it's important to track the NSG logs, particularly this information:
 
 All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
 
-Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][../log-analytics/log-analytics-overview.md], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components such as System Center Operations Manager to extend your existing management investments into the cloud. 
+Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-queries], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud. 
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights by using integrated search and custom dashboards to analyze all the records across all your workloads in a VDC.
 
@@ -305,15 +305,15 @@ Log Analytics is a service in Azure that helps collect, correlate, search, and a
 The [Network Performance Monitor][NPM] solution inside Operations Management Suite can provide detailed network information end to end. This information includes a single view of your Azure networks and on-premises networks. The solution has specific monitors for ExpressRoute and public services.
 
 #### Component type: Workloads
-Workload components are where your actual applications and services reside. It's also where your application development teams spend most of their time.
+Workload components are where your actual applications and services reside. They're also where your application development teams spend most of their time.
 
 The workload possibilities are endless. The following are just a few of the possible workload types:
 
-**Internal LOB applications**. Line-of-business applications are computer applications critical to the ongoing operation of an enterprise. LOB applications have some common characteristics:
+**Internal line-of-business applications** are computer applications critical to the ongoing operation of an enterprise. Line of business applications have some common characteristics:
 
--   **Interactive**. LOB applications are interactive by nature. Data is entered, and results or reports are returned.
--   **Data driven**. LOB applications are data intensive with frequent access to databases or other storage.
--   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
+-   **Interactive** by nature. Data is entered, and results or reports are returned.
+-   **Data driven**&mdash;data intensive with frequent access to databases or other storage.
+-   **Integrated**&mdash;offer integration with other systems within or outside the organization.
 
 **Customer-facing websites (internet or internal facing)**. Most applications that interact with the internet are websites. Azure offers the ability to run a website on an IaaS VM or from a [Web Apps feature of Microsoft Azure App Service][WebApps] site (PaaS). Web Apps supports integration with virtual networks that allow the deployment of Web Apps in the spoke of a VDC. When looking at internal-facing websites, with virtual network integration, you don't need to expose an internet endpoint for your applications. But you can use the resources via private non-internet routable addresses from your private virtual network instead.
 
@@ -321,14 +321,14 @@ The workload possibilities are endless. The following are just a few of the poss
 
 **Events and messaging**. [Azure Event Hubs][EventHubs] is a hyperscale telemetry-ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention. So you can ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
 
-You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publishes and subscribe capabilities.
+You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, structured first-in-first-out (FIFO) messaging, and publish and subscribe capabilities.
 
 [![10]][10]
 
 ### Multiple VDCs
 So far, this article has focused on a single VDC, describing the basic components and architecture that contribute to a resilient VDC. Azure features like Load Balancer, NVAs, availability sets, scale sets, and other mechanisms contribute to a system that allows you to build solid SLA levels into your production services.
 
-However, a single VDC is hosted within a single region. It's vulnerable to a major outage that might affect that entire region. Customers that want to achieve high SLAs need to protect the services through deployments of the same project in two or more VDCs, placed in different regions.
+However, a single VDC is hosted within a single region. It's vulnerable to a major outage that might affect that entire region. Customers that want to achieve high SLAs need to protect their services through deployments of the same project in two or more VDCs, placed in different regions.
 
 In addition to SLA concerns, there are several common scenarios where deploying multiple VDCs makes sense:
 
