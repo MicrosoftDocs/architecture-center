@@ -38,7 +38,7 @@ The **Tailspin.Web.Survey.Public** service is ported from the original *Tailspin
 The **Tailspin.AnswerAnalysisService** service is ported from the original *Tailspin.Workers.Survey* worker role.
 
 > [!NOTE] 
-> While minimal code changes were made to each of the web and worker roles, **Tailspin.Web** and **Tailspin.Web.Survey.Public** were modified to self-host a [Kestrel] web server. The earlier Surveys application is an ASP.Net application that was hosted using Interet Information Services (IIS), but it is not possible to run IIS as a service in Service Fabric. Therefore, any web server must be capable of being self-hosted, such as [Kestrel]. It is possible to run IIS in a container in Service Fabric in some situations. See [scenarios for using containers][container-scenarios] for more information.  
+> While minimal code changes were made to each of the web and worker roles, **Tailspin.Web** and **Tailspin.Web.Survey.Public** were modified to self-host a [Kestrel] web server. The earlier Surveys application is an ASP.NET application that was hosted using Interet Information Services (IIS), but it is not possible to run IIS as a service in Service Fabric. Therefore, any web server must be capable of being self-hosted, such as [Kestrel]. It is possible to run IIS in a container in Service Fabric in some situations. See [scenarios for using containers][container-scenarios] for more information.  
 
 Now, Tailspin is refactoring the Surveys application to a more granular architecture. Tailspin's motivation for refactoring is to make it easier to develop, build, and deploy the Surveys application. By decomposing the existing web and worker roles to a more granular architecture, Tailspin wants to remove the existing tightly coupled communication and data dependencies between these roles.
 
@@ -84,7 +84,7 @@ Note that operations to persist dequeued items from a ReliableConcurrentQueue sh
 ## Communication framework
 
 Each service in the Surveys application communicates using a RESTful web API. RESTful APIs offer the following benefits:
-* Ease of use: each service is built using ASP.Net Core MVC, which natively supports the creation of Web APIs.
+* Ease of use: each service is built using ASP.NET Core MVC, which natively supports the creation of Web APIs.
 * Security: While each service does not require SSL, Tailspin could require each service to do so. 
 * Versioning: clients can be written and tested against a specific version of a web API.
 
@@ -136,8 +136,8 @@ The refactored Surveys application is composed of five stateless services and on
 Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster resource type deploys all of the necessary infrastructure, including VM scale sets and a load balancer. The recommended VM sizes are displayed in the Azure portal during the provisioning process for the Service Fabric cluster. Note that because the VMs are deployed in a VM scale set, they can be both scaled up and out as user load increases.
 
 > [!NOTE]
-> As discussed earlier, in the migrated version of the Surveys application the two web front ends were self-hosted using ASP.Net Core and Kestrel as a web server. While the migrated version of the Survey application does not use a reverse proxy, it is strongly recommended to use a reverse proxy such as IIS, Nginx, or Apache. For more information see [introduction to Kestrel web server implementation in ASP.NET core][kestrel-intro].
-> In the refactored Surveys application, the two web front ends are self-hosted using ASP.Net Core with [WebListener][weblistener] as a web server so a reverse proxy is not necessary.
+> As discussed earlier, in the migrated version of the Surveys application the two web front ends were self-hosted using ASP.NET Core and Kestrel as a web server. While the migrated version of the Survey application does not use a reverse proxy, it is strongly recommended to use a reverse proxy such as IIS, Nginx, or Apache. For more information see [introduction to Kestrel web server implementation in ASP.NET core][kestrel-intro].
+> In the refactored Surveys application, the two web front ends are self-hosted using ASP.NET Core with [WebListener][weblistener] as a web server so a reverse proxy is not necessary.
 
 ## Next steps
 

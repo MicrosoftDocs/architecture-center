@@ -1,11 +1,11 @@
 ---
-title: Computer-Aided Engineering (CAE) SaaS Platform on Azure
-description: This scenario demonstrates best practices for run a Computer-aided engineering (CAE) software-as-a-service (SaaS) platform on Azure
+title: A computer-aided engineering service on Azure
+description: Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.
 author: alexbuckgit
 ms.date: 08/22/2018
 ---
 
-# Computer-Aided Engineering (CAE) SaaS Platform on Azure
+# A computer-aided engineering service on Azure
 
 This example scenario demonstrates delivery of a software-as-a-service (SaaS) platform built on the high-performance computing (HPC) capabilities of Azure. This scenario is based on an engineering software solution. However, the architecture is relevant to other industries requiring HPC resources such as image rendering, complex modeling, and financial risk calculation.
 
@@ -15,11 +15,11 @@ The company wants to expand the market for its applications by building a SaaS p
 
 The company's goals include:
 
-* Taking advantage of HPC capabilities in Azure to accelerate the product design and testing process
-* Using the latest hardware innovations to run complex simulations, while minimizing the costs for simpler simulations  
-* Enabling true-to-life visualization and rendering in a web browser, without requiring a high-end engineering workstation
+* Taking advantage of HPC capabilities in Azure to accelerate the product design and testing process.
+* Using the latest hardware innovations to run complex simulations, while minimizing the costs for simpler simulations.
+* Enabling true-to-life visualization and rendering in a web browser, without requiring a high-end engineering workstation.
 
-## Potential use cases
+## Relevant use cases
 
 Other scenarios using this architecture might include:
 
@@ -31,7 +31,7 @@ Other scenarios using this architecture might include:
 
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
-* Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](http://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
+* Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](https://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
 * From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to auto-scale based on load or queue depth based on active user demand for compute resources.
 * Azure Kubernetes Service (AKS) is used to host the web resources available to end users.
 
@@ -40,8 +40,8 @@ Other scenarios using this architecture might include:
 * [H-series virtual machines](/azure/virtual-machines/linux/sizes-hpc) are used to run compute-intensive simulations such as molecular modeling and computational fluid dynamics. The solution also takes advantage of technologies like remote direct memory access (RDMA) connectivity and InfiniBand networking.
 * [NV-series virtual machines](/azure/virtual-machines/windows/sizes-gpu) give engineers high-end workstation functionality from a standard web browser. These virtual machines have NVIDIA Tesla M60 GPUs that support advanced rendering and can run single precision workloads.
 * [General purpose virtual machines](/azure/virtual-machines/linux/sizes-general) running CentOS handle more traditional workloads such as web applications.
-* [Application Gateway](/azure/application-gateway/) load balances the requests coming into the web servers.
-* [Azure Kubernetes Service (AKS)](/azure/aks/) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
+* [Application Gateway](/azure/application-gateway/overview) load balances the requests coming into the web servers.
+* [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is used to run scalable workloads at a lower cost for simulations that don't require the high end capabilities of HPC or GPU virtual machines.
 * [Altair PBS Works Suite](https://www.pbsworks.com/PBSProduct.aspx?n=PBS-Works-Suite&c=Overview-and-Capabilities) orchestrates the HPC workflow, ensuring that enough virtual machine instances are available to handle the current load. It also deallocates virtual machines when demand is lower to reduce costs.
 * [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores files that support the scheduled jobs. 
 
@@ -70,9 +70,9 @@ The following considerations will drive a substantial portion of the costs for t
 ## Next Steps
 
 * Read the [Altair customer story][source-document]. This example scenario is based on a version of their architecture.
-* Review other [Big Compute solutions](https://azure.microsoft.com/en-us/solutions/big-compute/) available in Azure.
+* Review other [Big Compute solutions](https://azure.microsoft.com/solutions/big-compute) available in Azure.
 
 <!-- links -->
+[architecture]: ./media/architecture-hpc-saas.png
 [source-document]: https://customers.microsoft.com/story/altair-manufacturing-azure
-[architecture]: ./media/architecture-diagram-hpc-saas.png
 [calculator]: https://azure.com/e/3cb9ccdc893f41ffbcdb00c328178ccf

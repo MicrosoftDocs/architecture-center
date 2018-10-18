@@ -244,7 +244,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 To deploy the solution, perform the following steps.
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the link to open in the Azure portal, then follow these steps:
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -252,7 +252,7 @@ To deploy the solution, perform the following steps.
    * Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    * Click the **Purchase** button.
 3. Wait for the deployment to complete.
-4. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+4. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 5. Wait for the link to open in the Azure portal, then follow these steps:
    * Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -269,7 +269,7 @@ To deploy the solution, perform the following steps.
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction
 [expressroute-prereqs]: /azure/expressroute/expressroute-prerequisites
 [configure-expressroute-routing]: /azure/expressroute/expressroute-howto-routing-arm
-[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute/v1_0/
+[sla-for-expressroute]: https://azure.microsoft.com/support/legal/sla/expressroute
 [link-vnet-to-expressroute]: /azure/expressroute/expressroute-howto-linkvnet-arm
 [ExpressRoute-provisioning]: /azure/expressroute/expressroute-workflows
 [expressroute-introduction]: /azure/expressroute/expressroute-introduction

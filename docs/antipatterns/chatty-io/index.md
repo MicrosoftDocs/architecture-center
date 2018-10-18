@@ -213,7 +213,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - When writing data, avoid locking resources for longer than necessary, to reduce the chances of contention during a lengthy operation. If a write operation spans multiple data stores, files, or services, then adopt an eventually consistent approach. See [Data Consistency guidance][data-consistency-guidance].
 
-- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](http://azure.microsoft.com/services/event-hubs/).
+- If you buffer data in memory before writing it, the data is vulnerable if the process crashes. If the data rate typically has bursts or is relatively sparse, it may be safer to buffer the data in an external durable queue such as [Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 - Consider caching data that you retrieve from a service or a database. This can help to reduce the volume of I/O by avoiding repeated requests for the same data. For more information, see [Caching best practices][caching-guidance].
 
@@ -307,7 +307,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.md
 [code-sample]:  https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
-[data-consistency-guidance]: http://https://msdn.microsoft.com/library/dn589800.aspx
+[data-consistency-guidance]: https://msdn.microsoft.com/library/dn589800.aspx
 [ef]: /ef/
 [extraneous-fetching]: ../extraneous-fetching/index.md
 [new-relic]: https://newrelic.com/application-monitoring

@@ -1,9 +1,10 @@
 ---
 title: Decentralized trust between banks on Azure
-description: A scenario where a consortiurm of banks can establish a trusted environment for communication and information sharing without resorting to a centralized database
+description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
 ---
+
 # Decentralized trust between banks on Azure
 
 This example scenario is useful for banks or any other institutions that want to establish a trusted environment for information sharing without resorting to a centralized database. For the purpose of this example, we will describe the scenario in the context of maintaining credit score information between banks, but the architecture can be applied to any scenario where a consortium of organizations want to share validated information with one another without resorting to the use of a central system ran by one single party.
@@ -14,7 +15,7 @@ With DLTs (distributed ledger technology), a consortium of banks can establish a
 
 This example will show you how Azure services such as virtual machine scale set, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
-## Potential use cases
+## Relevant use cases
 
 These other uses cases have similar design patterns:
 
@@ -26,7 +27,7 @@ These other uses cases have similar design patterns:
 
 ## Architecture
 
-![Decentralized Bank Trust Architecture Diagram](./media/decentralized-trust/DecentralizedTrust.png)
+![Decentralized Bank Trust Architecture Diagram](./media/architecture-decentralized-trust.png)
 
 This scenario covers the back-end components that are necessary to create a scalable, secure, and monitored private, enterprise blockchain network within a consortium of two or more members. Details of how these components are provisioned (that is, within different subscriptions and resource groups) as well as the connectivity requirements (that is, VPN or ExpressRoute) are left for your consideration based on your organization's policy requirements. Here's how data flows:
 
@@ -96,20 +97,20 @@ The above pricing is for one consortium member to start or join a blockchain net
 
 To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure, then go through the [README of the scenario source code][source].
 
-## Related Resources
+## Related resources
 
-For more information on using the Ethereum Proof-of-Authority solution template for Azure, have a look at this [usage guide][guide].
+For more information on using the Ethereum Proof-of-Authority solution template for Azure, review this [usage guide][guide].
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990
 [medium-pricing]: https://azure.com/e/bb42cd77437744be8ed7064403bfe2ef
 [large-pricing]: https://azure.com/e/e205b443de3e4adfadf4e09ffee30c56
-[guide]: https://docs.microsoft.com/en-us/azure/blockchain-workbench/ethereum-poa-deployment
+[guide]: /azure/blockchain-workbench/ethereum-poa-deployment
 [deploy]: https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium
 [source]: https://github.com/vitoc/creditscoreblockchain
-[monitor]: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
+[monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
 [availability]: /azure/architecture/checklist/availability
 [scalability]: /azure/architecture/checklist/scalability
 [resiliency]: ../../resiliency/index.md
 [security]: /azure/security/
-[vault]: https://azure.microsoft.com/en-us/services/key-vault/
+[vault]: https://azure.microsoft.com/services/key-vault/
