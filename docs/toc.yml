@@ -624,6 +624,8 @@
         href: cloud-adoption/migration/execute/iteration-release-backlog.md
       - name: Partnership Options 
         href: cloud-adoption/migration/execute/partnership-options.md
+      - name: Replication Options 
+        href: cloud-adoption/migration/execute/replicate-options.md
     - name: Operate
       items:
       - name: Process Overview 
