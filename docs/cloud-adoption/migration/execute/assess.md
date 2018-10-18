@@ -14,16 +14,18 @@ The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framew
 
 As discussed in the  [Migration Execution Overview](overview.md), Assess is an activity that generally happens within an iteration (or sprint) as described in the article on [Incremental Change Management](../plan/incremental-change-management.md).
 
-> [!NOTE]
-> In some environments, remediation can require substantial efforts. This is common when VMs, Source Code, or Data structures haven't been frequently maintained & updated. Ex. A large contingent of Windows servers with versions older than 2008 R2. In such cases, Assess and Remediate may need to be run in parallel iterations, often referred to as waves. In such an approach, an Assess and Remediate wave would generally run several iterations (or even a full release) ahead of the Migration wave. In such a scenario, the following guidance would still apply, with minor vocabulary tweaks.
-
 ## Assess Objectives
 
 Validate that all assets and associated dependencies are compatible with the chosen [deployment model](../../getting-started/cloud-deployment-models.md). Document any efforts required to [remediate](remediate.md) compatibility issues. Update the [plan](../plan/incremental-change-management.md) accordingly, which may change commitments in the current iteration.
 
+> [!NOTE]
+> In some environments, remediation can require substantial efforts. This is common when VMs, Source Code, or Data structures haven't been frequently maintained & updated. Ex. A large contingent of Windows servers with versions older than 2008 R2. In such cases, Assess and Remediate may need to be run in parallel iterations, often referred to as waves. In such an approach, an Assess and Remediate wave would generally run several iterations (or even a full release) ahead of the Migration wave. In such a scenario, the following guidance would still apply, with minor vocabulary tweaks.
+
 ## Assess Assumptions
 
 To define activities, the framework assumes an intention to migration to Azure. In the [Migration Execution Process](overview.md), the following list also assumes an intention to leverage Azure Migrate (also known as Azure Site Recovery) for [replication activities](replicate.md). For alternative tools, see [Replication Options](replicate-options.md).
+
+This article is not intended to capture all possible assessment activities. It is assumed that each environment and business outcome will dictate specific assessment requirements. To help accelerate the creation of those requirements, the remainder of this article shares a few common assessment activities related to [Infrastructure](#common-infrastructure-assessment-activities), [Database](#common-database-assessment-activities), and [Network assessments](#common-network-assessment-activities).
 
 ## Common infrastructure assessment activities
 
