@@ -594,12 +594,36 @@
       items:
     - name: Build
       items:
-    - name: Execute
+    - name: Migration Execution (Execute)
       items:
       - name: Process Overview 
         href: cloud-adoption/migration/execute/overview.md
-      - name: Migration Execution Options 
-        href: cloud-adoption/migration/execute/migration-options.md
+      - name: Assess 
+        href: cloud-adoption/migration/execute/assess.md
+      - name: Architect
+        href: cloud-adoption/migration/execute/architect.md
+      - name: Remediate
+        href: cloud-adoption/migration/execute/remediate.md
+      - name: Replicate
+        href: cloud-adoption/migration/execute/replicate.md
+      - name: Stage
+        href: cloud-adoption/migration/execute/stage.md
+      - name: UAT Testing
+        href: cloud-adoption/migration/execute/uat-test.md
+      - name: User Adoption Plan
+        href: cloud-adoption/migration/execute/user-adoption-plan.md
+      - name: Ready for Production (Ready)
+        href: cloud-adoption/migration/execute/ready.md
+      - name: Promote to Production (Promote)
+        href: cloud-adoption/migration/execute/promote.md
+      - name: Update (Business Priorities)
+        href: cloud-adoption/migration/execute/business-priorities.md
+      - name: Retrospective
+        href: cloud-adoption/migration/execute/retrospective.md
+      - name: Understanding the Iteration and Release Backlog
+        href: cloud-adoption/migration/execute/iteration-release-backlog.md
+      - name: Partnership Options 
+        href: cloud-adoption/migration/execute/partnership-options.md
     - name: Operate
       items:
       - name: Process Overview 

@@ -7,4 +7,4 @@ ms.date: 10/11/2018
 
 # Enterprise Cloud Adoption: Transformation Journeys
 
-Coming soon: Explanation of the three transformation journeys
+Coming Winter CY2018: Explanation of the three transformation journeys

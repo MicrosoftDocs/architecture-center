@@ -1,17 +1,16 @@
 ---
-title: "Enterprise Cloud Adoption: Migration Options" 
+title: "Enterprise Cloud Adoption: Partnership Options" 
 description: Describes a The options and approaches a company can follow when migrating to the cloud.
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
-# Enterprise Cloud Adoption: Understanding Migration Options
+# Enterprise Cloud Adoption: Understanding Partnership Options
 
 The [Migration section](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
 
 ## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
 
-Now it’s time to start the [migration process](../migrate/overview.md). In this process, the team will perform the actual migration of apps to the cloud.
-Unlike the collaborative and problem solving tasks in [Plan](../plan/overview.md) and [Build](../build/overview.md), migration tends to be repetitive & largely turnkey.
+Now it’s time to start the [migration process](overview.md). In this process, the team will perform the actual migration of apps to the cloud. Unlike the collaborative and problem solving tasks in [Plan](../plan/overview.md) and [Build](../build/overview.md), migration tends to be repetitive & largely turnkey.
 
 During Plan, Build, or Migrate, a company generally has three execution options:
 
@@ -31,6 +30,7 @@ If an organization is planning an Azure migration on its own, Microsoft is alway
 * [Reference architectures](../../../reference-architectures/): Reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
 ## Microsoft FastTrack for Azure
+
 [FastTrack for Azure](https://azure.microsoft.com/en-us/roadmap/fasttrack-for-azure/)  provides direct assistance from Azure engineers, working hand in hand with partners, to help customers build Azure solutions quickly and confidently. FastTrack brings best practices and tools from real customer experiences to guide customers from setup, configuration, and development to production of Azure solutions, including:
 
 * Development and test

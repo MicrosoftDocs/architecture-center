@@ -7,41 +7,60 @@ ms.date: 10/11/2018
 
 # Enterprise Cloud Adoption: Migration Execution
 
-The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
+The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Assessing a workload within a given iteration.
   
-In this process, the Cloud Migration Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
 ![Migration Execution Process and related activities](../_images/migration-execution.png)
 *Figure 1. Migration Execution Process and related activities.*
 
-Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [incremental change management](../plan/incremental-change-management.md) is available in the [Plan process](../plan/overview.md) of this framework.
+As discussed in the  [Migration Execution Overview](overview.md), Assess is an activity that generally happens within an iteration (or sprint) as described in the article on [Incremental Change Management](../plan/incremental-change-management.md).
 
-This process assumes that a re-host or re-platform model of migration (often referred to as a "Lift & Shift") is most appropriate for the workloads or applications being migrated. This will be validated during the "Architect" activity of this process, see activity #2 below. For other approaches to migration, see the [rationalize process](../plan/rationalize.md).
+> [!NOTE]
+> In some environments, remediation can require substantial efforts. This is common when VMs, Source Code, or Data structures haven't been frequently maintained & updated. Ex. A large contingent of Windows servers with versions older than 2008 R2. In such cases, Assess and Remediate may need to be run in parallel iterations, often referred to as waves. In such an approach, an Assess and Remediate wave would generally run several iterations (or even a full release) ahead of the Migration wave. In such a scenario, the following guidance would still apply, with minor vocabulary tweaks.
 
-## Activities and Functions
+## Assess Objectives
 
-The Migrate process consists of the following activities:
+Validate that all assets and associated dependencies are compatible with the chosen [deployment model](../../getting-started/cloud-deployment-models.md). Document any efforts required to [remediate](remediate.md) compatibility issues. Update the [plan](../plan/incremental-change-management.md) accordingly, which may change commitments in the current iteration.
 
-* Iteration or Release Backlog: Creation of a detailed plan to guide the work completed during a single iteration or a workload release.
+## Assess Assumptions
 
-Iteration Activities: Completed in every iteration regardless of release timing
+To define activities, the framework assumes an intention to migration to Azure. In the [Migration Execution Process](overview.md), the following list also assumes an intention to leverage Azure Migrate (also known as Azure Site Recovery) for [replication activities](replicate.md). For alternative tools, see [Replication Options](replicate-options.md).
 
-* [Assess](assess.md): Evaluate the workload and associated assets (VMs, DBs, source, etc...) to validate Azure compatibility, identify any necessary remediation, and refine plans for work to be completed.
-* [Architect](architect.md): Evaluate dependencies required to operate the workload. Assert final architecture decisions regarding the hosting strategy for the chosen workload.
-* [Remediate](remediate.md): Assessment or Architecture outputs will often identify basic changes required before deploying a workload. Such as, OS upgrades. This activity focuses on implementing those changes prior to migration. In some rare cases, remediation may require a parallel iteration/sprint of it's own to maintain velocity (pace of execution).
-* [Replicate](replicate.md): Once an asset is ready for migration, it must be replicated to the desired cloud architecture. The article on this activity will describe the tools and approaches that can support replication to Azure.
+## Common infrastructure assessment activities
 
-Release Activities: During iterations in which a release is to be tested or promoted, the following activities are also likely to be executed, in addition to standard iteration activities:
+* VMWare Requirements: [Review the Azure Site Recovery requirements for VMWare](/azure/site-recovery/vmware-physical-azure-support-matrix)
+* Hyper-V Requirements: [Review the Azure Site Recovery requirements for Hyper-V](/azure/site-recovery/hyper-v-azure-support-matrix)
 
-* [Stage](stage.md): Once all assets required to operate a workload have been replicated to Azure, the workload can be staged for release.
-* [UAT Testing](uat-test.md): Staged workload can be tested by power users to validate function and performance.
-* [User Adoption Plan](user-adoption-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
-* [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
-* [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
-* [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
+Be sure to document any discrepancies in host configuration, replicated VM configuration, storage requirements or network configuration.
+
+## Common database assessment activities
+
+* Document Recovery Point Objectives and Recovery Time Objectives of the current database deployment. This will be used in [Architecture activities](architect.md) to aid in decision making
+* Document any requirements for high availability configuration. For assistance understanding SQL Server requirements see the [SQL Server High Availability Solutions Guide](/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)
+* Evaluate PaaS compatibility: [Azure Data Migration Guide](https://datamigration.microsoft.com/) maps a number of on-premise data bases to compatible Azure PaaS solutions like [Cosmos DB](/azure/cosmos-db) or [Azure DB](/azure/sql-database/) for [MySQL](/azure/mysql/), [Postgres](/azure/postgresql/), or [MariaDB](/azure/mariadb/)
+* When PaaS compatibility is an option without need for any remediation, consult the team responsible for [Architecture Activities](architect.md). PaaS migrations can produce significant time savings and reductions in the Total Cost of Ownership (TCO) of most cloud solutions.
+* When PaaS compatibility is an option, but remediation is required, consult the teams responsible for [Architecture Activities](architect.md) and [Remediation Activities](remediate.md). In many scenarios, the advantages of PaaS migrations for database solutions can outweigh the increase in remediation time.
+* Document size and rate of change for each database to be migrated.
+* When possible, document any applications or other assets that make calls to each database
+
+> [!TIP]
+> Synchronization of any asset consumes bandwidth during the replication processes. A very common pitfall, is overlooking the bandwidth consumption required to keep assets synchronized between the point of replication and release. Databases are common consumers of bandwidth during release cycles, databases with large storage footprints or a high rate of change are especially concerning. Consider an approach of replicating the data structure, with controlled updates before UAT & release. In such scenarios, alternatives to Azure Site Recovery may be more appropriate. See guidance from [Azure Data Migration Guide](https://datamigration.microsoft.com/) for more detail.
+
+## Common network assessment activities
+
+* Calculate the total storage for of all VMs to be replicated during the iterations leading up to a release.
+* Calculate the drift or change rate of storage for all VMs to be replicated during the iterations leading up to a release.
+* Calculate the bandwidth requirements needed for each iteration by summing total storage and drift
+* Calculate unused bandwidth available on the current network to validate per iteration alignment
+* Document bandwidth needed to reach anticipated migration velocity. If any remediation is required to provide necessary bandwidth, notify the team responsible for  [Remediation Activities](remediate.md) and update the [Plan](../plan/incremental-change-management.md) accordingly.
+
+> [!NOTE]
+> Total storage will directly impact bandwidth requirements during initial replication. However, storage drift will continue from the point of replication until release. This means that drift has an accumulative affect on available bandwidth.
 
 ## Next steps
 
-To begin executing the Migrate process, [Assess activities](assess.md) could be a good place to learn more.
+This article is not intended to capture all possible assessment activities. It is assumed that each environment and business outcome will dictate additional assessment requirements.
+
+Once those requirements are assessed, the iteration is ready to proceed to [Architect activities](architect.md).
 
 > [!div class="nextstepaction"]
-> [Assess Inventory](assess.md)
+> [Begin Architecture Activities](architect.md)

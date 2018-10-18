@@ -16,3 +16,9 @@ Also coming soon - Aligning to Transformation Metrics to understand approaches t
 ## How can a financial model be updated to reflect the digital estate?
 
 Coming eventually (Soon is overused) - Instructions on importing data from the digital estate into common financial models.
+
+Points to cover: 
+Collect current state inventory
+Map Applications to servers
+Evaluate
+Rationalize link to plan-rationalize

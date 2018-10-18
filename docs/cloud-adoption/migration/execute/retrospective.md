@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
   
 In this process, the Cloud Migration Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
-![Migration Execution Process and related activities](../../_images/migration-execution.png)
+![Migration Execution Process and related activities](../_images/migration-execution.png)
 *Figure 1. Migration Execution Process and related activities.*
 
 Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [incremental change management](../plan/incremental-change-management.md) is available in the [Plan process](../plan/overview.md) of this framework.
@@ -38,10 +38,6 @@ Release Activities: During iterations in which a release is to be tested or prom
 * [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
 * [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
 * [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
-
-## Partnership options
-
-Across each of these processes, teams will be learning new skills and approaches to technical execution. Expanding technical skills amongst the existing team members is one approach. Hiring additional staff another. Often times, partnering with third parties can provide significant acceleration and risk reductions. [Partnership options](partnership-options.md) can help guide decisions to choose the best partnership option.
 
 ## Next steps
 
