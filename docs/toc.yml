@@ -626,18 +626,6 @@
         href: cloud-adoption/migration/execute/partnership-options.md
       - name: Replication Options 
         href: cloud-adoption/migration/execute/replicate-options.md
-    - name: Operate
-      items:
-      - name: Process Overview 
-        href: cloud-adoption/migration/operate/overview.md
-      - name: Monitor
-        href: cloud-adoption/migration/operate/monitor.md
-      - name: Remediate
-        href: cloud-adoption/migration/operate/remediate.md
-      - name: Benchmark and Optimize
-        href: cloud-adoption/migration/operate/optimize.md
-      - name: Sample Operations Tasks
-        href: cloud-adoption/migration/operate/sample-tasks.md
     - name: Govern
       items:
   - name: Governance
