@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 
 The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Assessing a workload within a given iteration.
   
-![Migration Execution Process and related activities](../_images/migration-execution.png)
+![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
 
 As discussed in the  [Migration Execution Overview](overview.md), Assess is an activity that generally happens within an iteration (or sprint) as described in the article on [Incremental Change Management](../plan/incremental-change-management.md).

@@ -10,18 +10,18 @@ ms.date: 10/11/2018
 The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
   
 In this process, the Cloud Migration Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
-![Migration Execution Process and related activities](../../_images/migration-execution.png)
+![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
 
 Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [incremental change management](../plan/incremental-change-management.md) is available in the [Plan process](../plan/overview.md) of this framework.
 
 This process assumes that a re-host or re-platform model of migration (often referred to as a "Lift & Shift") is most appropriate for the workloads or applications being migrated. This will be validated during the "Architect" activity of this process, see activity #2 below. For other approaches to migration, see the [rationalize process](../plan/rationalize.md).
 
-## Activities and Functions
+## Activities in the Migration Execution Process 
 
 The Migrate process consists of the following activities:
 
-* Iteration or Release Backlog: Creation of a detailed plan to guide the work completed during a single iteration or a workload release.
+* [Iteration or Release Backlog](iteration-release-backlog.md): Creation of a detailed plan to guide the work completed during a single iteration or a workload release.
 
 Iteration Activities: Completed in every iteration regardless of release timing
 
