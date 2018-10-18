@@ -10,7 +10,7 @@ for article in $(ls ${folder}/*.md); do
 	url="./$article"
 	title=$(cat $article | grep "title:" | cut -d ":" -f 2- | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 	description=$(cat $article | grep "description:" | cut -d ":" -f 2- | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
-	image="./${folder}/$(cat $article | grep media | grep -e ".png" -e ".jpg"  -e ".svg" | head -1 | sed -n 's/.*\(media.*\(png\|jpg\|svg\)\).*/\1/p')"
+	image="./${folder}/$(cat $article | grep media | grep -e ".png" -e ".jpg"  -e ".svg" | head -1 | sed -n 's/.*\(media\/.*\(png\|jpg\|svg\)\).*/\1/p')"
 
 		cat <<EOF
 <li style="display: flex; flex-direction: column;">

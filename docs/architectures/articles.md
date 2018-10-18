@@ -709,7 +709,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./articles/media-live-stream.svg" height="140px" />
+                            <img src="./articles/media/digital-media-live-stream.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -728,7 +728,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./articles/media-speech-text.svg" height="140px" />
+                            <img src="./articles/media/digital-media-speech-text.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -747,7 +747,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./articles/media-video.svg" height="140px" />
+                            <img src="./articles/media/digital-media-video.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
