@@ -63,5 +63,4 @@ The following tables summarize the key differences in capabilities.
 See also:
 
 - [Choosing a real-time message ingestion technology](./real-time-ingestion.md)
-- [Comparing Apache Storm and Azure Stream Analytics](/azure/stream-analytics/stream-analytics-comparison-storm)
 - [Real time processing](../big-data/real-time-processing.md)
