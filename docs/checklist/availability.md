@@ -36,7 +36,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Use staging and production features of the platform.**. For example, Azure App Service supports [deployment slots](/azure/app-service/web-sites-staged-publishing), which you can use to stage a deployment before swapping it to production. Azure Service Fabric supports [rolling upgrades](/azure/service-fabric/service-fabric-application-upgrade) to application services.
 
-**Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
+**Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If you have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
 
 ## Data management
 
