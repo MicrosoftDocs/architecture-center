@@ -98,7 +98,7 @@ Sometimes people talk about containers and microservices as if they were the sam
 
 ### Serverless (Functions as a Service)
 
-With a serverless architecture, you don't manage the VMs or the virtual network infrastructure. Instead, you deploy code and the hosting service handles putting that code onto a VM and executing it. This approach tends to favor small granular functions that are coordinated using event-based triggers. For example, a message being placed onto a queue might trigger a function that reads from the queue and processes the message.
+With a [serverless](https://azure.microsoft.com/solutions/serverless/) architecture, you don't manage the VMs or the virtual network infrastructure. Instead, you deploy code and the hosting service handles putting that code onto a VM and executing it. This approach tends to favor small granular functions that are coordinated using event-based triggers. For example, a message being placed onto a queue might trigger a function that reads from the queue and processes the message.
 
 [Azure Functions][functions] is a serverless compute service that supports various function triggers, including HTTP requests, Service Bus queues, and Event Hubs events. For a complete list, see [Azure Functions triggers and bindings concepts][functions-triggers]. Also consider [Azure Event Grid][event-grid], which is a managed event routing service in Azure.
 
