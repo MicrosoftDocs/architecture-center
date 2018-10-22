@@ -361,6 +361,11 @@
       - name: Stream processing with Azure Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.md
 
+    - name: Enterprise integration
+      items:
+      - name: Simple enterprise integration
+        href: reference-architectures/enterprise-integration/simple-enterprise-integration.md
+
     - name: Hybrid networks
       items:
       - name: Overview
