@@ -2,7 +2,7 @@
 title: API design
 description: Designing APIs for microservices
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: API design
