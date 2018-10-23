@@ -2,7 +2,7 @@
 title: Interservice communication in microservices
 description: Interservice communication in microservices
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: Interservice communication
@@ -94,7 +94,7 @@ A *service mesh* is a software layer that handles service-to-service communicati
 > [!NOTE]
 > Service mesh is an example of the [Ambassador pattern](../patterns/ambassador.md) &mdash; a helper service that sends network requests on behalf of the application. 
 
-Right now, the main options for a service mesh in Kubernetes are [linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. At the time we wrote this guide, the latest Istio release is 0.2, so it is still very new. However, some features that both linkerd and Istio have in common include: 
+Right now, the main options for a service mesh in Kubernetes are [linkerd](https://linkerd.io/) and [Istio](https://istio.io/). Both of these technologies are evolving rapidly. However, some features that both linkerd and Istio have in common include: 
 
 - Load balancing at the session level, based on observed latencies or number of outstanding requests. This can improve performance over the layer-4 load balancing that is provided by Kubernetes. 
 

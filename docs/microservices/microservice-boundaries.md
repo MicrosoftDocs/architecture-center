@@ -2,7 +2,7 @@
 title: Identifying microservice boundaries
 description: Identifying microservice boundaries
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: Identifying microservice boundaries
@@ -78,13 +78,16 @@ While these aren't the only options, they are both proven approaches to building
 
 ### Service orchestrators
 
-An orchestrator handles tasks related to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes, DC/OS, Docker Swarm, and Service Fabric. 
+An orchestrator handles tasks related to deploying and managing a set of services. These tasks include placing services on nodes, monitoring the health of services, restarting unhealthy services, load balancing network traffic across service instances, service discovery, scaling the number of instances of a service, and applying configuration updates. Popular orchestrators include Kubernetes, Service Fabric, DC/OS, and Docker Swarm.
 
-- [Azure Container Service](/azure/container-service/) (ACS) is an Azure service that lets you deploy a production-ready Kubernetes, DC/OS, or Docker Swarm cluster.
-
-- [Azure Kubernetes Service (AKS)](/azure/aks/) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, but hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. You can think of AKS as being "Kubernetes APIs as a service." This guide was written while AKS was still in preview, but AKS is now the recommended way to run Kubernetes in Azure.
+- [Azure Kubernetes Service](/azure/aks/) (AKS) is a managed Kubernetes service. AKS provisions Kubernetes and exposes the Kubernetes API endpoints, but hosts and manages the Kubernetes control plane, performing automated upgrades, automated patching, autoscaling, and other management tasks. You can think of AKS as being "Kubernetes APIs as a service." 
 
 - [Service Fabric](/azure/service-fabric/) is a distributed systems platform for packaging, deploying, and managing microservices. Microservices can be deployed to Service Fabric as containers, as binary executables, or as [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction). Using the Reliable Services programming model, services can directly use Service Fabric programming APIs to query the system, report health, receive notifications about configuration and code changes, and discover other services. A key differentiation with Service Fabric is its strong focus on building stateful services using [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
+
+- [Azure Container Service](/azure/container-service/) (ACS) is an Azure service that lets you deploy a production-ready DC/OS, Docker Swarm, or Kubernetes cluster. 
+
+  > [!NOTE]
+  > Although Kubernetes is supported by ACS, we recommended AKS for running Kubernetes on Azure. AKS provides enhanced management capabilities and cost benefits.
 
 ### Containers
 

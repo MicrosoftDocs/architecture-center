@@ -2,7 +2,7 @@
 title: API gateways
 description: API gateways in microservices
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: API gateways
@@ -52,7 +52,7 @@ Here are some options for implementing an API gateway in your application.
 
 - [Azure Application Gateway](/azure/application-gateway/). Application Gateway is a managed load balancing service that can perform layer-7 routing and SSL termination. It also provides a web application firewall (WAF).
 
-- [Azure API Management](/azure/api-management/). API Management is a turnkey solution for publishing APIs to external and internal customers. It provides features that are useful for managing a public-facing API, including rate limiting, IP white listing, and authentication using Azure Active Directory or other identity providers. API Management doesn't perform any load balancing, so it should be used in conjunction with a load balancer such as Application Gateway or a reverse proxy.
+- [Azure API Management](/azure/api-management/). API Management is a turnkey solution for publishing APIs to external and internal customers. It provides features that are useful for managing a public-facing API, including rate limiting, IP white listing, and authentication using Azure Active Directory or other identity providers. API Management doesn't perform any load balancing, so it should be used in conjunction with a load balancer such as Application Gateway or a reverse proxy. For information about using API Management with Application Gateway, see [Integrate API Management in an internal VNET with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
 When choosing a gateway technology, consider the following:
 
@@ -62,15 +62,11 @@ When choosing a gateway technology, consider the following:
 
 **Management**. When services are updated or new services are added, the gateway routing rules may need to be updated. Consider how this process will be managed. Similar considerations apply to managing SSL certificates, IP whitelists, and other aspects of configuration.
 
-## Deployment considerations
-
-### Deploying Nginx or HAProxy to Kubernetes
+## Deploying Nginx or HAProxy to Kubernetes
 
 You can deploy Nginx or HAProxy to Kubernetes as a [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) or [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) that specifies the Nginx or HAProxy container image. Use a ConfigMap to store the configuration file for the proxy, and mount the ConfigMap as a volume. Create a service of type LoadBalancer to expose the gateway through an Azure Load Balancer. 
 
-<!-- - Configure a readiness probe that serves a static file from the gateway (rather than routing to another service). -->
-
-An alternative is to create an Ingress Controller. An Ingress Controller is a Kubernetes resource that deploys a load balancer or reverse proxy server. Several implementations exist, including Nginx and HAProxy. A separate resource called an Ingress defines settings for the Ingress Controller, such as routing rules and TLS certificates. That way, you don't need to manage complex configuration files that are specific to a particular proxy server technology. Ingress Controllers are still a beta feature of Kubernetes at the time of this writing, and the feature will continue to evolve.
+An alternative is to create an Ingress Controller. An Ingress Controller is a Kubernetes resource that deploys a load balancer or reverse proxy server. Several implementations exist, including Nginx and HAProxy. A separate resource called an Ingress defines settings for the Ingress Controller, such as routing rules and TLS certificates. That way, you don't need to manage complex configuration files that are specific to a particular proxy server technology.
 
 The gateway is a potential bottleneck or single point of failure in the system, so always deploy at least two replicas for high availability. You may need to scale out the replicas further, depending on the load. 
 
@@ -81,35 +77,6 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 - Stable configuration. If the gateway is misconfigured, the entire application may become unavailable. 
 
 - Performance. You may want to use a specific VM configuration for the gateway for performance reasons.
-
-<!-- - Load balancing. You can configure the external load balancer so that requests always go to a gateway node. That can save a network hop, which would otherwise happen whenever a request lands on a node that isn't running a gateway pod. This consideration applies mainly to large clusters, where the gateway runs on a relatively small fraction of the total nodes. In Azure Container Service (ACS), this approach currently requires [ACS Engine](https://github.com/Azure/acs-engine)) which allows you to create multiple agent pools. Then you can deploy the gateway as a DaemonSet to the front-end pool. -->
-
-### Azure Application Gateway
-
-To connect Application Gateway to a Kubernetes cluster in Azure:
-
-1. Create an empty subnet in the cluster VNet.
-2. Deploy Application Gateway.
-3. Create a Kubernetes service with type=[NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport). This exposes the service on each node so that it can be reached from outside the cluster. It does not create a load balancer.
-5. Get the assigned port number for the service.
-6. Add an Application Gateway rule where:
-    - The backend pool contains the agent VMs.
-    - The HTTP setting specifies the service port number.
-    - The gateway listener listens on ports 80/443
-    
-Set the instance count to 2 or more for high availability.
-
-### Azure API Management 
-
-To connect API Management to a Kubernetes cluster in Azure:
-
-1. Create an empty subnet in the cluster VNet.
-2. Deploy API Management to that subnet.
-3. Create a Kubernetes service of type LoadBalancer. Use the [internal load balancer](https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer) annotation to create an internal load balancer, instead of an Internet-facing load balancer, which is the default.
-4. Find the private IP of the internal load balancer, using kubectl or the Azure CLI.
-5. Use API Management to create an API that directs to the private IP address of the load balancer.
-
-Consider combining API Management with a reverse proxy, whether Nginx, HAProxy, or Azure Application Gateway. For information about using API Management with Application Gateway, see [Integrate API Management in an internal VNET with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway).
 
 > [!div class="nextstepaction"]
 > [Logging and monitoring](./logging-monitoring.md)

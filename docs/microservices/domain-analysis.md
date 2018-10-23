@@ -2,7 +2,7 @@
 title: Domain analysis for microservices
 description: Domain analysis for microservices
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: Domain analysis 
