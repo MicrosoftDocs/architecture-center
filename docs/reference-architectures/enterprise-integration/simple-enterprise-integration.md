@@ -164,7 +164,7 @@ Although this list doesn't completely describe all security best practices, here
 
 Never check passwords, access keys, or connection strings into source control. If these values are required, secure and deploy these values by using the appropriate techniques. 
 
-If a logic app requires any sensitive values that you can't create within a connection, store those values in Azure Key Vault and reference 
+If a logic app requires any sensitive values that you can't create within a connector, store those values in Azure Key Vault and reference 
 them from a Resource Manager template. Use deployment template parameters and parameter files for each environment. For more information, see [Secure parameters and inputs within a workflow][logic-apps-secure].
 
 API Management manages secrets by using objects called *named values* or *properties*. These objects securely store values that you can access through API Management policies. For more information, see [How to use Named Values in Azure API Management policies][apim-properties].
