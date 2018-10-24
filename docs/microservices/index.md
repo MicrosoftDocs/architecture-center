@@ -2,7 +2,7 @@
 title: Designing, building, and operating microservices on Azure with Kubernetes
 description: Designing, building, and operating microservices on Azure
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing, building, and operating microservices on Azure
@@ -80,7 +80,7 @@ This scenario involves a fairly complicated domain. Some of the business concern
 > [!NOTE]
 > For help in choosing between a microservices architecture and other architectural styles, see the [Azure Application Architecture Guide](../guide/index.md).
 
-Our reference implementation uses Kubernetes with [Azure Container Service (ACS)](/azure/container-service/kubernetes/). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator, including [Azure Service Fabric](/azure/service-fabric/). 
+Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/azure/aks/) (AKS). However, many of the high-level architectural decisions and challenges will apply to any container orchestrator, including [Azure Service Fabric](/azure/service-fabric/). 
 
 > [!div class="nextstepaction"]
 > [Domain analysis](./domain-analysis.md)
