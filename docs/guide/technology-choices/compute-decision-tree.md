@@ -30,10 +30,6 @@ For more information about your options for hosting containers in Azure, see htt
 
 ## Definitions
 
-- **Greenfield** describes a software project that is completely new and built from scratch. It does not include legacy code. 
-
-- **Brownfield** describes a software project that builds on an existing application. It may inherit legacy code or frameworks.
-
 - **Lift and shift** is a strategy for migrating a workload to the cloud without redesigning the application or making code changes. Also called *rehosting*. For more information, see [Azure migration center](https://azure.microsoft.com/migration/).
 
 - **Cloud optimized** is a strategy for migrating to the cloud by refactoring an application to take advantage of cloud-native features and capabilities.
