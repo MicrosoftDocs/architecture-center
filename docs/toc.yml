@@ -532,8 +532,22 @@
     href: cloud-adoption/overview.md
   - name: Transformation Journeys
     items:
+    - name: Overview and Roadmap
+      href: cloud-adoption/transformation-journeys/overview.md
     - name: Operational Transformation
-      href: cloud-adoption/transformation-journeys/operational-transformation.md
+      items:
+      - name: Overview, Core Processes, Infographic
+        href: cloud-adoption/transformation-journeys/operational-transformation/overview.md
+      - name: Plan
+        href: cloud-adoption/transformation-journeys/operational-transformation/plan.md
+      - name: Build
+        href: cloud-adoption/transformation-journeys/operational-transformation/build.md
+      - name: Migrate
+        href: cloud-adoption/transformation-journeys/operational-transformation/migrate.md
+      - name: Govern
+        href: cloud-adoption/transformation-journeys/operational-transformation/govern.md
+      - name: Change Management and Oversight
+        href: cloud-adoption/transformation-journeys/operational-transformation/manage.md
     - name: Incremental Transformation
       href: cloud-adoption/transformation-journeys/incremental-transformation.md
     - name: Disruptive Transformation
