@@ -56,7 +56,7 @@ Logic Apps works best in scenarios that don't require low latency. For example, 
 
 ### Region
 
-To minimize network latency, put API Management and Logic Apps in the same region. In general, choose the region that's closest to your users.
+To minimize network latency, put API Management and Logic Apps in the same region. In general, choose the region that's closest to your users (or closest to your backend services).
 
 The resource group also has a region. This region specifies where to store deployment metadata and where to execute the deployment template. To improve availability during deployment, put the resource group and resources in the same region.
 
@@ -76,6 +76,9 @@ Recommendations for scaling an API Management service:
 
 - Before you enable the load in production, always load-test your API Management service with a representative load.
 
+With the Premium tier, you can scale an API Management instance across multiple Azure regions. This makes API Management eligible for a higher SLA, and lets you provision services near users in multiple regions.
+
+
 The Logic Apps serverless model means administrators don't have to plan for service scalability. The service automatically scales to meet demand.
 
 ## Availability considerations
@@ -84,6 +87,8 @@ Review the SLA for each service:
 
 - [API Management SLA][apim-sla]
 - [Logic Apps SLA][logic-apps-sla]
+
+If deploy API Management across two or more regions with Premium tier, it is elible for a higher SLA. See [API Management pricing][apim-pricing].
 
 ### Backups
 
