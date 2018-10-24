@@ -588,7 +588,7 @@
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
   - name: Migration
     items:
-    - name: Program Overview
+    - name: Overview (Azure Migration Guide)
       href: cloud-adoption/migration/overview.md
     - name: Plan
       items:
