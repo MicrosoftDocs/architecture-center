@@ -42,6 +42,7 @@ This pattern may not be suitable:
 
 ## Related guidance
 
+- Martin Fowler's blog post on [StranglerApplication](https://www.martinfowler.com/bliki/StranglerApplication.html)
 - [Anti-Corruption Layer pattern](./anti-corruption-layer.md)
 - [Gateway Routing pattern](./gateway-routing.md)
 
