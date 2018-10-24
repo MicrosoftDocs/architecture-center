@@ -6,7 +6,7 @@ author: mattfarm
 ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 10/25/2018
 ---
 
 # Simple enterprise integration
@@ -105,7 +105,7 @@ When you assign resources to resource groups, consider these factors:
 
 * **Lifecycle**. In general, put resources that have the same lifecycle in the same resource group.
 
-* **Access**. To apply access policies to the resources in a group, you can use [role-based access control (RBAC)](/azure/role-based-access-control/overview).
+* **Access**. To apply access policies to the resources in a group, you can use [role-based access control](/azure/role-based-access-control/overview) (RBAC).
 
 * **Billing**. You can view rollup costs for the resource group.
 
@@ -133,7 +133,10 @@ You can also use revisions to test an API before making the changes current and 
 
 ## Diagnostics and monitoring
 
-Use [Azure Monitor](/azure/azure-monitor/overview) for operational monitoring in both [API Management](/azure/api-management/api-management-howto-use-azure-monitor) and [Logic Apps](/azure/logic-apps/logic-apps-monitor-your-logic-apps). Azure Monitor provides information based on the metrics configured for each service and is enabled by default.
+Use [Azure Monitor](/azure/azure-monitor/overview) for operational monitoring in both API Management and Logic Apps. Azure Monitor provides information based on the metrics configured for each service and is enabled by default. For more information, see:
+
+- [Monitor published APIs][apim-monitor]
+- [Monitor status, set up diagnostics logging, and turn on alerts for Azure Logic Apps][logic-apps-monitor]
 
 Each service also has these options:
 
@@ -174,16 +177,16 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 
 ## Next steps
 
-* Learn about [enterprise integration with queues and events](/azure/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-event)
-
+* Learn about [enterprise integration with queues and events](/azure/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events)
 
 <!-- links -->
 
 [apim]: /azure/api-management
 [apim-autoscale]: /azure/api-management/api-management-howto-autoscale
-[apim-capacity]: h/azure/api-management/api-management-capacity
+[apim-capacity]: /azure/api-management/api-management-capacity
 [apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
+[apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
 [apim-openapi]: /azure/api-management/import-api-from-oas
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
@@ -191,6 +194,7 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 [apim-versions]: /azure/api-management/api-management-get-started-publish-versions
 [integration-services]: https://azure.microsoft.com/product-categories/integration/
 [logic-apps]: /azure/logic-apps/logic-apps-overview
+[logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-incoming-ip-addresses
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [rto]: ../../resiliency/index.md#rto-and-rpo
