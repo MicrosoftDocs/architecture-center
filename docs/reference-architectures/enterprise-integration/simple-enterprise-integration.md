@@ -45,7 +45,7 @@ Your specific requirements might differ from the generic architecture shown here
 
 ### API Management
 
-Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scaleout within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scaleout. The Premium tier also supports scaleout across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see 
+Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale out. The Premium tier also supports scale out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see 
 [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
 Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net` &mdash for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
@@ -88,7 +88,7 @@ Review the SLA for each service:
 - [API Management SLA][apim-sla]
 - [Logic Apps SLA][logic-apps-sla]
 
-If deploy API Management across two or more regions with Premium tier, it is elible for a higher SLA. See [API Management pricing][apim-pricing].
+If deploy API Management across two or more regions with Premium tier, it is eligible for a higher SLA. See [API Management pricing][apim-pricing].
 
 ### Backups
 
@@ -147,7 +147,7 @@ Each service also has these options:
 
 * For deeper analysis and dashboarding, send Logic Apps logs to [Azure Log Analytics][logic-apps-log-analytics].
 
-* For DevOps monitoring, configure Azure Application Insights for API anagement.
+* For DevOps monitoring, configure Azure Application Insights for API Management.
 
 * API Management supports the [Power BI solution template for custom API analytics][apim-pbi]. You can use this solution template for creating your own analytics solution. For business users, Power BI makes reports available.
 
