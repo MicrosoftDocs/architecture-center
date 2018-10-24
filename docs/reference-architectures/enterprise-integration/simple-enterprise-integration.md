@@ -11,39 +11,33 @@ ms.date: 06/15/2018
 
 # Simple enterprise integration
 
-This article describes an enterprise integration architecture that uses proven practices you can apply to an integration application when using Azure Integration Services. You can use this architecture as the basis for many different application patterns that require HTTP APIs, workflow, and orchestration.
+This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
+
+Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs.
 
 ![Architecture diagram - Simple enterprise integration](./_images/simple-enterprise-integration.png)
 
-This series describes the reusable component parts that might apply to building a generic integration application. Because integration technology has many possible applications, ranging from simple point-to-point apps to full enterprise Azure Service Bus apps, consider which components you need to implement for your apps and infrastructure.
-
 ## Architecture
 
-This enterprise integration architecture includes these components:
+The architecture has the following components:
 
-- **Resource group**. A [resource group](/azure/azure-resource-manager/resource-group-overview) is a logical container for Azure resources.
+- **Backend systems**. On the right-hand side of the diagram are the various backend systems that the enterprise has deployed or relies on. These might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
 
-- **Azure API Management**. The [API Management](/azure/api-management/) service is a fully managed platform for publishing, securing, and transforming HTTP APIs.
+- **Azure Logic Apps**. [Logic Apps][logic-apps] is a serverless platform for building enterprise workflows that integrate applications, data, and services. In this architecture, the logic apps are triggered by HTTP requests. You can also nest workflows for more complex orchestration. Logic Apps uses [connectors](/azure/connectors/apis-list) to integrate with commonly used services. Logic Apps offers hundreds of connectors, and you can create custom connectors.
 
-- **Azure API Management Developer portal**. Each instance of Azure API Management provides access to the [Developer portal](/azure/api-management/api-management-key-concepts#a-namedeveloper-portal-a-developer-portal). This portal gives you access to documentation and code samples. You can also test APIs in the Developer portal.
+- **Azure API Management**. [API Management][apim] is a managed service for publishing catalogs of HTTP APIs, to promote re-use and discoverability. API Management consists of two related components:
 
-- **Azure Logic Apps**. [Logic Apps](/azure/logic-apps/logic-apps-overview) is a serverless platform for building enterprise workflows and integrations.
+    - **API gateway**. The API gateway accepts HTTP calls and routes them to the backend. 
 
-- **Connectors**. Logic Apps uses [connectors](/azure/connectors/apis-list) for connecting to commonly used services. Logic Apps offers hundreds of connectors, but you can also create a custom connector.
+    - **Developer portal**. Each instance of Azure API Management provides access to a [developer portal](/azure/api-management/api-management-key-concepts#a-namedeveloper-portal-a-developer-portal). This portal gives your developers access to documentation and code samples for calling the APIs. You can also test APIs in the developer portal.
 
-- **IP address**. The Azure API Management service has a fixed public IP address and a domain name. The default domain name is a subdomain of `azure-api.net`, for example, `contoso.azure-api.net`, but you can also configure [custom domains](/azure/api-management/configure-custom-domain). Logic Apps and Service Bus also have a public IP address. However, for security, this architecture restricts access for calling Logic Apps endpoints to only the IP address of API Management. Calls to Service Bus are secured by a shared access signature (SAS).
+    In this architecture, composite APIs are built by [importing logic apps][apim-logic-app] as APIs. You can also import existing web services by [importing OpenAPI][apim-openapi] (Swagger) specifications or [importing SOAP APIs][apim-soap] from WSDL specifications. 
+
+    The API gateway helps to decouple front-end clients from the back end. For example, it can rewrite URLs, or transform requests before they reach the backend. It also handles many cross-cutting concerns such as authentication, cross-origin resource sharing (CORS) support, and response caching.
 
 - **Azure DNS**. [Azure DNS](/azure/dns/) is a hosting service for DNS domains. Azure DNS provides name resolution by using the Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing that you use for your other Azure services. To use a custom domain name, such as contoso.com, create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in API Management](/azure/api-management/configure-custom-domain).
 
-- **Azure Active Directory (Azure AD)**. You can use [Azure AD](/azure/active-directory/) or another identity provider for authentication. Azure AD provides authentication for accessing API endpoints by passing a [JSON Web Token for API Management](/azure/api-management/policies/authorize-request-based-on-jwt-claims) to validate. For Standard and Premium tiers, Azure AD can secure access to the API Management Developer portal.
-
-This architecture uses some patterns that are fundamental to operation:
-
-* Composite APIs are built by using logic apps, which orchestrate calls to software as a service (SaaS) systems, Azure services, and any APIs that are published to API Management. Logic apps are also [published through the API Management Developer portal](/azure/api-management/import-logic-app-as-api).
-
-* Applications use Azure AD for [acquiring an OAuth 2.0 security token](/azure/api-management/api-management-howto-protect-backend-with-aad) that's required to gain access to an API.
-
-* Azure API Management [validates the security token](/azure/api-management/api-management-howto-protect-backend-with-aad) and then passes the request to the back-end API or logic app.
+- **Azure Active Directory (Azure AD)**. Use [Azure AD](/azure/active-directory/) to authenticate clients that call the API gateway. Azure AD supports the OpenID Connect (OIDC) protocol. Clients obtain an access token from Azure AD, and API Gateway [validates the token][apim-jwt] to authorize the request. In addition, Azure AD can secure access to the API Management developer portal (requires Standard or Premium tier of API Management). 
 
 ## Recommendations
 
@@ -183,3 +177,14 @@ Although this list doesn't completely describe all security best practices, here
 ## Next steps
 
 * Learn about [enterprise integration with queues and events](/azure/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-event)
+
+
+<!-- links -->
+
+[apim]: /azure/api-management
+[apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
+[apim-logic-app]: /azure/api-management/import-logic-app-as-api
+[apim-openapi]: /azure/api-management/import-api-from-oas
+[apim-soap]: /azure/api-management/import-soap-api
+[integration-services]: https://azure.microsoft.com/product-categories/integration/
+[logic-apps]: /azure/logic-apps/logic-apps-overview
