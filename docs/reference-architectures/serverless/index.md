@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/reference-architectures/serverless/web-app.md
+redirect_url: /azure/architecture/reference-architectures/serverless/web-app
 ---
