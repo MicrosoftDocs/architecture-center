@@ -143,20 +143,13 @@ To configure authentication:
 
 - Enable Azure AD authentication inside the Function App. For more information, see [Authentication and authorization in Azure App Service][app-service-auth].
 
-- Add a policy to API Management to pre-authorize the request by validating the access token:
-
-    ```xml
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-        <openid-config url="https://login.microsoftonline.com/[Azure AD tenant ID]/.well-known/openid-configuration" />
-        <required-claims>
-            <claim name="aud">
-                <value>[Application ID]</value>
-            </claim>
-        </required-claims>
-    </validate-jwt>
-    ```
+- Add the [validate-jwt policy][apim-validate-jwt] to API Management to pre-authorize the request by validating the access token.
 
 For more details, see the [GitHub readme][readme].
+
+It's recommended to create separate app registrations in Azure AD for the client application and the backend API. Grant the client application permission to call the API. This approach gives you the flexibility to define multiple APIs and clients and control the permissions for each. 
+
+Within an API, use [scopes][scopes] to give applications fine-grained control over what permissions they request from a user. For example, an API might have `Read` and `Write` scopes, and a particular client app might ask the user to authorize `Read` permissions only.
 
 ### Authorization
 
@@ -270,11 +263,21 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ## DevOps considerations
 
+### Deployment
+
+To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
+
 ### API versioning
 
-An API is a contract between a service and clients or consumers of that service. Support versioning in your API contract. If you introduce a breaking API change, introduce a new API version. Deploy the new version side-by-side with the original version, in a separate Function App. This lets you migrate existing clients to the new API without breaking client applications. Eventually, you can deprecate the previous version. For more information about API versioning, see [Versioning a RESTful web API][api-versioning].
+An API is a contract between a service and clients. In this architecture, the API contract is defined at the API Management layer. API Management supports two distinct but complementary [versioning concepts][apim-versioning]:
 
-For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version.
+- *Versions* allow API consumers to choose an API version based on their needs, such as v1 versus v2. 
+
+- *Revisions* allow API administrators to make non-breaking changes in an API and deploy those changes, along with a change log to inform API consumers about the changes.
+
+If you make a breaking change in an API, publish a new version in API Management. Deploy the new version side-by-side with the original version, in a separate Function App. This lets you migrate existing clients to the new API without breaking client applications. Eventually, you can deprecate the previous version. API Management supports several [versioning schemes][apim-versioning-schemes]: URL path, HTTP header, or query string. For more information about API versioning in general, see [Versioning a RESTful web API][api-versioning].
+
+For updates that are not breaking API changes, deploy the new version to a staging slot in the same Function App. Verify the deployment succeeded and then swap the staged version with the production version. Publish a revision in API Management.
 
 ## Deploy the solution
 
@@ -287,6 +290,9 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
 [api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
+[apim-validate-jwt]: /azure/api-management/api-management-access-restriction-policies#ValidateJWT
+[apim-versioning]: /azure/api-management/api-management-get-started-publish-versions
+[apim-versioning-schemes]: /azure/api-management/api-management-get-started-publish-versions#choose-a-versioning-scheme
 [app-service-auth]: /azure/app-service/app-service-authentication-overview
 [app-service-ip-restrictions]: /azure/app-service/app-service-ip-restrictions
 [app-service-security]: /azure/app-service/app-service-security
@@ -306,8 +312,10 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [functions-cold-start]: https://blogs.msdn.microsoft.com/appserviceteam/2018/02/07/understanding-serverless-cold-start/
 [functions-https]: /azure/app-service/app-service-web-tutorial-custom-ssl#enforce-https
 [functions-proxy]: /azure-functions/functions-proxies
+[functions-run-from-package]: /azure/azure-functions/run-functions-from-deployment-package
 [functions-scale]: /azure/azure-functions/functions-scale
 [functions-timeout]: /azure/azure-functions/functions-scale#consumption-plan
+[functions-zip-deploy]: /azure/azure-functions/deployment-zip-push
 [graph]: https://developer.microsoft.com/graph/docs/concepts/overview
 [key-vault-web-app]: /azure/key-vault/tutorial-web-application-keyvault
 [microservices-domain-analysis]: ../../microservices/domain-analysis.md
@@ -316,6 +324,7 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [partition-key]: /azure/cosmos-db/partition-data
 [pipelines]: /azure/devops/pipelines/index
 [ru]: /azure/cosmos-db/request-units
+[scopes]: /azure/active-directory/develop/v2-permissions-and-consent
 [static-hosting]: /azure/storage/blobs/storage-blob-static-website
 [static-hosting-preview]: https://azure.microsoft.com/blog/azure-storage-static-web-hosting-public-preview/
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
