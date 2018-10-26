@@ -265,11 +265,11 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ### Deployment
 
-To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, meaning all the updated application files are loaded at once, which reduces the chance of failed deployment that leaves the application files in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
+To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
 
 ### API versioning
 
-An API is a contract between a service and clients or consumers of that service. In this architecture, the API contract is defined at the API Management layer. API Management supports two distinct but complementary versioning concepts:
+An API is a contract between a service and clients. In this architecture, the API contract is defined at the API Management layer. API Management supports two distinct but complementary [versioning concepts][apim-versioning]:
 
 - *Versions* allow API consumers to choose an API version based on their needs, such as v1 versus v2. 
 
@@ -291,6 +291,7 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
 [apim-validate-jwt]: /azure/api-management/api-management-access-restriction-policies#ValidateJWT
+[apim-versioning]: /azure/api-management/api-management-get-started-publish-versions
 [apim-versioning-schemes]: /azure/api-management/api-management-get-started-publish-versions#choose-a-versioning-scheme
 [app-service-auth]: /azure/app-service/app-service-authentication-overview
 [app-service-ip-restrictions]: /azure/app-service/app-service-ip-restrictions
