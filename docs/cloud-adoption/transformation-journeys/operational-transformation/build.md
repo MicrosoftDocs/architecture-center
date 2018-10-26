@@ -18,28 +18,34 @@ Download the full size infographic: [pdf format](../../_images/operational-trans
 
 The following activities align help expand the business vision and build the relationships needed to coordinate bus/tech execution.
 
-* [Global Markets](../business-strategy/global-markets.md): .
-* [Stakeholder Alignment](../business-strategy/stakeholder-alignment.md): .
-* [Business Reviews](../business-strategy/business-reviews.md): .
+* [Global Markets](../business-strategy/global-markets.md): Understanding global usage patterns and targets for delivering products and services in global markets directly impacts the technical strategy.
+* [Stakeholder Alignment](../business-strategy/stakeholder-alignment.md): Business stakeholders will be essential during user adoption. Without them, business change is impossible. During the build phased, begin socializing plans and timelines for validation and logistical alignment.
+* [Business Reviews](../business-strategy/business-reviews.md): Establish a **business review cadence** to keep stakeholders aligned. Communicating business impact, progress, and timing will prepare stakeholders for coming dependencies. 
 
 ## Culture Activities
 
-During the "B
+During the "Build" Phase, cultural impact is limited to a small group of architects and technical SMEs. This process can take months to fully execute. During this time, it is suggested that the cultural focus be on continued development of the candidate pipeline and growth of technical skills in willing participants.
+
+> [!TIP]
+> The [Plan process](plan.md) can be exciting to business and technical participants. During the build process, that momentum can easily be lost. During larger or more complex build processes, it is advised that the Cloud Strategy Team continue to engage the business in planning, assessment, and architecture activities slated for early stage [Migration activities](migrate.md). In parallel, technical team members can stay engaged through the execution of additional [Technical Spikes](../migration/plan/technical-spike-poc.md).
 
 ## Technology Activities
 
-Technology changes can empower and accelerate business outcomes. The following activities are designed to translate business outcomes to actionable technology strategies.
+During the Build process, the Cloud Migration Team prepares the Digital Estate and cloud environment for migration.
 
-* [Digital Estate Planning](../migration/plan/digital-estate-planning.md): Technology planning begins with an understanding of current state. In an Operational Transformation, current state is defined by the assets in the existing digital estate that supports the business. Digital Estate Planning activities attempt to collect important data about those assets and establish a collective inventory of assets (aka Digital Estate). Once inventoried, a high level plan and top-down forecasting is possible.
-* [Rationalize Inventory](../migration/plan/rationalize.md): Building on the Digital Estate, Inventory Rationalization is the first true "Architecture" activity. In this set of activities, the estate is classified into application architypes and a tentative future state is selected (Later phases will test and validate these early assumptions)
-* [Prioritize Workloads](../migration/plan/prioritize-workloads.md): This is the point where theory shapes reality. The Cloud Strategy Team reviews the list of assets slated for migration against business priorities. This activity balances risk, cost of migration, speed of migration, and operational readiness. The output is a list of workloads aligned to an initial time horizon for release and adoption. This serves as a the change management plan to guide the transformation.
-* [Technical Spikes / POCs](../migration/plan/technical-spike-poc.md): A rationalized inventory will expose gaps in the initial Digital Estate Plan. Business and Technical assumptions will be identified. Technical Spikes, and to a lesser degree, Proof of Concepts (POCs), create an opportunity to test assumptions, and build understanding/consensus.
+* [Prioritized Migration Backlog](../migration/plan/migration-backlog.md): This backlog serves as the technical implementation strategy to support the business transformation strategy. During the plan stage, IT develops this plan in tandem with the business to maximize business outcomes throughout the transformation journey.
+* [Subscription and Tagging Strategy](../migration/plan/rationalize.md): The first set of technical decisions is the subscription and tagging strategy. The backlog, global markets, and cloud accounting are all inputs to influence these decisions.
+* [Core Services](../migration/plan/core-services.md): These core services will provide the foundation needed to host assets in the cloud. Prior to migration, a Minimally Viable Product (MVP) of each must be established to support assets to be deployed. At each release, these services are evolved to support planned migrations. 
+
+* [Corporate Policy and Compliance](../migration/plan/corporate-policy-and-compliance.md): Corporate policy and Compliance during the build phase is an effort to identify a Minimally Viable Product (MVP) for risk mitigation and controls. Much like the actual migration effort, these policies are meant to be advanced with the assets being migrated. This approach ensures adequate protection for the assets that are migrated to the cloud, with minimal intrusion in the business transformation.
+
+    * [CISO Guidance](../migration/plan/ciso-guidance.md): When possible, include the CISO to provide guidance and validate the MVP, even during technical spikes. This will ensure the Information Security team has time to adopt protection approaches to the cloud migration efforts.
 
 ## Next steps
 
-Each of the sections above are designed to personalize next steps. If none of those align with specific needs, [Business Outcomes](../business-strategy/business-outcomes/overview.md) may be a wise next step.
+Each of the sections above are designed to personalize next steps. If none of those align with specific needs, [Global Markets](../business-strategy/global-markets.md) may be a wise next step.
 
-When planning is complete, this journey is ready to advance to the [Build process](build.md).
+When the Build process is complete, this journey is ready to advance to the [migrate process](migrate.md).
 
 > [!div class="nextstepaction"]
-> [Define Business Outcomes](../business-strategy/business-outcomes/overview.md)
+> [Define Global Markets](../business-strategy/global-markets.md)

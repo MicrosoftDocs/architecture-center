@@ -14,15 +14,12 @@ ms.date: 10/11/2018
 
 Download the full size infographic: [pdf format](../../_images/operational-transformation-infographic.png) [png format](../../_images/operational-transformation-infographic.pdf)
 
-## Waterfall
+## Iterative (Agile or Sprint Approaches)
 
-## Incremental
+An iterative approach to change management and oversight is suggested during Operational Transformation. Such an approach encourages experimentation and learning as the team matures cloud operations. Learn more about [backlog management](../../migrate/plan/iterative-change-management.md) to control change and oversee technical efforts.
 
-## Next steps
+Incremental execution of Operational Transformation processes tend to produce greater outcomes, improved stability, and relatively higher governance maturity at earlier stages of transformation. Leading with a Growth Mindset, allows teams to agree on a Minimally Viable Products (MVP) and organically grow rapidly from there.
 
-Each of the sections above are designed to personalize next steps. If none of those align with specific needs, [Business Outcomes](../business-strategy/business-outcomes/overview.md) may be a wise next step.
+## Waterfall (CMMI approaches)
 
-When planning is complete, this journey is ready to advance to the [Build process](build.md).
-
-> [!div class="nextstepaction"]
-> [Define Business Outcomes](../business-strategy/business-outcomes/overview.md)
+Traditional approaches may be used to govern an Operational Transformation. However, the PMO team should be prepared for a high degree of drift as the Cloud Migration and Cloud Deployment teams resolve ambiguity and mature governance disciplines. This is also a high likelihood of completed tasks re-opening or requiring estimate adjustments. It is advised that the PMO baseline often and prepare stakeholders for change.
