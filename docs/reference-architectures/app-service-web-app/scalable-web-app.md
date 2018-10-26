@@ -6,7 +6,7 @@ pnp.series.title: Azure App Service
 pnp.series.prev: basic-web-app
 pnp.series.next: multi-region-web-app
 
-ms.date: 11/23/2016
+ms.date: 10/25/2018
 cardTitle: Improve scalability
 ---
 # Improve scalability in a web application
@@ -17,20 +17,20 @@ This reference architecture shows proven practices for improving scalability and
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-## Architecture  
+## Architecture
 
 This architecture builds on the one shown in [Basic web application][basic-web-app]. It includes the following components:
 
 * **Resource group**. A [resource group][resource-group] is a logical container for Azure resources.
-* **[Web app][app-service-web-app]** and **[API app][app-service-api-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].    
-* **WebJob**. Use [Azure WebJobs][webjobs] to run long-running tasks in the background. WebJobs can run on a schedule, continously, or in response to a trigger, such as putting a message on a queue. A WebJob runs as a background process in the context of an App Service app.
-* **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function in the WebJob. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
+* **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
+* **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
+* **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function app. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
 * **Cache**. Store semi-static data in [Azure Redis Cache][azure-redis].  
 * <strong>CDN</strong>. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
-* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider a NoSQL store, such as [Cosmos DB][cosmosdb].
+* **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
 * **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.  
-* **Email/SMS**. Use a third-party service such as SendGrid or Twilio to send email or SMS messages instead of building this functionality directly into the application.
 * **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+* **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities. 
 
 ## Recommendations
 
@@ -43,11 +43,6 @@ We recommend creating the web application and the web API as separate App Servic
 > For the Basic, Standard, and Premium plans, you are billed for the VM instances in the plan, not per app. See [App Service Pricing][app-service-pricing]
 > 
 > 
-
-If you intend to use the *Easy Tables* or *Easy APIs* features of App Service Mobile Apps, create a separate App Service app for this purpose.  These features rely on a specific application framework to enable them.
-
-### WebJobs
-Consider deploying resource intensive WebJobs to an empty App Service app within a separate App Service plan. This provides dedicated instances for the WebJob. See [Background jobs guidance][webjobs-guidance].  
 
 ### Cache
 You can improve performance and scalability by using [Azure Redis Cache][azure-redis] to cache some data. Consider using Redis Cache for:
@@ -81,6 +76,8 @@ Modern applications often process large amounts of data. In order to scale for t
 | Non-relational data with a flexible schema requiring basic querying |Product catalog |Document database, such as Azure Cosmos DB, MongoDB, or Apache CouchDB |
 | Relational data requiring richer query support, strict schema, and/or strong consistency |Product inventory |Azure SQL Database |
 
+ See [Choose the right data store][datastore].
+
 ## Scalability considerations
 
 A major benefit of Azure App Service is the ability to scale your application based on load. Here are some considerations to keep in mind when planning to scale your application.
@@ -88,7 +85,7 @@ A major benefit of Azure App Service is the ability to scale your application ba
 ### App Service app
 If your solution includes several App Service apps, consider deploying them to separate App Service plans. This approach enables you to scale them independently because they run on separate instances. 
 
-Similarly, consider putting a WebJob into its own plan so that background tasks don't run on the same instances that handle HTTP requests.  
+Similarly, consider putting a function app into its own plan so that background tasks don't run on the same instances that handle HTTP requests. If background tasks run intermittently, consider using a [consumption plan][functions-consumption-plan], which is billed based on the number of executions, rather than hourly. 
 
 ### SQL Database
 Increase scalability of a SQL database by *sharding* the database. Sharding refers to partitioning the database horizontally. Sharding allows you to scale out the database horizontally using [Elastic Database tools][sql-elastic]. Potential benefits of sharding include:
@@ -128,7 +125,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [azure-redis]: https://azure.microsoft.com/services/cache/
 [azure-search]: https://azure.microsoft.com/documentation/services/search/
 [azure-search-scaling]: /azure/search/search-capacity-planning
-[background-jobs]: ../../best-practices/background-jobs.md
 [basic-web-app]: basic-web-app.md
 [basic-web-app-scalability]: basic-web-app.md#scalability-considerations
 [caching-guidance]: ../../best-practices/caching.md
@@ -137,6 +133,10 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [cdn-guidance]: ../../best-practices/cdn.md
 [cors]: /azure/app-service-api/app-service-api-cors-consume-javascript
 [cosmosdb]: /azure/cosmos-db/
+[datastore]: ../..//guide/technology-choices/data-store-overview.md
+[durable-functions]: /azure/azure-functions/durable-functions-overview
+[functions]: /azure/azure-functions/functions-overview
+[functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [resource-group]: /azure/azure-resource-manager/resource-group-overview#resource-groups
@@ -146,6 +146,4 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region.md
-[webjobs-guidance]: ../../best-practices/background-jobs.md
-[webjobs]: /azure/app-service/app-service-webjobs-readme
 [0]: ./images/scalable-web-app.png "Web application in Azure with improved scalability"
