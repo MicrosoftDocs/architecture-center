@@ -23,7 +23,7 @@ With these benefits come increased options and increase complexity. Each Transfo
 
 ## Transformation Journey Assets & Roadmap
 
-**[Operational Transformation](operational-transformation/overview.md)**: The majority of businesses leveraging the cloud today, are focused on transforming IT operations and other business operations. Efficiency and Agility are the most common Business Outcomes in this type of transformation. Reducing Total Cost of Ownership (TCO) by "getting out of the data center business" and Increasing Business Agility by streamlining IT operations, tend to be amongst the most common Business Outcomes. 
+**[Operational Transformation](operational-transformation/overview.md)**: The majority of businesses leveraging the cloud today, are focused on transforming IT operations and other business operations. Reducing Total Cost of Ownership (TCO) by "getting out of the data center business" and Increasing Business Agility by streamlining IT operations, tend to be amongst the most common Business Outcomes.
 
 Learn more about [Operation Transformation and Migrating to the Cloud](operational-transformation/overview.md)
 
