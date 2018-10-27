@@ -3,6 +3,8 @@ title: "Enterprise Cloud Adoption: Living framework for cloud adoption decisions
 description: Guiding business, culture, and technology decisions throughout cloud adoption
 author: BrianBlanchard
 ms.date: 10/11/2018
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Enterprise Cloud Adoption (ECA)
