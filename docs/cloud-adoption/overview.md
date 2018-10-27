@@ -13,7 +13,7 @@ Adoption of the right technologies, at the right time, for the right reasons emp
 
 The objective of ECA is to empower business and IT participants to evaluate and make the right decisions for their unique situation. In this framework, a number of best practices from across Microsoft have been integrated to present various options under a One Microsoft view of Cloud Adoption. The framework aims to guide decision making and help identify the data points to make the best decision in a given scenario.
 
-Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios)
+Jump to detailed descriptions: [Transformation Journeys - Adoption Guides](#transformation-journeys) | [ECA Content - Building Blocks](#eca-content)
 
 <ul class="panelContent cardsL">
     <li>
@@ -79,7 +79,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </li>
 </ul>
 
-## Transformation Journeys (Cloud Adoption Guides)
+## Transformation Journeys
 
 [Digital Transformation](https://enterprise.microsoft.com/en-us/digital-transformation/) is at the core of everything Microsoft does. Microsoft is passionate about helping customer's transform their businesses. [Transformation Journeys](transformation-journeys/overview.md) create a bridge from the "Why" of Digital Transformation, into the "How" of cloud adoption. Each of these guides maps a journey which includes Business Strategy, Culture Strategy, and Technology Strategy. The goal of each Journey is to remove roadblocks to achieving success, enabling Digital Transformation through adoption of the cloud.
 
@@ -89,9 +89,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
 
 **[Disruptive Transformation](transformation-journeys/disruptive-transformation.md):** Coming Summer 2019. Transform your products. Data is the new oil & it's all around us. Go beyond organizational silos of transactional data. This journey guides the adoption of new applications, ambient intelligence, and impactful predictions that create new revenue streams and open new markets.
 
-## ECA Content (Cloud Adoption Building Blocks)
+## ECA Content
 
-Implementation of cloud technologies is made easy by mature cloud vendors. Implementing the right technology, in the right way, for the right reason, is infinitely harder. The process of mapping cloud technologies to current state requires significant experience in cloud technology. Making critical architectural decisions requires an understanding of how the cloud was built & the economics behind each decision. 
+Implementation of cloud technologies is made easy by mature cloud vendors. Implementing the right technology, in the right way, for the right reason, is infinitely harder. The process of mapping cloud technologies to current state requires significant experience in cloud technology. Making critical architectural decisions requires an understanding of how the cloud was built & the economics behind each decision.
 
 The building blocks that supports architectural decisions and each Transformation Journey are included in this section of ECA. Each is a living guide to architectural decisions. Pulling from content across Microsoft and customer implementations, ECA synthesizes the decision process by creating decision trees that inform architects and in decision making. 
 
