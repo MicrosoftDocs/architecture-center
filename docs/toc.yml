@@ -701,10 +701,13 @@
     - name: Resource Tags
       items:
     - name: Software Defined Network
+      href: cloud-adoption/infrastructure/software-defined-networks.md
       items:
     - name: Identity
+      href: cloud-adoption/infrastructure/identity.md
       items:
     - name: Encryption
+      href: cloud-adoption/infrastructure/encryption.md
       items:
     - name: Logs & Reports
       items:
