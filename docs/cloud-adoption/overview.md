@@ -4,25 +4,43 @@ ms.topic: landing-page
 ms.date: 09/10/2018
 ---
 
-# Enterprise Cloud Adoption
+# Enterprise Cloud Adoption (ECA) framework
 
-The cloud presents a fundamental shift in the way that enterprises procure and utilize technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed.
+Adoption of the right technologies, at the right time, for the right reasons empowers enterprise to transform and grow. The cloud can be a fundamental accelerator for digital transformation efforts, when adopted properly. In all reality, Enterprises have different objectives, timelines, and current state constraints, making a one-size-fits-all approach to cloud adoption nearly impossible.
 
-While the cloud offers nearly unlimited flexibility in terms of design choices, enterprises seek proven and consistent methodology for the adoption of cloud technologies. And, each enterprise has different goals and timelines for cloud adoption, making a one-size-fits-all approach to adoption nearly impossible.
+The objective of ECA is to empower business and IT participants to evaluate and make the right decisions for their unique situation. In this framework, a number of best practices from across Microsoft have been integrated to present various options under a One Microsoft view of Cloud Adoption. The framework aims to guide decision making and help identify the data points to make the best decision in a given scenario.
 
-The process of adopting cloud technologies is not a linear process, and this is especially true for large enterprises with many different teams. Some teams may be responsible for a large set of existing workloads and have a requirement to modernize them by adding cloud technologies or migrating them completely. Other teams may have the opportunity to innovate by beginning new development from scratch in the cloud. Yet other teams may not be ready to adopt cloud technologies in production but are ready to learn about and experiment with the cloud.
+## Transformation Journeys (Guided Tours to Cloud Adoption)
 
-Each of these different teams requires different approaches to adopting the cloud, but the core knowledge necessary to begin the process is common to all.
+[Digital Transformation](https://enterprise.microsoft.com/en-us/digital-transformation/) is at the core of everything Microsoft does. We are passionate about helping customer's transform their businesses. [Transformation Journeys](transformation-journeys/overview.md) create a bridge from the "Why" of Digital Transformation, into the "How" of cloud adoption. Each of these guides maps a journey which includes Business Strategy, Culture Strategy, and Technology Strategy. The goal of each Journey is to remove roadblocks to achieving success, enabling Digital Transformation through adoption of the cloud.
 
-## Audience
+**[Operational Transformation](transformation-journeys/operational-transformation/overview.md):** Optimize your operations. This journey helps enterprises accelerate responsiveness, improve service levels, and reduce costs; through a migration of existing digital assets to the cloud. Once in the cloud, this journey guides the evolution of IT Operations and Governance disciplines.
 
-The audience for the Azure Cloud Adoption Guide includes Enterprise Administrators, Finance, IT operations, IT security and compliance, workload development owners, and workload operations owners.
+**[Incremental Transformation](transformation-journeys/incremental-transformation.md):** Coming Spring 2019. Engage your customers. This journey leverages modern data and devops strategies to improve applications, experiences, and approaches to engaging customers.
 
-## How to use the Azure Cloud Adoption Guide
+**[Disruptive Transformation](transformation-journeys/disruptive-transformation.md):** Coming Summer 2019. Transform your products. Data is the new oil & it's all around us. Go beyond organizational silos of transactional data. This journey guides the adoption of new applications, ambient intelligence, and impactful predictions that create new revenue streams and open new markets.
 
-If your enterprise is new to Azure, begin with the [overview](getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
+## ECA Content (Building Blocks of Cloud Adoption)
 
-If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](governance/overview.md) and [infrastructure](infrastructure/basic-workload.md).
+Implementation of cloud technologies is made easy by mature cloud vendors. Implementing the right technology, in the right way, for the right reason, is infinitely harder. The process of mapping cloud technologies to current state requires significant experience in cloud technology. Making critical architectural decisions requires an understanding of how the cloud was built & the economics behind each decision. 
+
+The building blocks that supports architectural decisions and each Transformation Journey are included in this section of ECA. Each is a living guide to architectural decisions. Pulling from content across Microsoft and customer implementations, ECA synthesizes the decision process by creating decision trees that inform architects and in decision making. 
+
+This framework can't replace a strong architect, but it can make any architect a little bit stronger.
+
+### Enterprise Architecture Building Blocks:
+
+**[Getting Started](getting-started/overview.md):** New to the cloud? Start here to gain an understanding of the differences between traditional, on-prem technology and cloud technology.
+
+**[Core Infrastructure](infrastructure/overview.md):** There are a few foundational technologies at the base of all cloud deployments. Based on current and future state, there are hundreds of combinations that could create the right foundation for a deployment. This section will guide readers through the constraints and assumptions that define each implementation model.
+
+**[Migration](migration/overview.md):** Most enterprises today have some form of Digital Estate. Servers, VMs, Applications, Data, and Devices power most business processes. The migration section of the ECA helps guide readers through the process of migrating those assets to the cloud.
+
+**[Cloud Governance](govern/overview.md):** Every connection point, every open port, every end user creates risk. This section of the ECA aids in defining manageable policies that properly mitigate risks. Then wraps those policies in actionable governance disciplines to manage cloud adoption.
+
+**[Business Strategy](business-strategy/overview.md):** The best technical decisions produce little results, if not well aligned to business needs. This section aids architects in evaluating business needs. It also aids business leaders in understanding how the cloud can aid in realizing business strategy.
+
+**[Culture Strategy](culture-strategy/overview.md):** True transformation goes beyond process and technology. To realize the full benefits of the cloud, IT transforms with the supported technology. Minor changes to operations, processes, policies, and technologies require new skills and new ways of thinking (Both in IT and the business).
 
 > [!div class="nextstepaction"]
-> [Get Started](getting-started/overview.md)
+> [Begin an Operational Transformation](transformation-journeys/operational-transformation/overview.md)
