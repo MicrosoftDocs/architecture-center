@@ -43,6 +43,7 @@ MAP is an agentless, automated, multi-product planning and assessment tool for q
 The [Microsoft Assessment and Planning Toolkit](http://go.microsoft.com/fwlink/?LinkId=313396) can be downloaded [here](http://go.microsoft.com/fwlink/?LinkId=313396).
 
 ### Microsoft Data Migration Assistant (DMA)
+
 DMA assesses and detects compatibility issues that can impact database functionality in Azure. It also assesses feature parity between your SQL Server source and target, and recommends performance and reliability improvements for your target environment. Additionally, it discovers new features in the target SQL Server platform that the database can benefit from after an upgrade. These are described as feature recommendations and organized in categories such as performance, security, and storage. DMA doesn’t only provide assessment for database migration from SQL Server to Azure SQL Server database, but also provides assessment for SQL Server to Azure SQL Database Managed Instance and Oracle to Azure SQL Database.
 
 [Download the Data Migration Assistant](https://datamigration.microsoft.com/)
