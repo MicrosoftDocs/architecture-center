@@ -21,7 +21,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Transformation Journeys (Adoption Guides)</h3>
+                        <h3>Transformation Guides</h3>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/operational-transformation/overview.md" data-linktype="absolute-path">Operational Transformation - Optimize operations</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/incremental-transformation.md" data-linktype="absolute-path">Incremental Transformation - Engage Customers</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/disruptive-transformation.md" data-linktype="absolute-path">Disruptive Transformation - Transform Products</a>
@@ -35,11 +35,11 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>ECA Framework (Adoption Building Blocks)</h3>
+                        <h3>Adoption Building Blocks</h3>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/getting-started" data-linktype="absolute-path">Getting started</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/infrastructure" data-linktype="absolute-path">Core Infrastructure</a>
-                        <a class="barLink" href="/azure/architecture/cloud-adoption/migration" data-linktype="absolute-path">Migrate Assets</a>
-                        <a class="barLink" href="/azure/architecture/cloud-adoption/govern" data-linktype="absolute-path">Govern Assets</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/migration" data-linktype="absolute-path">Migrate Digital Assets</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/govern" data-linktype="absolute-path">Govern Digital Assets</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/manage" data-linktype="absolute-path">Change Management and Oversight</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/business-strategy" data-linktype="absolute-path">Business Strategy</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/culture-strategy" data-linktype="absolute-path">Culture Strategy</a>
