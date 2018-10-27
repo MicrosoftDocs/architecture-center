@@ -21,7 +21,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Transformation Guides</h3>
+                        <h3>Transformation Journeys</h3>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/operational-transformation/overview.md" data-linktype="absolute-path">Operational Transformation - Optimize operations</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/incremental-transformation.md" data-linktype="absolute-path">Incremental Transformation - Engage Customers</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/disruptive-transformation.md" data-linktype="absolute-path">Disruptive Transformation - Transform Products</a>
