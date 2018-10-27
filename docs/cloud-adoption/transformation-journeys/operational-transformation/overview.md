@@ -9,8 +9,7 @@ ms.topic: landing-page
 
 # Enterprise Cloud Adoption: Operational Transformation Journey (OTJ)
 
-Operational Transformation is one of the [Transformation Journeys](../overview.md) included in the [Enterprise Cloud Adoption (ECA) framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility. 
-
+Operational Transformation is one of the [Transformation Journeys](../overview.md) included in the [Enterprise Cloud Adoption (ECA) framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility.
 
 <ul class="panelContent cardsL">
     <li>
@@ -42,7 +41,7 @@ Operational Transformation is one of the [Transformation Journeys](../overview.m
 <a  href="/azure/architecture/cloud-adoption/transformation-journey/operational-transformation/build" data-linktype="absolute-path">Build</a> A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.<br/><br/>
 <a  href="/azure/architecture/cloud-adoption/transformation-journey/operational-transformation/migrate" data-linktype="absolute-path">Migrate</a> Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.<br/><br/>
 <a  href="/azure/architecture/cloud-adoption/transformation-journey/operational-transformation/govern" data-linktype="absolute-path">Govern</a> Governance of migrated assets is often a parallel, incremental process. As additional assets are migrated, business risks change. In this parallel effort, governance disciplines advance with migration efforts to mitigate risk.<br/><br/>
-<a  href="/azure/architecture/cloud-adoption/transformation-journey/operational-transformation/manage" data-linktype="absolute-path">Manage</a> To aid in oversight and change management during the execution of these processes, additional guidance is included, to help customers adopt an incremental management approach during a migration.
+<a  href="/azure/architecture/cloud-adoption/transformation-journey/operational-transformation/manage" data-linktype="absolute-path">Change Management and Oversight</a> To aid in oversight and change management during the execution of these processes, additional guidance is included, to help customers adopt an incremental management approach during a migration.
 
 
                     </div>

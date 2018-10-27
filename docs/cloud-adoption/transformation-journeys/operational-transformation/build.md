@@ -10,6 +10,7 @@ ms.date: 10/11/2018
 [Operational Transformation](overview.md) is one of the [Transformation Journeys](../overview.md) included in the [Enterprise Cloud Adoption (ECA) framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility. This article focuses on the Build process within a transformation.
 
 ![Build process within Operational Transformation](../../_images/operational-transformation-build.png)
+
 *Figure 1. Build process within Operational Transformation. Activities within the process detailed below*
 
 Download the full size infographic: [pdf format](../../_images/operational-transformation-infographic.png) [png format](../../_images/operational-transformation-infographic.pdf)
