@@ -1,5 +1,5 @@
 ---
-title: "Enterprise Cloud Adoption: Living framework for cloud adoption decisions"
+title: "Enterprise Cloud Adoption: A living framework to guide cloud adoption decisions"
 description: Guiding business, culture, and technology decisions throughout cloud adoption
 author: BrianBlanchard
 ms.date: 10/11/2018
@@ -21,10 +21,10 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>New Scenarios</h3>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/wordpress" data-linktype="absolute-path">Highly scalable and secure WordPress website</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/data/data-warehouse" data-linktype="absolute-path">Data warehousing & analytics for sales and marketing</a>
+                        <h3>Transformation Journeys (Adoption Guides)</h3>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/operational-transformation/overview.md" data-linktype="absolute-path">Operational Transformation - Optimize operations</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/incremental-transformation.md" data-linktype="absolute-path">Incremental Transformation - Engage Customers</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/transformation-journeys/disruptive-transformation.md" data-linktype="absolute-path">Disruptive Transformation - Transform Products</a>
                     </div>
                 </div>
             </div>
@@ -35,10 +35,14 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Top Scenarios</h3>
-                        <a class="barLink" href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing" data-linktype="absolute-path">Image classification for insurance claims</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/commerce-chatbot" data-linktype="absolute-path">Conversational chatbot for hotel reservations</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/regulated-multitier-app" data-linktype="absolute-path">Secure Windows web application for regulated industries</a>
+                        <h3>ECA Framework (Adoption Building Blocks)</h3>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/getting-started" data-linktype="absolute-path">Getting started</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/infrastructure" data-linktype="absolute-path">Core Infrastructure</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/migration" data-linktype="absolute-path">Migrate Assets</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/govern" data-linktype="absolute-path">Govern Assets</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/manage" data-linktype="absolute-path">Change Management and Oversight</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/business-strategy" data-linktype="absolute-path">Business Strategy</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/culture-strategy" data-linktype="absolute-path">Culture Strategy</a>
                     </div>
                 </div>
             </div>
@@ -59,9 +63,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3 class="x-hidden-focus">Submit your idea for a new scenario</h3>
-                                            <p>Do you have a scenario that you'd like us to create?</p>
-                                            <p>Would you like to build one yourself?</p>
+                                            <h3 class="x-hidden-focus">Help improve ECA</h3>
+                                            <p>New model or approach that should be integrated</p>
+                                            <p>Updates or changes to the framework</p>
                                             <p>Submit your idea here!</p>
                                         </div>
                                     </div>
@@ -74,7 +78,6 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
         </div>
     </li>
 </ul>
-
 
 ## Transformation Journeys (Cloud Adoption Guides)
 
