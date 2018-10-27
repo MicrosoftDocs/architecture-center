@@ -16,22 +16,22 @@ With these benefits come increased options and increase complexity. Each Transfo
 
 ## Transformation Journeys
 
-The ECA Governance Board is currently developing three journeys to create focus and clarity for Azure customers. Each Transformation Journey defines a common set of Business, Culture, and Technologies strategies that help streamline the process of adopting cloud technologies.
+[Digital Transformation](https://enterprise.microsoft.com/en-us/digital-transformation/) is at the core of everything Microsoft does. Microsoft is passionate about helping customer's transform their businesses. Transformation Journeys create a bridge from the "Why" of Digital Transformation, into the "How" of cloud adoption. Each of these guides maps a journey which includes Business Strategy, Culture Strategy, and Technology Strategy. The goal of each Journey is to remove roadblocks to achieving success, enabling Digital Transformation through adoption of the cloud.
 
 ![Three Transformation Journeys](../_images/transformation-journeys.png)
 *Figure 1. Three Transformation Journeys in development.*
 
-## Transformation Journey Roadmap
+## Transformation Journey Assets & Roadmap
 
-**Operational Transformation**: The majority of businesses leveraging the cloud today, are focused on transforming IT operations and other business operations. Efficiency and Agility are the most common Business Outcomes in this type of transformation. Reducing Total Cost of Ownership (TCO) by "getting out of the data center business" and Increasing Business Agility by streamlining IT operations, tend to be amongst the most common Business Outcomes.
+**[Operational Transformation](operational-transformation/overview.md)**: The majority of businesses leveraging the cloud today, are focused on transforming IT operations and other business operations. Efficiency and Agility are the most common Business Outcomes in this type of transformation. Reducing Total Cost of Ownership (TCO) by "getting out of the data center business" and Increasing Business Agility by streamlining IT operations, tend to be amongst the most common Business Outcomes. 
 
 Learn more about [Operation Transformation and Migrating to the Cloud](operational-transformation/overview.md)
 
-**Incremental Transformation**: The pace of change in the business world continues to accelerate. To survive competitive scenarios, companies of all shapes and sizes are expected to move quickly and iterate fast. When companies attempt to grow market share or capitalize on market changes, the ability to listen, respond, and lead is a must. Incremental Transformation focuses on leveraging the cloud to ingrain development teams with a customer obsession and rapid DevOps practices. Incrementally improve application and data capacities through this transformation journey.
+**[Incremental Transformation](incremental-transformation.md)**: The pace of change in the business world continues to accelerate. To survive competitive scenarios, companies of all shapes and sizes are expected to move quickly and iterate fast. When companies attempt to grow market share or capitalize on market changes, the ability to listen, respond, and lead is a must. Incremental Transformation focuses on leveraging the cloud to ingrain development teams with a customer obsession and rapid DevOps practices. Incrementally improve application and data capacities through this transformation journey.
 
 [Coming Spring 2019](incremental-transformation.md)
 
-**Disruptive Transformation**: Incremental and operational change are great; when applications, data, & processes are already driving revenue. New markets and radical disruptions of existing markets require different approaches. In today's society, data drives opportunity. New forms and sources of data are now available. Ambient technologies surround us at work and home. The average automobile generates more data per hour of driving, than the entire Apollo 11 lunar landing program. Consuming, managing, interpreting and predicting data in disruptive transformations requires modern approaches to services, applications, and data management. The cloud enables these tools and technologies; Disruptive Transformation equips businesses to use them wisely.
+**[Disruptive Transformation](disruptive-transformation.md)**: Incremental and operational change are great; when applications, data, & processes are already driving revenue. New markets and radical disruptions of existing markets require different approaches. In today's society, data drives opportunity. New forms and sources of data are now available. Ambient technologies surround us at work and home. The average automobile generates more data per hour of driving, than the entire Apollo 11 lunar landing program. Consuming, managing, interpreting and predicting data in disruptive transformations requires modern approaches to services, applications, and data management. The cloud enables these tools and technologies; Disruptive Transformation equips businesses to use them wisely.
 
 [Coming Summer 2019](disruptive-transformation.md)
 
