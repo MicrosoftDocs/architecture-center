@@ -3,6 +3,8 @@ title: "Enterprise Cloud Adoption: Transformation Journeys - Operational Transfo
 description: Operational Transformation - a guide to transforming internal operations - IT, Finance, and beyond
 author: BrianBlanchard
 ms.date: 10/11/2018
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Enterprise Cloud Adoption: Operational Transformation Journey (OTJ)
@@ -21,7 +23,7 @@ Operational Transformation is one of the [Transformation Journeys](../overview.m
                         
                         <img src="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic-small.png"  data-linktype="absolute-path" alt="Figure 1. Operational Transformation Journey infographic." />
                         *Figure 1. Operational Transformation Journey infographic.*
-                        
+
                         Download the full size infographic: <a  href="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic.png" data-linktype="absolute-path">png</a> | <a  href="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic.pdf" data-linktype="absolute-path">pdf</a>
                     </div>
                 </div>
