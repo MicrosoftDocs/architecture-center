@@ -1,7 +1,8 @@
 ---
-layout: LandingPage
-ms.topic: landing-page
-ms.date: 09/10/2018
+title: "Enterprise Cloud Adoption: Living framework for cloud adoption decisions"
+description: Guiding business, culture, and technology decisions throughout cloud adoption
+author: BrianBlanchard
+ms.date: 10/11/2018
 ---
 
 # Enterprise Cloud Adoption (ECA) framework
