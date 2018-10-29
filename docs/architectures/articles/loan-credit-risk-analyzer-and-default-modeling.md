@@ -2,7 +2,7 @@
 title: Loan Credit Risk + Default Modeling 
 description: Using SQL Server 2016 with R Services, lenders can predict a borrower's credit risk and default probability to help issue fewer unprofitable loans.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Loan Credit Risk + Default Modeling 
 Scoring credit risk is a complex process. Lenders carefully weigh a variety of quantitative indicators to determine the probability of default and approve the best candidates based on the information available to them.

@@ -2,7 +2,7 @@
 title: Medical Data Storage Solutions 
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Medical Data Storage Solutions 
 
@@ -27,7 +27,7 @@ ms.date: 10/18/2018
 * [Security Center](href="http://azure.microsoft.com/services/security-center/): Unify security management and enable advanced threat protection across hybrid cloud workloads
 * [Azure Active Directory](href="http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
 * [Key Vault](href="http://azure.microsoft.com/services/key-vault/): Safeguard and maintain control of keys and other secrets
-* Application Insights
+* Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure Monitor](href="http://azure.microsoft.com/services/monitor/): Highly granular and real-time monitoring data for any Azure resource
 * [Operation Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite): A collection of management services that were designed in the cloud from the start
 * [RBAC and built-in roles](https://docs.microsoft.comhref="http://azure.microsoft.com/azure/role-based-access-control/built-in-roles): Role-based access control (RBAC) has several built-in role definitions that you can assign to users, groups, and service principals.

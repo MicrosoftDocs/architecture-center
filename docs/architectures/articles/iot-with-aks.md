@@ -2,7 +2,7 @@
 title: IoT device deployment and management on demand | Microsoft
 description: IoT with AKS
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # IoT device deployment and management on demand | Microsoft
 IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKSprovides scalable compute resources on demand for IoT solutions, running inthe cloud or on-premises.

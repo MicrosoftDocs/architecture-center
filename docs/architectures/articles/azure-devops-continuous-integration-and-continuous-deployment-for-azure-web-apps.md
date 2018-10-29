@@ -2,7 +2,7 @@
 title: CI/CD for Azure Web Apps
 description: Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # CI/CD for Azure Web Apps
 Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.

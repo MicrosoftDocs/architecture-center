@@ -2,10 +2,10 @@
 title: Serverless Computing Solution for LOB Apps 
 description: The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Serverless Computing Solution for LOB Apps 
-The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
+This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 
 ## Architecture
 <img src="media/onboarding-customers-with-a-cloud-native-serverless-architecture.svg" alt='architecture diagram' />

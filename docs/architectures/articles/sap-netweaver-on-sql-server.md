@@ -2,7 +2,7 @@
 title: SAP NetWeaver on SQLServer 
 description: The NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver by utilizing Azure Virtual Machines to host SAP applications and a SQL Server database.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # SAP NetWeaver on SQLServer 
 This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver using Azure Virtual Machines to host SAP applications and a SQL Server database. This system takes advantage of OS clustering for high availability, premium storage for faster storage performance and scalability, SQL Server AlwaysOn capability for replication, and a full disaster recovery (DR) configuration for 99.95 percent system availability.

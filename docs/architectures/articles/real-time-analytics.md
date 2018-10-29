@@ -2,7 +2,7 @@
 title: Real Time Analytics on Big Data Architecture 
 description: Get deep learning analytics and insights live from streaming data. Review logs from website clickstream in near real-time for advanced analytics processing.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Real Time Analytics on Big Data Architecture 
 Get insights from live streaming data with ease. Capture data continuously from any IoT device, or logs from website clickstreams, and process it in near-real time.

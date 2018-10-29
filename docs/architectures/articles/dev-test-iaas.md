@@ -2,7 +2,7 @@
 title: Dev-Test deployment for testing IaaS solutions
 description: This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Dev-Test deployment for testing IaaS solutions
 This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.

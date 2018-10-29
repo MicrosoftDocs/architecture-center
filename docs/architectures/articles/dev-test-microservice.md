@@ -2,7 +2,7 @@
 title: Dev-Test deployment for testing microservice solutions
 description: This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Dev-Test deployment for testing microservice solutions
 This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.

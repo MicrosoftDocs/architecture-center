@@ -2,7 +2,7 @@
 title: Retail Assistant with Visual Capabilities - Cognitive Services 
 description: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Retail Assistant with Visual Capabilities - Cognitive Services 
 The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.

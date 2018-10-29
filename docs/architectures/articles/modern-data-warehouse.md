@@ -2,7 +2,7 @@
 title: Modern Data Warehouse Architecture 
 description: Explore a cloud data warehouse that uses big data. Modern data warehouse brings together all your data and scales easily as your data grows.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Modern Data Warehouse Architecture 
 A modern data warehouse lets you bring together all your data at any scale easily, and to get insights through analytical dashboards, operational reports, or advanced analytics for all your users.

@@ -2,7 +2,7 @@
 title: Anomaly Detection with Machine Learning 
 description: Microsoft Azures IT Anomaly Insights can help automate and scale anomaly detection for IT departments to quickly detect and fix issues.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Anomaly Detection with Machine Learning 
 Microsoft Azures IT Anomaly Insights can help automate and scale anomaly detection for IT departments to quickly detect and fix issues.

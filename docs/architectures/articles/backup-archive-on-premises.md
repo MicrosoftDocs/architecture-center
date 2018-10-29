@@ -2,7 +2,7 @@
 title: Archive on-premises data to cloud
 description: Archive your on-premises data to Azure Blob storage.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Archive on-premises data to cloud
 Archive your on-premises data to Azure Blob storage.

@@ -2,7 +2,7 @@
 title: Java CI/CD using Jenkins and Azure Web Apps 
 description: Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Java CI/CD using Jenkins and Azure Web Apps 
 Azure App Service is a fast and simple way to create web apps using Java, Node, PHP or ASP.NET, as well as support for custom language runtimes using Docker. A continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Azure app services allows you to deliver value faster to your customers.
@@ -24,7 +24,7 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 * [Azure Web Apps](href="http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale
 * [Container Instances](href="http://azure.microsoft.com/services/container-instances/): Easily run containers on Azure without managing servers
 * [Azure Database for MySQL](href="http://azure.microsoft.com/services/mysql/): Managed MySQL database service for app developers
-* Application Insights
+* Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](href="http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps

@@ -2,7 +2,7 @@
 title: Back up cloud applications and data to cloud
 description: Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Back up cloud applications and data to cloud
 Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.

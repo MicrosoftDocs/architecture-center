@@ -1,11 +1,11 @@
 ---
 title: Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
-description: Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Kubernetes in Azure Container Service, you can achieve replicable, manageable clusters of containers.
+description: Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Container CI/CD using Jenkins and Kubernetes on Azure Kubernetes Service (AKS)
-Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Kubernetes in Azure Container Service, you can achieve replicable, manageable clusters of containers.
+Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 By setting up a continuous build to produce your container images and orchestration, you can increase the speed and reliability of your deployment.
 
 ## Architecture

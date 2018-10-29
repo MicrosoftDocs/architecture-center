@@ -2,7 +2,7 @@
 title: Real-time Web Dashboard | Microsoft
 description: Securely monitor and control data streamed from Internet-connected devices
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Real-time Web Dashboard | Microsoft
 Securely monitor and control data streamed from Internet-connected devices.

@@ -2,7 +2,7 @@
 title: Lift and Shift and Innovate - LOB Apps 
 description: The solution demonstrates a business process for monitoring and responding to customer feedback. This architecture shows how to easily connect multiple business systems to enable a nimbler customer support.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Lift and Shift and Innovate - LOB Apps 
 This line-of-business application solution provides a mechanism for monitoring and responding to customer feedback. Easily connect multiple business systems to enable nimbler customer support.

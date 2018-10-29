@@ -2,7 +2,7 @@
 title: Demand Forecasting + Price Optimization 
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Demand Forecasting + Price Optimization 
 Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once theyve been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.

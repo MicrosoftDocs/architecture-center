@@ -7,7 +7,7 @@ are close enough for high availability replication,
 so your applications stay running, despite any
 issues at the physical locations.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Build high availability into your BCDR strategy
 

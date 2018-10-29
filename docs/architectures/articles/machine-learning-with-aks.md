@@ -2,7 +2,7 @@
 title: Machine Learning model training with AKS | Microsoft
 description: Machine Learning with AKS
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Machine Learning model training with AKS | Microsoft
 Training of models using large datasets is a complex and resource intensive task. Use familiar tools such as TensorFlow and Kubeflow to simplify training of Machine Learning models. Your ML models will run in AKS clusters backed by GPU enabled VMs.

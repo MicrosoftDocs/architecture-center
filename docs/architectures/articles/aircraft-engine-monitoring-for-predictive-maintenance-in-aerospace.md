@@ -2,7 +2,7 @@
 title: Predictive Aircraft Engine Monitoring 
 description: Microsoft Azures Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Predictive Aircraft Engine Monitoring 
 Microsoft Azures Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.

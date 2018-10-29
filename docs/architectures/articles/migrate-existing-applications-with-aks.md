@@ -2,7 +2,7 @@
 title: Lift and shift to containers with AKS | Microsoft
 description: Lift and shift to containers with AKS
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Lift and shift to containers with AKS | Microsoft
 Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS).  Control access via integration with AzureActive Directory and access SLA-backed Azure Services such as Azure Databasefor MySQL using OSBA (Opensource Broker for Azure) for your data needs.

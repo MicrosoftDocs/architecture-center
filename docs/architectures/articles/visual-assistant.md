@@ -4,7 +4,7 @@ Visual Assistant
 Visual Assistant - Cognitive Services 
 description: Visual assistant provides rich information based on content of the image with capabilities such as reading business card, identifying barcode, and recognizing popular people, places, objects, artworks, and monuments.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Visual Assistant
 Visual Assistant

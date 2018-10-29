@@ -2,7 +2,7 @@
 title: SAP S/4 HANA for Large Instances 
 description: Learn more about SAP HANA on Azure for large instances that includes high reliability and disaster recovery. Find out how NFS storage is used for large instances of SAP HANA.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # SAP S/4 HANA for Large Instances 
 This solution architecture illustrates how a user request flows through an SAP landscape built on high-performance Azure Virtual Machines and an in-memory HANA database running on HANA large instances for unparalleled scalability and performance. This system takes advantage of OS clustering for database performance, high availability using HANA system replication, and a full disaster recovery (DR) configuration for guaranteed system availability.

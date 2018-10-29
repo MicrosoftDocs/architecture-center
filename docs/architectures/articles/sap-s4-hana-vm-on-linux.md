@@ -2,7 +2,7 @@
 title: SAP S/4 HANA VM on Azure and Linux
 description: Learn more about the SAP S/4 HANA and Linux solution architecture for user requests with a step-by-step flow chart. See how Azure Virtual Machines power the entire system, and learn more about the advantages of this application solution.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # SAP S/4 HANA VM on Azure and Linux
 This SAP S/4HANA on Azure VM solution architecture illustrates how a user request flows through an SAP landscape built using high-performance Azure Virtual Machines and in-memory SAP HANA databases running on Azure Virtual Machines for unparalleled scalability and performance. This system takes advantage of Linux OS clustering for high availability, premium storage for performance, data replication for high availability via HANA System Replication (HSR), and a full disaster recovery (DR) configuration for guaranteed 99.95% system availability with asynchronous HSR.

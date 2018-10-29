@@ -2,7 +2,7 @@
 title: Defect prevention with predictive maintenance 
 description: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Defect prevention with predictive maintenance 
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.

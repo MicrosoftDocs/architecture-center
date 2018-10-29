@@ -2,7 +2,7 @@
 title: Instant Broadcasting on Serverless Architecture | Microsoft
 description: Simplify one-to-many real-time communication and updates using serverless code
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Instant Broadcasting on Serverless Architecture | Microsoft
 Simplify one-to-many real-time communication and updates using serverless code.

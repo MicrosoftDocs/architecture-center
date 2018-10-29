@@ -2,7 +2,7 @@
 title: Advanced Analytics Architecture 
 description: Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Advanced Analytics Architecture 
 Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.

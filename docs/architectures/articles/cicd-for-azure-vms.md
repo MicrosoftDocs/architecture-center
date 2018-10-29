@@ -2,7 +2,7 @@
 title: CI/CD for Azure VMs 
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # CI/CD for Azure VMs 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
@@ -26,7 +26,7 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 ## Components
 * [Virtual Machines](href="http://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
 * [Azure DevTest Labs](href="http://azure.microsoft.com/services/devtest-lab/): Quickly create environments using reusable templates and artifacts
-* Application Insights
+* [Application Insights](href="http://azure.microsoft.com/services/monitor/): Detect, triage, and diagnose issues in your web apps and services.
 * [Azure DevOps](href="http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps

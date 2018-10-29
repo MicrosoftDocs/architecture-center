@@ -2,7 +2,7 @@
 title: Medical Data Storage Solutions 
 description: Store healthcare data effectively and affordably with cloud-based solutions from Azure. Manage medical records with the highest level of built-in security.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Medical Data Storage Solutions 
 Cloud and hybrid solutions from Microsoft help you manage medical data storage efficiently and cost effectively, while infusing intelligence and maintaining compliance.
@@ -20,15 +20,15 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 
 ## Components
 * [Data Factory](href="http://azure.microsoft.com/services/data-factory/): Hybrid data integration at enterprise scale, made easy
-* Azure Data Lake Storage Gen1: Hyperscale repository for big data analytics workloads
+* [Data Lake Storage](href="http://azure.microsoft.com/services/storage/data-lake-storage/): Hyperscale repository for big data analytics workloads
 * [Cognitive Services](href="http://azure.microsoft.com/services/cognitive-services/): Add smart API capabilities to enable contextual interactions
-* [App Service](href="http://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
+* [Web Apps](href="http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical web apps at scale
 * [Security Center](href="http://azure.microsoft.com/services/security-center/): Unify security management and enable advanced threat protection across hybrid cloud workloads
 * [Azure Active Directory](href="http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
 * [Key Vault](href="http://azure.microsoft.com/services/key-vault/): Safeguard and maintain control of keys and other secrets
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure Monitor](href="http://azure.microsoft.com/services/monitor/): Highly granular and real-time monitoring data for any Azure resource
-* [Machine Learning Studio](href="http://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
+* [Machine Learning](https://docs.microsoft.comhref="http://azure.microsoft.com/azure/machine-learning/): Easily build, deploy, and manage predictive analytics solutions
 * [Power BI Embedded](href="http://azure.microsoft.com/services/power-bi-embedded/): Embed fully interactive, stunning data visualizations in your applications
 
 ## Next Steps

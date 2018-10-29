@@ -2,7 +2,7 @@
 title: Cross-platform Chat | Microsoft
 description: Accelerate development of reliable, high-performing chat applications
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Cross-platform Chat | Microsoft
 Accelerate development of reliable, high-performing chat applications.

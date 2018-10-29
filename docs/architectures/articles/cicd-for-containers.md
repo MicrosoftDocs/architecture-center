@@ -2,7 +2,7 @@
 title: CI/CD for Containers 
 description: Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # CI/CD for Containers 
 Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
@@ -26,7 +26,7 @@ By setting up a continuous build to produce your container images and orchestrat
 ## Components
 * [Container Registry](href="http://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
 * [Azure Kubernetes Service (AKS)](href="http://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
-* Application Insights
+* Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Azure DevOps](href="http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps

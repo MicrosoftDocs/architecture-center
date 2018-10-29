@@ -2,7 +2,7 @@
 title: Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, youll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Immutable Infrastructure CI/CD using Jenkins and Terraform on Azure Virtual Architecture overview
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use Java, Node.js, Go, or PHP to develop your applications, youll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.

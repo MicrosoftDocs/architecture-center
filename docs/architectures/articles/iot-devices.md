@@ -2,7 +2,7 @@
 title: IoT devices 
 description: Create seamless conversational interfaces with all of your internet-accessible devicesfrom your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # IoT devices 
 Create seamless conversational interfaces with all of your internet-accessible devicesfrom your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.

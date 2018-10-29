@@ -2,7 +2,7 @@
 title: Microservices with AKS | Microsoft
 description: Microservices with AKS
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Microservices with AKS | Microsoft
 Use AKS to simplify the deployment and management of microservices basedarchitecture. AKS streamlines horizontal scaling, self-healing, load balancing,secret management.

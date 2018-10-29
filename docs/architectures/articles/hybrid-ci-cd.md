@@ -2,7 +2,7 @@
 title: Hybrid CI/CD 
 description: Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Hybrid CI/CD 
 Implementing a continuous integration/continuous development (CI/CD) approach to deploying applications becomes difficult when on-premises applications are built and operated in different ways than cloud applications. Having a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments makes it far easier for organizations to implement a practice of CI/CD. Apps and services deployed the right way in Azure and Azure Stack are essentially interchangeable and can run in either location.

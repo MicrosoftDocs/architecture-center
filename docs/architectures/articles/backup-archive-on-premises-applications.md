@@ -2,7 +2,7 @@
 title: Back up on-premises applications and data to cloud
 description: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Back up on-premises applications and data to cloud
 Back up data and applications from an on-premises system to Azure using Azure Backup or a partner solution. An Internet connection to Azure is used to connect to Azure Backup or Azure Blob storage. Azure Backup Server can write backups directly to Azure Backup. Alternatively, a partner solution such as Commvault Simpana or Veeam Availability Suite, hosted on-premises, can write backups to Blob storage directly or via a cloud endpoint such as Veeam Cloud Connect.

@@ -2,7 +2,7 @@
 title: Image classification with Convolutional Neural Networks 
 description: Explore transfer learning, convolutional neural networks, and gradient-boosting decision tree algorithms.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Image classification with Convolutional Neural Networks 
 Lean manufacturing, cost control, and waste reduction are imperative for manufacturing to remain competitive. In circuit-board manufacturing, faulty boards can cost manufacturers money and productivity. Assembly lines rely on human operators to quickly review and validate boards flagged as potentially faulty by assembly-line test machines.

@@ -2,7 +2,7 @@
 title: Social App for Mobile and Web with Authentication 
 description: View a detailed, step-by-step diagram depicting the build process and implementation of the mobile client app architecture that offers social image sharing with a companion web app and authentication abilities, even while offline.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Social App for Mobile and Web with Authentication 
 This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager.
@@ -15,7 +15,7 @@ The mobile client app works in offline mode, allowing you to view and upload ima
 1. Create the app using Visual Studio and Xamarin.
 1. Add the Azure App Service Mobile Apps back end service to the app solution.
 1. Implement authentication through social identity providers.
-1. Store non-image data in CosmosDB and cache it in Redis Cache.
+1. Store non-image data in CosmosDB and cache it in Azure Cache for Redis.
 1. Store uploaded images in Azure Blob Storage.
 1. Queue messages about newly uploaded images.
 1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.

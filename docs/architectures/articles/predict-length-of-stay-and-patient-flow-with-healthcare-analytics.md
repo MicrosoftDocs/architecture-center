@@ -2,7 +2,7 @@
 title: Predict Length of Stay and Patient Flow 
 description: Learn how to predict capacity and patient flow for your hospital or healthcare facility to enhance the quality of care and improve operational efficiency.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Predict Length of Stay and Patient Flow 
 For the people running a healthcare facility, length of staythe number of days from patient admission to dischargematters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.

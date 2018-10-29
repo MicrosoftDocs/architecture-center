@@ -2,7 +2,7 @@
 title: Information discovery with deep learning and NLP 
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 author: adamboeglin
-ms.date: 10/18/2018
+ms.date: 10/29/2018
 ---
 # Information discovery with deep learning and NLP 
 Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users discretion. And since users dont have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when its needed later.
