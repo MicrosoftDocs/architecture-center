@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: Build the foundation for Operational Transformation Journey (OTJ)
+# Enterprise Cloud Adoption: Change Management and Oversight of an Operational Transformation Journey (OTJ)
 
 [Operational Transformation](overview.md) is one of the [Transformation Journeys](../overview.md) included in the [Enterprise Cloud Adoption (ECA) framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility. This article focuses on Change Management and Oversight within a transformation.
 
@@ -17,7 +17,7 @@ Download the full size infographic: [pdf format](../../_images/operational-trans
 
 ## Iterative (Agile or Sprint Approaches)
 
-An iterative approach to change management and oversight is suggested during Operational Transformation. Such an approach encourages experimentation and learning as the team matures cloud operations. Learn more about [backlog management](../../migrate/plan/iterative-change-management.md) to control change and oversee technical efforts.
+An iterative approach to change management and oversight is suggested during Operational Transformation. Such an approach encourages experimentation and learning as the team matures cloud operations. Learn more about [backlog management](../../migration/plan/iterative-change-management.md) to control change and oversee technical efforts.
 
 Incremental execution of Operational Transformation processes tend to produce greater outcomes, improved stability, and relatively higher governance maturity at earlier stages of transformation. Leading with a Growth Mindset, allows teams to agree on a Minimally Viable Products (MVP) and organically grow rapidly from there.
 
