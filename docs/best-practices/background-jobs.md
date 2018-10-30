@@ -233,10 +233,10 @@ Consider the following points if you are implementing background tasks in a web 
     var freeze = CloudConfigurationManager.GetSetting("Freeze");
     if (freeze != null)
     {
-     if (Boolean.Parse(freeze))
-       {
-         Thread.Sleep(System.Threading.Timeout.Infinite);
-     }
+      if (Boolean.Parse(freeze))
+      {
+        Thread.Sleep(System.Threading.Timeout.Infinite);
+      }
     }
     ```
     

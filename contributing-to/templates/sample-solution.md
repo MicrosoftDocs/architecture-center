@@ -6,10 +6,21 @@ ms.date: <publish or update date - mm/dd/yyyy>
 ---
 # Article Title
 
+The title is a noun phrase that describes the scenario.
+
+> Example: "Insurance claim image classification on Azure"
+
+Avoid naming the scenario after the Azure technologies that are used.
+
+<Introductory section (no heading)>
+
 > This should be an introduction of the business problem and why this scenario was built to solve it.
 >> What industry is the customer in?  
 >> What prompted them to solve the problem?  
->> What was the benefits of implementing the solution described blow?
+>> What services were used in building out this solution?
+>> What does this example scenario show? What are the customer's goals?  
+
+> What were the benefits of implementing the solution described blow?
 
 ## Potential use cases
 
@@ -31,14 +42,16 @@ These other uses cases have similar design patterns:
 
 ### Components
 
+A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
+
 > Why is each component there?  
 > What does it do and why was it necessary?
 
-* List of components with links to documentation.
-
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
+* Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
+
+Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
 
 > What alternative technologies were considered and why didn't we use them?
 
@@ -58,6 +71,7 @@ These other uses cases have similar design patterns:
 
 ## Deploy this scenario
 
+
 > (Optional if it doesn't make sense)
 >
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
@@ -68,15 +82,10 @@ These other uses cases have similar design patterns:
 > Are there ways I could save cost?  
 > If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
 > What are the components that make up the cost?  
-> How does scale effect the cost  
+> How does scale effect the cost?
 > 
-> Link to the pricing calculator with all of the components outlined.  If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
-
-We have provided three sample cost profiles based on amount of traffic you expect to get:
-
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.  
+> If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
 ## Next Steps
 
@@ -87,11 +96,11 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 > Are there any relevant case studies or customers doing something similar?
 > Is there any other documentation that might be useful?  
+> Are there product documents that go into more detail on specific technologies not already linked
+
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
+[calculator]: https://azure.com/e/
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/
