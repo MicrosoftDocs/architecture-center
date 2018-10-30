@@ -108,7 +108,7 @@ For other information about running SAP production workloads in Azure, review th
 
 | Image | Name |
 |---|---|
-| ![](https://avatars3.githubusercontent.com/u/35349275?s=50&v=4) | <b>Dharmesh Bhagat</b><p>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars3.githubusercontent.com/u/35349275?s=50&v=4) | **Dharmesh Bhagat**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: media/architecture-sap-production.png
