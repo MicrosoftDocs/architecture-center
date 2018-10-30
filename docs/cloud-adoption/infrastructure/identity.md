@@ -2,15 +2,15 @@
 title: "Enterprise Cloud Adoption: Identity" 
 description: Discussion of Identity as a core service in Azure migrations
 author: rotycenh
-ms.date: 10/26/2018
+ms.date: 10/29/2018
 ---
 
 # Enterprise Cloud Adoption: Identity
 
 As with on-premises environments, IT staff responsible for maintaining and
-securing resources in the cloud environments need to control the users and
-groups with access to resources. Identity and access management (IAM) services
-allow you manage access control within your IT estate.
+securing resources in cloud environments need to control which users and
+groups have access to resources. Identity and access management (IAM) services
+allow you to manage access control within your IT estate.
 
 ## Determine Identity Integration Requirements
 
@@ -31,8 +31,9 @@ following are common integration scenarios:
 
 ### Cloud native
 
+Public cloud platforms provide a native IAM system capable of granting users and groups access to management features.
 If your organization currently lacks a significant on-premises identity
-solution, and where migrating or new workloads will be compatible with cloud-based
+solution, and where migrating workloads will be compatible with cloud-based
 authentication mechanisms, it makes sense to simply build your identity
 infrastructure using a cloud native identity service.
 
@@ -40,7 +41,7 @@ infrastructure using a cloud native identity service.
 
 For organizations with an existing Identity infrastructure, federation is often
 the best solution for preserving existing user and access management while
-providing the required IAM capabilities for managing Azure resources. Federation
+providing the required IAM capabilities for managing cloud resources. Federation
 syncs directory information between the cloud and on-premises environments,
 allowing single sign-in for users and a consistent role and permission system
 across your entire organization.
@@ -94,11 +95,11 @@ rely on Azure AD for identity and access management.
 As with on-premises resources, you will need to organize staff into groups of
 people to take on assorted responsibilities or roles, and provide these roles
 with access to the required Azure resources. While Azure removes the need for
-some traditional on-premises roles—facilities management and physical security,
-for example—many other responsibilities such as network security and operations
+some traditional on-premises roles, such as facilities management and physical security,
+many other responsibilities such as network security and operations
 can work much like they do in a physical datacenter.
 
-To manage access to resources efficiently and securely in the management plane,
+For efficiently and securely managing access to resources in the management plane,
 Azure supports role-based access control (RBAC) through Azure AD. Using RBAC,
 jobs and responsibilities are organized into Azure AD roles, to which users are
 assigned.
@@ -122,7 +123,7 @@ teams best suited to manage them.
 While Azure AD is the only supported IAM mechanism for the Azure management
 plane and most Azure-hosted PaaS services, IaaS workloads are free to use
 whatever identity solutions are supported by the OS and applications running on
-the relevant VMs.
+the workload's VMs.
 
 Azure AD offers a [variety of
 mechanisms](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-types)

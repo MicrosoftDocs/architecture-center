@@ -709,7 +709,8 @@
     - name: Encryption
       href: cloud-adoption/infrastructure/encryption.md
       items:
-    - name: Logs & Reports
+    - name: Logs & Reporting
+      href: cloud-adoption/infrastructure/logs-and-reporting.md
       items:
     - name: Virtual Machines
       items:
