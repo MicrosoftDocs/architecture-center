@@ -95,7 +95,7 @@ Our parameters look like this:
   },
 ```
 
-Our template also defines a variable named `instance`. It performs the actual tranform of our `source` object into the required JSON schema:
+Our template also defines a variable named `instance`. It performs the actual transform of our `source` object into the required JSON schema:
 
 ```json
   "variables": {
