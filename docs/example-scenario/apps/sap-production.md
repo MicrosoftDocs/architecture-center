@@ -97,5 +97,14 @@ For other information about running SAP production workloads in Azure, review th
 * [SAP S/4HANA](/azure/architecture/reference-architectures/sap/sap-s4hana)
 * [SAP HANA large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
 
+## Contributors
+
+<table>
+    <tr>
+        <td><img "https://avatars3.githubusercontent.com/u/35349275?s=50&v=4"></td>
+        <td><b>Dharmesh Bhagat</b>, Senior FastTrack Engineer, Microsoft</td>
+    </tr>
+</table>
+
 <!-- links -->
 [architecture]: media/architecture-sap-production.png
