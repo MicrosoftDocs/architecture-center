@@ -97,20 +97,19 @@ For other information about running SAP production workloads in Azure, review th
 * [SAP S/4HANA](/azure/architecture/reference-architectures/sap/sap-s4hana)
 * [SAP HANA large instances](/azure/architecture/reference-architectures/sap/hana-large-instances)
 
-## Contributors 2
+## Contributors - Two column table
 
-<div>
-<img style="float: left;" src="https://avatars3.githubusercontent.com/u/35349275?s=100&v=4">
-**Dharmesh Bhagat**<br>
-Senior FastTrack Engineer, Microsoft
-</div>
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/35349275?s=100&v=4) | **Dharmesh Bhagat**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
 
-## Contributors
+## Contributors - Eight column table
 
-| | | | | | | | | | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![](https://avatars3.githubusercontent.com/u/35349275?s=100&v=4) | **Dharmesh Bhagat**<br>Senior FastTrack Engineer, Microsoft | | | | | | | |
-| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft | | | | | | | |
+| | | | | | | | |  
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/35349275?s=100&v=4) | **Dharmesh Bhagat**<br>Senior FastTrack Engineer, Microsoft | | | | | | |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft | | | | | | |
 
 <!-- links -->
 [architecture]: media/architecture-sap-production.png
