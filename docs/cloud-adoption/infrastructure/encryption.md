@@ -2,7 +2,7 @@
 title: "Enterprise Cloud Adoption: Encryption" 
 description: Discussion of encryption as a core service in Azure migrations
 author: rotycenh
-ms.date: 10/26/2018
+ms.date: 10/29/2018
 ---
 
 # Enterprise Cloud Adoption: Encryption
@@ -10,7 +10,7 @@ ms.date: 10/26/2018
 Encrypting data, either in the cloud or on-premises, protects it against
 unauthorized access. In the cloud, properly implemented encryption policy can
 provide additional layers of security to your workloads, and safeguard against
-attackers and other unauthorized users from both outside and inside your
+attackers and other unauthorized users from both inside or outside your
 organization and networks.
 
 While encrypting resources is generally desirable, encryption does have costs
@@ -60,8 +60,8 @@ secure, trusted execution environments.
 
 A key management system is critical to your organizations ability to create and
 store cryptographic keys, important passwords, connection strings, and other IT
-secrets. Modern key management systems should include offer support for storing
-keys using hardware security modules (HSMs).
+secrets. Modern key management systems should offer support for storing
+keys using hardware security modules (HSMs) for increased protection.
 
 When planning a cloud migration understanding what kind of key management system
 will be used is critical:
@@ -102,7 +102,7 @@ overview](https://docs.microsoft.com/en-us/azure/security/security-azure-encrypt
 [Azure's confidential
 computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/)
 initiative provides tools and technology to create trusted execution
-environments (TEEs) or encryption mechanisms to secure data in use.
+environments (TEEs) or other encryption mechanisms to secure data in use.
 
 ## Azure Key Vault
 
@@ -121,5 +121,5 @@ Keys stored in Key Vault can be used to encrypt storage assets, and to secure
 PaaS services or individual applications (for example, storing a database
 connection string in key vault instead of an application's configuration files
 or environment variables). Authorized applications and services within Azure
-deployments can use, but not modify, keys stored in Key Vault. Only key owners
-can make those changes through Key Vault.
+deployments can use, but not modify, keys stored in Key Vault. Only authorized key owners
+can make changes through Key Vault.
