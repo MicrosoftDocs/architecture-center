@@ -7,7 +7,7 @@ ms.date: 10/29/2018
 
 # Enterprise Cloud Adoption: Logs, Reporting, and Monitoring
 
-Any IT team need mechanisms notifying them of performance, uptime, and security
+All organizations need mechanisms notifying IT teams of performance, uptime, and security
 issues before they become serious problems. A successful monitoring strategy
 allows you to understand how the individual components that make up your
 workloads and networking infrastructure are performing. Within the context of a
