@@ -108,11 +108,11 @@ For other information about running SAP production workloads in Azure, review th
 
 <table>
     <tr>
-        <td><img src="https://avatars3.githubusercontent.com/u/35349275?s=100&v=4"></td>
+        <td style="width:130px"><img src="https://avatars3.githubusercontent.com/u/35349275?s=100&v=4"></td>
         <td><b>Dharmesh Bhagat</b><br>Senior FastTrack Engineer, Microsoft</td>
     </tr>
     <tr>
-        <td><img src="https://avatars3.githubusercontent.com/u/27705684?s=100&v=4"></td>
+        <td style="width:130px"><img src="https://avatars3.githubusercontent.com/u/27705684?s=100&v=4"></td>
         <td><b>Alex Buck</b><br>Senior Content Developer, Microsoft</td>
     </tr>
 <table>
