@@ -10,60 +10,48 @@ ms.date: 10/11/2018
 Cloud Rationalization is the process of evaluating assets to determine the best approach to hosting the asset in the cloud.
 Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, Cloud Rationalization can begin.
 
-At one point in time, every enterprise deploys its first application to solve a critical business problem. Fast forward several years, that first application has likely multiplied. Today's business society has an application addiction. New opportunities to accelerate the business through technology constantly arise. The larger an enterprise, the less likely the IT organization is to understand the subtle similarities between applications. This leads to duplicated solutions. Eventually those business needs change again, often times leading to a drop in usage of the once needed applications.
-
-In a traditional on-premise environment, all of these applications live on in perpetuity as a sunk cost of operating the IT infrastructure. The cost of continued support of those applications is often outweighed by the cost and time impact of rationalizing and terminating unused applications. Transformations empowered by the cloud change this equation.
-
-Cost is a fundamental constraint in the architecture of any cloud based system. Investing in the transformation of unused apps is wasteful. It can be equally wasteful to invest in transformations that don't produce business outcomes or outcomes that can be consumed by the business. Prior to transforming the digital estate, it is wise to rationalize the inventory to reduce cost and better plan the future state.
-
-## Suggested approach to rationalization
-
-The article on [assessment approach](approach.md) discussed the different approaches to assessment, which drives the rationalization process. As mentioned in that article, ECA aligns to an Incremental Approach to assessment. The following guidance similarly aligns to an incremental approach.
-
-Cloud rationalization equates to a decision between 6 Rs. Jump to [7Rs of rationalization](#6-rs-of-rationalization) for a description of each. This decision decides the fate for an application based on the transformation journey being completed.
-
-It is suggested that the [Transformation Journey](../transformation-journeys/overview.md) serve as a guide to rationalization. Limiting the number of options helps teams more quickly reach consensus, reducing analysis paralysis.
-
-### First steps to all transformations
-
-The first step of any rationalization effort is to evaluate the first R, Retire. Understanding application road maps, monitoring asset utilization, and interviewing power users can quickly identify applications that are no longer used regularly. For the sake of a cloud empowered transformation, these assets are labeled as retired. They may still live on in the data center, but are removed from any transformation efforts. 
-
-The next step to rationalization is the evaluation of the last R, Replace. Applications that should be replaced with a modern SaaS approach, like Office365 to replace Exchange for email hosting, can produce significant efficiencies. For the sake of a cloud empowered transformation, these assets are labeled as replace. They may still live on in the data center until a later project can upgrade the assets, but they are removed from any of the current transformation efforts.
-
-From this point forward guidance assumes that any assets being reviewed are not slated for retirement or replacement.
-
-### [Operational Transformation](../transformation-journeys/operational-transformation/overview.md)
-
-Operational transformation focuses heavily on creating operational efficiencies across IT and the business. This most commonly equates to a re-host, refactor, or reconfigure decision.
-
-During initial assessment, the decision can be simplified to one question, **"Should this asset be re-hosted?"**. If the answer is yes, it is included in the migration backlog.
-
-In the [Assess activities](../migration/execute/assess.md) of the [Migrate process](../migration/overview.md), this question becomes slightly more complex, but can still be simplified to a few questions:
-
-* Re-host: Based on current configuration, is the asset compatible with a re-host deployment to the selected cloud provider?
-* Remediate: If not compatible, does the cost to [remediate](../migration/execute/remediate.md) exceed the value of migrating the asset?
-* Refactor: For some assets, such as databases, the cost of re-factoring the solution into a PaaS solution is so low that a refactoring is warranted during transformation.
-* Reconfigure: In some cases, operational gains can be generated from a devops or container based deployment. Additionally, some models of containerized deployments could change the compatibility requirements of the chosen cloud provider. In either of those cases, a reconfigure option may be more appropriate than a simple re-host.
-
-More details regarding refactor and reconfigure are available in the [Assess activities](../migration/execute/assess.md) of the [Migrate process](../migration/overview.md).
-
-### [Incremental Transformation](../transformation-journeys/incremental-transformation.md)
-
-During Incremental Transformations, customers and existing applications are the most common focus. In both the initial assessment and later validation activities, it is suggested that team members focus on deciding between Refactor, Re-architect, or Re-configure options. The primary driver of this decision is based on the ability to rapidly iterate & improve experiences based on the current architecture.
-
-When possible a refactor approach will produce results more quickly, assuming incremental development options are possible with the current architecture. 
-
-Some applications (especially older applications) are not compatible with the cloud. Others could be architected with a sufficient degree of complexity to prevent a continuous improvement approach. In these cases, the application may need to be re-architected to achieve the desired business outcomes.
-
-In some cases, an application may benefit from a migration into a containerized solution, without re-architecting the solution. This re-configuration option has become more common in recent years.
-
-### [Disruptive Transformation](../transformation-journeys/disruptive-transformation.md)
-
-Disruptive transformations often start with data as a catalyst. New ways of delivering a product or service tend to be a common outcome. In these scenarios, the data within the digital estate is often most important. Some times, existing applications can be used to accelerate disruptive changes. Each (data & apps) should be assessed.
-
-Data could results in Rebuild/Build, Re-host, or refactor options, similar to the the [Assess activities](../migration/execute/assess.md) of the [Migrate process](../migration/overview.md).
-
-Applications could result in refactor, re-architect, or Reconfigure options, like those seen in Incremental Transformations.
+Cloud Rationalization is an evolution of application rationalization, the process of removing duplicated applications in favor of standardized solutions. When the thought of application rationalization emerged in the early 2000s, there were originally only four or five options to rationalizing an inventory of applications. As time progressed additional options have emerged, making the process slightly more complex. For assistance aligning rationalization options to specific transformation, see the article on [rationalization](rationalize.md).
 
 ## 8 Rs rationalization
-Discuss rationalization options (Retire, Remediate, Re-host, Reconfigure, Refactor, Re-architect, Rebuild, Replace)
+
+### Retire
+
+Processes and business needs change. Some applications or workloads no longer provide a business purposes. Detecting these applications can help reduce investments and operational costs associated with a transformation.
+
+### Replace
+
+Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+
+### Remediate
+
+Operating systems reach end of life, middleware platforms drops support for old versions. The cloud is no exception. When assets don't meet basic compatibility requirements, they may need an interim rationalization state called Remediation. During this process, the solution is brought up to more current standards before it can be fully rationalized.
+
+### Re-host
+
+Also known as "Lift & Shift", a re-host effort moves the current state asset to the chosen cloud provider, with minimal change to current state.
+
+### Reconfigure
+
+The options for configuration and deployment management has grown since the concept of application rationalization was coined. For many solutions, it could make more sense to change the deployment configuration of a solution by creating an automated devops deployment of the workload. In other cases, it may more sense to package the solution in a container prior to re-hosting.
+
+### Refactor
+
+Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
+
+Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
+
+### Re-architect
+
+Some aging applications aren't compatible with cloud providers because of the architectures used to create them. In these cases, the application may need to be rearchitected prior to transformation. In other cases, cloud native benefits may warrant re-architecting an application prior to deployment.
+
+### Rebuild
+
+In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are no unsupported &/or misaligned with how the business processes are executed today.
+
+
+## Next steps
+
+These 8 Rs of Rationalization can be applied to a Digital Estate to make [rationalization](rationalize.md) decisions regarding the future state of each application.
+
+> [!div class="nextstepaction"]
+> [Rationalize the Digital Estate](rationalize.md)

@@ -15,6 +15,7 @@ Migration to the cloud is deceptively similar to migration to a new data center.
 ## Iterative Approach to Change Management
 
 ![Iterative Approach to change management](../../_images/operational-transformation-manage.png)
+
 *Figure 1. Iterative Approach to change management*
 
 In the graphic above, management of Operational Transformation is represented as three concentric rings. Each ring represents an iterative layer of management, as follows:

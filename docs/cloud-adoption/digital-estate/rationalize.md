@@ -26,9 +26,9 @@ It is suggested that the [Transformation Journey](../transformation-journeys/ove
 
 ### First steps to all transformations
 
-The first step of any rationalization effort is to evaluate the first R, Retire. Understanding application road maps, monitoring asset utilization, and interviewing power users can quickly identify applications that are no longer used regularly. For the sake of a cloud empowered transformation, these assets are labeled as retired. They may still live on in the data center, but are removed from any transformation efforts. 
+The first step of any rationalization effort is to evaluate candidates for Retirement. Understanding application road maps, monitoring asset utilization, and interviewing power users can quickly identify applications that are no longer used regularly. For the sake of a cloud empowered transformation, these assets are labeled as retired. They may still live on in the data center, but are removed from any transformation efforts.
 
-The next step to rationalization is the evaluation of the last R, Replace. Applications that should be replaced with a modern SaaS approach, like Office365 to replace Exchange for email hosting, can produce significant efficiencies. For the sake of a cloud empowered transformation, these assets are labeled as replace. They may still live on in the data center until a later project can upgrade the assets, but they are removed from any of the current transformation efforts.
+The next step to rationalization is the evaluation of candidates for Replacement. Applications that should be replaced with a modern SaaS approach, like Office365 for email hosting, can produce significant efficiencies. For the sake of a cloud empowered transformation, these assets are labeled as replace. They may still live on in the data center until a later project can upgrade the assets, but they are removed from any of the current transformation efforts.
 
 From this point forward guidance assumes that any assets being reviewed are not slated for retirement or replacement.
 
@@ -61,7 +61,7 @@ In some cases, an application may benefit from a migration into a containerized 
 
 Disruptive transformations often start with data as a catalyst. New ways of delivering a product or service tend to be a common outcome. In these scenarios, the data within the digital estate is often most important. Some times, existing applications can be used to accelerate disruptive changes. Each (data & apps) should be assessed.
 
-Data could results in Rebuild/Build, Re-host, or refactor options, similar to the the [Assess activities](../migration/execute/assess.md) of the [Migrate process](../migration/overview.md).
+Data could results in Rebuild/Build, Re-host, or refactor options, similar to the [Assess activities](../migration/execute/assess.md) of the [Migrate process](../migration/overview.md).
 
 Applications could result in refactor, re-architect, or Reconfigure options, like those seen in Incremental Transformations.
 
