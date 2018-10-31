@@ -205,3 +205,10 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 |   Content management in the cloud    |                   None                    |   [SharePoint Online](https://products.office.com/sharepoint)    |                                                                          Provides a collaborative way for individuals, teams, and organizations to intelligently discover, share, and collaborate on content from anywhere and on any device.                                                                           |
 | Commercial PaaS-IaaS-DBaaS framework |                   None                    | [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) |                                                                                                            A hybrid cloud platform that lets you deliver Azure services from your organization’s datacenter.                                                                                                            |
 
+## Gaming
+
+|                 Area          | AWS service  | Azure service                      | Description                                             |
+|-------------------------------|--------------|------------------------------------|---------------------------------------------------------|
+| Scalable game servers         | GameLift     | [PlayFab](https://playfab.com/)    | Managed services for hosting dedicated game servers.    |
+| Gaming services and LiveOps   | GameSparks   | [PlayFab](https://playfab.com/)    | Services for things like identity, authentication, leaderboards, real-time analytics, and more. |
+| Automated 3D optimization     | None         | [Simplygon](https://simplygon.com) | Adapt 3D assets to run smoothly on any platform.        |
