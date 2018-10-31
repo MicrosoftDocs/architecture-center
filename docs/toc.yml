@@ -698,7 +698,8 @@
       href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
     - name: Subscription
       items:
-    - name: Resource Tags
+    - name: Resource Organization and Tagging
+      href: cloud-adoption/infrastructure/resource-naming-and-tagging.md
       items:
     - name: Software Defined Network
       href: cloud-adoption/infrastructure/software-defined-networks.md
