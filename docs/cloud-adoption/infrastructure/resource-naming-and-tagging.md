@@ -86,7 +86,7 @@ subscriptions, [Naming
 Standards](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#naming-standards)
 and [Resource
 Tags](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-tags)
-are the standard way to provide fine-tuned resource organization in the cloud
+are the standard way to provide fine-tuned resource organization in the Azure
 platform for both management and accounting purposes.
 
 For an example of best practice naming recommendations for Azure, refer to the
