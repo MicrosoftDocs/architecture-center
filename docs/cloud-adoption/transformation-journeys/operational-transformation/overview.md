@@ -18,7 +18,6 @@ Operational Transformation is one of the [Transformation Journeys](../overview.m
                 <div class="card">
                     <div class="cardText">
                         <h2>Infographic</h2><br/>
-                        
                         <img src="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic-small.png"  data-linktype="absolute-path" alt="Figure 1. Operational Transformation Journey infographic." /><br/>
                         *Figure 1. Operational Transformation Journey infographic.*<br/><br/>
                         Download the full size infographic: <a href="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic.png" data-linktype="absolute-path" color="blue">png</a> | <a href="/azure/architecture/cloud-adoption/_images/operational-transformation-infographic.pdf" data-linktype="absolute-path" color="blue">pdf</a>
