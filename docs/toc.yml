@@ -584,8 +584,6 @@
       href: cloud-adoption/business-strategy/transformation-metrics.md
     - name: Financial Models
       href: cloud-adoption/business-strategy/financial-models.md
-    - name: Digital Estate
-      href: cloud-adoption/business-strategy/digital-estate.md
     - name: Risk & Tolerance
       href: cloud-adoption/business-strategy/risk-tolerance.md
     - name: Cloud Accounting
@@ -600,6 +598,20 @@
       href: cloud-adoption/culture-strategy/translate-roles-skills-processes-to-the-cloud.md  
     - name: How to ensure the team has the necessary skills?
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
+  - name: Digital Estate
+      items: 
+    - name: Overview - What is a digital estate?
+      href: cloud-adoption/digital-estate/overview.md
+    - name: Assessment Approaches - What's important to our goals?
+      href: cloud-adoption/digital-estate/approach.md
+    - name: Inventory Assets - What do we own?
+      href: cloud-adoption/digital-estate/inventory.md
+    - name: Rationalize - What goes in the cloud?
+      href: cloud-adoption/digital-estate/rationalize.md
+    - name: Cost Calculations - What will it cost?
+      href: cloud-adoption/digital-estate/calculate.md
+    - name: 8 Rs of Rationalization - What are my options?
+      href: cloud-adoption/digital-estate/8-rs-of-rationalization.md
   - name: Migration
     items:
     - name: Overview (Azure Migration Guide)
