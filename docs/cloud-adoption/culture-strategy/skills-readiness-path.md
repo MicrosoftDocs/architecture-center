@@ -11,7 +11,7 @@ IT staff members may feel anxious about their roles and positions as they realiz
 
 ## Typical mappings of cloud IT roles include:
 
-![Mapping of skills to IT roles in a cloud hosted environment](../_images/governance-and-services.png)
+![Mapping of skills to IT roles in a cloud hosted environment](../_images/skills-guidance.png)
 *Figure 1. Mapping of skills to IT roles in a cloud hosted environment*
 
 Microsoft and partners offer a variety of options for all audiences to develop their skills with Microsoft Azure services.

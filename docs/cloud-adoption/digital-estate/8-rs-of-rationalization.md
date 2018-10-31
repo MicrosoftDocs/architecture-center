@@ -20,7 +20,7 @@ Cost is a fundamental constraint in the architecture of any cloud based system. 
 
 The article on [assessment approach](approach.md) discussed the different approaches to assessment, which drives the rationalization process. As mentioned in that article, ECA aligns to an Incremental Approach to assessment. The following guidance similarly aligns to an incremental approach.
 
-Cloud rationalization equates to a decision between 8 Rs. [8 Rs of rationalization](8-rs-of-rationalization.md) describes each in detail. This decision decides the fate for an application based on the transformation journey being completed.
+Cloud rationalization equates to a decision between 6 Rs. Jump to [7Rs of rationalization](#6-rs-of-rationalization) for a description of each. This decision decides the fate for an application based on the transformation journey being completed.
 
 It is suggested that the [Transformation Journey](../transformation-journeys/overview.md) serve as a guide to rationalization. Limiting the number of options helps teams more quickly reach consensus, reducing analysis paralysis.
 
@@ -65,11 +65,5 @@ Data could results in Rebuild/Build, Re-host, or refactor options, similar to th
 
 Applications could result in refactor, re-architect, or Reconfigure options, like those seen in Incremental Transformations.
 
-## Next steps
-
-The output of a rationalization effort is a prioritized backlog of all assets to be impacted by the chosen transformation.
-
-This backlog is now ready to serve as the foundation for [costing models of cloud services](calculate.md).
-
-> [!div class="nextstepaction"]
-> [Price calculations for cloud services](calculate.md)
+## 8 Rs rationalization
+Discuss rationalization options (Retire, Remediate, Re-host, Reconfigure, Refactor, Re-architect, Rebuild, Replace)

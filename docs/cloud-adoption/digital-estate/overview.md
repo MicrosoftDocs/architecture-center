@@ -15,9 +15,9 @@ The importance of a digital estate is most obvious during planning and execution
 
 The measurement of a digital estate changes depending on the desired Digital Transformation and corresponding Transformation Journey.
 
-* Operational Transformation: When an organization is inward facing and seeks to optimize cost, operational processes, agility, or other aspects of optimizing operations, the digital estate focuses on Virtual Machines, Servers, and supporting workloads.
-* Incremental Transformation: For customer obsessed transformations, the lense is a bit difference. The focus here is more wisely placed in the applications, APIs, and transactional data that support the customers. VMs and network appliances are often of less focus.
-* Disruptive Transformation: In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During disruptive transformation, the focus is more on the silos of data across the organization. 
+* [Operational Transformation](../transformation-journeys/operational-transformation/overview.md): When an organization is inward facing and seeks to optimize cost, operational processes, agility, or other aspects of optimizing operations, the digital estate focuses on Virtual Machines, Servers, and supporting workloads.
+* [Incremental Transformation](../transformation-journeys/incremental-transformation.md): For customer obsessed transformations, the lense is a bit difference. The focus here is more wisely placed in the applications, APIs, and transactional data that support the customers. VMs and network appliances are often of less focus.
+* [Disruptive Transformation](../transformation-journeys/disruptive-transformation.md): In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During disruptive transformation, the focus is more on the silos of data across the organization.
 
 Once an organization understands the most important form of transformation, digital estate planning becomes much easier to manage.
 
@@ -26,15 +26,15 @@ Once an organization understands the most important form of transformation, digi
 
 ## How can a financial model be updated to reflect the digital estate?
 
-An analysis of the digital estate will drive cloud adoption activities and inform any financial models to calculate cloud costs/Return on Investment (ROI).
+An analysis of the digital estate will drive cloud adoption activities. It will also inform financial models by providing cloud costing models, which will in turn drive Return on Investment (ROI).
 
 The steps to accomplish each is below:
 
-* Determine analysis approach
-* Collect current state inventory
+* [Determine analysis approach](approach.md)
+* [Collect current state inventory](inventory.md)
 * Evaluate the initial digital estate for accuracy and completeness
-* Rationalize the assets in the estate
-* Align assets to Cloud offerings to calculate pricing
+* [Rationalize the assets in the digital estate](rationalize.md)
+* [Align assets to Cloud offerings to calculate pricing](price.md)
 
 Financial models and Migration Backlogs can be modified to reflect the rationalized and priced estate.
 
