@@ -599,7 +599,7 @@
     - name: How to ensure the team has the necessary skills?
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
   - name: Digital Estate
-      items: 
+    items: 
     - name: Overview - What is a digital estate?
       href: cloud-adoption/digital-estate/overview.md
     - name: Assessment Approaches - What's important to our goals?
