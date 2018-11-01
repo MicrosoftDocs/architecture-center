@@ -2,6 +2,7 @@
 title: Criteria for choosing a data store
 description: Overview of Azure compute options
 author: MikeWasson
+ms.date: 06/01/2018
 ---
 
 # Criteria for choosing a data store

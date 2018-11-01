@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology with shared services in Azure
 description: >-
   How to implement a hub-spoke network topology with shared services in Azure.
 author: telmosampaio
-ms.date: 06/19/2018
+ms.date: 10/09/2018
 
 pnp.series.title: Implement a hub-spoke network topology with shared services in Azure
 pnp.series.prev: hub-spoke
