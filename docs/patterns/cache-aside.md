@@ -64,7 +64,7 @@ This pattern might not be suitable:
 
 In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. 
 
-This following code examples use the [StackExchange.Redis][https://github.com/StackExchange/StackExchange.Redis] client, which is a Redis client library written for .NET. To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
+This following code examples use the [StackExchange.Redis] client, which is a Redis client library written for .NET. To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
@@ -149,3 +149,6 @@ The following information may be relevant when implementing this pattern:
 - [Caching Guidance](https://docs.microsoft.com/azure/architecture/best-practices/caching). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
+
+
+[StackExchange.Redis]: https://github.com/StackExchange/StackExchange.Redis
