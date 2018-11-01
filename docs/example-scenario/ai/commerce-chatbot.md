@@ -150,7 +150,7 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/17856069?s=460&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/17856069?s=100&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview
