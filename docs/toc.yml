@@ -552,15 +552,7 @@
       href: cloud-adoption/transformation-journeys/incremental-transformation.md
     - name: Disruptive Transformation
       href: cloud-adoption/transformation-journeys/disruptive-transformation.md
-  - name: Foundational Concepts
-    items:
-    - name: Overview
-      href: cloud-adoption/getting-started/overview.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: Intro to Deployment Models
-      href: cloud-adoption/getting-started/cloud-deployment-models.md
-  - name: Business Outcome Framework
+  - name: Business Transformation
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
@@ -588,7 +580,7 @@
       href: cloud-adoption/business-strategy/risk-tolerance.md
     - name: Cloud Accounting
       href: cloud-adoption/business-strategy/cloud-accounting.md
-  - name: Cultural Change
+  - name: Cultural Transformation
     items:
     - name: Overview
       href: cloud-adoption/culture-strategy/overview.md  
@@ -620,7 +612,7 @@
       items:
     - name: Build
       items:
-    - name: Migration Execution (Execute)
+    - name: Migrate
       items:
       - name: Process Overview 
         href: cloud-adoption/migration/execute/overview.md
@@ -751,14 +743,14 @@
       items:
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
-  - name: Optimization
+  - name: Foundational Concepts
     items:
-    - name: Benchmarking
-      items:
-    - name: Tuning (Performance & Cost)
-      items:
-    - name: Scaling Resources
-      items:
+    - name: Overview
+      href: cloud-adoption/getting-started/overview.md
+    - name: How does Azure work?
+      href: cloud-adoption/getting-started/what-is-azure.md
+    - name: Intro to Deployment Models
+      href: cloud-adoption/getting-started/cloud-deployment-models.md
   - name: Appendix
     items:
     - name: Azure enterprise scaffold
