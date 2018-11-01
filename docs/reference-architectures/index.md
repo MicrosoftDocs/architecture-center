@@ -251,7 +251,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
 </li>
 <!-- Shared services -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./hybrid-networking/hub-spoke.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./hybrid-networking/shared-services.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
