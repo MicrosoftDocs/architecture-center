@@ -28,11 +28,6 @@ networks. How you structure the virtual networks used in your migration, and how
 those networks interact with your existing IT infrastructure will depend on a
 combination of the workload requirements and your governance requirements.
 
-\*Reviewers note: This table is a working list of questions to help readers pick
-the right architecture for their migration. Eventually this is intended to be
-more of a decision list diagram or something similar. See below for a more
-detailed description of each architecture.\*
-
 When planning which virtual networking architecture, or combination of
 architectures, to consider when planning your cloud migration, consider the
 following questions to help determine what's right for your organization:
@@ -43,6 +38,11 @@ following questions to help determine what's right for your organization:
 | Does your workload require authentication services not supported through cloud identity services, or need direct access to on-premises domain controllers? | No           | Yes    | Yes |
 | Will you need to deploy and manage a large number of VMs and workloads?                                                                                    | No           | No     | Yes |
 | Will you need to provide central governance while delegating control over resources to individual workload teams?                                          | No           | No     | Yes |
+
+\*Reviewers note: This table is a working list of questions to help readers pick
+the right architecture for their migration. Eventually this is intended to be
+more of a decision list diagram or something similar. See below for a more
+detailed description of each architecture.\*
 
 ### Cloud Native
 
