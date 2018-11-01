@@ -91,7 +91,7 @@ For deployment information see the official [Citrix documentation](https://docs.
 
 ## Pricing
 
-- The Citrix XenDestop licenses are not included in Azure service charges.
+- The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.
@@ -100,3 +100,9 @@ For deployment information see the official [Citrix documentation](https://docs.
 
 - Check Citrix documentation for planning and deployment [here](https://docs.citrix.com/en-us/citrix-virtual-apps-desktops/install-configure).
 - To deploy Citrix ADC (NetScaler) in Azure, review the Resource Manager templates provided by Citrix [here](https://github.com/citrix/netscaler-azure-templates).
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars2.githubusercontent.com/u/33688013?s=460&v=4) | **Miguel Pereira**<br>Senior FastTrack Engineer, Microsoft |

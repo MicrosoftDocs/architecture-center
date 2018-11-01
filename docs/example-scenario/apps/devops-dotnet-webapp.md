@@ -104,7 +104,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
+Consider implementing the [typical design patterns for resiliency][design-patterns-resiliency] where appropriate.
 
 You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 
@@ -149,6 +149,12 @@ Azure DevOps costs depend on the number of users in your organization that requi
 * [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
 * [Devops Checklist][devops-checklist]
 * [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars2.githubusercontent.com/u/791642?s=460&v=4) | **Chris Reddington**<br>FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [ansible]: /azure/ansible/

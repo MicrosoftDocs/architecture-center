@@ -24,7 +24,7 @@ Using managed Azure services such as IoT Hub and HDInsight will allow the custom
 
 ## Relevant use cases
 
-Consider this solution for the following use cases:
+Other relevant use cases include:
 
 * Construction, mining, or equipment manufacturing scenarios
 * Large-scale collection of device data for storage and analysis
@@ -79,6 +79,12 @@ The following considerations will drive a substantial portion of the costs for t
 * Azure virtual machine costs will increase linearly as additional instances are provisioned. Virtual machines that are deallocated will only incur storage costs, and not compute costs. These deallocated machines can then be reallocated when demand is high.
 * [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) costs are driven by the number of IoT units provisioned as well as the service tier chosen, which determines the number of messages per day per unit allowed. 
 * [Stream Analytics](https://azure.microsoft.com/pricing/details/stream-analytics) is priced by the number of streaming units required to process the data into the service.
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
 
 ## Related resources
 

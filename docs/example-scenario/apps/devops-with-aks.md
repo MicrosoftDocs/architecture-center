@@ -15,7 +15,7 @@ By using Azure services such as Azure Kubernetes Service, Container Registry, an
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Modernizing application development practices to a microservice, container-based approach.
 * Speeding up application development and deployment lifecycles.
@@ -125,6 +125,12 @@ We have provided three sample cost profiles based on the number of container ima
 ## Related resources
 
 This scenario used Azure Container Registry and Azure Kubernetes Service to store and run a container-based application. Azure Container Instances can also be used to run container-based applications, without having to provision any orchestration components. For more information, see [Azure Container Instances overview][docs-aci].
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars2.githubusercontent.com/u/17856069?s=460&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png

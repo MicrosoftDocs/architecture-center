@@ -31,11 +31,11 @@ To learn more about protecting your data at rest or in transit, see [Azure Data 
 Central to protecting your data in the cloud is a combination of identity management and access control. Given the variety and type of cloud services, as well as the rising popularity of [hybrid cloud](../scenarios/hybrid-on-premises-and-cloud.md), there are several key practices you should follow when it comes to identity and access control:
 
 * Centralize your identity management.
-* Enable Single Sign-On (SSO).
+* Enable single sign-on (SSO).
 * Deploy password management.
 * Enforce multi-factor authentication (MFA) for users.
-* Use role based access control (RBAC).
-* Conditional Access Policies should be configured, which enhances the classic concept of user identity with additional properties related to user location, device type, patch level, and so on.
+* Use role-based access control (RBAC).
+* Conditional access policies should be configured, which enhances the classic concept of user identity with additional properties related to user location, device type, patch level, and so on.
 * Control locations where resources are created using resource manager.
 * Actively monitor for suspicious activities
 

@@ -96,3 +96,9 @@ From the standpoint of your current application, begin to think about its differ
 - [Hosting Stand-Alone Executables in Service Fabric](/azure/service-fabric/service-fabric-guest-executables-introduction)
 - [Service Fabric Native Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction)
 - [Service Fabric Application Scenarios](/azure/service-fabric/service-fabric-application-scenarios)
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars0.githubusercontent.com/u/6774257?s=460&v=4) | **Tim Omta**<br>Senior FastTrack Engineer, Microsoft |

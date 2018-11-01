@@ -4,6 +4,7 @@ description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
 ---
+
 # 3D video rendering on Azure
 
 3D video rendering is a time consuming process that requires a significant amount of CPU time to complete. On a single machine, the process of generating a video file from static assets can take hours or even days depending on the length and complexity of the video you are producing. Many companies will purchase either expensive high end desktop computers to perform these tasks, or invest in large render farms that they can submit jobs to. However, by taking advantage of Azure Batch, that power is available to you when you need it and shuts itself down when you don't, all without any capital investment.
@@ -12,7 +13,7 @@ Batch gives you a consistent management experience and job scheduling, whether y
 
 ## Relevant use cases
 
-Consider this scenario for these similar use cases:
+Other relevant use cases include:
 
 * 3D modeling
 * Visual FX (VFX) rendering
@@ -145,6 +146,12 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [Azure Batch Documentation][batch-doc]
 
 [Using containers on Azure Batch][batch-containers]
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars1.githubusercontent.com/u/40869465?s=400&v=4) | **Adam Boeglin**<br>Senior Program Manager, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-video-rendering.png

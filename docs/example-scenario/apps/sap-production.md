@@ -15,7 +15,7 @@ This example scenario demonstrates an SAP deployment on Windows or Linux virtual
 
 ## Relevant use cases
 
-Consider this example for the following scenarios:
+Other relevant use cases include:
 
 * Mission-critical workloads running on SAP.
 * Non-critical SAP workloads.
@@ -103,19 +103,6 @@ For other information about running SAP production workloads in Azure, review th
 | --- | --- |
 | ![](https://avatars3.githubusercontent.com/u/35349275?s=100&v=4) | **Dharmesh Bhagat**<br>Senior FastTrack Engineer, Microsoft |
 | ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
-
-## Contributors - HTML Table
-
-<table>
-    <tr>
-        <td style="width:130px"><img src="https://avatars3.githubusercontent.com/u/35349275?s=100&v=4"></td>
-        <td><b>Dharmesh Bhagat</b><br>Senior FastTrack Engineer, Microsoft</td>
-    </tr>
-    <tr>
-        <td style="width:130px"><img src="https://avatars3.githubusercontent.com/u/27705684?s=100&v=4"></td>
-        <td><b>Alex Buck</b><br>Senior Content Developer, Microsoft</td>
-    </tr>
-<table>
 
 <!-- links -->
 [architecture]: media/architecture-sap-production.png

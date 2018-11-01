@@ -18,7 +18,7 @@ For this example demonstration, imagine a car manufacturing company that wants t
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases along with the above goals, when creating telematics ingestion and processing system:
+Other relevant use cases include:
 
 * Vehicle maintenance reminders and alerting.
 * Location-based services for the vehicle passengers (that is, SOS).
@@ -60,7 +60,7 @@ The technologies in this architecture were chosen based on the scale needed to p
 * Managed [HDInsight Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) comes with a 99.9% SLA is integrated with Azure Managed Disks
 * [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks) is optimized from the ground up for performance and cost-efficiency in the cloud. The Databricks Runtime adds several key capabilities to Apache Spark workloads that can increase performance and reduce costs by as much as 10-100x when running on Azure, including:
 * Azure Databricks integrates deeply with Azure databases and stores: [Azure SQL Data Warehouse](/azure/sql-data-warehouse), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db), [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage), and [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs)
-    * Auto-scaling and auto-termination for Spark clusters to automatically minimize costs.
+    * Autoscaling and autotermination for Spark clusters to automatically minimize costs.
     * Performance optimizations including caching, indexing, and advanced query optimization, which can improve performance by as much as 10-100x over traditional Apache Spark deployments in cloud or on-premises environments.
     * Integration with Azure Active Directory enables you to run complete Azure-based solutions using Azure Databricks.
     * Role-based access in Azure Databricks enables fine-grained user permissions for notebooks, clusters, jobs, and data.
@@ -87,3 +87,9 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 * Review the [Advanced analytics on big data](https://azure.microsoft.com/solutions/architecture/advanced-analytics-on-big-data) reference architecture to get a peek on how different azure components can help build a big data pipeline.
 * Read the [Real time processing](/azure/architecture/data-guide/big-data/real-time-processing) Azure documentation to get a quick view of how different Azure components help in processing streams of data in real time.
 * Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars0.githubusercontent.com/u/12255455?s=460&v=4) | **Meer Alam**<br>Senior FastTrack Engineer, Microsoft |

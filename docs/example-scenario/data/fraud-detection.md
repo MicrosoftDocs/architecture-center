@@ -17,7 +17,7 @@ This sample represents one part of a broader data processing architecture and st
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Detecting fraudulent mobile-phone calls in telecommunications scenarios.
 * Identifying fraudulent credit card transactions for banking institutions.
@@ -87,6 +87,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 ## Related resources
 
 More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics/

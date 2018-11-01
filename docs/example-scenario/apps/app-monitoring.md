@@ -7,13 +7,13 @@ ms.date: 09/12/2018
 
 # Web application monitoring on Azure
 
-Platform as a service (PaaS) offerings on Azure manage compute resources for you and in some ways change how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they use.
+Azure platform as a service (PaaS) offerings manage compute resources for you and affect how you monitor deployments. Azure includes multiple monitoring services, each of which performs a specific role. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your applications and the Azure resources they consume.
 
 This scenario addresses the monitoring services you can use and describes a dataflow model for use with multiple data sources. When it comes to monitoring, many tools and services work with Azure deployments. In this scenario, we choose readily available services precisely because they are easy to consume. Other monitoring options are discussed later in this article.
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 - Instrumenting a web application for monitoring telemetry.
 - Collecting front-end and back-end telemetry for an application deployed on Azure.
@@ -43,7 +43,7 @@ This scenario uses a managed Azure environment to host an application and data t
 
 ## Considerations
 
-A best practice is to add Application Insights to your code at development using the [Application Insights SDKs][Application Insights SDKs], and customize per application. These open source SDKs are available for most application frameworks. To enrich and control the data you collect, incorporate the use of the SDKs both for testing and production deployments into your development process. The main requirement is for the app to have a direct or indirect line of sight to the Applications Insights ingestion endpoint hosted with an Internet-facing address. You can then add telemetry or enrich an existing telemetry collection.
+A recommended practice is adding Application Insights to your code during development using the [Application Insights SDKs][Application Insights SDKs], and customizing per application. These open-source SDKs are available for most application frameworks. To enrich and control the data you collect, incorporate the use of the SDKs both for testing and production deployments into your development process. The main requirement is for the app to have a direct or indirect line of sight to the Applications Insights ingestion endpoint hosted with an Internet-facing address. You can then add telemetry or enrich an existing telemetry collection.
 
 Runtime monitoring is another easy way to get started. The telemetry that is collected must be controlled through configuration files. For example, you can include runtime methods that enable tools such as [Application Insights Status Monitor][Application Insights Status Monitor] to deploy the SDKs into the correct folder and add the right configurations to begin monitoring.
 
@@ -55,7 +55,7 @@ Azure Monitor, Application Insights, and Log Analytics all send [alerts](/azure/
 
 ### Alternatives
 
-This article describes conveniently available monitoring options with popular features, but you have many choices, including the option to create your own logging mechanisms. A best practice is to add monitoring services as you build out tiers in a solution. Here are some possible extensions and alternatives:
+This article describes conveniently available monitoring options with popular features, but you have many choices, including the option to create your own logging mechanisms. A recommended practice is to add monitoring services as you build out tiers in a solution. Here are some possible extensions and alternatives:
 
 - Consolidate Azure Monitor and Application Insights metrics in Grafana using the [Azure Monitor Data Source For Grafana][Azure Monitor Data Source For Grafana].
 - [Data Dog][data-dog] features a connector for Azure Monitor
@@ -67,7 +67,7 @@ This article describes conveniently available monitoring options with popular fe
 
 This scenario focuses on PaaS solutions for monitoring in large part because they conveniently handle availability and scalability for you and are backed by service-level agreements (SLAs). For example, App Services provides a guaranteed [SLA][SLA] for its availability.
 
-Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent this, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
+Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent throttling, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
 High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](#scalability-considerations) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
@@ -81,7 +81,7 @@ The following security considerations may also apply:
 - Consider data retention. For example, Application Insights retains telemetry data for 90 days. Archive data you want access to for longer periods using Microsoft Power BI, Continuous Export, or the REST API. Storage rates apply.
 - Limit access to Azure resources to control access to data and who can view telemetry from a specific application. To help lock down access to monitoring telemetry, see [Resources, roles, and access control in Application Insights][Resources, roles, and access control in Application Insights].
 - Consider whether to control read/write access in application code to prevent users from adding version or tag markers that limit data ingestion from the application. With Application Insights, there is no control over individual data items once they are sent to a resource, so if a user has access to any data, they have access to all data in an individual resource.
-- Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
+- Add [governance](/azure/security/governance-in-azure) mechanisms to enforce policy or cost controls over Azure resources if needed. For example, use Log Analytics for security-related monitoring such as policies and role-based access control, or use [Azure Policy](/azure/azure-policy/azure-policy-introduction) to create, assign and, manage policy definitions.
 - To monitor potential security issues and get a central view of the security state of your Azure resources, consider using [Azure Security Center](/azure/security-center/security-center-intro).
 
 ## Pricing
@@ -92,7 +92,7 @@ To help you get started, use the [pricing calculator][pricing] to estimate costs
 
 Telemetry from Application Insights is sent to the Azure portal during debugging and after you have published your app. For testing purposes and to avoid charges, a limited volume of telemetry is instrumented. To add more indicators, you can raise the telemetry limit. For more granular control, see [Sampling in Application Insights][Sampling in Application Insights].
 
-After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of performance indicators. This data is not stored---you are viewing real-time metrics---but the telemetry can be collected and analyzed later. There is no charge for Live Stream data.
+After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of performance indicators. This data is not stored &mdash; you are viewing real-time metrics &mdash; but the telemetry can be collected and analyzed later. There is no charge for Live Stream data.
 
 Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace. 
 
@@ -111,6 +111,14 @@ Check out these resources designed to help you get started with your own monitor
 [Monitoring Azure applications and resources][Monitoring Azure applications and resources]
 
 [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars1.githubusercontent.com/u/40869465?s=400&v=4) | **Adam Boeglin**<br>Senior Program Manager, Microsoft |
+| ![](https://avatars3.githubusercontent.com/u/8386143?s=400&v=4) | **Shawn Gibbs**<br>Senior Program Manager, Microsoft |
+| ![](https://avatars3.githubusercontent.com/u/26173493?s=400&v=4) | **Nanette Ray**<br>Technical Writer |
 
 <!-- links -->
 [architecture]: ./media/architecture-app-monitoring.png

@@ -17,7 +17,7 @@ For production use cases review the SAP reference architectures available below:
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Non-critical SAP non-productive workloads (sandbox, development, test, quality assurance)
 * Non-critical SAP business workloads
@@ -90,6 +90,12 @@ Click here to deploy the underlying infrastructure for this scenario.
 
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars2.githubusercontent.com/u/36669265?s=460&v=4) | **Andrew Dibbins**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [resiliency]: /azure/architecture/resiliency/

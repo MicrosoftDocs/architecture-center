@@ -15,7 +15,7 @@ To simplify the creation, management, and optimization of HPC clusters, Azure Cy
 
 ## Relevant use cases
 
-Consider this scenario for these industries where CFD applications could be used:
+Other relevant industries for CFD applications include:
 
 * Aeronautics
 * Automotive
@@ -101,6 +101,12 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 
 * [RDMA Capable Machine Instances][rdma]
 * [Customizing an RDMA Instance VM][rdma-custom]
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/22365311?s=460&v=4) | **Mike Warrington**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png

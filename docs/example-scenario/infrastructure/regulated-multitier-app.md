@@ -13,7 +13,7 @@ Example application scenarios include running operating room applications, patie
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Modernizing application deployments in a secure cloud environment.
 * Reducing legacy on-premises application and service management.
@@ -110,6 +110,12 @@ We have provided three sample cost profiles based on the number of scale set VM 
 This scenario used a back-end virtual machine scale set that runs a Microsoft SQL Server cluster. Cosmos DB could also be used as a scalable and secure database tier for the application data. An [Azure virtual network service endpoint][vnetendpoint-docs] allows you to secure your critical Azure service resources to only your virtual networks. In this scenario, VNet endpoints allow you to secure traffic between the front-end application tier and Cosmos DB. For more information, see the [Azure Cosmos DB overview][docs-cosmos-db](/azure/cosmos-db/introduction).
 
 You can also view a detailed [reference architecture for a generic N-tier application using SQL Server][ntiersql-ra].
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars2.githubusercontent.com/u/17856069?s=460&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [appgateway-docs]: /azure/application-gateway/overview

@@ -12,10 +12,10 @@ An e-commerce company in the travel industry is modernizing their legacy browser
 Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
 
 * The development team will modernize the application back end, which is composed of relational databases hosted on VMs.
-* The in-house development team will write new business functionality, which will be exposed over new HTTP APIs.
+* The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
 * A contract development team will build a new browser-based UI, which will be hosted in Azure.
 
-New application features will be delivered in stages. They will *gradually replace* the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
+New application features will be delivered in stages. They will _gradually replace_ the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
 
 The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be utilized to address many of the project's requirements and constraints.
 
@@ -76,11 +76,17 @@ Customers can scale API Management by adding and removing units. Each unit has c
 > [!NOTE]
 > The Developer tier can be used for evaluation of the API Management features. The Developer tier should not be used for production.
 
-To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azue Pricing Calculator][pricing-calculator].
+To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
 
 ## Related resources
 
-Check out the extensive Azure API Management [documentation and reference articles.][apim]
+Review the extensive Azure API Management [documentation and reference articles][apim].
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars1.githubusercontent.com/u/4322131?s=400&v=4) | **Ben Gimblett**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-apim-api-scenario.png

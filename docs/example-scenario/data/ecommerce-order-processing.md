@@ -15,7 +15,7 @@ Using managed Azure services such as Cosmos DB and HDInsight can help reduce cos
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * E-commerce or retail point-of-sale back-end systems.
 * Inventory management systems.
@@ -91,6 +91,12 @@ Other related resources include:
 * _[Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F#](https://pragprog.com/book/swdddf/domain-modeling-made-functional)_ by Scott Wlaschin (Pragmatic Programmers LLC, 2018).
 * Other [Cosmos DB use cases][docs-cosmos-db-use-cases]
 * [Real time processing architecture](/azure/architecture/data-guide/big-data/real-time-processing) in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-ecommerce-order-processing.png

@@ -1,16 +1,17 @@
 ---
-title: Azure Example Scenario
+title: Azure Example Scenarios
 description: Example Scenarios that solve specific business use cases
 author: david-stanford
 ms:date: 08/01/2018
 layout: LandingPage
 ms.topic: landing-page
 ---
+
 # Azure Example Scenarios
 
-Example scenarios walk through the process of solving specific architectural and business problems on Azure.  Each scenario is based on a real customer example and is intended to provide fast, easy to read guidance to help accelerate your own implementation.
+Example scenarios walk through the process of solving specific architectural and business problems on Azure. Each scenario is based on a real customer example and is intended to provide fast, easy to read guidance to help accelerate your own implementation.
 
-Within each scenario you can find an architecture diagram, data flows, and details of all of the components.  You can also learn about alternatives technologies that may better fit your business need, rough pricing of the solution, and considerations when running the solution in production.  Many scenarios will also contain a method to easily deploy the solution in your own Azure account.
+Within each scenario you can find an architecture diagram, data flows, and details of all of the components. You can also learn about alternatives technologies that may better fit your business need, rough pricing of the solution, and considerations when running the solution in production. Many scenarios will also contain a method to easily deploy the solution in your own Azure account.
 
 Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios)
 

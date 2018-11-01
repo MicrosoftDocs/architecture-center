@@ -19,7 +19,7 @@ The company needs a modern approach to analysis data, so that decisions are made
 
 ## Relevant use cases
 
-You could also use this approach to accomplish the following:
+This approach can also be used to:
 
 * Establish a data warehouse to be a single source of truth for your data.
 * Integrate relational data sources with other unstructured datasets.
@@ -91,6 +91,12 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 * Review the [Azure reference architecture for automated enterprise BI](/azure/architecture/reference-architectures/data/enterprise-bi-adf), which includes instructions for deploying an instance of this architecture in Azure.
 * Read the [Maritz Motivation Solutions customer story][source-document]. That story describes a similar approach to managing customer data.
 * Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
+
+## Contributors
+
+| | |  
+| --- | --- |
+| ![](https://avatars3.githubusercontent.com/u/27705684?s=100&v=4) | **Alex Buck**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [source-document]: https://customers.microsoft.com/story/maritz
