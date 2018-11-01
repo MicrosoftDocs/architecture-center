@@ -2,7 +2,7 @@
 title: Run a Jenkins server on Azure
 description:  This reference architecture shows shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).
 author: njray
-ms.date: 01/21/18
+ms.date: 04/30/2018
 ---
 
 # Run a Jenkins server on Azure

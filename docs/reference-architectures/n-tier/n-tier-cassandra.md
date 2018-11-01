@@ -4,7 +4,7 @@ description: How to run Linux VMs for an N-tier architecture in Microsoft Azure.
 
 author: MikeWasson
 
-ms.date: 05/03/2018
+ms.date: 09/13/2018
 
 ---
 

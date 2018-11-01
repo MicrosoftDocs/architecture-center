@@ -2,7 +2,7 @@
 title: Failure mode analysis
 description: Guidelines for performing failure mode analysis for cloud solutions based on Azure.
 author: MikeWasson
-ms.date: 03/24/2017
+ms.date: 05/07/2018
 ms.custom: resiliency
 
 pnp.series.title: Design for Resiliency

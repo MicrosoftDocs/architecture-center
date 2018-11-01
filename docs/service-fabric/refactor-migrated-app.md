@@ -2,7 +2,7 @@
 title: Refactor an Azure Service Fabric Application migrated from Azure Cloud Services 
 description: How to refactor an existing Azure Service Fabric Application migrated from Azure Cloud Services
 author: petertay
-ms.date: 01/30/2018
+ms.date: 02/02/2018
 ---
 # Refactor an Azure Service Fabric Application migrated from Azure Cloud Services
 
