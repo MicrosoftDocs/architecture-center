@@ -2,7 +2,7 @@
 title: Retry service specific guidance
 description: Service specific guidance for setting the retry mechanism.
 author: dragon119
-ms.date: 07/13/2016
+ms.date: 08/13/2018
 
 pnp.series.title: Best Practices
 ---
