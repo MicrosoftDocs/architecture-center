@@ -92,4 +92,4 @@ Review [Azure Databricks pricing](https://azure.microsoft.com/pricing/details/da
 
 | | |  
 | --- | --- |
-| ![](https://avatars0.githubusercontent.com/u/12255455?s=460&v=4) | **Meer Alam**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars0.githubusercontent.com/u/12255455?s=100&v=4) | **Meer Alam**<br>Senior FastTrack Engineer, Microsoft |

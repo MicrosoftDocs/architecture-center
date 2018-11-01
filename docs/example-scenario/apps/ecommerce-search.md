@@ -106,7 +106,7 @@ To learn more about Azure Search, visit the [documentation center][docs-search],
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/11096066?s=400&v=4) | **Jelle Druyts**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/11096066?s=100&v=4) | **Jelle Druyts**<br>Senior FastTrack Engineer, Microsoft |
 
 
 <!-- links -->

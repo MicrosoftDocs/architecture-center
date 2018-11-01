@@ -106,7 +106,7 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 
 | | |  
 | --- | --- |
-| ![](https://avatars3.githubusercontent.com/u/22365311?s=460&v=4) | **Mike Warrington**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars3.githubusercontent.com/u/22365311?s=100&v=4) | **Mike Warrington**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png

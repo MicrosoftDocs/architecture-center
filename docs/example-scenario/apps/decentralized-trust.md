@@ -105,7 +105,7 @@ For more information on using the Ethereum Proof-of-Authority solution template 
 
 | | |  
 | --- | --- |
-| ![](https://avatars0.githubusercontent.com/u/558813?s=400&v=4) | **Vito Chin**<br>Cloud Solution Architect, Microsoft |
+| ![](https://avatars0.githubusercontent.com/u/558813?s=100&v=4) | **Vito Chin**<br>Cloud Solution Architect, Microsoft |
 
 <!-- links -->
 [small-pricing]: https://azure.com/e/4e429d721eb54adc9a1558fae3e67990

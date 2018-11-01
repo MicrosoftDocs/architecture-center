@@ -101,4 +101,4 @@ From the standpoint of your current application, begin to think about its differ
 
 | | |  
 | --- | --- |
-| ![](https://avatars0.githubusercontent.com/u/6774257?s=460&v=4) | **Tim Omta**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars0.githubusercontent.com/u/6774257?s=100&v=4) | **Tim Omta**<br>Senior FastTrack Engineer, Microsoft |

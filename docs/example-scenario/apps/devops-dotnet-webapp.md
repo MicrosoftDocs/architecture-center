@@ -154,7 +154,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/791642?s=460&v=4) | **Chris Reddington**<br>FastTrack Engineer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/791642?s=100&v=4) | **Chris Reddington**<br>FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [ansible]: /azure/ansible/

@@ -98,7 +98,7 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/35278282?s=460&v=4) | **David Stanford**<br>Solutions Architect, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/35278282?s=100&v=4) | **David Stanford**<br>Solutions Architect, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-secure-scalable-wordpress.png

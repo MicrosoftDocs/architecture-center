@@ -118,7 +118,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/6392972?s=460&v=4) | **Chris Mason**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/6392972?s=100&v=4) | **Chris Mason**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-ecommerce-scenario.png

@@ -95,7 +95,7 @@ Click here to deploy the underlying infrastructure for this scenario.
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/36669265?s=460&v=4) | **Andrew Dibbins**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/36669265?s=100&v=4) | **Andrew Dibbins**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [resiliency]: /azure/architecture/resiliency/

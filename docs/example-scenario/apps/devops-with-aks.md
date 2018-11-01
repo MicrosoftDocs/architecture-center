@@ -130,7 +130,7 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/17856069?s=460&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/17856069?s=100&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-devops-with-aks.png

@@ -89,7 +89,7 @@ Before deploying this example scenario in a production environment, review recom
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/35278282?s=460&v=4) | **David Stanford**<br>Solutions Architect, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/35278282?s=100&v=4) | **David Stanford**<br>Solutions Architect, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

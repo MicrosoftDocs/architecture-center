@@ -105,4 +105,4 @@ For deployment information see the official [Citrix documentation](https://docs.
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/33688013?s=460&v=4) | **Miguel Pereira**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/33688013?s=100&v=4) | **Miguel Pereira**<br>Senior FastTrack Engineer, Microsoft |

@@ -86,7 +86,7 @@ Review the extensive Azure API Management [documentation and reference articles]
 
 | | |  
 | --- | --- |
-| ![](https://avatars1.githubusercontent.com/u/4322131?s=400&v=4) | **Ben Gimblett**<br>Senior FastTrack Engineer, Microsoft |
+| ![](https://avatars1.githubusercontent.com/u/4322131?s=100&v=4) | **Ben Gimblett**<br>Senior FastTrack Engineer, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-apim-api-scenario.png

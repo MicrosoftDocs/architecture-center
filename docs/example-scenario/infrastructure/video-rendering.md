@@ -151,7 +151,7 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 
 | | |  
 | --- | --- |
-| ![](https://avatars1.githubusercontent.com/u/40869465?s=400&v=4) | **Adam Boeglin**<br>Senior Program Manager, Microsoft |
+| ![](https://avatars1.githubusercontent.com/u/40869465?s=100&v=4) | **Adam Boeglin**<br>Senior Program Manager, Microsoft |
 
 <!-- links -->
 [architecture]: ./media/architecture-video-rendering.png

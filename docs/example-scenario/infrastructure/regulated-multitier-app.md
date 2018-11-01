@@ -115,7 +115,7 @@ You can also view a detailed [reference architecture for a generic N-tier applic
 
 | | |  
 | --- | --- |
-| ![](https://avatars2.githubusercontent.com/u/17856069?s=460&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
+| ![](https://avatars2.githubusercontent.com/u/17856069?s=100&v=4) | **Iain Foulds**<br>Senior Content Developer, Microsoft |
 
 <!-- links -->
 [appgateway-docs]: /azure/application-gateway/overview
