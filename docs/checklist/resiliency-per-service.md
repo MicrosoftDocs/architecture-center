@@ -2,7 +2,7 @@
 title: Resiliency checklist for Azure services
 description: Checklist that provides resiliency guidance for various Azure services.
 author: petertaylor9999
-ms.date: 03/02/2018
+ms.date: 09/24/2018
 ms.custom: resiliency, checklist
 ---
 
