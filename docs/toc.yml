@@ -700,12 +700,13 @@
     items:
     - name: Overview
       href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Subscription
+    - name: Subscriptions
+      href: cloud-adoption/infrastructure/subscriptions.md
       items:
     - name: Resource Organization and Tagging
       href: cloud-adoption/infrastructure/resource-naming-and-tagging.md
       items:
-    - name: Software Defined Network
+    - name: Software Defined Networks
       href: cloud-adoption/infrastructure/software-defined-networks.md
       items:
     - name: Identity
