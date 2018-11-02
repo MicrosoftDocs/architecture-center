@@ -1,8 +1,8 @@
 ---
 title: Stream processing with Azure Databricks
 description: Create an end-to-end stream processing pipeline in Azure using Azure Databricks
-author: MikeWasson
-ms.date: 08/09/2018
+author: petertaylor9999
+ms.date: 11/01/2018
 ---
 
 # Stream processing with Azure Databricks
