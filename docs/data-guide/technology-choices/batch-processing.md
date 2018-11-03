@@ -11,11 +11,13 @@ Big data solutions often use long-running batch jobs to filter, aggregate, and o
 
 The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
-## Azure SQL Data Warehouse
+## Technology choices for batch processig
+
+### Azure SQL Data Warehouse
 
 [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Consider SQL Data Warehouse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism.
 
-## Azure Data Lake Analytics
+### Azure Data Lake Analytics
 
 [Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store. 
 
@@ -23,7 +25,7 @@ The key requirement of such batch processing engines is the ability to scale out
 -  Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and SQL Data Warehouse.
 - Pricing model is per-job.
 
-## HDInsight
+### HDInsight
 
 HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
 
@@ -31,9 +33,9 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 - Kerberos authentication with Active Directory, Apache Ranger based access control
 - Gives you full control of the Hadoop cluster
 
-## Azure Databricks 
+### Azure Databricks 
 
-Azure Databricks is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.  
+[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.  
 
 - Lanugages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, auto-termination, auto-scaling.
@@ -43,7 +45,7 @@ Azure Databricks is an Apache Spark-based analytics platform. You can think of i
 - Web-based [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) for collaboration and data exploration. 
 - Supports [GPU-enabled clusters](https://docs.azuredatabricks.net/user-guide/clusters/gpu.html)
 
-## Azure Distributed Data Engineering Toolkit 
+### Azure Distributed Data Engineering Toolkit 
 
 The [Distributed Data Engineering Toolkit](https://github.com/azure/aztk) (AZTK) is a tool for provisioning on-demand Spark on Docker clusters in Azure. 
 
