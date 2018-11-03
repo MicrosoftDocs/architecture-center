@@ -142,3 +142,10 @@ workloads and processes. To choose the best Azure AD authentication mechanism fo
 organization, see [choosing the right authentication method for your Azure
 Active Directory hybrid identity
 solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn).
+
+## Next steps
+
+Learn how [encryption](encryption.md) is used to secure data in cloud environments.
+
+> [!div class="nextstepaction"]
+> [Encryption](encryption.md)

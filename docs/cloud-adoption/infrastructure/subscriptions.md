@@ -2,7 +2,7 @@
 title: "Enterprise Cloud Adoption: Subscriptions" 
 description: Discussion of cloud platform subscriptions as a core service in Azure migrations
 author: rotycenh
-ms.date: 11/01/2018
+ms.date: 11/02/2018
 ---
 
 # Enterprise Cloud Adoption: Subscriptions
@@ -74,3 +74,10 @@ standards are key to organizing resources in support of governance.
     resources in support of governance requirements, see [Azure enterprise
     scaffold: Prescriptive subscription
     governance](../appendix/azure-scaffold.md).
+
+## Next steps
+
+Learn how [resource naming and tagging](resource-naming-and-tagging.md) are used to organize and manage cloud resources.
+
+> [!div class="nextstepaction"]
+> [Resource Naming and Tagging](resource-naming-and-tagging.md)

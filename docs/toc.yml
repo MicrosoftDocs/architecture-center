@@ -699,7 +699,8 @@
   - name: Infrastructure
     items:
     - name: Overview
-      href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
+      href: cloud-adoption/infrastructure/overview.md
+      items:
     - name: Subscriptions
       href: cloud-adoption/infrastructure/subscriptions.md
       items:

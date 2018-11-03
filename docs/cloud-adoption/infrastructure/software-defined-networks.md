@@ -153,6 +153,8 @@ Issues to note when considering a virtual datacenter networking architecture:
 -   A shared identity system is required to keep access control policies
     consistent between on-premises and cloud resources.
 
+-   The virtual datacenter approach assumes a large number of assets that would benefit the management flexibility of a hub and spoke networking model, may be exceeding the number of resources allowed within a single account or subscription, and need a segmented security model allowing central IT control coupled with delegated control of workload resources. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than is necessary.
+
 -   Once central infrastructure is in place, new workload spokes can be spun up
     very quickly, improving agility in support of developers and operations
     teams.
@@ -284,3 +286,10 @@ migration. See the [Azure Virtual Datacenter
 E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
 for more information on the broader concepts behind VDC and the trusted network
 extension.
+
+## Next steps
+
+Learn how [identity services](identity.md) are used for access control and management in the cloud.
+
+> [!div class="nextstepaction"]
+> [Identity](identity.md)
