@@ -65,7 +65,7 @@ You can speed up Azure Stack initiatives by leveraging the rich Azure ecosystem:
 
 ## Additional Next steps
 
-Review the remaining components of [Infrastructure Guidance](../overview.md) to begin designing & building core infrastructure.
+See more [guidance and examples](../overview.md#azure-examples-and-guidance) on how to use core infrastructure components in the Azure cloud.
 
 > [!div class="nextstepaction"]
-> [Infrastructure Guidance](../overview.md)
+> [Azure Examples and Guidance](../overview.md#azure-examples-and-guidance)
