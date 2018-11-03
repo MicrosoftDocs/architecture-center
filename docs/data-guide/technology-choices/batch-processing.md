@@ -56,8 +56,6 @@ AZTK is not an Azure service. Rather, it's a client-side tool with a CLI and Pyt
 - Mixed mode clusters that use both low-priority and dedicated VMs.
 - Built in support for Azure Blob Storage and Azure Data Lake connection.
 
-
-
 ## Key selection criteria
 
 To narrow the choices, start by answering these questions:
@@ -66,7 +64,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you want to author batch processing logic declaratively or imperatively?
 
-- Will you perform batch processing in bursts? If yes, consider options that let you pause the cluster or whose pricing model is per batch job.
+- Will you perform batch processing in bursts? If yes, consider options that let you auto-terminate the cluster or whose pricing model is per batch job.
 
 - Do you need to query relational data stores along with your batch processing, for example to look up reference data? If yes, consider the options that enable querying of external relational stores.
 
