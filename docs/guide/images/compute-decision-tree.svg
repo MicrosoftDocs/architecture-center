@@ -233,9 +233,8 @@
 	<path class="st12" d="M341.7,46.6h50.8c7.6,0,13.9,6.3,13.9,13.9v8.3c0,7.6-6.3,13.9-13.9,13.9h-50.8c-7.6,0-13.9-6.3-13.9-13.9
 		v-8.3C327.7,52.9,334,46.6,341.7,46.6z"/>
 	<g>
-		<text transform="matrix(1 0 0 1 333.2337 57.7299)" class="st10 st11">Do you require full</text>
-		<text transform="matrix(1 0 0 1 340.4036 67.0015)" class="st10 st11">control and/or</text>
-		<text transform="matrix(1 0 0 1 345.9437 76.2729)" class="st10 st11">portability?</text>
+		<text transform="matrix(1 0 0 1 334.2337 62.7299)" class="st10 st11">Do you require full</text>
+		<text transform="matrix(1 0 0 1 354 72.0015)" class="st10 st11">control?</text>
 	</g>
 </g>
 <g id="shape15-198">
