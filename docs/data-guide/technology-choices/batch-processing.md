@@ -11,7 +11,7 @@ Big data solutions often use long-running batch jobs to filter, aggregate, and o
 
 The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
-## Technology choices for batch processig
+## Technology choices for batch processing
 
 ### Azure SQL Data Warehouse
 
@@ -29,7 +29,7 @@ The key requirement of such batch processing engines is the ability to scale out
 
 HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
 
-- Lanugages: R, Python, Java, Scala, SQL
+- Languages: R, Python, Java, Scala, SQL
 - Kerberos authentication with Active Directory, Apache Ranger based access control
 - Gives you full control of the Hadoop cluster
 
@@ -37,7 +37,7 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 
 [Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.  
 
-- Lanugages: R, Python, Java, Scala, Spark SQL
+- Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, auto-termination, auto-scaling.
 - Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure SQL Data Warehouse (SQL DW), and other services. See [Data Sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
