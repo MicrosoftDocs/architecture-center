@@ -11,15 +11,50 @@ Big data solutions often use long-running batch jobs to filter, aggregate, and o
 
 The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
-## What are your options when choosing a batch processing technology?
+## Azure SQL Data Warehouse
 
-In Azure, all of the following data stores will meet the core requirements for batch processing:
+[SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. Consider SQL Data Warehouse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism.
 
-- [Azure Data Lake Analytics](/azure/data-lake-analytics/)
-- [Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
-- [HDInsight with Spark](/azure/hdinsight/spark/apache-spark-overview)
-- [HDInsight with Hive](/azure/hdinsight/hadoop/hdinsight-use-hive)
-- [HDInsight with Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+## Azure Data Lake Analytics
+
+[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store. 
+
+- Languages: [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
+-  Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and SQL Data Warehouse.
+- Pricing model is per-job.
+
+## HDInsight
+
+HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters in Azure. For batch processing, you can use [Spark](/azure/hdinsight/spark/apache-spark-overview), [Hive](/azure/hdinsight/hadoop/hdinsight-use-hive), [Hive LLAP](/azure/hdinsight/interactive-query/apache-interactive-query-get-started), [MapReduce](/azure/hdinsight/hadoop/hdinsight-use-mapreduce).
+
+- Lanugages: R, Python, Java, Scala, SQL
+- Kerberos authentication with Active Directory, Apache Ranger based access control
+- Gives you full control of the Hadoop cluster
+
+## Azure Databricks 
+
+Azure Databricks is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.  
+
+- Lanugages: R, Python, Java, Scala, Spark SQL
+- Fast cluster start times, auto-termination, auto-scaling.
+- Manages the Spark cluster for you.
+- Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure SQL Data Warehouse (SQL DW), and other services. See [Data Sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- User authentication with Azure Active Directory.
+- Web-based [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) for collaboration and data exploration. 
+- Supports [GPU-enabled clusters](https://docs.azuredatabricks.net/user-guide/clusters/gpu.html)
+
+## Azure Distributed Data Engineering Toolkit 
+
+The [Distributed Data Engineering Toolkit](https://github.com/azure/aztk) (AZTK) is a tool for provisioning on-demand Spark on Docker clusters in Azure. 
+
+AZTK is not an Azure service. Rather, it's a client-side tool with a CLI and Python SDK interface, that's built on Azure Batch. This option gives you the most control over the infrastructure when deploying a Spark cluster.
+
+- Bring your own Docker image.
+- Use low-priority VMs for an 80% discount.
+- Mixed mode clusters that use both low-priority and dedicated VMs.
+- Built in support for Azure Blob Storage and Azure Data Lake connection.
+
+
 
 ## Key selection criteria
 
@@ -39,47 +74,30 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP |
+| | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> |
-| Supports pausing compute | No | Yes | No | No | No |
-| Relational data store | Yes | Yes | No | No | No |
-| Programmability | U-SQL | T-SQL | Python, Scala, Java, R | HiveQL | HiveQL |
-| Programming paradigm | Mixture of declarative and imperative  | Declarative | Mixture of declarative and imperative | Declarative | Declarative | 
-| Pricing model | Per batch job | By cluster hour | By cluster hour | By cluster hour | By cluster hour |  
+| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes | 
+| Relational data store | Yes | Yes | No | No |
+| Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
 
 [1] With manual configuration and scaling.
 
-### Integration capabilities
+[2] A Databricks Unit (DBU) is a unit of processing capability per hour.
 
-| | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP |
-| --- | --- | --- | --- | --- | --- |
-| Access from Azure Data Lake Store | Yes | Yes | Yes | Yes | Yes |
-| Query from Azure Storage | Yes | Yes | Yes | Yes | Yes |
-| Query from external relational stores | Yes | No | Yes | No | No |
+### Capabilities
 
-### Scalability capabilities
-
-| | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP |
-| --- | --- | --- | --- | --- | --- |
-| Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster |
-| Fast scale out (less than 1 minute) | Yes | Yes | No | No | No |
-| In-memory caching of data | No | Yes | Yes | No | Yes | 
-
-### Security capabilities
-
-| | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | Apache Hive on HDInsight | Hive LLAP on HDInsight |
-| --- | --- | --- | --- | --- | --- |
-| Authentication  | Azure Active Directory (Azure AD) | SQL / Azure AD | No | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> |
-| Authorization  | Yes | Yes| No | Yes <sup>1</sup> | Yes <sup>1</sup> |
-| Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> |
-| Data encryption at rest | Yes| Yes <sup>2</sup> | Yes | Yes | Yes |
-| Row-level security | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> |
-| Dynamic data masking | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> |
+| | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
+| --- | --- | --- | --- | --- | --- | --- |
+| Autoscaling | No | No | No | No | No | Yes |
+| Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |
+| In-memory caching of data | No | Yes | Yes | No | Yes | Yes |
+| Query from external relational stores | Yes | No | Yes | No | No | Yes |
+| Authentication  | Azure AD | SQL / Azure AD | No | Azure AD<sup>1</sup> | Azure AD<sup>1</sup> | Azure AD |
+| Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
+| Row-level security | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>2</sup> | Yes <sup>2</sup> | No |
+| Dynamic data masking | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
-[2] Requires using Transparent Data Encryption (TDE) to encrypt and decrypt your data at rest.
-
-[3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[2] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
