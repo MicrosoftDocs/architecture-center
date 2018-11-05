@@ -2,12 +2,10 @@
 title: Background jobs guidance
 description: Guidance on background tasks that run independently of the user interface.
 author: dragon119
-ms.date: 05/24/2017
+ms.date: 11/05/2018
 
-pnp.series.title: Best Practices
 ---
 # Background jobs
-[!INCLUDE [header](../_includes/header.md)]
 
 Many types of applications require background tasks that run independently of the user interface (UI). Examples include batch jobs, intensive processing tasks, and long-running processes such as workflows. Background jobs can be executed without requiring user interaction--the application can start the job and then continue to process interactive requests from users. This can help to minimize the load on the application UI, which can improve availability and reduce interactive response times.
 
@@ -69,7 +67,7 @@ You can host background tasks by using a range of different Azure platform servi
 * [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of scripts or executable programs within the context of a web app.
 * [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 * [**Azure Batch**](#azure-batch). Batch is a platform service that schedules compute-intensive work to run on a managed collection of virtual machines. It can automatically scale compute resources.
-* [**Azure Container Service**](#azure-container-service). Azure Container Service provides a container hosting environment on Azure. 
+* [**Azure Kubernetes Service**](#azure-kubernetes-service) (AKS). Azure Kubernetes Service provides a managed hosting environment for Kubernetes on Azure. 
 * [**Azure Cloud Services**](#azure-cloud-services). You can write code within a role that executes as a background task.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
@@ -150,9 +148,9 @@ An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a 
 * [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics) 
 * [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
 
-### Azure Container Service 
+### Azure Kubernetes Service
 
-Azure Container Service lets you configure and manage a cluster of VMs in Azure to run containerized applications. It provides a choice of Docker Swarm, DC/OS, or Kubernetes for orchestration. 
+Azure Kubernetes Service (AKS) manages your hosted Kubernetes environment, which makes it easy to deploy and manage containerized applications. 
 
 Containers can be useful for running background jobs. Some of the benefits include: 
 
@@ -163,12 +161,11 @@ Containers can be useful for running background jobs. Some of the benefits inclu
 
 #### Considerations
 
-- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.  
-- Container Service runs in an IaaS environment. It provisions a cluster of VMs inside a dedicated VNet. 
+- Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.
 
 #### More information 
 
-* [Introduction to Docker container hosting solutions with Azure Container Service](/azure/container-service/container-service-intro) 
+* [Overview of containers in Azure](https://azure.microsoft.com/overview/containers/) 
 * [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro) 
 
 ### Azure Cloud Services 
