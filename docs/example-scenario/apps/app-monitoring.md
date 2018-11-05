@@ -114,11 +114,9 @@ Check out these resources designed to help you get started with your own monitor
 
 ## Contributors
 
-| | |  
-| --- | --- |
-| ![](https://avatars1.githubusercontent.com/u/40869465?s=100&v=4) | **Adam Boeglin**<br>Senior Program Manager, Microsoft |
-| ![](https://avatars3.githubusercontent.com/u/8386143?s=100&v=4) | **Shawn Gibbs**<br>Senior Program Manager, Microsoft |
-| ![](https://avatars3.githubusercontent.com/u/26173493?s=100&v=4) | **Nanette Ray**<br>Technical Writer |
+**Adam Boeglin**, Senior Program Manager, Microsoft&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/adamboeglin/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/adamboeglin)
+**Shawn Gibbs**, Senior Program Manager, Microsoft&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/shawngibbs/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/shawngib)
+**Nanette Ray**, Technical Writer&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/nanray/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/njray)
 
 <!-- links -->
 [architecture]: ./media/architecture-app-monitoring.png
