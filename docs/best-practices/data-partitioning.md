@@ -219,7 +219,7 @@ Online migration is more complex to perform but less disruptive. The process is 
 
 The following design patterns might be relevant to your scenario:
 
-* The [[sharding pattern] describes some common strategies for sharding data.
+* The [sharding pattern] describes some common strategies for sharding data.
 * The [index table pattern] shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 * The [materialized view pattern] describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
 
