@@ -102,9 +102,6 @@ Azure WebJobs have the following characteristics:
 * By default, WebJobs scale with the web app. However, you can configure jobs to run on single instance by setting the **is_singleton** configuration property to **true**. Single instance WebJobs are useful for tasks that you do not want to scale or run as simultaneous multiple instances, such as reindexing, data analysis, and similar tasks.
 * To minimize the impact of jobs on the performance of the web app, consider creating an empty Azure Web App instance in a new App Service plan to host WebJobs that may be long running or resource intensive.
 
-### More information
-* [Azure WebJobs recommended resources](/azure/app-service-web/websites-webjobs-resources) lists the many useful resources, downloads, and samples for WebJobs.
-
 ### Azure Virtual Machines
 Background tasks might be implemented in a way that prevents them from being deployed to Azure Web Apps, or these options might not be convenient. Typical examples are Windows services, and third-party utilities and executable programs. Another example might be programs written for an execution environment that is different than that hosting the application. For example, it might be a Unix or Linux program that you want to execute from a Windows or .NET application. You can choose from a range of operating systems for an Azure virtual machine, and run your service or executable on that virtual machine.
 
@@ -125,8 +122,9 @@ Consider the following points when you are deciding whether to deploy background
 * There is no facility to monitor the tasks in the Azure portal and no automated restart capability for failed tasks--although you can monitor the basic status of the virtual machine and manage it by using the  [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/mt125356.aspx). However, there are no facilities to control processes and threads in compute nodes. Typically, using a virtual machine will require additional effort to implement a mechanism that collects data from instrumentation in the task, and from the operating system in the virtual machine. One solution that might be appropriate is to use the [System Center Management Pack for Azure](https://www.microsoft.com/download/details.aspx?id=50013).
 * You might consider creating monitoring probes that are exposed through HTTP endpoints. The code for these probes could perform health checks, collect operational information and statistics--or collate error information and return it to a management application. For more information, see [Health Endpoint Monitoring Pattern](../patterns/health-endpoint-monitoring.md).
 
-#### More information
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) on Azure
+For more information, see:
+
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure Virtual Machines FAQ](/azure/virtual-machines/virtual-machines-linux-classic-faq?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ### Azure Batch 
@@ -141,9 +139,9 @@ Batch works well with intrinsically parallel workloads. It can also perform para
 
 An Azure Batch job runs on a pool of nodes (VMs). One approach is to allocate a pool only when needed and then delete it after the job completes. This maximizes utilization, because nodes are not idle, but the job must wait for nodes to be allocated. Alternatively, you can create a pool ahead of time. That approach minimizes the time that it takes for a job to start, but can result in having nodes that sit idle. For more information, see [Pool and compute node lifetime](/azure/batch/batch-api-basics#pool-and-compute-node-lifetime).
 
-#### More information 
+For more information, see:
 
-* [Run intrinsically parallel workloads with Batch](/azure/batch/batch-technical-overview) 
+* [What is Azure Batch?](/azure/batch/batch-technical-overview) 
 * [Develop large-scale parallel compute solutions with Batch](/azure/batch/batch-api-basics) 
 * [Batch and HPC solutions for large-scale computing workloads](/azure/batch/batch-hpc-solutions)
 
@@ -162,12 +160,10 @@ Containers can be useful for running background jobs. Some of the benefits inclu
 
 - Requires an understanding of how to use a container orchestrator. Depending on the skillset of your DevOps team, this may or may not be an issue.
 
-#### More information 
+For more information, see:
 
 * [Overview of containers in Azure](https://azure.microsoft.com/overview/containers/) 
 * [Introduction to private Docker container registries](/azure/container-registry/container-registry-intro) 
-
-
 
 ## Partitioning
 If you decide to include background tasks within an existing compute instance, you must consider how this will affect the quality attributes of the compute instance and the background task itself. These factors will help you to decide whether to colocate the tasks with the existing compute instance or separate them out into a separate compute instance:
@@ -221,22 +217,13 @@ Background tasks must offer sufficient performance to ensure they do not block t
 * By default, WebJobs scale with their associated Azure Web Apps instance. However, if you want a WebJob to run as only a single instance, you can create a Settings.job file that contains the JSON data **{ "is_singleton": true }**. This forces Azure to only run one instance of the WebJob, even if there are multiple instances of the associated web app. This can be a useful technique for scheduled jobs that must run as only a single instance.
 
 ## Related patterns
-* [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx)
-* [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx)
 * [Compensating Transaction Pattern](../patterns/compensating-transaction.md)
 * [Competing Consumers Pattern](../patterns/competing-consumers.md)
 * [Compute Partitioning Guidance](https://msdn.microsoft.com/library/dn589773.aspx)
-* [Compute Resource Consolidation Pattern](https://msdn.microsoft.com/library/dn589778.aspx)
 * [Gatekeeper Pattern](../patterns/gatekeeper.md)
 * [Leader Election Pattern](../patterns/leader-election.md)
 * [Pipes and Filters Pattern](../patterns/pipes-and-filters.md)
 * [Priority Queue Pattern](../patterns/priority-queue.md)
 * [Queue-based Load Leveling Pattern](../patterns/queue-based-load-leveling.md)
 * [Scheduler Agent Supervisor Pattern](../patterns/scheduler-agent-supervisor.md)
-
-## More information
-* [Executing Background Tasks](https://msdn.microsoft.com/library/ff803365.aspx)
-* [What is the Azure WebJobs SDK](https://docs.microsoft.com/azure/app-service-web/websites-dotnet-webjobs-sdk)
-* [Run Background tasks with WebJobs](https://docs.microsoft.com/azure/app-service-web/web-sites-create-web-jobs)
-* [Azure Queues and Service Bus Queues - Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted)
 
