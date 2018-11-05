@@ -112,7 +112,7 @@ Check out these resources designed to help you get started with your own monitor
 
 [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
 
-## Contributors
+## Authors
 
 | | |  
 | --- | --- |
