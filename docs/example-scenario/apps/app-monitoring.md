@@ -118,7 +118,7 @@ Check out these resources designed to help you get started with your own monitor
 | --- | --- |
 | ![](https://avatars1.githubusercontent.com/u/40869465?s=100&v=4) | **Adam Boeglin**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/adamboeglin/)<br>Senior Program Manager, Microsoft |
 | ![](https://avatars3.githubusercontent.com/u/8386143?s=100&v=4) | **Shawn Gibbs**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/shawngibbs/)<br>Senior Program Manager, Microsoft |
-| ![](https://avatars3.githubusercontent.com/u/26173493?s=100&v=4) | **Nanette Ray**[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/njray)<br>Technical Writer |
+| ![](https://avatars3.githubusercontent.com/u/26173493?s=100&v=4) | **Nanette Ray**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/nanray/)<br>Technical Writer |
 
 
 **Nanette Ray**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/nanray/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/njray), Technical Writer  
