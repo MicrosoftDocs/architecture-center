@@ -10,7 +10,7 @@ The [Infrastructure section](../overview.md) of the [Enterprise Cloud Adoption f
 
 VDC is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the ebook "Azure Virtual Datacenter".
 
-This approach to the creation and deployment of a Virtual Datacenter in Azure, is based on a set of core assumptions, outlined at the end of this document. When these assumptions prove accurate, this guide and associated accelerators can significant reduce the time required to build out the foundational elements of Azure. Even when the assumptions don't apply to the specific deployment scenario, this approach provides a logical way of thinking about complex, interconnected cloud based solutions.
+This approach to the creation and deployment of a Virtual Datacenter in Azure is based on a set of core assumptions, outlined at the end of this document. When these assumptions prove accurate, this guide and associated accelerators can significant reduce the time required to build out the foundational elements of Azure. Even when the assumptions don't apply to the specific deployment scenario, this approach provides a logical way of thinking about complex, interconnected cloud based solutions.
 
 ## Guide
 

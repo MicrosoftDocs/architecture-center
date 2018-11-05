@@ -289,7 +289,7 @@ extension.
 
 ## Next steps
 
-Learn how [identity services](identity.md) are used for access control and management in the cloud.
+Learn how [encryption](encryption.md) is used to secure data in cloud environments.
 
 > [!div class="nextstepaction"]
-> [Identity](identity.md)
+> [Encryption](encryption.md)

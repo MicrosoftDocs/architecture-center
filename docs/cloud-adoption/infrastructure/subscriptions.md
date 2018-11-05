@@ -77,7 +77,9 @@ standards are key to organizing resources in support of governance.
 
 ## Next steps
 
-Learn how [resource naming and tagging](resource-naming-and-tagging.md) are used to organize and manage cloud resources.
+Learn how [identity services](identity.md) are used for access control and management in the cloud.
 
 > [!div class="nextstepaction"]
-> [Resource Naming and Tagging](resource-naming-and-tagging.md)
+> [Identity](identity.md)
+
+

@@ -704,14 +704,14 @@
     - name: Subscriptions
       href: cloud-adoption/infrastructure/subscriptions.md
       items:
+    - name: Identity
+      href: cloud-adoption/infrastructure/identity.md
+      items:
     - name: Resource Organization and Tagging
       href: cloud-adoption/infrastructure/resource-naming-and-tagging.md
       items:
     - name: Software Defined Networks
       href: cloud-adoption/infrastructure/software-defined-networks.md
-      items:
-    - name: Identity
-      href: cloud-adoption/infrastructure/identity.md
       items:
     - name: Encryption
       href: cloud-adoption/infrastructure/encryption.md
@@ -728,7 +728,7 @@
         - name: Can a mainframe be migrated to Azure?
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
     - name: Build a virtual data center (VDC)
-      href: cloud-adoption/infrastructure/misc/virtual-datacenter-VDC.md
+      href: cloud-adoption/infrastructure/virtual-datacenter/virtual-datacenter-VDC.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations

@@ -145,7 +145,7 @@ solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn)
 
 ## Next steps
 
-Learn how [encryption](encryption.md) is used to secure data in cloud environments.
+Learn how [resource naming and tagging](resource-naming-and-tagging.md) are used to organize and manage cloud resources.
 
 > [!div class="nextstepaction"]
-> [Encryption](encryption.md)
+> [Resource Naming and Tagging](resource-naming-and-tagging.md)
