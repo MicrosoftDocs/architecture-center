@@ -114,9 +114,9 @@ Check out these resources designed to help you get started with your own monitor
 
 ## Contributors
 
-**Adam Boeglin**, Senior Program Manager, Microsoft&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/adamboeglin/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/adamboeglin)  
-**Shawn Gibbs**, Senior Program Manager, Microsoft&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/shawngibbs/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/shawngib)  
-**Nanette Ray**, Technical Writer&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/nanray/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/njray)  
+**Adam Boeglin**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/adamboeglin/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/adamboeglin), Senior Program Manager, Microsoft
+**Shawn Gibbs**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/shawngibbs/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/shawngib), Senior Program Manager, Microsoft  
+**Nanette Ray**&nbsp;[<img src="../../_images/linkedin.png" alt="LinkedIn" width="16"/>](https://www.linkedin.com/in/nanray/)&nbsp;[<img src="../../_images/github.png" alt="GitHub" width="16"/>](https://github.com/njray), Technical Writer  
 
 <!-- links -->
 [architecture]: ./media/architecture-app-monitoring.png
