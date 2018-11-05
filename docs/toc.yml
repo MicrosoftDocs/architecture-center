@@ -246,6 +246,8 @@
       href: best-practices/cdn.md
     - name: Data partitioning
       href: best-practices/data-partitioning.md
+    - name: Data partitioning strategies (by service)
+      href: best-practices/data-partitioning-strategies.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
     - name: Naming conventions
