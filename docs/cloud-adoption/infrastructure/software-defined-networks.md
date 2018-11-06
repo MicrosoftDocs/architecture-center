@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 10/31/2018
 ---
 
-# Enterprise Cloud Adoption: Software Defined Networks
+# Enterprise Cloud Adoption: Which Software Defined Network is best for my deployment?
 
 Software Defined Networking (SDN) is a network architecture designed to allow
 virtualized networking functionality which can be centrally managed, configured,
@@ -20,6 +20,20 @@ software-based deployment management enables rapid modification of networking
 resources, and allows the ability to support both agile and traditional
 deployment models. Virtualized networks created with SDN technology are critical
 to creating secure networks on a public cloud platform.
+
+## Networking Decision Guide
+
+![Plotting networking options from lest to most complex, aligned with jump links below](../_images/decision-guide-sdn.png)
+
+Jump to: [PaaS Only](#paas-only) | [Cloud native](#cloud-native-azure-networks) | [Hybrid](#hybrid) [VDC: Hub/Spoke model](#Virtual-Datacenter---Trusted-Network-Extension) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
+
+Software defined networking provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies. 
+
+The inflection point in this guide assumes that a few decisions have been made by the Cloud Strategy Team prior to making the networking decision: [Digital Estate definition](../digital-estate/overview.md), [Subscription Design](subscriptions.md) (which may require inputs from [cloud accounting](../business-strategy/cloud-accounting.md) & [global markets](../business-strategy/global-markets.md) decisions).
+
+Small, single region deployments of less than 1,000 VMs are less likely to be significantly impacted by this inflection point. Conversely, larger adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially impacted by the SDN decision and this key inflection point.
+
+The next section on choosing the right virtual networking architectures will ask specific questions to expand on this decision guide.
 
 ## Choosing the right virtual networking architectures
 
@@ -43,6 +57,20 @@ following questions to help determine what's right for your organization:
 the right architecture for their migration. Eventually this is intended to be
 more of a decision list diagram or something similar. See below for a more
 detailed description of each architecture.\*
+
+### PaaS Only
+
+For Platform as a Service implementations, the deployment may not need a Software Defined Network. Before checking SDN off of the deployment list, there are a number of assumptions to qualify fit. When deploying a PaaS solution, an assumed underlying network is created. There are a limited number of controls over that network including; load balancing, port blocking, public endpoint connections to other PaaS services, etc... In some cases, this may qualify as a sufficient network for the desired deployment. 
+
+**PaaS Only Assumptions:** Deploying a PaaS Only network assumes the following:
+
+- The application being deployed is a stand alone application OR is dependent only on other PaaS solutions
+- The application being deployed does not have any dependencies on existing on-prem or IaaS resources
+- The operations team supporting the application once it goes to production has implemented tooling or processes required to support a stand alone PaaS application
+- This PaaS application is not part of a broader cloud adoption initiative
+
+> [!TIP]
+> The above assumptions are minimum qualifiers aligned to a While a PaaS Only network. While this approach may fit the requirements of a single application deployment, it is advised that the Cloud Migration Team think slightly longer term. Will this deployment expand in scope or scale to require access to other non-PaaS resources? Are other PaaS deployments planned beyond the current solution? Does the organization have plans for other future cloud migrations? The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
 
 ### Cloud Native
 
@@ -118,6 +146,8 @@ Issues to note when considering a hybrid virtual networking architecture:
 -    [Hybrid Networks on Azure](#hybrid-networks-on-azure)
 
 ### Virtual Datacenter - Trusted Network Extension
+
+\*Reviewers note: Trusted Network Extension implies that other Hybrid options are not trusted extensions of the network. Avoid sales pitches for the model. Reword titles to fit the technical description of the use case.\*
 
 The virtual datacenter architecture is designed to assist enterprises in
 deploying a large number of workloads to public cloud platform while still
