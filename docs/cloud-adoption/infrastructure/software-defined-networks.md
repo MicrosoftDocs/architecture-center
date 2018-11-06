@@ -23,7 +23,7 @@ to creating secure networks on a public cloud platform.
 
 ## Networking Decision Guide
 
-![Plotting networking options from lest to most complex, aligned with jump links below](../_images/decision-guide-sdn.png)
+![Plotting networking options from lest to most complex, aligned with jump links below](../_images/discovery-guide-sdn.png)
 
 Jump to: [PaaS Only](#paas-only) | [Cloud native](#cloud-native-azure-networks) | [Hybrid](#hybrid) [VDC: Hub/Spoke model](#Virtual-Datacenter---Trusted-Network-Extension) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
 
