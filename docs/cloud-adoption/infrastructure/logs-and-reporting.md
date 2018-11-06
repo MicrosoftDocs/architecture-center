@@ -102,3 +102,10 @@ services.
 
 In addition, Azure Monitor offers [integration with may popular 3rd party
 vendors](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-partners).
+
+## Next steps
+
+See [guidance and examples](overview.md#azure-examples-and-guidance) of how to use core infrastructure components in the Azure cloud.
+
+> [!div class="nextstepaction"]
+> [Azure Examples and Guidance](overview.md#azure-examples-and-guidance)

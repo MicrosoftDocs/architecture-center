@@ -2,7 +2,7 @@
 title: "Enterprise Cloud Adoption: Resource Organization and Tagging" 
 description: Discussion of Resource Organization and Tagging as a core service in Azure migrations
 author: rotycenh
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ---
 # Enterprise Cloud Adoption: Resource Organization and Tagging
 
@@ -98,3 +98,10 @@ level, allowing you a degree of flexibility in the granularity of any accounting
 reports based on applied tags. For details on how to apply and use tagging
 within Azure, see [Use tags to organize your Azure
 resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json).
+
+## Next steps
+
+Learn how [Software Defined Networks](software-defined-networks.md) provide virtualized networking capabilities for cloud deployments.
+
+> [!div class="nextstepaction"]
+> [Software Defined Networks](software-defined-networks.md)

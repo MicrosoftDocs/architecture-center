@@ -123,3 +123,10 @@ connection string in key vault instead of an application's configuration files
 or environment variables). Authorized applications and services within Azure
 deployments can use, but not modify, keys stored in Key Vault. Only authorized key owners
 can make changes through Key Vault.
+
+## Next steps
+
+Learn how [logs, monitoring, and reporting](logs-and-reporting.md) are used by operations teams to manage the health and policy compliance of cloud workloads.
+
+> [!div class="nextstepaction"]
+> [Logs and Reporting](logs-and-reporting.md)

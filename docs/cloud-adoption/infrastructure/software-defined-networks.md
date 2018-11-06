@@ -75,7 +75,9 @@ Issues to note when considering a cloud native virtual networking architecture:
     management tools, and may lead to management and policy divergence from your
     existing IT standards as time goes on.
 
-Learn more: [Cloud native networks on Azure.](#cloud-native-azure-networks)
+**Learn more**
+
+-    [Cloud native networks on Azure.](#cloud-native-azure-networks)
 
 ### Hybrid
 
@@ -111,7 +113,9 @@ Issues to note when considering a hybrid virtual networking architecture:
 -   You will need to develop compatible management and access control policies
     to maintain consistent governance throughout your organization.
 
-Learn more: [Hybrid Networks on Azure](#hybrid-networks-on-azure)
+**Learn more**
+
+-    [Hybrid Networks on Azure](#hybrid-networks-on-azure)
 
 ### Virtual Datacenter - Trusted Network Extension
 
@@ -149,12 +153,16 @@ Issues to note when considering a virtual datacenter networking architecture:
 -   A shared identity system is required to keep access control policies
     consistent between on-premises and cloud resources.
 
+-   The virtual datacenter approach assumes a large number of assets that would benefit the management flexibility of a hub and spoke networking model, may be exceeding the number of resources allowed within a single account or subscription, and need a segmented security model allowing central IT control coupled with delegated control of workload resources. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than is necessary.
+
 -   Once central infrastructure is in place, new workload spokes can be spun up
     very quickly, improving agility in support of developers and operations
     teams.
 
-Learn more: [Azure Virtual Data Center - Enterprise scale trusted network
-extension](#azure-virtual-data-center---enterprise-scale-trusted-network-extension)
+**Learn more**
+
+-   [Azure Virtual Data Center - Enterprise scale trusted network
+    extension](#azure-virtual-data-center---enterprise-scale-trusted-network-extension)
 
 ## Azure Virtual Networks
 
@@ -197,8 +205,6 @@ or [VPN connections](https://azure.microsoft.com/en-us/services/vpn-gateway/).
 
 ![Simple cloud native virtual network with a single VM and Public IP address](../_images/infra-sdn-figure1.png)
 
-Simple cloud native virtual network with a single VM and Public IP address
-
 *Figure 1. Simple cloud native virtual network with a single VM and Public IP
 address.*
 
@@ -223,8 +229,6 @@ limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits
 ### Hybrid Networks on Azure
 
 ![Example hybrid virtual network containing a DMZ and n-tier application](../_images/infra-sdn-figure2.png)
-
-Example hybrid virtual network containing a DMZ and n-tier application
 
 *Figure 2. Example hybrid virtual network containing a DMZ and n-tier
 application.*
@@ -254,9 +258,6 @@ Center](https://docs.microsoft.com/en-us/azure/architecture/reference-architectu
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../_images/infra-sdn-figure3.png)
 
-Example hub and spoke structure of a virtual data center, including connection
-to on-premises network
-
 *Figure 3. Example hub and spoke structure of a virtual data center, including
 connection to on-premises network.*
 
@@ -285,3 +286,10 @@ migration. See the [Azure Virtual Datacenter
 E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
 for more information on the broader concepts behind VDC and the trusted network
 extension.
+
+## Next steps
+
+Learn how [encryption](encryption.md) is used to secure data in cloud environments.
+
+> [!div class="nextstepaction"]
+> [Encryption](encryption.md)

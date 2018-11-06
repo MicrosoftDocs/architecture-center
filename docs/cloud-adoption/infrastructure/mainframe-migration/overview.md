@@ -12,7 +12,7 @@ Ed's team to create markdown based on the mainframe migration white paper.
 
 ## Next steps
 
-Guide the reader to a next step in this process...
+See more [guidance and examples](../overview.md#azure-examples-and-guidance) on how to use core infrastructure components in the Azure cloud.
 
 > [!div class="nextstepaction"]
-> [Next Step Action](overview.md)
+> [Azure Examples and Guidance](../overview.md#azure-examples-and-guidance)

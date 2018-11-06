@@ -142,3 +142,10 @@ workloads and processes. To choose the best Azure AD authentication mechanism fo
 organization, see [choosing the right authentication method for your Azure
 Active Directory hybrid identity
 solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn).
+
+## Next steps
+
+Learn how [resource naming and tagging](resource-naming-and-tagging.md) are used to organize and manage cloud resources.
+
+> [!div class="nextstepaction"]
+> [Resource Naming and Tagging](resource-naming-and-tagging.md)
