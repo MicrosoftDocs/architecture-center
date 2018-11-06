@@ -37,6 +37,11 @@ solution, and where migrating workloads will be compatible with cloud-based
 authentication mechanisms, it makes sense to simply build your identity
 infrastructure using a cloud native identity service.
 
+Notes when considering cloud native identity solutions:
+
+-    Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
+-    Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on windows integrated authentication methods like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+
 ### Federation
 
 For organizations with an existing Identity infrastructure, federation is often
@@ -46,18 +51,29 @@ syncs directory information between the cloud and on-premises environments,
 allowing single sign-in for users and a consistent role and permission system
 across your entire organization.
 
+Notes when considering federated identity solutions:
+
+-    In addition to allowing shared identity services between cloud and on-premises, federation supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains both inside and outside of your organization.
+-    Federation allows the development of single sign-on (SSO) mechanisms for users accessing cloud and on-premises identity providers. However, existing on-premises applications and services may still require refactoring to fully support SSO.
+-    Cloud-based workloads that depend on non-cloud authentication mechanisms require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises services introduces dependencies on connectivity between the cloud and on-premises networks.
+
 ### Directory Migration
 
 In scenarios where hybrid authentication methods are not possible, you may need
-to consider migrating your current directories to a cloud identity provider.
+to consider migrating some or all of your current directory services to a cloud identity provider.
 This approach will ensure your identity and authentication services will work in
 the cloud environment but could entail refactoring legacy workloads that do not
 currently support cloud compatible authentication mechanisms.
 
+Notes when considering federated identity solutions:
+
+-    The end state of a directory migration is a cloud-native solution. All of the previously described features and limitations of cloud native identity provider apply.
+-    Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
+
 ## Evolving Identity Integration
 
 Along with other aspects of the Enterprise Cloud Adoption model, integration can
-be an iterative process. It may make sense starting off using a cloud native
+be an iterative process. It may make sense to start off using a cloud native
 solution with a small set of users and roles for an initial deployment. As your
 migration matures you may want to move to federated model as the
 migration process matures, or even perform a full directory migration of your on-premises identity services to the cloud. It's

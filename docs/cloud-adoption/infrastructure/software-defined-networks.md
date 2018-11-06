@@ -70,31 +70,33 @@ For Platform as a Service implementations, the deployment may not need a Softwar
 - This PaaS application is not part of a broader cloud adoption initiative
 
 > [!TIP]
-> The above assumptions are minimum qualifiers aligned to a While a PaaS Only network. While this approach may fit the requirements of a single application deployment, it is advised that the Cloud Migration Team think slightly longer term. Will this deployment expand in scope or scale to require access to other non-PaaS resources? Are other PaaS deployments planned beyond the current solution? Does the organization have plans for other future cloud migrations? The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
+> The above assumptions are minimum qualifiers aligned to a PaaS Only network. While this approach may fit the requirements of a single application deployment, it is advised that the Cloud Migration Team think slightly longer term. Will this deployment expand in scope or scale to require access to other non-PaaS resources? Are other PaaS deployments planned beyond the current solution? Does the organization have plans for other future cloud migrations? The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
 
 ### Cloud Native
 
 A cloud native virtual network has no dependencies on your organization's
 on-premises or other non-cloud resources to support the cloud-hosted workloads.
 All required resources are provisioned either in the virtual network itself or
-using managed PaaS offerings. A cloud native virtual network is the default
-model when creating resources in a cloud platform, and access to it from
-external sources like the web need to be explicitly provisioned.
+using managed PaaS offerings. 
 
-Issues to note when considering a cloud native virtual networking architecture:
+A cloud native virtual network is the default
+model when creating IaaS resources in a cloud platform, and access to it from
+external sources like the web need to be explicitly provisioned. These virtual networks support the creation of subnets, routing rules, and virtual firewall and traffic management devices.  
+
+**Cloud Native Assumptions:** Deploying a cloud native virtual network assumes the following:
+
+- The workloads you deploy into the virtual network have no dependencies on applications or services only accessible from inside your on-premises network. Unless they provide endpoints accessible over the public internet, applications and services hosted internally on-premises are not usable by resources hosted on a cloud platform.
+
+- Your workload's identity management and access control depends solely on the cloud platform or IaaS servers hosted in your cloud environment. You will not directly use identity services hosted on-premises or other external location.
+
+- Your identity services do not need to support single sign-on (SSO) with on-premises directories.
+
+Other issues to note when considering a cloud native virtual networking architecture:
 
 -   Cloud native virtual networks are the simplest to deploy and configure, as
     they are the default types of networks created by cloud platforms and have
     no external dependencies. As a result, this architecture is often the best
     choice for experiments or other smaller, self-contained, deployments.
-
--   Identity management and access control depends solely on the cloud platform
-    and resources hosted there. You cannot directly use identity services hosted
-    on-premises or other external location.
-
--   Unless they provide endpoints accessible over the public internet,
-    applications and services hosted internally on-premises are not usable by
-    resources hosted on a cloud platform.
 
 -   Existing workloads designed to run in an on-premises datacenter may need
     extensive modification to take advantage of cloud-based functionality.
@@ -120,15 +122,17 @@ in the virtual network need to be explicitly allowed. The connection can be
 secured using virtual firewall devices and routing rules to limit access or
 specify exactly what services can be accessed between the two networks.
 
+**Hybrid Assumptions:** Deploying a hybrid virtual network assumes the following:
+
+- Your IaaS workloads require access to storage, applications, and services hosted on your on-premises or third party networks.
+
+- You need to migrate existing applications and services that depend on on-premises resources without extensive redevelopment.
+
+- Your on-premises or other external environments are able to provision external VPN or similar connectivity mechanism that the cloud network can connect to.
+
+- Your deployments do not require complicated a structure to bypass account and subscription resource limits.
+
 Issues to note when considering a hybrid virtual networking architecture:
-
--   A hybrid virtual network architecture allows cloud hosted workloads to
-    access to on-premises identity services, storage, and applications. This can
-    make migrating existing applications and services that depend on these
-    assets much simpler.
-
--   Your on-premises environment will need to provision external VPN access for
-    the cloud network to connect with.
 
 -   Connecting on-premises networks with cloud networks increases the complexity
     of your security requirements. Both networks need to be secured against
