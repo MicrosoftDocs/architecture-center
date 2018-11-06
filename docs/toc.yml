@@ -552,13 +552,13 @@
       href: cloud-adoption/transformation-journeys/incremental-transformation.md
     - name: Disruptive Transformation
       href: cloud-adoption/transformation-journeys/disruptive-transformation.md
-  - name: Business Transformation
+  - name: Business Strategy
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
     - name: Business Outcomes
       items:
-      - name: What are Business Outcomes?
+      - name: Overview - What are Business Outcomes?
         href: cloud-adoption/business-strategy/business-outcomes/overview.md
       - name: How to use Business Outcomes?
         href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
@@ -580,7 +580,7 @@
       href: cloud-adoption/business-strategy/risk-tolerance.md
     - name: Cloud Accounting
       href: cloud-adoption/business-strategy/cloud-accounting.md
-  - name: Cultural Transformation
+  - name: Cultural Strategy
     items:
     - name: Overview
       href: cloud-adoption/culture-strategy/overview.md  
