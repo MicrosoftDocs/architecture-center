@@ -25,7 +25,7 @@ to creating secure networks on a public cloud platform.
 
 ![Plotting networking options from lest to most complex, aligned with jump links below](../_images/discovery-guide-sdn.png)
 
-Jump to: [PaaS Only](#paas-only) | [Cloud native](#cloud-native-azure-networks) | [Hybrid](#hybrid) [VDC: Hub/Spoke model](#Virtual-Datacenter---Trusted-Network-Extension) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
+Jump to: [PaaS Only](#paas-only) | [Cloud native](#cloud-native) | [Hybrid](#hybrid) | [VDC: Hub/Spoke model](#Virtual-Datacenter) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
 
 Software defined networking provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies. 
 
@@ -46,12 +46,13 @@ When planning which virtual networking architecture, or combination of
 architectures, to consider when planning your cloud migration, consider the
 following questions to help determine what's right for your organization:
 
-| Question                                                                                                                                                   | Cloud Native | Hybrid | VDC |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-----|
-| Does your workload require integration with on-premises applications?                                                                                      | No           | Yes    | Yes |
-| Does your workload require authentication services not supported through cloud identity services, or need direct access to on-premises domain controllers? | No           | Yes    | Yes |
-| Will you need to deploy and manage a large number of VMs and workloads?                                                                                    | No           | No     | Yes |
-| Will you need to provide central governance while delegating control over resources to individual workload teams?                                          | No           | No     | Yes |
+| Question                                                                                                                                                   | PaaS Only | Cloud Native | Hybrid | VDC |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|--------------|--------|-----|
+| Only using PaaS services?                                                                                                                                  | Yes       | No           | No     | No  |
+| Does your workload require integration with on-premises applications?                                                                                      | No        | No           | Yes    | Yes |
+| Does your workload require authentication services not supported through cloud identity services, or need direct access to on-premises domain controllers? | No        | No           | Yes    | Yes |
+| Will you need to deploy and manage a large number of VMs and workloads?                                                                                    | No        | No           | No     | Yes |
+| Will you need to provide central governance while delegating control over resources to individual workload teams?                                          | No        | No           | No     | Yes |
 
 \*Reviewers note: This table is a working list of questions to help readers pick
 the right architecture for their migration. Eventually this is intended to be
@@ -60,7 +61,7 @@ detailed description of each architecture.\*
 
 ### PaaS Only
 
-For Platform as a Service implementations, the deployment may not need a Software Defined Network. Before checking SDN off of the deployment list, there are a number of assumptions to qualify fit. When deploying a PaaS solution, an assumed underlying network is created. There are a limited number of controls over that network including; load balancing, port blocking, public endpoint connections to other PaaS services, etc... In some cases, this may qualify as a sufficient network for the desired deployment. 
+For Platform as a Service (PaaS) implementations, your deployment may not need a software defined network. When deploying a PaaS solution, an assumed underlying network is created. There are a limited number of controls over that network including; load balancing, port blocking, public endpoint connections to other PaaS services, etc... In some cases, this may qualify as a sufficient network for the desired deployment. However, before choosing this for your deployment, validate that the assumptions required for a PaaS only architecture are a fit for your requirements.
 
 **PaaS Only Assumptions:** Deploying a PaaS Only network assumes the following:
 
@@ -70,7 +71,12 @@ For Platform as a Service implementations, the deployment may not need a Softwar
 - This PaaS application is not part of a broader cloud adoption initiative
 
 > [!TIP]
-> The above assumptions are minimum qualifiers aligned to a PaaS Only network. While this approach may fit the requirements of a single application deployment, it is advised that the Cloud Migration Team think slightly longer term. Will this deployment expand in scope or scale to require access to other non-PaaS resources? Are other PaaS deployments planned beyond the current solution? Does the organization have plans for other future cloud migrations? The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
+> The above assumptions are minimum qualifiers aligned to a PaaS Only network. While this approach may fit the requirements of a single application deployment, your Cloud Migration Team should think about some longer-term questions: 
+>- Will this deployment expand in scope or scale to require access to other non-PaaS resources? 
+>- Are other PaaS deployments planned beyond the current solution? 
+>- Does the organization have plans for other future cloud migrations? 
+> 
+> The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
 
 ### Cloud Native
 
@@ -91,19 +97,10 @@ external sources like the web need to be explicitly provisioned. These virtual n
 
 - Your identity services do not need to support single sign-on (SSO) with on-premises directories.
 
-Other issues to note when considering a cloud native virtual networking architecture:
-
--   Cloud native virtual networks are the simplest to deploy and configure, as
-    they are the default types of networks created by cloud platforms and have
-    no external dependencies. As a result, this architecture is often the best
-    choice for experiments or other smaller, self-contained, deployments.
-
--   Existing workloads designed to run in an on-premises datacenter may need
-    extensive modification to take advantage of cloud-based functionality.
-
--   Cloud native networks are managed solely through the cloud platform
-    management tools, and may lead to management and policy divergence from your
-    existing IT standards as time goes on.
+> [!TIP]
+> Cloud native virtual networks are the default when configuring networking in cloud platforms, and have no external dependencies. This makes them simple to deploy and configure. As a result, this architecture is often the best choice for experiments or other smaller, self-contained, or rapidly iterating deployments. Other issues your Cloud Migration Team should consider when discussing a cloud native virtual networking architecture:
+> - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality such as storage or authentication services.
+> - Cloud native networks are managed solely through the cloud platform management tools, and may lead to management and policy divergence from your existing IT standards as time goes on.
 
 **Learn more**
 
@@ -132,71 +129,51 @@ specify exactly what services can be accessed between the two networks.
 
 - Your deployments do not require complicated a structure to bypass account and subscription resource limits.
 
-Issues to note when considering a hybrid virtual networking architecture:
-
--   Connecting on-premises networks with cloud networks increases the complexity
-    of your security requirements. Both networks need to be secured against
-    external vulnerabilities and unauthorized access from both sides of the
-    hybrid environment.
-
--   Scaling the number and size of workloads within a hybrid cloud environment
-    can add significant complexity to routing and traffic management.
-
--   You will need to develop compatible management and access control policies
-    to maintain consistent governance throughout your organization.
+> [!TIP]
+> Your Cloud Migration Team should consider the following issues when looking at implementing a hybrid virtual networking architecture:
+> - Connecting on-premises networks with cloud networks increases the complexity of your security requirements. Both networks need to be secured against external vulnerabilities and unauthorized access from both sides of the hybrid environment.
+> - Scaling the number and size of workloads within a hybrid cloud environment can add significant complexity to routing and traffic management.
+> - You will need to develop compatible management and access control policies to maintain consistent governance throughout your organization.
 
 **Learn more**
 
 -    [Hybrid Networks on Azure](#hybrid-networks-on-azure)
 
-### Virtual Datacenter - Trusted Network Extension
+### Virtual Datacenter
 
-\*Reviewers note: Trusted Network Extension implies that other Hybrid options are not trusted extensions of the network. Avoid sales pitches for the model. Reword titles to fit the technical description of the use case.\*
 
-The virtual datacenter architecture is designed to assist enterprises in
+A virtual datacenter architecture is designed to assist enterprises in
 deploying a large number of workloads to public cloud platform while still
 preserving key aspects of existing access control, policy compliance, and
 governance across your entire organization. Building off the connectivity
 provided by the hybrid cloud model, a virtual datacenter adds management, access
 control, and traffic management capabilities.
 
-An example virtual datacenter model is the trusted network extension. The
-network architecture component of a this model is built around a hub and spoke
-model composed of multiple virtual networks. The central hub virtual network
-contains the main networking, policy, and monitoring resources for virtual
-network. As with hybrid clouds, the hub hosts a connection to on-premises or
-other external networks and contains the central routing and firewall
-capabilities that manage traffic coming from workloads to external networks and
-vice versa.
+The most common virtual datacenter model is built around a hub and spoke
+arrangement composed of multiple virtual networks. These networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass resource limits.
 
-Workload spokes are separate virtual networks that, aside from network peering
-with the hub network, are isolated by default. All traffic travelling to the
-spoke from outside the VDC and form the spoke to the outside world are forced to
-travel through the hub where central security rules and access policies are
-applied. Much of the control over the spoke networks and connected workload
-resources can be delegated to the workload teams themselves, while critical
-security and access controls can be maintained through the central hub.
+The virtual datacenter model supports connecting hub and spoke networks across geo-regions. However, connecting between geo-regions has the potential to introduce higher latency than would be the case if all networks were in the same geo-region, and this potential latency would need to be accounted for in your network and workload planning.
 
-Issues to note when considering a virtual datacenter networking architecture:
+The central hub virtual network
+contains the main traffic management, policy rules, and monitoring resources for the virtual datacenter. The hub hosts a connection to on-premises or other external networks and contains the central routing and firewall capabilities that manage traffic coming from workloads to external networks and vice versa. The hub also hosts any other common shared services used by workloads across the VDC.
 
--   A virtual datacenter is more than networking functionality. Implementing
-    this model requires integrating requirements from enterprise IT, security,
-    governance, and developer teams. This can involve a multiple planning and
-    design cycles.
+Workload spokes are separate virtual networks that, aside from network peering with the hub network, are isolated by default. All traffic travelling to the spoke from outside the VDC and form the spoke to the outside world are forced to travel through the hub where central security rules and access policies are applied. Much of the control over the spoke networks and connected workload resources can be delegated to the workload teams themselves, while critical security and access controls can be maintained through the central hub.
 
--   A shared identity system is required to keep access control policies
-    consistent between on-premises and cloud resources.
+**Virtual Datacenter Assumptions:** Deploying a virtual datacenter assumes the following:
 
--   The virtual datacenter approach assumes a large number of assets that would benefit the management flexibility of a hub and spoke networking model, may be exceeding the number of resources allowed within a single account or subscription, and need a segmented security model allowing central IT control coupled with delegated control of workload resources. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than is necessary.
+- Your cloud migration will contain large number of assets and may be exceeding the number of resources allowed within a single account or subscription.
+- You have a common identity system between your on-premises and cloud environments.
+- The complexity of your deployment requires the central IT management provided by the virtual datacenter hub and spoke networking model.
+- You will need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance.
+- You need a security model that allows central IT control over core services and security coupled with delegated control of workload resources.
 
--   Once central infrastructure is in place, new workload spokes can be spun up
-    very quickly, improving agility in support of developers and operations
-    teams.
+> [!TIP]
+> A virtual datacenter is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. 
 
 **Learn more**
 
--   [Azure Virtual Data Center - Enterprise scale trusted network
-    extension](#azure-virtual-data-center---enterprise-scale-trusted-network-extension)
+-   [Azure Virtual Data Center - Enterprise scale network extension
+    extension](#azure-virtual-data-center---enterprise-scale-cloud-network-extension)
 
 ## Azure Virtual Networks
 
@@ -288,7 +265,7 @@ For an example of how to implement a secure hybrid virtual network see [this
 example at the Azure Architecture
 Center](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
-### Azure Virtual Data Center - Enterprise scale trusted network extension
+### Azure Virtual Data Center - Enterprise scale cloud network extension
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../_images/infra-sdn-figure3.png)
 
