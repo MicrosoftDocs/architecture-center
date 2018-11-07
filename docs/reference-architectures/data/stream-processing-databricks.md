@@ -277,7 +277,7 @@ Once executed, this command opens the vi editor. Enter the **secret** value from
     ```bash
     dbfs mkdirs dbfs:/azure-databricks-jobs
     ```
-    
+
 2. Navigate to data/streaming_azuredatabricks/DataFile and enter the following:
     ```bash
     dbfs cp ZillowNeighborhoods-NY.zip dbfs:/azure-databricks-jobs
@@ -287,16 +287,16 @@ Once executed, this command opens the vi editor. Enter the **secret** value from
 For this section, you require the Log Analytics workspace ID and primary key. The workspace ID is the **workspaceId** value from the **logAnalytics** output section in step 4 of the *deploy the Azure resources* section. The primary key is the **secret** from the output section. 
 
 1. To configure log4j logging, open data\streaming_azuredatabricks\azure\AzureDataBricksJob\src\main\resources\com\microsoft\pnp\azuredatabricksjob\log4j.properties. Edit the following two values:
-```
-log4j.appender.A1.workspaceId=<Log Analytics workspace ID>
-log4j.appender.A1.secret=<Log Analytics primary key>
-```
+    ```
+    log4j.appender.A1.workspaceId=<Log Analytics workspace ID>
+    log4j.appender.A1.secret=<Log Analytics primary key>
+    ```
 
 2. To configure custom logging, open data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\metrics.properties. Edit the following two values:
-``` 
-*.sink.loganalytics.workspaceId=<Log Analytics workspace ID>
-*.sink.loganalytics.secret=<Log Analytics primary key>
-```
+    ``` 
+    *.sink.loganalytics.workspaceId=<Log Analytics workspace ID>
+    *.sink.loganalytics.secret=<Log Analytics primary key>
+    ```
 
 ### Build the .jar files for the Databricks job and Databricks monitoring
 
@@ -306,19 +306,19 @@ log4j.appender.A1.secret=<Log Analytics primary key>
 ### Configure custom logging for the Databricks job
 
 1. Copy the **azure-databricks-monitoring-0.9.jar** file to the Databricks file system by entering the following command in the **Databricks CLI**:
-```
-databricks fs cp --overwrite azure-databricks-monitoring-0.9.jar dbfs:/azure-databricks-job/azure-databricks-monitoring-0.9.jar
-```
+    ```
+    databricks fs cp --overwrite azure-databricks-monitoring-0.9.jar dbfs:/azure-databricks-job/azure-databricks-monitoring-0.9.jar
+    ```
 
 2. Copy the custom logging properties from data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\metrics.properties to the Databricks file system by entering the following command:
-```
-databricks fs cp --overwrite metrics.properties dbfs:/azure-databricks-job/metrics.properties
-```
+    ```
+    databricks fs cp --overwrite metrics.properties dbfs:/azure-databricks-job/metrics.properties
+    ```
 
 3. While you haven't yet decided on a name for your Databricks cluster, select one now. You'll enter the name below in the Databricks file system path for your cluster. Copy the initialization script from data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\spark.metrics to the Databricks file system by entering the following command:
-```
-databricks fs cp --overwrite spark-metrics.sh dbfs:/databricks/init/<cluster-name>/spark-metrics.sh
-```
+    ```
+    databricks fs cp --overwrite spark-metrics.sh dbfs:/databricks/init/<cluster-name>/spark-metrics.sh
+    ```
 
 ### Create a Databricks cluster
 
@@ -351,41 +351,23 @@ databricks fs cp --overwrite spark-metrics.sh dbfs:/databricks/init/<cluster-nam
     2. Repeat step 1 for the `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` Maven coordinate.
     3. The process is slightly different for the final dependency. On the `New Library` dialog, once again select `Maven Coordinate` from the `Source` drop-down control. In the `Coordinate` text box, enter `org.geotools:gt-shapefile:19.2`. Click on `Advanced Options`, and enter `http://download.osgeo.org/webdav/geotools/` in the `Repository` text box. Click `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
 8. Add the dependent libraries added in step 7 to the job created at the end of step 6. In the Azure Databricks workspace, click on `Jobs`, then click on the job name created in step 2. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. Under `Library From` select `Workspace`. Click on `users`, then your username, then click on `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`. Click `OK`. Repeat this process for `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` and `org.geotools:gt-shapefile:19.2`.
-9. Click **Run Now**. 
+9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select `Existing Cluster`. In the the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
+10. Click **run now**.
 
 ### Run the data generator
 
-1. Get the Event Hub connection strings. You can get these from the Azure portal, or by running the following CLI commands:
+1. Navigate to the directory `data/streaming_azuredatabricks/onprem` in the GitHub repository
 
-    ```bash
-    # RIDE_EVENT_HUB
-    az eventhubs eventhub authorization-rule keys list \
-        --eventhub-name taxi-ride \
-        --name taxi-ride-asa-access-policy \
-        --namespace-name $eventHubNamespace \
-        --resource-group $resourceGroup \
-        --query primaryConnectionString
-
-    # FARE_EVENT_HUB
-    az eventhubs eventhub authorization-rule keys list \
-        --eventhub-name taxi-fare \
-        --name taxi-fare-asa-access-policy \
-        --namespace-name $eventHubNamespace \
-        --resource-group $resourceGroup \
-        --query primaryConnectionString
-    ```
-
-2. Navigate to the directory `data/streaming_azuredatabricks/onprem` in the GitHub repository
-
-3. Update the values in the file `main.env` as follows:
+2. Update the values in the file `main.env` as follows:
 
     ```
-    RIDE_EVENT_HUB=[Connection string for taxi-ride event hub]
-    FARE_EVENT_HUB=[Connection string for taxi-fare event hub]
+    RIDE_EVENT_HUB=[Connection string for the taxi-ride event hub]
+    FARE_EVENT_HUB=[Connection string for the taxi-fare event hub]
     RIDE_DATA_FILE_PATH=/DataFile/FOIL2013
     MINUTES_TO_LEAD=0
     PUSH_RIDE_DATA_FIRST=false
     ```
+    The connection string for the taxi-ride event hub is the **taxi-ride-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. The connection string for the taxi-fare event hubthe **taxi-fare-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section.
 
 4. Run the following command to build the Docker image.
 
@@ -416,6 +398,6 @@ Created 30000 records for TaxiFare
 ...
 ```
 
-To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and the data in the **taxirecords** table. 
+To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and the examine the data in the **taxirecords** table. 
 
 [1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
