@@ -93,7 +93,7 @@ Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user
 
 ## Monitoring considerations
 
-There are two logging components in the reference architecture: a **log4j** component, and a custom logging component. The **log4j** component logs messages from the Databricks job itself, and logs messages about the Databricks job and cluster. The **custom logging** component logs messages from the TaxiCabReader class, and logs messages about the taxi ride and fare data input and output processing. 
+There are two logging components in the reference architecture: a **log4j** component, and a custom logging component. The **log4j** component logs messages from the Databricks job itself, and logs metrics and messages for the Databricks job and cluster. The **custom logging** component logs metrics and messages from the TaxiCabReader class, and logs metrics and messages for the taxi ride and fare data input and output processing. 
 
 ## Deploy the solution
 
