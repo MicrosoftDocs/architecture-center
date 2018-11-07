@@ -556,6 +556,8 @@
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
+    - name: Motivation - Why are we moving to the cloud?
+      href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business Outcomes
       items:
       - name: Overview - What are Business Outcomes?
@@ -602,8 +604,8 @@
       href: cloud-adoption/digital-estate/rationalize.md
     - name: Cost Calculations - What will it cost?
       href: cloud-adoption/digital-estate/calculate.md
-    - name: 8 Rs of Rationalization - What are my options?
-      href: cloud-adoption/digital-estate/8-rs-of-rationalization.md
+    - name: 5 Rs of Rationalization - What are my options?
+      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
   - name: Migration
     items:
     - name: Overview (Azure Migration Guide)

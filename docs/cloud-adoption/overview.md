@@ -53,7 +53,7 @@ Jump to detailed descriptions: [Transformation Journeys - Adoption Guides](#tran
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRy0ZnoKOXdVBqaBz653YPElUNjlNMEpPMDNSSU1aWEIxMFNFNlY2T0E3NC4u" data-linktype="external">
+                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1DKUwedQ5JOm8eJXuSERvxURFVIQUdOOTRBN0xQWkNEMFc0MkNCRlhQMyQlQCN0PWcu" data-linktype="external">
                             <div class="cardSize cardsF">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -64,8 +64,9 @@ Jump to detailed descriptions: [Transformation Journeys - Adoption Guides](#tran
                                         </div>
                                         <div class="cardText">
                                             <h3 class="x-hidden-focus">Help improve ECA</h3>
-                                            <p>New model or approach that should be integrated</p>
-                                            <p>Updates or changes to the framework</p>
+                                            <p>New model or approach that should be integrated?</p>
+                                            <p>New solutions or Use Cases to add to a Discovery Path?</p>
+                                            <p>Updates or changes to the framework?</p>
                                             <p>Submit your idea here!</p>
                                         </div>
                                     </div>
