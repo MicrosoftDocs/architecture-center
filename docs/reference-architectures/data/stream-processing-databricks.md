@@ -168,49 +168,72 @@ The directory structure should look like the following:
 
     ```bash
     export resourceGroup='[Resource group name]'
-    export resourceLocation='[Location]'
-    export databricksWorkspaceName='[Databricks Workspace Name]'
-    export cosmosDatabaseAccount='[Cosmos DB account name]'
+    export resourceLocation='[Region]'
     export eventHubNamespace='[Event Hubs namespace name]'
+    export databricksWorkspaceName='[Azure Databricks workspace name]'
+    export cosmosDatabaseAccount='[Cosmos DB database name]'
+    export logAnalyticsWorkspaceName='[Log Analytics workspace name]'
+    export logAnalyticsWorkspaceRegion='[Log Analytics region]'
 
     # Create a resource group
     az group create --name $resourceGroup --location $resourceLocation
 
     # Deploy resources
     az group deployment create --resource-group $resourceGroup \
-      --template-file ./azure/deployresources.json --parameters \
-      eventHubNamespace=$eventHubNamespace \
-      databricksWorkspaceName=$databricksWorkspaceName 
-      outputCosmosDatabaseAccount=$cosmosDatabaseAccount
+	    --template-file ./azure/deployresources.json --parameters \
+	    eventHubNamespace=$eventHubNamespace \
+        databricksWorkspaceName=$databricksWorkspaceName \
+	    cosmosDatabaseAccount=$cosmosDatabaseAccount \
+	    logAnalyticsWorkspaceName=$logAnalyticsWorkspaceName \
+	    logAnalyticsWorkspaceRegion=$logAnalyticsWorkspaceRegion
     ```
 
 4. The output of the deployment is written to the console once complete. Search the output for the following JSON:
 ```JSON
 "outputs": {
-    "eventHubs: {
-        "type": "Object",
-        "value": {
-            "taxi-fare-eh": <value>
+        "cosmosDb": {
+          "type": "Object",
+          "value": {
+            "hostName": <value>,
+            "secret": <value>,
+            "username": <value>
+          }
+        },
+        "eventHubs": {
+          "type": "Object",
+          "value": {
+            "taxi-fare-eh": <value>,
             "taxi-ride-eh": <value>
+          }
+        },
+        "logAnalytics": {
+          "type": "Object",
+          "value": {
+            "secret": <value>,
+            "workspaceId": <value>
+          }
         }
-    }
 },
 ```
-The values for **taxi-fare-eh** and **taxi-ride-eh** are the connection strings for EventHub, which will be stored as secrets in the Databricks environment in the next step.
+These values are the secrets that will be added to Databricks secrets in upcoming sections. Keep them secure until you add them in those sections.
 
 ### Add a Cassandra table to the Cosmos DB Account
 
 1. In the Azure Portal, navigate to the resource group created in the **deploy the Azure resources** section above. Click on **Azure Cosmos DB Account**. Create a table with the Cassandra API.
 
-2. Create a keyspace with the following command:
-```
-CREATE KEYSPACE IF NOT EXISTS sqltest1 WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 }
-```
+2. In the **overview** blade, click **add table**.
 
-3. Create a table using the following command:
+3. When the **add table** blade opens, create a keyspace name and enter it in the **Keyspace name** text box. 
+
+4. In the **enter CQL command to create the table** section, enter `taxirecords1` in the text box beside the keyspace name created in step 3.
+
+5. In the text box below, enter the following::
 ```
-CREATE TABLE IF NOT EXISTS sqltest1.taxirecords1(neighborhood TEXT ,window_end timestamp, number_of_rides BIGINT,total_fare_amount DOUBLE,primary key(neighborhood, window_end)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;
+(neighborhood text, window_end timestamp, number_of_rides bigint,total_fare_amount double, primary key(neighborhood, window_end))
 ```
+6. In the **Throughput (1,000 - 1,000,000 RU/s)** text box enter the value `4000`.
+
+7. Click **OK**.
 
 ### Add the Databricks secrets using the Databricks CLI
 
@@ -224,31 +247,29 @@ First, enter the secrets for EventHub:
     ```
     databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
     ```
-    Once executed, this command opens the vi editor. Enter the **taxi-ride-eh** value from step 4 of the *deploy the Azure resources* section, then save and exit vi.
+    Once executed, this command opens the vi editor. Enter the **taxi-ride-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 3. Add the secret for the taxi fare EventHub:
     ```
     databricks secrets put --scope "azure-databricks-job" --key "taxi-fare"
     ```
-    Once executed, this command opens the vi editor. Enter the **taxi-fare-eh** value from step 4 of the *deploy the Azure resources* section, then save and exit vi.
+    Once executed, this command opens the vi editor. Enter the **taxi-fare-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 Next, enter the secrets for CosmosDb:
 
 1. Open the Azure Portal, and navigate to the resource group specified in step 3 of the **deploy the Azure resources** section. Click on the Azure Cosmos DB Account.
 
-2. Once the blade opens for the Azure Cosmos DB Account, click on **Connection String** in the **Settings** section.
-
-3. Once the **Connection String** blade opens, copy the the value in the  **USERNAME** field. In the **Databricks CLI**, enter the following:
+2. Using the **Azure Databricks CLI**, add the secret for the Cosmos DB user name:
     ```
     databricks secrets put --scope azure-databricks-job --key "cassandra-username"
     ```
-This opens the vi editor. Paste the **USERNAME** value in the first line, then save and close the editor.
+Once executed, this command opens the vi editor. Enter the **username** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
-4. Next, copy the value in the **PRIMARY PASSWORD** field. In the **Databricks CLI**, enter the following:
+4. Next, add the secret for the Cosmos DB password:
     ```
     databricks secrets put --scope azure-databricks-job --key "cassandra-password"
     ```
-This opens the vi editor. Paste the `PRIMARY PASSWORD` value in the first line, then save and close the editor.
+Once executed, this command opens the vi editor. Enter the **secret** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 ### Add the Zillow Neighborhoods data file to the Databricks file system
 
@@ -258,7 +279,7 @@ This opens the vi editor. Paste the `PRIMARY PASSWORD` value in the first line, 
     ```
 ### Add the Azure Log Analytics workspace ID and primary key to configuration files
 
-For this section, you require the Log Analytics workspace ID and primary key. 
+For this section, you require the Log Analytics workspace ID and primary key. The workspace ID is the **workspaceId** value from the **logAnalytics** output section in step 4 of the *deploy the Azure resources* section. The primary key is the **secret** from the output section. 
 
 1. To configure log4j logging, open data\streaming_azuredatabricks\azure\AzureDataBricksJob\src\main\resources\com\microsoft\pnp\azuredatabricksjob\log4j.properties. Edit the following two values:
 ```
