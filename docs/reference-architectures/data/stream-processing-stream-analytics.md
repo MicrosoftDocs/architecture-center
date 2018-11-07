@@ -2,12 +2,14 @@
 title: Stream processing with Azure Stream Analytics
 description: Create an end-to-end stream processing pipeline in Azure
 author: MikeWasson
-ms.date: 08/09/2018
+ms.date: 11/06/2018
 ---
 
 # Stream processing with Azure Stream Analytics
 
-This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis. [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis. 
+
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 ![](./images/stream-processing-asa/stream-processing-asa.png)
 
@@ -32,6 +34,8 @@ The architecture consists of the following components.
 ## Data ingestion
 
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a 4-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format. 
+
+[1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
 
 The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format. 
 
@@ -204,162 +208,7 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 ## Deploy the solution
 
-A deployment for this reference architecture is available on [GitHub](https://github.com/mspnp/reference-architectures/tree/master/data). 
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github]. 
 
-### Prerequisites
 
-1. Clone, fork, or download the zip file for the [reference architectures](https://github.com/mspnp/reference-architectures) GitHub repository.
-
-2. Install [Docker](https://www.docker.com/) to run the data generator.
-
-3. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
-
-    ```
-    az login
-    ```
-
-### Download the source data files
-
-1. Create a directory named `DataFile` under the `data/streaming_asa` directory in the GitHub repo.
-
-2. Open a web browser and navigate to https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935.
-
-3. Click the **Download** button on this page to download a zip file of all the taxi data for that year.
-
-4. Extract the zip file to the `DataFile` directory.
-
-    > [!NOTE]
-    > This zip file contains other zip files. Don't extract the child zip files.
-
-The directory structure should look like the following:
-
-```
-/data
-    /streaming_asa
-        /DataFile
-            /FOIL2013
-                trip_data_1.zip
-                trip_data_2.zip
-                trip_data_3.zip
-                ...
-```
-
-### Deploy the Azure resources
-
-1. From a shell or Windows Command Prompt, run the following command and follow the sign-in prompt:
-
-    ```bash
-    az login
-    ```
-
-2. Navigate to the folder `data/streaming_asa` in the GitHub repository
-
-    ```bash
-    cd data/streaming_asa
-    ```
-
-2. Run the following commands to deploy the Azure resources:
-
-    ```bash
-    export resourceGroup='[Resource group name]'
-    export resourceLocation='[Location]'
-    export cosmosDatabaseAccount='[Cosmos DB account name]'
-    export cosmosDatabase='[Cosmod DB database name]'
-    export cosmosDataBaseCollection='[Cosmos DB collection name]'
-    export eventHubNamespace='[Event Hubs namespace name]'
-
-    # Create a resource group
-    az group create --name $resourceGroup --location $resourceLocation
-
-    # Deploy resources
-    az group deployment create --resource-group $resourceGroup \
-      --template-file ./azure/deployresources.json --parameters \
-      eventHubNamespace=$eventHubNamespace \
-      outputCosmosDatabaseAccount=$cosmosDatabaseAccount \
-      outputCosmosDatabase=$cosmosDatabase \
-      outputCosmosDatabaseCollection=$cosmosDataBaseCollection
-
-    # Create a database 
-    az cosmosdb database create --name $cosmosDatabaseAccount \
-        --db-name $cosmosDatabase --resource-group $resourceGroup
-
-    # Create a collection
-    az cosmosdb collection create --collection-name $cosmosDataBaseCollection \
-        --name $cosmosDatabaseAccount --db-name $cosmosDatabase \
-        --resource-group $resourceGroup
-    ```
-
-3. In the Azure portal, navigate to the resource group that was created.
-
-4. Open the blade for the Stream Analytics job.
-
-5. Click **Start** to start the job. Select **Now** as the output start time. Wait for the job to start.
-
-### Run the data generator
-
-1. Get the Event Hub connection strings. You can get these from the Azure portal, or by running the following CLI commands:
-
-    ```bash
-    # RIDE_EVENT_HUB
-    az eventhubs eventhub authorization-rule keys list \
-        --eventhub-name taxi-ride \
-        --name taxi-ride-asa-access-policy \
-        --namespace-name $eventHubNamespace \
-        --resource-group $resourceGroup \
-        --query primaryConnectionString
-
-    # FARE_EVENT_HUB
-    az eventhubs eventhub authorization-rule keys list \
-        --eventhub-name taxi-fare \
-        --name taxi-fare-asa-access-policy \
-        --namespace-name $eventHubNamespace \
-        --resource-group $resourceGroup \
-        --query primaryConnectionString
-    ```
-
-2. Navigate to the directory `data/streaming_asa/onprem` in the GitHub repository
-
-3. Update the values in the file `main.env` as follows:
-
-    ```
-    RIDE_EVENT_HUB=[Connection string for taxi-ride event hub]
-    FARE_EVENT_HUB=[Connection string for taxi-fare event hub]
-    RIDE_DATA_FILE_PATH=/DataFile/FOIL2013
-    MINUTES_TO_LEAD=0
-    PUSH_RIDE_DATA_FIRST=false
-    ```
-
-4. Run the following command to build the Docker image.
-
-    ```bash
-    docker build --no-cache -t dataloader .
-    ```
-
-5. Navigate back to the parent directory, `data/stream_asa`.
-
-    ```bash
-    cd ..
-    ```
-
-6. Run the following command to run the Docker image.
-
-    ```bash
-    docker run -v `pwd`/DataFile:/DataFile --env-file=onprem/main.env dataloader:latest
-    ```
-
-The output should look like the following:
-
-```
-Created 10000 records for TaxiFare
-Created 10000 records for TaxiRide
-Created 20000 records for TaxiFare
-Created 20000 records for TaxiRide
-Created 30000 records for TaxiFare
-...
-```
-
-Let the program run for at least 5 minutes, which is the window defined in the Stream Analytics query. To verify the Stream Analytics job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and view the documents. 
-
-[1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
+[github]: https://github.com/mspnp/reference-architectures/tree/master/data/streaming_asa
