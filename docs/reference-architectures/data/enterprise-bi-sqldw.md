@@ -7,13 +7,15 @@ ms.date: 11/06/2018
 
 # Enterprise BI with SQL Data Warehouse
 
-This reference architecture implements an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis. A reference implementation for this architecture is available on [GitHub][github-folder]
+This reference architecture implements an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis. 
+
+A reference implementation for this architecture is available on [GitHub][github-folder]
 
 ![](./images/enterprise-bi-sqldw.png)
 
 **Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use SQL Data Warehouse to perform analysis using Power BI. 
 
-This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory](./enterprise-bi-adf.md).
+This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf-ra].
 
 ## Architecture
 
@@ -182,9 +184,7 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 
 ## Deploy the solution
 
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. 
-
-It deploys the following:
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
 
   * A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
   * An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
@@ -194,16 +194,11 @@ It deploys the following:
 
 ## Next steps
 
-- For more information about this reference architecture, visit our [GitHub repository][ref-arch-repo-folder].
-- Learn about the [Azure Building Blocks][azbb-repo].
+- Use Azure Data Factory to automate the ELT pipeline. See [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf=ra].
 
 <!-- links -->
 
-[azure-cli-2]: /azure/install-azure-cli
-[azbb-repo]: https://github.com/mspnp/template-building-blocks
-[azbb-wiki]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
+[adf-ra]: ./enterprise-bi-adf.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
-[ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[ref-arch-repo-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
 

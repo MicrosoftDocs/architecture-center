@@ -7,7 +7,9 @@ ms.date: 11/06/2018
 
 # Automated enterprise BI with SQL Data Warehouse and Azure Data Factory
 
-This reference architecture shows how to perform incremental loading in an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into SQL Data Warehouse. Transactional data is transformed into a tabular model for analysis. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows how to perform incremental loading in an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into SQL Data Warehouse. Transactional data is transformed into a tabular model for analysis. 
+
+A reference implementation for this architecture is available on [GitHub][github].
 
 ![](./images/enterprise-bi-sqldw-adf.png)
 
@@ -181,9 +183,7 @@ Be aware of the following limitations:
 
 ## Deploy the solution
 
-To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github]. 
-
-It deploys the following:
+To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github]. It deploys the following:
 
   * A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
   * An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.

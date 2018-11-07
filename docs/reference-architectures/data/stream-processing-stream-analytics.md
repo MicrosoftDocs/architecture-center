@@ -7,7 +7,9 @@ ms.date: 11/06/2018
 
 # Stream processing with Azure Stream Analytics
 
-This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis. A reference implementation for this architecture is available on [GitHub][github]. 
+This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and calculates a rolling average across a time window. The results are stored for further analysis. 
+
+A reference implementation for this architecture is available on [GitHub][github]. 
 
 ![](./images/stream-processing-asa/stream-processing-asa.png)
 
