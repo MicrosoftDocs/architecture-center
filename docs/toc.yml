@@ -358,7 +358,7 @@
       items:
       - name: Enterprise BI with SQL Data Warehouse
         href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
+      - name: Automated enterprise BI with Azure Data Factory
         href: reference-architectures/data/enterprise-bi-adf.md
       - name: Stream processing with Azure Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.md
