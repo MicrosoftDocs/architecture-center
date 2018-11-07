@@ -273,7 +273,12 @@ Once executed, this command opens the vi editor. Enter the **secret** value from
 
 ### Add the Zillow Neighborhoods data file to the Databricks file system
 
-1. Navigate to data/streaming_azuredatabricks/DataFile and enter the following:
+1. Create a directory in the Databricks file system:
+    ```bash
+    dbfs mkdirs dbfs:/azure-databricks-jobs
+    ```
+    
+2. Navigate to data/streaming_azuredatabricks/DataFile and enter the following:
     ```bash
     dbfs cp ZillowNeighborhoods-NY.zip dbfs:/azure-databricks-jobs
     ```
@@ -339,7 +344,7 @@ databricks fs cp --overwrite spark-metrics.sh dbfs:/databricks/init/<cluster-nam
 5. Enter `com.microsoft.pnp.TaxiCabReader` in the `Main Class` field.
 6. In the arguments field, enter the following:
     ```
-    -n jar:file:/dbfs/ZillowNeighborhoods-NY.zip!/ZillowNeighborhoods-NY.shp --taxi-ride-consumer-group taxi-ride-eh-cg --taxi-fare-consumer-group taxi-fare-eh-cg --window-interval "1 minute" --cassandra-host <Cosmos DB Cassandra host name from above> 
+    -n jar:file:/dbfs/azure-databricks-jobs/ZillowNeighborhoods-NY.zip!/ZillowNeighborhoods-NY.shp --taxi-ride-consumer-group taxi-ride-eh-cg --taxi-fare-consumer-group taxi-fare-eh-cg --window-interval "1 minute" --cassandra-host <Cosmos DB Cassandra host name from above> 
     ``` 
 7. Install the dependent libraries by following these steps:
     1. In the Databricks workspace, click on "Home", in the `Users` blade, click on your user account name to open your account workspace settings, click on the drop-down arrow beside your account name, click on `create`, and click on `Library` to open the `New Library` dialog. In the `Source` drop-down control, select `Maven Coordinate`. Under the `Install Maven Artifacts` heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the `Coordinate ` text box. Click on `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
