@@ -21,7 +21,7 @@ The architecture consists of the following components.
 
 **Azure Event Hubs**. [Event Hubs](/azure/event-hubs/) is an event ingestion service. This architecture uses two event hub instances, one for each data source. Each data source sends a stream of data to the associated event hub.
 
-**Azure Databricks**. [Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in a file.
+**Azure Databricks**. [Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
 
 **Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to Cosmos DB using the Cassandra API. The Cassandra API is used because it support time series data modeling.
 
@@ -87,11 +87,13 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 Data stream processing is performed by user code deployed to a Databricks cluster. The fare data from the New York Taxi data set includes latitude and longitude coordinates for where the fare was picked up and dropped off. The user code correlates these coordinates with neighborhood data from Zillow's neighborhood boundaries for the state of New York in a process known as **enriching** the data. Several averages are calculated based on the enriched data, which is then pushed to Cosmos DB using the Cassandra API. 
 
-### Cosmos DB
+## Security considerations
 
-Throughput capacity for Cosmos DB is measured in [Request Units](/azure/cosmos-db/request-units) (RU). In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key](/azure/cosmos-db/partition-data) when you create the container, and include the partition key in every document. 
+Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user-guide/secrets/index.html) that is used to store all of the secrets in the reference architecture including connection strings, access keys, user names, and passwords. The secrets are then accessed from Java running in the Databricks job. This way, secrets are passed to Azure Databricks and can only be accessed from Azure Databricks.
 
-In this reference architecture, new documents are created only once per minute (the hopping window interval), so the throughput requirements are quite low. For that reason, there's no need to assign a partition key in this scenario.
+## Monitoring considerations
+
+There are two logging components in the reference architecture: a **log4j** component, and a custom logging component. The **log4j** component logs messages from the Databricks job itself, and logs messages about the Databricks job and cluster. The **custom logging** component logs messages from the TaxiCabReader class, and logs messages about the taxi ride and fare data input and output processing. 
 
 ## Deploy the solution
 
@@ -105,8 +107,9 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 3. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
+4. Install [Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html).
 
+4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
     ```
     az login
     ```
@@ -115,9 +118,9 @@ A deployment for this reference architecture is available on [GitHub](https://gi
     - Scala SDK 2.11
     - Maven 3.5.4
 
-### Download the source data files
+### Download the New York City taxi and neighborhood data files
 
-1. Create a directory named `DataFile` under the `data/streaming_azuredatabricks` directory in the GitHub repo.
+1. Create a directory named `DataFile` under the `data/streaming_azuredatabricks` directory in your local file system.
 
 2. Open a web browser and navigate to https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935.
 
@@ -140,6 +143,12 @@ The directory structure should look like the following:
                 trip_data_3.zip
                 ...
 ```
+
+5. Open a web browser and navigate to https://www.zillow.com/howto/api/neighborhood-boundaries.htm. 
+
+6. Click on **New York Neighborhood Boundaries** to download the file.
+
+7. Copy the file from your browser's **downloads** directory to the `DataFile` directory.
 
 ### Deploy the Azure resources
 
@@ -175,71 +184,130 @@ The directory structure should look like the following:
       outputCosmosDatabaseAccount=$cosmosDatabaseAccount
     ```
 
-### Add the Zillow Neighborhoods data file to the Databricks file system
+4. The output of the deployment is written to the console once complete. Search the output for the following JSON:
+```JSON
+"outputs": {
+    "eventHubs: {
+        "type": "Object",
+        "value": {
+            "taxi-fare-eh": <value>
+            "taxi-ride-eh": <value>
+        }
+    }
+},
+```
+The values for **taxi-fare-eh** and **taxi-ride-eh** are the connection strings for EventHub, which will be stored as secrets in the Databricks environment in the next step.
 
-1. Configure the Databricks CLI in Azure Cloudshell: 
+### Add a Cassandra table to the Cosmos DB Account
 
-https://docs.microsoft.com/en-us/azure/azure-databricks/databricks-cli-from-azure-cloud-shell
+1. In the Azure Portal, navigate to the resource group created in the **deploy the Azure resources** section above. Click on **Azure Cosmos DB Account**. Create a table with the Cassandra API.
 
+2. Create a keyspace with the following command:
+```
+CREATE KEYSPACE IF NOT EXISTS sqltest1 WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1 }
+```
 
-2. Download the Zillow shape file to Azure Cloudshell:
-
-    ```bash
-    curl -o ZillowNeighborhoods-NY.zip https://www.zillowstatic.com/static-neighborhood-boundaries/LATEST/static-neighborhood-boundaries/shp/ZillowNeighborhoods-NY.zip
-    ```
-
-3. Generate a personal access token for Databricks:
-Follow the steps in the [Azure Databricks authentication documentation](https://docs.azuredatabricks.net/api/latest/authentication.htm) to [generate a token](https://docs.azuredatabricks.net/api/latest/authentication.html#authentication).
-
-4. Configure the Databricks file system in Azure Cloudshell:
-    ```bash
-    dbfs configure --token
-    Databricks Host (should begin with https://): https://westus.azuredatabricks.net/
-    Token: <enter token generated in step 3>
-    ```
-5. Create a folder in the Databricks file system:
-    ```bash
-    dbfs mkdirs dbfs:/azure-databricks-jobs
-    ```
-6. Copy the Zillow neighborhood data from step 2:
-    ```bash
-    dbfs cp ZillowNeighborhoods-NY.zip dbfs:/azure-databricks-jobs
-    ```
+3. Create a table using the following command:
+```
+CREATE TABLE IF NOT EXISTS sqltest1.taxirecords1(neighborhood TEXT ,window_end timestamp, number_of_rides BIGINT,total_fare_amount DOUBLE,primary key(neighborhood, window_end)) WITH cosmosdb_provisioned_throughput=4000 , WITH default_time_to_live=630720000;
+```
 
 ### Add the Databricks secrets using the Databricks CLI
 
-For this step, you need the following values:
+First, enter the secrets for EventHub:
 
-1. The Cosmos DB Cassandra host name. For this value, go back to the resource group from above and click on the `Azure Cosmos DB account`. Then under `Settings`, the host name is in the `CONTACT POINT` field.
-2. The `USERNAME` field.
-3. The `PRIMARY PASSWORD` field.
-
-1. In Azure Cloud Shell, switch to the Databricks virtual environment you created in step 1 of the `Add the Zillow Neighborhoods data file to the Databricks file system` section above.
-2. Enter the following:
+1. Using the **Azure Databricks CLI** installed in step 2 of the prerequisites, create the Azure Databricks secret scope:
     ```
     databricks secrets create-scope --scope "azure-databricks-job"
     ```
-3. Enter the following:
+2. Add the secret for the taxi ride EventHub:
+    ```
+    databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
+    ```
+    Once executed, this command opens the vi editor. Enter the **taxi-ride-eh** value from step 4 of the *deploy the Azure resources* section, then save and exit vi.
+
+3. Add the secret for the taxi fare EventHub:
+    ```
+    databricks secrets put --scope "azure-databricks-job" --key "taxi-fare"
+    ```
+    Once executed, this command opens the vi editor. Enter the **taxi-fare-eh** value from step 4 of the *deploy the Azure resources* section, then save and exit vi.
+
+Next, enter the secrets for CosmosDb:
+
+1. Open the Azure Portal, and navigate to the resource group specified in step 3 of the **deploy the Azure resources** section. Click on the Azure Cosmos DB Account.
+
+2. Once the blade opens for the Azure Cosmos DB Account, click on **Connection String** in the **Settings** section.
+
+3. Once the **Connection String** blade opens, copy the the value in the  **USERNAME** field. In the **Databricks CLI**, enter the following:
     ```
     databricks secrets put --scope azure-databricks-job --key "cassandra-username"
     ```
-This opens the vi editor. Enter the `USERNAME` value from the list above. Save and close the editor.
-4. Enter the following:
+This opens the vi editor. Paste the **USERNAME** value in the first line, then save and close the editor.
+
+4. Next, copy the value in the **PRIMARY PASSWORD** field. In the **Databricks CLI**, enter the following:
     ```
     databricks secrets put --scope azure-databricks-job --key "cassandra-password"
     ```
-This opens the vi editor. Enter the `PRIMARY PASSWORD` value from the list above. Save and close the editor.
+This opens the vi editor. Paste the `PRIMARY PASSWORD` value in the first line, then save and close the editor.
+
+### Add the Zillow Neighborhoods data file to the Databricks file system
+
+1. Navigate to data/streaming_azuredatabricks/DataFile and enter the following:
+    ```bash
+    dbfs cp ZillowNeighborhoods-NY.zip dbfs:/azure-databricks-jobs
+    ```
+### Add the Azure Log Analytics workspace ID and primary key to configuration files
+
+For this section, you require the Log Analytics workspace ID and primary key. 
+
+1. To configure log4j logging, open data\streaming_azuredatabricks\azure\AzureDataBricksJob\src\main\resources\com\microsoft\pnp\azuredatabricksjob\log4j.properties. Edit the following two values:
+```
+log4j.appender.A1.workspaceId=<Log Analytics workspace ID>
+log4j.appender.A1.secret=<Log Analytics primary key>
+```
+
+2. To configure custom logging, open data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\metrics.properties. Edit the following two values:
+``` 
+*.sink.loganalytics.workspaceId=<Log Analytics workspace ID>
+*.sink.loganalytics.secret=<Log Analytics primary key>
+```
+
+### Build the .jar files for the Databricks job and Databricks monitoring
+
+1. Use your Java IDE to import the Maven project file named **pom.xml** located in the root of the **data/streaming_azuredatabricks** directory. 
+2. Perform a clean build. The output of this build are files named **azure-databricks-job-1.0-SNAPSHOT.jar** and **azure-databricks-monitoring-0.9.jar**. 
+
+### Configure custom logging for the Databricks job
+
+1. Copy the **azure-databricks-monitoring-0.9.jar** file to the Databricks file system by entering the following command in the **Databricks CLI**:
+```
+databricks fs cp --overwrite azure-databricks-monitoring-0.9.jar dbfs:/azure-databricks-job/azure-databricks-monitoring-0.9.jar
+```
+
+2. Copy the custom logging properties from data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\metrics.properties to the Databricks file system by entering the following command:
+```
+databricks fs cp --overwrite metrics.properties dbfs:/azure-databricks-job/metrics.properties
+```
+
+3. While you haven't yet decided on a name for your Databricks cluster, select one now. You'll enter the name below in the Databricks file system path for your cluster. Copy the initialization script from data\streaming_azuredatabricks\azure\azure-databricks-monitoring\scripts\spark.metrics to the Databricks file system by entering the following command:
+```
+databricks fs cp --overwrite spark-metrics.sh dbfs:/databricks/init/<cluster-name>/spark-metrics.sh
+```
 
 ### Create a Databricks cluster
 
-1. In the Databricks workspace, click "Clusters", then click "create cluster". Enter a cluster name and click "create cluster".
-
-> [!NOTE]
-> "Enable autoscaling" is selected by default. Autoscaling is not necessary for this reference architecture, so you can uncheck this option. The number of workers will then default to `8`, which is the upper limit of the previous autoscaling value. You can set this to `2`, the minimum.
-
-### Build the .jar for the Databricks job
-
-1. Use your Java IDE to build the Maven project file named `pom.xml` located in the root of the `data/streaming_azuredatabricks` directory. The output of this build is a file named `azure-databricks-job-1.0-SNAPSHOT.jar`. This file will be uploaded to Azure Databricks in an upcoming step, so make note of the location of this file.
+1. In the Databricks workspace, click "Clusters", then click "create cluster". Enter the cluster name you created in step 3 of the **configure custom logging for the Databricks job** section above. 
+2. Select a **standard** cluster mode.
+3. Set **Databricks runtime version** to **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**
+4. Set **Python version** to **2**.
+5. Set **Driver Type** to **Same as worker**
+6. Set **Worker Type** to **Standard_DS3_v2**.
+7. Set **Min Workers** to **2**.
+8. Deselect **Enable autoscaling**. 
+9. Below the **Auto Termination** dialog box, click on **Init Scripts**. 
+10. Enter **dbfs:/databricks/init/<cluster-name>/spark-metrics.sh**, substituting the cluster name created in step 1 for <cluster-name>.
+11. Click the **Add** button.
+12. Click the **Create Cluster** button.
 
 ### Create a Databricks job
 
@@ -250,16 +318,17 @@ This opens the vi editor. Enter the `PRIMARY PASSWORD` value from the list above
 5. Enter `com.microsoft.pnp.TaxiCabReader` in the `Main Class` field.
 6. In the arguments field, enter the following:
     ```
-    -n jar:file:/dbfs/ZillowNeighborhoods-NY.zip!/ZillowNeighborhoods-NY.shp --taxi-ride-consumer-group taxi-ride-eh-cg --taxi-fare-consumer-group taxi-fare-eh-cg --window-interval "1 minute" --cassandra-host <Cosmos DB Cassandra host name from above> --cassandra-key-space neighborhoods --cassandra-table-name taxifaredata
+    -n jar:file:/dbfs/ZillowNeighborhoods-NY.zip!/ZillowNeighborhoods-NY.shp --taxi-ride-consumer-group taxi-ride-eh-cg --taxi-fare-consumer-group taxi-fare-eh-cg --window-interval "1 minute" --cassandra-host <Cosmos DB Cassandra host name from above> 
     ``` 
 7. Install the dependent libraries by following these steps:
     1. In the Databricks workspace, click on "Home", in the `Users` blade, click on your user account name to open your account workspace settings, click on the drop-down arrow beside your account name, click on `create`, and click on `Library` to open the `New Library` dialog. In the `Source` drop-down control, select `Maven Coordinate`. Under the `Install Maven Artifacts` heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the `Coordinate ` text box. Click on `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
     2. Repeat step 1 for the `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` Maven coordinate.
     3. The process is slightly different for the final dependency. On the `New Library` dialog, once again select `Maven Coordinate` from the `Source` drop-down control. In the `Coordinate` text box, enter `org.geotools:gt-shapefile:19.2`. Click on `Advanced Options`, and enter `http://download.osgeo.org/webdav/geotools/` in the `Repository` text box. Click `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
 8. Add the dependent libraries added in step 7 to the job created at the end of step 6. In the Azure Databricks workspace, click on `Jobs`, then click on the job name created in step 2. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. Under `Library From` select `Workspace`. Click on `users`, then your username, then click on `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`. Click `OK`. Repeat this process for `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` and `org.geotools:gt-shapefile:19.2`.
-9. Click on `run now`.
+9. Click **Run Now**. 
 
 ### Run the data generator
+
 1. Get the Event Hub connection strings. You can get these from the Azure portal, or by running the following CLI commands:
 
     ```bash
@@ -321,6 +390,6 @@ Created 30000 records for TaxiFare
 ...
 ```
 
-Let the program run for at least 5 minutes, which is the window defined in the Stream Analytics query. To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and view the documents. 
+To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and the data in the **taxirecords** table. 
 
 [1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
