@@ -37,10 +37,14 @@ solution, and where migrating workloads will be compatible with cloud-based
 authentication mechanisms, it makes sense to simply build your identity
 infrastructure using a cloud native identity service.
 
-Notes when considering cloud native identity solutions:
+**Cloud Native Assumptions:** Using a cloud native identity provider assumes the following:
 
--    Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
--    Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on windows integrated authentication methods like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+- Your cloud-based resources will not have dependencies on on-premises directory services or Active Directory servers. 
+- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on windows integrated authentication methods like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+
+> [!TIP]
+> Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
+
 
 ### Federation
 
@@ -51,11 +55,18 @@ syncs directory information between the cloud and on-premises environments,
 allowing single sign-in for users and a consistent role and permission system
 across your entire organization.
 
+In addition to allowing shared identity services between cloud and on-premises, federation supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains both inside and outside of your organization.
+
+**Federated Identity Assumptions:** Using a federated identity solution assumes the following:
+
+- You need to maintain a common set of user accounts and group across your cloud and on-premises IT infrastructure.
+- Your on-premises identity services supports federation with your cloud identity provider.
+- You require single sign-on (SSO) mechanisms for users accessing cloud and on-premises identity providers.
+
 Notes when considering federated identity solutions:
 
--    In addition to allowing shared identity services between cloud and on-premises, federation supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains both inside and outside of your organization.
--    Federation allows the development of single sign-on (SSO) mechanisms for users accessing cloud and on-premises identity providers. However, existing on-premises applications and services may still require refactoring to fully support SSO.
--    Cloud-based workloads that depend on non-cloud authentication mechanisms require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises services introduces dependencies on connectivity between the cloud and on-premises networks.
+> [!TIP]
+> Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises services introduces dependencies on connectivity between the cloud and on-premises networks.
 
 ### Directory Migration
 
@@ -65,10 +76,12 @@ This approach will ensure your identity and authentication services will work in
 the cloud environment but could entail refactoring legacy workloads that do not
 currently support cloud compatible authentication mechanisms.
 
-Notes when considering federated identity solutions:
+**Directory Migration Assumptions:** Performing a directory migration assumes the following:
 
--    The end state of a directory migration is a cloud-native solution. All of the previously described features and limitations of cloud native identity provider apply.
--    Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
+- The end state of a directory migration is a cloud-native solution. All of the previously described features and limitations of cloud native identity provider apply.
+
+> [!TIP]
+> Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
 
 ## Evolving Identity Integration
 

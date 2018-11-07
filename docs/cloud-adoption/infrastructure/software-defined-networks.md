@@ -221,7 +221,7 @@ address.*
 
 A cloud native network is the default configuration for a newly created Azure
 virtual networks. By default resources connected to the virtual network have
-outbound connectivity (although this can be controlled using NSGs ). Connections
+outbound connectivity (although this can be controlled using NSGs). Connections
 with other virtual networks are possible through peering.
 
 To provide inbound access to any of the VMs or devices connected to the network,
