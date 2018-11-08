@@ -194,7 +194,7 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 
 ## Next steps
 
-- Use Azure Data Factory to automate the ELT pipeline. See [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf=ra].
+- Use Azure Data Factory to automate the ELT pipeline. See [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf-ra].
 
 <!-- links -->
 
