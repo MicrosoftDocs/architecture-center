@@ -721,7 +721,7 @@
       - name: Cloud Native
         href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
       - name: Hybrid
-        href: cloud-adoption/infrastructure/software-defined-networks/hyprid.md
+        href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
       - name: Virtual Datacenter
         href: cloud-adoption/infrastructure/software-defined-networks/virtual-datacenter.md
     - name: Encryption
