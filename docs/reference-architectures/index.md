@@ -459,7 +459,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
         </div>
     </a>
 </li>
-</ul>
 <!-- Jenkins -->
 <li style="display: flex; flex-direction: column;">
     <a href="./jenkins/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -559,7 +558,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
     </a>
 </li>
 </ul>
-
 
 ## Web applications
 
