@@ -40,9 +40,6 @@ Workload spokes are separate virtual networks that, aside from network peering w
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
 
-*Figure 3. Example hub and spoke structure of a virtual data center, including
-connection to on-premises network.*
-
 The [Azure Virtual Data Center
 (VDC)](https://docs.microsoft.com/en-us/azure/architecture/vdc/) is an approach
 designed to assist enterprises in deploying large number of workloads and

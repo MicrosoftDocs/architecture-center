@@ -38,9 +38,6 @@ specify exactly what services can be accessed between the two networks.
 
 ![Example hybrid virtual network containing a DMZ and n-tier application](../../_images/infra-sdn-figure2.png)
 
-*Figure 2. Example hybrid virtual network containing a DMZ and n-tier
-application.*
-
 An Azure hybrid virtual network uses either an ExpressRoute circuit or Azure VPN
 to connect your virtual network with your organization's existing non-Azure
 hosted IT assets.
