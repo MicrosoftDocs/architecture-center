@@ -32,21 +32,29 @@ There are several different states of data with different encryption needs to co
 Data in transit is data moving between resources on the internal, between
 datacenters or external networks, or over the internet.
 
-Encrypting data in transit is usually done through enforcing the use of SSL/TLS
-protocols when exchange data between resources and networks. Unless a workload
-has a justifiable reason not to use SSL/TLS encryption, this method should be
-used in all cases.
+Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you cloud migration team and workload owner, but is generally recommended.
+
+ **Encrypting Data in Transit Assumptions:** Implementing proper encryption policy for data in transit assumes the following:
+
+- All publicly accessible endpoints in your cloud environment will communicate with the public internet using SSL/TLS protocols.
+- When connecting cloud networks with on-premises or other external network over the public internet, use encrypted VPN protocols.
+- When connecting cloud networks with on-premises or other external network using a dedicated WAN connection such as ExpressRoute, use firewalls on both end of the connection. 
+- If you  are dealing with sensitive data that shouldn't be included in traffic logs or other diagnostics reports visible to IT staff, you will encrypt all traffic between resources in your virtual network.
 
 ### Data at rest
 
-Data at rest represents any data not being actively moved or processed,
-including files, databases, virtual machine drives, PaaS storage accounts or
-similar assets. These resources can be encrypted using keys stored in your key
-management system.
+Data at rest represents any data not being actively moved or processed, including files, databases, virtual machine drives, PaaS storage accounts or similar assets. Encrypting stored data protects virtual devices or files against unauthorized access either from an external network penetration, rogue internal user, or accidental release.
+
+PaaS storage and database resources will generally enforce encryption by default. IaaS virtual resources can be secured through  virtual disk encryption using cryptographic keys stored in your key management system.
 
 Your overall security needs, the sensitivity of the data being stored, and the
 performance requirements of your workloads should determine which assets require
 encryption.
+
+**Encrypting Data at Rest Assumptions:** Encrypting data at rest assumes the following:
+
+- You are storing data that is not meant for public consumption.
+- Your workloads can accept the added latency cost of disk encryption.
 
 ### Data in use
 
@@ -55,6 +63,10 @@ such as RAM or CPU caches. Use of technologies such as full memory encryption,
 enclave technologies like Intel's Secure Guard Extensions (SGX), and
 cryptographic techniques like homomorphic encryption can be used to create
 secure, trusted execution environments.
+
+**Encrypting Data at Rest Assumptions:** Encrypting data in use assumes the following:
+
+- You are required to maintain data ownership separate from the underlying cloud platform at all times, even at the RAM and CPU level.
 
 ## Key management
 
@@ -78,11 +90,21 @@ With cloud native key management, all keys and secrets are generated, managed,
 and stored in a cloud-based vault. This approach can simplify many of the IT
 tasks related to key management.
 
+**Cloud Native Key Management Assumptions:** Using a cloud native key management system assumes the following:
+
+- You trust the cloud key management solution with the creation, management, and hosting of your organization's secrets and keys. 
+- Any on-premises applications or services that rely on accessing encryption services or secrets can access the cloud key management system.  
+
 ### Hybrid (bring your own key)
 
 With a bring your own key approach, you can generate keys on dedicated HSM
 hardware within your on-premises environment, and then transfer them to a secure
 cloud key management system for use with cloud resources.
+
+**Hybrid Key Management Assumptions:** Using a hybrid key management system assumes the following:
+
+- You trust the underling security and access control infrastructure of the cloud platform for hosting and using your keys and secrets.
+- You are required by regulation or organizational policy to keep the creation, and management of your organization's secrets and keys on-premises.
 
 ### On-premises (hold your own key)
 
@@ -92,6 +114,11 @@ service. In these cases, you would maintain keys using on-premises hardware, and
 provision a mechanism to allow cloud-based resource to access these keys for
 encryptions purposes. Note that a hold your own key approach may not be
 compatible with all cloud services.
+
+**On-premises Key Management Assumptions:** Using an On-premises key management system assumes the following:
+
+- You are required by regulation or organizational policy to keep the creation, management, *and hosting* of your organization's secrets and keys on-premises.
+- Any cloud-based applications or services that rely on accessing encryption services or secrets can access the on-premises key management system.  
 
 ## Encryption in Azure
 
@@ -126,7 +153,7 @@ can make changes through Key Vault.
 
 ## Next steps
 
-Learn how [logs, monitoring, and reporting](logs-and-reporting.md) are used by operations teams to manage the health and policy compliance of cloud workloads.
+Learn how [logs, monitoring, and reporting](../logs-and-reporting/overview.md) are used by operations teams to manage the health and policy compliance of cloud workloads.
 
 > [!div class="nextstepaction"]
-> [Logs and Reporting](logs-and-reporting.md)
+> [Logs and Reporting](../logs-and-reporting/overview.md)
