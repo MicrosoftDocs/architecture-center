@@ -10,7 +10,7 @@ ms.date: 08/30/2018
 
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
-Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-tier applications](#n-tier-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extending-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads) | [Web applications](#web-applications)
+Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](##serverless-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extending-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads) | [Web apps](#web-applications)
 
 ## AI and machine learning
 
@@ -121,64 +121,44 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
 </li>
 </ul>
 
-## N-tier applications
 
-<ul  class="panelContent cardsF">
+## Serverless applications
+
+<ul class="panelContent cardsF">
+<!-- Serverless web application -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./n-tier/n-tier-sql-server.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./serverless/web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/windows.svg" height="140px" />
+                            <img src="../_images/icons/functions.svg" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>N-tier application with SQL Server</h3>
-                        <p>Virtual machines configured for an N-tier application using SQL Server on Windows.</p>
+                        <h3>Serverless web application</h3>
+                        <p>A serverless web application that serves static content from Azure Blob Storage, and implements an API using Azure Functions.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-
-<!-- Multi-region Windows -->
+<!-- Serverless web application -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./n-tier/multi-region-sql-server.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./serverless/event-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/windows.svg" height="140px" />
+                            <img src="../_images/icons/functions.svg" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Multi-region N-tier application</h3>
-                        <p>N-tier application in two regions for high availability, using SQL Server Always On Availability Groups.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-
-<!-- N-tier Linux -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./n-tier/n-tier-cassandra.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/linux-penguin.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>N-tier application with Cassandra</h3>
-                        <p>Virtual machines configured for an N-tier application using Apache Cassandra on Linux.</p>
+                        <h3>Event processing using Azure Functions</h3>
+                        <p>An event-driven architecture that ingests a stream of data and uses Functions to processes the data.</p>
                     </div>
                 </div>
             </div>
@@ -419,6 +399,67 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
 ## VM workloads
 
 <ul  class="panelContent cardsF">
+<!-- n-tier windows -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./n-tier/n-tier-sql-server.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/windows.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>N-tier application with SQL Server</h3>
+                        <p>Virtual machines configured for an N-tier application using SQL Server on Windows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Multi-region n-tier windows -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./n-tier/multi-region-sql-server.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/windows.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Multi-region N-tier application</h3>
+                        <p>N-tier application in two regions for high availability, using SQL Server Always On Availability Groups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- N-tier Linux -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./n-tier/n-tier-cassandra.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/linux-penguin.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>N-tier application with Cassandra</h3>
+                        <p>Virtual machines configured for an N-tier application using Apache Cassandra on Linux.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
 <!-- Jenkins -->
 <li style="display: flex; flex-direction: column;">
     <a href="./jenkins/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -582,48 +623,3 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
 </li>
 </ul>
 
-
-## Serverless applications
-
-<ul class="panelContent cardsF">
-<!-- Serverless web application -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./serverless/web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/functions.svg" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Serverless web application</h3>
-                        <p>A serverless web application that serves static content from Azure Blob Storage, and implements an API using Azure Functions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- Serverless web application -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./serverless/event-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/functions.svg" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Event processing using Azure Functions</h3>
-                        <p>An event-driven architecture that ingests a stream of data and uses Functions to processes the data.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-</ul>
