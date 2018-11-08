@@ -223,9 +223,9 @@ These values are the secrets that will be added to Databricks secrets in upcomin
 
 2. In the **overview** blade, click **add table**.
 
-3. When the **add table** blade opens, create a keyspace name and enter it in the **Keyspace name** text box. 
+3. When the **add table** blade opens, enter `newyorktaxi` in the **Keyspace name** text box. 
 
-4. In the **enter CQL command to create the table** section, enter `taxirecords1` in the text box beside the keyspace name created in step 3.
+4. In the **enter CQL command to create the table** section, enter `neighborhoodstats` in the text box beside `newyorktaxi`.
 
 5. In the text box below, enter the following::
 ```
