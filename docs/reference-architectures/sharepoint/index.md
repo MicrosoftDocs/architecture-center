@@ -209,7 +209,7 @@ The parameter files include a hard-coded password in various places. Change thes
     azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure3.json --deploy
     ```
 
-At this point, verify that you can make a TCP conection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
+At this point, verify that you can make a TCP connection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
 
 1. Use the Azure portal to find the VM named `ra-sp-jb-vm1` in the `ra-sp2016-network-rg` resource group. This is the jumpbox VM.
 
