@@ -10,7 +10,7 @@ ms.date: 08/30/2018
 
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
-Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](##serverless-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extending-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads) | [Web apps](#web-applications)
+Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](##serverless-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extend-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads) | [Web apps](#web-applications)
 
 ## AI and machine learning
 
@@ -121,7 +121,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 </li>
 </ul>
 
-
 ## Serverless applications
 
 <ul class="panelContent cardsF">
@@ -138,7 +137,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     </div>
                     <div class="cardText">
                         <h3>Serverless web application</h3>
-                        <p>A serverless web application that serves static content from Azure Blob Storage, and implements an API using Azure Functions.</p>
+                        <p>A serverless web application that serves static content from Blob Storage and implements an API using Azure Functions.</p>
                     </div>
                 </div>
             </div>
@@ -311,7 +310,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 </li>
 </ul>
 
-## Extending on-premises Active Directory to Azure
+## Extend on-premises Active Directory to Azure
 
 <ul class="panelContent cardsF">
 <!-- Azure AD -->
