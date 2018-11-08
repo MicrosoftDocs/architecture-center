@@ -581,3 +581,49 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
     </a>
 </li>
 </ul>
+
+
+## Serverless applications
+
+<ul class="panelContent cardsF">
+<!-- Serverless web application -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./serverless/web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/serverless.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Serverless web application</h3>
+                        <p>A serverless web application that serves static content from Azure Blob Storage, and implements an API using Azure Functions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Serverless web application -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./serverless/event-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/serverless.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Event processing using Azure Functions</h3>
+                        <p>An event-driven architecture that ingests a stream of data and uses Functions to processes the data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
