@@ -5,8 +5,7 @@ author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Enterprise Cloud Adoption: Software Defined Networks - Cloud Native
-
+# Enterprise Cloud Adoption: Software Defined Networks - Cloud native
 
 A cloud native virtual network has no dependencies on your organization's
 on-premises or other non-cloud resources to support the cloud-hosted workloads.

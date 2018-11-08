@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/07/2018
 ---
 
-
+# Enterprise Cloud Adoption: Software Defined Networks - Virtual datacenters
 
 A virtual datacenter architecture is designed to assist enterprises in
 deploying a large number of workloads to public cloud platform while still

@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Hybrid
+# Enterprise Cloud Adoption: Software Defined Networks - Hybrid networks
 
 The hybrid cloud network architecture allows virtual networks to access your
 on-premises resources and services and vice versa, using a virtual private

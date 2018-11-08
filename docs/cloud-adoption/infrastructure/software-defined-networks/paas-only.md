@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Enterprise Cloud Adoption: Software Defined Networks - PaaS Only
+# Enterprise Cloud Adoption: Software Defined Networks - PaaS only
 
 For Platform as a Service (PaaS) implementations, your deployment may not need a software defined network. When deploying a PaaS solution, an assumed underlying network is created. There are a limited number of controls over that network including; load balancing, port blocking, public endpoint connections to other PaaS services, etc... In some cases, this may qualify as a sufficient network for the desired deployment. However, before choosing this for your deployment, validate that the assumptions required for a PaaS only architecture are a fit for your requirements.
 
