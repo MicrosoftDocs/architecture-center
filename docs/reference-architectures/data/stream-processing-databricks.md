@@ -83,9 +83,119 @@ using (var client = pool.GetObject())
 
 The throughput capacity of Event Hubs is measured in [throughput units](/azure/event-hubs/event-hubs-features#throughput-units). You can autoscale an event hub by enabling [auto-inflate](/azure/event-hubs/event-hubs-auto-inflate), which automatically scales the throughput units based on traffic, up to a configured maximum. 
 
-### Databricks
+## Stream processing
 
-Data stream processing is performed by user code deployed to a Databricks cluster. The fare data from the New York Taxi data set includes latitude and longitude coordinates for where the fare was picked up and dropped off. The user code correlates these coordinates with neighborhood data from Zillow's neighborhood boundaries for the state of New York in a process known as **enriching** the data. Several averages are calculated based on the enriched data, which is then pushed to Cosmos DB using the Cassandra API. 
+In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
+
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, a Java class with a **main** method is specificed for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
+
+### Reading the stream from the two event hub instances
+
+The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/2.1.2/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
+
+```java
+val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
+      .setConsumerGroup(conf.taxiRideConsumerGroup())
+      .setStartingPosition(EventPosition.fromStartOfStream)
+    val rideEvents = spark.readStream
+      .format("eventhubs")
+      .options(rideEventHubOptions.toMap)
+      .load
+
+    val fareEventHubOptions = EventHubsConf(fareEventHubConnectionString)
+      .setConsumerGroup(conf.taxiFareConsumerGroup())
+      .setStartingPosition(EventPosition.fromStartOfStream)
+    val fareEvents = spark.readStream
+      .format("eventhubs")
+      .options(fareEventHubOptions.toMap)
+      .load
+```
+
+### Enriching the data with the neighborhood information
+
+The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While this data is useful, it's not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile). 
+
+The shapefile format is a binary format and not easily parsed, but the [GeoTools](http://geotools.org/) is an open source Java libary that provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
+
+```java
+val neighborhoodFinder = (lon: Double, lat: Double) => {
+      NeighborhoodFinder.getNeighborhood(lon, lat).get()
+    }
+```
+
+### Joining the ride and fare data
+
+First the ride and fare data is transformed:
+
+```java
+    val rides = transformedRides
+      .filter(r => {
+        if (r.isNullAt(r.fieldIndex("errorMessage"))) {
+          true
+        }
+        else {
+          malformedRides.add(1)
+          false
+        }
+      })
+      .select(
+        $"ride.*",
+        to_neighborhood($"ride.pickupLon", $"ride.pickupLat")
+          .as("pickupNeighborhood"),
+        to_neighborhood($"ride.dropoffLon", $"ride.dropoffLat")
+          .as("dropoffNeighborhood")
+      )
+      .withWatermark("pickupTime", conf.taxiRideWatermarkInterval())
+
+    val fares = transformedFares
+      .filter(r => {
+        if (r.isNullAt(r.fieldIndex("errorMessage"))) {
+          true
+        }
+        else {
+          malformedFares.add(1)
+          false
+        }
+      })
+      .select(
+        $"fare.*",
+        $"pickupTime"
+      )
+      .withWatermark("pickupTime", conf.taxiFareWatermarkInterval())
+```
+
+And then the ride data is joined with the fare data:
+
+```java
+val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId", "pickupTime"))
+```
+
+### Processing the data and inserting into Cosmos DB
+
+The average fare amount for each neighborhood is calculated for a given :
+
+```java
+val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLicense", "vendorId", "pickupTime", "rateCode", "storeAndForwardFlag", "dropoffTime", "passengerCount", "tripTimeInSeconds", "tripDistanceInMiles", "pickupLon", "pickupLat", "dropoffLon", "dropoffLat", "paymentType", "fareAmount", "surcharge", "mtaTax", "tipAmount", "tollsAmount", "totalAmount", "pickupNeighborhood", "dropoffNeighborhood")
+      .groupBy(window($"pickupTime", conf.windowInterval()), $"pickupNeighborhood")
+      .agg(
+        count("*").as("rideCount"),
+        sum($"fareAmount").as("totalFareAmount"),
+        sum($"tipAmount").as("totalTipAmount")
+      )
+      .select($"window.start", $"window.end", $"pickupNeighborhood", $"rideCount", $"totalFareAmount", $"totalTipAmount")
+```
+
+Which is then inserted into Cosmos DB:
+
+```java
+maxAvgFarePerNeighborhood
+      .writeStream
+      .queryName("maxAvgFarePerNeighborhood_cassandra_insert")
+      .outputMode(OutputMode.Append())
+      .foreach(new CassandraSinkForeach(connector))
+      .start()
+      .awaitTermination()
+```
 
 ## Security considerations
 
@@ -93,7 +203,27 @@ Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user
 
 ## Monitoring considerations
 
-There are two logging components in the reference architecture: a **log4j** component, and a custom logging component. The **log4j** component logs messages from the Databricks job itself, and logs metrics and messages for the Databricks job and cluster. The **custom logging** component logs metrics and messages from the TaxiCabReader class, and logs metrics and messages for the taxi ride and fare data input and output processing. 
+Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x/) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics/).
+
+The **com.microsoft.pnp.TaxiCabReader** configures the Apache Spark logging system to send logs to Azure Log Analytics using the values in the **log4j.properties** file. The Apache Spark logger message are strings, however, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
+
+```java
+
+    @Override
+    protected void append(LoggingEvent loggingEvent) {
+        if (this.layout == null) {
+            this.setLayout(new JSONLayout());
+        }
+
+        String json = this.getLayout().format(loggingEvent);
+        try {
+            this.client.send(json, this.logType);
+        } catch(IOException ioe) {
+            LogLog.warn("Error sending LoggingEvent to Log Analytics", ioe);
+        }
+    }
+
+```
 
 ## Deploy the solution
 
