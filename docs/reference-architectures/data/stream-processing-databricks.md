@@ -199,7 +199,26 @@ maxAvgFarePerNeighborhood
 
 ## Security considerations
 
-Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user-guide/secrets/index.html) that is used to store all of the secrets in the reference architecture including connection strings, access keys, user names, and passwords. The secrets are then accessed from Java running in the Databricks job. This way, secrets are passed to Azure Databricks and can only be accessed from Azure Databricks.
+Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables is also set through the adminstrator console.
+
+### Managing secrets
+
+Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user-guide/secrets/index.html) that is used to store all of the secrets in the reference architecture including connection strings, access keys, user names, and passwords. Secrets within the Azure Databricks secret store are partitioned by **scopes**:
+
+```bash
+databricks secrets create-scope --scope "azure-databricks-job"
+```
+
+Secrets are added at the scope level:
+
+```
+databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
+```
+
+In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
+
+Access to the Azure Databricks workspace is controlled 
+
 
 ## Monitoring considerations
 
