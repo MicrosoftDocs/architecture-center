@@ -2,14 +2,9 @@
 title: Scalable web application
 description: Improving scalability in a web application running in Microsoft Azure.
 author: MikeWasson
-pnp.series.title: Azure App Service
-pnp.series.prev: basic-web-app
-pnp.series.next: multi-region-web-app
-
 ms.date: 10/25/2018
-cardTitle: Improve scalability
 ---
-# Improve scalability in a web application
+# Improve scalability in an Azure web application
 
 This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
