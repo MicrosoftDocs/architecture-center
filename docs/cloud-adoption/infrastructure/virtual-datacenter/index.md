@@ -1,3 +1,3 @@
 ---
-redirect_url: virtual-datacenter-VDC.md
+redirect_url: overview.md
 ---

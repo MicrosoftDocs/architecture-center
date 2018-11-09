@@ -742,8 +742,22 @@
       items:
         - name: Can a mainframe be migrated to Azure?
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-    - name: Build a virtual data center (VDC)
-      href: cloud-adoption/infrastructure/virtual-datacenter/virtual-datacenter-VDC.md
+    - name: Build an Azure Virtual Datacenter (VDC)
+      items:
+        - name: Overview
+          href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
+        - name: Subscriptions
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-subscriptions.md
+        - name: Identity & Roles
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-identity.md
+        - name: Naming and Tagging Standards
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-naming.md
+        - name: Encryption
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-encryption.md
+        - name: Networking
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-networking.md
+        - name: Reporting, Monitoring and Compliance
+          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-monitoring.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
