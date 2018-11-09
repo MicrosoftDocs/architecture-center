@@ -78,8 +78,8 @@ Implementing the first workload is key to testing and learning. It is the first 
 
 While the Cloud Migration Team is executing the migration or implementation of the first workload, the Cloud Strategy Team can begin prioritizing the remaining applications/workloads.
 
-![Rationalization as a plinko board after a few releases](../_images/rationalization-release-plan.png)
-*Figure 2. Rationalization as a plinko board after a few releases*
+![Rationalization as a plinko board after a few releases](../_images/rationalization-first-release-plan.png)
+*Figure 4. Rationalization as a plinko board after a few releases*
 
 **Power of Ten:** The traditional approach to rationalization attempts to boil the ocean. Fortunately, a plan for every application is often not required to start a transformation journey. In an incremental model, the Power of Ten provides a good starting point. In this model, the cloud strategy team selects the first 10 applications to be migrated. Those 10 workloads should contain a mixture of simple and complex workloads. For guide to choosing a simple workload review the First Workload article.
 
@@ -103,7 +103,7 @@ Once the assessment is moved into the incremental execution processes of migrati
 As time progresses, the combination of the Cloud Migration Team and the Cloud Strategy Team will complete a full rationalization of the inventory. However, this incremental approach will allow the team to get continually faster at the rationalization process. It will also allow the Transformation Journey to yield tangible business results sooner, without as large of an upfront analysis effort.
 
 ![Rationalization end result](../_images/rationalization-end-result.png)
-*Figure 2. Rationalization end result*
+*Figure 5. Rationalization end result*
 
 > [!NOTE]
 >In some cases, the financial model may be too tight to make a decision to act, without additional rationalization. In such cases, a more traditional approach to rationalization may be required.
