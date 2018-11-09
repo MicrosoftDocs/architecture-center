@@ -708,22 +708,31 @@
       href: cloud-adoption/infrastructure/overview.md
       items:
     - name: Subscriptions
-      href: cloud-adoption/infrastructure/subscriptions.md
+      href: cloud-adoption/infrastructure/subscriptions/overview.md
       items:
     - name: Identity
-      href: cloud-adoption/infrastructure/identity.md
+      href: cloud-adoption/infrastructure/identity/overview.md
       items:
     - name: Resource Organization and Tagging
-      href: cloud-adoption/infrastructure/resource-naming-and-tagging.md
+      href: cloud-adoption/infrastructure/resource-naming-and-tagging/overview.md
       items:
     - name: Software Defined Networks
-      href: cloud-adoption/infrastructure/software-defined-networks.md
       items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/software-defined-networks/overview.md
+      - name: PaaS Only
+        href: cloud-adoption/infrastructure/software-defined-networks/paas-only.md
+      - name: Cloud Native
+        href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
+      - name: Hybrid
+        href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
+      - name: Virtual Datacenter
+        href: cloud-adoption/infrastructure/software-defined-networks/virtual-datacenter.md
     - name: Encryption
-      href: cloud-adoption/infrastructure/encryption.md
+      href: cloud-adoption/infrastructure/encryption/overview.md
       items:
     - name: Logs & Reporting
-      href: cloud-adoption/infrastructure/logs-and-reporting.md
+      href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
       items:
     - name: Virtual Machines
       items:

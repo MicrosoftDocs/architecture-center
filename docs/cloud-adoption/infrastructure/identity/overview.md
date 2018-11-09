@@ -45,7 +45,6 @@ infrastructure using a cloud native identity service.
 > [!TIP]
 > Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
 
-
 ### Federation
 
 For organizations with an existing Identity infrastructure, federation is often
@@ -63,10 +62,8 @@ In addition to allowing shared identity services between cloud and on-premises, 
 - Your on-premises identity services supports federation with your cloud identity provider.
 - You require single sign-on (SSO) mechanisms for users accessing cloud and on-premises identity providers.
 
-Notes when considering federated identity solutions:
-
 > [!TIP]
-> Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises services introduces dependencies on connectivity between the cloud and on-premises networks.
+> Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
 
 ### Directory Migration
 
@@ -174,7 +171,7 @@ solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn)
 
 ## Next steps
 
-Learn how [resource naming and tagging](resource-naming-and-tagging.md) are used to organize and manage cloud resources.
+Learn how [resource naming and tagging](../resource-naming-and-tagging/overview.md) are used to organize and manage cloud resources.
 
 > [!div class="nextstepaction"]
-> [Resource Naming and Tagging](resource-naming-and-tagging.md)
+> [Resource Naming and Tagging](../resource-naming-and-tagging/overview.md)

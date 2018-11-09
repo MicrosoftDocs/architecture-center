@@ -25,7 +25,7 @@ primary purposes:
     To support approaches such as charge back and show back accounting, cloud
     resources need to be organized to reflect ownership and usage. See [What is
     Cloud
-    Accounting](https://microsoft-my.sharepoint.com/personal/v-tyhopk_microsoft_com/Documents/business-strategy/cloud-accounting.md)
+    Accounting](../../business-strategy/cloud-accounting.md)
     for more information on how resource organization can support accounting and
     reporting practices.
 
@@ -101,7 +101,7 @@ resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resourc
 
 ## Next steps
 
-Learn how [Software Defined Networks](software-defined-networks.md) provide virtualized networking capabilities for cloud deployments.
+Learn how [Software Defined Networks](../software-defined-networks/overview.md) provide virtualized networking capabilities for cloud deployments.
 
 > [!div class="nextstepaction"]
-> [Software Defined Networks](software-defined-networks.md)
+> [Software Defined Networks](../software-defined-networks/overview.md)

@@ -61,25 +61,25 @@ differ by cloud platforms, but all allow some logical grouping of resources for
 management, access control, and operations purposes.
 
 In addition to grouping assets and resources, [resource naming and
-tagging](resource-naming-and-tagging.md)
+tagging](../resource-naming-and-tagging/overview.md)
 standards are key to organizing resources in support of governance.
 
 **Learn more**
 
 -   For a description of how Azure Subscriptions and Resource Groups are used to
     group and manage resources, see [Resource access management in
-    Azure](../getting-started/azure-resource-access.md).
+    Azure](../../getting-started/azure-resource-access.md).
 
 -   For guidance on structuring your Azure accounts, subscriptions, and
     resources in support of governance requirements, see [Azure enterprise
     scaffold: Prescriptive subscription
-    governance](../appendix/azure-scaffold.md).
+    governance](../../appendix/azure-scaffold.md).
 
 ## Next steps
 
-Learn how [identity services](identity.md) are used for access control and management in the cloud.
+Learn how [identity services](../identity/overview.md) are used for access control and management in the cloud.
 
 > [!div class="nextstepaction"]
-> [Identity](identity.md)
+> [Identity](../identity/overview.md)
 
 
