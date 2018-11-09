@@ -15,7 +15,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
 ## AI and machine learning
 
 <ul  class="panelContent cardsF">
-<!-- SQL Data Warehouse -->
+<!-- Batch scoring for deep learning models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/batch-scoring-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -29,6 +29,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [N-t
                     <div class="cardText">
                         <h3>Batch scoring for deep learning models</h3>
                         <p>Automate running batch jobs that apply neural style transfer to a video.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Batch scoring for deep learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/realtime-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/python-powered-h.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Real-time scoring of Python models</h3>
+                        <p>Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models.</p>
                     </div>
                 </div>
             </div>
