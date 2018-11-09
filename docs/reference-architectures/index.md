@@ -10,7 +10,7 @@ ms.date: 08/30/2018
 
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
-Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](##serverless-applications) | [Virtual networks](#virtual-networks) | [Active Directory](#extend-on-premises-active-directory-to-azure) | [VM workloads](#vm-workloads) | [Web apps](#web-applications)
+Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](##serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Web apps](#web-applications) | [Active Directory](#extend-on-premises-active-directory-to-azure)
 
 ## AI and machine learning
 
@@ -310,91 +310,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 </li>
 </ul>
 
-## Extend on-premises Active Directory to Azure
-
-<ul class="panelContent cardsF">
-<!-- Azure AD -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./identity/azure-ad.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/azure-active-directory.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Integrate with Azure Active Directory</h3>
-                        <p>Integrate on-premises AD domains with Azure Active Directory.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- AD DS -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./identity/adds-extend-domain.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Extend an on-premises Active Directory domain to Azure</h3>
-                        <p>Deploy Active Directory Domain Services (AD DS) in Azure to extend your on-premises domain.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- AD DS Forest -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./identity/adds-forest.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Create an AD DS forest in Azure</h3>
-                        <p>Create a separate AD domain in Azure that is trusted by your on-premises AD forest.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- AD FS -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./identity/adfs.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Extend Active Directory Federation Services (AD FS) to Azure</h3>
-                        <p>Use AD FS for federated authentication and authorization for components running in Azure.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-</ul>
-
 ## VM workloads
 
 <ul  class="panelContent cardsF">
@@ -498,6 +413,11 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
         </div>
     </a>
 </li>
+</ul>
+
+## SAP
+
+<ul  class="panelContent cardsF">
 <!-- SAP -->
 <li style="display: flex; flex-direction: column;">
     <a href="./sap/sap-netweaver.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -550,6 +470,91 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     <div class="cardText">
                         <h3>SAP HANA on Azure Large Instances</h3>
                         <p>HANA Large Instances are deployed on physical servers in Azure regions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+## Extend on-premises Active Directory to Azure
+
+<ul class="panelContent cardsF">
+<!-- Azure AD -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./identity/azure-ad.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/azure-active-directory.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Integrate with Azure Active Directory</h3>
+                        <p>Integrate on-premises AD domains with Azure Active Directory.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- AD DS -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./identity/adds-extend-domain.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Extend an on-premises Active Directory domain to Azure</h3>
+                        <p>Deploy Active Directory Domain Services (AD DS) in Azure to extend your on-premises domain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- AD DS Forest -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./identity/adds-forest.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Create an AD DS forest in Azure</h3>
+                        <p>Create a separate AD domain in Azure that is trusted by your on-premises AD forest.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- AD FS -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./identity/adfs.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/active-directory-vm.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Extend Active Directory Federation Services (AD FS) to Azure</h3>
+                        <p>Use AD FS for federated authentication and authorization for components running in Azure.</p>
                     </div>
                 </div>
             </div>
