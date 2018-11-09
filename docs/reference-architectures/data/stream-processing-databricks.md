@@ -236,6 +236,14 @@ As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare message
 
 However, Apache Spark uses the Dropwizard library to send metrics, and some of the native Dropwizard metrics fields are incompatible with Azure Log Analytics. Therefore, this reference architecture includes a custom Dropwizard sink and reporter. This custom sink and report formats the metrics in the format expected by Azure Log Analytics, so when Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
 
+The last metric to be logged to the Azure Log Analytics workspace is the cumulative progress of the Spark Structured Streaming job progress. This is done using a custom StreamingQuery listener implemented in the **com.microsoft.pnp.StreamingMetricsListener** class, which is registered to the Apache Spark Session when the job runs:
+
+```java
+spark.streams.addListener(new StreamingMetricsListener())
+```
+
+The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs.
+
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub](https://github.com/mspnp/reference-architectures/tree/master/data). 
