@@ -205,7 +205,7 @@ Azure Databricks includes a [secret store](https://docs.azuredatabricks.net/user
 
 Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x/) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics/).
 
-The **com.microsoft.pnp.TaxiCabReader** configures the Apache Spark logging system to send logs to Azure Log Analytics using the values in the **log4j.properties** file. The Apache Spark logger message are strings, however, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
+The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger message are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
 
 ```java
 
@@ -224,6 +224,17 @@ The **com.microsoft.pnp.TaxiCabReader** configures the Apache Spark logging syst
     }
 
 ```
+
+As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. If this were a production environment, it's important to track these malformed messages to identify a problem with the data sources so it can be fixed as quickly as possible to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
+
+```java
+    @transient val appMetrics = new AppMetrics(spark.sparkContext)
+    appMetrics.registerGauge("metrics.malformedrides", AppAccumulators.getRideInstance(spark.sparkContext))
+    appMetrics.registerGauge("metrics.malformedfares", AppAccumulators.getFareInstance(spark.sparkContext))
+    SparkEnv.get.metricsSystem.registerSource(appMetrics)
+```
+
+However, Apache Spark uses the Dropwizard library to send metrics, and some of the native Dropwizard metrics fields are incompatible with Azure Log Analytics. Therefore, this reference architecture includes a custom Dropwizard sink and reporter. This custom sink and report formats the metrics in the format expected by Azure Log Analytics, so when Apache Spark reports metrics, the custom metrics for the malformed ride and fare data are also sent.
 
 ## Deploy the solution
 
