@@ -602,10 +602,14 @@
       href: cloud-adoption/digital-estate/inventory.md
     - name: Rationalize - What goes in the cloud?
       href: cloud-adoption/digital-estate/rationalize.md
+    - name: Incremental Rationalization - Aligning applications and business drivers?
+      href: cloud-adoption/digital-estate/rationalize-incremental.md
     - name: Cost Calculations - What will it cost?
       href: cloud-adoption/digital-estate/calculate.md
     - name: 5 Rs of Rationalization - What are my options?
       href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+    - name: Rough Cloud Cost Estimates
+      href: cloud-adoption/digital-estate/size-estimates.md
   - name: Migration
     items:
     - name: Overview (Azure Migration Guide)

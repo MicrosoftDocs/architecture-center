@@ -27,13 +27,15 @@ The following is a list of common motivations for cloud transformation ranked fr
 * Improve customer experiences / engagements
 * Transform products or services
 
-There are technical strategies to execute against each of these motivations. However, the further down the list a motivation is, the more likely the business is to experience positive business results from the transformation efforts.
+There are technical strategies to execute against each of these motivations. However, the further down the list a specific motivation is, the more likely the business is to experience positive business outcomes as a result of the transformation efforts. This is expanded on in the next section on evolving the IT worldview.
 
 ## Evolving the IT worldview
 
-**Traditional Worldview** The first five motivations above are actually the most common reasons for adopting the cloud. These motivations are signals that the IT organization aligns with the Traditional IT mindset. That mindset is largely internal focused. As a result, IT is viewed as a cost center or a means of hosting the technical assets the business is dependent on. As a cost center, the most common conversations center around agility, efficiencies, and cost reduction. 
+**Traditional Worldview** The first five motivations above are the most common (but not necessarily the most impactful) reasons for adopting the cloud. These motivations are signals that the IT organization aligns with the Traditional IT mindset. That mindset is largely internal focused. As a result, IT is viewed as a cost center or a means of hosting the technical assets the business is dependent on. As a cost center, the most common conversations center around agility, efficiencies, and cost reduction.
 
-To help guide the strategies and execution of these traditional journeys, the Enterprise Cloud Adoption framework has built the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md) to help facilitate the decisions and interactions needed to execute effective strategies.
+These are important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews. IT organizations that help the business tackle Customer or Industry challenges can move from cost center to value creator. Efficiency in a vacuum produces diminishing returns & often inspires demands for greater efficiency or cost reduction. Efficiency combined with improvements to customer engagement or creation of new revenue streams, drive more impactful IT enabled business outcomes, as seen in the next two worldviews.
+
+To help guide the strategies and execution of these traditional journeys, the Enterprise Cloud Adoption framework has built the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md) to help facilitate the decisions and interactions needed to execute effective strategies throughout this journey.
 
 **Customer Worldview** The next three motivations (Build new technical capabilities, scale to meet market & geographical demand, and improve customer experiences) are indicators of an outward facing worldview that is very customer centric. Incrementally evolving current solutions to meet the changing demands of customers is the defining difference. That focus moves IT a bit from the cost center mindset & into the first stage of transformation.
 
