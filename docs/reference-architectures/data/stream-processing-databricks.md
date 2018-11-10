@@ -23,7 +23,7 @@ The architecture consists of the following components.
 
 **Azure Databricks**. [Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
 
-**Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to Cosmos DB using the Cassandra API. The Cassandra API is used because it support time series data modeling.
+**Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to Cosmos DB using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
 
 **Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected.  You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
 
@@ -37,11 +37,11 @@ The data generator is a .NET Core application that reads the records and sends t
 
 Event Hubs uses [partitions](/azure/event-hubs/event-hubs-features#partitions) to segment the data. Partitions allow a consumer to read each partition in parallel. When you send data to Event Hubs, you can specify the partition key explicitly. Otherwise, records are assigned to partitions in round-robin fashion. 
 
-In this particular scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
+In this scenario, ride data and fare data should end up with the same partition ID for a given taxi cab. This enables Databricks to apply a degree of parallelism when it correlates the two streams. A record in partition *n* of the ride data will match a record in partition *n* of the fare data.
 
 ![](./images/stream-processing-databricks-eh.png)
 
-In the data generator, the common data model for both record types has a `PartitionKey` property which is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
+In the data generator, the common data model for both record types has a `PartitionKey` property that is the concatenation of `Medallion`, `HackLicense`, and `VendorId`.
 
 ```csharp
 public abstract class TaxiData
@@ -87,7 +87,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
 
-In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, a Java class with a **main** method is specificed for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, a Java class with a **main** method is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
 
 ### Reading the stream from the two event hub instances
 
@@ -115,7 +115,7 @@ val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
 
 The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While this data is useful, it's not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile). 
 
-The shapefile format is a binary format and not easily parsed, but the [GeoTools](http://geotools.org/) is an open source Java libary that provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
+The shapefile format is a binary format and not easily parsed, but the [GeoTools](http://geotools.org/) is an open source Java library that provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
 
 ```java
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -172,7 +172,7 @@ val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId
 
 ### Processing the data and inserting into Cosmos DB
 
-The average fare amount for each neighborhood is calculated for a given :
+The average fare amount for each neighborhood is calculated for a given time interval:
 
 ```java
 val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLicense", "vendorId", "pickupTime", "rateCode", "storeAndForwardFlag", "dropoffTime", "passengerCount", "tripTimeInSeconds", "tripDistanceInMiles", "pickupLon", "pickupLat", "dropoffLon", "dropoffLat", "paymentType", "fareAmount", "surcharge", "mtaTax", "tipAmount", "tollsAmount", "totalAmount", "pickupNeighborhood", "dropoffNeighborhood")
@@ -199,7 +199,7 @@ maxAvgFarePerNeighborhood
 
 ## Security considerations
 
-Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables is also set through the adminstrator console.
+Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables is also set through the administrator console.
 
 ### Managing secrets
 
@@ -217,14 +217,12 @@ databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
-Access to the Azure Databricks workspace is controlled 
-
 
 ## Monitoring considerations
 
 Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.apache.org/log4j/2.x/) as the standard library for logging. In addition to the default logging provided by Apache Spark, this reference architecture sends logs and metrics to [Azure Log Analytics](/azure/log-analytics/).
 
-The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger message are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
+The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger messages are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
 
 ```java
 
@@ -244,7 +242,7 @@ The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark loggin
 
 ```
 
-As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. If this were a production environment, it's important to track these malformed messages to identify a problem with the data sources so it can be fixed as quickly as possible to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
+As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
 ```java
     @transient val appMetrics = new AppMetrics(spark.sparkContext)
@@ -281,7 +279,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
     ```
     az login
     ```
-5. Install a Jave IDE, with the following resources:
+5. Install a Java IDE, with the following resources:
     - JDK 1.8
     - Scala SDK 2.11
     - Maven 3.5.4
@@ -387,7 +385,7 @@ These values are the secrets that will be added to Databricks secrets in upcomin
 
 ### Add a Cassandra table to the Cosmos DB Account
 
-1. In the Azure Portal, navigate to the resource group created in the **deploy the Azure resources** section above. Click on **Azure Cosmos DB Account**. Create a table with the Cassandra API.
+1. In the Azure portal, navigate to the resource group created in the **deploy the Azure resources** section above. Click on **Azure Cosmos DB Account**. Create a table with the Cassandra API.
 
 2. In the **overview** blade, click **add table**.
 
@@ -425,7 +423,7 @@ First, enter the secrets for EventHub:
 
 Next, enter the secrets for CosmosDb:
 
-1. Open the Azure Portal, and navigate to the resource group specified in step 3 of the **deploy the Azure resources** section. Click on the Azure Cosmos DB Account.
+1. Open the Azure portal, and navigate to the resource group specified in step 3 of the **deploy the Azure resources** section. Click on the Azure Cosmos DB Account.
 
 2. Using the **Azure Databricks CLI**, add the secret for the Cosmos DB user name:
     ```
@@ -469,7 +467,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 ### Build the .jar files for the Databricks job and Databricks monitoring
 
 1. Use your Java IDE to import the Maven project file named **pom.xml** located in the root of the **data/streaming_azuredatabricks** directory. 
-2. Perform a clean build. The output of this build are files named **azure-databricks-job-1.0-SNAPSHOT.jar** and **azure-databricks-monitoring-0.9.jar**. 
+2. Perform a clean build. The output of this build is files named **azure-databricks-job-1.0-SNAPSHOT.jar** and **azure-databricks-monitoring-0.9.jar**. 
 
 ### Configure custom logging for the Databricks job
 
@@ -519,7 +517,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
     2. Repeat step 1 for the `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` Maven coordinate.
     3. The process is slightly different for the final dependency. On the `New Library` dialog, once again select `Maven Coordinate` from the `Source` drop-down control. In the `Coordinate` text box, enter `org.geotools:gt-shapefile:19.2`. Click on `Advanced Options`, and enter `http://download.osgeo.org/webdav/geotools/` in the `Repository` text box. Click `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
 8. Add the dependent libraries added in step 7 to the job created at the end of step 6. In the Azure Databricks workspace, click on `Jobs`, then click on the job name created in step 2. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. Under `Library From` select `Workspace`. Click on `users`, then your username, then click on `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`. Click `OK`. Repeat this process for `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` and `org.geotools:gt-shapefile:19.2`.
-9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select `Existing Cluster`. In the the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
+9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select `Existing Cluster`. In the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
 10. Click **run now**.
 
 ### Run the data generator
@@ -535,7 +533,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
     MINUTES_TO_LEAD=0
     PUSH_RIDE_DATA_FIRST=false
     ```
-    The connection string for the taxi-ride event hub is the **taxi-ride-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. The connection string for the taxi-fare event hubthe **taxi-fare-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section.
+    The connection string for the taxi-ride event hub is the **taxi-ride-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. The connection string for the taxi-fare event hub the **taxi-fare-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section.
 
 4. Run the following command to build the Docker image.
 
@@ -566,6 +564,6 @@ Created 30000 records for TaxiFare
 ...
 ```
 
-To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and the examine the data in the **taxirecords** table. 
+To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and examine the data in the **taxi records** table. 
 
 [1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
