@@ -5,10 +5,8 @@ description: >-
   in Microsoft Azure.
 author: MikeWasson
 ms.date: 10/25/2018
-cardTitle: Run in multiple regions
 ---
-# Run a web application in multiple regions
-[!INCLUDE [header](../../_includes/header.md)]
+# Run a web application in multiple Azure regions
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability. 
 
