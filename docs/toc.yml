@@ -398,9 +398,6 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
-    - name: N-tier applications
-      items:
-
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
