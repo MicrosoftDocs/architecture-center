@@ -8,7 +8,7 @@ ms.date: 09/13/2018
 
 ---
 
-# N-tier application with Apache Cassandra
+# Linux N-tier application in Azure with Apache Cassandra
 
 This reference architecture shows how to deploy VMs and a virtual network configured for an N-tier application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**.](#deploy-the-solution) 
 

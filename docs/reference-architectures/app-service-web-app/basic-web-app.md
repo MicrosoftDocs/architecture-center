@@ -5,10 +5,8 @@ description: >-
   Azure.
 author: MikeWasson
 ms.date: 12/12/2017
-cardTitle: Basic web application
 ---
-# Basic web application
-[!INCLUDE [header](../../_includes/header.md)]
+# Basic web application in Azure
 
 This reference architecture shows a set of proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution.**](#deploy-the-solution)
 
