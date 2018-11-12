@@ -725,6 +725,12 @@
         href: cloud-adoption/infrastructure/resource-naming-and-tagging/overview.md
       - name: Virtual Datacenter Naming and Tagging Standards
         href: cloud-adoption/infrastructure/resource-naming-and-tagging/vdc-naming.md
+    - name: Encryption
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/encryption/overview.md
+      - name: Virtual Datacenter Encryption
+        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
     - name: Software Defined Networks
       items:
       - name: Overview
@@ -737,12 +743,6 @@
         href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
       - name: Virtual Datacenter Networking
         href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
-    - name: Encryption
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/encryption/overview.md
-      - name: Virtual Datacenter Encryption
-        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
     - name: Logs & Reporting
       items:
       - name: Overview
