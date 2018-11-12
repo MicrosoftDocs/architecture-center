@@ -4,7 +4,7 @@ description: >-
   How to implement a multi-tier architecture on Azure, for availability, security, scalability, and manageability.
 
 author: MikeWasson
-ms.date: 09/13/2018
+ms.date: 11/12/2018
 ---
 
 # Windows N-tier application on Azure with SQL Server
