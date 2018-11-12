@@ -113,7 +113,7 @@ To secure the jumpbox, add an NSG rule that allows RDP connections only from a s
 
 ## Scalability considerations
 
-For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
+For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -130,7 +130,7 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 ## Availability considerations
 
-If you don't use virtual machine scale sets, put VMs in the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. Scale sets automatically use *placement groups*, which act as an implicit availability set.
+If you don't use virtual machine scale sets, put VMs for the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. Scale sets automatically use *placement groups*, which act as an implicit availability set.
 
 The load balancer uses [health probes][health-probes] to monitor the availability of VM instances. If a probe can't reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 
