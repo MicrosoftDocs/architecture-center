@@ -718,13 +718,13 @@
       - name: Overview
         href: cloud-adoption/infrastructure/identity/overview.md
       - name: Virtual Datacenter Identity & Roles
-          href: cloud-adoption/infrastructure/virtual-datacenter/vdc-identity.md
+        href: cloud-adoption/infrastructure/identity/vdc-identity.md
     - name: Resource Organization and Tagging
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/resource-naming-and-tagging/overview.md
       - name: Virtual Datacenter Naming and Tagging Standards
-        href: cloud-adoption/infrastructure/virtual-datacenter/vdc-naming.md
+        href: cloud-adoption/infrastructure/resource-naming-and-tagging/vdc-naming.md
     - name: Software Defined Networks
       items:
       - name: Overview
@@ -736,19 +736,19 @@
       - name: Hybrid
         href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
       - name: Virtual Datacenter Networking
-        href: cloud-adoption/infrastructure/virtual-datacenter/vdc-networking.md
+        href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
     - name: Encryption
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/encryption/overview.md
       - name: Virtual Datacenter Encryption
-        href: cloud-adoption/infrastructure/virtual-datacenter/vdc-encryption.md
+        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
     - name: Logs & Reporting
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
       - name: Virtual Datacenter Reporting and Monitoring
-        href: cloud-adoption/infrastructure/virtual-datacenter/vdc-monitoring.md
+        href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
     - name: Virtual Machines
       items:
         - name: Deploy a basic workload
@@ -759,8 +759,8 @@
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
     - name: Alternative Models
       items:
-        - name: Azure Virtual Datacenter (VDC)
-          href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
+      - name: Azure Virtual Datacenter (VDC)
+        href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
