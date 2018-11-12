@@ -756,7 +756,7 @@
           href: cloud-adoption/infrastructure/virtual-datacenter/vdc-encryption.md
         - name: Networking
           href: cloud-adoption/infrastructure/virtual-datacenter/vdc-networking.md
-        - name: Reporting, Monitoring and Compliance
+        - name: Reporting and Monitoring
           href: cloud-adoption/infrastructure/virtual-datacenter/vdc-monitoring.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
