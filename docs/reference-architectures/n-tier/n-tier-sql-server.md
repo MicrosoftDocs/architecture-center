@@ -31,9 +31,7 @@ The architecture has the following components:
 
 * **Virtual machines**. For recommendations on configuring VMs, see [Run a Windows VM on Azure](./windows-vm.md) and [Run a Linux VM on Azure](./linux-vm.md).
 
-* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla] for VMs. 
-
-* **Virtual machine scale set** (not shown). A [virtual machine scale set][vmss] is an alternative to using an availability set. A scale sets makes it easy to scale out the VMs in a tier, either manually or automatically based on predefined rules.
+* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier, which makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla].
 
 * **Load balancers.** Use [Azure Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
 
@@ -115,7 +113,7 @@ To secure the jumpbox, add an NSG rule that allows RDP connections only from a s
 
 ## Scalability considerations
 
-[Virtual machine scale sets][vmss] help you to deploy and manage a set of identical VMs. Scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
+For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -123,7 +121,7 @@ There are two basic ways to configure VMs deployed in a scale set:
 
 - Deploy a [managed disk](/azure/storage/storage-managed-disks-overview) with a custom disk image. This option may be quicker to deploy. However, it requires you to keep the image up-to-date.
 
-For additional considerations, see [Design considerations for scale sets][vmss-design].
+For more information, see [Design considerations for scale sets][vmss-design].
 
 > [!TIP]
 > When using any autoscale solution, test it with production-level workloads well in advance.
@@ -132,7 +130,7 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 ## Availability considerations
 
-If you don't use virtual machine scale sets, put VMs in the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. 
+If you don't use virtual machine scale sets, put VMs in the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. Scale sets automatically use *placement groups*, which act as an implicit availability set.
 
 The load balancer uses [health probes][health-probes] to monitor the availability of VM instances. If a probe can't reach an instance within a timeout period, the load balancer stops sending traffic to that VM. However, the load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
 
