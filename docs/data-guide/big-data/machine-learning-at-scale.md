@@ -63,3 +63,10 @@ For a list of technology choices for ML in Azure, see the following topics:
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 - [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
 - [Choosing a natural language processing technology](../technology-choices/natural-language-processing.md)
+
+## Next steps
+
+The following reference architectures show machine learning scenarios in Azure:
+
+- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)

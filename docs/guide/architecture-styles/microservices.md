@@ -7,7 +7,7 @@ ms.date: 08/30/2018
 
 # Microservices architecture style
 
-A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
+A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. 
 
 ![](./images/microservices-logical.svg)
  
@@ -139,6 +139,10 @@ The Service Fabric cluster is deployed to one or more VM scale sets. You might h
 The Service Fabric runtime performs cluster management, including service placement, node failover, and health monitoring. The runtime is deployed on the cluster nodes themselves. There isn't a separate set of cluster management VMs.
 
 Services communicate with each other using the reverse proxy that is built into Service Fabric. Service Fabric provides a discovery service that can resolve the endpoint for a named service.
+
+## Next steps
+
+For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
 
 
 <!-- links -->
