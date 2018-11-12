@@ -1,8 +1,8 @@
 ---
-title: "Enterprise Cloud Adoption: Software Defined Networks - Virtual Datacenter" 
-description: Discussion of the virtual datacenter approach to networking in the cloud
-author: rotycenh
-ms.date: 11/07/2018
+title: "Enterprise Cloud Adoption: Azure Virtual Datacenter - Networking" 
+description: Discusses how the Azure Virtual Datacenter networking infrastructure enables secure, centrally managed, access between on-premises and cloud resources, while isolating VDC networks from the public internet and other Azure hosted networks.
+author: rotycen
+ms.date: 11/08/2018
 ---
 
 # Enterprise Cloud Adoption: Software Defined Networks - Virtual datacenters
@@ -35,6 +35,12 @@ Workload spokes are separate virtual networks that, aside from network peering w
 > [!TIP]
 > A virtual datacenter is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. 
 
+## Next steps
+
+Learn more about [software defined networking](overview.md).
+
+> [!div class="nextstepaction"]
+> [Software Defined Networking](overview.md)
 
 ## Azure Virtual Data Center - Enterprise scale cloud network extension
 
@@ -66,9 +72,10 @@ E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
 for more information on the broader concepts behind VDC and the trusted network
 extension.
 
+
 ## Next steps
 
-Learn more about [software defined networking](overview.md).
+Learn  how [monitoring and reporting](../logs-and-reporting/vdc-monitoring.md) are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Software Defined Networking](overview.md)
+> [Azure Vitual Datacenter: Monitoring, Reporting, and Compliance](../logs-and-reporting/vdc-monitoring.md)

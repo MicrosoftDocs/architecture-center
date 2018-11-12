@@ -52,7 +52,7 @@ ASC can collect, analyze, and fuse log data from compute services, network resou
 
 ## Next steps
 
-Return the the [Overview page](overview.md) to learn more about the  Azure Virtual Datacenter model and explore guidance and tools to support your VDC deployments.
+Return the the [Overview page](../virtual-datacenter/overview.md) to learn more about the  Azure Virtual Datacenter model and explore guidance and tools to support your VDC deployments.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Overview](overview.md)
+> [Azure Vitual Datacenter: Overview](../virtual-datacenter/overview.md)

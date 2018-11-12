@@ -20,12 +20,12 @@ Provide a high-level summary of the VDC structure and components.
 
 The underlying infrastructure of a VDC serves to connect on-premises resources with the various subscriptions, external access requirements, and virtual network connectivity between central hub and spoke workload networks. The Azure Virtual Datacenter approach combines features of each infrastructure component to ensure isolation of resources and central governance produces a trusted cloud environment extension of your existing IT infrastructure.
 
-- [Subscription Structure](vdc-subscriptions.md)
-- [Identity and Roles](vdc-identity.md)
-- [Naming and Tagging Standards](vdc-naming.md)
-- [Encryption](vdc-encryption.md)
-- [Networking](vdc-networking.md)
-- [Reporting, Monitoring and Compliance](vdc-monitoring.md)
+- [Subscription Structure](../subscriptions/vdc-subscriptions.md)
+- [Identity and Roles](../identity/vdc-identity.md)
+- [Naming and Tagging Standards](../resource-naming-and-tagging/vdc-naming.md)
+- [Encryption](../encryption/vdc-encryption.md)
+- [Networking](../software-defined-networking.md)
+- [Reporting, Monitoring and Compliance](../logs-and-reporting/vdc-monitoring.md)
 
 ## Assumptions
 
