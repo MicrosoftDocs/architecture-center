@@ -87,7 +87,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
 
-In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, a Java class with a **main** method is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job,  Java class with a **main** method is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
 
 ### Reading the stream from the two event hub instances
 
@@ -113,9 +113,9 @@ val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
 
 ### Enriching the data with the neighborhood information
 
-The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While this data is useful, it's not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile). 
+The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While these coordinates are useful, they are not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile). 
 
-The shapefile format is a binary format and not easily parsed, but the [GeoTools](http://geotools.org/) is an open source Java library that provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
+The shapefile format is binary and not easily parsed, but the [GeoTools] library(http://geotools.org/) provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
 
 ```java
 val neighborhoodFinder = (lon: Double, lat: Double) => {
@@ -199,7 +199,7 @@ maxAvgFarePerNeighborhood
 
 ## Security considerations
 
-Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables is also set through the administrator console.
+Access to the Azure Database workspace is controlled using the [administrator console](https://docs.databricks.com/administration-guide/admin-settings/index.html). The administrator console includes functionality to add users, manage user permissions, and set up single sign-on. Access control for workspaces, clusters, jobs, and tables can also be set through the administrator console.
 
 ### Managing secrets
 
@@ -211,7 +211,7 @@ databricks secrets create-scope --scope "azure-databricks-job"
 
 Secrets are added at the scope level:
 
-```
+```bash
 databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
@@ -314,7 +314,7 @@ The directory structure should look like the following:
 
 6. Click on **New York Neighborhood Boundaries** to download the file.
 
-7. Copy the file from your browser's **downloads** directory to the `DataFile` directory.
+7. Copy the **ZillowNeighborhoods-NY.zip** file from your browser's **downloads** directory to the `DataFile` directory.
 
 ### Deploy the Azure resources
 
@@ -355,6 +355,7 @@ The directory structure should look like the following:
     ```
 
 4. The output of the deployment is written to the console once complete. Search the output for the following JSON:
+
 ```JSON
 "outputs": {
         "cosmosDb": {
@@ -533,13 +534,26 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 7. Install the dependent libraries by following these steps:
     
-    1. In the Databricks workspace, click on "Home", in the `Users` blade, click on your user account name to open your account workspace settings, click on the drop-down arrow beside your account name, click on `create`, and click on `Library` to open the `New Library` dialog. In the `Source` drop-down control, select `Maven Coordinate`. Under the `Install Maven Artifacts` heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the `Coordinate ` text box. Click on `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
+    1. In the Databricks user interface, click on the **home** button. In the `Users` drop-down, click on your user account name to open your account workspace settings, click on the drop-down arrow beside your account name, click on `create`, and click on `Library` to open the `New Library` dialog. In the `Source` drop-down control, select `Maven Coordinate`. Under the `Install Maven Artifacts` heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the `Coordinate ` text box. Click on `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
     
     2. Repeat step 1 for the `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` Maven coordinate.
     
     3. The process is slightly different for the final dependency. On the `New Library` dialog, once again select `Maven Coordinate` from the `Source` drop-down control. In the `Coordinate` text box, enter `org.geotools:gt-shapefile:19.2`. Click on `Advanced Options`, and enter `http://download.osgeo.org/webdav/geotools/` in the `Repository` text box. Click `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
 
-8. Add the dependent libraries added in step 7 to the job created at the end of step 6. In the Azure Databricks workspace, click on `Jobs`, then click on the job name created in step 2. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. Under `Library From` select `Workspace`. Click on `users`, then your username, then click on `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`. Click `OK`. Repeat this process for `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` and `org.geotools:gt-shapefile:19.2`.
+8. Add the dependent libraries added in step 7 to the job created at the end of step 6:
+    1. In the Azure Databricks workspace, click on `Jobs`.
+
+    2. Click on the job name created in step 2 above. 
+    
+    3. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. 
+    
+    4. Under `Library From` select `Workspace`.
+    
+    5. Click on `users`, then your username, then click on `azure-eventhubs-spark_2.11:2.3.5`. 
+    
+    6. Click `OK`.
+    
+    7. Repeat this process for `spark-cassandra-connector_2.11:2.3.1` and `gt-shapefile:19.2`.
 
 9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select `Existing Cluster`. In the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
 
@@ -572,7 +586,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
     cd ..
     ```
 
-5   . Run the following command to run the Docker image.
+5. Run the following command to run the Docker image.
 
     ```bash
     docker run -v `pwd`/DataFile:/DataFile --env-file=onprem/main.env dataloader:latest
