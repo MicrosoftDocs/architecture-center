@@ -1,10 +1,10 @@
 ---
 title: "Enterprise Cloud Adoption: Build an Azure Virtual Datacenter (VDC)" 
-description: Defining the approach to build a Virtual Datacenter (VDC)
+description: Overview of the Azure Virtual Datacenter (VDC) deployment model
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
-# Enterprise Cloud Adoption: Build an Azure Virtual Datacenter (VDC)
+# Enterprise Cloud Adoption: Azure Virtual Datacenter (VDC) Model
 
 The [Infrastructure section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), clarifies the components required to migrate core infrastructure services to Azure. This section of the framework, expands on that topic by specifically guiding the reader through the process and associated considerations for building a Virtual Datacenter or VDC.
 
@@ -24,7 +24,7 @@ The underlying infrastructure of a VDC serves to connect on-premises resources w
 - [Identity and Roles](../identity/vdc-identity.md)
 - [Naming and Tagging Standards](../resource-naming-and-tagging/vdc-naming.md)
 - [Encryption](../encryption/vdc-encryption.md)
-- [Networking](../software-defined-networking/vdc-networking.md#azure-virtual-data-center---enterprise-scale-cloud-network-extension)
+- [Networking](../software-defined-networking/vdc-networking.md#azure-virtual-data-center-network-architecture)
 - [Reporting, Monitoring and Compliance](../logs-and-reporting/vdc-monitoring.md)
 
 ## Assumptions

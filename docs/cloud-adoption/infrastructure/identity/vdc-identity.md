@@ -6,7 +6,7 @@ ms.date: 11/08/2018
 ---
 # Enterprise Cloud Adoption: Azure Virtual Datacenter - Identity and Roles
 
-Identity services lie at the core of the Azure Virtual Datacenter model's ability to manage access control and insure isolation of your cloud hosted resources.
+The [Identity topic](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. This discussion below will explore how identity services lie at the core of the Azure Virtual Datacenter model's ability to manage access control and insure isolation of your cloud hosted resources.
 
 ## Azure Active Directory Tenants
 

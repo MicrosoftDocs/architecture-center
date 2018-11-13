@@ -33,7 +33,7 @@ Workload spokes are separate virtual networks that, aside from network peering w
 - You need a security model that allows central IT control over core services and security coupled with delegated control of workload resources.
 
 > [!TIP]
-> A virtual datacenter is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. 
+> A virtual datacenter is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. The networking aspects of the Azure Virtual Datacenter model is discussed below, but for more information about this approach as a whole, see the [Azure Virtual Datacenter](../virtual-datacenter/overview.md) topic. 
 
 ## Next steps
 
@@ -42,7 +42,7 @@ Learn more about [software defined networking](overview.md).
 > [!div class="nextstepaction"]
 > [Software Defined Networking](overview.md)
 
-## Azure Virtual Data Center - Enterprise scale cloud network extension
+## Azure Virtual Datacenter network architecture
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
 
