@@ -39,11 +39,14 @@ infrastructure using a cloud native identity service.
 
 **Cloud Native Assumptions:** Using a cloud native identity provider assumes the following:
 
-- Your cloud-based resources will not have dependencies on on-premises directory services or Active Directory servers. 
-- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on windows integrated authentication methods like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+- Your cloud based resources will not have dependencies on on-premises directory services or Active Directory servers. 
+- Your cloud based identity management will not depend on an on-premises directory service, or you can migrate on-premises identity services to the cloud identity service.
+- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on claims based authentication methods using protocols like Kerberos or NTLM may need to be refactored before migrating to the cloud.
 
 > [!TIP]
 > Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
+>
+> Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
 
 ### Federation
 
@@ -65,20 +68,19 @@ In addition to allowing shared identity services between cloud and on-premises, 
 > [!TIP]
 > Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
 
-### Directory Migration
+### Directory Migration With Federation
 
-In scenarios where hybrid authentication methods are not possible, you may need
-to consider migrating some or all of your current directory services to a cloud identity provider.
-This approach will ensure your identity and authentication services will work in
-the cloud environment but could entail refactoring legacy workloads that do not
-currently support cloud compatible authentication mechanisms.
+If you have workloads that depend on claims based authentication using protocols such as Kerberos or NTLM that cannot be refactored to accept cloud-compatible token based authentication mechanisms, you may need to perform a directory migration as part of your cloud deployment. This migration will involve deploying VMs running Active Directory or other identity providers within your cloud based virtual networks. With directory services running in the cloud network, any existing applications and services migrating to your cloud network should be able to make use of these directory servers with a minimum of modification.
+
+Federation is also recommended in this scenario. You will likely want a federated identity solution to provide a common set of users and roles in both the virtual directory servers that workloads will depend on as well as the cloud identity service responsible for access control in the cloud management plane. Federation will also allow you to keep your on-premises directories in sync with cloud hosted directories.  
 
 **Directory Migration Assumptions:** Performing a directory migration assumes the following:
 
-- The end state of a directory migration is a cloud-native solution. All of the previously described features and limitations of cloud native identity provider apply.
+- You workloads will depend on claims based authentication using protocols like Kerberos or NTLM.
+- The identity services your workloads depend on support federation with your cloud identity provider.
 
 > [!TIP]
-> Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
+> While a directory migration coupled with federated identity provides great flexibility when migrating existing workloads, hosting VMs within your cloud virtual network to provide these services does increase the complexity of you IT management tasks. As your cloud migration experience matures, examine the long-term maintenance requirements of hosting these servers, and consider if refactoring existing workloads for compatibility with cloud identity providers can reduce the need for cloud hosted directory server VMs.  
 
 ## Evolving Identity Integration
 
@@ -157,14 +159,16 @@ for authentication, but it's possible technologies used by applications and
 services you plan to migrate are not supported. For instance, you can't perform
 Kerberos authentication against Azure AD. In scenarios like this you would need
 provision a compatible authentication service either within your Azure
-deployment or connect your Azure networks to on-premises environment where your
+deployment (such as a Windows Server VM running Active Directory) or connect your Azure networks to on-premises environment where your
 workloads could access existing authentication mechanisms such as an Active
 Directory server.
 
 Federation using the Azure AD Connect tool allows these more sophisticated
 hybrid authentication mechanisms, letting workloads authenticate against an Azure
 AD provider or on-premises hosted services, maximizing compatibility with existing 
-workloads and processes. To choose the best Azure AD authentication mechanism for your
+workloads and processes.  
+
+To choose the best Azure AD authentication mechanism for your
 organization, see [choosing the right authentication method for your Azure
 Active Directory hybrid identity
 solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn).

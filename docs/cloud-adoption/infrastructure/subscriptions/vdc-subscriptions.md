@@ -10,7 +10,7 @@ Coming soon.
 
 ## Next steps
 
-Learn  how [Identity and Roles](vdc-identity.md) are used to manage access control and enforce management and organizational structures within an Azure Virtual Datacenter.
+Learn  how [Identity and Roles](../identity/vdc-identity.md) are used to manage access control and enforce management and organizational structures within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Identity and Roles](vdc-identity.md)
+> [Azure Vitual Datacenter: Identity and Roles](../identity/vdc-identity.md)
