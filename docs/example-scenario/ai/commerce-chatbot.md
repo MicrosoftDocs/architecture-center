@@ -15,11 +15,11 @@ By using Azure services such as the Bot Service and Language Understanding or Sp
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
-* View restaurant take-out menu and order food
-* Check hotel availability and reserve a room
-* Search available photos and order prints
+* Viewing a restaurant take-out menu and ordering food
+* Checking hotel availability and reserving a room
+* Searching available photos and ordering prints
 
 ## Architecture
 
@@ -91,7 +91,7 @@ This scenario is divided into three components for you to explore areas that you
 
 ### Deploy infrastructure components
 
-To deploy the infrastructure components with an Azure Resource Manager template, perform the following steps.
+To deploy the infrastructure components with a Resource Manager template, perform the following steps.
 
 1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
@@ -144,7 +144,8 @@ We have provided three sample cost profiles based on the number of messages you 
 
 ## Related resources
 
-For a set of guided tutorials on leveraging the Azure Bot Service, see the [tutorial node][botservice-docs] of the documentation.
+For a set of guided tutorials for the Azure Bot Service, see the [tutorial section][botservice-docs] of the documentation.
+
 
 <!-- links -->
 [aadb2c-docs]: /azure/active-directory-b2c/active-directory-b2c-overview

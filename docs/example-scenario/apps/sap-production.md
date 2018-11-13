@@ -15,7 +15,7 @@ This example scenario demonstrates an SAP deployment on Windows or Linux virtual
 
 ## Relevant use cases
 
-Consider this example for the following scenarios:
+Other relevant use cases include:
 
 * Mission-critical workloads running on SAP.
 * Non-critical SAP workloads.

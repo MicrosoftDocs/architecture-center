@@ -91,7 +91,7 @@ For deployment information see the official [Citrix documentation](https://docs.
 
 ## Pricing
 
-- The Citrix XenDestop licenses are not included in Azure service charges.
+- The Citrix XenDesktop licenses are not included in Azure service charges.
 - The Citrix NetScaler license is included in a pay-as-you-go model.
 - Using reserved instances will greatly reduce the compute cost for the solution.
 - The ExpressRoute cost is not included.

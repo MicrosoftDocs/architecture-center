@@ -21,7 +21,7 @@ The company's goals include:
 
 ## Relevant use cases
 
-Other scenarios using this architecture might include:
+Other relevant use cases include:
 
 * Genomics research
 * Weather simulation
@@ -32,7 +32,7 @@ Other scenarios using this architecture might include:
 ![Architecture for a SaaS solution enabling HPC capabilities][architecture]
 
 * Users can access NV-series virtual machines (VMs) via a browser with an HTML5-based RDP connection using the [Apache Guacamole service](https://guacamole.apache.org/). These VM instances provide powerful GPUs for rendering and collaborative tasks. Users can edit their designs and view their results without needing access to high-end mobile computing devices or laptops. The scheduler spins up additional VMs based on user-defined heuristics.
-* From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to auto-scale based on load or queue depth based on active user demand for compute resources.
+* From a desktop CAD session, users can submit workloads for execution on available HPC cluster nodes. These workloads perform tasks such as stress analysis or computational fluid dynamics calculations, eliminating the need for dedicated  on-premises compute clusters. These cluster nodes can be configured to autoscale based on load or queue depth based on active user demand for compute resources.
 * Azure Kubernetes Service (AKS) is used to host the web resources available to end users.
 
 ### Components
@@ -49,7 +49,7 @@ Other scenarios using this architecture might include:
 
 * [Azure CycleCloud](/azure/cyclecloud/overview) simplifies creating, managing, operating, and optimizing HPC clusters. It offers advanced policy and governance features. CycleCloud supports any job scheduler or software stack.
 * [HPC Pack](/azure/virtual-machines/windows/hpcpack-cluster-options) can create and manage an Azure HPC cluster for Windows Server-based workloads. HPC Pack isn't an option for Linux-based workloads.
-* [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with auto-scaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
+* [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) provides an infrastructure-as-code approach to defining the virtual machines and software to be deployed. Virtual machines can be deployed as part of a virtual machine scale set, with autoscaling rules for compute nodes based on the number of jobs submitted to the job queue. When a new virtual machine is needed, it is provisioned using the latest patched image from the Azure image gallery, and then the required software is installed and configured via a PowerShell DSC configuration script.
 * [Azure Functions](/azure/azure-functions/functions-overview)
 
 ## Considerations
