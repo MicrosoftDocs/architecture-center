@@ -9,19 +9,19 @@ ms.date: 09/14/2018
 
 This example scenario shows how using a dedicated search service can dramatically increase the relevance of search results for your e-commerce customers.
 
-Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, auto-complete, hit highlighting etc.
+Search is the primary mechanism through which customers find and ultimately purchase products, making it essential that search results are relevant to the _intent_ of the search query, and that the end-to-end search experience matches that of search giants by providing near-instant results, linguistic analysis, geo-location matching, filtering, faceting, autocomplete, hit highlighting, etc.
 
 Imagine a typical e-commerce web application with product data stored in a relational database like SQL Server or Azure SQL Database. Search queries are often handled inside the database using `LIKE` queries or [Full-Text Search][docs-sql-fts] features. By using [Azure Search][docs-search] instead, you free up your operational database from the query processing and you can easily start taking advantage of those hard-to-implement features that provide your customers with the best possible search experience. Also, because Azure Search is a platform as a service (PaaS) component, you don't have to worry about managing infrastructure or becoming a search expert.
 
 ## Relevant use cases
 
-These other uses cases have similar design patterns:
+Other relevant use cases include:
 
 * Finding real estate listings or stores near the user's physical location.
 * Searching for articles in a news site or looking for sports results, with a higher preference for more _recent_ information.
 * Searching through large repositories for _document-centric_ organizations like policy makers and notaries.
 
-Ultimately _any_ application that has some form of search functionality can benefit from having a dedicated search service.
+Ultimately, _any_ application that has some form of search functionality can benefit from a dedicated search service.
 
 ## Architecture
 
@@ -37,7 +37,7 @@ This scenario covers an e-commerce solution where customers can search through a
 
 ### Components
 
-* [App Services - Web Apps][docs-webapps] hosts web applications allowing auto-scale and high availability without having to manage infrastructure.
+* [App Services - Web Apps][docs-webapps] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
 * [SQL Database][docs-sql-database] is a general-purpose relational database-managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 * [Azure Search][docs-search] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
 * [Bot Service][docs-botservice] provides tools to build, test, deploy, and manage intelligent bots.

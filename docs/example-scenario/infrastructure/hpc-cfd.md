@@ -15,7 +15,7 @@ To simplify the creation, management, and optimization of HPC clusters, Azure Cy
 
 ## Relevant use cases
 
-Consider this scenario for these industries where CFD applications could be used:
+Other relevant industries for CFD applications include:
 
 * Aeronautics
 * Automotive

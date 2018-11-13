@@ -104,7 +104,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
+Consider implementing the [typical design patterns for resiliency][design-patterns-resiliency] where appropriate.
 
 You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 
