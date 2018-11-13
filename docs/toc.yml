@@ -763,20 +763,6 @@
         href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-  - name: Operations
-    items:
-    - name: Overview
-      href: cloud-adoption/operations/overview.md
-    - name: Monitoring
-      items:
-    - name: Remediation
-      items:
-    - name: Automated Remediation
-      items:
-    - name: Operational Fitness Review
-      items:
-      - name: Establish an operational fitness review
-        href: cloud-adoption/operations/operational-fitness-review.md
   - name: Foundational Concepts
     items:
     - name: Overview
@@ -791,3 +777,5 @@
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
+    - name: Establish an operational fitness review
+      href: cloud-adoption/operations/operational-fitness-review.md
