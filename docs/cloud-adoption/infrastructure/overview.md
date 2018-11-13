@@ -81,7 +81,7 @@ high-level guidance on establishing consistent identity, security, management,
 and operations standards across your on-premises and cloud-based resources.
 
 [How To: Build a Virtual
-Datacenter](virtual-datacenter/virtual-datacenter-vdc.md):
+Datacenter](virtual-datacenter/overview.md):
 Building on ideas of cloud consistency, Azure Virtual Datacenter (VDC) is an
 approach to helping IT organizations and business units balance governance and
 developer agility while deploying enterprise cloud workloads. This section will

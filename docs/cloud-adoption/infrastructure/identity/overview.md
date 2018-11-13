@@ -107,7 +107,7 @@ management solutions. Azure AD Federation supports integration with existing
 on-premises deployments of Active Directory or other supported third-party
 identity services.
 
-![Azure AD Connect can be used to provide synchronized authentication between Azure AD and on-premises directory services](../_images/infra-identity-figure1.png)
+![Azure AD Connect can be used to provide synchronized authentication between Azure AD and on-premises directory services](../../_images/infra-identity-figure1.png)
 
 *Figure 1. Azure AD Connect can be used to provide synchronized authentication
 between Azure AD and on-premises directory services.*

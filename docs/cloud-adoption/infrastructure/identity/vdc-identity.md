@@ -14,7 +14,7 @@ The Azure Virtual Datacenter model uses Azure Active Directory (Azure AD) as its
 
 An Azure AD tenant is a dedicated instance of an Azure AD directory that your organization receives when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories, and contains its own users, groups, and roles. An Azure AD tenant is a pre-requisite for deploying resources on Azure.
 
-Along with planning your [subscription](vdc-subscriptions.md) strategy, picking the Azure AD tenant you'll be using with your VDC is one of the first things you'll need to decide. An Azure tenant can be used by multiple subscriptions, but subscriptions can only associate with a single tenant. As part of VDC deployment you can choose to use an existing tenant owned by your organization or create a net new one explicitly for the VDC. 
+Along with planning your [subscription](../subscriptions/vdc-subscriptions.md) strategy, picking the Azure AD tenant you'll be using with your VDC is one of the first things you'll need to decide. An Azure tenant can be used by multiple subscriptions, but subscriptions can only associate with a single tenant. As part of VDC deployment you can choose to use an existing tenant owned by your organization or create a net new one explicitly for the VDC. 
 
 ## Federation and hybrid identity
 

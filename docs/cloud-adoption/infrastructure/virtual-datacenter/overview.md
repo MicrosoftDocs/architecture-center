@@ -24,7 +24,7 @@ The underlying infrastructure of a VDC serves to connect on-premises resources w
 - [Identity and Roles](../identity/vdc-identity.md)
 - [Naming and Tagging Standards](../resource-naming-and-tagging/vdc-naming.md)
 - [Encryption](../encryption/vdc-encryption.md)
-- [Networking](../software-defined-networking/vdc-networking.md#azure-virtual-data-center-network-architecture)
+- [Networking](../software-defined-networking/vdc-networking.md)
 - [Reporting, Monitoring and Compliance](../logs-and-reporting/vdc-monitoring.md)
 
 ## Assumptions
