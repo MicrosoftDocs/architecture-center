@@ -13,7 +13,7 @@ Example application scenarios include running operating room applications, patie
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Modernizing application deployments in a secure cloud environment.
 * Reducing legacy on-premises application and service management.

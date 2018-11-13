@@ -13,7 +13,7 @@ This document will help you will learn about various Azure PaaS components and c
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Building an application that needs elastic scale to handle bursts of users at different times.
 * Building an application that is designed to operate at high availability in different Azure regions around the world.
@@ -40,7 +40,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 
 * [Azure CDN][docs-cdn] delivers static, cached content from locations close to users to reduce latency.
 * [Azure Traffic Manager][docs-traffic-manager] controls the distribution of user traffic for service endpoints in different Azure regions.
-* [App Services - Web Apps][docs-webapps] hosts web applications allowing auto-scale and high availability without having to manage infrastructure.
+* [App Services - Web Apps][docs-webapps] hosts web applications allowing autoscale and high availability without having to manage infrastructure.
 * [Azure Active Directory - B2C][docs-b2c] is an identity management service that enables customization and control over how customers sign up, sign in, and manage their profiles in an application.
 * [Storage Queues][docs-storage-queues] stores large numbers of queue messages that can be accessed by an application.
 * [Functions][docs-functions] are serverless compute options that allow applications to run on-demand without having to manage infrastructure.

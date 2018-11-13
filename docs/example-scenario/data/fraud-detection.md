@@ -17,7 +17,7 @@ This sample represents one part of a broader data processing architecture and st
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Detecting fraudulent mobile-phone calls in telecommunications scenarios.
 * Identifying fraudulent credit card transactions for banking institutions.
@@ -58,7 +58,7 @@ For other availability considerations, see the [availability checklist][availabi
 
 The components of this scenario are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency. Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
 
-For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 

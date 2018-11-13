@@ -11,7 +11,7 @@ This example scenario is applicable to companies that need a highly scalable and
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Media events that cause traffic surges.
 * Blogs that use WordPress as their content management system.

@@ -24,7 +24,7 @@ Using managed Azure services such as IoT Hub and HDInsight will allow the custom
 
 ## Relevant use cases
 
-Consider this solution for the following use cases:
+Other relevant use cases include:
 
 * Construction, mining, or equipment manufacturing scenarios
 * Large-scale collection of device data for storage and analysis
