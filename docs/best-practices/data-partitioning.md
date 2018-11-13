@@ -5,7 +5,7 @@ author: dragon119
 ms.date: 11/04/2018
 
 ---
-# Data partitioning
+# Horizontal, vertical, and functional data partitioning
 
 In many large-scale solutions, data is divided into *partitions* that can be managed and accessed separately. Partitioning can improve scalability, reduce contention, and optimize performance. It can also provide a mechanism for dividing data by usage pattern. For example, you can archive older data in cheaper data storage.
 
