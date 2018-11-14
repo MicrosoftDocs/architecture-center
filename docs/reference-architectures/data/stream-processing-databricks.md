@@ -93,7 +93,7 @@ In this reference architecture, the job is a Java archive with classes written i
 
 The data processing logic uses [Spark structured streaming](https://spark.apache.org/docs/2.1.2/structured-streaming-programming-guide.html) to read from the two Azure event hub instances:
 
-```java
+```scala
 val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
       .setConsumerGroup(conf.taxiRideConsumerGroup())
       .setStartingPosition(EventPosition.fromStartOfStream)
@@ -117,7 +117,7 @@ The ride data includes the latitude and longitude coordinates of the pick up and
 
 The shapefile format is binary and not easily parsed, but the [GeoTools] library(http://geotools.org/) provides tools for geospatial data that utilize the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
 
-```java
+```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
       NeighborhoodFinder.getNeighborhood(lon, lat).get()
     }
@@ -127,7 +127,7 @@ val neighborhoodFinder = (lon: Double, lat: Double) => {
 
 First the ride and fare data is transformed:
 
-```java
+```scala
     val rides = transformedRides
       .filter(r => {
         if (r.isNullAt(r.fieldIndex("errorMessage"))) {
@@ -166,7 +166,7 @@ First the ride and fare data is transformed:
 
 And then the ride data is joined with the fare data:
 
-```java
+```scala
 val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId", "pickupTime"))
 ```
 
@@ -174,7 +174,7 @@ val mergedTaxiTrip = rides.join(fares, Seq("medallion", "hackLicense", "vendorId
 
 The average fare amount for each neighborhood is calculated for a given time interval:
 
-```java
+```scala
 val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLicense", "vendorId", "pickupTime", "rateCode", "storeAndForwardFlag", "dropoffTime", "passengerCount", "tripTimeInSeconds", "tripDistanceInMiles", "pickupLon", "pickupLat", "dropoffLon", "dropoffLat", "paymentType", "fareAmount", "surcharge", "mtaTax", "tipAmount", "tollsAmount", "totalAmount", "pickupNeighborhood", "dropoffNeighborhood")
       .groupBy(window($"pickupTime", conf.windowInterval()), $"pickupNeighborhood")
       .agg(
@@ -187,7 +187,7 @@ val maxAvgFarePerNeighborhood = mergedTaxiTrip.selectExpr("medallion", "hackLice
 
 Which is then inserted into Cosmos DB:
 
-```java
+```scala
 maxAvgFarePerNeighborhood
       .writeStream
       .queryName("maxAvgFarePerNeighborhood_cassandra_insert")
@@ -224,7 +224,7 @@ Azure Databricks is based on Apache Spark, and both use [log4j](https://logging.
 
 The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark logging system to send its logs to Azure Log Analytics using the values in the **log4j.properties** file. While the Apache Spark logger messages are strings, Azure Log Analytics requires log messages to be formatted as JSON. The **com.microsoft.pnp.log4j.LogAnalyticsAppender** class transforms these messages to JSON:
 
-```java
+```scala
 
     @Override
     protected void append(LoggingEvent loggingEvent) {
@@ -244,7 +244,7 @@ The **com.microsoft.pnp.TaxiCabReader** class configures the Apache Spark loggin
 
 As the **com.microsoft.pnp.TaxiCabReader** class processes ride and fare messages, it's possible that either one may be malformed and therefore not valid. In a production environment, it's important to analyze these malformed messages to identify a problem with the data sources so it can be fixed quickly to prevent data loss. The **com.microsoft.pnp.TaxiCabReader** class registers an Apache Spark Accumulator that keeps track of the number of malformed fare and ride records:
 
-```java
+```scala
     @transient val appMetrics = new AppMetrics(spark.sparkContext)
     appMetrics.registerGauge("metrics.malformedrides", AppAccumulators.getRideInstance(spark.sparkContext))
     appMetrics.registerGauge("metrics.malformedfares", AppAccumulators.getFareInstance(spark.sparkContext))
@@ -255,7 +255,7 @@ However, Apache Spark uses the Dropwizard library to send metrics, and some of t
 
 The last metric to be logged to the Azure Log Analytics workspace is the cumulative progress of the Spark Structured Streaming job progress. This is done using a custom StreamingQuery listener implemented in the **com.microsoft.pnp.StreamingMetricsListener** class, which is registered to the Apache Spark Session when the job runs:
 
-```java
+```scala
 spark.streams.addListener(new StreamingMetricsListener())
 ```
 
@@ -436,6 +436,7 @@ Once executed, this command opens the vi editor. Enter the **username** value fr
     ```
     databricks secrets put --scope azure-databricks-job --key "cassandra-password"
     ```
+
 Once executed, this command opens the vi editor. Enter the **secret** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 ### Add the Zillow Neighborhoods data file to the Databricks file system
