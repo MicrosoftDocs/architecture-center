@@ -87,7 +87,7 @@ The throughput capacity of Event Hubs is measured in [throughput units](/azure/e
 
 In Azure Databricks, data processing is performed by a job. The job is assigned to and runs on a cluster. The job can either be custom code written in Java, or a Spark [notebook](https://docs.databricks.com/user-guide/notebooks/index.html).
 
-In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job,  Java class with a **main** method is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
+In this reference architecture, the job is a Java archive with classes written in both Java and Scala. When specifying the Java archive for a Databricks job, the class is specified for execution by the Databricks cluster. Here, the **main** method of the **com.microsoft.pnp.TaxiCabReader** class contains the data processing logic. 
 
 ### Reading the stream from the two event hub instances
 
@@ -582,7 +582,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 ### Run the data generator
 
-1. Navigate to the directory `data/streaming_azuredatabricks/onprem` in the GitHub repository
+1. Navigate to the directory `data/streaming_azuredatabricks/onprem` in the GitHub repository.
 
 2. Update the values in the file **main.env** as follows:
 
