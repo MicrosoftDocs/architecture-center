@@ -7,17 +7,22 @@ ms.date: 9/20/2018
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
 
-This example scenario is relevant to organizations that need a cloud-based extract-transform-load (ETL) process and want to incorporate existing SQL Server Integration Services (SSIS) packages into their new cloud data workflow. Organizations often have already invested greatly in developing ETL packages using SSIS for specific tasks. Rewriting these packages can be a daunting task.  In addition, many on-premises SSIS packages may have dependencies on local resources, preventing migration to the cloud. 
+Organizations that migrate their SQL Server database to the cloud can realize tremendous cost savings, performance gains, added flexibility and more scalability.  However, reworking of existing SSIS ETL processes may be the road block preventing the migration.  In other cases, the data loading process requires complex logic and/or specific data tool components are not yet supported by Azure Data Factory v2 (ADF).  Some of these SSIS components most often used are as follows: Fuzzy Lookup, Fuzzy Grouping, CDC, SCD and Data Quality Services (DQS).
 
-Azure Data Factory v2 lets customers take advantage of their existing ETL packages while ending further investment in on-premises ETL development. This example discusses some potential use cases where existing SSIS packages can be leveraged as part of a new cloud data workflow using Azure Data Factory v2.
+To facilitate the lift-and-shift migration of an existing SQL database, a hybrid ETL approach may be the most suitable option.  The hybrid approach uses ADF as the primary orchestration engine but continues to leverage existing SSIS packages to do data cleansing, and work with on-premise resources.  This hybrid approach is achieved by using ADF SQL Server Integrated Runtime (IR).  The hybrid ETL approach allows a lift-and-shift of existing databases into the cloud, while using existing code and SSIS packages.
+
+This example scenario is relevant to organizations that are moving databases to the cloud and are considering using ADF as the primary cloud-based extract-transform-load (ETL) engine and want to incorporate existing SQL Server Integration Services (SSIS) packages into their new cloud data workflow. Organizations often have already invested greatly in developing ETL packages using SSIS for specific data tasks. Rewriting these packages can be a daunting task. In addition, many existing code packages may have dependencies on local resources, preventing migration to the cloud.
+ADF lets customers take advantage of their existing ETL packages while limiting further investment to on-premises ETL development. This example discusses some potential use cases where existing SSIS packages can be leveraged as part of a new cloud data workflow using Azure Data Factory v2.
 
 ## Potential use cases
 
-During data warehouse development, data professionals often encounter a variety of data source issues. One common issue is dirty data that prevents loading of data into the data warehouse. This may include data entry errors, multiple sources of reference data, missing values, duplication of records, typos, case differences, and similar problems. Resolving these issues requires a variety of tools and techniques to prepare the data prior to loading into a data warehouse.
+Traditionally, SQL Server Integrations Services (SSIS) has been the tool of choice for many SQL Server data professionals for data transformation and loading.  Very often these SSIS packages contain SSIS components such as Fuzzy grouping, Fuzzy Lookup, CDC, SDC components are used to cleanse and transform data.  Sometimes, third-party plugging components are also used to accelerate the development effort. Replacement or redevelopment of these packages may not be an option preventing customers from migrating their databases to the cloud.  Customers are looking for low impact ways to migrate their existing database to the cloud and leverage their existing SSIS packages. 
+Server potential on-premise use cases are listed below:
 
-Problematic data must be addressed immediately. Otherwise, this data will cause problems when the data is used later in downstream systems, reporting, and data science applications. Inconsistent data can skew your reports and cause bias that leads to unfavorable results. These problems exist in relational databases, delimited files, APIs, NoSQL databases, and data lakes. Dirty data exists across industries, so similar approaches can be used to solve these common problems.
-
-Traditionally, SSIS has been the tool of choice for many SQL Server data professionals. As organizations embrace cloud technologies, many data professionals wonder how to migrate their on-premise SSIS packages into the cloud to leverage their existing work and minimize breaking changes in their current data processing jobs. To meet this need, the Integration Runtime (IR) in Azure Data Factory v2 now supports native execution of SSIS packages in Azure. 
+* SSIS package used to load network router logs to a database for analysis
+* SSIS package used to prepare and clean human resource employment data used for analytics reporting
+* SSIS package used to load product and sales data into a data warehouse for sales forecasting
+* SSIS package used to automate ODS/DW loading for finance and accounting
 
 ## Architecture
 
@@ -38,11 +43,17 @@ Traditionally, SSIS has been the tool of choice for many SQL Server data profess
 
 ### Alternatives
 
-Data Factory could invoke data cleansing procedures implemented using other technologies, such as a Databricks notebook, Python script, or SSIS instance running in a virtual machine.
+Data Factory could invoke data cleansing procedures implemented using other technologies, such as a Databricks notebook, Python script, or SSIS instance running in a virtual machine. [Install paid or licensed custom components on Azure-hosted IR][] may be an alternative to the hybrid approach.
 
 ## Considerations
 
-> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
+Integrated Runtime (IR) supports two models, self-hosted IR or Azure-hosted IR.  You must first decide between these two options.  Self-hosting is more cost effective but requires more overhead for you to maintain and manage. You can learn more at [Self-hosted IR](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#self-hosted-integration-runtime).  If you need help determining which IR to use you can read more on “[Determine which IR to use](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use)”
+
+In the case of Azure-hosted scenario, you should decide how much power is required to process your data.  The Azure-hosted configuration allows you to select the VM size as part of the configuration steps.  To learn more about selecting VM sizes you can read on [VM performance considerations](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
+
+The decision is much easier when you already have existing SSIS packages that have on-premise dependencies such as data sources, or files which are not accessible from Azure.  In this scenario, your only option is Self-hosted IR. This approach provides the most flexibility to leverage the cloud as the orchestration engine, without having to rewrite existing packages.
+
+Ultimately, the intent is to move the processed data into the cloud for further refinement or to combine with other data stored in the cloud.  As part of the design process, keep track of the number of activities used in the ADF pipelines.  You can learn more about [pipelines and activities](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities).
 
 ### Availability, Scalability, and Security
 
@@ -54,37 +65,25 @@ Data Factory could invoke data cleansing procedures implemented using other tech
 
 > Are there any security considerations (past the typical) that I should know about this?
 
-## Deploy this scenario
-
-> (Optional if it doesn't make sense)
->
-> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
-
 ## Pricing
 
-> How much will this cost to run?  
-> Are there ways I could save cost?  
-> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
-> What are the components that make up the cost?  
-> How does scale effect the cost  
-> 
-> Link to the pricing calculator with all of the components outlined.  If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
+Azure Data Factory is a very cost-effective way to orchestrate data movement in the cloud.  The cost is based on the several factors.
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+* Number of pipelines executions
+* Number of entities/activities used within the pipeline
+* Number of monitoring operations
+* Number of Integration Runs (Azure-hosted IR or Self-hosted IR)
 
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+ADF uses a consumption-based billing; therefore, cost is only incurred during pipeline executions and monitoring.  The execution of a basic pipeline would cost as little as $0.50 cents and the monitoring as little as $25 cents. The [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used to create a more accurate estimate based on your specific work load.
+
+When running a hybrid ETL workload, you must factor in the cost of the Virtual machine used to host your SSIS packages. This is explained in the above considerations section of this document. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50GB Disk) to E64V3 (64 cores, 432GB RAM, 1600GB Disk).  If you need further guidance on selection the appropriate VM size refer to [VM performance considerations](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
 ## Next Steps
 
-> Where should I go next if I want to start building this?  
-> Are there any reference architectures that help me build this?
+* To learn more about [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/)
+* Get started with Azure Data Factory by following the [Step-by-Step tutorial](https://docs.microsoft.com/en-us/azure/data-factory/#step-by-step-tutorials)
+* [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-deploy-ssis-packages-azure)
 
-## Related Resources
-
-> Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?  
 
 <!-- links -->
 [architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf.png
@@ -101,4 +100,3 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-data-factory]: /azure/data-factory/introduction
 [docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [docs-ssis]: /sql/integration-services/sql-server-integration-services
-
