@@ -23,13 +23,20 @@ primary purposes:
 -   Accounting. Making business groups aware of cloud resource consumption
     requires IT to understand what workloads and teams are using what resources.
     To support approaches such as charge back and show back accounting, cloud
-    resources need to be organized to reflect ownership and usage. See [What is
-    Cloud
-    Accounting](../../business-strategy/cloud-accounting.md)
-    for more information on how resource organization can support accounting and
+    resources need to be organized to reflect ownership and usage. See [What is Cloud Accounting](../../business-strategy/cloud-accounting.md) for more information on how resource organization can support accounting and
     reporting practices.
 
-## Resource Naming 
+## Tagging Decision Guide
+
+![Plotting tagging options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-tagging.png)
+
+Jump to: [Resource naming](#resource-naming) | [Resource tagging](#resource-tagging) | [Naming and tagging policy](#naming-and-tagging-policy) | [Resource naming and tagging in Azure](#resource-tagging-in-azure)
+
+Tagging can be simple or complex, depending on the data that will be most important to the team and the business, during normal operations.
+
+IT aligned tagging can reduce the complexity of monitoring assets and making decisions based on function and classification. These can be controlled to some degree by IT. Aligning with Non-IT policies can require a larger time investment to maintain accurate data. However, the result is an ability to better account for costs & value. The ability to better equate the value of an asset to its cost, is one of the first changes required to change the cost center perception of IT.
+
+## Resource naming
 
 A standardized naming scheme is the starting point for organizing your
 cloud-hosted resources. A properly structured naming system allows you to
@@ -38,7 +45,7 @@ quickly identify resources for both management and accounting purposes.
 If you have an existing IT naming scheme in other parts of your organization,
 try to keep your cloud resource naming standards consistent with it.
 
-## Resource Tagging
+## Resource tagging
 
 For adding more sophisticated organization than a consistent naming scheme can
 provide, cloud platforms support the ability to "tag" resources.

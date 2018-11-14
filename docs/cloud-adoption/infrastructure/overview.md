@@ -35,7 +35,13 @@ Identity services are the key mechanism supporting access control within any IT
 environment. Cloud-based Identity services can help integrate your existing
 Identity resources with cloud deployments.
 
-[Resource Naming and Tagging](resource-naming-and-tagging/overview.md):
+[Policy Enforcement](policy-enforcement/overview.md):
+Use features of the cloud platform to define and enforce organizational policy rules for resources and workloads you deploy to th cloud.
+
+[Resource Grouping](resource-grouping/overview.md):
+Ensure that deployment and organization of resources align enforce management and policy requirements. 
+
+[Resource Tagging](resource-tagging/overview.md):
 Properly organizing your cloud-based resources to support management, access
 control, and operational efficiency requires a consistent well-organized naming
 and metadata scheme.
@@ -81,7 +87,7 @@ high-level guidance on establishing consistent identity, security, management,
 and operations standards across your on-premises and cloud-based resources.
 
 [How To: Build a Virtual
-Datacenter](virtual-datacenter/virtual-datacenter-vdc.md):
+Datacenter](virtual-datacenter/overview.md):
 Building on ideas of cloud consistency, Azure Virtual Datacenter (VDC) is an
 approach to helping IT organizations and business units balance governance and
 developer agility while deploying enterprise cloud workloads. This section will

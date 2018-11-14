@@ -61,8 +61,14 @@ differ by cloud platforms, but all allow some logical grouping of resources for
 management, access control, and operations purposes.
 
 In addition to grouping assets and resources, [resource naming and
-tagging](../resource-naming-and-tagging/overview.md)
+tagging](../resource-tagging/overview.md)
 standards are key to organizing resources in support of governance.
+
+## Tagging Decision Guide
+
+![Plotting tagging options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-subscriptions.png)
+
+Jump to:
 
 **Learn more**
 

@@ -61,7 +61,7 @@ Center](https://docs.microsoft.com/en-us/azure/architecture/reference-architectu
 
 ## Next steps
 
-Learn about the [virtual datacenter](virtual-datacenter.md) architecture.
+Learn about the [virtual datacenter](vdc-networking.md) architecture.
 
 > [!div class="nextstepaction"]
-> [Virtual Datacenter](virtual-datacenter.md)
+> [Virtual Datacenter](vdc-networking.md)

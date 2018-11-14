@@ -23,9 +23,9 @@ to creating secure networks on a public cloud platform.
 
 ## Networking Decision Guide
 
-![Plotting networking options from lest to most complex, aligned with jump links below](../../_images/discovery-guide-sdn.png)
+![Plotting networking options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-sdn.png)
 
-Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | [Hybrid](hybrid.md) | [VDC: Hub/Spoke model](virtual-datacenter.md) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
+Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | [Hybrid](hybrid.md) | [VDC: Hub/Spoke model](vdc-networking.md) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
 
 Software defined networking provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies. 
 
