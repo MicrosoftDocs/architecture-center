@@ -26,7 +26,7 @@ The underlying infrastructure of a VDC serves to connect on-premises resources w
 - [Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
 - [Naming and Tagging Standards](../resource-tagging/vdc-naming.md)
 - [Encryption](../encryption/vdc-encryption.md)
-- [Networking](../software-defined-networking/vdc-networking.md)
+- [Networking](../software-defined-networks/vdc-networking.md)
 - [Reporting, Monitoring and Compliance](../logs-and-reporting/vdc-monitoring.md)
 
 ## Assumptions
