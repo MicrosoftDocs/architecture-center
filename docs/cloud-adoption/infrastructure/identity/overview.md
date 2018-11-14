@@ -12,6 +12,17 @@ securing resources in cloud environments need to control which users and
 groups have access to resources. Identity and access management (IAM) services
 allow you to manage access control within your IT estate.
 
+## Identity Decision Guide
+
+![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
+
+Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation](#federation) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
+
+There are a number of ways to deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design can provide clarity on the three SaaS enabled solutions. 
+
+The inflection point (between a SaaS enabled solution & a solution that requires both IaaS and SaaS components) is less abut future state design and more driven by current state constraints. When migrating legacy applications that are not compatible with Claims based authentication, a replication of the current Identity directory may be required. Additionally, complex forest or Customized OUs could require replication of AD as well. (See AD DS Comparison for details). If Directory Replication is required for a Global solution, complexities rise significantly.
+
+
 ## Determine Identity Integration Requirements
 
 \*Reviewers note: This table is a working list of questions to help readers pick
@@ -175,7 +186,7 @@ solution](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn)
 
 ## Next steps
 
-Learn how [resource naming and tagging](../resource-naming-and-tagging/overview.md) are used to organize and manage cloud resources.
+Learn how to implement [policy enforcement](../policy-enforcement/overview.md) in the cloud.
 
 > [!div class="nextstepaction"]
-> [Resource Naming and Tagging](../resource-naming-and-tagging/overview.md)
+> [Policy Enforcement](../policy-enforcement/overview.md)

@@ -17,56 +17,15 @@ While encrypting resources is generally desirable, encryption does have costs
 which can impact latency and overall resource usage. For demanding workloads
 striking the correct balance between encryption and performance is key.
 
-## Data encryption
+## Encryption decision guide
 
-There are several different states of data with different encryption needs to consider when planning your encryption policy:
+![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
-| Data state      | Data                                                                                               |
-|-----------------|-----------------------------------------------------------------------------------------------------|
-| Data in transit | Internal network traffic, Internet connections, connections between datacenters or virtual networks |
-| Data at rest    | Databases, files, virtual drives, PaaS storage                                                      |
-| Data in use     | Data loaded in RAM or in CPU caches                                          |
+Jump to: [Key management](#key-management) | [Data encryption](#data-encryption)
 
-### Data in transit
+The inflection point when deciding on a cloud encryption strategy focuses on corporate policy and compliance mandates.
 
-Data in transit is data moving between resources on the internal, between
-datacenters or external networks, or over the internet.
-
-Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you cloud migration team and workload owner, but is generally recommended.
-
- **Encrypting Data in Transit Assumptions:** Implementing proper encryption policy for data in transit assumes the following:
-
-- All publicly accessible endpoints in your cloud environment will communicate with the public internet using SSL/TLS protocols.
-- When connecting cloud networks with on-premises or other external network over the public internet, use encrypted VPN protocols.
-- When connecting cloud networks with on-premises or other external network using a dedicated WAN connection such as ExpressRoute, use firewalls on both end of the connection. 
-- If you  are dealing with sensitive data that shouldn't be included in traffic logs or other diagnostics reports visible to IT staff, you will encrypt all traffic between resources in your virtual network.
-
-### Data at rest
-
-Data at rest represents any data not being actively moved or processed, including files, databases, virtual machine drives, PaaS storage accounts or similar assets. Encrypting stored data protects virtual devices or files against unauthorized access either from an external network penetration, rogue internal user, or accidental release.
-
-PaaS storage and database resources will generally enforce encryption by default. IaaS virtual resources can be secured through  virtual disk encryption using cryptographic keys stored in your key management system.
-
-Your overall security needs, the sensitivity of the data being stored, and the
-performance requirements of your workloads should determine which assets require
-encryption.
-
-**Encrypting Data at Rest Assumptions:** Encrypting data at rest assumes the following:
-
-- You are storing data that is not meant for public consumption.
-- Your workloads can accept the added latency cost of disk encryption.
-
-### Data in use
-
-Encryption for data in use involves securing data in non-persistent storage,
-such as RAM or CPU caches. Use of technologies such as full memory encryption,
-enclave technologies like Intel's Secure Guard Extensions (SGX), and
-cryptographic techniques like homomorphic encryption can be used to create
-secure, trusted execution environments.
-
-**Encrypting Data at Rest Assumptions:** Encrypting data in use assumes the following:
-
-- You are required to maintain data ownership separate from the underlying cloud platform at all times, even at the RAM and CPU level.
+There are a number of ways to deliver encryption within a cloud environment, with varying degrees of cost and complexity. Corporate policy and third party compliance are the biggest drivers when planning an encryption strategy. Most cloud based solutions provide standard mechanisms for encrypting data at rest and in transit. However, when policies and compliance requirements demand tighter controls such as standardized secrets and key management, encryption in-use, or data specific encryption, the solution becomes more complex.
 
 ## Key management
 
@@ -119,6 +78,57 @@ compatible with all cloud services.
 
 - You are required by regulation or organizational policy to keep the creation, management, *and hosting* of your organization's secrets and keys on-premises.
 - Any cloud-based applications or services that rely on accessing encryption services or secrets can access the on-premises key management system.  
+
+## Data encryption
+
+There are several different states of data with different encryption needs to consider when planning your encryption policy:
+
+| Data state      | Data                                                                                               |
+|-----------------|-----------------------------------------------------------------------------------------------------|
+| Data in transit | Internal network traffic, Internet connections, connections between datacenters or virtual networks |
+| Data at rest    | Databases, files, virtual drives, PaaS storage                                                      |
+| Data in use     | Data loaded in RAM or in CPU caches                                          |
+
+### Data in transit
+
+Data in transit is data moving between resources on the internal, between
+datacenters or external networks, or over the internet.
+
+Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you cloud migration team and workload owner, but is generally recommended.
+
+ **Encrypting Data in Transit Assumptions:** Implementing proper encryption policy for data in transit assumes the following:
+
+- All publicly accessible endpoints in your cloud environment will communicate with the public internet using SSL/TLS protocols.
+- When connecting cloud networks with on-premises or other external network over the public internet, use encrypted VPN protocols.
+- When connecting cloud networks with on-premises or other external network using a dedicated WAN connection such as ExpressRoute, use firewalls on both end of the connection. 
+- If you  are dealing with sensitive data that shouldn't be included in traffic logs or other diagnostics reports visible to IT staff, you will encrypt all traffic between resources in your virtual network.
+
+### Data at rest
+
+Data at rest represents any data not being actively moved or processed, including files, databases, virtual machine drives, PaaS storage accounts or similar assets. Encrypting stored data protects virtual devices or files against unauthorized access either from an external network penetration, rogue internal user, or accidental release.
+
+PaaS storage and database resources will generally enforce encryption by default. IaaS virtual resources can be secured through  virtual disk encryption using cryptographic keys stored in your key management system.
+
+Encryption for data at rest also encompasses more advanced database encryption techniques, such as column-level and row level encryption, which provides much more control over exactly what data is being secured. 
+
+Your overall policy and compliance requirements, the sensitivity of the data being stored, and the performance requirements of your workloads should determine which assets require encryption.
+
+**Encrypting Data at Rest Assumptions:** Encrypting data at rest assumes the following:
+
+- You are storing data that is not meant for public consumption.
+- Your workloads can accept the added latency cost of disk encryption.
+
+### Data in use
+
+Encryption for data in use involves securing data in non-persistent storage,
+such as RAM or CPU caches. Use of technologies such as full memory encryption,
+enclave technologies like Intel's Secure Guard Extensions (SGX), and
+cryptographic techniques like homomorphic encryption can be used to create
+secure, trusted execution environments.
+
+**Encrypting Data at Rest Assumptions:** Encrypting data in use assumes the following:
+
+- You are required to maintain data ownership separate from the underlying cloud platform at all times, even at the RAM and CPU level.
 
 ## Encryption in Azure
 

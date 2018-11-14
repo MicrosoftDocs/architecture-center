@@ -41,7 +41,7 @@ In addition to these three core IT roles, each individual workload spoke is expe
 
 ## Next steps
 
-Learn  how [naming and tagging ](../resource-naming-and-tagging/vdc-naming.md) are used to organize resources and improve management and access control of assets within an Azure Virtual Datacenter.
+Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Naming and Tagging](../resource-naming-and-tagging/vdc-naming.md)
+> [Azure Vitual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)

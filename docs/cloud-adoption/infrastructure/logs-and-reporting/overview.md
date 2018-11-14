@@ -16,6 +16,18 @@ existing monitoring systems, while surfacing important events and metrics to the
 appropriate IT staff, is critical in ensuring your organization is meeting
 uptime, security, and policy compliance goals.
 
+
+## Identity Decision Guide
+
+![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
+
+Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [Hybrid cloud monitoring](#hybrid-cloud-monitoring) | [On-premises monitoring](#on-premises-monitoring) | [Reporting and monitoring in Azure](#reporting-and-monitoring-in-azure)
+
+There are a number of ways to log & report on activities in the cloud. Cloud Native and Centralized logging are two common SaaS options that are driven by the subscription design and number of subscriptions. (Article on Service Provider or Central Logs discusses a similar decision point, assume Service Provider and Cloud Native are the same for that article.)
+
+The inflection point is based on existing investments in Operational Processes (and to some degree the need for a multi-cloud strategy).
+
+
 ## Planning your monitoring infrastructure
 
 When planning your deployment, you will need to consider where logging data is

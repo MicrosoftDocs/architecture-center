@@ -711,25 +711,37 @@
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/subscriptions/overview.md
-      - name: Virtual Datacenter Subscriptions
+      - name: VDC Subscriptions
         href: cloud-adoption/infrastructure/subscriptions/vdc-subscriptions.md
     - name: Identity
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/identity/overview.md
-      - name: Virtual Datacenter Identity & Roles
+      - name: VDC Identity & Roles
         href: cloud-adoption/infrastructure/identity/vdc-identity.md
-    - name: Resource Organization and Tagging
+    - name: Policy Enforcement
       items:
       - name: Overview
-        href: cloud-adoption/infrastructure/resource-naming-and-tagging/overview.md
-      - name: Virtual Datacenter Naming and Tagging Standards
-        href: cloud-adoption/infrastructure/resource-naming-and-tagging/vdc-naming.md
+        href: cloud-adoption/infrastructure/policy-enforcement/overview.md
+      - name: VDC Policy Enforcement
+        href: cloud-adoption/infrastructure/policy-enforcement/vdc-policy-enforcement.md
+    - name: Resource Grouping
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/resource-grouping/overview.md
+      - name: VDC Resource Grouping
+        href: cloud-adoption/infrastructure/resource-grouping/vdc-resource-grouping.md
+    - name: Resource Tagging
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/resource-tagging/overview.md
+      - name: VDC Naming and Tagging Standards
+        href: cloud-adoption/infrastructure/resource-tagging/vdc-naming.md
     - name: Encryption
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/encryption/overview.md
-      - name: Virtual Datacenter Encryption
+      - name: VDC Encryption
         href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
     - name: Software Defined Networks
       items:
@@ -741,13 +753,13 @@
         href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
       - name: Hybrid
         href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
-      - name: Virtual Datacenter Networking
+      - name: VDC Networking
         href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
     - name: Logs & Reporting
       items:
       - name: Overview
         href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
-      - name: Virtual Datacenter Reporting and Monitoring
+      - name: VDC Reporting and Monitoring
         href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
     - name: Virtual Machines
       items:
