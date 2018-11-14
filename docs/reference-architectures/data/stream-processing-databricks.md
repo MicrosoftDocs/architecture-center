@@ -523,9 +523,9 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 3. Click "set jar", this opens the "Upload JAR to Run" dialog box.
 
-4. Drag the `azure-databricks-job-1.0-SNAPSHOT.jar` file you created in the `Build the .jar for the Databricks job` section to the "Drop JAR here to upload" box.
+4. Drag the **azure-databricks-job-1.0-SNAPSHOT.jar** file you created in the **build the .jar for the Databricks job** section to the **Drop JAR here to upload** box.
 
-5. Enter `com.microsoft.pnp.TaxiCabReader` in the `Main Class` field.
+5. Enter **com.microsoft.pnp.TaxiCabReader** in the **Main Class** field.
 
 6. In the arguments field, enter the following:
     ```
@@ -534,28 +534,48 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 7. Install the dependent libraries by following these steps:
     
-    1. In the Databricks user interface, click on the **home** button. In the `Users` drop-down, click on your user account name to open your account workspace settings, click on the drop-down arrow beside your account name, click on `create`, and click on `Library` to open the `New Library` dialog. In the `Source` drop-down control, select `Maven Coordinate`. Under the `Install Maven Artifacts` heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the `Coordinate ` text box. Click on `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
+    1. In the Databricks user interface, click on the **home** button.
     
-    2. Repeat step 1 for the `com.datastax.spark:spark-cassandra-connector_2.11:2.3.1` Maven coordinate.
+    2. In the **Users** drop-down, click on your user account name to open your account workspace settings.
     
-    3. The process is slightly different for the final dependency. On the `New Library` dialog, once again select `Maven Coordinate` from the `Source` drop-down control. In the `Coordinate` text box, enter `org.geotools:gt-shapefile:19.2`. Click on `Advanced Options`, and enter `http://download.osgeo.org/webdav/geotools/` in the `Repository` text box. Click `Create Library`. This will open the `Artifacts` window. Under `Status on running clusters` check the `Attach automatically to all clusters` checkbox.
+    3. Click on the drop-down arrow beside your account name, click on **create**, and click on **Library** to open the **New Library** dialog.
+    
+    4. In the **Source** drop-down control, select **Maven Coordinate**.
+    
+    5. Under the **Install Maven Artifacts** heading, enter `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5` in the **Coordinate** text box. 
+    
+    6. Click on **Create Library** to open the **Artifacts** window.
+    
+    7. Under **Status on running clusters** check the **Attach automatically to all clusters** checkbox.
+    
+    8. Repeat steps 1 - 7 for the `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0` Maven coordinate.
+    
+    9. Repeat steps 1 - 6 for the `org.geotools:gt-shapefile:19.2` Maven coordinate.
+    
+    10. Click on **Advanced Options**.
+    
+    11. Enter `http://download.osgeo.org/webdav/geotools/` in the **Repository** text box. 
+    
+    12. Click **Create Library** to open the **Artifacts** window. 
+    
+    13. Under **Status on running clusters** check the **Attach automatically to all clusters** checkbox.
 
 8. Add the dependent libraries added in step 7 to the job created at the end of step 6:
-    1. In the Azure Databricks workspace, click on `Jobs`.
+    1. In the Azure Databricks workspace, click on **Jobs**.
 
-    2. Click on the job name created in step 2 above. 
+    2. Click on the job name created in step 2 of the **create a Databricks job** section. 
     
-    3. Click on `Add` beside `Dependent Libraries`. This opens the `Add Dependent Library` dialog. 
+    3. Beside the **Dependent Libaries** section, click on **Add** to open the **Add Dependent Library** dialog. 
     
-    4. Under `Library From` select `Workspace`.
+    4. Under **Library From** select **Workspace**.
     
-    5. Click on `users`, then your username, then click on `azure-eventhubs-spark_2.11:2.3.5`. 
+    5. Click on **users**, then your username, then click on `azure-eventhubs-spark_2.11:2.3.5`. 
     
-    6. Click `OK`.
+    6. Click **OK**.
     
-    7. Repeat this process for `spark-cassandra-connector_2.11:2.3.1` and `gt-shapefile:19.2`.
+    7. Repeat steps 1 - 6 for `spark-cassandra-connector_2.11:2.3.1` and `gt-shapefile:19.2`.
 
-9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select `Existing Cluster`. In the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
+9. Beside **Cluster:**, click on **Edit**. This opens the **Configure Cluster** dialog. In the **Cluster Type** drop-down, select **Existing Cluster**. In the **Select Cluster** drop-down, select the cluster created the **create a Databricks cluster** section. Click **confirm**.
 
 10. Click **run now**.
 
@@ -563,7 +583,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 1. Navigate to the directory `data/streaming_azuredatabricks/onprem` in the GitHub repository
 
-2. Update the values in the file `main.env` as follows:
+2. Update the values in the file **main.env** as follows:
 
     ```
     RIDE_EVENT_HUB=[Connection string for the taxi-ride event hub]
