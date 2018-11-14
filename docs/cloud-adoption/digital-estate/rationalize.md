@@ -8,11 +8,13 @@ ms.date: 10/11/2018
 # Enterprise Cloud Adoption: How can a full inventory be rationalized to divide resources across the 5 Rs of rationalization?
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to hosting the asset in the cloud.
-Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, Cloud Rationalization can begin. The [5 Rs of rationalization] discusses the most common rationalization options.
+Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, Cloud Rationalization can begin. The [5 Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.
 
-## Rationalization Plinko
+## Traditional view of rationalization - Planning Plinko
 
-Visualize the traditional process of rationalization like a giant Plinko board. At the top are all of the assets in the digital estate. Those assets are feed through a process that results in one of five answers for each Plinko chip. For small estates like the one pictured, this works well. For larger estates, its not very efficient and can lead to significant delays. Lets examine the process to see why.
+It's easy understand rationalization, when visualizing the traditional process of rationalization like a giant Plinko board. At the top are all of the assets in the digital estate. Those assets are feed through a process that results in one of five answers for each Plinko chip. For small estates like the one pictured, this works well. For larger estates, its not very efficient and can lead to significant delays. Lets examine the process to see why.
+
+For a streamlined, more modern approach to rationalization, check out the article on [Incremental Rationalization](rationalize-incremental.md).
 
 ![Rationalization as a plinko board with black pegs for quantitative analysis and red pegs for qualitative analysis](../_images/rationalization-plinko.png)
 *Figure 1. Rationalization as a plinko board with black pegs for quantitative analysis and red pegs for qualitative analysis.*
