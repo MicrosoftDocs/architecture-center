@@ -2,7 +2,7 @@
 title: "Enterprise Cloud Adoption: Creating a business case for Cloud Migration"
 description: Things to consider when building out a business justification for cloud migration
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 11/15/2018
 ---
 
 # Enterprise Cloud Adoption: Creating a business justification for Cloud Migration
