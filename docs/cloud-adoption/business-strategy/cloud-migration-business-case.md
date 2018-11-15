@@ -15,6 +15,8 @@ Cloud migrations are amongst the easiest business justifications to create in IT
 
 **Everything should go into the cloud:** Quite the contrary. There are a number of workloads that operate better in physical machines. There are also a number of business drivers for choosing a hybrid solution. Before finalizing the business model, it is wise to complete a first round quantitative analysis as described in the [Digital Estate articles](../digital-estate/rationalize-incremental.md) within Enterprise Cloud Adoption.
 
+**IT is efficient:** During Digital Estate planning, it is not unheard of for customers to see unused capacity in excess of 50% of the provisioned environment. If assets are provisioned in the cloud to match current provisioning, cost savings will be hard to realize. Consider reducing the size of the deployed assets to align with usage patterns, not provisioning patterns.
+
 **Server costs drive cloud migrations:** Sometimes this is true. For some companies, it is important to reduce on-going capital expenses related to servers. However, this too depends. Companies with 5-8 year hardware refresh cycles are unlikely to see fast returns on their cloud migration. Companies with standardized or enforced refresh cycles can hit a break even point quickly. In either case, its the other expenses that justify the migration.
 
 * Software costs of virtualization, servers, and middleware can be extensive. Cloud providers eliminate some of these costs. They can also reduce many of these costs through programs like [Hybrid Use Benefits](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#services)
@@ -62,7 +64,9 @@ Examples of costs that may be reduced by a Cloud Migration:
 ### Surprising Results
 
 If the ROI for a Cloud Migration isn't inline with expectations, the common myths above may prove valuable.
-However, it is important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-prem.
-When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md) or [incremental rationalization](../digital-estate/rationalize-incremental.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan.
+
+However, it is important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-prem. These applications can significantly skew results in an analysis. 
+
+When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md) or [incremental rationalization](../digital-estate/rationalize-incremental.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/en-us/migration/partners/).
