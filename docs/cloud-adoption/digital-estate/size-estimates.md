@@ -25,15 +25,15 @@ Customers often plan a re-host effort based on a DataCenter that they'd like to 
 
 [Detailed Azure Cost Estimate](estimate.md)
 
-**Small DataCenter:** A DataCenter, Co-location facility, or hosted environment consisting of around 100 Virtual Machines. Generally assuming that 5% of those VMs are large-sized SQL Servers, 5% are small sized admin VMs, 60% are medium-sized Windows VMs, and 30% are medium-sized linux workloads.
+**Small Migration:** A DataCenter, Co-location facility, or hosted environment consisting of around 100 Virtual Machines. Generally assuming that 5% of those VMs are large-sized SQL Servers, 5% are small sized admin VMs, 60% are medium-sized Windows VMs, and 30% are medium-sized linux workloads.
 
 [Detailed Azure Cost Estimate](estimate.md)
 
-**Medium DataCenter:** A DataCenter, Co-location facility, or hosted environment consisting of around 500 Virtual Machines. Generally assuming that 10% of those VMs are large-sized SQL Servers, 5% are small sized admin VMs, 45% are medium-sized Windows VMs, and 40% are medium-sized linux workloads.
+**Medium Migration:** A DataCenter, Co-location facility, or hosted environment consisting of around 500 Virtual Machines. Generally assuming that 10% of those VMs are large-sized SQL Servers, 5% are small sized admin VMs, 45% are medium-sized Windows VMs, and 40% are medium-sized linux workloads.
 
 [Detailed Azure Cost Estimate](estimate.md)
 
-**Large DataCenter:** A DataCenter, Co-location facility, or hosted environment consisting of 1,000 Virtual Machines. Generally assuming that 5% of those VMs are large-sized SQL Server Clusters, 5% are small sized admin VMs, 45% are medium-sized Windows VMs, and 45% are medium-sized linux workloads.
+**Large Migration:** A DataCenter, Co-location facility, or hosted environment consisting of 1,000 Virtual Machines. Generally assuming that 5% of those VMs are large-sized SQL Server Clusters, 5% are small sized admin VMs, 45% are medium-sized Windows VMs, and 45% are medium-sized linux workloads.
 
 [Detailed Azure Cost Estimate](estimate.md)
 

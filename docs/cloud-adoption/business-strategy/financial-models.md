@@ -41,15 +41,11 @@ Each is described below in [Calculate Delta in revenue](#revenue-delta), [Calcul
 
 Revenue Delta should be forecasted in partnership with the business. For assistance determining revenue changes, see the articles on [Business Outcomes](business-outcomes/overview.md). Once the business stakeholders agree on a revenue impact, that can be used to improve the Earning position.
 
-## Cost Delta
+## Cost Deltas
 
 Cost Deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like Capital Expense Reductions, Cost Avoidance, Operational Cost Reductions, and Depreciation Reductions.
 
-In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a DataCenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to a reduction in IT salaries. When a CFO sees soft cost line items, they naturally assume that the final result will be a layoff to recover those costs. Seldom does a cloud transformation result in actual soft cost recovery. The skills needed on-prem generally map to a similar set of skills needed in the cloud, meaning people don't generally get laid off after a migration. 
-
-The exception to this warning, is when operational capacity is provided by a third party or managed services company. If IT systems are managed by a 3rd party, the costs to operate could be replaced by a cloud native third party. In such a case, the cloud native partner is likely to operate more efficiently and potentially at a lower cost. If that is the case, then operational cost reductions belong in the hard cost calculations.
-
-## Depreciation Reductions or Acceleration
+### Depreciation Reductions or Acceleration
 
 For guidance on depreciation, speak with the CFO or finance team. The following is meant to serve as a general reference on the topic of depreciation.
 
@@ -57,17 +53,27 @@ When capital is invested in the acquisition of an asset, that investment could b
 
 Speak with the finance office to see if elimination of depreciation is possible & if it would make a positive contribution to Cost Deltas.
 
-## Operational Cost Reductions
+### Physical Asset Recovery
+
+In some cases, retired assets can be sold as source of revenue. Often times, this is lumped into cost reduction for simplicity. However, it is true an increase in revenue & may be taxed as such. Speak with the finance office to understand the viability of this option & how to account for the resulting revenue.
+
+### Operational Cost Reductions
 
 Recurring expenses required to operate the business are often referred to as Operational Expenses (OpEx). OpEx is a very broad category. In most accounting models, it would include software licensing, hosting expenses, electric bills, real estate rentals, cooling expenses, temporary staff required for operations, equipment rentals, replacement parts, maintenance contracts, repair services, Business Continuity/Disaster Recovery (BC/DR) services, and a number of other expenses that don't require capital expense approvals.
 
 This is one of the largest earnings areas when considering an Operational Transformation Journey. Time invested in making this list exhaustive is seldom wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
 
-## Cost Avoidance
+### Cost Avoidance
 
 When an Operational Expense (OpEx) is expected, but not yet in an approved budget, it may not fit into a cost reduction category. For instance, if VMWare and Microsoft Licenses need to be renegotiated and paid next year, they aren't fully qualified costs yet. Reductions in those expected costs would be treated like Operational Costs for the sake of Cost Delta calculations. However, conversationally, they should be referred to as Cost Avoidance, until negotiation and budget approval is complete.
 
-## Capital Expense Reductions or Avoidance
+### Soft Cost Reductions
+
+In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a DataCenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to a reduction in IT salaries or headcount, which is required to recoup any soft costs. When a CFO sees soft cost line items, they naturally assume that the final result will be a layoff to recover those costs. Seldom does a cloud transformation result in actual soft cost recovery. The skills needed on-prem generally map to a similar set of skills needed in the cloud, meaning people don't generally get laid off after a migration.
+
+The exception to this warning, is when operational capacity is provided by a third party or managed services company. If IT systems are managed by a 3rd party, the costs to operate could be replaced by a cloud native third party. In such a case, the cloud native partner is likely to operate more efficiently and potentially at a lower cost. If that is the case, then operational cost reductions belong in the hard cost calculations.
+
+### Capital Expense Reductions or Avoidance
 
 Capital Expenses (CapEx) are slightly different that Operational Expenses. Generally, this category is driven by refresh cycles or DataCenter expansion. DataCenter Expansions like a new high-performance cluster to host a Big Data solution or data warehouse would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
 
