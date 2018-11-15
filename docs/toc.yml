@@ -576,12 +576,14 @@
         href: cloud-adoption/business-strategy/business-outcomes/performance-outcomes.md  
     - name: Transformation Metrics
       href: cloud-adoption/business-strategy/transformation-metrics.md
-    - name: Financial Models
-      href: cloud-adoption/business-strategy/financial-models.md
     - name: Risk & Tolerance
       href: cloud-adoption/business-strategy/risk-tolerance.md
     - name: Cloud Accounting
       href: cloud-adoption/business-strategy/cloud-accounting.md
+    - name: Financial Models
+      href: cloud-adoption/business-strategy/financial-models.md
+    - name: Financial Models for Cloud Migration
+      href: cloud-adoption/business-strategy/financial-models.md
   - name: Cultural Strategy
     items:
     - name: Overview
@@ -604,10 +606,10 @@
       href: cloud-adoption/digital-estate/rationalize.md
     - name: Incremental Rationalization - Aligning applications and business drivers?
       href: cloud-adoption/digital-estate/rationalize-incremental.md
-    - name: Cost Calculations - What will it cost?
-      href: cloud-adoption/digital-estate/calculate.md
     - name: 5 Rs of Rationalization - What are my options?
       href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+    - name: Cost Calculations - What will it cost?
+      href: cloud-adoption/digital-estate/calculate.md
     - name: Rough Cloud Cost Estimates
       href: cloud-adoption/digital-estate/size-estimates.md
   - name: Migration
