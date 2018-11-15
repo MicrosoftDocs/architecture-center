@@ -583,7 +583,7 @@
     - name: Financial Models
       href: cloud-adoption/business-strategy/financial-models.md
     - name: Financial Models for Cloud Migration
-      href: cloud-adoption/business-strategy/financial-models.md
+      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
   - name: Cultural Strategy
     items:
     - name: Overview
