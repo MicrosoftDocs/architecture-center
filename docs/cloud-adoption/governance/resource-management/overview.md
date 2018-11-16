@@ -7,13 +7,16 @@ ms.date: 09/10/2018
 
 # Fusion: What is cloud resource access governance?
 
+![Evolution of the Resource Management Discipline across various phases of adoption](../../_images/governance-discipline-resource-management.png)
+
+*Figure 1. Evolution of Resource Management discipline across various phases of adoption
+
+
 In [how does Azure work?](../../getting-started/what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
 
 However, while giving unrestricted resource access to developers can make them very agile, it can also lead to unintended cost consequences. For example, a development team might be approved to deploy a set of resources for testing but forget to delete them when testing is complete. These resources will continue to accrue costs even though their use is no longer approved or necessary. 
 
 The solution to this problem is resource access **governance**. [Cloud Governance](../overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management, resource access governance is one component of the resource management discipline. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2ii94] 
 
 These goals and requirements are unique to each organization so it's not possible to have a one-size-fits-all approach to governance. Rather, Azure implements two primary governance tools, **resource based access control (RBAC)**, and **resource policy**, and it's up to each organization to design their governance model using them.
 
