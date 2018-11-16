@@ -98,7 +98,7 @@ A gateway can be use to aggregate and pre-process telemetry data bound for cloud
 
 In scenarios where you need to integrate cloud telemetry with on-premises systems that do not support hybrid logging and reporting, you will need to provide a mechanism for cloud-based systems to send data directly to on-premises storage locations.
 
-In order to support this, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-deined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud vitual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
+In order to support this, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-defined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud vitual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
 
 **On-premises only assumptions:**
 

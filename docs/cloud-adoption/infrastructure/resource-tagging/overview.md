@@ -32,9 +32,11 @@ primary purposes:
 
 Jump to: [Resource naming](#resource-naming) | [Resource tagging](#resource-tagging) | [Naming and tagging policy](#naming-and-tagging-policy) | [Resource naming and tagging in Azure](#resource-tagging-in-azure)
 
-Tagging can be simple or complex, depending on the data that will be most important to the team and the business, during normal operations.
+Your tagging approach can be simple or complex, depending on what data is most important to the teams deploying cloud workloads and the wider business as a whole.
 
-IT aligned tagging can reduce the complexity of monitoring assets and making decisions based on function and classification. These can be controlled to some degree by IT. Aligning with Non-IT policies can require a larger time investment to maintain accurate data. However, the result is an ability to better account for costs & value. The ability to better equate the value of an asset to its cost, is one of the first changes required to change the cost center perception of IT.
+An IT-aligned tagging focus can reduce the complexity of monitoring assets and make management decisions based on functionality and classification much easier.
+
+Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards that reflect business interests and maintain those standards over time. However, the result of this process is an improved ability to account for costs and value of IT assets. This ability to better equate the value of assets to their cost, is one of the first changes required to change the cost center perception of IT.
 
 ## Resource naming
 
@@ -59,10 +61,11 @@ Some examples of common tagging types:
 
 | Tag type              | Examples                                                           | Description                                                                                          |
 |-----------------------|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Workload              | app = catalogsearch1 <br/>tier = web <br/>webserver = apache                 | Categorize resources in relation to their place within a workload.                                   |
-| Environment           | env = prod <br/>env = staging <br/>env = dev                                 | Identifies the type of deployment environment the resource is used in.                               |
+| Functional            | app = catalogsearch1 <br/>tier = web <br/>webserver = apache<br/>env = prod <br/>env = staging <br/>env = dev                 | Categorize resources in relation to their purpose within a workload, what environment they've been deployed to, or other functionality and operational details.                                   |
+| Classification        | confidentiality=private<br/>sla = 24hours                                 | Classifies a resources by how it is used and what policies apply to it.                               |
 | Accounting            | department = finance <br/>project = catalogsearch <br/>region = northamerica | Allows resource to be associated with particular groups within an organization for billing purposes. |
-| Ownership and Contact | owner = jsmith <br/>contactalias = catsearchowners                      | Provides information about who owns or can be contacted regarding the resource.                      |
+| Partnership           | owner = jsmith <br/>contactalias = catsearchowners<br/>stakeholders = user1;user2;user3<br/>                       | Provides information about what people (outside of IT) are related or otherwise affected by the resource .                      |
+| Purpose               | businessprocess=support<br/>businessimpact=moderate<br/>revenueimpact=high   | Aligns resources to business functions to better support investment decisions.  |
 
 ## Naming and tagging policy
 
