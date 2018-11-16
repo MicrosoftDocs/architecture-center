@@ -14,6 +14,17 @@ organizational hierarchy and grouped subscription ownership, but there will
 generally be an individual responsible for billing and another assigned as a
 top-level owner for managing resources.
 
+## Subscription Decision Guide
+
+![Plotting Subscription options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-subscriptions.png)
+
+Jump to: [Pricing models](#pricing-models)
+
+Subscription Design is one of the first fundamental technical strategies to establish. Departments, Accounts, and Subscriptions (Subscription Design) is the approach taken by Azure to align the business environment with technical strategies for cloud adoption. Subscriptions are where the real work happens. Subscription decisions impact technical architecture, operations, security, scalability and accounting practices.
+
+Subscription Design has unique inflection points, as it involves both business and IT constraints. Before making technical decisions, it is wise for IT architects and decision makers to work with the business stakeholder &/or Cloud Strategy Team to understand the desired Cloud Accounting Approach, Business Unit Cost Accounting practices, and Global Market needs. From there, the technical inflection points are based on Digital Estate Size vs Cloud Provider Subscription limits, Isolation/Segregation policies, and division of IT operations. (Before finalizing a Subscription Design, check out Resource Grouping Discovery Guide)
+
+
 ## Pricing models
 
 Billing terms also differ between providers, but can generally be broken down
@@ -63,12 +74,6 @@ management, access control, and operations purposes.
 In addition to grouping assets and resources, [resource naming and
 tagging](../resource-tagging/overview.md)
 standards are key to organizing resources in support of governance.
-
-## Tagging Decision Guide
-
-![Plotting tagging options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-subscriptions.png)
-
-Jump to:
 
 **Learn more**
 
