@@ -1,13 +1,13 @@
 ---
-title: "Enterprise Cloud Adoption: governance overview"
-description: Overview of governance content for Azure enterprise cloud adoption
+title: "Fusion: governance overview"
+description: Overview of governance content for Azure Fusion
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Enterprise Cloud Adoption: Governance overview
+# Fusion: Governance overview
 
-Governance is a broadly used term. Throughout the Enterprise Cloud Adoption (ECA) framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is vital to ensure Cloud Adoption is safely governed.
+Governance is a broadly used term. Throughout the Fusion framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is vital to ensure Cloud Adoption is safely governed.
 
 ![Corporate Governance and Governance Disciplines](../_images/operational-transformation-govern.png)
 *Figure 1. Corporate Governance and Governance Disciplines*

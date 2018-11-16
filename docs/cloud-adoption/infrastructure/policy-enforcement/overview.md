@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Policy enforcement" 
+title: "Fusion: Policy enforcement" 
 description: Discussion of policy enforcement subscriptions as a core design priority in Azure migrations
 author: rotycenh
 ms.date: 11/13/2018
 ---
 
-# Enterprise Cloud Adoption: Policy enforcement
+# Fusion: Policy enforcement
 
 Defining organizational policies does little good if there is no way to enforce policies in across your IT estate. A key aspect to planning any cloud migration is determining how best to combine tools provided by the cloud platform with your existing IT processes to maximize policy compliance.
 

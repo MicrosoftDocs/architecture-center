@@ -27,7 +27,7 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
-    - name: Enterprise Cloud Adoption
+    - name: Fusion
       tocHref: /azure/architecture/cloud-adoption/
       topicHref: /azure/architecture/cloud-adoption
       items:

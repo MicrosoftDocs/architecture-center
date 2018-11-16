@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can cloud rationalization align to business drivers?"
+title: "Fusion: How can cloud rationalization align to business drivers?"
 description: Descriptions of an approach to aligning application future state with business drivers
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: How can cloud rationalization align to business drivers?
+# Fusion: How can cloud rationalization align to business drivers?
 
 This article focuses specifically on aligning the 5 Rs of rationalization to business drivers in a faster, incremental approach to rationalization. It is assumed that the reader has reviewed the article on [traditional rationalization](rationalize.md) to gain an understanding of rationalization Plinko. It is also assumed that the reader understands the [Transformation Journey](../transformation-journeys/overview.md) that best aligns with the current effort that is requiring this rationalization.
 

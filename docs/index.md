@@ -52,7 +52,7 @@ ms.date: 09/28/2018
                     <div class="card">
                         <img src="_images/cloud-adoption.svg" alt="" />
                         <div class="cardText">
-                            <h3>Enterprise Cloud Adoption</h3>
+                            <h3>Fusion</h3>
                             <p>This guide outlines a process for creating an organization-wide cloud adoption strategy. It focuses on organizational readiness, governance, and infrastructure.</p>
                         </div>
                     </div>

@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Skills readiness path"
-description: Overview of Skills readiness path for Azure enterprise cloud adoption
+title: "Fusion: Skills readiness path"
+description: Overview of Skills readiness path for Azure Fusion
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Enterprise Cloud Adoption: Skills readiness path
+# Fusion: Skills readiness path
 
 IT staff members may feel anxious about their roles and positions as they realize that a different set of skills is needed for the support of cloud solutions. But agile employees who explore and learn new cloud technologies don’t need to have that fear. They can lead the adoption of cloud services and help the organization understand and embrace the associated changes.
 

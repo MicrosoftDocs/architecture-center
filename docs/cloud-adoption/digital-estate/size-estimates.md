@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can I estimate operational costs after migration is complete?"
+title: "Fusion: How can I estimate operational costs after migration is complete?"
 description: Explanation of migration estimate sizing
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: How can I estimate operational costs after migration is complete?
+# Fusion: How can I estimate operational costs after migration is complete?
 
 An analysis of the digital estate can produce cost estimates, which will in turn drive Return on Investment (ROI).
 The steps to analyze a digital estate are below:

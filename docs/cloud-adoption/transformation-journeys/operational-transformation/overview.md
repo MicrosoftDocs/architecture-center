@@ -1,5 +1,5 @@
 ---
-title: "Enterprise Cloud Adoption: Transformation Journeys - Operational Transformation"
+title: "Fusion: Transformation Journeys - Operational Transformation"
 description: Operational Transformation - a guide to transforming internal operations - IT, Finance, and beyond
 author: BrianBlanchard
 ms.date: 10/11/2018
@@ -7,9 +7,9 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Enterprise Cloud Adoption: Operational Transformation Journey (OTJ)
+# Fusion: Operational Transformation Journey (OTJ)
 
-Operational Transformation is one of the [Transformation Journeys](../overview.md) included in the [Enterprise Cloud Adoption (ECA) framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility.
+Operational Transformation is one of the [Transformation Journeys](../overview.md) included in the [Fusion framework](../../overview.md). The objective of an Operational Transformation, is the enablement and realization of internal business outcomes. Often times these outcomes center around increased efficiencies, reduced complexity, and improved agility.
 
 <ul class="panelContent cardsL">
     <li>

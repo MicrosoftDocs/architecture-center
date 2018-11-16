@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Encryption" 
+title: "Fusion: Encryption" 
 description: Discussion of encryption as a core service in Azure migrations
 author: rotycenh
 ms.date: 10/29/2018
 ---
 
-# Enterprise Cloud Adoption: Encryption
+# Fusion: Encryption
 
 Encrypting data, either in the cloud or on-premises, protects it against
 unauthorized access. In the cloud, properly implemented encryption policy can

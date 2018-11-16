@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can the cloud advance my business strategy?"
+title: "Fusion: How can the cloud advance my business strategy?"
 description: Explanation of the cloud can be leveraged to advance a business strategy
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: How can the cloud advance my business strategy?
+# Fusion: How can the cloud advance my business strategy?
 
 It depends... The cloud delivers a number of fundamental technology benefits that can aid in executing a number of business strategies. Leveraging cloud based approaches can improve basic business agility, reduce costs, accelerate time to market, and even allow businesses to quickly expand into new markets.
 
@@ -13,7 +13,7 @@ The cloud is a very fluid concept that can fill countless needs in many differen
 
 ## Business Outcome Framework
 
-In the business strategy section of the Enterprise Cloud Adoption framework, we provide tools to capture targeted business value in a cross functional model, that we call the Business Outcome Framework. Those targeted business outcomes can then be mapped to specific cloud capabilities and business strategies to reach the desired state of transformation. 
+In the business strategy section of the Fusion framework, we provide tools to capture targeted business value in a cross functional model, that we call the Business Outcome Framework. Those targeted business outcomes can then be mapped to specific cloud capabilities and business strategies to reach the desired state of transformation. 
 
 * Review [sample Business Outcomes](business-outcomes/overview.md). Identify any business outcomes that directly align with the targeted business strategy. Document those in the provided [business outcome excel template](business-outcomes/business-outcome-template.xlsx) to share with internal partners during the Transformation Journey.
 * Identify the [Transformation Metrics](transformation-metrics.md) that would best represent progress towards the identified business outcomes. It may be necessary to engage the CIO, or members of the IT team, to select relevant metrics based on the current environment.

@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Core Infrastructure overview"
-description: Overview of Core infrastructure content for Azure enterprise cloud adoption
+title: "Fusion: Core Infrastructure overview"
+description: Overview of Core infrastructure content for Azure Fusion
 author: rotycenh
 ms.date: 11/02/2018
 ---
 
-# Enterprise Cloud Adoption: Core Infrastructure overview
+# Fusion: Core Infrastructure overview
 
 One of the most important steps your organization takes on its digital
 transformation journey is understanding how cloud platforms work. Knowing how
@@ -13,7 +13,7 @@ resources are deployed, organized, managed, and brought into compliance with
 your overall governance policies is critical in making the correct architectural
 decisions for your migration.
 
-This section of the Enterprise Cloud Adoption guidance will provide a summary of
+This section of the Fusion guidance will provide a summary of
 the most important technologies and models used in designing and building
 cloud-based solutions, as well as providing some concrete examples and
 prescriptive guidance on building solutions specifically using the Azure public

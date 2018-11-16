@@ -1,10 +1,10 @@
 ---
-title: "Enterprise Cloud Adoption: Azure Virtual Datacenter - Encryption" 
+title: "Fusion: Azure Virtual Datacenter - Encryption" 
 description: Discusses how encryption is used to secure data and resources in an Azure Virtual Datacenter.
 author: rotycen
 ms.date: 11/08/2018
 ---
-# Enterprise Cloud Adoption: Azure Virtual Datacenter - Encryption and Key Management
+# Fusion: Azure Virtual Datacenter - Encryption and Key Management
 
 The Azure Virtual Datacenter model assumes all data in transit and at rest are encrypted as a security baseline. Encryption isolates confidential information from the rest of the public cloud environment, including the underlying platform.
 

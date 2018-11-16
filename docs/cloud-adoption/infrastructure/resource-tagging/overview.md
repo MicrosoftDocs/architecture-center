@@ -1,10 +1,10 @@
 ---
-title: "Enterprise Cloud Adoption: Resource Organization and Tagging" 
+title: "Fusion: Resource Organization and Tagging" 
 description: Discussion of Resource Organization and Tagging as a core service in Azure migrations
 author: rotycenh
 ms.date: 11/02/2018
 ---
-# Enterprise Cloud Adoption: Resource Organization and Tagging
+# Fusion: Resource Organization and Tagging
 
 For all but the smallest deployments, organizing cloud-based resources is one of
 the most important tasks for IT staff. Organizing your resources serves three

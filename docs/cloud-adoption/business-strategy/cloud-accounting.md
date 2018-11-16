@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What is Cloud Accounting"
+title: "Fusion: What is Cloud Accounting"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is Cloud Accounting?
+# Fusion: What is Cloud Accounting?
 
 As described in [Financial Models](financial-models.md), the cloud changes how IT accounts for costs. Various IT accounting models are much easier to support based on the way the Cloud allocates costs. As a result, it is important to understand how cloud costs should be accounted for prior to embarking on a cloud transformation journey. This article will outline the most common Cloud Accounting models for IT.
 

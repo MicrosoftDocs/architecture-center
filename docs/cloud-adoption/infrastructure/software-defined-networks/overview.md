@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Software Defined Networks" 
+title: "Fusion: Software Defined Networks" 
 description: Discussion of Software Defined Networks as a core service in Azure migrations
 author: rotycenh
 ms.date: 10/31/2018
 ---
 
-# Enterprise Cloud Adoption: Which Software Defined Network is best for my deployment?
+# Fusion: Which Software Defined Network is best for my deployment?
 
 Software Defined Networking (SDN) is a network architecture designed to allow
 virtualized networking functionality which can be centrally managed, configured,

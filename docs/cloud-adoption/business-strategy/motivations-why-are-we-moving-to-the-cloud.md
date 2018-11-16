@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Why are we moving to the cloud?"
+title: "Fusion: Why are we moving to the cloud?"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: Why are we moving to the cloud?
+# Fusion: Why are we moving to the cloud?
 
 This is an extremely common question for business and technical stakeholders alike.
 If the answer is "Our board (CIO, C-Suite) told us to move to the cloud", the likelihood of failure is through the roof before the first account is created.
@@ -35,7 +35,7 @@ There are technical strategies to execute against each of these motivations. How
 
 These are important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews. IT organizations that help the business tackle Customer or Industry challenges can move from cost center to value creator. Efficiency in a vacuum produces diminishing returns & often inspires demands for greater efficiency or cost reduction. Efficiency combined with improvements to customer engagement or creation of new revenue streams, drive more impactful IT enabled business outcomes, as seen in the next two worldviews.
 
-To help guide the strategies and execution of these traditional journeys, the Enterprise Cloud Adoption framework has built the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md) to help facilitate the decisions and interactions needed to execute effective strategies throughout this journey.
+To help guide the strategies and execution of these traditional journeys, the Fusion framework has built the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md) to help facilitate the decisions and interactions needed to execute effective strategies throughout this journey.
 
 **Customer Obsessed Worldview** The next three motivations (Build new technical capabilities, scale to meet market & geographical demand, and improve customer experiences) are indicators of an outward facing worldview that is very customer centric. Incrementally evolving current solutions to meet the changing demands of customers is the defining difference. That focus moves IT a bit from the cost center mindset & into the first stage of transformation.
 

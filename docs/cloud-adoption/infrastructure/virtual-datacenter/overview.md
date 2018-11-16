@@ -1,12 +1,12 @@
 ---
-title: "Enterprise Cloud Adoption: Build an Azure Virtual Datacenter (VDC)" 
+title: "Fusion: Build an Azure Virtual Datacenter (VDC)" 
 description: Overview of the Azure Virtual Datacenter (VDC) deployment model
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
-# Enterprise Cloud Adoption: Azure Virtual Datacenter (VDC) Model
+# Fusion: Azure Virtual Datacenter (VDC) Model
 
-The [Infrastructure section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), clarifies the components required to migrate core infrastructure services to Azure. This section of the framework, expands on that topic by specifically guiding the reader through the process and associated considerations for building a Virtual Datacenter or VDC.
+The [Infrastructure section](../overview.md) of the [Fusion framework](../../overview.md), clarifies the components required to migrate core infrastructure services to Azure. This section of the framework, expands on that topic by specifically guiding the reader through the process and associated considerations for building a Virtual Datacenter or VDC.
 
 VDC is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the ebook "[Azure Virtual Datacenter](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)".
 

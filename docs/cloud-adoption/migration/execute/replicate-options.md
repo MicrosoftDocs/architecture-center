@@ -1,15 +1,15 @@
 ---
-title: "Enterprise Cloud Adoption: Replication Options"
+title: "Fusion: Replication Options"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: Replication Options
+# Fusion: Replication Options
 
 Before any migration, you will want to ensure primary systems are safe and will continue to run without issues. Any downtime disrupts users or customers, and costs time and money. Migration is not as simple as turning off the virtual machines on-premises and copying them across to Azure. Migration tools must take into account asynchronous or synchronous replication to ensure live systems can be copied to Azure with no downtime. Most of all, systems must be kept in lock-step with on-premises counterparts. You might want to test migrated resources in isolated partitions in Azure, to ensure applications work as expected.
 
-The content within the Enterprise Cloud Adoption (ECA) framework, assumes that Azure Migrate (or Azure Site Recovery) is the most appropriate tool for replicating assets to the cloud. However, there are other options available. This article discusses those options to help enable decision making.
+The content within the Fusion framework, assumes that Azure Migrate (or Azure Site Recovery) is the most appropriate tool for replicating assets to the cloud. However, there are other options available. This article discusses those options to help enable decision making.
 
 ## Azure Site Recovery
 

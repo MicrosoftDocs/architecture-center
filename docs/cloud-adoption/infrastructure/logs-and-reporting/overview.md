@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Logs, Reporting, and Monitoring" 
+title: "Fusion: Logs, Reporting, and Monitoring" 
 description: Discussion of Logs, Reporting, and Monitoring as a core service in Azure migrations
 author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Enterprise Cloud Adoption: Logs, Reporting, and Monitoring
+# Fusion: Logs, Reporting, and Monitoring
 
 All organizations need mechanisms notifying IT teams of performance, uptime, and security
 issues before they become serious problems. A successful monitoring strategy

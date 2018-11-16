@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Resource access management in Azure"
+title: "Fusion: Resource access management in Azure"
 description: "Explanation of resource access management constructs in Azure: Azure resource manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
 ms.date: 09/10/2018
 ---
 
-# Enterprise Cloud Adoption: Resource access management in Azure
+# Fusion: Resource access management in Azure
 
 [Cloud Governance](../overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management.  [What is resource access governance](overview.md) furthers explains how resource access management fits into the resource management discipline.  Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 

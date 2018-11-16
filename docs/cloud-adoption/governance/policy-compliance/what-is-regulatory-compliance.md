@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Intro to Regulatory Compliance"
+title: "Fusion: Intro to Regulatory Compliance"
 description: What is regulatory compliance
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Enterprise Cloud Adoption: Intro to Regulatory Compliance
+# Fusion: Intro to Regulatory Compliance
 
 This is an introductory article on the general topic of Regulatory Compliance. This article is not expected to provide enough context to allow the reader to implement a compliance strategy. It is for general awareness only. More detailed information about Azure compliance offerings is available from the [Trust Center](https://aka.ms/allcompliance). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://aka.ms/stp)
 

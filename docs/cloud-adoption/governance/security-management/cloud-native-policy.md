@@ -1,13 +1,13 @@
 ---
-title: "Enterprise Cloud Adoption: Cloud Native - Security Management Policy"
+title: "Fusion: Cloud Native - Security Management Policy"
 description: What is Cloud Native - Security Management Policy?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is Cloud Native - Security Management Policy?
+# Fusion: What is Cloud Native - Security Management Policy?
 
-Security Management is one of the [Five Disciplines of Cloud Governance](../overview.md). This discipline focuses on general security topics including protection of the network, digital assets, data, etc... As outlined in the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md), the Enterprise Cloud Adoption framework is building out three levels of **sample policy** for each of the five disciplines: Cloud-Native, Enterprise, and Cloud Design Principle Compliant. This article is the Cloud-Native, Sample Policy for the Security Management Discipline.
+Security Management is one of the [Five Disciplines of Cloud Governance](../overview.md). This discipline focuses on general security topics including protection of the network, digital assets, data, etc... As outlined in the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md), the Fusion framework is building out three levels of **sample policy** for each of the five disciplines: Cloud-Native, Enterprise, and Cloud Design Principle Compliant. This article is the Cloud-Native, Sample Policy for the Security Management Discipline.
 
 > [!NOTE]
 > Microsoft is in no position to dictate corporate or IT policy. This article is provided as a means of triggering thoughts during an internal policy review. It is assumed that this policy will be extended, validated, and tested against corporate policy before attempting to use a policy like this sample. Any use of this sample policy, as is, should be discouraged.

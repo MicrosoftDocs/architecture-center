@@ -1,15 +1,15 @@
 ---
-title: "Enterprise Cloud Adoption: Operate"
+title: "Fusion: Operate"
 description: A process within Cloud Migration that focuses on operating assets moved to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: Process Overview for operating cloud assets
+# Fusion: Process Overview for operating cloud assets
 
 Cloud migration significantly impacts the daily operations of an IT department, broadening the scope of IT operations as organizations move to the cloud. Cloud adoption creates new management challenges for IT teams. Instead of utilizing disjointed solutions for individual IT operations, organizations may want to take advantage of cloud-scale infrastructure to simplify deployment through unified IT management as a service. Management capabilities such as monitoring, backup, automation, and so forth are delivered as a service from the cloud that connects all of the servers in all environments (on-premises, Azure, and other clouds), allowing IT staff to centrally manage operations.
 
-The following table outlines a number of common tasks required to operate cloud assets, as a basic reference. For a deeper understanding of operation tasks, the [Governance section](../../governance/overview.md) of [Enterprise Cloud Adoption (ECA) framework](../../overview.md) could be a helpful guide.
+The following table outlines a number of common tasks required to operate cloud assets, as a basic reference. For a deeper understanding of operation tasks, the [Governance section](../../governance/overview.md) of [Fusion framework](../../overview.md) could be a helpful guide.
 
 |Function  |On-premises function  |Cloud function  |
 |---------|---------|---------|

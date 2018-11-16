@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What is a Cloud Policy Review?"
+title: "Fusion: What is a Cloud Policy Review?"
 description: What is Cloud Policy Review?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is Cloud Policy Review?
+# Fusion: What is Cloud Policy Review?
 
 A Cloud Policy Review is the first step to prepare for [governance maturity](../overview.md) in the cloud. The objective of this process is to modernize existing corporate IT policies. When completed, the updated policies should provide an equivalent level of risk mitigation from within a cloud context. This article will explain the Cloud Policy Review process and it's importance.
 

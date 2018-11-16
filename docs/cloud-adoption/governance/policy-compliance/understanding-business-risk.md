@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Understanding Business Risk"
+title: "Fusion: Understanding Business Risk"
 description: Understanding Business Risk during migration
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: Understanding Business Risk
+# Fusion: Understanding Business Risk
 
 An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-prem or in the cloud.
 

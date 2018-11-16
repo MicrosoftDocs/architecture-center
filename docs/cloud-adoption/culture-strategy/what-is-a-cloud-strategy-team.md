@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: what is a cloud strategy team?" 
+title: "Fusion: what is a cloud strategy team?" 
 description: Describes the formation of a cloud strategy team
 author: petertaylor9999
 ms.date: 09/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is a cloud strategy team (CST)?
+# Fusion: What is a cloud strategy team (CST)?
 
 ## Structure of a cloud strategy team
 

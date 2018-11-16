@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What's different about the first workload?"
+title: "Fusion: What's different about the first workload?"
 description: Descriptions of a process for implementing the first workload
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: What's different about the first workload?
+# Fusion: What's different about the first workload?
 
 The article on [Incremental Rationalization](../../digital-estate/rationalize-inventory.md) discusses the value of the first workload relative to discovery, rationalization, and planning. In this article we discuss the value of the first workload from a technical perspective.
 

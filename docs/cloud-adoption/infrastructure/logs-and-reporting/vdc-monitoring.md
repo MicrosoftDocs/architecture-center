@@ -1,10 +1,10 @@
 ---
-title: "Enterprise Cloud Adoption: Azure Virtual Datacenter - Monitoring, Reporting, and Compliance" 
+title: "Fusion: Azure Virtual Datacenter - Monitoring, Reporting, and Compliance" 
 description: Discusses how monitoring and reporting are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
 author: rotycen
 ms.date: 11/08/2018
 ---
-# Enterprise Cloud Adoption: Azure Virtual Datacenter - Monitoring and Reporting
+# Fusion: Azure Virtual Datacenter - Monitoring and Reporting
 All teams within a VDC should have access to monitoring their workloads and resources. Azure offers different types of logging and monitoring services to track the behavior of VDC resources. Governance and control of workloads is based not just on collecting log data, but also the ability to trigger actions based on specific reported events. 
 
 ## Log data

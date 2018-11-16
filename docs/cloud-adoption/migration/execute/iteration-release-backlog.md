@@ -1,13 +1,13 @@
 ---
-title: "Enterprise Cloud Adoption: Iteration and Release Backlog"
+title: "Fusion: Iteration and Release Backlog"
 description: Building an iteration and release backlog
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: Migration Execution
+# Fusion: Migration Execution
 
-The [Migration section](../overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This article focuses specifically on building an iteration and/or release backlog.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This article focuses specifically on building an iteration and/or release backlog.
   
 This article assumes, migration processes are incremental in nature, running parallel to the [Govern process](../govern/overview.md). However, the same guidance could be used to populate initial tasks in a "Work Breakdown Structure" for traditional waterfall change management approaches.
 

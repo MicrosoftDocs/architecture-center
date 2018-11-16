@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Resource Grouping" 
+title: "Fusion: Resource Grouping" 
 description: Discussion of resource grouping when planning an Azure migrations
 author: rotycenh
 ms.date: 11/13/2018
 ---
 
-# Enterprise Cloud Adoption: Resource grouping
+# Fusion: Resource grouping
 
 From the management plane perspective, the deployment and organization of cloud resources is a key component of integrating your existing IT management standards and your organizational policies. The tools available to implement this organization vary by cloud platform but will generally have some form of the following features:
 

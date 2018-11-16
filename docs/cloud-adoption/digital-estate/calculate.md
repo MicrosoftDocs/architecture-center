@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Aligning costing models with the digital estate"
+title: "Fusion: Aligning costing models with the digital estate"
 description: Aligning costing models with the digital estate
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: How to align cost models with the digital estate to forecast cloud costs
+# Fusion: How to align cost models with the digital estate to forecast cloud costs
 
 Once a Digital Estate has been rationalized, it can be aligned to equivalent costing models with the chosen cloud provider. To provide tangible examples in this article, Azure is the chosen cloud provider.
 

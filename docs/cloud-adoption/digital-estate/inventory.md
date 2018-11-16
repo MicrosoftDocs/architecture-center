@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can a Digital Estate be inventoried?"
+title: "Fusion: How can a Digital Estate be inventoried?"
 description: Explanation of the concept a creating an inventory for a digital estate
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: How can a Digital Estate be inventoried?
+# Fusion: How can a Digital Estate be inventoried?
 
 Developing an inventory is the first step in [Digital Estate Planning](overview.md). In this process, a list of IT assets that support specific business functions would be collected for later analysis and rationalization. This article assumes that a [bottom up approach to analysis](approach.md) is most appropriate for planning needs.
 

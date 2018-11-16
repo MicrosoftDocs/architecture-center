@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Identity" 
+title: "Fusion: Identity" 
 description: Discussion of Identity as a core service in Azure migrations
 author: rotycenh
 ms.date: 10/29/2018
 ---
 
-# Enterprise Cloud Adoption: Identity
+# Fusion: Identity
 
 As with on-premises environments, IT staff responsible for maintaining and
 securing resources in cloud environments need to control which users and
@@ -95,7 +95,7 @@ Federation is also recommended in this scenario. You will likely want a federate
 
 ## Evolving Identity Integration
 
-Along with other aspects of the Enterprise Cloud Adoption model, integration can
+Along with other aspects of the Fusion model, integration can
 be an iterative process. It may make sense to start off using a cloud native
 solution with a small set of users and roles for an initial deployment. As your
 migration matures you may want to move to federated model as the

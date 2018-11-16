@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Subscriptions" 
+title: "Fusion: Subscriptions" 
 description: Discussion of cloud platform subscriptions as a core service in Azure migrations
 author: rotycenh
 ms.date: 11/02/2018
 ---
 
-# Enterprise Cloud Adoption: Subscriptions
+# Fusion: Subscriptions
 
 All cloud platforms have a core ownership model providing the main organization
 that billing and resource management is built around. The structure that this

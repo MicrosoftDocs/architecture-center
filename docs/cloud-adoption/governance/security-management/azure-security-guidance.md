@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Azure Security guidance"
+title: "Fusion: Azure Security guidance"
 description: What security guidance does microsoft provide?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What security guidance does microsoft provide?
+# Fusion: What security guidance does microsoft provide?
 
 ## Security guidance and tools
 

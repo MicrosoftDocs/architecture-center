@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can a full inventory be rationalized to divide resources across the 5 Rs of rationalization?"
+title: "Fusion: How can a full inventory be rationalized to divide resources across the 5 Rs of rationalization?"
 description: Descriptions of an approach to aligning application future state
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Enterprise Cloud Adoption: How can a full inventory be rationalized to divide resources across the 5 Rs of rationalization?
+# Fusion: How can a full inventory be rationalized to divide resources across the 5 Rs of rationalization?
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to hosting the asset in the cloud.
 Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, Cloud Rationalization can begin. The [5 Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.

@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: How can we align efforts to meaningful transformation metrics?"
+title: "Fusion: How can we align efforts to meaningful transformation metrics?"
 description: Explanation of the concept of transformation metrics
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: How can we align efforts to meaningful transformation metrics?
+# Fusion: How can we align efforts to meaningful transformation metrics?
 
 The articles on [Business Outcomes](business-outcomes/overview.md) discussed ways to measure and communicate the impact a transformation will have on the business. Unfortunately, it can take years for some of those outcomes to produce measurable results. The Board and C-Suite generally are not happy to see reports that show a 0% delta for long periods of time. This article will discuss shorter term metrics that can be tied back to longer term business outcomes.
 

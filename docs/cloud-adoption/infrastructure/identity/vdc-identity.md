@@ -1,12 +1,12 @@
 ---
-title: "Enterprise Cloud Adoption: Azure Virtual Datacenter - Identity and Roles" 
+title: "Fusion: Azure Virtual Datacenter - Identity and Roles" 
 description: Discusses how Azure Active Directory and RBAC is used within the Azure Virtual Datacenter (VDC) model
 author: rotycen
 ms.date: 11/08/2018
 ---
-# Enterprise Cloud Adoption: Azure Virtual Datacenter - Identity and Roles
+# Fusion: Azure Virtual Datacenter - Identity and Roles
 
-The [Identity topic](overview.md) of the [Enterprise Cloud Adoption framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. This discussion below will explore how identity services lie at the core of the Azure Virtual Datacenter model's ability to manage access control and insure isolation of your cloud hosted resources.
+The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. This discussion below will explore how identity services lie at the core of the Azure Virtual Datacenter model's ability to manage access control and insure isolation of your cloud hosted resources.
 
 ## Azure Active Directory Tenants
 

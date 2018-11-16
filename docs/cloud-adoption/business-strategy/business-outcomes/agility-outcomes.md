@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Examples of Agility Outcomes"
+title: "Fusion: Examples of Agility Outcomes"
 description: Examples of Agility Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: Examples of Agility Outcomes
+# Fusion: Examples of Agility Outcomes
 
 As discussed in [Business Outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on the timeliest business measures: Business Agility. Understanding the company’s market position and competitive landscape will help to better articulate the business outcomes that are the target of a business’ Transformation Journey.
 

@@ -1,10 +1,10 @@
 ---
-title: "Enterprise Cloud Adoption: Translate existing roles, skills, and processes for the cloud" 
+title: "Fusion: Translate existing roles, skills, and processes for the cloud" 
 description: Describes a process to Translate existing roles, skills, and processes for the cloud
 author: petertaylor9999
 ms.date: 09/10/2018
 ---
-# Enterprise Cloud Adoption: Translate existing roles, skills, and processes for the cloud
+# Fusion: Translate existing roles, skills, and processes for the cloud
 
 At each evolutionary phase during the history of the IT industry, the most notable industry changes are often marked by changes in staff roles. During the transition from mainframes to the client/server model, the role of the computer operator largely disappeared, replaced by the system administrator. When the age of virtualization arrived, the requirement for individuals working with physical servers diminished, replaced with a need for virtualization specialists. Similarly, as institutions shift to cloud computing, roles will likely change again. For example, datacenter specialists might be replaced with cloud financial analysts. Even in cases where IT job titles have not changed, the daily work roles have evolved significantly. 
 

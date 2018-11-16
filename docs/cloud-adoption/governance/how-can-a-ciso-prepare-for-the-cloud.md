@@ -1,13 +1,13 @@
 ---
-title: "Enterprise Cloud Adoption: CISO Readiness"
+title: "Fusion: CISO Readiness"
 description: How can a CISO prepare for the cloud
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Enterprise Cloud Adoption: CISO Cloud Readiness Guide
+# Fusion: CISO Cloud Readiness Guide
 
-Microsoft guidance, like the Enterprise Cloud Adoption framework, is in no position to determine or guide the unique security constraints of the thousands of enterprises supported by this documentation. When moving to the cloud, the role of the Chief Information Security Officer or Chief Information Security Office (CISO) isn't supplanted by cloud technologies. Quite the contrary, the CISO and the office of the CISO, become more engrained and integrated. This guide assumes the reader is familiar with CISO processes and is seeking to modernize those processes to enable Cloud Transformation.
+Microsoft guidance, like the Fusion framework, is in no position to determine or guide the unique security constraints of the thousands of enterprises supported by this documentation. When moving to the cloud, the role of the Chief Information Security Officer or Chief Information Security Office (CISO) isn't supplanted by cloud technologies. Quite the contrary, the CISO and the office of the CISO, become more engrained and integrated. This guide assumes the reader is familiar with CISO processes and is seeking to modernize those processes to enable Cloud Transformation.
 
 ## How can the CISO prepare for the cloud
 

@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Software Defined Networks - Hybrid Network" 
+title: "Fusion: Software Defined Networks - Hybrid Network" 
 description: Discussion of how hybrid networks allow your cloud virtual networks to connect to on-premises resources
 author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Enterprise Cloud Adoption: Software Defined Networks - Hybrid networks
+# Fusion: Software Defined Networks - Hybrid networks
 
 The hybrid cloud network architecture allows virtual networks to access your
 on-premises resources and services and vice versa, using a virtual private

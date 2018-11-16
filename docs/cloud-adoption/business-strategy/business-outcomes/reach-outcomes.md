@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Examples of Global Reach Outcomes"
+title: "Fusion: Examples of Global Reach Outcomes"
 description: Examples of Global Reach Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: Examples of Global Reach Outcomes
+# Fusion: Examples of Global Reach Outcomes
 
 As discussed in [Business Outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on a common business measure: Reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business’ Transformation Journey.
 

@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What is a digital estate & how do I measure it?"
+title: "Fusion: What is a digital estate & how do I measure it?"
 description: Explanation of the concept a digital estate
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is a digital estate?
+# Fusion: What is a digital estate?
 
 Every modern company has some form of digital estate. Much like a physical estate, a digital estate is an abstract reference to a number of tangible, owned assets. In a digital estate, those assets are comprised of Virtual Machines, Servers, Applications, Data, etc... Essentially, a digital estate is the collection of IT assets that power business processes and supporting operations.
 

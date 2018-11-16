@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Examples of Performance Outcomes"
+title: "Fusion: Examples of Performance Outcomes"
 description: Examples of Performance Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: Examples of Performance Outcomes
+# Fusion: Examples of Performance Outcomes
 
 As discussed in [Business Outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on a common business measure: Performance.
 

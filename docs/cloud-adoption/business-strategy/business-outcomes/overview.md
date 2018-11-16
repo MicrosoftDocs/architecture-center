@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What business outcomes are associated with Cloud Transformations?"
+title: "Fusion: What business outcomes are associated with Cloud Transformations?"
 description: Explanation of the business outcomes associated with Cloud Transformations
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What business outcomes are associated with Transformations Journeys?
+# Fusion: What business outcomes are associated with Transformations Journeys?
 
 The most successful Transformation Journeys start with a business outcome in mind. Cloud Adoption can be a costly, time consuming effort. Fostering the right level of support from IT and other areas of the business is crucial to success. Microsoft's [Business Outcome Framework](../overview.md) is designed to help customers identify business outcomes that are concise, defined, and drive observable results/change in business performance, supported by a specific measure.
 

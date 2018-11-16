@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What is Cloud Security Management"
+title: "Fusion: What is Cloud Security Management"
 description: What is Cloud Security Management?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: What is Cloud Security Management?
+# Fusion: What is Cloud Security Management?
 
 This is an introductory article on the general topic of Cloud Security Management which builds on the [Five disciplines of Governance](../overview.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/en-us/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/en-us/security/information-protection)
 

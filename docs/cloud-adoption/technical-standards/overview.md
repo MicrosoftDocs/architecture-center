@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Technical Standards"
+title: "Fusion: Technical Standards"
 description: Overview of Technical Standards
 author: rotycenh
 ms.date: 11/02/2018
 ---
 
-# Enterprise Cloud Adoption: What are Technical Standards in the context of the Enterprise Cloud Adoption framework
+# Fusion: What are Technical Standards in the context of the Fusion framework
 
 Technical standards will define (or at least influence) many of the configuration activities executed by the Cloud Migration Team. This article outlines a series of the most important initial Technical Standards to establish before beginning a cloud transformation journey.
 

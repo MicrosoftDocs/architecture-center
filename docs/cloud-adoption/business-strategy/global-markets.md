@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: Understanding the impact of Global Markets"
+title: "Fusion: Understanding the impact of Global Markets"
 description: Explanation of the concept of global markets
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Enterprise Cloud Adoption: How will Global Market decisions impact the Transformation Journey?
+# Fusion: How will Global Market decisions impact the Transformation Journey?
 
 The Cloud opens new opportunities to perform on a global scale. Barriers to global operations are significantly reduced, by empowering companies to deploy assets in market, without the need to invest heavily in new data centers. Unfortunately, this also adds a great deal of complexity from technical and legal perspectives.
 
