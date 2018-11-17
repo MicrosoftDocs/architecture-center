@@ -2,12 +2,12 @@
 title: Microservices architecture style
 description: Describes benefits, challenges, and best practices for microservices architectures on Azure
 author: MikeWasson
-ms.date: 08/30/2018
+ms.date: 11/13/2018
 ---
 
 # Microservices architecture style
 
-A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
+A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. 
 
 ![](./images/microservices-logical.svg)
  
@@ -106,39 +106,9 @@ Consider this architecture style for:
 
 - Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns][resiliency-patterns] and [Designing resilient applications][resiliency-overview].
 
-## Microservices using Azure Container Service 
+## Next steps
 
-You can use [Azure Container Service](/azure/container-service/) to configure and provision a Docker cluster. Azure Container Services supports several popular container orchestrators, including Kubernetes, DC/OS, and Docker Swarm.
-
-![](./images/microservices-acs.png)
- 
-**Public nodes**. These nodes are reachable through a public-facing load balancer. The API gateway is hosted on these nodes.
-
-**Backend nodes**. These nodes run services that clients reach via the API gateway. These nodes don't receive Internet traffic directly. The backend nodes might include more than one pool of VMs, each with a different hardware profile. For example, you could create separate pools for general compute workloads, high CPU workloads, and high memory workloads. 
-
-**Management VMs**. These VMs run the master nodes for the container orchestrator. 
-
-**Networking**. The public nodes, backend nodes, and management VMs are placed in separate subnets within the same virtual network (VNet). 
-
-**Load balancers**.  An externally facing load balancer sits in front of the public nodes. It distributes internet requests to the public nodes. Another load balancer is placed in front of the management VMs, to allow secure shell (ssh) traffic to the management VMs, using NAT rules.
-
-For reliability and scalability, each service is replicated across multiple VMs. However, because services are also relatively lightweight (compared with a monolithic application), multiple services are usually packed into a single VM. Higher density allows better resource utilization. If a particular service doesn't use a lot of resources, you don't need to dedicate an entire VM to running that service.
-
-The following diagram shows three nodes running four different services (indicated by different shapes). Notice that each service has at least two instances. 
- 
-![](./images/microservices-node-density.png)
-
-## Microservices using Azure Service Fabric
-
-The following diagram shows a microservices architecture using [Azure Service Fabric](/azure/service-fabric/).
-
-![](./images/service-fabric.png)
-
-The Service Fabric cluster is deployed to one or more VM scale sets. You might have more than one VM scale set in the cluster, in order to have a mix of VM types. An API Gateway is placed in front of the Service Fabric cluster, with an external load balancer to receive client requests.
-
-The Service Fabric runtime performs cluster management, including service placement, node failover, and health monitoring. The runtime is deployed on the cluster nodes themselves. There isn't a separate set of cluster management VMs.
-
-Services communicate with each other using the reverse proxy that is built into Service Fabric. Service Fabric provides a discovery service that can resolve the endpoint for a named service.
+For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
 
 
 <!-- links -->
