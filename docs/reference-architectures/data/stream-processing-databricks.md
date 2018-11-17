@@ -266,7 +266,7 @@ The methods in the StreamingMetricsListener are called by the Apache Spark runti
 
 ```
 taxijob_CL
-| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
 | project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d  
 | render timechart
 ``` 
@@ -274,7 +274,7 @@ taxijob_CL
 
 ```
 taxijob_CL
-| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
 | where Level contains "Error" 
 ```
 
@@ -282,12 +282,12 @@ taxijob_CL
 
 ```
 SparkMetric_CL 
-| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
 | render timechart 
 | where name_s contains "metrics.malformedrides"
 
 SparkMetric_CL 
-| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
 | render timechart 
 | where name_s contains "metrics.malformedfares" 
 ```
@@ -295,7 +295,7 @@ SparkMetric_CL
 ### Job execution to trace resiliency
 ```
 SparkMetric_CL 
-| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
 | render timechart 
 | where name_s contains "driver.DAGScheduler.job.allJobs" 
 ```
