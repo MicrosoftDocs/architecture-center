@@ -9,6 +9,6 @@ ms.date: 10/10/2018
 
 Coming soon
 
-![Evolution of the Cost Management Discipline across various phases of adoption](../../_images/governance-cost-management-discipline.png)
+![Evolution of the Cost Management Discipline across various phases of adoption](../../_images/governance-discipline-cost-management.png)
 
 *Figure 1. Evolution of Cost Management discipline across various phases of adoption
