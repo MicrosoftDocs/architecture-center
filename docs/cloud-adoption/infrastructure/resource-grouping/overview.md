@@ -26,6 +26,17 @@ The inflection point could be driven by one of three factors: Digital Estate Siz
 
 More coming...
 
+## Resource Management
+
+You cloud governance model will depend on the organization of accounts,
+subscriptions, and resources. The methods by which this is achieved
+differ by cloud platforms, but all allow some logical grouping of resources for
+management, access control, and operations purposes.
+
+In addition to grouping assets and resources, [resource naming and
+tagging](../resource-tagging/overview.md)
+standards are key to organizing resources in support of governance.
+
 ## Next steps
 
 Learn how [resource naming and tagging](../resource-tagging/overview.md) are used to organize and manage cloud resources.

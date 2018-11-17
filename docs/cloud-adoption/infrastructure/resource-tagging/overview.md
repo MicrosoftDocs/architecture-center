@@ -32,11 +32,11 @@ primary purposes:
 
 Jump to: [Resource naming](#resource-naming) | [Resource tagging](#resource-tagging) | [Naming and tagging policy](#naming-and-tagging-policy) | [Resource naming and tagging in Azure](#resource-tagging-in-azure)
 
-Your tagging approach can be simple or complex, depending on what data is most important to the teams deploying cloud workloads and the wider business as a whole.
+Your tagging approach can be simple or complex, with the emphasis ranging from simply supporting IT teams managing cloud workloads to integrating information relating to all aspects of the wider business as a whole. 
 
-An IT-aligned tagging focus can reduce the complexity of monitoring assets and make management decisions based on functionality and classification much easier.
+An IT-aligned tagging focus will reduce the complexity of monitoring assets and make management decisions based on functionality and classification much easier.
 
-Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards that reflect business interests and maintain those standards over time. However, the result of this process is an improved ability to account for costs and value of IT assets. This ability to better equate the value of assets to their cost, is one of the first changes required to change the cost center perception of IT.
+Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards reflecting business interests and maintain those standards over time. However, the end result of this process is a tagging system providing an improved ability to account for costs and value of IT assets. This association of an asset's value to its operational cost is one of the first steps in changing the cost center perception of IT within your organization.
 
 ## Resource naming
 
