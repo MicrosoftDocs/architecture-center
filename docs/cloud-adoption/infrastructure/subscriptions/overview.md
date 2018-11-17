@@ -7,18 +7,14 @@ ms.date: 11/02/2018
 
 # Fusion: Subscription Design
 
-All cloud platforms have a core ownership model providing the main organization
-that billing and resource management is built around. The structure that this
-model takes differs between cloud providers, with various types of support for
-organizational hierarchy and grouped subscription ownership, but there will
-generally be an individual responsible for billing and another assigned as a
-top-level owner for managing resources.
+All cloud platforms have a core ownership model providing the main organization that billing and resource management is built around. The structure that this model takes differs between cloud providers, with various types of support for
+organizational hierarchy and grouped subscription ownership, but there will generally be an individual responsible for billing and another assigned as a top-level owner for managing resources.
 
 ## Subscription Decision Guide
 
 ![Plotting Subscription options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-subscriptions.png)
 
-Jump to: [Pricing models](#pricing-models)
+Jump to: [Subscriptions design and Azure Enterprise Agreements](#subscriptions-design-and-azure-enterprise-agreements) | [Subscription design patterns](#subscription-design-patterns) | [Management groups](#management-groups) | [Organizing Subscriptions](#organizing-subscriptions)
 
 Subscription design is one of the first fundamental technical strategies to establish as part of your cloud migration planning. 
 
@@ -26,7 +22,7 @@ Subscription design ranges in complexity, and the decisions around a design stra
 
 Additionally, technical inflection points based around digital estate size vs cloud provider subscription limits, isolation and segregation policies, and IT operational divisions will have a large impact on your subscription design. Deployment structure and automation will also have a large impact on how you structure subscription design, so consider how [resource grouping](../resource-grouping/overview.md) decisions will influence your design choices.
 
-## Organizing subscriptions in Azure
+## Subscriptions design and Azure Enterprise Agreements 
 
 *Reviewers note: This section heavily re-purposes content from the existing [Azure enterprise scaffold](../../appendix/azure-scaffold.md). The correct location of this content within the overall Azure Fusion guidance is still under consideration *
 
@@ -38,7 +34,7 @@ An Azure Enterprise Agreement provides a further ability to organize subscriptio
 
 ![hierarchy](../../_images/infra-subscriptions/agreement.png)
 
-## Subscription patterns
+## Subscription design patterns
 
 Every enterprise is different and the Department/Account/Subscription hierarchy enabled through an Azure Enterprise Agreement allows for significant flexibility in how Azure is organized within your company. Modeling your hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first — and most important — decision you make when starting in the public cloud.
 
@@ -78,7 +74,7 @@ For organizations with global operations, this pattern groups subscriptions and 
 
 Azure Enterprise Agreements are limited to the four level enterprise/department/account/subscriptions hierarchy. However, you can combine the use combinations such as geographic region and business unit to reflect more complex billing and organizational structures within your company.
 
-### Management groups
+## Management groups
 
 In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, and allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. 
 
@@ -87,7 +83,7 @@ Management groups can mirror your billing hierarchy and often enterprises start 
 * **Production/Non-Production**. Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 * **Internal Services/External Services**. Much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
 
-### Subscriptions
+## Organizing Subscriptions
 
 When deciding on your Departments and Accounts (or management groups), you are primarily looking at how you're dividing up your Azure environment to match your organization. Subscriptions, however, are where the real work happens and your decisions here impact security, scalability and billing.  Many organizations look at the following patterns as their guides:
 
