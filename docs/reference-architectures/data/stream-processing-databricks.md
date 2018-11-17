@@ -262,7 +262,7 @@ spark.streams.addListener(new StreamingMetricsListener())
 
 The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs, sending log messages and metrics to the Azure Log Analytics workspace. You can use the following queries in your workspace to monitor the application:
 
-_Latency and throughput for streaming queries_: 
+### Latency and throughput for streaming queries 
 
 ```
 taxijob_CL
@@ -270,7 +270,7 @@ taxijob_CL
 | project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d  
 | render timechart
 ``` 
-_Exceptions logged during stream query execution_:
+### Exceptions logged during stream query execution
 
 ```
 taxijob_CL
@@ -278,13 +278,13 @@ taxijob_CL
 | where Level contains "Error" 
 ```
 
-_Accumulation of malformed fare and ride data_:
+### Accumulation of malformed fare and ride data
+
 ```
 SparkMetric_CL 
 | where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
 | render timechart 
 | where name_s contains "metrics.malformedrides"
-```
 
 SparkMetric_CL 
 | where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
@@ -292,7 +292,7 @@ SparkMetric_CL
 | where name_s contains "metrics.malformedfares" 
 ```
 
-_Job execution to trace resiliency_:
+### Job execution to trace resiliency
 ```
 SparkMetric_CL 
 | where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
