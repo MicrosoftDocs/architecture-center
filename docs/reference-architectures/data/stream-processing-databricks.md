@@ -7,11 +7,11 @@ ms.date: 11/01/2018
 
 # Stream processing with Azure Databricks
 
-This reference architecture shows an end-to-end stream processing pipeline. The pipeline ingests data from two sources, correlates records in the two streams, and enriches the correlated record with data from external sources. The results are stored for further analysis. [**Deploy this solution**.](#deploy-the-solution)
+This reference architecture shows an end-to-end [stream processing](../../dataguide/big-data/real-time-processing) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real-time. The results are stored for further analysis. [**Deploy this solution**.](#deploy-the-solution)
 
 ![](./images/stream-processing-databricks.png)
 
-**Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. The taxi company wants to calculate the average tip per mile driven, in real time, in order to spot trends.
+**Scenario**: A taxi company collects data about each taxi trip. For this scenario, we assume there are two separate devices sending data. The taxi has a meter that sends information about each ride &mdash; the duration, distance, and pickup and dropoff locations. A separate device accepts payments from customers and sends data about fares. In order to spot ridership trends, the taxi company wants to calculate the average tip per mile driven, in real time, for each neighborhood.
 
 ## Architecture
 
@@ -24,8 +24,6 @@ The architecture consists of the following components.
 **Azure Databricks**. [Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. Databricks is used to correlate of the taxi ride and fare data, and also to enrich the correlated data with neighborhood data stored in the Databricks file system.
 
 **Cosmos DB**. The output from Azure Databricks job is a series of records, which are written to Cosmos DB using the Cassandra API. The Cassandra API is used because it supports time series data modeling.
-
-**Microsoft Power BI**. Power BI is a suite of business analytics tools to analyze data for business insights. In this architecture, it loads the data from Cosmos DB. This allows users to analyze the complete set of historical data that's been collected.  You could also stream the results directly from Stream Analytics to Power BI for a real-time view of the data. For more information, see [Real-time streaming in Power BI](/power-bi/service-real-time-streaming).
 
 **Azure Monitor**. [Azure Monitor](/azure/monitoring-and-diagnostics/) collects performance metrics about the Azure services deployed in the solution. By visualizing these in a dashboard, you can get insights into the health of the solution. 
 
@@ -215,6 +213,9 @@ Secrets are added at the scope level:
 databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
 ```
 
+> [!NOTE]
+> An Azure Key Vault-backed scope can be used instead of the native Azure Databricks scope. To learn more, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#azure-key-vault-backed-scopes).
+
 In code, secrets are accessed via the Azure Databricks [secrets utilities](https://docs.databricks.com/user-guide/dev-tools/dbutils.html#secrets-utilities).
 
 
@@ -259,7 +260,45 @@ The last metric to be logged to the Azure Log Analytics workspace is the cumulat
 spark.streams.addListener(new StreamingMetricsListener())
 ```
 
-The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs.
+The methods in the StreamingMetricsListener are called by the Apache Spark runtime whenever a structured steaming event occurs, sending log messages and metrics to the Azure Log Analytics workspace. You can use the following queries in your workspace to monitor the application:
+
+_Latency and throughput for streaming queries_: 
+
+```
+taxijob_CL
+| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d  
+| render timechart
+``` 
+_Exceptions logged during stream query execution_:
+
+```
+taxijob_CL
+| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| where Level contains "Error" 
+```
+
+_Accumulation of malformed fare and ride data_:
+```
+SparkMetric_CL 
+| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| render timechart 
+| where name_s contains "metrics.malformedrides"
+```
+
+SparkMetric_CL 
+| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| render timechart 
+| where name_s contains "metrics.malformedfares" 
+```
+
+_Job execution to trace resiliency_:
+```
+SparkMetric_CL 
+| where TimeGenerated > startofday(datetime("2018-11-04")) and TimeGenerated < endofday(datetime("2018-11-04"))
+| render timechart 
+| where name_s contains "driver.DAGScheduler.job.allJobs" 
+```
 
 ## Deploy the solution
 
@@ -439,6 +478,9 @@ Once executed, this command opens the vi editor. Enter the **username** value fr
 
 Once executed, this command opens the vi editor. Enter the **secret** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
+> [!NOTE]
+> If using an [Azure Key Vault-backed secret scope](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#azure-key-vault-backed-scopes), the scope must be named **azure-databricks-job** and the secrets must have the exact same names as those above.
+
 ### Add the Zillow Neighborhoods data file to the Databricks file system
 
 1. Create a directory in the Databricks file system:
@@ -566,7 +608,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
     2. Click on the job name created in step 2 of the **create a Databricks job** section. 
     
-    3. Beside the **Dependent Libaries** section, click on **Add** to open the **Add Dependent Library** dialog. 
+    3. Beside the **Dependent Libraries** section, click on **Add** to open the **Add Dependent Library** dialog. 
     
     4. Under **Library From** select **Workspace**.
     
