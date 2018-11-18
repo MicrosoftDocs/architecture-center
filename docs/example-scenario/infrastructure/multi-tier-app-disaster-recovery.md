@@ -47,8 +47,8 @@ This scenario covers a multi-tier application that uses ASP.NET and Microsoft SQ
 1. [**Azure Traffic Manager**][traffic-manager-docs] is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness.
 2. [**Azure load balancer**][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internet load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
 3. [**Availability sets**][availability-set-docs]  ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted and that your overall solution remains available and operational.
-4. [**Availability Zones**](azureaz-docs) is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. 
-5. [**Disaster recovery using Azure Site Recovery**][azure-site-recovery-docs] allows you to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in source region.
+4. [**Availability Zones**][azureaz-docs] is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. 
+5. [**Disaster recovery using Azure Site Recovery (ASR)**][azure-site-recovery-docs] allows you to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in source region.
 
 
 ### Alternatives
@@ -100,5 +100,6 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
 [medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
 [large-pricing]: https://azure.com/e/1d99d8b92f90496787abecffa1473a93
-[traffic-manager-docs]: azure/traffic-manager/
+[traffic-manager-docs]: /azure/traffic-manager/
 [azure-site-recovery-docs]: /azure/site-recovery/azure-to-azure-quickstart/
+[availability-set-docs]:/azure/virtual-machines/windows/manage-availability
