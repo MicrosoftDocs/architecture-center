@@ -100,5 +100,5 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
 [medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
 [large-pricing]: https://azure.com/e/1d99d8b92f90496787abecffa1473a93
-[traffic-manager-docs]: azure/traffic-manager
-[azure-site-recovery-docs]: azure/traffic-manager]
+[traffic-manager-docs]: azure/traffic-manager/
+[azure-site-recovery-docs]: /azure/site-recovery/azure-to-azure-quickstart/

@@ -170,7 +170,7 @@ Azure has a number of features to make an application redundant at every level o
 
 **Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
-**Azure Site Recovery**.  Replicate Azure virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in source region. For more details, see [Replicate Azure VMs using ASR](site-recovery).
+**Azure Site Recovery**.  Replicate Azure virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in source region. For more details, see [Replicate Azure VMs using ASR][site-recovery].
 
 **Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
@@ -202,7 +202,7 @@ Each retry attempt adds to the total latency. Also, too many failed requests can
 
 To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails.
 
-You can use [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines from one region to another region. ASR replicates data continuously to the target region and offers best-in-class RPO and RTO for your applications.
+You can use [Azure Site Recovery (ASR)][site-recovery] to replicate Azure virtual machines from one region to another region. ASR replicates data continuously to the target region and offers best-in-class RPO and RTO for your applications.
 
 **Degrade gracefully**. If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
 
@@ -354,4 +354,4 @@ Here are the major points to take away from this article:
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
