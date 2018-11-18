@@ -386,7 +386,7 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 ### Multiple VM instances across multiple tiers become unavailable or unhealthy.
 **Detection**. Configure Azure traffic manager to monitor public endpoint availability. Also, configure a Load Balancer [health probe][lb-probe] that signals whether the VM instance is healthy. The probe should check whether critical functions are responding correctly.
 
-**Recovery**. For each application tier, replicate the VMs into another region using [Azure Site Recovery (ASR)](site-recovery). In case of source region disruption, failover the VMs to the target region using ASR.
+**Recovery**. For each application tier, replicate the VMs into another region using [Azure Site Recovery (ASR)][site-recovery]. In case of source region disruption, failover the VMs to the target region using ASR.
 
 **Diagnostics**. - Use Load Balancer [log analytics][lb-monitor] and Traffic Manager. Configure your monitoring system to monitor all of the health monitoring endpoints.
 
@@ -497,4 +497,4 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs/
 [web-jobs-shutdown]: /azure/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
