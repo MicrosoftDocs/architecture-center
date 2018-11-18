@@ -102,4 +102,4 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 [large-pricing]: https://azure.com/e/1d99d8b92f90496787abecffa1473a93
 [traffic-manager-docs]: /azure/traffic-manager/
 [azure-site-recovery-docs]: /azure/site-recovery/azure-to-azure-quickstart/
-[availability-set-docs]:/azure/virtual-machines/windows/manage-availability
+[availability-set-docs]:/azure/virtual-machines/windows/manage-availability/
