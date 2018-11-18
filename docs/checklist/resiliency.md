@@ -20,7 +20,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 * Identify what types of failures an application might experience.
 * Capture the potential effects and impact of each type of failure on the application.
 * Identify recovery strategies.
-  
+
 
 **Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](/azure/app-service/app-service-value-prop-what-is/), select an [App Service Plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me/#scaling-and-management). For [Azure Virtual Machines (VMs)](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set][availability-sets].   
 
@@ -35,7 +35,8 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Configure Azure Application Gateways to use multiple instances.** Depending on your application's requirements, an [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction/) may be better suited to distributing requests to your application's services. However, single instances of the Application Gateway service are not guaranteed by an SLA so it's possible that your application could fail if the Application Gateway instance fails. Provision more than one medium or larger Application Gateway instance to guarantee availability of the service under the terms of the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/).
 
-**Use Availability Sets for each application tier.** Placing your instances in an [availability set][availability-sets] provides a higher [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+**Use Availability Sets for each application tier.** Placing your instances in an [availability set][availability-sets] provides a higher [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
+**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR](site-recovery).
 
 **Consider deploying your application across multiple regions.** If your application is deployed to a single region, in the rare event the entire region becomes unavailable, your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. If so, consider deploying your application and its services across multiple regions. A multi-region deployment can use an active-active pattern (distributing requests across multiple active instances) or an active-passive pattern (keeping a "warm" instance in reserve, in case the primary instance fails). We recommend that you deploy multiple instances of your application's services across regional pairs. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
@@ -52,13 +53,13 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Ensure that any third-party service you consume provides an SLA.** If your application depends on a third-party service, but the third party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Your SLA is only as good as the least available component of your application.
 
-**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow [design patterns](../patterns/category/resiliency.md) for dealing with transient failures, such as [Retry Pattern][retry-pattern], and [Circuit Breaker Pattern][circuit-breaker]. 
+**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow [design patterns](../patterns/category/resiliency.md) for dealing with transient failures, such as [Retry Pattern][retry-pattern], and [Circuit Breaker Pattern][circuit-breaker].
 
 **Implement asynchronous operations whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible. For more information on how to implement asynchronous programming in C#, see [Asynchronous Programming with async and await][asynchronous-c-sharp].
 
 ## Data management
 
-**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied.
+**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the DR target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR](site-recovery).
 
 **Ensure that no single user account has access to both production and backup data.** Your data backups are compromised if one single user account has permission to write to both production and backup sources. A malicious user could purposely delete all your data, while a regular user could accidentally delete it. Design your application to limit the permissions of each user account so that only the users that require write access have write access and it's only to either production or backup, but not both.
 
@@ -81,7 +82,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Testing
 
-**Perform failover and failback testing for your application.** If you haven't fully tested failover and failback, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover and fail back in the correct order.
+**Perform failover and failback testing for your application.** If you haven't fully tested failover and failback, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover and fail back in the correct order. If you are using [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines, ensure you run DR drill periodically using 'Test failover' feature of ASR.
 
 **Perform fault-injection testing for your application.** Your application can fail for many different reasons, such as certificate expiration, exhaustion of system resources in a VM, or storage failures. Test your application in an environment as close as possible to production, by simulating or triggering real failures. For example, delete certificates, artificially consume system resources, or delete a storage source. Verify your application's ability to recover from all types of faults, alone and in combination. Check that failures are not propagating or cascading through your system.
 
@@ -89,15 +90,15 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Deployment
 
-**Document the release process for your application.** Without detailed release process documentation, an operator might deploy a bad update or improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team. 
+**Document the release process for your application.** Without detailed release process documentation, an operator might deploy a bad update or improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-**Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail. 
+**Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail.
 
 **Design your release process to maximize application availability.** If your release process requires services to go offline during deployment, your application will be unavailable until they come back online. Use the [blue/green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary release](https://martinfowler.com/bliki/CanaryRelease.html) deployment technique to deploy your application to production. Both of these techniques involve deploying your release code alongside production code so users of release code can be redirected to production code in the event of a failure.
 
 **Log and audit your application's deployments.** If you use staged deployment techniques such as blue/green or canary releases there will be more than one version of your application running in production. If a problem should occur, it's critical to determine which version of your application is causing a problem. Implement a robust logging strategy to capture as much version-specific information as possible.
 
-**Have a rollback plan for deployment.** It's possible that your application deployment could fail and cause your application to become unavailable. Design a rollback process to go back to a last known good version and minimize downtime. 
+**Have a rollback plan for deployment.** It's possible that your application deployment could fail and cause your application to become unavailable. Design a rollback process to go back to a last known good version and minimize downtime.
 
 ## Operations
 
@@ -173,3 +174,4 @@ Resiliency is the ability of a system to recover from failures and continue to f
 [traffic-manager]: /azure/traffic-manager/traffic-manager-overview/
 [traffic-manager-routing]: /azure/traffic-manager/traffic-manager-routing-methods/
 [vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart
