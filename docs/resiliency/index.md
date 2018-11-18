@@ -200,9 +200,9 @@ Each retry attempt adds to the total latency. Also, too many failed requests can
 
 **Replicate data**. Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra. It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas.
 
-You can use [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines from one region to another region. ASR replicates data continuously to the target region and offers best-in-class RPO and RTO for your applications.
-
 To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails.
+
+You can use [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines from one region to another region. ASR replicates data continuously to the target region and offers best-in-class RPO and RTO for your applications.
 
 **Degrade gracefully**. If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
 

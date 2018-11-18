@@ -383,14 +383,12 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [Azure Activity Logs][azure-activity-logs].
 
-### Multiple VM instance across multiple tiers become unavailable or unhealthy.
+### Multiple VM instances across multiple tiers become unavailable or unhealthy.
 **Detection**. Configure Azure traffic manager to monitor public endpoint availability. Also, configure a Load Balancer [health probe][lb-probe] that signals whether the VM instance is healthy. The probe should check whether critical functions are responding correctly.
 
 **Recovery**. For each application tier, replicate the VMs into another region using [Azure Site Recovery (ASR)](site-recovery). In case of source region disruption, failover the VMs to the target region using ASR.
 
-**Diagnostics**. - Use Load Balancer [log analytics][lb-monitor] and Traffic Manager.
-
-* Configure your monitoring system to monitor all of the health monitoring endpoints.
+**Diagnostics**. - Use Load Balancer [log analytics][lb-monitor] and Traffic Manager. Configure your monitoring system to monitor all of the health monitoring endpoints.
 
 ## WebJobs
 ### Continuous job stops running when the SCM host is idle.
