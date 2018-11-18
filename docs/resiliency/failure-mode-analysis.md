@@ -120,7 +120,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 <strong>Recovery</strong>. Override the [RoleEntryPoint.OnStop][RoleEntryPoint.OnStop] method to gracefully clean up. For more information, see [The Right Way to Handle Azure OnStop Events][onstop-events] (blog).
 
-## Cosmos DB 
+## Cosmos DB
 ### Reading data fails.
 **Detection**. Catch `System.Net.Http.HttpRequestException` or `Microsoft.Azure.Documents.DocumentClientException`.
 
@@ -383,6 +383,15 @@ For more information, see [Overview of Service Bus dead-letter queues][sb-dead-l
 
 **Diagnostics**. Use [Azure Activity Logs][azure-activity-logs].
 
+### Multiple VM instance across multiple tiers become unavailable or unhealthy.
+**Detection**. Configure Azure traffic manager to monitor public endpoint availability. Also, configure a Load Balancer [health probe][lb-probe] that signals whether the VM instance is healthy. The probe should check whether critical functions are responding correctly.
+
+**Recovery**. For each application tier, replicate the VMs into another region using [Azure Site Recovery (ASR)](site-recovery). In case of source region disruption, failover the VMs to the target region using ASR.
+
+**Diagnostics**. - Use Load Balancer [log analytics][lb-monitor] and Traffic Manager.
+
+* Configure your monitoring system to monitor all of the health monitoring endpoints.
+
 ## WebJobs
 ### Continuous job stops running when the SCM host is idle.
 **Detection**. Pass a cancellation token to the WebJob function. For more information, see [Graceful shutdown][web-jobs-shutdown].
@@ -490,3 +499,4 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs/
 [web-jobs-shutdown]: /azure/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart

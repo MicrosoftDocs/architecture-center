@@ -8,7 +8,7 @@ ms.custom: checklist
 ---
 # Availability checklist
 
-Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint. 
+Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint.
 
 ## Application design
 
@@ -38,6 +38,8 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If you have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
 
+**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** To maximize availability, replicate all your virtual machines into another Azure region using ASR. Ensure that all the VMs across all the tiers of your application are replicated. In the event of a disruption in source region, you can failover the VMs into the other region within minutes.
+
 ## Data management
 
 **Geo-replicate data in Azure Storage**. Data in Azure Storage is automatically replicated within in a datacenter. For even higher availability, use Read-access geo-redundant storage (-RAGRS), which replicates your data to a secondary region and provides read-only access to the data in the secondary location. The data is durable even in the case of a complete regional outage or a disaster. For more information, see [Azure Storage replication](/azure/storage/storage-redundancy).
@@ -47,6 +49,8 @@ Availability is the proportion of time that a system is functional and working, 
 **Use optimistic concurrency and eventual consistency**. Transactions that block access to resources through locking (pessimistic concurrency) can cause poor performance and considerably reduce availability. These problems can become especially acute in distributed systems. In many cases, careful design and techniques such as partitioning can minimize the chances of conflicting updates occurring. Where data is replicated, or is read from a separately updated store, the data will only be eventually consistent. But the advantages usually far outweigh the impact on availability of using transactions to ensure immediate consistency.
 
 **Use periodic backup and point-in-time restore**. Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Ensure that backups meet your Recovery Point Objective (RPO). Data replication is not a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../resiliency/recovery-data-corruption.md)
+
+**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR](site-recovery).
 
 ## Errors and failures
 
@@ -66,13 +70,13 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Monitor system health by implementing checking functions.** The health and performance of an application can degrade over time, without being noticeable until it fails. Implement probes or check functions that are executed regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for individual services that the application uses, or for individual components. Check functions can execute processes to ensure they produce valid results, measure latency and check availability, and extract information from the system.
 
-**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime.
+**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime. If you are using [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines, ensure you run DR drill periodically using 'Test failover' feature of ASR.
 
 **Test the monitoring systems.** Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards, all depend on monitoring and instrumentation functioning correctly. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
 
 **Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor Pattern](../patterns/scheduler-agent-supervisor.md).
 
-**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan.
-
+**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery (ASR)](site-recovery) to replicate Azure virtual machines, ensure you create a fully automated ASR recovery plan to failover the entire application within minutes.
 <!-- links -->
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart

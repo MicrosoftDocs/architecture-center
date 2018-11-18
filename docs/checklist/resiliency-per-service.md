@@ -62,7 +62,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](/azure/redis-cache/cache-how-to-premium-persistence)
 
-If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply. 
+If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply.
 
 ## Search
 
@@ -134,6 +134,8 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 **Put each application tier into a separate Availability Set.** In an N-tier application, don't put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.
 
+**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR](site-recovery). You can conduct no impact DR drills as many times as you want without impacting the production application or the ongoing replication.
+
 **Choose the right VM size based on performance requirements.** When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. This helps to ensure the application behaves as expected in a cloud environment. Also, if you need multiple NICs, be aware of the NIC limit for each size.
 
 **Use Managed Disks for VHDs.** [Managed Disks][managed-disks] provide better reliability for VMs in an availability set, because the disks are sufficiently isolated from each other to avoid single points of failure. Also, Managed Disks aren't subject to the IOPS limits of VHDs created in a storage account. For more information, see [Manage the availability of Windows virtual machines in Azure][vm-manage-availability].
@@ -164,3 +166,4 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 [sql-backup]: /azure/sql-database/sql-database-automated-backups/
 [sql-restore]: /azure/sql-database/sql-database-recovery-using-backups/
 [vm-manage-availability]: /azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart
