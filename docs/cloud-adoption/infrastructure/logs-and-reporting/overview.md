@@ -82,7 +82,7 @@ Mirroring the on-premises centered approach, in this scenario cloud workloads wo
 
 ### Gateway
 
-For scenarios where the amount of cloud-based telemetry data is quite large or existing on-premises monitoring systems need log data modified before it can be processed, a log data [gateway aggregation](https://docs.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation) service may be needed. 
+For scenarios where the amount of cloud-based telemetry data is very large or existing on-premises monitoring systems need log data modified before it can be processed, a log data [gateway aggregation](https://docs.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation) service may be needed. 
 
 A gateway service is deployed to your cloud provider, and relevant applications and services are configured to submit telemetry data to the gateway instead of a default logging system. The gateway can then process the data: aggregating, combining, or otherwise formatting it before then submitting it to your monitoring service for ingestion and analysis.
 
@@ -98,7 +98,7 @@ A gateway can be use to aggregate and pre-process telemetry data bound for cloud
 
 In scenarios where you need to integrate cloud telemetry with on-premises systems that do not support hybrid logging and reporting, you will need to provide a mechanism for cloud-based systems to send data directly to on-premises storage locations.
 
-In order to support this, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-defined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud vitual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
+In order to support this, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-defined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud virtual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
 
 **On-premises only assumptions:**
 
