@@ -112,7 +112,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     </div>
                     <div class="cardText">
                         <h3>Stream processing with Azure Databricks</h3>
-                        <p>End-to-end stream processing pipeline that joins records from two streams, enriches the result, and calculates an average in real time.</p>
+                        <p>Stream processing pipeline that joins records from two streams, enriches the result, and calculates a rolling average.</p>
                     </div>
                 </div>
             </div>
