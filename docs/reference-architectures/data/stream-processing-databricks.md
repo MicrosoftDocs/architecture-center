@@ -336,18 +336,18 @@ A deployment for this reference architecture is available on [GitHub](https://gi
     > [!NOTE]
     > This zip file contains other zip files. Don't extract the child zip files.
 
-The directory structure should look like the following:
+    The directory structure should look like the following:
 
-```
-/data
-    /streaming_azuredatabricks
-        /DataFile
-            /FOIL2013
-                trip_data_1.zip
-                trip_data_2.zip
-                trip_data_3.zip
-                ...
-```
+    ```
+    /data
+        /streaming_azuredatabricks
+            /DataFile
+                /FOIL2013
+                    trip_data_1.zip
+                    trip_data_2.zip
+                    trip_data_3.zip
+                    ...
+    ```
 
 5. Open a web browser and navigate to https://www.zillow.com/howto/api/neighborhood-boundaries.htm. 
 
