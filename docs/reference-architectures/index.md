@@ -99,6 +99,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
         </div>
     </a>
 </li>
+<!-- Databricks -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/stream-processing-databricks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/databricks.png" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Stream processing with Azure Databricks</h3>
+                        <p>End-to-end stream processing pipeline that joins records from two streams, enriches the result, and calculates an average in real time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <!-- Stream Analytics -->
 <li style="display: flex; flex-direction: column;">
     <a href="./data/stream-processing-stream-analytics.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
