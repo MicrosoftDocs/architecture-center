@@ -7,7 +7,7 @@ ms.date: 11/02/2018
 
 # Fusion: What are Technical Standards in the context of the Fusion framework
 
-Technical standards will define (or at least influence) many of the configuration activities executed by the Cloud Migration Team. This article outlines a series of the most important initial Technical Standards to establish before beginning a cloud transformation journey.
+Technical standards will define (or at least influence) many of the configuration activities executed by the Cloud Adoption Team. This article outlines a series of the most important initial Technical Standards to establish before beginning a cloud transformation journey.
 
 ## Technical Standards
 

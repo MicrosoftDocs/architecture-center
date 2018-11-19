@@ -23,7 +23,7 @@ It is important to understand which business units operate in foreign countries,
 
 It is important to understand how global users access applications that are not hosted in the same country as the user. Often time global WANs (Wide Area Networks) route users based on existing networking agreements. In a traditional on-prem world, there are a number of constraints that limit WAN design. Those constraints can lead to very poor user experiences, if not properly understood prior to cloud adoption. 
 
-In a Cloud model, commodity internet opens up many new options as well. Communicating the spread of employees across multiple geographies can help the Cloud Migration Team design WAN solutions that create positive user experiences AND potential reduce networking costs.
+In a Cloud model, commodity internet opens up many new options as well. Communicating the spread of employees across multiple geographies can help the Cloud Adoption Team design WAN solutions that create positive user experiences AND potential reduce networking costs.
 
 ## External User Usage Patterns
 

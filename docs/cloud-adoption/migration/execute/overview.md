@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 
 The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
   
-In this process, the Cloud Migration Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
+In this process, the Cloud Adoption Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
 

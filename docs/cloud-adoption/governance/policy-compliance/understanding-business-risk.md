@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Understanding Business Risk"
+title: "Fusion: How does Business Risk change in the cloud?"
 description: Understanding Business Risk during migration
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Understanding Business Risk
+# Fusion: How does Business Risk change in the cloud?
 
 An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-prem or in the cloud.
 
@@ -49,8 +49,8 @@ Once the Business Risk MVP is established, they can be converted to [Policies](o
 
 Assuming a business risk MVP is the starting point, governance can mature in parallel to planned deployment (as opposed to growing in parallel to business growth). This is a much more stable model for governance maturity. At each iteration, new assets are replicated and staged. At each release, workloads are readied for production promotion. Of course, the relative risk could grow with each cycle.
 
-When the Cloud Governance Team operates in parallel to the Cloud Migration Team, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Overtime an extremely clear view of business risk wil come into focus across the organization.
+When the Cloud Governance Team operates in parallel to the Cloud Adoption Team, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Overtime an extremely clear view of business risk wil come into focus across the organization.
 
-With each iteration, the Cloud Governance Team can work with Cloud Strategy Team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the Cloud Migration Team has ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
+With each iteration, the Cloud Governance Team can work with Cloud Strategy Team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the Cloud Adoption Team has ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 
 This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly addressed and resolved prior to deployment.

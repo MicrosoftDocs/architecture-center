@@ -32,7 +32,7 @@ During the "Build" Phase, cultural impact is limited to a small group of archite
 
 ## Technology Activities
 
-During the Build process, the Cloud Migration Team prepares the Digital Estate and cloud environment for migration.
+During the Build process, the Cloud Adoption Team prepares the Digital Estate and cloud environment for migration.
 
 * [Prioritized Migration Backlog](../migration/plan/migration-backlog.md): This backlog serves as the technical implementation strategy to support the business transformation strategy. During the plan stage, IT develops this plan in tandem with the business to maximize business outcomes throughout the transformation journey.
 * [Subscription and Tagging Strategy](../migration/plan/rationalize.md): The first set of technical decisions is the subscription and tagging strategy. The backlog, global markets, and cloud accounting are all inputs to influence these decisions.

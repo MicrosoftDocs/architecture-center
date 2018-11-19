@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Iterative Change Management and Oversight
 
-Migration to the cloud is deceptively similar to migration to a new data center. However, at its root, the processes associated with a cloud migration, more closely mimic behaviors of a software development process. Much like a software development team, the Cloud Migration Team and Cloud Governance Team start with an ambiguous understanding of the way an application might perform once deployed. As work is completed, clarity is achieved and decisions are more easily made. During such a mutual journey of discovery, the dependencies between these two teams (& their business stakeholders), are similar to those of a developer and DBA, working to achieve business objectives, **iteratively**. 
+Migration to the cloud is deceptively similar to migration to a new data center. However, at its root, the processes associated with a cloud migration, more closely mimic behaviors of a software development process. Much like a software development team, the Cloud Adoption Team and Cloud Governance Team start with an ambiguous understanding of the way an application might perform once deployed. As work is completed, clarity is achieved and decisions are more easily made. During such a mutual journey of discovery, the dependencies between these two teams (& their business stakeholders), are similar to those of a developer and DBA, working to achieve business objectives, **iteratively**. 
 
 > [!TIP]
 > For teams that have long operated in waterfall execution models, this can present a difficult shift in thinking and operation. Agile or Scrum training, certification, or experience can help ease this transition in management styles.
