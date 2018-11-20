@@ -113,7 +113,7 @@ val rideEventHubOptions = EventHubsConf(rideEventHubConnectionString)
 
 The ride data includes the latitude and longitude coordinates of the pick up and drop off locations. While these coordinates are useful, they are not easily consumed for analysis. Therefore, this data is enriched with neighborhood data that is read from a [shapefile](https://en.wikipedia.org/wiki/Shapefile). 
 
-The shapefile format is binary and not easily parsed, but the [GeoTools] library(http://geotools.org/) provides tools for geospatial data that use the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
+The shapefile format is binary and not easily parsed, but the [GeoTools](http://geotools.org/) library provides tools for geospatial data that use the shapefile format. This library is used in the **com.microsoft.pnp.GeoFinder** class to determine the neighborhood name based on the pick up and drop off coordinates. 
 
 ```scala
 val neighborhoodFinder = (lon: Double, lat: Double) => {
