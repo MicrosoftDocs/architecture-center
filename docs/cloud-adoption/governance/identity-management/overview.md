@@ -13,6 +13,7 @@ This article outlines different phases of Identity Management evolution, as a co
 
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+
 ![Evolution of the Identity Management Discipline across various phases of adoption](../../_images/governance-discipline-identity-management.png)
 
 *Figure 1. Evolution of Identity Management discipline across various phases of adoption
@@ -83,7 +84,7 @@ Once the transformation is complete, governance and operations must live on for 
 **Minimum Suggested Activities**
 
 * Customize [Tool Chain](toolchain.md)
-* Automate [Tool Chain](toolchain.md)
+* Automate [Tool Chain](toolchain.md) notifications and reports
 * Refine Architecture Guidelines to guide future adoption processes
 * Re-Educate impacted teams on a periodic basis to ensure on-going adherence to Architecture Guidelines
 
