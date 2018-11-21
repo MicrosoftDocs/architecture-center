@@ -21,7 +21,7 @@ Cloud Transformations create a natural inflection point to reconsider the legacy
 * A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
 * A Cloud Design Principle (CDP) compliant solution could ... @Vic to populate a quick reference for resiliency
 
-The justification for a Cloud Policy Review is often referred to as pushing a mess up hill. When executing a Cloud Transformation, policies will govern many of the tools, services, & processes available to the Cloud Migration team. If those policies are grounded in legacy technologies, they will hinder the teams ability to impact change. In the worst cases, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
+The justification for a Cloud Policy Review is often referred to as pushing a mess up hill. When executing a Cloud Transformation, policies will govern many of the tools, services, & processes available to the Cloud Adoption Team. If those policies are grounded in legacy technologies, they will hinder the teams ability to impact change. In the worst cases, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 
 ## Cloud Policy Review Process
 
@@ -32,7 +32,7 @@ For each of these disciplines, this process calls for the following steps:
 * Review existing on-premise policies related to the specific discipline, looking for two key data points: legacy dependencies & identified business risks.
 * Evaluate each business risk by asking a simple question: "Does the business risk still exist in a cloud model?"
 * If the risk still exists, re-write the policy by documenting the necessary mitigation, not the technical solution
-* Review the updated policy with the Cloud Migration team to understand potential solutions to the required mitigation
+* Review the updated policy with the Cloud Adoption Team to understand potential solutions to the required mitigation
 
 ## Example of a policy review for a legacy policy
 
@@ -43,7 +43,7 @@ To provide an example of the process, lets again leverage the Tape Backup policy
     * An assumed business risk associated with the storage of backups in the same physical location as the production equipment.
 * Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk impacting the business, then was present in the on-prem solution, but the risk still exists.
 * Rewrite of the policy: In the case of a datacenter wide disaster, there must exist a means of restoring production systems within 24 hours of the outage in a different datacenter & different geographic location
-* Review with the Cloud Migration team: Depending on the solution being implemented, there are multiple means of adhering to this resource management policy.
+* Review with the Cloud Adoption Team: Depending on the solution being implemented, there are multiple means of adhering to this resource management policy.
 
 ## Tools to help create modern policies
 

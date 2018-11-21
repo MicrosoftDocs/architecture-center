@@ -29,7 +29,7 @@ specify exactly what services can be accessed between the two networks.
 - Your deployments do not require complicated a structure to bypass account and subscription resource limits.
 
 > [!TIP]
-> Your cloud migration team should consider the following issues when looking at implementing a hybrid virtual networking architecture:
+> Your Cloud Adoption Team should consider the following issues when looking at implementing a hybrid virtual networking architecture:
 > - Connecting on-premises networks with cloud networks increases the complexity of your security requirements. Both networks need to be secured against external vulnerabilities and unauthorized access from both sides of the hybrid environment.
 > - Scaling the number and size of workloads within a hybrid cloud environment can add significant complexity to routing and traffic management.
 > - You will need to develop compatible management and access control policies to maintain consistent governance throughout your organization.

@@ -66,9 +66,9 @@ Implementing the first workload is key to testing and learning. It is the first 
 > [!NOTE]
 > The first workload is often deployed in an experimental environment with no operational or governance capacity. It is very important to select a workload that does not interact with secure data. 
 
-**Qualitative Analysis:** The Cloud Migration Team and Cloud Strategy Team can work together on the analysis of this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users in an effort to complete a detailed qualitative analysis in a week or less.
+**Qualitative Analysis:** The Cloud Adoption Team and Cloud Strategy Team can work together on the analysis of this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users in an effort to complete a detailed qualitative analysis in a week or less.
 
-**Migration:** In parallel to continued rationalization, the Cloud Migration Team can begin migrating the small workload to expand learning in the following key areas:
+**Migration:** In parallel to continued rationalization, the Cloud Adoption Team can begin migrating the small workload to expand learning in the following key areas:
 
 * Strengthen skills with the cloud provider’s platform
 * Define the Core services (& Azure Standards) needed to fit the long term vision
@@ -76,18 +76,18 @@ Implementing the first workload is key to testing and learning. It is the first 
 
 ## Incremental Rationalization: Release Planning
 
-While the Cloud Migration Team is executing the migration or implementation of the first workload, the Cloud Strategy Team can begin prioritizing the remaining applications/workloads.
+While the Cloud Adoption Team is executing the migration or implementation of the first workload, the Cloud Strategy Team can begin prioritizing the remaining applications/workloads.
 
 ![Rationalization as a plinko board after a few releases](../_images/rationalization-first-release-plan.png)
 *Figure 4. Rationalization as a plinko board after a few releases*
 
 **Power of Ten:** The traditional approach to rationalization attempts to boil the ocean. Fortunately, a plan for every application is often not required to start a transformation journey. In an incremental model, the Power of Ten provides a good starting point. In this model, the cloud strategy team selects the first 10 applications to be migrated. Those 10 workloads should contain a mixture of simple and complex workloads. For guide to choosing a simple workload review the First Workload article.
 
-**Building the first backlogs:** The Cloud Migration Team and Cloud Strategy Team can work together on the qualitative analysis for the first 10 workloads. This creates the first prioritized migration backlog and the first prioritized release backlog. This approach allows the teams to continue to iterate on the approach taken for adequate qualitative analysis.
+**Building the first backlogs:** The Cloud Adoption Team and Cloud Strategy Team can work together on the qualitative analysis for the first 10 workloads. This creates the first prioritized migration backlog and the first prioritized release backlog. This approach allows the teams to continue to iterate on the approach taken for adequate qualitative analysis.
 
 **Maturing the process:** Once qualitative analysis criteria are agreed upon between the two teams, the process of assessment can become a task within each iteration. Analysis criteria agreement usually requires 2-3 releases.
 
-Once the assessment is moved into the incremental execution processes of migration, the Cloud Migration Team can iterate on assessment and architecture faster. At this stage, the Cloud Strategy Team is also abstracted, reducing the drain on their time. This also allows the Cloud Strategy Team to remain focused on prioritization of the applications that are not yet in a specific release, thus ensuring tight alignment with changing market conditions.
+Once the assessment is moved into the incremental execution processes of migration, the Cloud Adoption Team can iterate on assessment and architecture faster. At this stage, the Cloud Strategy Team is also abstracted, reducing the drain on their time. This also allows the Cloud Strategy Team to remain focused on prioritization of the applications that are not yet in a specific release, thus ensuring tight alignment with changing market conditions.
 
 > [!NOTE]
 > Not all ten of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs qualitative analysis.
@@ -96,11 +96,11 @@ Once the assessment is moved into the incremental execution processes of migrati
 > Some releases may group together a small number of workloads. Others may just be a single workload.
 
 > [!NOTE]
-> The Cloud Migration Team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload & the less dependencies, the more likely a workload is to fit into a single sprint or iteration.
+> The Cloud Adoption Team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload & the less dependencies, the more likely a workload is to fit into a single sprint or iteration.
 
 ## Incremental Rationalization: End State
 
-As time progresses, the combination of the Cloud Migration Team and the Cloud Strategy Team will complete a full rationalization of the inventory. However, this incremental approach will allow the team to get continually faster at the rationalization process. It will also allow the Transformation Journey to yield tangible business results sooner, without as large of an upfront analysis effort.
+As time progresses, the combination of the Cloud Adoption Team and the Cloud Strategy Team will complete a full rationalization of the inventory. However, this incremental approach will allow the team to get continually faster at the rationalization process. It will also allow the Transformation Journey to yield tangible business results sooner, without as large of an upfront analysis effort.
 
 ![Rationalization end result](../_images/rationalization-end-result.png)
 *Figure 5. Rationalization end result*

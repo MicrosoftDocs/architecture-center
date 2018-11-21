@@ -94,7 +94,7 @@ There are several different states of data with different encryption needs to co
 Data in transit is data moving between resources on the internal, between
 datacenters or external networks, or over the internet.
 
-Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you cloud migration team and workload owner, but is generally recommended.
+Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you Cloud Adoption Team and workload owner, but is generally recommended.
 
  **Encrypting Data in Transit Assumptions:** Implementing proper encryption policy for data in transit assumes the following:
 

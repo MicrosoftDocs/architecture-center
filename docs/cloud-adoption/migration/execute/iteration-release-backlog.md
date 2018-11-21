@@ -15,7 +15,7 @@ This article assumes, migration processes are incremental in nature, running par
 
 For relative reference, a release backlog is a subset of a [Migration Backlog](../plan/migration-backlog.md).
 
-This artifact consists of a series of assets (VMs, Databases, files, etc...) that must be migrated before a workload can be released for production usage in the cloud. During each iteration, the cloud migration team will document and estimate the efforts required to move each asset to the cloud. See Iteration Backlog below.
+This artifact consists of a series of assets (VMs, Databases, files, etc...) that must be migrated before a workload can be released for production usage in the cloud. During each iteration, the Cloud Adoption Team will document and estimate the efforts required to move each asset to the cloud. See Iteration Backlog below.
 
 Once all assets have been replicated to the cloud, the workload is ready for [Staging](stage.md), [UAT Testing](uat-test.md), & other activities required to [Promote to production](promote.md).
 
@@ -25,9 +25,9 @@ For relative reference, an iteration backlog is a subset of a release backlog. I
 
 An iteration backlog is a list of the detailed work required to migrate a specific number of digital assets to the cloud. This list is often stored in an agile management tool, like Azure DevOps, as Work Items.
 
-Prior to starting the first iteration, the cloud migration team will specify an iteration duration, usually 2-4 weeks. This time box is important to create a start and finish time period for each set of committed activities. Maintaining consistent execution windows makes it easy to gauge velocity (pace of migration) and alignment to evolving business needs.
+Prior to starting the first iteration, the Cloud Adoption Team will specify an iteration duration, usually 2-4 weeks. This time box is important to create a start and finish time period for each set of committed activities. Maintaining consistent execution windows makes it easy to gauge velocity (pace of migration) and alignment to evolving business needs.
 
-Prior to each iteration, the team will review the Release backlog, estimating the effort and priorities of assets to be migrated. The team then commits to deliver a set amount of agreed upon migrations. Once agreed by the cloud migration team, the list of activities become the **Current Iteration Backlog**.
+Prior to each iteration, the team will review the Release backlog, estimating the effort and priorities of assets to be migrated. The team then commits to deliver a set amount of agreed upon migrations. Once agreed by the Cloud Adoption Team, the list of activities become the **Current Iteration Backlog**.
 
 During each iteration, team members will work as a self-organizing team to fulfill commitments in the Current Iteration Backlog.
 

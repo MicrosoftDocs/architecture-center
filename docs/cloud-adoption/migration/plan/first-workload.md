@@ -18,7 +18,7 @@ Speed to the successful deployment of the first workload is one of the most powe
 The first workload create a number of learning opportunities. The following are few that the team should be looking for during and after deployment:
 
 * Planning and analysis validation: When the first workload goes live, the Cloud Strategy Team can observe end user responses to validate plans and qualitative analysis processes.
-* Deployment model validation: The first workload allows the Cloud Migration Team validation technologies used to deploy the workload.
+* Deployment model validation: The first workload allows the Cloud Adoption Team validation technologies used to deploy the workload.
 * Pricing Validation: Once the workload is deployed, assets will likely require resizing to meeting performance expectations. The before and after sizing can aid in adjusting sizing and costing estimates.
 * Network Validation: Access of the workload can expose network deficits or limitations in the Wide Area Network (WAN) used to access the cloud network. Resolution of these deficits can delay transformation by weeks even months.
 * Skill deficits: It is unlikely the team has organically amassed all of the skills needed to be proficient in cloud migration activities. The first workload will help the team expose these deficits and obtain early training to overcome the deficits quickly.
@@ -27,7 +27,7 @@ The first workload create a number of learning opportunities. The following are 
 
 ## Cultural Readiness
 
-Moving quickly to the first workload demonstrates commitment and inspires the Cloud Migration Team to adopt a Growth Mindset. Speed in adopting the first workload sets a tone for the remainder of the remainder of the Transformation Journey. The greatest impact IT leadership can have in the planning cycle, is a push to get the team to the first workload, with a sincere interest in collecting the learnings from the expected shortcoming of the first workload.
+Moving quickly to the first workload demonstrates commitment and inspires the Cloud Adoption Team to adopt a Growth Mindset. Speed in adopting the first workload sets a tone for the remainder of the remainder of the Transformation Journey. The greatest impact IT leadership can have in the planning cycle, is a push to get the team to the first workload, with a sincere interest in collecting the learnings from the expected shortcoming of the first workload.
 
 Individuals who are resistent to the first workload deployment are likely to be resistent to transformation throughout the process. It also identifies fiefdoms, silos, and guarded mindsets that are resistent to the types of change seen in a business or Cloud Transformation. Identifying these types of cultural roadblocks early is crucial. It provides an opportunity to retrain people on adoption of a growth mindset.
 

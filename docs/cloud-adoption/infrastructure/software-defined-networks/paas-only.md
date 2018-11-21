@@ -17,7 +17,7 @@ For Platform as a Service (PaaS) implementations, your deployment may not need a
 - This PaaS application is not part of a broader cloud adoption initiative
 
 > [!TIP]
-> The above assumptions are minimum qualifiers aligned to a PaaS Only network. While this approach may fit the requirements of a single application deployment, your cloud migration team should think about some longer-term questions: 
+> The above assumptions are minimum qualifiers aligned to a PaaS Only network. While this approach may fit the requirements of a single application deployment, your Cloud Adoption Team should think about some longer-term questions: 
 >- Will this deployment expand in scope or scale to require access to other non-PaaS resources? 
 >- Are other PaaS deployments planned beyond the current solution? 
 >- Does the organization have plans for other future cloud migrations? 

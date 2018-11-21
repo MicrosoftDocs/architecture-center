@@ -1,30 +1,71 @@
 ---
-title: "Fusion: What is cloud resource access governance?"
-description: Explanation of the concept of resource access governance on Azure
-author: petertaylor9999
-ms.date: 09/10/2018
+title: "Fusion: How can a company add Resource Management discipline to their Cloud Governance execution?"
+description: Explanation of the concept Resource management in relation to cloud governance
+author: BrianBlanchard
+ms.date: 10/10/2018
 ---
 
-# Fusion: What is cloud resource access governance?
+# Fusion: How can a company add Resource Management discipline to their Cloud Governance execution?
 
-![Evolution of the Resource Management Discipline across various phases of adoption](../../_images/governance-discipline-resource-management.png)
+In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the Five Disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the Five Disciplines of Cloud Governance, Resource management includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
-*Figure 1. Evolution of Resource Management discipline across various phases of adoption
+This article outlines different phases of Resource Management evolution, as a company goes through increments of Planning, Building, Adopting, and Operating a cloud solution. It is impossible for any document collection to account for the various requirements of any business. As such, each section outlines a minimum suggested activity and a number of potential activities. The objective of each set of activities is to help build a [Policy MVP](../policy-compliance/overview.md), but establish a framework for [Incremental Policy](../policy-compliance/overview.md) evolution. The Cloud Governance Team should decide how much to invest in the potential activities to improve the Resource Management position.
 
+> [!CAUTION]
+> Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-In [how does Azure work?](../../getting-started/what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
+![Evolution of the Configuration Management Discipline across various phases of adoption](../../_images/governance-discipline-configuration-management.png)
 
-However, while giving unrestricted resource access to developers can make them very agile, it can also lead to unintended cost consequences. For example, a development team might be approved to deploy a set of resources for testing but forget to delete them when testing is complete. These resources will continue to accrue costs even though their use is no longer approved or necessary. 
+*Figure 1. Evolution of Configuration Management discipline across various phases of adoption
 
-The solution to this problem is resource access **governance**. [Cloud Governance](../overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management, resource access governance is one component of the resource management discipline. 
+## Planning & Readiness
 
-These goals and requirements are unique to each organization so it's not possible to have a one-size-fits-all approach to governance. Rather, Azure implements two primary governance tools, **resource based access control (RBAC)**, and **resource policy**, and it's up to each organization to design their governance model using them.
+While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-RBAC defines roles, and roles define the capabilities for a user that is assigned the role. For example, the **owner** role enables all capabilites (create, read, update, and delete) for a resource, while the  **reader** roles enables only the read capability. Roles can be defined with a broad scope that applies to many resources types, or a narrow scope that applies to a few. 
+**Minimum Suggested Activities**
 
-Resource policies define rules for resource creation. For example, a resource policy can limit the SKU of a VM to a particular pre-appproved size. Or, a resource policy can enforce the addition of a tag with a cost center when the request is made to create the resource. 
+* Evaluate [Tool Chain](toolchain.md) options
+* Develop and surface a draft of Architecture Guidelines
+* Educate and involve the teams impacted in the development of Architecture Guidelines
 
-When configuring these tools, an important consideration is balancing governance versus organizational agility. That is, the more restrictive your governance policy, the less agile your developers and IT workers become. This is because a restrictive goverance policy may require more manual steps, such as requiring a developer to fill out a form or send an email to a person on the governance team to manually create a resource. The governance team has finite capabilities and may become backlogged, resulting in unproductive development teams waiting for their resources to be created and unneeded resources accruing costs while they wait to be deleted.
+**Potential Activities**
+
+## Build / Pre-Deployment
+
+While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+
+**Minimum Suggested Activities**
+
+* Implement [Tool Chain](toolchain.md)
+* Update Architecture Guidelines
+* Educate teams impacted in the Architecture Guidelines
+
+**Potential Activities**
+
+## Adopt / Migrate
+
+While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+
+**Minimum Suggested Activities**
+
+* Adjust [Tool Chain](toolchain.md)
+* Adjust Architecture Guidelines
+* Educate teams impacted in the Architecture Guidelines
+
+**Potential Activities**
+
+## Operate / Post-Implementation
+
+Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+
+**Minimum Suggested Activities**
+
+* Customize [Tool Chain](toolchain.md)
+* Automate [Tool Chain](toolchain.md)
+* Refine Architecture Guidelines to guide future adoption processes
+* Re-Educate impacted teams on a periodic basis to ensure on-going adherence to Architecture Guidelines
+
+**Potential Activities**
 
 ## Next steps
 

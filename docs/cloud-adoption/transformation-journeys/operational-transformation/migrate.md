@@ -24,7 +24,7 @@ During each increment/sprint, activities are aligned to specific technical execu
 * [Architect](../migration/execute/architect.md): Determine the future state architecture and workload configuration based on constraints, cost, and business value.
 * [Remediate](../migration/execute/remediate.md): Resolve any compatibility issues preventing migration. Complete minor replatforming tasks, when relevant to architecture decisions.
 * [Replicate](../migration/execute/replicate.md): Replicate the OS, Configuration, and/or Data to the cloud hosting solution.
-* [Stage](../migration/execute/stage.md): Prepare the migrated resources in a staging environment, so that the application or workload can be tested by the Cloud Migration Team, power users, and/or business stakeholders.
+* [Stage](../migration/execute/stage.md): Prepare the migrated resources in a staging environment, so that the application or workload can be tested by the Cloud Adoption Team, power users, and/or business stakeholders.
 
 # Activities outside of the sprint or increment scope
 
@@ -36,7 +36,7 @@ The following activities align help expand the business vision and build the rel
 
 * [UAT Testing](../migration/execute/uat-test.md): During this process, power users and business stakeholders test applications that are slated for release to validate functionality and performance.
 * [User Adoption Plan](../migration/execute/user-adoption-plan.md): Once an application/workload has passed UAT testing, the business unit begins planning the business transformation activities required to adopt the new technical solution. This plan manages the actual business change.
-* [Business Priorities](../migration/execute/business-priorities.md): At the end of each iteration, the business stakeholders provide any updates to business outcomes and priorities. These changes influence the migration, release, and iteration backlog. Aligning the migration backlog to changing business priorities allows the Cloud Migration Team to align activities for maximum impact.
+* [Business Priorities](../migration/execute/business-priorities.md): At the end of each iteration, the business stakeholders provide any updates to business outcomes and priorities. These changes influence the migration, release, and iteration backlog. Aligning the migration backlog to changing business priorities allows the Cloud Adoption Team to align activities for maximum impact.
 
 ## Culture Activities
 
@@ -44,8 +44,8 @@ The following activities align help expand the business vision and build the rel
 
 ## Technology Activities
 
-* [Ready](../migration/execute/ready.md): Once an application or workload passes UAT testing, the Cloud Migration Team prepares the deployment for production usage. Depending on deployment strategies, this could include tasks like sizing, network changes, Backup/Disaster Recovery setup, etc...
-* [Promote](../migration/execute/promote.md): When all assets are ready for production and the User Adoption Plan has been prepared, the workload is ready for production. In this stage, the Cloud Migration team re-routes network traffic to the assets hosted in the cloud and initiates the decomissioning process for the on-prem assets.
+* [Ready](../migration/execute/ready.md): Once an application or workload passes UAT testing, the Cloud Adoption Team prepares the deployment for production usage. Depending on deployment strategies, this could include tasks like sizing, network changes, Backup/Disaster Recovery setup, etc...
+* [Promote](../migration/execute/promote.md): When all assets are ready for production and the User Adoption Plan has been prepared, the workload is ready for production. In this stage, the Cloud Adoption Team re-routes network traffic to the assets hosted in the cloud and initiates the decomissioning process for the on-prem assets.
 * [Retrospective](../migration/execute/retrospective.md): At the end of each iteration, the cloud migration and cloud governance teams share lessons learned & challenges that could be improved in future iterations.
 
 ## Next steps

@@ -23,7 +23,7 @@ Sadly, the true business risks will be based on the what & how behind specific t
 
 * Cost Risk: Cost models change in the Cloud. This change can create risks associated with cost overruns or increases in Cost of Goods Sold (COGS), especially directly attributed operational expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, projects, etc... [Cost Management] provides examples of ways Business and IT can partner on this topic.
 
-The above are a few of the most common risks mentioned by customers. The Cloud Governance Team and Cloud Migration Team can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, &/or mitigate risks based on the desired business outcomes and transformation effort.
+The above are a few of the most common risks mentioned by customers. The Cloud Governance Team and Cloud Adoption Team can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, &/or mitigate risks based on the desired business outcomes and transformation effort.
 
 # Understanding Risk Tolerance
 
