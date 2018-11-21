@@ -88,7 +88,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Deploy resources
 
-1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
+1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
 
 2. Run the following command:
 
