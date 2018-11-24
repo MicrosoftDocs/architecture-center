@@ -76,7 +76,7 @@ Once the transformation is complete, governance and operations must live on for 
 **Minimum Suggested Activities**
 
 * Customize [Tool Chain](toolchain.md)
-* Automate [Tool Chain](toolchain.md)
+* Automate [Tool Chain](toolchain.md) notifications and reports
 * Refine Architecture Guidelines to guide future adoption processes
 * Re-Educate impacted teams on a periodic basis to ensure on-going adherence to Architecture Guidelines
 

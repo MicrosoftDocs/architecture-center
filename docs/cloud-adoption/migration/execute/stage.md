@@ -14,6 +14,10 @@ The [Migration section](../overview.md) of the [Fusion framework](../../overview
 
 Coming Soon...
 
+How is a staged environment used in the cloud? Why is it important?
+
+How does ASR stage the replicated content for testing? How can people interact with that staged environment? What is unique about the staged workload that wouldn't persist to promotion?
+
 ## Next steps
 
 Once Staging is complete, [UAT Testing](uat-test.md) can begin.
