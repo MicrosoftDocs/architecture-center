@@ -1,11 +1,11 @@
 ---
-title: "Fusion: governance overview"
+title: "Fusion: What is Cloud Governance?"
 description: Overview of governance content for Azure Fusion
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Fusion: Governance overview
+# Fusion: What is Cloud Governance?
 
 Governance is a broadly used term. Throughout the Fusion framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is vital to ensure Cloud Adoption is safely governed.
 

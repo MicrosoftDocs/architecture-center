@@ -1,47 +1,39 @@
 ---
-title: "Fusion: Migration Execution"
+title: "Fusion: How do retrospectives help build a Growth Mindset?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Migration Execution
+# Fusion: How do retrospectives help build a Growth Mindset?
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
-  
-In this process, the Cloud Adoption Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
-![Migration Execution Process and related activities](../../_images/migration-execute.png)
-*Figure 1. Migration Execution Process and related activities.*
+"Culture eats strategy for breakfast". The best migration plan can easily be undone without executive support and encouragement from leadership. Learning, Growing, and even Failure are at the heart of a growth mindset. They are also at the heart of any transformation effort.
 
-Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [incremental change management](../plan/incremental-change-management.md) is available in the [Plan process](../plan/overview.md) of this framework.
+Humility and curiosity have never been more important than they are during a business transformation. Embracing digital transformation requires both in ample supply. These traits are strengthened by regular introspection and environment of encouragement. When employees are encouraged to take risks, they will find better solutions. When employees are allowed to fail & learn, they will succeed. Retrospectives are an opportunity for such investigation and growth.
 
-This process assumes that a re-host or re-platform model of migration (often referred to as a "Lift & Shift") is most appropriate for the workloads or applications being migrated. This will be validated during the "Architect" activity of this process, see activity #2 below. For other approaches to migration, see the [rationalize process](../plan/rationalize.md).
+Retrospectives re-enforce the principles of a growth mindset: Experimentation, Testing, Learning, Sharing, Growing, and Empowering. They provide a safe place for team members to share the challenges faced in the current sprint. It allows the team to discuss and collaborate on ways to overcome those challenges. It empowers the team to create sustainable growth.
 
-## Activities and Functions
+## Retrospective structure
 
-The Migrate process consists of the following activities:
+A quick search on any search engine will review many different approaches and tools for running a retrospective. Depending on the maturity of the culture and experience level of the team, these could prove very useful. However, the general structure of a retrospective remains roughly the same. During these meetings, each member of the team is expected to contribute a thought regarding 3 basic questions. What went well? What could have gone better? What did we learned?
 
-* Iteration or Release Backlog: Creation of a detailed plan to guide the work completed during a single iteration or a workload release.
+While these questions are simple in nature, they require employees to pause and reflect on their work over the last iteration. This small pause for introspection is the primary building block of a Growth Mindset. The humility and honesty produced when sharing the answers can become infectious beyond the time contract for the retrospective meeting.
 
-Iteration Activities: Completed in every iteration regardless of release timing
+## Leadership's role in a retrospective
 
-* [Assess](assess.md): Evaluate the workload and associated assets (VMs, DBs, source, etc...) to validate Azure compatibility, identify any necessary remediation, and refine plans for work to be completed.
-* [Architect](architect.md): Evaluate dependencies required to operate the workload. Assert final architecture decisions regarding the hosting strategy for the chosen workload.
-* [Remediate](remediate.md): Assessment or Architecture outputs will often identify basic changes required before deploying a workload. Such as, OS upgrades. This activity focuses on implementing those changes prior to migration. In some rare cases, remediation may require a parallel iteration/sprint of it's own to maintain velocity (pace of execution).
-* [Replicate](replicate.md): Once an asset is ready for migration, it must be replicated to the desired cloud architecture. The article on this activity will describe the tools and approaches that can support replication to Azure.
+The topic of leadership involvement in a retrospective is highly debated. Many technical teams suggest that leaders of any level should not be involved in the process, as it could discourage transparency and open dialogue. Others suggest that retrospectives are a good place for leaders to stay connected and find ways to provide additional support. This decision is one that is best left to the team & their leadership structure.
 
-Release Activities: During iterations in which a release is to be tested or promoted, the following activities are also likely to be executed, in addition to standard iteration activities:
+If leaders are involved in retrospective, one role is highly encouraged. The leader's primary duty in a retrospective is make the team feel safe. Creating a Growth Mindset within a culture requires employees to be free to share their failures and successes without fear of rebuke. Leaders who applaud the courage and humility, required to admit shortcomings, are more likely to see a Growth Mindset established in their teams. When leaders take action on data points shared in a retrospective, they are likely to see this tool become an ineffective formality.
 
-* [Stage](stage.md): Once all assets required to operate a workload have been replicated to Azure, the workload can be staged for release.
-* [UAT Testing](uat-test.md): Staged workload can be tested by power users to validate function and performance.
-* [User Adoption Plan](user-adoption-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
-* [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
-* [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
-* [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
+## Lessons Learned
 
-## Next steps
+Highly effective teams don't just run retrospective meetings. They live retrospective processes. The lessons learned and shared in these meetings can influence process, shape future work, and help the team execute more effectively. Lessons learned in a retrospective should help the team grow organically. The primary bi-product of a retrospective is an increase in experimentation and refinement of the lessons learned by the team.
 
-To begin executing the Migrate process, [Assess activities](assess.md) could be a good place to learn more.
+That new growth is most tangibly represented in changes to the release or iteration backlog.
+
+## Next steps: Adjust Release and Iteration Backlogs
+
+As teams gain experience and learn lessons, [adjust the release and iteration backlog](iteration-release-backlog.md) to reflect new processes and experiments to be tested.
 
 > [!div class="nextstepaction"]
-> [Assess Inventory](assess.md)
+> [Adjust the release and iteration backlog](iteration-release-backlog.md)

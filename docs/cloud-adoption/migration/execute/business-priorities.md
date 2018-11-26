@@ -1,47 +1,37 @@
 ---
-title: "Fusion: Migration Execution"
+title: "Fusion: During a long term transformation process, how can business priorities stay aligned?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Migration Execution
+# Fusion: Why do business priorities and technical priorities become misaligned?
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
-  
-In this process, the Cloud Adoption Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
-![Migration Execution Process and related activities](../../_images/migration-execute.png)
-*Figure 1. Migration Execution Process and related activities.*
+Transformation seldom happens overnight. A single application or workload can be migrated quickly. Sometimes groups of applications can even be migrated relatively quickly. However, it takes time to train users. It takes even longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take even longer to produce significant results.
 
-Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [incremental change management](../plan/incremental-change-management.md) is available in the [Plan process](../plan/overview.md) of this framework.
+Unfortunately, the market doesn't wait for businesses to evolve. Consumer behavior patterns change on their own, often times unexpectedly. The market's perception of a company and its products can be swayed by social media or a competitor's positioning. Fast and unexpected market changes require companies to be nimble and responsive.
 
-This process assumes that a re-host or re-platform model of migration (often referred to as a "Lift & Shift") is most appropriate for the workloads or applications being migrated. This will be validated during the "Architect" activity of this process, see activity #2 below. For other approaches to migration, see the [rationalize process](../plan/rationalize.md).
+Maintaining stability in processes and technical efforts, requires a consistent stable effort. Responding to market conditions requires quick decisions and nimble actions. These two are at odds, making it easy for priorities to fall out of alignment.
 
-## Activities and Functions
+## How can business and technical priorities stay aligned during a migration?
 
-The Migrate process consists of the following activities:
+The Cloud Adoption Team and Cloud Governance Team focus on the execution of the current iteration and current release. Iterations provide stable increments of technical work. This avoids costly disruptions that would otherwise slow the progress of migration efforts. Releases ensure that the technical effort and energy stays focused on a business objective (applications or workloads). A migration project could require many releases over an extended period of time. By the time a migration project is completed, market conditions have likely changed significantly.
 
-* Iteration or Release Backlog: Creation of a detailed plan to guide the work completed during a single iteration or a workload release.
+In parallel, the Cloud Strategy Team focuses on executing the business change plan and preparing for the next release. The strategy team generally looks at least one release ahead. The strategy team monitors for changing market conditions and adjusts the migration backlog accordingly. This focus of managing transformation and adjusting the plan creates natural pivots around the technical work. When business priorities change, adoption is only one release behind, creating technical and business agility.
 
-Iteration Activities: Completed in every iteration regardless of release timing
+## Business Alignment Questions
 
-* [Assess](assess.md): Evaluate the workload and associated assets (VMs, DBs, source, etc...) to validate Azure compatibility, identify any necessary remediation, and refine plans for work to be completed.
-* [Architect](architect.md): Evaluate dependencies required to operate the workload. Assert final architecture decisions regarding the hosting strategy for the chosen workload.
-* [Remediate](remediate.md): Assessment or Architecture outputs will often identify basic changes required before deploying a workload. Such as, OS upgrades. This activity focuses on implementing those changes prior to migration. In some rare cases, remediation may require a parallel iteration/sprint of it's own to maintain velocity (pace of execution).
-* [Replicate](replicate.md): Once an asset is ready for migration, it must be replicated to the desired cloud architecture. The article on this activity will describe the tools and approaches that can support replication to Azure.
+Prior to any release planning, the Cloud Strategy Team should ask four simple questions of the migration backlog. Are the top 10 applications or workloads ready for migration? Does the Cloud Adoption Team and Cloud Governance Team have all of the necessary data to be successful? Does the application at the top of the list deliver the most relevant impact for the business in the next release? Are there other applications that should be at the top of the list?
 
-Release Activities: During iterations in which a release is to be tested or promoted, the following activities are also likely to be executed, in addition to standard iteration activities:
+## Tangible actions
 
-* [Stage](stage.md): Once all assets required to operate a workload have been replicated to Azure, the workload can be staged for release.
-* [UAT Testing](uat-test.md): Staged workload can be tested by power users to validate function and performance.
-* [User Adoption Plan](user-adoption-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
-* [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
-* [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
-* [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
+During the execution of the Business Change Plan, the Cloud Strategy Team monitors for positive and negative results. When those observations require technical change, the adjustments are added as work items to the release backlog to be prioritized in the next iteration.
 
-## Next steps
+When the market changes, the Cloud Strategy Team works with the business to understand how to best respond to the changes. When that response requires a change in migration priorities, the migration backlog is adjusted. This moves up applications that were previously lower in priority.
 
-To begin executing the Migrate process, [Assess activities](assess.md) could be a good place to learn more.
+## Next steps: Adjust Release and Iteration Backlogs
+
+As changing business conditions are understood, [adjust the release and iteration backlog](iteration-release-backlog.md) to reflect current business priorities.
 
 > [!div class="nextstepaction"]
-> [Assess Inventory](assess.md)
+> [Adjust the release and iteration backlog](iteration-release-backlog.md)
