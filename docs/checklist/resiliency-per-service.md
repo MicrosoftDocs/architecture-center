@@ -134,7 +134,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 **Put each application tier into a separate Availability Set.** In an N-tier application, don't put VMs from different tiers into the same availability set. VMs in an availability set are placed across fault domains (FDs) and update domains (UD). However, to get the redundancy benefit of FDs and UDs, every VM in the availability set must be able to handle the same client requests.
 
-**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR][site-recovery]. You can conduct no impact DR drills as many times as you want without impacting the production application or the ongoing replication.
+**Replicate VMs using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without impacting the production application or the ongoing replication. For more information, see [Run a disaster recovery drill to Azure][site-recovery-test].
 
 **Choose the right VM size based on performance requirements.** When moving an existing workload to Azure, start with the VM size that's the closest match to your on-premises servers. Then measure the performance of your actual workload with respect to CPU, memory, and disk IOPS, and adjust the size if needed. This helps to ensure the application behaves as expected in a cloud environment. Also, if you need multiple NICs, be aware of the NIC limit for each size.
 
@@ -163,7 +163,9 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 [diagnostics-logs]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs/
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [search-optimization]: /azure/search/search-performance-optimization/
+[site-recovery]: /azure/site-recovery/
+[site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
 [sql-backup]: /azure/sql-database/sql-database-automated-backups/
 [sql-restore]: /azure/sql-database/sql-database-recovery-using-backups/
 [vm-manage-availability]: /azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
+

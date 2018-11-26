@@ -38,7 +38,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If you have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
 
-**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** To maximize availability, replicate all your virtual machines into another Azure region using ASR. Ensure that all the VMs across all the tiers of your application are replicated. In the event of a disruption in source region, you can failover the VMs into the other region within minutes.
+**Replicate VMs using Azure Site Recovery.** To maximize availability, replicate all your virtual machines into another Azure region using [Site Recovery][site-recovery]. Ensure that all the VMs across all the tiers of your application are replicated. If there is a disruption in the source region, you can failover the VMs into the other region within minutes.
 
 ## Data management
 
@@ -50,7 +50,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Use periodic backup and point-in-time restore**. Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Ensure that backups meet your Recovery Point Objective (RPO). Data replication is not a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../resiliency/recovery-data-corruption.md)
 
-**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR][site-recovery].
+**Replicate VM disks using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you an RPO in the order of minutes. 
 
 ## Errors and failures
 
@@ -70,13 +70,17 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Monitor system health by implementing checking functions.** The health and performance of an application can degrade over time, without being noticeable until it fails. Implement probes or check functions that are executed regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for individual services that the application uses, or for individual components. Check functions can execute processes to ensure they produce valid results, measure latency and check availability, and extract information from the system.
 
-**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime. If you are using [Azure Site Recovery (ASR)][site-recovery] to replicate Azure virtual machines, ensure you run DR drills periodically using 'Test failover' feature of ASR.
+**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, run disaster recovery drills periodically by doing a test failover. For more information, see [Run a disaster recovery drill to Azure][site-recovery-test].
 
 **Test the monitoring systems.** Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards, all depend on monitoring and instrumentation functioning correctly. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
 
 **Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor Pattern](../patterns/scheduler-agent-supervisor.md).
 
-**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery (ASR)][site-recovery] to replicate Azure virtual machines, ensure you create a fully automated ASR recovery plan to failover the entire application within minutes.
+**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, create a fully automated ASR recovery plan to failover the entire application within minutes.
+
 <!-- links -->
+
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
+[site-recovery]: /azure/site-recovery/
+[site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
+

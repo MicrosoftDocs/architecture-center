@@ -37,7 +37,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Use Availability Sets for each application tier.** Placing your instances in an [availability set][availability-sets] provides a higher [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
-**Replicate virtual machines (VMs) using Azure Site Recovery (ASR).** When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you Recovery Point Objective (RPO) in the order of minutes. For more details, see [Replicate Azure VMs using ASR][site-recovery].
+**Replicate VMs using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes.
 
 **Consider deploying your application across multiple regions.** If your application is deployed to a single region, in the rare event the entire region becomes unavailable, your application will also be unavailable. This may be unacceptable under the terms of your application's SLA. If so, consider deploying your application and its services across multiple regions. A multi-region deployment can use an active-active pattern (distributing requests across multiple active instances) or an active-passive pattern (keeping a "warm" instance in reserve, in case the primary instance fails). We recommend that you deploy multiple instances of your application's services across regional pairs. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
@@ -60,7 +60,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Data management
 
-**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. When you replicate Azure VMs using ASR, all the VM disks are continuously replicated to the DR target region asynchronously. The recovery points are created every few minutes i.e. your Recovery Point Objective (RPO) will be in the order of minutes. For more details, see [Replicate Azure VMs using ASR][site-recovery].
+**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. If you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. 
 
 **Ensure that no single user account has access to both production and backup data.** Your data backups are compromised if one single user account has permission to write to both production and backup sources. A malicious user could purposely delete all your data, while a regular user could accidentally delete it. Design your application to limit the permissions of each user account so that only the users that require write access have write access and it's only to either production or backup, but not both.
 
@@ -83,7 +83,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Testing
 
-**Perform failover and failback testing for your application.** If you haven't fully tested failover and failback, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover and fail back in the correct order. If you are using [Azure Site Recovery (ASR)][site-recovery] to replicate Azure virtual machines, ensure you run DR drills periodically using 'Test failover' feature of ASR.
+**Perform failover and failback testing for your application.** If you haven't fully tested failover and failback, you can't be certain that the dependent services in your application come back up in a synchronized manner during disaster recovery. Ensure that your application's dependent services failover and fail back in the correct order. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, run disaster recovery drills periodically by doing a test failover. For more information, see [Run a disaster recovery drill to Azure][site-recovery-test].
 
 **Perform fault-injection testing for your application.** Your application can fail for many different reasons, such as certificate expiration, exhaustion of system resources in a VM, or storage failures. Test your application in an environment as close as possible to production, by simulating or triggering real failures. For example, delete certificates, artificially consume system resources, or delete a storage source. Verify your application's ability to recover from all types of faults, alone and in combination. Check that failures are not propagating or cascading through your system.
 
@@ -172,7 +172,9 @@ Resiliency is the ability of a system to recover from failures and continue to f
 [resource-manager]: /azure/azure-resource-manager/resource-group-overview/
 [retry-pattern]: ../patterns/retry.md
 [retry-service-guidance]: ../best-practices/retry-service-specific.md
+[site-recovery]: /azure/site-recovery/
+[site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
 [traffic-manager]: /azure/traffic-manager/traffic-manager-overview/
 [traffic-manager-routing]: /azure/traffic-manager/traffic-manager-routing-methods/
 [vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview/
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
+
