@@ -90,3 +90,4 @@ When running a hybrid ETL workload, you must factor in the cost of the virtual m
 [docs-data-factory]: /azure/data-factory/introduction
 [docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [docs-ssis]: /sql/integration-services/sql-server-integration-services
+[docs-sql-data-warehouse]: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
