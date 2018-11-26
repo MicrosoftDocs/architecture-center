@@ -13,4 +13,4 @@ Coming soon.
 Learn  how [naming and tagging ](../resource-tagging/vdc-naming.md) are used to organize resources and improve management and access control of assets within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Naming and Tagging](../resource-tagging/vdc-naming.md)
+> [Azure Virtual Datacenter: Naming and Tagging](../resource-tagging/vdc-naming.md)

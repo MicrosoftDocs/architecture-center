@@ -13,4 +13,4 @@ Coming soon.
 Learn how the Azure Virtual Datacenter [networking infrastructure](../encryption/vdc-encryption.md) enables secure, centrally managed, access between on-premises and cloud resources.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Encryption](../encryption/vdc-encryption.md)
+> [Azure Virtual Datacenter: Encryption](../encryption/vdc-encryption.md)

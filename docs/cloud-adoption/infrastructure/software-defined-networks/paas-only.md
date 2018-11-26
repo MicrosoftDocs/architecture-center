@@ -1,6 +1,6 @@
 ---
 title: "Fusion: Software Defined Networks - PaaS Only" 
-description: Discussion of the PaaS Only model for cloud based networking functionalty.
+description: Discussion of the PaaS Only model for cloud based networking functionality.
 author: rotycenh
 ms.date: 11/07/2018
 ---
@@ -11,9 +11,9 @@ For Platform as a Service (PaaS) implementations, your deployment may not need a
 
 **PaaS Only Assumptions:** Deploying a PaaS Only network assumes the following:
 
-- The application being deployed is a stand alone application OR is dependent only on other PaaS solutions
+- The application being deployed is a standalone application OR is dependent only on other PaaS solutions
 - The application being deployed does not have any dependencies on existing on-prem or IaaS resources
-- The operations team supporting the application once it goes to production has implemented tooling or processes required to support a stand alone PaaS application
+- The operations team supporting the application once it goes to production has implemented tooling or processes required to support a standalone PaaS application
 - This PaaS application is not part of a broader cloud adoption initiative
 
 > [!TIP]
@@ -22,7 +22,7 @@ For Platform as a Service (PaaS) implementations, your deployment may not need a
 >- Are other PaaS deployments planned beyond the current solution? 
 >- Does the organization have plans for other future cloud migrations? 
 > 
-> The answers to these questions would not preclude a team from choosing a PaaS only option, but should be considered before making this decision.
+> The answers to these questions would not preclude a team from choosing a PaaS only option but should be considered before making this decision.
 
 ## Next steps
 

@@ -7,15 +7,9 @@ ms.date: 11/08/2018
 
 # Fusion: Software Defined Networks - Virtual datacenters
 
-A virtual datacenter architecture is designed to assist enterprises in
-deploying a large number of workloads to public cloud platform while still
-preserving key aspects of existing access control, policy compliance, and
-governance across your entire organization. Building off the connectivity
-provided by the hybrid cloud model, a virtual datacenter adds management, access
-control, and traffic management capabilities.
+A virtual datacenter architecture is designed to assist enterprises in deploying a large number of workloads to public cloud platform while still preserving key aspects of existing access control, policy compliance, and governance across your entire organization. Building off the connectivity provided by the hybrid cloud model, a virtual datacenter adds management, access control, and traffic management capabilities.
 
-The most common virtual datacenter model is built around a hub and spoke
-arrangement composed of multiple virtual networks. These networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass resource limits.
+The most common virtual datacenter model is built around a hub and spoke arrangement composed of multiple virtual networks. These networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass resource limits.
 
 The virtual datacenter model supports connecting hub and spoke networks across geo-regions. However, connecting between geo-regions has the potential to introduce higher latency than would be the case if all networks were in the same geo-region, and this potential latency would need to be accounted for in your network and workload planning.
 
@@ -78,4 +72,4 @@ extension.
 Learn  how [monitoring and reporting](../logs-and-reporting/vdc-monitoring.md) are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Monitoring, Reporting, and Compliance](../logs-and-reporting/vdc-monitoring.md)
+> [Azure Virtual Datacenter: Monitoring, Reporting, and Compliance](../logs-and-reporting/vdc-monitoring.md)

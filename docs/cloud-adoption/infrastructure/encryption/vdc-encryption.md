@@ -39,4 +39,4 @@ Azure Key Vault is the primary mechanism for managing encryption within a VDC. K
 Learn how the Azure Virtual Datacenter [networking infrastructure](../software-defined-networks/vdc-networking.md) enables secure, centrally managed access between on-premises and cloud resources, while isolating VDC networks from the public internet and other Azure hosted networks.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Networking](../software-defined-networks/vdc-networking.md)
+> [Azure Virtual Datacenter: Networking](../software-defined-networks/vdc-networking.md)

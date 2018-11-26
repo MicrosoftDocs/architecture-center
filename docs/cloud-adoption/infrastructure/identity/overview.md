@@ -20,7 +20,7 @@ Jump to: [Determine Identity Integration Requirements](#determine-identity-integ
 
 There are a number of ways to deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design can provide clarity on the three SaaS enabled solutions. 
 
-The inflection point (between a SaaS enabled solution & a solution that requires both IaaS and SaaS components) is less abut future state design and more driven by current state constraints. When migrating legacy applications that are not compatible with Claims based authentication, a replication of the current Identity directory may be required. Additionally, complex forest or Customized OUs could require replication of AD as well. (See AD DS Comparison for details). If Directory Replication is required for a Global solution, complexities rise significantly.
+The inflection point (between a SaaS enabled solution & a solution that requires both IaaS and SaaS components) is less about future state design and more driven by current state constraints. When migrating legacy applications that are not compatible with Claims based authentication, a replication of the current Identity directory may be required. Additionally, complex forest or Customized OUs could require replication of AD as well. (See AD DS Comparison for details). If Directory Replication is required for a Global solution, complexities rise significantly.
 
 
 ## Determine Identity Integration Requirements
@@ -50,14 +50,14 @@ infrastructure using a cloud native identity service.
 
 **Cloud Native Assumptions:** Using a cloud native identity provider assumes the following:
 
-- Your cloud based resources will not have dependencies on on-premises directory services or Active Directory servers. 
-- Your cloud based identity management will not depend on an on-premises directory service, or you can migrate on-premises identity services to the cloud identity service.
-- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on claims based authentication methods using protocols like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+- Your cloud-based resources will not have dependencies on on-premises directory services or Active Directory servers. 
+- Your cloud-based identity management will not depend on an on-premises directory service, or you can migrate on-premises identity services to the cloud identity service.
+- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on claims-based authentication methods using protocols like Kerberos or NTLM may need to be refactored before migrating to the cloud.
 
 > [!TIP]
 > Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.
 >
-> Completely migrating you identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
+> Completely migrating your identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
 
 ### Federation
 
@@ -79,15 +79,15 @@ In addition to allowing shared identity services between cloud and on-premises, 
 > [!TIP]
 > Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
 
-### Directory Migration With Federation
+### Directory Migration with Federation
 
-If you have workloads that depend on claims based authentication using protocols such as Kerberos or NTLM that cannot be refactored to accept cloud-compatible token based authentication mechanisms, you may need to perform a directory migration as part of your cloud deployment. This migration will involve deploying VMs running Active Directory or other identity providers within your cloud based virtual networks. With directory services running in the cloud network, any existing applications and services migrating to your cloud network should be able to make use of these directory servers with a minimum of modification.
+If you have workloads that depend on claims-based authentication using protocols such as Kerberos or NTLM that cannot be refactored to accept cloud-compatible token based authentication mechanisms, you may need to perform a directory migration as part of your cloud deployment. This migration will involve deploying VMs running Active Directory or other identity providers within your cloud-based virtual networks. With directory services running in the cloud network, any existing applications and services migrating to your cloud network should be able to make use of these directory servers with a minimum of modification.
 
 Federation is also recommended in this scenario. You will likely want a federated identity solution to provide a common set of users and roles in both the virtual directory servers that workloads will depend on as well as the cloud identity service responsible for access control in the cloud management plane. Federation will also allow you to keep your on-premises directories in sync with cloud hosted directories.  
 
 **Directory Migration Assumptions:** Performing a directory migration assumes the following:
 
-- You workloads will depend on claims based authentication using protocols like Kerberos or NTLM.
+- Your workloads will depend on claims-based authentication using protocols like Kerberos or NTLM.
 - The identity services your workloads depend on support federation with your cloud identity provider.
 
 > [!TIP]
@@ -132,7 +132,7 @@ accessible through the Azure Portal, APIs, PowerShell, and CLI tools, which all
 rely on Azure AD for identity and access management.
 
 As with on-premises resources, you will need to organize staff into groups of
-people to take on assorted responsibilities or roles, and provide these roles
+people to take on assorted responsibilities or roles and provide these roles
 with access to the required Azure resources. While Azure removes the need for
 some traditional on-premises roles, such as facilities management and physical security,
 many other responsibilities such as network security and operations

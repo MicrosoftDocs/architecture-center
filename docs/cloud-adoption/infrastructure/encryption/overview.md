@@ -25,7 +25,7 @@ Jump to: [Key management](#key-management) | [Data encryption](#data-encryption)
 
 The inflection point when deciding on a cloud encryption strategy focuses on corporate policy and compliance mandates.
 
-There are a number of ways to deliver encryption within a cloud environment, with varying degrees of cost and complexity. Corporate policy and third party compliance are the biggest drivers when planning an encryption strategy. Most cloud based solutions provide standard mechanisms for encrypting data at rest and in transit. However, when policies and compliance requirements demand tighter controls such as standardized secrets and key management, encryption in-use, or data specific encryption, the solution becomes more complex.
+There are a number of ways to deliver encryption within a cloud environment, with varying degrees of cost and complexity. Corporate policy and third-party compliance are the biggest drivers when planning an encryption strategy. Most cloud-based solutions provide standard mechanisms for encrypting data at rest and in transit. However, when policies and compliance requirements demand tighter controls such as standardized secrets and key management, encryption in-use, or data specific encryption, the solution becomes more complex.
 
 ## Key management
 
@@ -62,7 +62,7 @@ cloud key management system for use with cloud resources.
 
 **Hybrid Key Management Assumptions:** Using a hybrid key management system assumes the following:
 
-- You trust the underling security and access control infrastructure of the cloud platform for hosting and using your keys and secrets.
+- You trust the underlying security and access control infrastructure of the cloud platform for hosting and using your keys and secrets.
 - You are required by regulation or organizational policy to keep the creation, and management of your organization's secrets and keys on-premises.
 
 ### On-premises (hold your own key)

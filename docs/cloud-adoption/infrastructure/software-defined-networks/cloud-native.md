@@ -25,16 +25,16 @@ external sources like the web need to be explicitly provisioned. These virtual n
 - Your identity services do not need to support single sign-on (SSO) with on-premises directories.
 
 > [!TIP]
-> Cloud native virtual networks are the default when configuring networking in cloud platforms, and have no external dependencies. This makes them simple to deploy and configure. As a result, this architecture is often the best choice for experiments or other smaller, self-contained, or rapidly iterating deployments. Other issues your Cloud Adoption Team should consider when discussing a cloud native virtual networking architecture:
+> Cloud native virtual networks are the default when configuring networking in cloud platforms and have no external dependencies. This makes them simple to deploy and configure. As a result, this architecture is often the best choice for experiments or other smaller, self-contained, or rapidly iterating deployments. Other issues your Cloud Adoption Team should consider when discussing a cloud native virtual networking architecture:
 > - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality such as storage or authentication services.
-> - Cloud native networks are managed solely through the cloud platform management tools, and may lead to management and policy divergence from your existing IT standards as time goes on.
+> - Cloud native networks are managed solely through the cloud platform management tools and may lead to management and policy divergence from your existing IT standards as time goes on.
 
 ## Cloud Native Azure Networks
 
 ![Simple cloud native virtual network with a single VM and Public IP address](../../_images/infra-sdn-figure1.png)
 
 A cloud native network is the default configuration for a newly created Azure
-virtual networks. By default resources connected to the virtual network have
+virtual networks. By default, resources connected to the virtual network have
 outbound connectivity (although this can be controlled using NSGs). Connections
 with other virtual networks are possible through peering.
 

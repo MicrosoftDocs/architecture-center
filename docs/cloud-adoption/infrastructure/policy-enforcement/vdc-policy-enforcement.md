@@ -13,4 +13,4 @@ Coming soon.
 Learn how [resource grouping](../resource-grouping/vdc-resource-grouping.md) is used to organize and standardize deployments within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
+> [Azure Virtual Datacenter: Resource Grouping](../resource-grouping/vdc-resource-grouping.md)

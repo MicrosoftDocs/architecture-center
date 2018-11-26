@@ -17,7 +17,7 @@ on-premises network.
 This allows IT staff to configure and deploy network structures and capabilities
 that support workload needs using virtualized resources. The flexibility of
 software-based deployment management enables rapid modification of networking
-resources, and allows the ability to support both agile and traditional
+resources and allows the ability to support both agile and traditional
 deployment models. Virtualized networks created with SDN technology are critical
 to creating secure networks on a public cloud platform.
 

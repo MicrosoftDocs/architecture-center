@@ -29,7 +29,7 @@ Central to the VDC access control and management architecture is using Azure AD 
 The scope of a role can be at the Azure subscription, resource group, or single resource level. RBAC also allows the inheritance of permissions, so that a role assigned at a parent level also grants access to the children contained within it.
 This functionality allows different parts of the VDC to be managed by different teams, so that central IT control over core access and security features can be paired with developers and associated teams having large amounts of control over specific workloads.
 
-The structure and breakdown of roles within your organization will very, but the VDC model assumes the central IT management tasks for the virtual datacenter breaks down into at least the three primary roles:
+The structure and breakdown of roles within your organization will very but the VDC model assumes the central IT management tasks for the virtual datacenter breaks down into at least the three primary roles:
 
 | Group                  | Common role name    | Responsibilities                                                                                                                                                          |
 |------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,4 +44,4 @@ In addition to these three core IT roles, each individual workload spoke is expe
 Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
+> [Azure Virtual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
