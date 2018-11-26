@@ -1,6 +1,6 @@
 ---
 title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
-description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS)deployments and Azure Data Factory
+description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory
 author: alhieng
 ms.date: 9/20/2018
 ---
@@ -21,10 +21,10 @@ Traditionally, SSIS has been the ETL tool of choice for many SQL Server data pro
 
 Several potential on-premises use cases are listed below:
 
-* SSIS packages for loading network router logs to a database for analysis.
-* SSIS packages for preparing human resources employment data for analytical reporting.
-* SSIS packages for loading product and sales data into a data warehouse for sales forecasting.
-* SSIS packages for automating loading or operational data stores or data warehouses for finance and accounting
+* Loading network router logs to a database for analysis.
+* Preparing human resources employment data for analytical reporting.
+* Loading product and sales data into a data warehouse for sales forecasting.
+* Automating loading or operational data stores or data warehouses for finance and accounting.
 
 ## Architecture
 
@@ -68,7 +68,7 @@ Azure Data Factory is a cost-effective way to orchestrate data movement in the c
 
 ADF uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
 
-When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This is explained in the Considerations section above. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50GB Disk) to E64V3 (64 cores, 432GB RAM, 1600GB disk).  If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
+When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk).  If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
 ## Next Steps
 
