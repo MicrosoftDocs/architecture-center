@@ -54,7 +54,7 @@ Before deciding which ML services to use in training and operationalization, con
 - Use the pretrained neural network models provided by Cognitive Toolkit.
 - Embed the serialized models provided by Core ML for an iOS apps. 
 
-If a prebuilt model does not fit your data or your scenario, options in Azure include Azure Machine Learning, HDInsight with Spark MLlib and MMLSpark, Cognitive Toolkit, and SQL Machine Learning Services. If you decide to use a custom model, you must design a pipeline that includes model training and operationalization. 
+If a prebuilt model does not fit your data or your scenario, options in Azure include Azure Machine Learning, HDInsight with Spark MLlib and MMLSpark, Azure Databricks, Cognitive Toolkit, and SQL Machine Learning Services. If you decide to use a custom model, you must design a pipeline that includes model training and operationalization. 
 
 ![Model options in Azure](./images/machine-learning-model-training-and-deployment.png)
 
@@ -63,3 +63,10 @@ For a list of technology choices for ML in Azure, see the following topics:
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 - [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
 - [Choosing a natural language processing technology](../technology-choices/natural-language-processing.md)
+
+## Next steps
+
+The following reference architectures show machine learning scenarios in Azure:
+
+- [Batch scoring on Azure for deep learning models](../../reference-architectures/ai/batch-scoring-deep-learning.md)
+- [Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure](../../reference-architectures/ai/realtime-scoring-python.md)

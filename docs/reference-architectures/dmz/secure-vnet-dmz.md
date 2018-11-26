@@ -4,7 +4,7 @@ description: >-
   How to implement a secure hybrid network architecture with Internet access in
   Azure.
 author: telmosampaio
-ms.date: 07/02/2018
+ms.date: 10/22/2018
 
 pnp.series.title: Network DMZ
 pnp.series.next: nva-ha
@@ -88,7 +88,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 ### Deploy resources
 
-1. Navigate to the `/dmz/secure-vnet-hybrid` folder of the reference architectures GitHub repository.
+1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
 
 2. Run the following command:
 

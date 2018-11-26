@@ -17,7 +17,7 @@ For production use cases review the SAP reference architectures available below:
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Non-critical SAP non-productive workloads (sandbox, development, test, quality assurance)
 * Non-critical SAP business workloads

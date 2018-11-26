@@ -5,7 +5,7 @@ description: >-
   Azure virtual network and an on-premises network connected using a VPN.
 
 author: RohitSharma-pnp
-ms.date: 11/28/2016
+ms.date: 10/22/2018
 
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute
@@ -411,7 +411,7 @@ The following recommendations are useful for determining if there is an issue wi
 
     ![[3]][3]
 
-    You should compare the results with the bandwidth available to the VPN gateway (100 Mbps for the Basic and Standard SKUs, and 200 Mbps for the High Performance SKU):
+    You should compare the results with the bandwidth available to the VPN gateway (from 100 Mbps for the Basic SKU to 1.25 Gbps for VpnGw3 SKU):
 
     ![[4]][4]
 

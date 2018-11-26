@@ -15,7 +15,7 @@ Using managed Azure services such as Cosmos DB and HDInsight can help reduce cos
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * E-commerce or retail point-of-sale back-end systems.
 * Inventory management systems.

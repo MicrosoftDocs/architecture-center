@@ -2,7 +2,7 @@
 title: Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines
 description: Proven practices for running SAP S/4HANA in a Linux environment on Azure with high availability.
 author: lbrader
-ms.date: 05/11/2018
+ms.date: 08/03/2018
 ---
 
 # Deploy SAP NetWeaver (Windows) for AnyDB on Azure Virtual Machines

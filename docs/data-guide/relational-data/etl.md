@@ -74,3 +74,10 @@ Other tools:
 - [Online Analytical Processing (OLAP) data stores](./online-analytical-processing.md#olap-in-azure)
 - [Data warehouses](./data-warehousing.md)
 - [Pipeline orchestration](../technology-choices/pipeline-orchestration-data-movement.md)
+
+## Next steps
+
+The following reference architectures show end-to-end ELT pipelines on Azure:
+
+- [Enterprise BI in Azure with SQL Data Warehouse](../../reference-architectures/data/enterprise-bi-sqldw.md)
+- [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md)

@@ -120,6 +120,10 @@ The boxes that are shaded gray show components of an IoT system that are not dir
 
 > This section has presented a very high-level view of IoT, and there are many subtleties and challenges to consider. For a more detailed reference architecture and discussion, see the [Microsoft Azure IoT Reference Architecture][iot-ref-arch] (PDF download).
 
+## Next steps
+
+- Learn more about [big data architectures](../../data-guide/big-data/index.md).
+
  <!-- links -->
 
 [iot-ref-arch]: https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/

@@ -2,6 +2,7 @@
 title: Choose the right data store
 description: Overview of choosing data stores in Azure
 author: MikeWasson
+ms.date: 06/01/2018
 ---
 
 # Choose the right data store

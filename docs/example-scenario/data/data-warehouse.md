@@ -19,7 +19,7 @@ The company needs a modern approach to analysis data, so that decisions are made
 
 ## Relevant use cases
 
-You could also use this approach to accomplish the following:
+This approach can also be used to:
 
 * Establish a data warehouse to be a single source of truth for your data.
 * Integrate relational data sources with other unstructured datasets.

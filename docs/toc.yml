@@ -246,6 +246,8 @@
       href: best-practices/cdn.md
     - name: Data partitioning
       href: best-practices/data-partitioning.md
+    - name: Data partitioning strategies (by service)
+      href: best-practices/data-partitioning-strategies.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
     - name: Naming conventions
@@ -351,15 +353,24 @@
       items:
       - name: Batch scoring for deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
+      - name: Real-time scoring of Python models
+        href: reference-architectures/ai/realtime-scoring-python.md
 
     - name: Big data
       items:
       - name: Enterprise BI with SQL Data Warehouse
         href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
+      - name: Automated enterprise BI with Azure Data Factory
         href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Stream processing with Azure Databricks
+        href: reference-architectures/data/stream-processing-databricks.md
       - name: Stream processing with Azure Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.md
+
+    - name: Enterprise integration
+      items:
+      - name: Simple enterprise integration
+        href: reference-architectures/enterprise-integration/simple-enterprise-integration.md
 
     - name: Hybrid networks
       items:
@@ -389,19 +400,6 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
-    - name: N-tier applications
-      items:
-      - name: N-tier application with SQL Server
-        href: reference-architectures/n-tier/n-tier-sql-server.md
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.md
-      - name: N-tier application with Cassandra
-        href: reference-architectures/n-tier/n-tier-cassandra.md
-      - name: Deploy a Linux VM
-        href: reference-architectures/n-tier/linux-vm.md
-      - name: Deploy a Windows VM
-        href: reference-architectures/n-tier/windows-vm.md
-
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
@@ -420,10 +418,27 @@
       - name: SAP HANA on Azure Large Instances
         href: reference-architectures/sap/hana-large-instances.md
 
+    - name: Serverless
+      items:
+      - name: Serverless web application
+        href: reference-architectures/serverless/web-app.md
+      - name: Serverless event processing
+        href: reference-architectures/serverless/event-processing.md
+
     - name: VM workloads
       items:
+      - name: Single Linux VM
+        href: reference-architectures/n-tier/linux-vm.md
+      - name: Single Windows VM
+        href: reference-architectures/n-tier/windows-vm.md
       - name: Jenkins server
         href: reference-architectures/jenkins/index.md
+      - name: N-tier application with SQL Server
+        href: reference-architectures/n-tier/n-tier-sql-server.md
+      - name: Multi-region N-tier application
+        href: reference-architectures/n-tier/multi-region-sql-server.md
+      - name: N-tier application with Cassandra
+        href: reference-architectures/n-tier/n-tier-cassandra.md
       - name: SharePoint Server 2016
         href: reference-architectures/sharepoint/index.md
 

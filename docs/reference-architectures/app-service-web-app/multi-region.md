@@ -4,11 +4,9 @@ description: >-
   Recommended architecture for web application with high availability, running
   in Microsoft Azure.
 author: MikeWasson
-ms.date: 11/23/2016
-cardTitle: Run in multiple regions
+ms.date: 10/25/2018
 ---
-# Run a web application in multiple regions
-[!INCLUDE [header](../../_includes/header.md)]
+# Run a web application in multiple Azure regions
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability. 
 
@@ -66,9 +64,7 @@ On the other hand, don't use the health probe to check lower priority services. 
 Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
 ### Cosmos DB
-Cosmos DB supports geo-replication across regions. One region is designated as writable and the others are read-only replicas.
-
-If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [How to distribute data globally with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -132,10 +128,11 @@ Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
 For more information, see [Azure Traffic Manager Cmdlets][tm-ps].
 
-**Azure command line interface (CLI)**
+**Azure CLI**
 
 ```bat
-azure network traffic-manager endpoint set --name <endpoint> --profile-name <profile> --resource-group <resource-group> --type AzureEndpoints --priority 3
+az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile> \
+    --name <endpoint-name> --type azureEndpoints --priority 3
 ```    
 
 ### SQL Database
