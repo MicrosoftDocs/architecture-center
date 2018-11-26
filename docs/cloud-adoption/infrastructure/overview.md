@@ -23,8 +23,8 @@ all cloud deployments. It's important to learn how these components work, and to
 understand which features and deployment models are appropriate for your needs.
 
 [Subscriptions](subscriptions/overview.md):
-Configure your cloud-based subscription. This is the account for defining your cloud deployment's ownership, billing, 
-and management capabilities.
+Stucture your subscripiton design and account structure to match your organization's ownership, billing, 
+and management capabilities with your cloud deployment.
 
 [Identity](identity/overview.md):
 Integrate cloud-based identity services with your existing identity resources to support access 
@@ -42,7 +42,7 @@ Organize your cloud-based resources to support management, access control, and o
 efficiency. Resource tagging requires a consistent and well-organized naming and metadata scheme.
 
 [Software Defined Networks](software-defined-networks/overview.md):
-Deploy secure workloads to the cloud using rapid deployment and modification, and virtualized 
+Deploy secure workloads to the cloud using rapid deployment and modification of virtualized 
 networking capabilities. Software defined networks support agile workflows, are capable of 
 isolating resources, and can integrate cloud-based systems with your existing IT infrastructure.
 
