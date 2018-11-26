@@ -20,7 +20,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 * Identify what types of failures an application might experience.
 * Capture the potential effects and impact of each type of failure on the application.
 * Identify recovery strategies.
- 
+  
 
 **Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](/azure/app-service/app-service-value-prop-what-is/), select an [App Service Plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me/#scaling-and-management). For [Azure Virtual Machines (VMs)](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set][availability-sets].   
 
