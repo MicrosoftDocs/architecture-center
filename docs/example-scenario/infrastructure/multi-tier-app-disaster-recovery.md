@@ -83,6 +83,12 @@ We have provided a [sample cost calculator][sample-asr-a2a-cost-calculator] for 
 
 ## Related resources
 
+- [Azure Availability zones][azureaz-docs]
+- [Azure Site Recovery][azure-site-recovery-docs]
+- [Azure Availability set][availability-set-docs]
+- [Azure Traffic Manager][azure-site-recovery-docs]
+- [Azure Load Balancer][loadbalancer-docs]
+
 <!-- links -->
 [appgateway-docs]: /azure/application-gateway/overview
 [architecture]: ./media/arhitecture-disaster-recovery-multi-tier-app.png
