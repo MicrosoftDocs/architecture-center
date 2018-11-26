@@ -317,7 +317,7 @@ A solution is available on [GitHub][github] to deploy this reference architectur
 [aad]: https://azure.microsoft.com/documentation/services/active-directory/
 [aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
-[github]: https://github.com/mspnp/reference-architectures/tree/master/identity/adfs
+[github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./considerations.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
