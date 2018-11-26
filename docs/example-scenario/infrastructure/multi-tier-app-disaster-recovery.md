@@ -96,5 +96,5 @@ We have provided a [sample cost calculator][calculator] for configuring disaster
 [docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 [docs-traffic-manager]: /azure/traffic-manager/
 [docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
-[docs-availability-sets]: -/azure/virtual-machines/windows/manage-availability/
+[docs-availability-sets]: /azure/virtual-machines/windows/manage-availability/
 [calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d/
