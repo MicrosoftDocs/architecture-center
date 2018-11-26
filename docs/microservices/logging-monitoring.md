@@ -13,7 +13,7 @@ In any complex application, at some point something will go wrong. In a microser
 
 In a microservices architecture, it can be especially challenging to pinpoint the exact cause of errors or performance bottlenecks. A single user operation might span multiple services. Services may hit network I/O limits inside the cluster. A chain of calls across services may cause backpressure in the system, resulting in high latency or cascading failures. Moreover, you generally don't know which node a particular container will run in. Containers placed on the same node may be competing for limited CPU or memory. 
 
-To make sense of what's happening, you must collect telemetry from the application.  Telemetry can be divided into *logs* and *metrics*. [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview) collects both logs and metriocs across the Azure platform.
+To make sense of what's happening, you must collect telemetry from the application.  Telemetry can be divided into *logs* and *metrics*. [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview) collects both logs and metrics across the Azure platform.
 
 **Logs** are text-based records of events that occur while the application is running. They include things like application logs (trace statements) or web server logs. Logs are primarily useful for forensics and root cause analysis. 
 
