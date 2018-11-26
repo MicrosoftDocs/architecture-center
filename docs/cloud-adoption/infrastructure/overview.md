@@ -23,7 +23,7 @@ all cloud deployments. It's important to learn how these components work, and to
 understand which features and deployment models are appropriate for your needs.
 
 [Subscriptions](subscriptions/overview.md):
-Configure your Azure subscription. This is the account for defining your cloud deployment's ownership, billing, 
+Configure your cloud-based subscription. This is the account for defining your cloud deployment's ownership, billing, 
 and management capabilities.
 
 [Identity](identity/overview.md):
