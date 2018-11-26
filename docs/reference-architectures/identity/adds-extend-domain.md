@@ -172,7 +172,7 @@ After deployment completes, you can test conectivity from the simulated on-premi
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
-[GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
+[GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [security-considerations]: #security-considerations
