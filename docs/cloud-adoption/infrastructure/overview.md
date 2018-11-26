@@ -23,8 +23,8 @@ all cloud deployments. It's important to learn how these components work, and to
 understand which features and deployment models are appropriate for your needs.
 
 [Subscriptions](subscriptions/overview.md):
-Stucture your subscripiton design and account structure to match your organization's ownership, billing, 
-and management capabilities with your cloud deployment.
+Plan your your cloud deployment's subscripiton design and account structure to match your organization's ownership, billing, 
+and management capabilities.
 
 [Identity](identity/overview.md):
 Integrate cloud-based identity services with your existing identity resources to support access 
