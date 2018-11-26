@@ -8,7 +8,7 @@ ms.custom: checklist
 ---
 # Availability checklist
 
-Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint.
+Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint. 
 
 ## Application design
 
@@ -79,7 +79,6 @@ Availability is the proportion of time that a system is functional and working, 
 **Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, create a fully automated ASR recovery plan to failover the entire application within minutes.
 
 <!-- links -->
-
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
 [site-recovery]: /azure/site-recovery/
 [site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure

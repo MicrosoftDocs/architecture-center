@@ -62,7 +62,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](/azure/redis-cache/cache-how-to-premium-persistence)
 
-If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply.
+If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply. 
 
 ## Search
 
@@ -168,4 +168,3 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 [sql-backup]: /azure/sql-database/sql-database-automated-backups/
 [sql-restore]: /azure/sql-database/sql-database-recovery-using-backups/
 [vm-manage-availability]: /azure/virtual-machines/windows/manage-availability#use-managed-disks-for-vms-in-an-availability-set
-
