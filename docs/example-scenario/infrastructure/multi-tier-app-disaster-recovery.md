@@ -5,13 +5,13 @@ author: sujayt
 ms.date: 11/16/2018
 ---
 
-# Build a highly available and disaster recovery configured multi-tier web application
+# Multi-tier web application built for high availability and disaster recovery
 
 This example scenario is applicable to any industry that have a need to deploy resilient multi-tier applications with high availability and disaster recovery configured. In this scenario, the application consists of 3 layers.
 
-- Web tier - This is the top most layer with user interface. This translates inputs and outputs into something user understands.
+- Web tier - This is the top most layer with user interface. This layer parses the user interactions and passes the actions to next layer for processing.
 - Business tier - This layer processed the user interactions and makes logical decisions about the next steps. It acts as a connection between the web tier and the data tier
-- Data tier - This is the layer where the data is stored. Typically, a database or a file storage is used.
+- Data tier - This is the layer where the data is stored. Typically, a database, object storage or a file storage is used.
 
 Example application scenarios include any mission critical application running Windows or Linux operating systems. This can be a standard application such as SAP and SharePoint or a custom Line of Business (LOB) application.
 
@@ -20,23 +20,23 @@ Example application scenarios include any mission critical application running W
 Other relevant use cases include:
 
 * Deploy highly resilient standard applications such as SAP and SharePoint
-* Dsign business continuty and disaster recovery plan for Line of Business (LOB) applications
+* Design business continuity and disaster recovery plan for Line of Business (LOB) applications
 * Configure disaster recovery (DR) and perform DR drills for compliance needs
 
 ## Architecture
 
-This scenario covers a multi-tier application that uses ASP.NET and Microsoft SQL Server. In Azure regions supporting Azure availabilit zones, you can deploy your VMs in source region across availability zones and replicate the VMs to diaster recovry (DR) target region. In Azure regions not supporting availability zones, you can deploy your VMs within an availability set and replicate the VMs to disaster recovery (DR) target region.
+This scenario covers a multi-tier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions supporting  Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones), you can deploy your VMs in source region across availability zones and replicate the VMs to disaster recovery (DR) target region. In Azure regions not supporting availability zones, you can deploy your VMs within an availability set and replicate the VMs to disaster recovery (DR) target region.
 
 
 ![Architecture overview of highly resilient multi tier web application][architecture]
 
 - Distribute the VMs in each tier across 2 availability zones in regions supporting zones. In other region, deploy the VMs in each tier within 1 availability set.
 - The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, which allows the application to continue to be available. For more information, see [Overview of Always On availability groups for SQL Server][sqlalwayson-docs].
-- For disaster recovery scenarios, you can configure SQL AlwaysON asynchrnous native replication to the DR target region. You can also configure Azure Site Recovery (ASR) replication to the DR target region as long as the data change rate is within supported limits of ASR.
+- For disaster recovery scenarios, you can configure SQL AlwaysOn asynchronous native replication to the DR target region. You can also configure Azure Site Recovery (ASR) replication to the DR target region as long as the data change rate is within supported limits of ASR.
 - Users access the front-end ASP.NET web tier by hitting the traffic manager endpoint.
 - The traffic manager redirects the traffic to primary public IP endpoint in primary source region.
 - The public IP redirects the call to one of the web-tier VM instances through Azure internet load-balancer. All web-tier VMs are in one subnet.
-- From the web-tier VM, the call is routed to one of the VM instances in bustiness tier through an Azure internal load balancer for processing. All business-tier VMs are in a separate subnet.
+- From the web-tier VM, the call is routed to one of the VM instances in business tier through an Azure internal load balancer for processing. All business-tier VMs are in a separate subnet.
 - The operation is processed in business tier and the ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure internal load balancer. These back-end SQL Server instances are in a separate subnet.
 - The traffic manager's secondary endpoint is configured to be the public IP in the DR target region.
 - In the even of a primary region disruption, you invoke Azure Site Recovery (ASR) failover and the application becomes active in the DR target region.
@@ -55,7 +55,7 @@ This scenario covers a multi-tier application that uses ASP.NET and Microsoft SQ
 * Windows can easily be replaced by a variety of other operating systems as nothing in the infrastructure depends on the operating system.
 
 * [SQL Server for Linux][sql-linux] can replace the back-end data store.
-The database can be replcaed by any standard database application available.
+The database can be replaced by any standard database application available.
 
 ## Other considerations
 
@@ -67,9 +67,18 @@ For other scalability topics, see the [scalability checklist][scalability] in th
 
 ### Security
 
-All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the businees tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][nsg-docs].
+All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the business tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][nsg-docs].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
+
+## Pricing
+Configuring disaster recovery for Azure virtual machines using Azure Site Recovery (ASR) will incur the below charges on an ongoing basis.
+
+- ASR licensing cost per VM
+- Network egress pricing - This is the all the data changes happening on the source VM disks that need to be replicated to another Azure region. ASR had inbuilt compression to reduce the data transfer by about 50%
+- Storage costs on the recovery site - This is typically same as the source region storage plus any additional storage accounted for maintaining the recovery points as snapshots for recovery.
+
+We have provided a [sample cost calculator][sample-asr-a2a-cost-calculator] for configuring DR for a 3 tier 6 VM application. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables and estimate the cost.
 
 
 ## Related resources
@@ -102,3 +111,4 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 [traffic-manager-docs]: /azure/traffic-manager/
 [azure-site-recovery-docs]: /azure/site-recovery/azure-to-azure-quickstart/
 [availability-set-docs]:/azure/virtual-machines/windows/manage-availability/
+[sample-asr-a2a-cost-calculator]:https://azure.com/e/6835332265044d6d931d68c917979e6d/
