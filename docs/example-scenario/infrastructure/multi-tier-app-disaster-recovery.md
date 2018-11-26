@@ -1,120 +1,100 @@
 ---
-title: Highly available (HA) and disaster recovery (DR) configured multi-tier web application
-description: Build a highly available and disaster recovery configured multi-tier web application on Azure using Azure virtual machines, Availability sets, Availability zones, Azure Site Recovery and Azure Traffic Manager
+title: Multi-tier web application built for high availability and disaster recovery on Azure
+description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager
 author: sujayt
 ms.date: 11/16/2018
 ---
 
-# Multi-tier web application built for high availability and disaster recovery
+# Multitier web application built for high availability and disaster recovery on Azure
 
-This example scenario is applicable to any industry that have a need to deploy resilient multi-tier applications with high availability and disaster recovery configured. In this scenario, the application consists of 3 layers.
+This example scenario is applicable to any industry that needs to deploy resilient multitier applications built for high availability and disaster recovery. In this scenario, the application consists of three layers.
 
-- Web tier - This is the top most layer with user interface. This layer parses the user interactions and passes the actions to next layer for processing.
-- Business tier - This layer processed the user interactions and makes logical decisions about the next steps. It acts as a connection between the web tier and the data tier
-- Data tier - This is the layer where the data is stored. Typically, a database, object storage or a file storage is used.
+- Web tier: The top layer including the user interface. This layer parses user interactions and passes the actions to next layer for processing.
+- Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
+- Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.
 
-Example application scenarios include any mission critical application running Windows or Linux operating systems. This can be a standard application such as SAP and SharePoint or a custom Line of Business (LOB) application.
+Common application scenarios include any mission critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
 
 ## Relevant use cases
 
 Other relevant use cases include:
 
-* Deploy highly resilient standard applications such as SAP and SharePoint
-* Design business continuity and disaster recovery plan for Line of Business (LOB) applications
-* Configure disaster recovery (DR) and perform DR drills for compliance needs
+* Deploying highly resilient applications such as SAP and SharePoint
+* Designing a business continuity and disaster recovery plan for line-of-business applications
+* Configure disaster recovery and perform related drills for compliance purposes
 
 ## Architecture
 
-This scenario covers a multi-tier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions supporting  Availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones), you can deploy your VMs in source region across availability zones and replicate the VMs to disaster recovery (DR) target region. In Azure regions not supporting availability zones, you can deploy your VMs within an availability set and replicate the VMs to disaster recovery (DR) target region.
+This scenario demonstrates a multitier application that uses ASP.NET and Microsoft SQL Server. In [Azure regions that support availability zones](/azure/availability-zones/az-overview#regions-that-support-availability-zones), you can deploy your virtual machines (VMs) in a source region across availability zones and replicate the VMs to the target region used for disaster recovery. In Azure regions that don't support availability zones, you can deploy your VMs within an availability set and replicate the VMs to the target region.
 
+![Architecture overview of a highly resilient multitier web application][architecture]
 
-![Architecture overview of highly resilient multi tier web application][architecture]
-
-- Distribute the VMs in each tier across 2 availability zones in regions supporting zones. In other region, deploy the VMs in each tier within 1 availability set.
-- The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, which allows the application to continue to be available. For more information, see [Overview of Always On availability groups for SQL Server][sqlalwayson-docs].
-- For disaster recovery scenarios, you can configure SQL AlwaysOn asynchronous native replication to the DR target region. You can also configure Azure Site Recovery (ASR) replication to the DR target region as long as the data change rate is within supported limits of ASR.
-- Users access the front-end ASP.NET web tier by hitting the traffic manager endpoint.
-- The traffic manager redirects the traffic to primary public IP endpoint in primary source region.
-- The public IP redirects the call to one of the web-tier VM instances through Azure internet load-balancer. All web-tier VMs are in one subnet.
-- From the web-tier VM, the call is routed to one of the VM instances in business tier through an Azure internal load balancer for processing. All business-tier VMs are in a separate subnet.
-- The operation is processed in business tier and the ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure internal load balancer. These back-end SQL Server instances are in a separate subnet.
-- The traffic manager's secondary endpoint is configured to be the public IP in the DR target region.
-- In the even of a primary region disruption, you invoke Azure Site Recovery (ASR) failover and the application becomes active in the DR target region.
-- The traffic manager endpoint automatically redirects the client traffic to the public IP in DR target region.
+- Distribute the VMs in each tier across two availability zones in regions that support zones. In other regions, deploy the VMs in each tier within one availability set.
+- The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, allowing the application to remain available. For more information, see [Overview of Always On availability groups for SQL Server][docs-sql-always-on].
+- For disaster recovery scenarios, you can configure SQL Always On asynchronous native replication to the target region used for disaster recovery. You can also configure Azure Site Recovery replication to the target region if the data change rate is within supported limits of Azure Site Recovery.
+- Users access the front-end ASP.NET web tier via the traffic manager endpoint.
+- The traffic manager redirects traffic to the primary public IP endpoint in the primary source region.
+- The public IP redirects the call to one of the web tier VM instances through a public load balancer. All web tier VM instances are in one subnet.
+- From the web tier VM, each call is routed to one of the VM instances in the business tier through an internal load balancer for processing. All business tier VMs are in a separate subnet.
+- The operation is processed in the business tier and the ASP.NET application connects to Microsoft SQL Server cluster in a back-end tier via an Azure internal load balancer. These back-end SQL Server instances are in a separate subnet.
+- The traffic manager's secondary endpoint is configured as the public IP in the target region used for disaster recovery.
+- In the event of a primary region disruption, you invoke Azure Site Recovery failover and the application becomes active in the target region.
+- The traffic manager endpoint automatically redirects the client traffic to the public IP in the target region.
 
 ### Components
-1. [**Availability sets**][availability-set-docs]  ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted and that your overall solution remains available and operational.
-2. [**Availability Zones**][azureaz-docs] is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. 
-3. [**Disaster recovery using Azure Site Recovery (ASR)**][azure-site-recovery-docs] allows you to replicate virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in source region.
-4. [**Azure Traffic Manager**][traffic-manager-docs] is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness.
-5. [**Azure load balancer**][loadbalancer-docs] distributes inbound traffic according to rules and health probes. A load balancer provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications. An internet load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
 
+* [Availability sets][docs-availability-sets] ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
+* [Availability zones][docs-availability-zones] protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking. 
+* [Azure Site Recovery (ASR)][docs-azure-site-recovery] allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.
+* [Azure Traffic Manager][docs-traffic-manager] is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.
+* [Azure Load Balancer][docs-load-balancer] distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
 
 ### Alternatives
 
-* Windows can easily be replaced by a variety of other operating systems as nothing in the infrastructure depends on the operating system.
-
-* [SQL Server for Linux][sql-linux] can replace the back-end data store.
-The database can be replaced by any standard database application available.
+* Windows can be replaced by other operating systems because nothing in the infrastructure is dependent on the operating system.
+* [SQL Server for Linux][docs-sql-server-linux] can replace the back-end data store.
+* The database can be replaced by any standard database application available.
 
 ## Other considerations
 
 ### Scalability
 
-You can add or remove VMs in each tier depending on your scaling requirements. As the scenario is using Load balancers, you can add more VMs in the tier without impacting the application uptime.
+You can add or remove VMs in each tier based on your scaling requirements. Because this scenario uses load balancers, you can add more VMs to a tier without affecting application uptime.
 
 For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
-All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound Internet traffic is allowed from the business tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][nsg-docs].
+All the virtual network traffic into the front-end application tier is protected by network security groups. Rules limit the flow of traffic so that only the front-end application tier VM instances can access the back-end database tier. No outbound internet traffic is allowed from the business tier or database tier. To reduce the attack footprint, no direct remote management ports are open. For more information, see [Azure network security groups][docs-nsg].
 
 For general guidance on designing secure scenarios, see the [Azure Security Documentation][security].
 
 ## Pricing
-Configuring disaster recovery for Azure virtual machines using Azure Site Recovery (ASR) will incur the below charges on an ongoing basis.
 
-- ASR licensing cost per VM
-- Network egress pricing - This is the all the data changes happening on the source VM disks that need to be replicated to another Azure region. ASR had inbuilt compression to reduce the data transfer by about 50%
-- Storage costs on the recovery site - This is typically same as the source region storage plus any additional storage accounted for maintaining the recovery points as snapshots for recovery.
+Configuring disaster recovery for Azure VMs using Azure Site Recovery will incur the following charges on an ongoing basis.
 
-We have provided a [sample cost calculator][sample-asr-a2a-cost-calculator] for configuring DR for a 3 tier 6 VM application. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables and estimate the cost.
+- Azure Site Recovery licensing cost per VM.
+- Network egress costs to replicate data changes from the source VM disks to another Azure region. Azure Site Recovery uses built-in compression to reduce the data transfer requirements by approximately 50%.
+- Storage costs on the recovery site. This is typically the same as the source region storage plus any additional storage needed to maintain the recovery points as snapshots for recovery.
 
-
-## Related resources
-
-- [Azure Availability zones][azureaz-docs]
-- [Azure Site Recovery][azure-site-recovery-docs]
-- [Azure Availability set][availability-set-docs]
-- [Azure Traffic Manager][azure-site-recovery-docs]
-- [Azure Load Balancer][loadbalancer-docs]
+We have provided a [sample cost calculator][calculator] for configuring disaster recovery for a three-tier application using six virtual machines. All of the services are pre-configured in the cost calculator. To see how the pricing would change for your particular use case, change the appropriate variables to estimate the cost.
 
 <!-- links -->
-[appgateway-docs]: /azure/application-gateway/overview
 [architecture]: ./media/arhitecture-disaster-recovery-multi-tier-app.png
 [autoscaling]: /azure/architecture/best-practices/auto-scaling
 [availability]: ../../checklist/availability.md
-[azureaz-docs]: /azure/availability-zones/az-overview
-[cloudwitness-docs]: /windows-server/failover-clustering/deploy-cloud-witness
-[loadbalancer-docs]: /azure/load-balancer/load-balancer-overview
-[nsg-docs]: /azure/virtual-network/security-overview
-[ntiersql-ra]: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
-[scaleset-docs]: /azure/virtual-machine-scale-sets/overview
-[sqlalwayson-docs]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
-[vmssautoscale-docs]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
-[vnet-docs]: /azure/virtual-network/virtual-networks-overview
-[vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
-[pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
-[dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
-[sql-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
-
-[small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
-[medium-pricing]: https://azure.com/e/b622d82d79b34b8398c4bce35477856f
-[large-pricing]: https://azure.com/e/1d99d8b92f90496787abecffa1473a93
-[traffic-manager-docs]: /azure/traffic-manager/
-[azure-site-recovery-docs]: /azure/site-recovery/azure-to-azure-quickstart/
-[availability-set-docs]:/azure/virtual-machines/windows/manage-availability/
-[sample-asr-a2a-cost-calculator]:https://azure.com/e/6835332265044d6d931d68c917979e6d/
+[docs-availability-zones]: /azure/availability-zones/az-overview
+[docs-load-balancer]: /azure/load-balancer/load-balancer-overview
+[docs-nsg]: /azure/virtual-network/security-overview
+[docs-vmss]: /azure/virtual-machine-scale-sets/overview
+[docs-sql-always-on]: /sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server
+[docs-vmss-autoscale]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview
+[docs-vnet]: /azure/virtual-network/virtual-networks-overview
+[docs-sql-server-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
+[docs-traffic-manager]: /azure/traffic-manager/
+[docs-azure-site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
+[docs-availability-sets]: -/azure/virtual-machines/windows/manage-availability/
+[calculator]: https://azure.com/e/6835332265044d6d931d68c917979e6d/
