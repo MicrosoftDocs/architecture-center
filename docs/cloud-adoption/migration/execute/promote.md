@@ -19,8 +19,8 @@ Each of the following processes should be executed, documented, and validated pr
 * [Architect](architect.md): The structure of the application has been properly architected to align with the chosen cloud provider.
 * [Replicate](replicate.md): The assets have been replicated to the cloud environment.
 * [Stage](stage.md): The replicated assets have been restored in a staged instance of the cloud environment.
-* [Business Testing](uat-test.md): The application has been fully tested and validated by business users.
-* [Business Change Plan](user-adoption-plan.md): The business has shared a plan for the changes that will be made in accordance with the production promotion. This should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities
+* [Business Testing](business-test.md): The application has been fully tested and validated by business users.
+* [Business Change Plan](business-change-plan.md): The business has shared a plan for the changes that will be made in accordance with the production promotion. This should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities
 * [Ready](ready.md): Generally, a series of technical changes need to be made in advance of promotion.
 
 ## Best practices to execute prior to promotion
@@ -31,9 +31,9 @@ The following technical changes will likely need to be completed and documented,
 * User Routing: Validate that users are accessing the application through proper network routes. Verify consistent performance expectations.
 * Identity Alignment: Validate that the users being re-routed to the application have proper permissions withing the domain to host the application.
 * Application Performance: Perform a final validation of application performance to minimize surprises.
-* HADR Validation: Validate proper backup and recovery processes are functioning as expected.
+* BCDR (Business Continuity / Disaster Recovery) Validation: Validate proper backup and recovery processes are functioning as expected.
 * Data Classification: Validate data classification to ensure proper protections and policies have been implemented.
-* CISO Verification: Validate that the information security office has reviewed the application, business risks, risk tolerance, and mitigation strategies.
+* CISO (Chief Information Security Officer) Verification: Validate that the information security office has reviewed the application, business risks, risk tolerance, and mitigation strategies.
 
 ## Final step: Promote
 

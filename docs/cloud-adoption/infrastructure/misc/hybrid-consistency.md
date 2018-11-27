@@ -21,7 +21,7 @@ A true hybrid cloud must provide four components, each of which brings significa
 
 * Common identity for on-premises and cloud applications. This improves user productivity by giving users single sign-on to all their applications. It also ensures consistency as applications and users cross network/cloud boundaries.
 * Integrated management and security across your hybrid cloud. This enables a cohesive way to monitor, manage, and secure the environment, providing increased visibility and control.
-* A consistent data platform for the datacenter and the cloud. This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
+* A consistent data platform for the DataCenter and the cloud. This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
 * Unified development and DevOps across the cloud and on-premises datacenters. Move applications between the two environments as needed, improving developer productivity, since both places now have the same development environment.
   
 Examples of these components from an Azure perspective would include:

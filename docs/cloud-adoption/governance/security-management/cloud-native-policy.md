@@ -70,7 +70,7 @@ Security monitoring is a proactive strategy that audits your resources to identi
 
 ### Extending Cloud Native Policies
 
-Using the cloud can take some of the security burden off your shoulders. Microsoft provides physical security for Azure datacenters and helps protect the cloud platform against infrastructure threats such as a DDoS attack. Given that Microsoft has thousands of cybersecurity specialists working on security every day, the resources brought to bear against attackers are considerable. In fact, while organizations once worried about whether the cloud was secure, most now understand that given the level of investment that vendors such as Microsoft make in people and specialized infrastructure, the cloud is actually more secure than most on-premises datacenters.
+Using the cloud can take some of the security burden off your shoulders. Microsoft provides physical security for Azure DataCenters and helps protect the cloud platform against infrastructure threats such as a DDoS attack. Given that Microsoft has thousands of cybersecurity specialists working on security every day, the resources brought to bear against attackers are considerable. In fact, while organizations once worried about whether the cloud was secure, most now understand that given the level of investment that vendors such as Microsoft make in people and specialized infrastructure, the cloud is actually more secure than most on-premises datacenters.
 
 Even with this investment in Cloud Native Security Management, it is suggested that any Security Management policy extend the default Cloud Native policies. The following are examples of extended policies that should be considered, even in a Cloud Native environment:
 

@@ -11,7 +11,7 @@ Before any migration, you will want to ensure primary systems are safe and will 
 
 The content within the Fusion framework, assumes that Azure Migrate (or Azure Site Recovery) is the most appropriate tool for replicating assets to the cloud. However, there are other options available. This article discusses those options to help enable decision making.
 
-## Azure Site Recovery
+## Azure Site Recovery (Also known as Azure Migrate)
 
 Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, on-premises VMs, and physical servers. You can also use Site Recovery to manage migration of machines on-premises and other cloud providers to Azure. Replicate on-premises machines to Azure, or Azure VMs to a secondary region. Then you fail the VM over from the primary site to the secondary, and complete the migration process. With Azure Site Recovery, you can achieve various migration scenarios:
 

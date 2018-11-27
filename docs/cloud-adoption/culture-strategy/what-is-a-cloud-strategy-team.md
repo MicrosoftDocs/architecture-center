@@ -1,34 +1,39 @@
 ---
 title: "Fusion: what is a cloud strategy team?" 
 description: Describes the formation of a cloud strategy team
-author: petertaylor9999
-ms.date: 09/10/2018
+author: BrianBlanchard
+ms.date: 10/11/2018
 ---
 
-# Fusion: What is a cloud strategy team (CST)?
+# Fusion: What is a Cloud Strategy Team (CST)?
 
-## Structure of a cloud strategy team
+## Structure of a Cloud Strategy Team
 
-Successful cloud transformation is unique among many technical implementations, in that it must engage business leaders from across the organization. To unite various leaders, it is suggested that IT leadership create a cloud strategy team (CST). This team consists of business leaders from finance, IT infrastructure, and application groups. These teams can help with the cloud analysis and experimentation phase.
+Successful cloud transformation is unique among many technical implementations, in that it must engage business leaders from across the organization. To unite various leaders, it is suggested that executive leadership create a cloud strategy team (CST). This team consists of business leaders from finance, line of business, HR, operations,enterprise architecture, IT infrastructure, and application groups. These teams can help guide critical prioritization and discovery efforts during business transformation.
 
-For instance, a Cloud Strategy Team could be driven by the CTO and consist of members of the enterprise architecture team, IT finance, senior technologists from various IT applications groups (HR, finance, and so on), and leaders from the infrastructure, security, and networking teams.  
+Digital Transformation, like many forms of business transformation, could trigger changes in business processes, the execution of operations, customer interactions, or even product development. Seldom can digital transformation drive business outcomes, if it is confined to an Information Technology (IT) team. To drive true business change, business leaders must participate in the process. The Cloud Strategy Team provides a means for involving key participants in a manageable construct.
 
-It's also important to form two other high-level teams: a governance team, and a security team. These teams are responsible for designing, implementing, and the ongoing audit of the enterprise's governance and security policies. The governance team requires members that have worked with asset protection, cost management, group policy and related topics. The security team requires members that are well versed in current industry security standards as well as the enterprise's security requirements.
+Members of the Cloud Strategy Team should be assigned based on the [Transformation Journey](../transformation-journey/overview.md) that best aligns with the current corporate objectives & priorities. The Cloud Strategy Team is often assigned by the CEO and CIO. Assignments are generally based on empowering this team to drive change that cuts across various different organizations within the enterprise.
 
-![Cloud strategy team, with governance and security teams](../_images/getting-started-overview-1.png)
+## Duties of a Cloud Strategy Team
 
-The governance team is responsible for designing and implementing the enterprise's governance model in the cloud, as well as deploying and maintaining the shared infrastructure assets that are part of the digital transformation. These assets include hardware, software, and cloud resources necessary to connect the on-premises network to virtual networking in the cloud.
+The primary duty of a Cloud Strategy Team is to validate alignment between Business Priorities and the Transformation Journey. However, that primary duty is broad and ambiguous. The following represent a series of tasks usually executed by a Cloud Strategy Team on a monthly basis to help action that primary duty.
 
-The security team is responsible for designing and implementing the enterprise's security policy in the cloud, working closely with the governance team. The security team owns the extension of the security boundary of the on-premises network to include virtual networking in the cloud. This may take the form of owning and maintaining the inbound and outbound firewalls on the cloud virtual network as well as ensuring that tools and policy prevent the deployment of unauthorized resources.
+**Early Planning Tasks:**
 
-## Aligning high-level solutions with business groups
+* Review and provide feedback on [Business Outcomes](../business-strategy/business-outcomes/overview.md) and [Financial Models](../business-startegy/financial-models.md)
+* Aid in establishing clear [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) that align with corporate objectives
+* Define relevant [Transformation Metrics](../business-strategy/transformation-metrics.md) that clearly communicate progress towards business outcomes
+* Understand [business risks](../business-strategy/risk-tolerance.md) introduced by the plan, represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)
+* Review and approve the [rationalization of the digital estate](../digital-estate/overview.md)
 
-The strategy teams primary function is to take a prioritized list of workloads and assess high-level solutions for each. The design process will involve the specification of new infrastructure and new workloads. There may also be changes to the roles of the people and the processes they follow. It's also extremely important at this stage for each of the design teams to include both the governance and security teams for review of each design. Each design must fall within with the policies and procedures defined by the governance and security teams, and these teams must be included in the final sign off of each design.
+**On-going Monthly Tasks:**
 
-![Cloud strategy team hands off high-level solutions to design and implementation teams.](../_images/getting-started-overview-3.png)
+* Support the Cloud Governance Team during risk/tolerance conversations
+* Review release plans to understand timelines and business impact of technical change
+* Define Business Change Plans associated with planned releases
+* Ensure business teams are ready to execute Business Testing and Business Change Plan
 
-The design of each solution is a non-trivial task and as designs are created, must be considered in context with other solution designs from other teams. For example, if several of the designs result in a migration of existing on-premises applications and services to the cloud, it may be more efficient to group these together and design an overall migration strategy. In another example, it may not be possible to migrate some existing on-premises applications and services and the solution may be to replace them with either new development or third-party services. In this case, it may be more efficient to group these together and determine the overlap between them to determine if a third-party service can be used for more than one solution.
+## Cloud Strategy Team cadence
 
-The primary functions of the Cloud Strategy Team in this process are alignment and approval. Each member of the CST should evaluate the solution to ensure that a single point of accountability is defined, that the solution meets business requirements, there si a documented means of conducting User Acceptance Testing (UAT) by the business stakeholder's appointed power users, and that migration aligns to business timelines/expectations.
-
-Once approval is complete, the migration team can move on to the implementation phase for each design. The implementation phase for each solution design can be run using standard project management processes.
+Generally, the tasks mentioned above can be time consuming in the early planning phases. It is advised that each member plan on spending an hour per week to meet with the team. Once the migration plan starts to solidify (usually within 4-6 weeks), the time requirements can often be reduced. Throughout the transformation journey, it is advised that Cloud Strategy Team members plan on investing 1-2 hours per month. Additionally time is likely to be required from delegated members of the executive's team on an as-needed-basis.

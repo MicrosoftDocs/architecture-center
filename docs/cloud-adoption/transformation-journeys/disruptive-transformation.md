@@ -11,4 +11,4 @@ Coming Summer CY2019: Visual and written map to Disruptive Transformation. A gui
 
 "Everyone wants to be an innovator. Not everyone is ready to innovate", unnamed Microsoft employee known for his really stylish hats.
 
-While MSFT builds out this guide, it could be wise to investigate the [Operational Transformation](operational-transformation.md), to get out of the datacenter business and prepare IT to enable innovation.
+While MSFT builds out this guide, it could be wise to investigate the [Operational Transformation](operational-transformation.md), to get out of the DataCenter business and prepare IT to enable innovation.

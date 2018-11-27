@@ -85,14 +85,14 @@ There are several different states of data with different encryption needs to co
 
 | Data state      | Data                                                                                               |
 |-----------------|-----------------------------------------------------------------------------------------------------|
-| Data in transit | Internal network traffic, Internet connections, connections between datacenters or virtual networks |
+| Data in transit | Internal network traffic, Internet connections, connections between DataCenters or virtual networks |
 | Data at rest    | Databases, files, virtual drives, PaaS storage                                                      |
 | Data in use     | Data loaded in RAM or in CPU caches                                          |
 
 ### Data in transit
 
 Data in transit is data moving between resources on the internal, between
-datacenters or external networks, or over the internet.
+DataCenters or external networks, or over the internet.
 
 Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you Cloud Adoption Team and workload owner, but is generally recommended.
 

@@ -29,12 +29,12 @@ Central to the VDC access control and management architecture is using Azure AD 
 The scope of a role can be at the Azure subscription, resource group, or single resource level. RBAC also allows the inheritance of permissions, so that a role assigned at a parent level also grants access to the children contained within it.
 This functionality allows different parts of the VDC to be managed by different teams, so that central IT control over core access and security features can be paired with developers and associated teams having large amounts of control over specific workloads.
 
-The structure and breakdown of roles within your organization will very, but the VDC model assumes the central IT management tasks for the virtual datacenter breaks down into at least the three primary roles:
+The structure and breakdown of roles within your organization will very, but the VDC model assumes the central IT management tasks for the virtual DataCenter breaks down into at least the three primary roles:
 
 | Group                  | Common role name    | Responsibilities                                                                                                                                                          |
 |------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Security Operations    | SecOps              | Provide general security oversight.<br><br>Establish and enforce security policy such as encryption at rest.<br><br>Manage encryption keys.<br><br>Manage firewall rules. |
-| Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual datacenter such as routes and peerings.                                                |
+| Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual DataCenter such as routes and peerings.                                                |
 | Systems Operations     | SysOps              | Specify compute and storage infrastructure options and maintain resources that have been deployed.                                                                        |
 
 In addition to these three core IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services.

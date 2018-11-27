@@ -8,7 +8,7 @@ ms.date: 10/11/2018
 # Fusion: Transformation Journeys
 
 The cloud is changing how companies consume technology and how business can be delivered. The cloud also enables innovation, which is key given that the goal of most organizations’ strategy is to create competitive differentiation and advantage. Cloud adoption is on the rise, with 87 percent of organizations indicating that they plan to merge their
-on-premises datacenter with a hybrid cloud or the public cloud, based on a recent survey (2017 IDC Worldwide Public Cloud Services Spending Guide).  Worldwide spending on public cloud services and infrastructure is forecast to reach 160 billion USD in 2018, an increase of 23 percent over 2017.
+on-premises DataCenter with a hybrid cloud or the public cloud, based on a recent survey (2017 IDC Worldwide Public Cloud Services Spending Guide).  Worldwide spending on public cloud services and infrastructure is forecast to reach 160 billion USD in 2018, an increase of 23 percent over 2017.
 
 The cloud provides the freedom to deploy, build, and manage applications on a massive, global network using existing tools and frameworks. Public and hybrid cloud solutions provide means of increasing efficiency and productivity, while simultaneously reducing IT operating expenses (OpEx). Taking advantage of scale and consumption-based billing, provides access to services that might otherwise be far beyond an organization’s means to implement.
 

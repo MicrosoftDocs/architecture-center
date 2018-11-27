@@ -7,6 +7,6 @@ ms.date: 10/11/2018
 
 # Fusion: Remediate Cloud Assets
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on the [Operate Process](overview.md) within migration by addressing approaches to remediating under-performing assets or assets that don't adhere to operational guidance.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section of the framework, expands on the [Operate Process](overview.md) within migration by addressing approaches to remediating under-performing assets or assets that don't adhere to operational guidance.
 
 Coming Soon...

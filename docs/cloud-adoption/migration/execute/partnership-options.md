@@ -6,7 +6,7 @@ ms.date: 10/11/2018
 ---
 # Fusion: Understanding Partnership Options
 
-The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
+The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
 
 ## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
 

@@ -7,9 +7,9 @@ ms.date: 10/11/2018
 
 # Fusion: What tools can help assess on-prem infrastructure?
 
-The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on the [Planning Process](overview.md) within migration, in particular this article will discuss tools that can be used to assess the infrastructure within an on-prem datacenter.
+The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section of the framework, expands on the [Planning Process](overview.md) within migration, in particular this article will discuss tools that can be used to assess the infrastructure within an on-prem datacenter.
 
-Assessing infrastructure for large, complex environments especially those in excess of 1,000 VMs may benefit from a broader focus. Fusion refers to the planning process for high-scale datacenters as [Digital Estate planning](../../business-strategy/digital-estate.md). The [business strategy](../../business-strategy/overview.md) surrounding digital estate planning could be a better starting point for organizations with thousands of VMs, hundreds of applications, or petabytes of data.
+Assessing infrastructure for large, complex environments especially those in excess of 1,000 VMs may benefit from a broader focus. Fusion refers to the planning process for high-scale DataCenters as [Digital Estate planning](../../business-strategy/digital-estate.md). The [business strategy](../../business-strategy/overview.md) surrounding digital estate planning could be a better starting point for organizations with thousands of VMs, hundreds of applications, or petabytes of data.
 
 ## Inventory and Assessment tools
 

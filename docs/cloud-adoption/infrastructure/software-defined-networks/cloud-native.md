@@ -26,7 +26,7 @@ external sources like the web need to be explicitly provisioned. These virtual n
 
 > [!TIP]
 > Cloud native virtual networks are the default when configuring networking in cloud platforms, and have no external dependencies. This makes them simple to deploy and configure. As a result, this architecture is often the best choice for experiments or other smaller, self-contained, or rapidly iterating deployments. Other issues your Cloud Adoption Team should consider when discussing a cloud native virtual networking architecture:
-> - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality such as storage or authentication services.
+> - Existing workloads designed to run in an on-premises DataCenter may need extensive modification to take advantage of cloud-based functionality such as storage or authentication services.
 > - Cloud native networks are managed solely through the cloud platform management tools, and may lead to management and policy divergence from your existing IT standards as time goes on.
 
 ## Cloud Native Azure Networks

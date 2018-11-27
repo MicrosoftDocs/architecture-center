@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Monitor Cloud Assets
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This section of the framework, expands on the [Operate Process](overview.md) within migration by discussing options for monitoring cloud health.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section of the framework, expands on the [Operate Process](overview.md) within migration by discussing options for monitoring cloud health.
 
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your business application and the resources that it depends on. Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. Gain visibility into the health and performance of your apps, infrastructure, and data in Azure with cloud monitoring tools such as Azure Monitor, Log Analytics, and Application Insights. Use these cloud monitoring tools to take action and integrate with your service management solutions:
 

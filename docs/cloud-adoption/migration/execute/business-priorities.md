@@ -21,7 +21,12 @@ In parallel, the Cloud Strategy Team focuses on executing the business change pl
 
 ## Business Alignment Questions
 
-Prior to any release planning, the Cloud Strategy Team should ask four simple questions of the migration backlog. Are the top 10 applications or workloads ready for migration? Does the Cloud Adoption Team and Cloud Governance Team have all of the necessary data to be successful? Does the application at the top of the list deliver the most relevant impact for the business in the next release? Are there other applications that should be at the top of the list?
+The following questions can help the Cloud Strategy Team shape and prioritize the migration backlog to ensure the transformation effort best aligns with current business needs.
+
+* Are the top 10 applications or workloads ready for migration?
+* Does the Cloud Adoption Team and Cloud Governance Team have all of the necessary data to be successful?
+* Does the application at the top of the list deliver the most relevant impact for the business in the next release?
+* Are there other applications that should be at the top of the list?
 
 ## Tangible actions
 

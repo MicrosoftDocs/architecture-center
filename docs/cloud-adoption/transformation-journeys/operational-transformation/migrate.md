@@ -15,7 +15,7 @@ ms.date: 10/11/2018
 
 Download the full size infographic: [pdf format](../../_images/operational-transformation-infographic.png) [png format](../../_images/operational-transformation-infographic.pdf)
 
-## Technology Activities (Sprint / Increment activities)
+## Technology Activities (Iteration activities)
 
 During each increment/sprint, activities are aligned to specific technical execution. There are no defined business or culture activities within an increment. The following six activities represent the vast majority of the technical work completed during an Operational Transformation.
 
@@ -26,7 +26,7 @@ During each increment/sprint, activities are aligned to specific technical execu
 * [Replicate](../migration/execute/replicate.md): Replicate the OS, Configuration, and/or Data to the cloud hosting solution.
 * [Stage](../migration/execute/stage.md): Prepare the migrated resources in a staging environment, so that the application or workload can be tested by the Cloud Adoption Team, power users, and/or business stakeholders.
 
-# Activities outside of the sprint or increment scope
+# Activities outside of the iteration scope
 
 There are several business, culture, and technical activities that happen outside of each iteration. The following activities generally occur after each sprint, or after each release.
 
@@ -34,8 +34,8 @@ There are several business, culture, and technical activities that happen outsid
 
 The following activities align help expand the business vision and build the relationships needed to coordinate bus/tech execution.
 
-* [UAT Testing](../migration/execute/uat-test.md): During this process, power users and business stakeholders test applications that are slated for release to validate functionality and performance.
-* [User Adoption Plan](../migration/execute/user-adoption-plan.md): Once an application/workload has passed UAT testing, the business unit begins planning the business transformation activities required to adopt the new technical solution. This plan manages the actual business change.
+* [UAT Testing](../migration/execute/business-test.md): During this process, power users and business stakeholders test applications that are slated for release to validate functionality and performance.
+* [User Adoption Plan](../migration/execute/business-change-plan.md): Once an application/workload has passed UAT testing, the business unit begins planning the business transformation activities required to adopt the new technical solution. This plan manages the actual business change.
 * [Business Priorities](../migration/execute/business-priorities.md): At the end of each iteration, the business stakeholders provide any updates to business outcomes and priorities. These changes influence the migration, release, and iteration backlog. Aligning the migration backlog to changing business priorities allows the Cloud Adoption Team to align activities for maximum impact.
 
 ## Culture Activities

@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Migration Execution
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This process represents the bulk of effort during any Cloud Transformation that involves a migration of infrastructure assets to the cloud.
   
 In this process, the Cloud Adoption Team will execute a process which focuses on the technical tasks associated with migrating assets to the cloud.
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
@@ -33,8 +33,8 @@ Iteration Activities: Completed in every iteration regardless of release timing
 Release Activities: During iterations in which a release is to be tested or promoted, the following activities are also likely to be executed, in addition to standard iteration activities:
 
 * [Stage](stage.md): Once all assets required to operate a workload have been replicated to Azure, the workload can be staged for release.
-* [UAT Testing](uat-test.md): Staged workload can be tested by power users to validate function and performance.
-* [User Adoption Plan](user-adoption-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
+* [UAT Testing](business-test.md): Staged workload can be tested by power users to validate function and performance.
+* [User Adoption Plan](business-change-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
 * [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
 * [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
 * [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.

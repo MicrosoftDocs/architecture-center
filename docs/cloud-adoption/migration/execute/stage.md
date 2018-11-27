@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Guidance to Staging during to migration
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Staging a given release.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Staging a given release.
   
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
@@ -20,7 +20,7 @@ How does ASR stage the replicated content for testing? How can people interact w
 
 ## Next steps
 
-Once Staging is complete, [UAT Testing](uat-test.md) can begin.
+Once Staging is complete, [UAT Testing](business-test.md) can begin.
 
 > [!div class="nextstepaction"]
-> [UAT Testing](uat-test.md)
+> [UAT Testing](business-test.md)

@@ -626,10 +626,10 @@
       href: cloud-adoption/migration/execute/replicate.md
     - name: Stage
       href: cloud-adoption/migration/execute/stage.md
-    - name: UAT Testing
-      href: cloud-adoption/migration/execute/uat-test.md
-    - name: User Adoption Plan
-      href: cloud-adoption/migration/execute/user-adoption-plan.md
+    - name: Business Testing (UAT Testing)
+      href: cloud-adoption/migration/execute/business-test.md
+    - name: Business Change Plan (User Adoption Plan)
+      href: cloud-adoption/migration/execute/business-change-plan.md
     - name: Ready for Production (Ready)
       href: cloud-adoption/migration/execute/ready.md
     - name: Promote to Production (Promote)

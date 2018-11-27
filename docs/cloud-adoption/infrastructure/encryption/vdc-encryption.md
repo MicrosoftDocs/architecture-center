@@ -14,7 +14,7 @@ The Azure Virtual Datacenter model uses encryption to enforce isolation of data 
 between:
 
 - On-premises networks and the virtual datacenter. Data passes through either an encrypted site-to-site virtual private network (VPN) connection or an isolated, private ExpressRoute.
-- Applications or services running in a different virtual datacenter (that is, from one virtual datacenter to another).
+- Applications or services running in a different virtual DataCenter (that is, from one virtual DataCenter to another).
 - Applications or services running in the same Azure virtual datacenter.
 - PaaS resources, including both internal and external endpoints—storage accounts, databases, and management APIs.
 

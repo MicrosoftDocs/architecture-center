@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Process Overview for operating cloud assets
 
-This section of the [Fusion framework](../../overview.md), outlines the processes typically required to operate assets that have been migrated to a datacenter to the cloud.
+This section of the [Fusion framework](../../overview.md), outlines the processes typically required to operate assets that have been migrated to a DataCenter to the cloud.
 
 Cloud migration significantly impacts the daily operations of an IT department, broadening the scope of IT operations as organizations move to the cloud. Cloud adoption creates new management challenges for IT teams. Instead of utilizing disjointed solutions for individual IT operations, organizations may want to take advantage of cloud-scale infrastructure to simplify deployment through unified IT management as a service. Management capabilities such as monitoring, backup, automation, and so forth are delivered as a service from the cloud that connects all of the servers in all environments (on-premises, Azure, and other clouds), allowing IT staff to centrally manage operations.
 

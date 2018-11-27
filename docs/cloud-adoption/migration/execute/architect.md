@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Guidance to prepare workload architecture prior to migration
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with defining the Architecture of a workload within a given iteration.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with defining the Architecture of a workload within a given iteration.
 
 As discussed in the article on [Incremental Rationalization](../../digital-estate/rationalize-incremental.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article will clarify those assumptions, share a few roadblocks that can be avoided, and identify opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and obtain business outcomes sooner.
 
