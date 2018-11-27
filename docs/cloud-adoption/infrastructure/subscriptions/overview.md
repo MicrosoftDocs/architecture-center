@@ -48,9 +48,11 @@ However, as discussed previously, there are technical limitations to the number 
 
 ### Application archetypes
 
-As the size of an organization's cloud footprint grows the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the applications or services they host, or more generally along the lines of application archetypes, all of which are owned and administered by central IT operations staff. 
+As the size of an organization's cloud footprint grows the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the applications or services they host, or more generally along the lines of application archetypes. In this approach, the subscriptions and accounts are all organized under a single department  of which are owned and administered by central IT operations staff. 
 
 This pattern lacks a more complex hierarchy at the department and account levels.  
+
+![application archetype pattern](../../_images/infra-subscriptions/application.png)
 
 ### Functional
 

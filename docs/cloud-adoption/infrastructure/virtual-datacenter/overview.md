@@ -22,11 +22,11 @@ The underlying infrastructure of a VDC serves to connect on-premises resources w
 
 - [Subscription Structure](../subscriptions/vdc-subscriptions.md)
 - [Identity and Roles](../identity/vdc-identity.md)
-- [Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
 - [Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
+- [Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
 - [Naming and Tagging Standards](../resource-tagging/vdc-naming.md)
-- [Encryption](../encryption/vdc-encryption.md)
 - [Networking](../software-defined-networks/vdc-networking.md)
+- [Encryption](../encryption/vdc-encryption.md)
 - [Reporting, Monitoring and Compliance](../logs-and-reporting/vdc-monitoring.md)
 
 ## Assumptions

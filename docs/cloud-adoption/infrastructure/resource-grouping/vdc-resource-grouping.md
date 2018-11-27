@@ -8,9 +8,10 @@ ms.date: 11/08/2018
 
 Coming soon.
 
+
 ## Next steps
 
-Learn  how [naming and tagging ](../resource-tagging/vdc-naming.md) are used to organize resources and improve management and access control of assets within an Azure Virtual Datacenter.
+Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Virtual Datacenter: Naming and Tagging](../resource-tagging/vdc-naming.md)
+> [Azure Virtual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)

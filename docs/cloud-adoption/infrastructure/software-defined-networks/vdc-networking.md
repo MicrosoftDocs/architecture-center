@@ -69,7 +69,7 @@ extension.
 
 ## Next steps
 
-Learn  how [monitoring and reporting](../logs-and-reporting/vdc-monitoring.md) are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
+Learn how the Azure Virtual Datacenter [networking infrastructure](../encryption/vdc-encryption.md) enables secure, centrally managed, access between on-premises and cloud resources.
 
 > [!div class="nextstepaction"]
-> [Azure Virtual Datacenter: Monitoring, Reporting, and Compliance](../logs-and-reporting/vdc-monitoring.md)
+> [Azure Virtual Datacenter: Encryption](../encryption/vdc-encryption.md)
