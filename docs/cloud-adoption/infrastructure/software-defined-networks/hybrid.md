@@ -7,20 +7,14 @@ ms.date: 11/07/2018
 
 # Fusion: Software Defined Networks - Hybrid networks
 
-The hybrid cloud network architecture allows virtual networks to access your
-on-premises resources and services and vice versa, using a virtual private
-network (VPN) or other connection to directly connect the two networks.
+The hybrid cloud network architecture allows virtual networks to access your on-premises resources and services and vice versa, using a virtual private network (VPN) or other connection to directly connect the two networks.
 
-As with a cloud native virtual network, a hybrid virtual network is isolated by
-default. Adding connectivity to the on-premises environment grants access to and
-from the on-premises network, but any other inbound traffic targeting resources
-in the virtual network need to be explicitly allowed. The connection can be
-secured using virtual firewall devices and routing rules to limit access or
-specify exactly what services can be accessed between the two networks.
+As with a cloud native virtual network, a hybrid virtual network is isolated by default. Adding connectivity to the on-premises environment grants access to and from the on-premises network, but any other inbound traffic targeting resources
+in the virtual network need to be explicitly allowed. The connection can be secured using virtual firewall devices and routing rules to limit access or specify exactly what services can be accessed between the two networks.
 
 **Hybrid Assumptions:** Deploying a hybrid virtual network assumes the following:
 
-- Your IaaS workloads require access to storage, applications, and services hosted on your on-premises or third party networks.
+- Your IaaS workloads require access to storage, applications, and services hosted on your on-premises or third-party networks.
 
 - You need to migrate existing applications and services that depend on on-premises resources without extensive redevelopment.
 

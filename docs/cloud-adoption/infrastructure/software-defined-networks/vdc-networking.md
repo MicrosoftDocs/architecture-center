@@ -5,7 +5,7 @@ author: rotycen
 ms.date: 11/08/2018
 ---
 
-# Fusion: Software Defined Networks - Virtual datacenters
+# Fusion: Software Defined Networks - Virtual DataCenters
 
 A virtual DataCenter architecture is designed to assist enterprises in
 deploying a large number of workloads to public cloud platform while still
@@ -72,10 +72,11 @@ E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
 for more information on the broader concepts behind VDC and the trusted network
 extension.
 
+More details to come...
 
 ## Next steps
 
-Learn  how [monitoring and reporting](../logs-and-reporting/vdc-monitoring.md) are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
+Learn how the Azure Virtual Datacenter [networking infrastructure](../encryption/vdc-encryption.md) enables secure, centrally managed, access between on-premises and cloud resources.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Monitoring, Reporting, and Compliance](../logs-and-reporting/vdc-monitoring.md)
+> [Azure Virtual Datacenter: Encryption](../encryption/vdc-encryption.md)

@@ -8,9 +8,10 @@ ms.date: 11/08/2018
 
 Coming soon.
 
+
 ## Next steps
 
-Learn how [resource grouping](../resource-grouping/vdc-resource-grouping.md) is used to organize and standardize deployments within an Azure Virtual Datacenter.
+Learn  how [naming and tagging ](../resource-tagging/vdc-naming.md) are used to organize resources and improve management and access control of assets within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
+> [Azure Virtual Datacenter: Naming and Tagging](../resource-tagging/vdc-naming.md)

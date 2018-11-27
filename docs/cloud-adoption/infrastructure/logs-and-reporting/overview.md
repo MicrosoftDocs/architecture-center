@@ -17,7 +17,7 @@ appropriate IT staff, is critical in ensuring your organization is meeting
 uptime, security, and policy compliance goals.
 
 
-## Identity Decision Guide
+## Logging and Reporting Decision Guide
 
 ![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
 
@@ -41,7 +41,7 @@ your existing processes and tools.
 
 ### Cloud native
 
-If your organization currently lacks established logging and reporting systems, or if your planned cloud deployment does not need to be integrated with existing on-premises or other external monitoring systems, a cloud native SaaS solution solution is likely the simplest choice.
+If your organization currently lacks established logging and reporting systems, or if your planned cloud deployment does not need to be integrated with existing on-premises or other external monitoring systems, a cloud native SaaS solution is likely the simplest choice.
 
 In this scenario log data is recorded and stored in the same cloud environment as your workload, while the logging and reporting tools that process and surface information to IT staff are offered as part of the could platform.
 
@@ -50,7 +50,7 @@ Cloud native logging solutions can be implemented ad-hoc per subscriptions or wo
 **Cloud native assumptions:** Using a cloud native logging and reporting system assumes the following:
 
 - You do not need to integrate the log data from you cloud workloads into existing on-premises systems.
-- You will not be using your cloud based reporting systems to monitor on-premises systems.
+- You will not be using your cloud-based reporting systems to monitor on-premises systems.
 
 ### Hybrid monitoring (on-premises)
 
@@ -63,22 +63,22 @@ If you have an existing investment in on-premises monitoring systems that would 
 
 - You need to use existing on-premises reporting systems to monitor cloud workloads.
 - You need to maintain ownership of log data on-premises.
-- Your on-premises management systems have APIs or other mechanisms available to ingest log data from cloud based systems.
+- Your on-premises management systems have APIs or other mechanisms available to ingest log data from cloud-based systems.
 
 > [!TIP]
 > As part of the iterative nature of cloud migration, transitioning from distinct cloud native and on-premises monitoring to some kind of partial hybrid is likely. Make sure to keep changes to your monitoring architecture in line with your overall IT and operational processes.
 
 ### Hybrid monitoring (cloud based)
 
-If you do not have a compelling need to maintain an on-premises monitoring system, or want to replace on-premises monitoring systems with a SaaS solution, you can also choose to integrate on-premises log data with a centralized cloud based monitoring system.
+If you do not have a compelling need to maintain an on-premises monitoring system, or want to replace on-premises monitoring systems with a SaaS solution, you can also choose to integrate on-premises log data with a centralized cloud-based monitoring system.
 
-Mirroring the on-premises centered approach, in this scenario cloud workloads would use their default cloud logging mechanism, and on-premises applications and services would either send telemetry directory to the cloud based logging system, or aggregate that data for ingestion into the cloud system at regular intervals. The cloud based monitoring system would then serve as your primary monitoring and reporting system for your entire IT estate.
+Mirroring the on-premises centered approach, in this scenario cloud workloads would use their default cloud logging mechanism, and on-premises applications and services would either send telemetry directory to the cloud-based logging system, or aggregate that data for ingestion into the cloud system at regular intervals. The cloud-based monitoring system would then serve as your primary monitoring and reporting system for your entire IT estate.
 
-**Cloud based hybrid monitoring assumptions:** Using cloud based logging and reporting systems for hybrid monitoring assumes the following:
+**Cloud based hybrid monitoring assumptions:** Using cloud-based logging and reporting systems for hybrid monitoring assumes the following:
 
 - You are not tied to existing on-premises monitoring systems.
 - Your workloads do not have regulatory or policy requirements to store log data on-premises.
-- Your cloud based monitoring systems have APIs or other mechanisms available to ingest log data from on-premises applications and services.
+- Your cloud-based monitoring systems have APIs or other mechanisms available to ingest log data from on-premises applications and services.
 
 ### Gateway
 
@@ -86,7 +86,7 @@ For scenarios where the amount of cloud-based telemetry data is very large or ex
 
 A gateway service is deployed to your cloud provider, and relevant applications and services are configured to submit telemetry data to the gateway instead of a default logging system. The gateway can then process the data: aggregating, combining, or otherwise formatting it before then submitting it to your monitoring service for ingestion and analysis.
 
-A gateway can be use to aggregate and pre-process telemetry data bound for cloud-native or hybrid systems.
+A gateway can be used to aggregate and pre-process telemetry data bound for cloud-native or hybrid systems.
 
 **Gateway assumptions:**
 
@@ -104,7 +104,7 @@ In order to support this, your cloud resources will need to be able to community
 
 - You need to maintain log data in your on-premises environment, either in support of operations being tied to your existing system, or due to regulatory or policy requirements.
 - Your on-premises systems do not support hybrid logging and reporting or gateway aggregation solutions.
-- You can connect your on-premises network and directory services with their cloud based counterparts. 
+- You can connect your on-premises network and directory services with their cloud-based counterparts. 
 - Your workloads are not dependent on PaaS or SaaS services that require cloud-based logging and reporting.
 
 ### Multi-cloud
@@ -139,17 +139,12 @@ integrated analysis and reporting.
 
 [Application
 Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview?toc=/azure/azure-monitor/toc.json)
-is the Azure Monitor component designed to capture telemetry data from
-applications and workloads. Applications can include the Application Insights
-SDK or the hosting web server can be configured to send telemetry without
-requiring modification to application code.
+is the Azure Monitor component designed to capture telemetry data from applications and workloads. Applications can include the Application Insights SDK, or the hosting web server can be configured to send telemetry without requiring modification to application code.
 
 ### Azure Monitor Integration
 
-Azure Monitor provides a [REST
-API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)
-for integration with external services and automation of monitoring and alerting
-services.
+Azure Monitor provides a [REST API](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)
+for integration with external services and automation of monitoring and alerting services.
 
 In addition, Azure Monitor offers [integration with may popular 3rd party
 vendors](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-partners).

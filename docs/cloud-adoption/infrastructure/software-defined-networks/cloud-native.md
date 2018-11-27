@@ -34,7 +34,7 @@ external sources like the web need to be explicitly provisioned. These virtual n
 ![Simple cloud native virtual network with a single VM and Public IP address](../../_images/infra-sdn-figure1.png)
 
 A cloud native network is the default configuration for a newly created Azure
-virtual networks. By default resources connected to the virtual network have
+virtual networks. By default, resources connected to the virtual network have
 outbound connectivity (although this can be controlled using NSGs). Connections
 with other virtual networks are possible through peering.
 

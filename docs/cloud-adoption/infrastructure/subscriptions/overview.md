@@ -28,7 +28,7 @@ Additionally, technical inflection points based around digital estate size vs cl
 
 Azure Subscriptions are where the real work happens when it comes to deploying, managing and applying policy to resources. For small Azure deployments, a single subscription or a small collection of subscriptions may compose your entire cloud estate. However, Large Azure deployments will need to span multiple subscriptions to support your organizational structure and bypass [subscription quotas and limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) which impose technical limits on the number of resources you can deploy to a single subscriptions. 
 
-All Azure subscriptions are associated with an account, which is tied to billing and top-level access control for a subscription. A single account can own multiple subscriptions, and provides a base level of subscriptions organization.
+All Azure subscriptions are associated with an account, which is tied to billing and top-level access control for a subscription. A single account can own multiple subscriptions and provides a base level of subscriptions organization.
 
 An Azure Enterprise Agreement provides a further ability to organize subscriptions and accounts into hierarchies reflecting your organizational priorities. Your organizational enterprise enrollment defines the shape and use of Azure services within your company from a contractual point of view. Within the enterprise agreement, you can further subdivide the environment into departments, accounts, and finally, subscriptions to match your organization's structure.
 
@@ -36,7 +36,7 @@ An Azure Enterprise Agreement provides a further ability to organize subscriptio
 
 ## Subscription design patterns
 
-Every enterprise is different and the Department/Account/Subscription hierarchy enabled through an Azure Enterprise Agreement allows for significant flexibility in how Azure is organized within your company. Modeling your hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first — and most important — decision you make when starting in the public cloud.
+Every enterprise is different, and the Department/Account/Subscription hierarchy enabled through an Azure Enterprise Agreement allows for significant flexibility in how Azure is organized within your company. Modeling your hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first — and most important — decision you make when starting in the public cloud.
 
 The following subscription patterns reflect a general increase subscription design complexity to support potential organizational priorities:
 
@@ -48,9 +48,11 @@ However, as discussed previously, there are technical limitations to the number 
 
 ### Application archetypes
 
-As the size of an organization's cloud footprint grows the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the the applications or services they host, or more generally along the lines of application archetypes, All of which are owned and administered by central IT operations staff. 
+As the size of an organization's cloud footprint grows the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the applications or services they host, or more generally along the lines of application archetypes. In this approach, the subscriptions and accounts are all organized under a single department  of which are owned and administered by central IT operations staff. 
 
 This pattern lacks a more complex hierarchy at the department and account levels.  
+
+![application archetype pattern](../../_images/infra-subscriptions/application.png)
 
 ### Functional
 
@@ -72,13 +74,13 @@ For organizations with global operations, this pattern groups subscriptions and 
 
 ### More complex patterns
 
-Azure Enterprise Agreements are limited to the four level enterprise/department/account/subscriptions hierarchy. However, you can combine the use combinations such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource grouping design](../resource-grouping/overview.md) can further extend the governance and organizational structure of your subscription design.
+Azure Enterprise Agreements are limited to the four-level enterprise/department/account/subscriptions hierarchy. However, you can combine the use combinations such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource grouping design](../resource-grouping/overview.md) can further extend the governance and organizational structure of your subscription design.
 
 Management groups, discussed in the following section, can help support more complicated organizational structures.
 
 ## Management groups
 
-In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, and allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. 
+In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels and allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. 
 
 Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
 

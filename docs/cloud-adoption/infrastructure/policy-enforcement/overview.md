@@ -15,7 +15,7 @@ Defining organizational policies does little good if there is no way to enforce 
 
 Jump to:
 
-As your cloud estate grows you will be faced with the need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to to ensure consistent adherence and fast violation detection. Platform provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments while lager deployments will need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with you logging and reporting systems. 
+As your cloud estate grows you will be faced with the need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to ensure consistent adherence and fast violation detection. Platform provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments while lager deployments will need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with you logging and reporting systems. 
 
  The key inflection point when choosing the complexity of your policy enforcement strategy is primarily focused on the number of subscriptions or tenants required by your [subscription design](../subscriptions/overview.md). The amount of control granted to various user rolls within your cloud estate could influence these decisions as well.
 
@@ -29,7 +29,7 @@ Your cloud policy enforcement planning should start by examining how these stand
 
 ### Trust but verify
 
-Another key factor even for relatively small cloud deployments is the ability to verify that cloud based applications and services are in compliance with organizational policy, and to promptly notify responsible parties if a resource falls out of compliance. Properly designing your [logging and reporting](../logs-and-reporting/overview.md) approach to monitor your cloud workloads for compliance is a critical part of any corporate policy enforcement strategy. 
+Another key factor even for relatively small cloud deployments is the ability to verify that cloud-based applications and services are in compliance with organizational policy, and to promptly notify responsible parties if a resource falls out of compliance. Properly designing your [logging and reporting](../logs-and-reporting/overview.md) approach to monitor your cloud workloads for compliance is a critical part of any corporate policy enforcement strategy. 
 
 As your cloud estate grows, additional tools such as [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/) can provide integrated security and threat detection, and help apply centralized policy management and alerting for both your on-premises and cloud assets. 
 

@@ -41,7 +41,7 @@ In addition to these three core IT roles, each individual workload spoke is expe
 
 ## Next steps
 
-Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
+Learn how [resource grouping](../resource-grouping/vdc-resource-grouping.md) is used to organize and standardize deployments within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
-> [Azure Vitual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
+> [Azure Virtual Datacenter: Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
