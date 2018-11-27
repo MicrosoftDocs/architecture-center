@@ -4,11 +4,9 @@ description: >-
   Recommended architecture for web application with high availability, running
   in Microsoft Azure.
 author: MikeWasson
-ms.date: 11/23/2016
-cardTitle: Run in multiple regions
+ms.date: 10/25/2018
 ---
-# Run a web application in multiple regions
-[!INCLUDE [header](../../_includes/header.md)]
+# Run a web application in multiple Azure regions
 
 This reference architecture shows how to run an Azure App Service application in multiple regions to achieve high availability. 
 
@@ -66,9 +64,7 @@ On the other hand, don't use the health probe to check lower priority services. 
 Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
 ### Cosmos DB
-Cosmos DB supports geo-replication across regions. One region is designated as writable and the others are read-only replicas.
-
-If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [How to distribute data globally with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -92,7 +88,7 @@ Traffic Manager automatically fails over if the primary region becomes unavailab
 
 For details, see [About Traffic Manager Monitoring][tm-monitoring].
 
-Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager service level agreement (SLA)][tm-sla] and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a failback. If the Azure Traffic Manager service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
+Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager service level agreement (SLA)][tm-sla] and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Azure Traffic Manager service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
 ### SQL Database
 The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Database are documented in [Overview of business continuity with Azure SQL Database][sql-rpo]. 
@@ -132,10 +128,11 @@ Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
 For more information, see [Azure Traffic Manager Cmdlets][tm-ps].
 
-**Azure command line interface (CLI)**
+**Azure CLI**
 
 ```bat
-azure network traffic-manager endpoint set --name <endpoint> --profile-name <profile> --resource-group <resource-group> --type AzureEndpoints --priority 3
+az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile> \
+    --name <endpoint-name> --type azureEndpoints --priority 3
 ```    
 
 ### SQL Database
@@ -161,6 +158,6 @@ If the primary database fails, perform a manual failover to the secondary databa
 [tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-ps]: /powershell/module/azurerm.trafficmanager
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
-[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
-[traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
+[traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx

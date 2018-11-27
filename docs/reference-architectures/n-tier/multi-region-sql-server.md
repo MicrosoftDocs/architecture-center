@@ -7,12 +7,9 @@ description: >-
 author: MikeWasson
 
 ms.date: 07/19/2018
-
-pnp.series.title: Windows VM workloads
-pnp.series.prev: n-tier
 ---
 
-# Multi-region N-tier application for high availability
+# N-tier application in multiple Azure regions for high availability
 
 This reference architecture shows a set of proven practices for running an N-tier application in multiple Azure regions, in order to achieve availability and a robust disaster recovery infrastructure. 
 
@@ -182,8 +179,8 @@ Measure the recovery times and verify they meet your business requirements. Test
 [tm-configure-failover]: /azure/traffic-manager/traffic-manager-configure-failover-routing-method
 [tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
-[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
-[traffic-manager]: https://azure.microsoft.com/services/traffic-manager/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
+[traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
 [vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps

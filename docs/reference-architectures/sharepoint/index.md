@@ -2,7 +2,7 @@
 title: Run a high availability SharePoint Server 2016 farm in Azure
 description:  Proven practices for setting up a high availability SharePoint Server 2016 farm on Azure.
 author: njray
-ms.date: 07/14/2018
+ms.date: 07/26/2018
 ---
 
 # Run a high availability SharePoint Server 2016 farm in Azure
@@ -209,7 +209,7 @@ The parameter files include a hard-coded password in various places. Change thes
     azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure3.json --deploy
     ```
 
-At this point, verify that you can make a TCP conection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
+At this point, verify that you can make a TCP connection from the web front end to the load balancer for the SQL Server Always On availability group. To do so, perform the following steps:
 
 1. Use the Azure portal to find the VM named `ra-sp-jb-vm1` in the `ra-sp2016-network-rg` resource group. This is the jumpbox VM.
 
@@ -302,7 +302,7 @@ This logon tunnels from the Fabrikam.com domain used by the on-premises network 
 [sharepoint-reqs]: https://technet.microsoft.com/library/cc262485(v=office.16).aspx
 [sharepoint-search]: https://technet.microsoft.com/library/dn342836.aspx
 [sql-always-on]: /sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server
-[sql-performance]: /virtual-machines/windows/sql/virtual-machines-windows-sql-performance
+[sql-performance]: /azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance
 [sql-server-capacity-planning]: https://technet.microsoft.com/library/cc298801(v=office.16).aspx
 [sql-quorum]: https://technet.microsoft.com/library/cc731739(v=ws.11).aspx
 [sql-sharepoint-best-practices]: https://technet.microsoft.com/library/hh292622(v=office.16).aspx

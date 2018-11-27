@@ -54,7 +54,7 @@ The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 - On read, the application tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
 - On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it is required.
 
-This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside] pattern.  
+This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside-pattern] pattern.  
 
 ```csharp
 public class CachedPersonRepository : IPersonRepository
@@ -207,7 +207,7 @@ The volume of successful tests still reaches a plateau, but at a higher user loa
 [caching-guidance]: ../../best-practices/caching.md
 [circuit-breaker]: ../../patterns/circuit-breaker.md
 [api-implementation]: ../../best-practices/api-implementation.md#optimizing-client-side-data-access
-[NewRelic]: http://newrelic.com/azure
+[NewRelic]: https://newrelic.com/partner/azure
 [NewRelic-server-requests]: _images/New-Relic.jpg
 [Performance-Load-Test-Results-Uncached]:_images/InitialLoadTestResults.jpg
 [Dynamic-Management-Views]: _images/SQLServerManagementStudio.jpg

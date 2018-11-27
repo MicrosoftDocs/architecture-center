@@ -2,7 +2,7 @@
 title: Designing resilient applications for Azure
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 author: MikeWasson
-ms.date: 05/26/2017
+ms.date: 07/29/2018
 ms.custom: resiliency
 ---
 # Designing resilient applications for Azure
@@ -168,7 +168,9 @@ Azure has a number of features to make an application redundant at every level o
 
 **Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
-**Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. 
+**Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+
+**Azure Site Recovery**.  Replicate Azure virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region. For more information, see [Replicate Azure VMs using ASR][site-recovery].
 
 **Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
@@ -196,9 +198,11 @@ Each retry attempt adds to the total latency. Also, too many failed requests can
 * Scale out an Azure App Service app to multiple instances. App Service automatically balances load across instances. See [Basic web application][ra-basic-web].
 * Use [Azure Traffic Manager][tm] to distribute traffic across a set of endpoints.
 
-**Replicate data**. Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra. It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas. 
+**Replicate data**. Replicating data is a general strategy for handling non-transient failures in a data store. Many storage technologies provide built-in replication, including Azure SQL Database, Cosmos DB, and Apache Cassandra. It's important to consider both the read and write paths. Depending on the storage technology, you might have multiple writable replicas, or a single writable replica and multiple read-only replicas.
 
-To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails. 
+To maximize availability, replicas can be placed in multiple regions. However, this increases the latency when replicating the data. Typically, replicating across regions is done asynchronously, which implies an eventual consistency model and potential data loss if a replica fails.
+
+You can use [Azure Site Recovery][site-recovery] to replicate Azure virtual machines from one region to another region. Site Recovery replicates data continuously to the target region. When an outage occurs at your primary site, you fail over to secondary location
 
 **Degrade gracefully**. If a service fails and there is no failover path, the application may be able to degrade gracefully while still providing an acceptable user experience. For example:
 
@@ -328,16 +332,16 @@ Here are the major points to take away from this article:
 
 <!-- links -->
 
-[blue-green]: http://martinfowler.com/bliki/BlueGreenDeployment.html
-[canary-release]: http://martinfowler.com/bliki/CanaryRelease.html
+[blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
+[canary-release]: https://martinfowler.com/bliki/CanaryRelease.html
 [circuit-breaker-pattern]: https://msdn.microsoft.com/library/dn589784.aspx
 [compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: /azure/automation/automation-dsc-overview
-[contingency-planning-guide]: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
+[contingency-planning-guide]: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
 [fma]: failure-mode-analysis.md
-[hystrix]: http://techblog.netflix.com/2012/11/hystrix.html
-[jmeter]: http://jmeter.apache.org/
+[hystrix]: https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362
+[jmeter]: https://jmeter.apache.org/
 [load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
 [monitoring-guidance]: ../best-practices/monitoring.md
 [ra-basic-web]: ../reference-architectures/app-service-web-app/basic-web-app.md
@@ -349,4 +353,5 @@ Here are the major points to take away from this article:
 [throttling-pattern]: ../patterns/throttling.md
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
-[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager/v1_0/
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
+[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/

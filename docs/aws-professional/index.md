@@ -3,7 +3,7 @@ title: Azure for AWS Professionals
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Leverage your AWS experience in Azure. 
 keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
 author: lbrader
-ms.date: 03/24/2017
+ms.date: 09/19/2018
 
 pnp.series.title: Azure for AWS Professionals
 ---
@@ -151,7 +151,7 @@ The syntax and structure of these interfaces are different from their AWS
 equivalents, but they provide comparable capabilities. In addition, many third
 party management tools used on AWS, like [Hashicorp's
 Terraform](https://www.terraform.io/docs/providers/azurerm/) and [Netflix
-Spinnaker](http://www.spinnaker.io/), are also available on Azure.
+Spinnaker](https://www.spinnaker.io/), are also available on Azure.
 
 ### See also
 
@@ -618,9 +618,6 @@ services are needed for those delivery types.
 
 ## Next steps
 
--   [Interactive Azure Platform Big
-    Picture](http://azureplatform.azurewebsites.net/)
-
 -   [Get started with Azure](https://azure.microsoft.com/get-started/)
 
 -   [Azure solution
@@ -628,9 +625,6 @@ services are needed for those delivery types.
 
 -   [Azure Reference
     Architectures](https://azure.microsoft.com/documentation/articles/guidance-architecture/)
-
--   [Free Online Course: Microsoft Azure for AWS
-    Experts](http://aka.ms/azureforaws)
 
 
 <!-- links -->

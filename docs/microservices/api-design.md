@@ -2,7 +2,7 @@
 title: API design
 description: Designing APIs for microservices
 author: MikeWasson
-ms.date: 12/08/2017
+ms.date: 10/23/2018
 ---
 
 # Designing microservices: API design
@@ -119,10 +119,10 @@ When you design your APIs, think about how they express the domain model, not ju
 | DDD concept | REST equivalent | Example | 
 |-------------|-----------------|---------|
 | Aggregate | Resource | `{ "1":1234, "status":"pending"... }` | 
-| Identity | URL | `http://delivery-service/deliveries/1` |
+| Identity | URL | `https://delivery-service/deliveries/1` |
 | Child entities | Links | `{ "href": "/deliveries/1/confirmation" }` |
-| Update value objects | PUT or PATCH | `PUT http://delivery-service/deliveries/1/dropoff` |
-| Repository | Collection | `http://delivery-service/deliveries?status=pending` |
+| Update value objects | PUT or PATCH | `PUT https://delivery-service/deliveries/1/dropoff` |
+| Repository | Collection | `https://delivery-service/deliveries?status=pending` |
 
 
 ## API versioning

@@ -2,7 +2,7 @@
 title: Conditionally deploy a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to conditionally deploy a resource dependending on the value of a parameter
 author: petertay
-ms.date: 06/09/2017
+ms.date: 10/30/2018
 
 ---
 
@@ -10,11 +10,11 @@ ms.date: 06/09/2017
 
 There are some scenarios in which you need to design your template to deploy a resource based on a condition, such as whether or not a parameter value is present. For example, your template may deploy a virtual network and include parameters to specify other virtual networks for peering. If you've not specified any parameter values for peering, you don't want Resource Manager to deploy the peering resource.
 
-To accomplish this, use the [`condition` element][azure-resource-manager-condition] in the resource to test the length of your parameter array. If the length is zero, return `false` to prevent deployment, but for all values greater than zero return `true` to allow deployment.
+To accomplish this, use the [condition element][azure-resource-manager-condition] in the resource to test the length of your parameter array. If the length is zero, return `false` to prevent deployment, but for all values greater than zero return `true` to allow deployment.
 
 ## Example template
 
-Let's look at an example template that demonstrates this. Our template uses the [`condition` element][azure-resource-manager-condition] to control deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource. This resource creates a peering between two Azure Virtual Networks in the same region.
+Let's look at an example template that demonstrates this. Our template uses the [condition element][azure-resource-manager-condition] to control deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource. This resource creates a peering between two Azure Virtual Networks in the same region.
 
 Let's take a look at each section of the template.
 
@@ -36,12 +36,15 @@ Our `virtualNetworkPeerings` parameter is an `array` and has the following schem
 ```json
 "virtualNetworkPeerings": [
     {
-        "remoteVirtualNetwork": {
-            "name": "my-other-virtual-network"
-        },
-        "allowForwardedTraffic": true,
-        "allowGatewayTransit": true,
-        "useRemoteGateways": false
+      "name": "firstVNet/peering1",
+      "properties": {
+          "remoteVirtualNetwork": {
+              "id": "[resourceId('Microsoft.Network/virtualNetworks','secondVNet')]"
+          },
+          "allowForwardedTraffic": true,
+          "allowGatewayTransit": true,
+          "useRemoteGateways": false
+      }
     }
 ]
 ```
@@ -56,7 +59,7 @@ The properties in our parameter specify the [settings related to peering virtual
       "name": "[concat('vnp-', copyIndex())]",
       "condition": "[greater(length(parameters('virtualNetworkPeerings')), 0)]",
       "dependsOn": [
-        "virtualNetworks"
+        "firstVNet", "secondVNet"
       ],
       "copy": {
           "name": "iterator",
@@ -109,17 +112,29 @@ Next, we specify our `copy` loop. It's a `serial` loop that means the loop is do
   },
 ```
 
-Our `workaround` variable includes two properties, one named `true` and one named `false`. The `true` property evaluates to the value of the `virtualNetworkPeerings` parameter array. The `false` property evaluates to an empty object including the named properties that Resource Manager expects to see&mdash;note that `false` is actually an array, just as our `virtualNetworkPeerings` parameter is, which will satisfy validation. 
+Our `workaround` variable includes two properties, one named `true` and one named `false`. The `true` property evaluates to the value of the `virtualNetworkPeerings` parameter array. The `false` property evaluates to an empty object including the named properties that Resource Manager expects to see &mdash; note that `false` is actually an array, just as our `virtualNetworkPeerings` parameter is, which will satisfy validation. 
 
-Our `peerings` variable uses our `workaround` variable by once again testing if the length of the `virtualNetworkPeerings` parameter array is greater than zero. If it is, the `string` evaluates to `true` and the `workaround` variable evalutes to the `virtualNetworkPeerings` parameter array. Otherwise, it evaluates to `false` and the `workaround` variable evaluates to our empty object in the first element of the array.
+Our `peerings` variable uses our `workaround` variable by once again testing if the length of the `virtualNetworkPeerings` parameter array is greater than zero. If it is, the `string` evaluates to `true` and the `workaround` variable evaluates to the `virtualNetworkPeerings` parameter array. Otherwise, it evaluates to `false` and the `workaround` variable evaluates to our empty object in the first element of the array.
 
 Now that we've worked around the validation issue, we can simply specify the deployment of the `Microsoft.Network/virtualNetworks/virtualNetworkPeerings` resource in the nested template, passing the `name` and `properties` from our `virtualNetworkPeerings` parameter array. You can see this in the `template` element nested in the `properties` element of our resource.
 
+## Try the template
+
+An example template is available on [GitHub][github]. To deploy the template, run the following [Azure CLI][cli] commands:
+
+```bash
+az group create --location <location> --name <resource-group-name>
+az group deployment create -g <resource-group-name> \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example2-conditional/deploy.json
+```
+
 ## Next steps
 
-* This technique is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
+* Use objects instead of scalar values as template parameters. See [Use an object as a parameter in an Azure Resource Manager template](./objects-as-parameters.md)
 
 <!-- links -->
 [azure-resource-manager-condition]: /azure/azure-resource-manager/resource-group-authoring-templates#resources
 [azure-resource-manager-variable]: /azure/azure-resource-manager/resource-group-authoring-templates#variables
 [vnet-peering-resource-schema]: /azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings
+[cli]: /cli/azure/?view=azure-cli-latest
+[github]: https://github.com/mspnp/template-examples

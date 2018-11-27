@@ -3,7 +3,7 @@ title: Implementing a hub-spoke network topology with shared services in Azure
 description: >-
   How to implement a hub-spoke network topology with shared services in Azure.
 author: telmosampaio
-ms.date: 06/19/2018
+ms.date: 10/09/2018
 
 pnp.series.title: Implement a hub-spoke network topology with shared services in Azure
 pnp.series.prev: hub-spoke
@@ -112,7 +112,7 @@ This step deploys the simulated on-premises datacenter as an Azure VNet.
 
 2. Open the `onprem.json` file. 
 
-3. Search for all instances of `Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
+3. Search for all instances of `UserName`, `adminUserName`,`Password`, and `adminPassword`. Enter values for the user name and password in the parameters and save the file. 
 
 4. Run the following command:
 

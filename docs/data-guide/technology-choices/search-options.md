@@ -55,7 +55,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Analytic workload capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Databash | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
 | --- | --- | --- | --- | --- | 
 | Supports analytics beyond full text search | No | Yes | Yes | Yes |
 | Part of a log analytics stack | No | Yes (ELK) |  No | No |
@@ -63,7 +63,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Databash | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
 | --- | --- | --- | --- | --- | 
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes | 
 | Transparent data encryption | No | No | No | Yes |  

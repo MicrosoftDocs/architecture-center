@@ -14,7 +14,8 @@ Free-form text processing is performed against documents containing paragraphs o
 In Azure, the following services provide natural language processing (NLP) capabilities:
 
 - [Azure HDInsight with Spark and Spark MLlib](/azure/hdinsight/spark/apache-spark-overview)
-- [Microsoft Cognitive Services](/azure/#pivot=products&panel=cognitive)
+- [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)
+- [Microsoft Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Key selection criteria
 

@@ -41,7 +41,7 @@ A resilient application routes around failure. Identify the critical paths in yo
 
 [multi-vm-blueprint]: ../../reference-architectures/virtual-machines-windows/multi-vm.md
 
-[cassandra]: http://cassandra.apache.org/
+[cassandra]: https://cassandra.apache.org/
 [cosmosdb-geo-replication]: /azure/cosmos-db/distribute-data-globally
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview

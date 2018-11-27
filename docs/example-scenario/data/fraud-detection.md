@@ -1,6 +1,6 @@
 ---
 title: Real-time fraud detection on Azure 
-description: Proven scenario for detecting fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
+description: Detect fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
 ms.date: 07/05/2018
 ---
@@ -15,9 +15,9 @@ By using fully managed Azure services such as Event Hubs and Stream Analytics, c
 
 This sample represents one part of a broader data processing architecture and strategy. Other options for this aspect of an overall architecture are discussed later in this article.
 
-## Related use cases
+## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
 * Detecting fraudulent mobile-phone calls in telecommunications scenarios.
 * Identifying fraudulent credit card transactions for banking institutions.
@@ -25,7 +25,7 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture-diagram]
+![Architecture overview of the Azure components of a real-time fraud detection scenario][architecture]
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
@@ -38,7 +38,7 @@ This scenario covers the back-end components of a real-time analytics pipeline. 
 
 * [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
 * [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
-* [Blob storage][docs-blob-storage] is used in this scenario to store the results of the Stream Analytics job.
+* [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used in this scenario to store the results of the Stream Analytics job.
 
 ## Considerations
 
@@ -56,9 +56,9 @@ For other availability considerations, see the [availability checklist][availabi
 
 ### Scalability
 
-The components of this scenario are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency.  Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
+The components of this scenario are designed for hyper-scale ingestion and massively parallel real-time analytics. Azure Event Hubs is highly scalable, capable of receiving and processing millions of events per second with low latency. Event Hubs can [automatically scale up](/azure/event-hubs/event-hubs-auto-inflate) the number of throughput units to meet usage needs. Azure Stream Analytics is capable of analyzing high volumes of streaming data from many sources. You can scale up Stream Analytics by increasing the number of [streaming units](/azure/stream-analytics/stream-analytics-streaming-unit-consumption) allocated to execute your streaming job.
 
-For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -86,7 +86,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Related resources
 
-More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].  
+More complex fraud detection scenarios can benefit from a machine learning model. For scenarios built using Machine Learning Server, see [Fraud detection using Machine Learning Server][r-server-fraud-detection]. For other solution templates using Machine Learning Server, see [Data science scenarios and solution templates][docs-r-server-sample-solutions]. For an example solution using Azure Data Lake Analytics, see [Using Azure Data Lake and R for Fraud Detection][technet-fraud-detection].
 
 <!-- links -->
 [product-category]: https://azure.microsoft.com/product-categories/analytics/
@@ -94,11 +94,10 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [small-pricing]: https://azure.com/e/74149ec312c049ccba79bfb3cfa67606
 [medium-pricing]: https://azure.com/e/4fc94f7376de484d8ae67a6958cae60a
 [large-pricing]: https://azure.com/e/7da8804396f9428a984578700003ba42
-[architecture-diagram]: ./media/architecture-diagram-fraud-detection.png
+[architecture]: ./media/architecture-fraud-detection.png
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [docs-event-hubs-security-model]: /azure/event-hubs/event-hubs-authentication-and-security-model-overview
 [docs-stream-analytics]: /azure/stream-analytics/stream-analytics-introduction
-[docs-blob-storage]: /azure/storage/blobs/storage-blobs-introduction
 [docs-r-server-sample-solutions]: /machine-learning-server/r/sample-solutions
 [r-server-fraud-detection]: https://microsoft.github.io/r-server-fraud-detection/
 [technet-fraud-detection]: https://blogs.technet.microsoft.com/machinelearning/2017/06/28/using-azure-data-lake-and-r-for-fraud-detection/

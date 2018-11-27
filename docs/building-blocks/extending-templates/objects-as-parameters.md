@@ -2,7 +2,7 @@
 title: Use an object as a parameter in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters
 author: petertay
-ms.date: 06/09/2017
+ms.date: 10/30/2018
 
 ---
 
@@ -23,7 +23,7 @@ Let's take a look at an example that deploys a virtual network resource. First, 
 Next, let's provide values for the `VNetSettings` object:
 
 > [!NOTE]
-> To learn how to provide parameter values during deploment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates]. 
+> To learn how to provide parameter values during deployment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates]. 
 
 ```json
 "parameters":{
@@ -238,7 +238,7 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
             "mode":"Incremental",
             "parameters":{},
             "template": {
-                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {},
                 "variables": {},
@@ -261,7 +261,7 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
         "properties": {
           "mode": "Incremental",
           "template": {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
             "contentVersion": "1.0.0.0",
            "parameters": {},
             "variables": {},
@@ -297,25 +297,21 @@ Let's take a closer look at how we specify our property values in the `securityR
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps: 
+An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
 
-1.  Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
-2.  Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
-3.  Select the **edit template** button.
-4.  Delete the empty template. 
-5.  Copy and paste the sample template into the right pane.
-6.  Select the **save** button.
-7.  When you are returned to the **custom deployment** pane, select the **edit parameters** button.
-8.  On the **edit parameters** blade, delete the existing template.
-9.  Copy and paste the sample parameter template from above.
-10. Select the **save** button, which returns you to the **custom deployment** blade.
-11. On the **custom deployment** blade, select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, and select the **I agree** checkbox.
-12. Select the **purchase** button.
+```bash
+git clone https://github.com/mspnp/template-examples.git
+cd template-examples/example3-object-param
+az group create --location <location> --name <resource-group-name>
+az group deployment create -g <resource-group-name> \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
+    --parameters deploy.parameters.json
+```
 
 ## Next steps
 
-* You can expand upon these techniques to implement a [property object transformer and collector](./collector.md). The transformer and collector techniques are more general and can be linked from your templates.
-* This technique is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can review our templates to see how we've implemented this technique.
+- Learn how to create a template that iterates through an object array and transforms it into a JSON schema. See [Implement a property transformer and collector in an Azure Resource Manager template](./collector.md)
+
 
 <!-- links -->
 [azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/resource-group-authoring-templates
@@ -323,3 +319,5 @@ If you would like to experiment with this template, follow these steps:
 [azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
 [azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
 [nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
+[github]: https://github.com/mspnp/template-examples

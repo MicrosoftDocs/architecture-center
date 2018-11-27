@@ -2,7 +2,7 @@
 title: Implement a property transformer and collector in an Azure Resource Manager template
 description: Describes how to implement a property transformer and collector in an Azure Resource Manager template
 author: petertay
-ms.date: 06/09/2017
+ms.date: 10/30/2018
 
 ---
 
@@ -84,7 +84,7 @@ Our parameters look like this:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "source": { "type": "object" },
@@ -95,7 +95,7 @@ Our parameters look like this:
   },
 ```
 
-Our template also defines a variable named `instance`. It performs the actual tranform of our `source` object into the required JSON schema:
+Our template also defines a variable named `instance`. It performs the actual transform of our `source` object into the required JSON schema:
 
 ```json
   "variables": {
@@ -122,7 +122,8 @@ Our template also defines a variable named `instance`. It performs the actual tr
 Finally, the `output` of our template concatenates the collected transforms of our `state` parameter with the current transform performed by our `instance` variable:
 
 ```json
-  "outputs": {
+    "resources": [],
+    "outputs": {
     "collection": {
       "type": "array",
       "value": "[concat(parameters('state'), variables('instance'))]"
@@ -176,7 +177,7 @@ Our resources look like this:
         "mode": "Incremental",
         "parameters": { },
         "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": { },
           "variables": { },
@@ -260,7 +261,7 @@ As you would expect, this is the URI for the **collector template** that will be
     "properties": {
         "mode": "Incremental",
         "templateLink": {
-            "uri": "[variables('linkedTemplateUri')]",
+            "uri": "[variables('collectorTemplateUri')]",
             "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -284,25 +285,36 @@ Finally, our `Microsoft.Network/networkSecurityGroups` resource directly assigns
       "name": "networkSecurityGroup1",
       "location": "[resourceGroup().location]",
       "properties": {
-        "securityRules": "[reference('firstResource').outputs.result.value]"
+        "securityRules": "[reference('collector').outputs.result.value]"
       }
     }
   ],
   "outputs": {
       "instance":{
           "type": "array",
-          "value": "[reference('firstResource').outputs.result.value]"
+          "value": "[reference('collector').outputs.result.value]"
       }
 
   }
 ```
 
-## Next steps
+## Try the template
 
-* This technique is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
+An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
+
+```bash
+git clone https://github.com/mspnp/template-examples.git
+cd template-examples/example4-collector
+az group create --location <location> --name <resource-group-name>
+az group deployment create -g <resource-group-name> \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example4-collector/deploy.json \
+    --parameters deploy.parameters.json
+```
 
 <!-- links -->
 [objects-as-parameters]: ./objects-as-parameters.md
 [resource-manager-linked-template]: /azure/azure-resource-manager/resource-group-linked-templates
 [resource-manager-variables]: /azure/azure-resource-manager/resource-group-template-functions-deployment
 [nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
+[github]: https://github.com/mspnp/template-examples

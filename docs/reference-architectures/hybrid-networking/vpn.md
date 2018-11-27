@@ -5,7 +5,7 @@ description: >-
   Azure virtual network and an on-premises network connected using a VPN.
 
 author: RohitSharma-pnp
-ms.date: 11/28/2016
+ms.date: 10/22/2018
 
 pnp.series.title: Connect an on-premises network to Azure
 pnp.series.next: expressroute
@@ -411,7 +411,7 @@ The following recommendations are useful for determining if there is an issue wi
 
     ![[3]][3]
 
-    You should compare the results with the bandwidth available to the VPN gateway (100 Mbps for the Basic and Standard SKUs, and 200 Mbps for the High Performance SKU):
+    You should compare the results with the bandwidth available to the VPN gateway (from 100 Mbps for the Basic SKU to 1.25 Gbps for VpnGw3 SKU):
 
     ![[4]][4]
 
@@ -430,7 +430,7 @@ The following recommendations are useful for determining if there is an issue wi
 
 To deploy the solution, perform the following steps.
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fvpn%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fvpn%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the link to open in the Azure portal, then follow these steps: 
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-rg` in the text box.
    * Select the region from the **Location** drop down box.
@@ -468,13 +468,13 @@ To deploy the solution, perform the following steps.
 [sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/v1_2/
 [additional-firewall-rules]: https://technet.microsoft.com/library/dn786406.aspx#firewall
 [nagios]: https://www.nagios.org/
-[azure-vpn-gateway-diagnostics]: http://blogs.technet.com/b/keithmayer/archive/2014/12/18/diagnose-azure-virtual-network-vpn-connectivity-issues-with-powershell.aspx
+[azure-vpn-gateway-diagnostics]: https://blogs.technet.microsoft.com/keithmayer/2014/12/18/diagnose-azure-virtual-network-vpn-connectivity-issues-with-powershell/
 [ping]: https://technet.microsoft.com/library/ff961503.aspx
 [tracert]: https://technet.microsoft.com/library/ff961507.aspx
-[psping]: http://technet.microsoft.com/sysinternals/jj729731.aspx
-[nmap]: http://nmap.org
+[psping]: https://technet.microsoft.com/sysinternals/jj729731.aspx
+[nmap]: https://nmap.org
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
-[gateway-diagnostic-logs]: http://blogs.technet.com/b/keithmayer/archive/2015/12/07/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs.aspx
+[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [troubleshooting-vpn-errors]: https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors/
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
 [create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
@@ -484,9 +484,7 @@ To deploy the solution, perform the following steps.
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
-<!--[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1-->
-<!--[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh-->
-<!--[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json-->
+[virtualNetworkGateway-parameters]: https://github.com/mspnp/hybrid-networking/vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [0]: ./images/vpn.png "Hybrid network spanning on-premises and Azure infrastructures"

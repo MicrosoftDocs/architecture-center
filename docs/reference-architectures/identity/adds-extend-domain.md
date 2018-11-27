@@ -41,7 +41,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 Determine your [VM size][vm-windows-sizes] requirements based on the expected volume of authentication requests. Use the specifications of the machines hosting AD DS on premises as a starting point, and match them with the Azure VM sizes. Once deployed, monitor utilization and scale up or down based on the actual load on the VMs. For more information about sizing AD DS domain controllers, see [Capacity Planning for Active Directory Domain Services][capacity-planning-for-adds].
 
-Create a separate virtual data disk for storing the database, logs, and SYSVOL for Active Directory. Do not store these items on the same disk as the operating system. Note that by default, data disks that are attached to a VM use write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*. For more information, see [Placement of the Windows Server AD DS database and SYSVOL][adds-data-disks].
+Create a separate virtual data disk for storing the database, logs, and SYSVOL for Active Directory. Do not store these items on the same disk as the operating system. Note that by default, data disks that are attached to a VM use write-through caching. However, this form of caching can conflict with the requirements of AD DS. For this reason, set the *Host Cache Preference* setting on the data disk to *None*. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][adds-data-disks].
 
 Deploy at least two VMs running AD DS as domain controllers and add them to an [availability set][availability-set].
 
@@ -164,15 +164,15 @@ After deployment completes, you can test conectivity from the simulated on-premi
 [implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
 [implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 
-[adds-data-disks]: https://msdn.microsoft.com/library/azure/jj156090.aspx#BKMK_PlaceDB
+[adds-data-disks]: https://msdn.microsoft.com/en-us/library/mt674703.aspx
 [ad-ds-operations-masters]: https://technet.microsoft.com/library/cc779716(v=ws.10).aspx
 [ad-ds-ports]: https://technet.microsoft.com/library/dd772723(v=ws.11).aspx
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
 [azure-expressroute]: /azure/expressroute/expressroute-introduction
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[capacity-planning-for-adds]: http://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
+[capacity-planning-for-adds]: https://social.technet.microsoft.com/wiki/contents/articles/14355.capacity-planning-for-active-directory-domain-services.aspx
 [considerations]: ./considerations.md
-[GitHub]: https://github.com/mspnp/reference-architectures/tree/master/identity/adds-extend-domain
+[GitHub]: https://github.com/mspnp/identity-reference-architectures/tree/master/adds-extend-domain
 [microsoft_systems_center]: https://www.microsoft.com/server-cloud/products/system-center-2016/
 [monitoring_ad]: https://msdn.microsoft.com/library/bb727046.aspx
 [security-considerations]: #security-considerations

@@ -2,7 +2,7 @@
 title: Update a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
 author: petertay
-ms.date: 06/09/2017
+ms.date: 10/31/2018
 
 ---
 
@@ -76,7 +76,7 @@ Let's look at an example template that demonstrates this. Our template deploys a
         "mode": "Incremental",
         "parameters": {},
         "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "variables": {},
@@ -118,16 +118,13 @@ Let's take a look at the resource object for our `firstVNet` resource first. Not
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps:
+An example template is available on [GitHub][github]. To deploy the template, run the following [Azure CLI][cli] commands:
 
-1.	Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
-2.	Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
-3.	Select the **edit** icon.
-4.	Delete the empty template.
-5.	Copy and paste the sample template into the right pane.
-6.	Select the **save** button.
-7.	You return to the **custom deployment** pane, but this time there are some drop-down list boxes. Select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, then select the **I agree** button.
-8.	Select the **purchase** button.
+```bash
+az group create --location <location> --name <resource-group-name>
+az group deployment create -g <resource-group-name> \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json
+```
 
 Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource. 
 
@@ -141,4 +138,7 @@ The original `firstVNet` has been updated instead of recreated. If `firstVNet` h
 
 ## Next steps
 
-* This technique is implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can use these to create your own architecture or deploy one of our reference architectures.
+* Learn how deploy a resource based on a condition, such as whether a parameter value is present. See [Conditionally deploy a resource in an Azure Resource Manager template](./conditional-deploy.md).
+
+[cli]: /cli/azure/?view=azure-cli-latest
+[github]: https://github.com/mspnp/template-examples
