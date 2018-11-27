@@ -339,6 +339,8 @@
       href: example-scenario/infrastructure/service-fabric-microservices.md
     - name: Highly scalable WordPress
       href: example-scenario/infrastructure/wordpress.md
+    - name: Highly Available Web Application
+      href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
     - name: Multi-tier Windows
       href: example-scenario/infrastructure/regulated-multitier-app.md
     - name: HPC video rendering
