@@ -33,8 +33,8 @@ Iteration Activities: Completed in every iteration regardless of release timing
 Release Activities: During iterations in which a release is to be tested or promoted, the following activities are also likely to be executed, in addition to standard iteration activities:
 
 * [Stage](stage.md): Once all assets required to operate a workload have been replicated to Azure, the workload can be staged for release.
-* [UAT Testing](business-test.md): Staged workload can be tested by power users to validate function and performance.
-* [User Adoption Plan](business-change-plan.md): Once a workload passes UAT, a User Adoption Plan can be established an initiated. This plan will guide the activities related to readiness and promotion of a workload.
+* [Business Testing](business-test.md): Staged workload can be tested by power users to validate function and performance.
+* [Business Change Plan](business-change-plan.md): Once a workload passes Business Testing, a Business Change Plan can be initiated. This plan will guide the activities related to business changes, impact to processs, user readiness, promotion of a workload to production & finally user adoption.
 * [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
 * [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
 * [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
