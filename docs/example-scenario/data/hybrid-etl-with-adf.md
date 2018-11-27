@@ -5,7 +5,7 @@ author: alhieng
 ms.date: 9/20/2018
 ---
 
-# Hybrid ETL with existing on-premises SSIS and Azure Data Factory v2
+# Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 
 Organizations that migrate their SQL Server databases to the cloud can realize tremendous cost savings, performance gains, added flexibility, and greater scalability. However, reworking existing extract, transform, and load (ETL) processes built with SQL Server Integration Services (SSIS) can be a migration roadblock. In other cases, the data load process requires complex logic and/or specific data tool components that are not yet supported by Azure Data Factory v2 (ADF). Commonly used SSIS capabilities include Fuzzy Lookup and Fuzzy Grouping transformations, Change Data Capture (CDC), Slowly Changing Dimensions (SCD), and Data Quality Services (DQS).
 
@@ -66,13 +66,13 @@ Azure Data Factory is a cost-effective way to orchestrate data movement in the c
 * Number of monitoring operations
 * Number of Integration Runs (Azure-hosted IR or self-hosted IR)
 
-ADF uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/en-us/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
+ADF uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
 
 When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk).  If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
 ## Next Steps
 
-* Learn more about [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/).
+* Learn more about [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 * Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/#step-by-step-tutorials).
 * [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure).
 

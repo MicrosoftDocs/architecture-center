@@ -356,6 +356,8 @@
       href: example-scenario/apps/ecommerce-scenario.md
   - name: Data & Analytics
     items:
+    - name: Hybrid ETL with Data Factory
+      href: example-scenario/data/hybrid-etl-with-adf.md
     - name: Real-time fraud detection
       href: example-scenario/data/fraud-detection.md
     - name: Scalable order processing
