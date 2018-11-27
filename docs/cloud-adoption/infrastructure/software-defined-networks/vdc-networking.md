@@ -66,6 +66,7 @@ E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
 for more information on the broader concepts behind VDC and the trusted network
 extension.
 
+More details to come...
 
 ## Next steps
 
