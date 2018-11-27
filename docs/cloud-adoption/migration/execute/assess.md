@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: Migration Assessment Activities
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a datacenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Assessing a workload within a given iteration.
+The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Assessing a workload within a given iteration.
   
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
