@@ -319,6 +319,8 @@
       href: example-scenario/apps/ecommerce-search.md
   - name: Data and Analytics
     items:
+    - name: Hybrid ETL with Data Factory
+      href: example-scenario/data/hybrid-etl-with-adf.md
     - name: IoT for construction
       href: example-scenario/data/big-data-with-iot.md
     - name: Data warehousing and analytics
