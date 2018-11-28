@@ -17,7 +17,7 @@ The shift to incremental Cloud Adoption, also allows for a shift in Governance. 
 
 In traditional governance and incremental governance, Corporate Policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those Corporate Policies. Cloud Governance is built on similar concepts.
 
-![Corporate Governance and Governance Disciplines](../_images/operational-transformation-govern.png)
+![Corporate Governance and Governance Disciplines](../../_images/operational-transformation-govern.png)
 *Figure 1. Corporate Governance and Governance Disciplines*
 
 The image above demonstrates the interactions between Business Risk, Policy & Compliance, and Monitor & Enforce to create a Governance Strategy. Followed by the Five Disciplines of Cloud Governance to realize that strategy.
