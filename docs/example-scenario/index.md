@@ -23,7 +23,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                     <div class="cardText">
                         <h3>New Scenarios</h3>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery" data-linktype="absolute-path">Multitier web application built for HA & DR</a>
-                        <a class="barLink" href="s/azure/architecture/example-scenario/data/hybrid-etl-with-adf" data-linktype="absolute-path">Hybrid ETL with on-premises SSIS and Data Factory</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/data/hybrid-etl-with-adf" data-linktype="absolute-path">Hybrid ETL with on-premises SSIS and Data Factory</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
                     </div>
                 </div>
@@ -75,4 +75,4 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </li>
 </ul>
 
-[!INCLUDE [articles](/includes/scenario_articles.md)]
+[!INCLUDE [articles](../../includes/scenario_articles.md)]
