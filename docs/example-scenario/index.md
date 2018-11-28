@@ -75,4 +75,4 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
     </li>
 </ul>
 
-[!INCLUDE [notes](./articles.md)]
+[!INCLUDE [articles](/includes/scenario_articles.md)]
