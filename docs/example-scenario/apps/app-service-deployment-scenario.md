@@ -1,11 +1,3 @@
-
----
-title: Secure Deployments to ILB ASE
-description: Host sites in an ILB ASE on Azure.
-author: fmustaf
-ms.date: 11/28/2018
----
-
 # Secure Deployments to ILB ASE
 
 This example scenario walks you through application deployment in your intranet environment using Azure App Service Environment service and securely connect to Azure SQL DB over VNet service endpoint. This scenario will also show how you can expose this application to internet in a secure manner using Azure Application Gateway service which includes Web Application Firewall. This will also show one of the best practices to setup continuous integration & continuous deployment using Azure DevOps to automate build & release of an application
@@ -85,7 +77,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 * [eShop on Containers Reference Example][microservices-ecommerce]
 
 <!-- links -->
-[architecture]: ./media/architecture-ecommerce-scenario.png
+[architecture]: ./media/ilb-ase-architecture.png
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
