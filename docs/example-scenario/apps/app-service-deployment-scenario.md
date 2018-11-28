@@ -19,7 +19,7 @@ Consider this scenario for the following use cases:
 
 ## Architecture
 
-![Sample scenario architecture for an e-commerce application][architecture]
+![Sample scenario architecture for Secure ILB ASE Deployment ][architecture]
 
 This scenario covers the data flows through the scenario as follows:
 
