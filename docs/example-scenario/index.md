@@ -22,9 +22,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>New Scenarios</h3>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery" data-linktype="absolute-path">Multitier web application built for HA & DR</a>
+                        <a class="barLink" href="s/azure/architecture/example-scenario/data/hybrid-etl-with-adf" data-linktype="absolute-path">Hybrid ETL with on-premises SSIS and Data Factory</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/wordpress" data-linktype="absolute-path">Highly scalable and secure WordPress website</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/data/data-warehouse" data-linktype="absolute-path">Data warehousing & analytics for sales and marketing</a>
                     </div>
                 </div>
             </div>
@@ -36,9 +36,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>Top Scenarios</h3>
-                        <a class="barLink" href="/azure/architecture/example-scenario/ai/intelligent-apps-image-processing" data-linktype="absolute-path">Image classification for insurance claims</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/commerce-chatbot" data-linktype="absolute-path">Conversational chatbot for hotel reservations</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/regulated-multitier-app" data-linktype="absolute-path">Secure Windows web application for regulated industries</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/apps/devops-dotnet-webapp" data-linktype="absolute-path">CI/CD pipeline with Azure DevOps</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/data/fraud-detection" data-linktype="absolute-path">Real-time fraud detection on Azure</a>
                     </div>
                 </div>
             </div>
