@@ -2,7 +2,7 @@
 title: Choosing a data transfer technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Transferring data to and from Azure

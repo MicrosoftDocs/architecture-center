@@ -2,7 +2,7 @@
 title: Choosing a batch processing technology
 description: 
 author: zoinerTejada
-ms:date: 11/03/2018
+ms.date: 11/03/2018
 ---
 
 # Choosing a batch processing technology in Azure

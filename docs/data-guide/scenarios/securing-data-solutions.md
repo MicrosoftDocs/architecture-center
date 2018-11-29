@@ -2,7 +2,7 @@
 title: Securing data solutions
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Securing data solutions

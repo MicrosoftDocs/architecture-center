@@ -2,7 +2,7 @@
 title: Choosing a machine learning technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a machine learning technology in Azure

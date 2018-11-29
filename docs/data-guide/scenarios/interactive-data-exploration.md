@@ -2,7 +2,7 @@
 title: Interactive data exploration
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Interactive data exploration

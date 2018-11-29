@@ -2,7 +2,7 @@
 title: Use Key Vault to protect application secrets
 description: How to use the Key Vault service to store application secrets
 author: MikeWasson
-ms:date: 07/21/2017
+ms.date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: client-assertion

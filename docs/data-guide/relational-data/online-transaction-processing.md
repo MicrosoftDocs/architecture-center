@@ -2,7 +2,7 @@
 title: Online transaction processing (OLTP)
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Online transaction processing (OLTP)
