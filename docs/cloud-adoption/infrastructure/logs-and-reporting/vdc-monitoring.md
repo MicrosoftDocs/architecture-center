@@ -49,7 +49,7 @@ ASC can collect, analyze, and fuse log data from compute services, network resou
 
 ## Azure Network Watcher
 
-[Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/) is an Azure monitoring service used to Monitor, diagnose, and gain insights to your VDC's network performance and health. It provides the following features:
+[Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/) is an Azure monitoring service used to monitor, diagnose, and gain insights to your VDC's network performance and health. It provides the following features:
 
 - Topology View: visualization of network topologies and the identification of unhealthy connections and resources.
 - Diagnostics: including connectivity, latency, DNS check, trace route, IP flow verification, security group views, next hop, and packet capture.
