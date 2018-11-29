@@ -2,7 +2,7 @@
 title: Time series data
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Time series solutions

@@ -2,7 +2,7 @@
 title: Online analytical processing (OLAP)
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Online analytical processing (OLAP)

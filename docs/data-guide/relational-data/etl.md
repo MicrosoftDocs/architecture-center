@@ -2,7 +2,7 @@
 title: Extract, transform, and load (ETL)
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Extract, transform, and load (ETL)

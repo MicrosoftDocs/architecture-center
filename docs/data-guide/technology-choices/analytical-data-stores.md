@@ -2,7 +2,7 @@
 title: Choosing an analytical data store
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing an analytical data store in Azure

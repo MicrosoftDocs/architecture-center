@@ -2,7 +2,7 @@
 title: Choosing a stream processing technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a stream processing technology in Azure
