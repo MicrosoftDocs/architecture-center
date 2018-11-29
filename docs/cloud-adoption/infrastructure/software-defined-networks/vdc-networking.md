@@ -7,20 +7,17 @@ ms.date: 11/08/2018
 
 # Fusion: Software Defined Networks - Virtual DataCenters
 
-A virtual DataCenter architecture is designed to assist enterprises in
-deploying a large number of workloads to public cloud platform while still
-preserving key aspects of existing access control, policy compliance, and
-governance across your entire organization. Building off the connectivity
-provided by the hybrid cloud model, a virtual DataCenter adds management, access
-control, and traffic management capabilities.
+Jump to: Azure Virtual Datacenter network architecture](#azure-virtual-datacenter-network-architecture)
 
-The most common virtual DataCenter model is built around a hub and spoke
-arrangement composed of multiple virtual networks. These networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass resource limits.
+A virtual DataCenter architecture is designed to assist enterprises in deploying a large number of workloads to public cloud platform while still
+preserving key aspects of existing access control, policy compliance, and governance across your entire organization. Building off the connectivity
+provided by the hybrid cloud model, a virtual DataCenter adds management, access control, and traffic management capabilities.
+
+The most common virtual DataCenter model is built around a hub and spoke arrangement composed of multiple virtual networks. These networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass resource limits.
 
 The virtual DataCenter model supports connecting hub and spoke networks across geo-regions. However, connecting between geo-regions has the potential to introduce higher latency than would be the case if all networks were in the same geo-region, and this potential latency would need to be accounted for in your network and workload planning.
 
-The central hub virtual network
-contains the main traffic management, policy rules, and monitoring resources for the virtual datacenter. The hub hosts a connection to on-premises or other external networks and contains the central routing and firewall capabilities that manage traffic coming from workloads to external networks and vice versa. The hub also hosts any other common shared services used by workloads across the VDC.
+The central hub virtual network contains the main traffic management, policy rules, and monitoring resources for the virtual datacenter. The hub hosts a connection to on-premises or other external networks and contains the central routing and firewall capabilities that manage traffic coming from workloads to external networks and vice versa. The hub also hosts any other common shared services used by workloads across the VDC.
 
 Workload spokes are separate virtual networks that, aside from network peering with the hub network, are isolated by default. All traffic travelling to the spoke from outside the VDC and form the spoke to the outside world are forced to travel through the hub where central security rules and access policies are applied. Much of the control over the spoke networks and connected workload resources can be delegated to the workload teams themselves, while critical security and access controls can be maintained through the central hub.
 
@@ -76,7 +73,7 @@ More details to come...
 
 ## Next steps
 
-Learn how the Azure Virtual Datacenter [networking infrastructure](../encryption/vdc-encryption.md) enables secure, centrally managed, access between on-premises and cloud resources.
+Learn how  [encryption](../encryption/vdc-encryption.md) is used to secure data in the Azure Virtual Datacenter model.
 
 > [!div class="nextstepaction"]
 > [Azure Virtual Datacenter: Encryption](../encryption/vdc-encryption.md)

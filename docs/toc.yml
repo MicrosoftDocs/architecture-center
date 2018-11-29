@@ -767,7 +767,7 @@
       items:
         - name: Can a mainframe be migrated to Azure?
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-    - name: Alternative Models
+    - name: Supporting Models
       items:
       - name: Azure Virtual Datacenter (VDC)
         href: cloud-adoption/infrastructure/virtual-datacenter/overview.md

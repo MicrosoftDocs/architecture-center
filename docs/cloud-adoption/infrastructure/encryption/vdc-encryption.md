@@ -6,6 +6,8 @@ ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Encryption and key management
 
+Jump to: [Data in transit](#data-in-transit) | [Data at rest](#data-at-rest) | [Azure Key Vault](#azure-key-vault)
+
 The Azure Virtual Datacenter model assumes all data in transit and at rest are encrypted as a security baseline. Encryption isolates confidential information from the rest of the public cloud environment, including the underlying platform.
 
 ## Data in transit
