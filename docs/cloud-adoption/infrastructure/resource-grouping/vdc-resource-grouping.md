@@ -44,7 +44,7 @@ To help you build templates and automate the deployment of VDC resources, the Az
 
 ## Next steps
 
-Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
+Learn  how [Azure Policy](../policy-enforcement/vdc-policy-enforcement.md) is used to implement policy enforcement within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
 > [Azure Virtual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
