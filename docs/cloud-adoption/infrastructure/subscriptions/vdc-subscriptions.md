@@ -17,7 +17,7 @@ The [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model is
 To support the secure deployment and management of resources across a VDC, all subscriptions used need the following: 
 
 - Common Azure AD tenant - All subscriptions with resources connecting to a VDC should be associated with a common Azure AD tenant, allowing access control based on a common set of users, groups, and roles.  
-- Central IT admin access - A VDC assumes the use of a series of [central IT RBAC roles](../identity/overview.md#roles-and-rbac) for centralized management of security and policy enforcement across the VDC. All subscriptions should grant these roles appropriate permissions.
+- Central IT admin access - A VDC assumes the use of a series of [central IT RBAC roles](../identity/overview.md#identity-and-the-azure-management-plane) for centralized management of security and policy enforcement across the VDC. All subscriptions should grant these roles appropriate permissions.
 
 ## Geo-regional considerations
 
