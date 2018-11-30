@@ -39,7 +39,7 @@ Each is described below in [Calculate Delta in revenue](#revenue-delta), [Calcul
 
 ## Revenue Delta
 
-Revenue Delta should be forecasted in partnership with the business. For assistance determining revenue changes, see the articles on [Business Outcomes](business-outcomes/overview.md). Once the business stakeholders agree on a revenue impact, that can be used to improve the Earning position.
+Revenue Delta should be forecasted in partnership with the business. Once the business stakeholders agree on a revenue impact, that can be used to improve the Earning position.
 
 ## Cost Deltas
 
