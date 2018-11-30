@@ -33,6 +33,7 @@ When you choose this method, Azure AD handles users' sign-in process. Coupled wi
 > Companies with a security requirement to immediately enforce on-premises user account states, password policies, and sign-in hours should consider the Pass-through Authentication method. 
 
 **Federated authentication**
+
 When you choose this method, Azure AD passes the authentication process to a separate trusted authentication system, such as on-premises Active Directory Federation Services (AD FS) or a trused third-party federation provider, to validate the user’s password.
 
 The article [choosing the right authentication method for Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) contains a decision tree to help you choose the best solution for your organization.
