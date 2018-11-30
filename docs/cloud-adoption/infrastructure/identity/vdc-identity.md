@@ -8,7 +8,7 @@ ms.date: 11/08/2018
 
 Jump to: [Azure Active Directory Tenants](#azure-active-directory-tenants) | [Federation and hybrid identity](#federation-and-hybrid-identity) | [Roles and RBAC](#roles-and-rbac)
 
-The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. This discussion below will explore how identity services lie at the core of the Azure Virtual Datacenter model's ability to manage access control and insure isolation of your cloud hosted resources.
+The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. The discussion below will explore how identity services lie at the core of the [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model's ability to manage access control and insure isolation of your cloud hosted resources.
 
 ## Azure Active Directory Tenants
 

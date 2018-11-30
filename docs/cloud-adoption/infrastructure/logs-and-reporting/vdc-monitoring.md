@@ -8,7 +8,9 @@ ms.date: 11/08/2018
 
 Jump to: [Log data](#log-data) | [Azure Monitor](#azure-monitor) | [Azure Active Directory Reports](#azure-active-directory-reports) | [Azure Security Center](#azure-security-center) | [Azure Network Watcher](#azure-network-watcher)
 
-Governance and control of workloads is based not just on collecting log data, but also the ability to trigger actions based on specific reported events. Within the VDC model, monitoring and reporting capabilities are an important component central IT teams use to ensure VDC hosted assets are in compliance with operational and security policy requirements.
+Governance and control of workloads is based not just on collecting log data, but also the ability to trigger actions based on specific reported events. Within the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md), monitoring and reporting capabilities are an important component central IT teams use to ensure VDC hosted assets are in compliance with operational and security policy requirements.
+
+The VDC model uses cloud-based services such as Azure Monitor for monitoring and reporting of Azure-hosted resource activity. As part of any migration planning, you will need to consider how to integrate these services with your existing on-premises monitoring and reporting capability using a hybrid approach.  
 
 ## Log data
 

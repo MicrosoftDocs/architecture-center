@@ -5,9 +5,9 @@ author: rotycen
 ms.date: 11/08/2018
 ---
 
-# Fusion: Software Defined Networks - Virtual DataCenters
+# Fusion: Software Defined Networks - Virtual dataCenter
 
-Jump to: Azure Virtual Datacenter network architecture](#azure-virtual-datacenter-network-architecture)
+Jump to: [Azure Virtual Datacenter network architecture](#azure-virtual-datacenter-network-architecture)
 
 A virtual DataCenter architecture is designed to assist enterprises in deploying a large number of workloads to public cloud platform while still
 preserving key aspects of existing access control, policy compliance, and governance across your entire organization. Building off the connectivity
@@ -43,31 +43,15 @@ Learn more about [software defined networking](overview.md).
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
 
-The [Azure Virtual Data Center
-(VDC)](https://docs.microsoft.com/en-us/azure/architecture/vdc/) is an approach
-designed to assist enterprises in deploying large number of workloads and
-services to the Azure public cloud platform while still preserving key aspects
-of your existing security, policy compliance, and general IT governance
-practices. The goal of VDC guidance is to show you how to build a trusted
-network extension integrating organizational governance, policy, and management
-practices across both on-premises and cloud-based components of your IT estate.
+The [Azure Virtual Data Center (VDC)](../virtual-datacenter/overview.md) is an approach designed to assist enterprises in deploying large number of workloads and services to the Azure public cloud platform while still preserving key aspects of your existing security, policy compliance, and general IT governance practices. The goal of VDC guidance is to show you how to build a trusted network extension integrating organizational governance, policy, and management practices across both on-premises and cloud-based components of your IT estate.
 
-As with other hybrid clouds, the VDC hub network hosts a connection to
-on-premises or other external networks (via ExpressRoute or VPN) and contains
-the UDR, NVA and other routing and security devices to manage traffic coming
-from workloads to external on-premises networks and vice versa.
+As with other hybrid clouds, the VDC hub network hosts a connection to on-premises or other external networks (via ExpressRoute or VPN) and contains
+the UDR, NVA and other routing and security devices to manage traffic coming from workloads to external on-premises networks and vice versa.
 
-A single hub can connect to many spokes, and each hub and spoke virtual network
-exist in separate subscriptions, mitigating some of the subscription level
-limits that can affect large cloud migrations.
+A single hub can connect to many spokes, and each hub and spoke virtual network exist in separate subscriptions, mitigating some of the subscription level limits that can affect large cloud migrations.
 
-Note that the VDC networking architecture is just a part of the overall virtual
-data center concept, which includes integrating your enterprise's existing
-governance, identity and access control, and security policies into your cloud
-migration. See the [Azure Virtual Datacenter
-E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)
-for more information on the broader concepts behind VDC and the trusted network
-extension.
+Note that the VDC networking architecture is just a part of the overall virtual data center concept, which includes integrating your enterprise's existing governance, identity and access control, and security policies into your cloud migration. See the [Azure Virtual Datacenter
+E-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/) for more information on the broader concepts behind VDC and the trusted network extension.
 
 More details to come...
 

@@ -8,7 +8,7 @@ ms.date: 11/08/2018
 
 Jump to: [Data in transit](#data-in-transit) | [Data at rest](#data-at-rest) | [Azure Key Vault](#azure-key-vault)
 
-The Azure Virtual Datacenter model assumes all data in transit and at rest are encrypted as a security baseline. Encryption isolates confidential information from the rest of the public cloud environment, including the underlying platform.
+The [Azure Virtual Datacenter](../virtual-datacenter/overview.md) model assumes all data in transit and at rest are encrypted as a security baseline. Encryption isolates confidential information from the rest of the public cloud environment, including the underlying platform.
 
 ## Data in transit
 
@@ -34,8 +34,7 @@ The default VDC security approach also assumes data at rest encryption. This inc
 
 Azure Key Vault is the primary mechanism for managing encryption within a VDC. Keys stored in Key Vault can be used to encrypt storage assets, secure PaaS services, or individual applications. Authorized applications and services within a VDC can use but not modify keys stored in key vault, while only key owners can make those changes through Key Vault.
 
-In-line with the design and access model of a VDC, separate key vault instances are deployed in the hub and each of the spokes. The hub key vault is managed by the central SecOps role and stores secrets, keys, and certificates for use with hub resources and other centrally managed encryptions purposes. Control of spoke key vaults is delegated to the individual DevOps teams responsible for the spoke workload. 
-
+In-line with the design and access model of a VDC, separate key vault instances are deployed in the hub and each of the spokes. The hub key vault is managed by the central IT security operations team and stores secrets, keys, and certificates for use with hub resources and other centrally managed encryption purposes. Control of spoke key vaults is delegated to the teams responsible for managing the spoke workload.
 
 ## Next steps
 

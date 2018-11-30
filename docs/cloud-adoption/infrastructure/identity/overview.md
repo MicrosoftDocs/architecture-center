@@ -16,7 +16,7 @@ allow you to manage access control within your IT estate.
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 
-Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation](#federation) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
+Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation (VDC)](#federation) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
 
 There are a number of ways to deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design can provide clarity on the three SaaS enabled solutions. 
 
@@ -59,16 +59,13 @@ infrastructure using a cloud native identity service.
 >
 > Completely migrating your identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
 
-### Federation
+### Federation (VDC)
 
-For organizations with an existing Identity infrastructure, federation is often
-the best solution for preserving existing user and access management while
-providing the required IAM capabilities for managing cloud resources. Federation
-syncs directory information between the cloud and on-premises environments,
-allowing single sign-in for users and a consistent role and permission system
-across your entire organization.
+For organizations with an existing Identity infrastructure, federation is often the best solution for preserving existing user and access management while providing the required IAM capabilities for managing cloud resources. Federation syncs directory information between the cloud and on-premises environments, allowing single sign-in for users and a consistent role and permission system across your entire organization.
 
 In addition to allowing shared identity services between cloud and on-premises, federation supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains both inside and outside of your organization.
+
+Federation using [Azure Active Directory](#identity-and-the-azure-management-plane) is one of the primary building blocks that allow the [Azure Virtual Datacenter model to apply](vdc-identity.md) centrally managed access control policies across multiple Azure subscriptions.  
 
 **Federated Identity Assumptions:** Using a federated identity solution assumes the following:
 

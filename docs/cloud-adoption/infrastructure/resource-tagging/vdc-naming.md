@@ -8,13 +8,13 @@ ms.date: 11/08/2018
 
 Jump to: [Naming recommendations](#naming-recommendations) | [Tagging](#tagging)
 
-Resource naming standards and tagging policy in the Azure Virtual Datacenter model should comply when possible with your existing organization standards and policy, and support your overall subscription design. 
+Resource naming standards and tagging policy in the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md) should comply when possible with your existing organization standards and policy, and support your overall subscription design. 
 
-The VDC model does not enforce prescriptive guidance beyond limits on naming described in [Azure naming convention best practices](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). However, it does provide recommendations to help make resource groups and individual resources easy to find and manage.  
+The VDC model does not enforce prescriptive tagging and naming guidance beyond limits described in [Azure naming convention best practices](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). However, it does provide recommendations to help make resource groups and individual resources easy to find and manage.  
 
 ## Naming recommendations
 
-It's important that resources deployed to a VDC are named uniquely and descriptively. At the resource group level, it's recommended you use names that include major organizational and structure elements of the VDC:
+It's important that resources deployed to a VDC are named uniquely and descriptively. At the resource group level, it's recommended you use names that include major organizational and structural elements of the VDC:
 
     [Organization Name]-[Hub/Spoke Name]-[Functional Subsection]-rg
 

@@ -8,9 +8,9 @@ ms.date: 11/08/2018
 
 Jump to: [Subscription requirements](#subscription-requirements) | [Geo-regional considerations](#geo-regional-considerations)
 
-Although the Azure Virtual Datacenter (VDC) model supports deploying hub and spokes to a single subscription, one of the primary benefits of a VDC is the ability to central manage workloads scattered across multiple subscriptions. 
+The [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model is intended to support a wide variety of [subscription design](overview.md) approaches. Although the VDC model supports deploying hub and spokes to a single subscription, one of the primary benefits of a VDC is the ability to central manage workloads scattered across multiple subscriptions.  
 
-The VDC model is intended to support a wide variety of [subscription design](overview.md) approaches. Your internal organization's accounting and ownership of VDC-hosted resources and workloads will depend on the departmental and account hierarchy of subscriptions in your Azure Enterprise Agreement. However, this hierarchy is independent of your VDC structure. A VDC can be deployed to strictly reflect your organization's hierarchy, or to provide access to resources from across your digital estate.
+ Your internal organization's accounting and ownership of VDC-hosted resources and workloads will depend on the departmental and account hierarchy of subscriptions in your Azure Enterprise Agreement. However, this hierarchy is independent of your VDC structure. A VDC can be deployed to strictly reflect your organization's hierarchy, or to provide access to resources from across your digital estate.
 
 ## Subscription requirements 
 

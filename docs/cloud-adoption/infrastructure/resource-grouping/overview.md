@@ -33,7 +33,7 @@ At the most basic level, most cloud platforms will provide a mechanism to logica
 Azure [Resource Groups](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) are containers of resources that have a common life cycle or share an attribute such as "all SQL servers" or "Application A". Resource groups can't be nested, and resources can only belong to one resource group. Some actions can act on all resources in a resource group. For example, deleting a resource group removes all resources within the resource group. There are common patterns when creating resource groups and these are commonly broken down between "Traditional IT" workloads and "Agile IT" workloads:
 
 * "Traditional IT" workloads are most commonly grouped by items within the same life cycle, such as an application. Grouping by application allows for individual application management.
-* "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups often reflect the layers of deployment (such as Web Tier, App Tier) and management.
+* "Agile IT" workloads tend to focus on external customer-facing cloud applications. These resource groups often reflect the functional layers of deployment (such as Web Tier, App Tier) and management.
 
 ### Deployment grouping (templated deployments)
 
@@ -49,9 +49,11 @@ These templates can also be deployed programmatically and integrated into your C
 
 To ensure governance policies are applied from the moment resources are created, part of resource grouping design will involve the application of common configuration to your deployments. 
 
-Using a combination of resource groups and standardized resource manager templates, you can enforce standards for what settings are required in a deployment and what [Azure policies](https://docs.microsoft.com/en-us/azure/governance/policy/overview) are applied to each resource group or resource.  
+Using a combination of resource groups and standardized resource manager templates, you can enforce standards for what settings are required in a deployment and what [Azure Policies](https://docs.microsoft.com/en-us/azure/governance/policy/overview) are applied to each resource group or resource.  
 
-As an example, you may have a need to make sure all VMs deployed within your subscription connect to common subnet managed by your central IT team. You can create a standard template for deploying workload VMs which would create a separate resource group for the workload and deploy the required VMs there. This resource group would have a policy rule in place for only allow NICs within the resource to be joined to the shared subnet.
+As an example, you may have a requirement that all VMs deployed within your subscription connect to common subnet managed by your central IT team. You can create a standard template for deploying workload VMs which would create a separate resource group for the workload and deploy the required VMs there. This resource group would have a policy rule in place to only allow network interfaces within the resource group to be joined to the shared subnet.
+
+The [Azure Virtual Datacenter model makes extensive use](vdc-resource-grouping.md) of Resource Groups to organize resources, apply access controls, and enforce resource creation policies.
 
 For a more in-depth discussion of enforcing your policy decisions within a cloud deployment, see the [policy enforcement](../policy-enforcement/overview.md) topic. 
 
