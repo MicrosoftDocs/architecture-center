@@ -449,9 +449,9 @@ First, enter the secrets for EventHub:
     databricks secrets create-scope --scope "azure-databricks-job"
     ```
 2. Add the secret for the taxi ride EventHub:
-    ```
-    databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
     ```shell
+    databricks secrets put --scope "azure-databricks-job" --key "taxi-ride"
+    ```
     Once executed, this command opens the vi editor. Enter the **taxi-ride-eh** value from the **eventHubs** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 3. Add the secret for the taxi fare EventHub:
