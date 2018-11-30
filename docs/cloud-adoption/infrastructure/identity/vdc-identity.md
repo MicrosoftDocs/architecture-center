@@ -8,7 +8,7 @@ ms.date: 11/08/2018
 
 Jump to: [Azure Active Directory Tenants](#azure-active-directory-tenants) | [Federation and hybrid identity](#federation-and-hybrid-identity) | [Roles and RBAC](#roles-and-rbac)
 
-The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. The discussion below will explore how identity services lie at the core of the [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model's ability to manage access control and insure isolation of your cloud hosted resources.
+The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. The discussion below will explore how Azure AD identity services lie at the core of the [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model's ability to manage access control and insure isolation of your cloud hosted resources.
 
 ## Azure Active Directory Tenants
 
@@ -28,7 +28,7 @@ As with an on-premises datacenter, certain groups of people are responsible for 
 
 Central to the VDC access control and management architecture is using Azure AD roles to group users based on their jobs and responsibilities. These roles serve as the basis for a [role-based access control (RBAC) system](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview). 
 
-**Built in roles**
+**Built-in roles**
 
 Azure includes several [built-in roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) that you can use. The following lists the top fundamental built-in roles. The first three apply to all resource types.
 
