@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Identity and Roles" 
 description: Discusses how Azure Active Directory and RBAC is used within the Azure Virtual Datacenter (VDC) model
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Identity and Roles

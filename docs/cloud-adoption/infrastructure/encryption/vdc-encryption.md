@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Encryption" 
 description: Discusses how encryption is used to secure data and resources in an Azure Virtual Datacenter.
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Encryption and key management

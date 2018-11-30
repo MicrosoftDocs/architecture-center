@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Monitoring, Reporting, and Compliance" 
 description: Discusses how monitoring and reporting are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Monitoring and Reporting

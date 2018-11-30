@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Resource Grouping" 
 description: Discussing the resource grouping approach to the Azure Virtual Datacenter (VDC) model
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Resource grouping

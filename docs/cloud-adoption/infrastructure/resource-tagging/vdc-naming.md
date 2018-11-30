@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Naming and Tagging" 
 description: Discusses how naming and tagging are used to organize resources and improve management and access control of assets within an Azure Virtual Datacenter.
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Naming and Tagging

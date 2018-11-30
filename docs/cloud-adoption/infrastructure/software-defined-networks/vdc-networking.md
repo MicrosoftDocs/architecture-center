@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Networking" 
 description: Discusses how the Azure Virtual Datacenter networking infrastructure enables secure, centrally managed, access between on-premises and cloud resources, while isolating VDC networks from the public internet and other Azure hosted networks.
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 
