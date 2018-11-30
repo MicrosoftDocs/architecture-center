@@ -57,7 +57,7 @@ The structure and breakdown of roles within your organization will very, but the
 | Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual DataCenter such as routes and peerings.                                                |
 | Systems Operations     | SysOps              | Specify compute and storage infrastructure options and maintain resources that have been deployed.                                                                        |
 
-In addition to these three primary IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services.
+In addition to these three primary IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services. Consider adopting a development security operations (DevSecOps) approach. This requires a change in organizational mindset, and is especially important for those organizations that develop their own applications and services.
 
 ## Next steps
 
