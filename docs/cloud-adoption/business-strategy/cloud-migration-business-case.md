@@ -35,9 +35,9 @@ The following will fill in the financial model process and formulas with a numbe
 
 ### Calculate "Initial Investment"
 
-* Estimate Azure costs using any of the [Cost Calculators](../digital-estate/calculate.md) or the [standard migration sizes](../digital-estate/size-estimates.md).
+* Estimate Azure costs using any of the [Cost Calculators](../digital-estate/calculate.md).
 * For more refined cost structures, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise.
-* Estimate cost of migration, if [professional services partners](../migration/execute/partnership-options.md) are helping execute the migration.
+* Estimate cost of migration
 * Estimate the cost of any expected training opportunities. [Microsoft Learn](https://docs.microsoft.com/learn/) may be able to help mitigate those costs.
 * In some companies, the time invested by existing staff members may need to be included in the initial costs. Consult the finance office for guidance.
 * Discuss any additional costs or burden costs with the finance office for validation.

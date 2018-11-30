@@ -13,7 +13,7 @@ Developing an inventory is the first step in [Digital Estate Planning](overview.
 
 The inventory supporting a digital estate changes depending on the desired Digital Transformation and corresponding Transformation Journey.
 
-* Operational Transformation: During an operational transformation, it is often advised that the inventory be collected from scanning tools which can create a centralized list of all VMs and servers. Some such tools can also create network mapping and dependencies, which will help define workload alignment. Read more about [infrastructure assessment tools](../migration/plan/infrastructure-assessment-tools.md) to begin creating an inventory.
+* Operational Transformation: During an operational transformation, it is often advised that the inventory be collected from scanning tools which can create a centralized list of all VMs and servers. Some such tools can also create network mapping and dependencies, which will help define workload alignment. 
 * Incremental Transformation: Inventory for an incremental transformation begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, apis, data, and other assets will create a detailed inventory for analysis. More guidance coming with the launch of  the Incremental Transformation Journey (Spring 2019)
 * Disruptive Transformation: Disruptive transformation focuses on the product or service. From there an inventory would include a mapping of the opportunities to disrupt the market & the capabilities needed. More guidance coming with the launch of Disruptive Transformation Journey (Summer 2019)
 

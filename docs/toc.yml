@@ -547,6 +547,28 @@
       href: cloud-adoption/getting-started/what-is-governance.md
     - name: Resource access governance in Azure
       href: cloud-adoption/getting-started/azure-resource-access.md
+  - name: Business Justification
+    items:
+    - name: Understanding Financial Models
+      href: cloud-adoption/business-strategy/financial-models.md
+    - name: Creating a Cloud Migration Financial Model
+      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
+  - name: Digital Estate
+    items: 
+    - name: Overview - What is a digital estate?
+      href: cloud-adoption/digital-estate/overview.md
+    - name: Assessment Approaches 
+      href: cloud-adoption/digital-estate/approach.md
+    - name: Inventory Assets 
+      href: cloud-adoption/digital-estate/inventory.md
+    - name: Rationalize 
+      href: cloud-adoption/digital-estate/rationalize.md
+    - name: Incremental Rationalization - Aligning applications and business drivers
+      href: cloud-adoption/digital-estate/rationalize-incremental.md
+    - name: 5 Rs of Rationalization 
+      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+    - name: Cost Calculations 
+      href: cloud-adoption/digital-estate/calculate.md
   - name: Governance
     items:
     - name: Overview
