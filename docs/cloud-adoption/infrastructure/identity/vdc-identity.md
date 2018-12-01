@@ -1,14 +1,14 @@
 ---
-title: "Fusion: Azure Virtual Datacenter - Identity and Roles" 
+title: "Fusion: Azure Virtual Datacenter - Identity and roles" 
 description: Discusses how Azure Active Directory and RBAC is used within the Azure Virtual Datacenter (VDC) model
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Identity and Roles
+# Fusion: Azure Virtual Datacenter - Identity and roles
 
 Jump to: [Azure Active Directory Tenants](#azure-active-directory-tenants) | [Federation and hybrid identity](#federation-and-hybrid-identity) | [Roles and RBAC](#roles-and-rbac)
 
-The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. The discussion below will explore how identity services lie at the core of the [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model's ability to manage access control and insure isolation of your cloud hosted resources.
+The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s [infrastructure section](../overview.md) discusses identity in general and how identity is used within Azure to manage access control and resource management. The discussion below will explore how Azure AD identity services lie at the core of the [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model's ability to manage access control and insure isolation of your cloud hosted resources.
 
 ## Azure Active Directory Tenants
 
@@ -24,12 +24,30 @@ VDC assumes you have existing on-premise identity infrastructure and need to use
 
 ## Roles and RBAC
 
-As with an on-premises datacenter, certain groups of people are responsible for jobs within your IT environment. A VDC doesn't need facilities management or physical security, but many other responsibilities, such as network security or operations, are very similar in a VDC to what they are in a physical data center.
+As with an on-premises datacenter, certain groups of people are responsible for jobs within your IT environment. A VDC doesn't need facilities management or physical security, but many other responsibilities, such as network security or operations, are very similar in a VDC to what they are in a physical data center. 
 
-Central to the VDC access control and management architecture is using Azure AD roles to group users based on their jobs and responsibilities. These roles serve as the basis for a role-based access control (RBAC) system. RBAC allows the definition of organizational roles, which define the access rights to specific Azure resources and subscription management rights to users and groups assigned to those roles.
+Central to the VDC access control and management architecture is using Azure AD roles to group users based on their jobs and responsibilities. These roles serve as the basis for a [role-based access control (RBAC) system](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview). 
+
+**Built-in roles**
+
+Azure includes several [built-in roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles) that you can use. The following lists the top fundamental built-in roles. The first three apply to all resource types.
+
+- Owner - Has full access to all resources including the right to delegate access to others.
+- Contributor - Can create and manage all types of Azure resources but can’t grant access to others.
+- Reader - Can view existing Azure resources.
+- User Access Administrator - Lets you manage user access to Azure resources.
+
+The remaining built-in roles allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles).
+
+**Organizational roles** 
+
+RBAC allows the definition of organizational roles, which define the access rights to specific Azure resources and subscription management rights to users and groups assigned to those roles.
 
 The scope of a role can be at the Azure subscription, resource group, or single resource level. RBAC also allows the inheritance of permissions, so that a role assigned at a parent level also grants access to the children contained within it.
+
 This functionality allows different parts of the VDC to be managed by different teams, so that central IT control over core access and security features can be paired with developers and associated teams having large amounts of control over specific workloads.
+
+**Primary IT Roles**
 
 The structure and breakdown of roles within your organization will very, but the VDC model assumes the central IT management tasks for the virtual DataCenter breaks down into at least the three primary roles:
 
@@ -39,11 +57,13 @@ The structure and breakdown of roles within your organization will very, but the
 | Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual DataCenter such as routes and peerings.                                                |
 | Systems Operations     | SysOps              | Specify compute and storage infrastructure options and maintain resources that have been deployed.                                                                        |
 
-In addition to these three core IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services.
+In addition to these three primary IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services. Consider adopting a development security operations (DevSecOps) approach. This requires a change in organizational mindset, and is especially important for those organizations that develop their own applications and services.
 
 ## Next steps
 
 Learn how [resource grouping](../resource-grouping/vdc-resource-grouping.md) is used to organize and standardize deployments within an Azure Virtual Datacenter.
+
+Use [role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control) to define duties within your teams and grant the amount of access to users that they need to perform their jobs. 
 
 > [!div class="nextstepaction"]
 > [Azure Virtual Datacenter: Resource Grouping](../resource-grouping/vdc-resource-grouping.md)
