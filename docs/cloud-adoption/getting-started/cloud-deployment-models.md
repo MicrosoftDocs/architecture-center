@@ -8,7 +8,7 @@ ms.date: 10/02/2018
 
 Businesses use different models to deploy cloud resources. In this article, we build on ["How Azure works"](what-is-azure.md), by discussing the four cloud models: Private, Public, Hybrid, and Multi-Cloud.
 
-This is an introductory article meant to serve as a basic comparison between deployment options. This article is not expected to provide enough context to allow the reader to select the most appropriate deployment model for their specific needs. For more decision criteria & design considerations regarding Hybrid-specific deployment, see the [Governance design for multiple teams](../governance/governance-multiple-teams.md), which discusses identity, network, and other topics required to make a decision regarding a hybrid deployment model.  
+This is an introductory article meant to serve as a basic comparison between deployment options. This article is not expected to provide enough context to allow the reader to select the most appropriate deployment model for their specific needs. For more decision criteria & design considerations regarding Hybrid-specific deployment, see the [Governance design for multiple teams](../governance/resource-management/governance-multiple-teams.md), which discusses identity, network, and other topics required to make a decision regarding a hybrid deployment model.  
 
 ## Private cloud
 
@@ -45,4 +45,4 @@ Multi-cloud models across multiple cloud vendors can theoretically distribute ri
 > [!TIP]
 > Consolidating deployments with a single cloud vendor produces opportunities to create a stronger buying position & in some cases, better pricing.  
 
-To begin planning for Cloud adoption in Azure, you may want to read  [Getting Started](overview.md). If a Hybrid cloud deployment model aligns with your needs, [Governance design for multiple teams](../governance/governance-multiple-teams.md) could help clarify the design considerations needed to implement such a model. 
+To begin planning for Cloud adoption in Azure, you may want to read  [Getting Started](overview.md). If a Hybrid cloud deployment model aligns with your needs, [Governance design for multiple teams](../governance/resource-management/governance-multiple-teams.md) could help clarify the design considerations needed to implement such a model. 

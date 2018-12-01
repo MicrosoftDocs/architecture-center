@@ -1,26 +1,26 @@
 ---
-title: "Fusion: What is Cloud Governance?"
+title: "Fusion: What is cloud governance?"
 description: Overview of governance content for Azure Fusion
 author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Fusion: What is Cloud Governance?
+# Fusion: What is cloud governance?
 
-Governance is a broadly used term. Throughout the Fusion framework, the topic of governance focuses on actionable governance practices, which include policies, enforcement, and the five disciplines of cloud governance. Each of these facets of governance is vital to ensure Cloud Adoption is safely governed.
+In the Fusion framework, governance specifically focuses on actionable governance practices, including policies, enforcement, and management (cost, security, resource, identity, and configuration). Each of these facets is vital to ensure that cloud adoption is safely governed.
 
-![Corporate Governance and Governance Disciplines](../_images/operational-transformation-govern.png)
-*Figure 1. Corporate Governance and Governance Disciplines*
+![Corporate governance and governance disciplines](../_images/operational-transformation-govern.png)<br>
+*Figure 1. Corporate covernance and five governance disciplines*
 
-**Governance Strategy** The cloud offers many options for implementing management tools. Those tools are meant to automate and action defined policies. Healthy governance strategy starts with an [Understanding of Business Risks](policy-compliance/understanding-business-risk.md). [Policy](policy-compliance/overview.md) then creates guardrails to help mitigate that risk. Once policy is established, [Monitoring & Enforcement](monitoring-enforcement/overview.md) provides additional guidelines defining how a policy is enforced & what happens when deviation occur.
+**Governance strategy** The cloud offers a variety of management tools. Tools are used to automate and define action-based policies. Healthy governance strategy starts with an [understanding of business risks](policy-compliance/understanding-business-risk.md). Then [policy](policy-compliance/overview.md) creates barriers to help mitigate those risks. Once policy is established, [monitoring and enforcement](monitoring-enforcement/overview.md) provides additional guidelines that define how policy is enforced and what happens when a deviation to policy occurs.
 
-In some industry verticals, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) will supercede corporate policy and require a set of more stringent guidelines. Enforceable yet flexible policies are the root of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, as opposed to technical dogma, the policies and resultant strategy can be molded to align with the Cloud, or any other form of technical deployment.
+In some industry verticals, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) supercedes corporate policy, and therefore requires a set of stricter guidelines. These enforceable yet flexible policies are the basis of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, and not technical dogma, the policies and resulting strategy can be more easily adapted to align with the cloud or any other technical deployment.
 
-**Governance Execution** This framework focuses on five disciplines of cloud governance, each implements a different aspect of corporate policies to support safe Cloud Adoption. Those disciplines include [Cost Management](cost-management/overview.md), [Security Management](security-management/overview.md), [Identity Management](identity-management/overview.md), [Resource Management](resource-management/overview.md), and [Configuration Management](configuration-management/overview.md). When policy focuses on risk & tolerance, management disciplines can extend those policies by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
+**Governance execution** This framework focuses on the five disciplines of cloud governance, and each implements a different aspect of corporate policies to support safe cloud adoption. These disciplines include [cost management](cost-management/overview.md), [security management](security-management/overview.md), [identity management](identity-management/overview.md), [resource management](resource-management/overview.md), and [configuration management](configuration-management/overview.md). When policy focuses on risk and tolerance, the management disciplines can extend policy by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. As a CISO, you can prepare for a policy review by reviewing the [guide to cloud readiness for CISOs](how-can-a-ciso-prepare-for-the-cloud.md).
+The first step to taking action in any governance strategy is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and compliance](policy-compliance/overview.md) is a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
 
 > [!div class="nextstepaction"]
 > [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)

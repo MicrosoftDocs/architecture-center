@@ -69,45 +69,22 @@ Some examples of common tagging types:
 
 ## Naming and tagging policy
 
-Naming and tagging policy will evolve over time. However, determining your core
-organizational priorities at the outset of a cloud migration is critical. As
-part of your planning process carefully consider the following questions:
+Naming and tagging policy will evolve over time. However, determining your core organizational priorities at the outset of a cloud migration is critical. As part of your planning process carefully consider the following questions:
 
--   How best can your naming and tagging policies integrate with existing naming
-    and organizational policies within your organization?
-
--   Will you be implementing a charge back or show back accounting system? How
-    are your departments, business groups, and teams represented in this
-    organizational structure?
-
--   What tagging information will be required for all resources? What tagging
-    information will be left up to individual teams to implement or not?
-
--   Do you need tagging to represent details such regulatory compliance
-    requirements for a resource? Operational details such as uptime requirements
-    or patching schedules? Security requirements?
+- How best can your naming and tagging policies integrate with existing naming and organizational policies within your organization?
+- Will you be implementing a charge back or show back accounting system? How are your departments, business groups, and teams represented in this organizational structure?
+- What tagging information will be required for all resources? What tagging information will be left up to individual teams to implement or not?
+- Do you need tagging to represent details such regulatory compliance requirements for a resource? Operational details such as uptime requirements or patching schedules? Security requirements?
 
 ## Resource naming and tagging in Azure
 
-Although [Resource
-Groups](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-groups)
-provide the basic mechanism to logically group resources within your Azure
-subscriptions, [Naming
-Standards](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#naming-standards)
-and [Resource
-Tags](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-tags)
-are the standard way to provide fine-tuned resource organization in the Azure
-platform for both management and accounting purposes.
+Although [Resource Groups](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-groups) provide the basic mechanism to logically group resources within your Azure subscriptions, [Naming Standards](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#naming-standards) and [Resource Tags](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-tags) are the standard way to provide fine-tuned resource organization in the Azure platform for both management and accounting purposes.
 
-For an example of best practice naming recommendations for Azure, refer to the
-[Patterns and Practices
-guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions).
+For an example of best practice naming recommendations for Azure, refer to the [Patterns and Practices guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions).
 
-Tags in Azure can be applied at both the resource group and individual resource
-level, allowing you a degree of flexibility in the granularity of any accounting
-reports based on applied tags. For details on how to apply and use tagging
-within Azure, see [Use tags to organize your Azure
-resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json).
+Tags in Azure can be applied at both the resource group and individual resource level, allowing you a degree of flexibility in the granularity of any accounting reports based on applied tags. For details on how to apply and use tagging within Azure, see [Use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json).
+
+The [Azure Virtual Datacenter model provides](vdc-naming.md) basic naming and tagging recommendations to support resource management and administration within a VDC deployment.
 
 ## Next steps
 

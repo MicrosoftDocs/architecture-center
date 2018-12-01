@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: What is a migration backlog or cloud adoption backlog?
 
-The article on [Incremental Rationalization](../../digital-estate/rationalize-inventory.md) discusses the creation of the first migration backlog or cloud adoption backlog. This article will discuss the evolution and pruning of that backlog for the purposes of change management and overall transformation management. In this article and others in the Fusion Framework, it is assumed that a migration backlog and cloud adoption backlog are equivalant terms for the same asset.
+The article on [Incremental Rationalization](../../digital-estate/rationalize-inventory.md) discusses the creation of the first migration backlog or cloud adoption backlog. This article will discuss the evolution and pruning of that backlog for the purposes of change management and overall transformation management. In this article and others in the Fusion Framework, it is assumed that a migration backlog and cloud adoption backlog are equivalent terms for the same asset.
 
 When the Cloud Strategy Team and Cloud Adoption Team develop the first migration backlog, it is likely limited to 10 applications or workloads withing a much broader [digital estate](../../digital-estate/overview.md).
 

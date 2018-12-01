@@ -21,7 +21,7 @@ striking the correct balance between encryption and performance is key.
 
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
-Jump to: [Key management](#key-management) | [Data encryption](#data-encryption)
+Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Encryption in Azure](#encryption-in-azure) | [Azure Key Vault](#azure-key-vault)
 
 The inflection point when deciding on a cloud encryption strategy focuses on corporate policy and compliance mandates.
 
@@ -29,13 +29,9 @@ There are a number of ways to deliver encryption within a cloud environment, wit
 
 ## Key management
 
-A key management system is critical to your organizations ability to create and
-store cryptographic keys, important passwords, connection strings, and other IT
-secrets. Modern key management systems should offer support for storing
-keys using hardware security modules (HSMs) for increased protection.
+A key management system is critical to your organizations ability to create and store cryptographic keys, important passwords, connection strings, and other IT secrets. Modern key management systems should offer support for storing keys using hardware security modules (HSMs) for increased protection.
 
-When planning a cloud migration understanding what kind of key management system
-will be used is critical:
+When planning a cloud migration understanding how you will store and manage your encryption keys, certificates, and secrets is critical for creating secure and manageable cloud deployments:
 
 | Question                                                                                                                              | Cloud Native | Hybrid | On-premises |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
@@ -67,12 +63,7 @@ cloud key management system for use with cloud resources.
 
 ### On-premises (hold your own key)
 
-In certain scenarios there may be regulatory, policy, or technical reasons why
-you can't store keys on a key management system provided by a public cloud
-service. In these cases, you would maintain keys using on-premises hardware, and
-provision a mechanism to allow cloud-based resource to access these keys for
-encryptions purposes. Note that a hold your own key approach may not be
-compatible with all cloud services.
+In certain scenarios there may be regulatory, policy, or technical reasons why you can't store keys on a key management system provided by a public cloud service. In these cases, you would maintain keys using on-premises hardware, and provision a mechanism to allow cloud-based resource to access these keys for encryptions purposes. Note that a hold your own key approach may not be compatible with all cloud services.
 
 **On-premises Key Management Assumptions:** Using an On-premises key management system assumes the following:
 
@@ -120,11 +111,7 @@ Your overall policy and compliance requirements, the sensitivity of the data bei
 
 ### Data in use
 
-Encryption for data in use involves securing data in non-persistent storage,
-such as RAM or CPU caches. Use of technologies such as full memory encryption,
-enclave technologies like Intel's Secure Guard Extensions (SGX), and
-cryptographic techniques like homomorphic encryption can be used to create
-secure, trusted execution environments.
+Encryption for data in use involves securing data in non-persistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies like Intel's Secure Guard Extensions (SGX), and cryptographic techniques like homomorphic encryption can be used to create secure, trusted execution environments.
 
 **Encrypting Data at Rest Assumptions:** Encrypting data in use assumes the following:
 
@@ -132,34 +119,20 @@ secure, trusted execution environments.
 
 ## Encryption in Azure
 
-For a detailed description of how Azure makes use of encryption to secure both
-data at rest and data in transit, see the [Azure encryption
+For a detailed description of how Azure makes use of encryption to secure both data at rest and data in transit, see the [Azure encryption
 overview](https://docs.microsoft.com/en-us/azure/security/security-azure-encryption-overview).
 
-[Azure's confidential
-computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/)
-initiative provides tools and technology to create trusted execution
-environments (TEEs) or other encryption mechanisms to secure data in use.
+[Azure's confidential computing](https://azure.microsoft.com/en-us/solutions/confidential-compute/) initiative provides tools and technology to create trusted execution environments (TEEs) or other encryption mechanisms to secure data in use.
 
 ## Azure Key Vault
 
-[Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) is the
-primary key management system for storing and managing cryptographic keys,
-secrets, and certificates within Azure.
+[Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/) is the primary key management system for storing and managing cryptographic keys, secrets, and certificates within Azure.
 
-All cryptographic keys, connection strings, certificates, and other secrets used
-by applications or resources in your Azure deployment can be stored and managed
-as well. Key Vault supports a FIPS 140-2 Level 2-validated hardware security
-model (HSM), and allows you to [generate keys using your on-premises HSM and
-securely transfer them to Key
-Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys).
+All cryptographic keys, connection strings, certificates, and other secrets used by applications or resources in your Azure deployment can be stored and managed as well. Key Vault supports a FIPS 140-2 Level 2-validated hardware security model (HSM), and allows you to [generate keys using your on-premises HSM and securely transfer them to Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys).
 
-Keys stored in Key Vault can be used to encrypt storage assets, and to secure
-PaaS services or individual applications (for example, storing a database
-connection string in key vault instead of an application's configuration files
-or environment variables). Authorized applications and services within Azure
-deployments can use, but not modify, keys stored in Key Vault. Only authorized key owners
-can make changes through Key Vault.
+Keys, certificates, and secrets stored in Key Vault can be used to encrypt storage assets, virtual machine images, or to secure PaaS services or individual applications (for example, storing a database connection string in key vault instead of an application's configuration files or environment variables). Authorized applications and services within Azure deployments can use, but not modify, keys stored in Key Vault. Only authorized key owners can make changes through Key Vault.
+
+Key Vault is a critical component of the [Azure Virtual Datacenter model's encryption strategy](vdc-encryption.md), providing secure key storage for both central IT and workload teams.
 
 ## Next steps
 

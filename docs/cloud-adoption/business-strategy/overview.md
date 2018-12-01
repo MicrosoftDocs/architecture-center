@@ -18,7 +18,7 @@ In the business strategy section of the Fusion framework, we provide tools to ca
 * Review [sample Business Outcomes](business-outcomes/overview.md). Identify any business outcomes that directly align with the targeted business strategy. Document those in the provided [business outcome excel template](business-outcomes/business-outcome-template.xlsx) to share with internal partners during the Transformation Journey.
 * Identify the [Transformation Metrics](transformation-metrics.md) that would best represent progress towards the identified business outcomes. It may be necessary to engage the CIO, or members of the IT team, to select relevant metrics based on the current environment.
 * Establish a [Financial Model](financial-models.md) that aligns with the outcomes and transformation metrics.
-* Document the [Digital Estate](digital-estate.md) in the current environment to populate the financial model. This will establish investment criteria, time to break even, and return on investment (ROI)
+* Document the [Digital Estate](../digital-estate/overview.md) in the current environment to populate the financial model. This will establish investment criteria, time to break even, and return on investment (ROI)
 
 This process allows for a conversation across IT and the business to clearly specify ways that the cloud can advance a  business strategy. For proper representation during this process, it may be wise to first assemble a [Cloud Strategy Team](../culture-strategy/what-is-a-cloud-strategy-team.md), which is a cross functional team that can accurately represent each of the topics above.
 
