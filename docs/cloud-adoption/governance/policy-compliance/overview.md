@@ -19,7 +19,7 @@ This article outlines key activities that can help you shape your corporate poli
 
 In both traditional and incremental governance models, corporate policy helps to create a working definition of governance. Most IT governance actions attempt to leverage technology, in order to monitor, enforce, operate, and automate corporate policies. Cloud governance is built on similar concepts.
 
-![Corporate Governance and Governance Disciplines](../_images/operational-transformation-govern.png)<br>
+![Corporate Governance and Governance Disciplines](../../_images/operational-transformation-govern.png)<br>
 *Figure 1. Corporate governance and governance disciplines*
 
 The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a complete governance strategy. This followed by the five disciplines helps you to to realize a complete governance strategy.
