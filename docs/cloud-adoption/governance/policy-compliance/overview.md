@@ -7,7 +7,7 @@ ms.date: 11/27/2018
 
 # Fusion: How do corporate policy and compliance impact cloud adoption and governance?
 
-Cloud governance is the product of an ongoing adoption effort over time, as a true lasting tranformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast agressive method seldom produces the desired results. Instead we recommend an incrimental governance model. 
+Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental governance model. 
 
 What is different about our cloud adoption framework is the buying cycle and the impact of that how that cycle can enable authentic transformation. Since there is not a big Capital Expenditure (CapEx) acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the CapEx barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
 
