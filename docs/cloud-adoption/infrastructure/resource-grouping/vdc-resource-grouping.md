@@ -19,8 +19,9 @@ Resources in the VDC model are assumed to be grouped according to function withi
 | Operations and monitoring     | Hosts log analytics instance and other operational assets for the central hub environment. |
 | Key vault                     | Hosts the central hub Key Vault instance. |
 | Networking                    | Hosts the hub virtual network, networking rules and devices, and the gateway connection to the on-premises environments. |
-| Jump box                      | Hosts secure bastion VMs used as management jump boxes for the hub environment. |
-| ADDS                          | Hosts servers providing Active Directory Domain Services and DNS for the hub environment.  |
+| Management                    | Hosts secure bastion VMs used as management jump boxes for the hub environment. |
+| Shared Services               | Hosts servers providing Active Directory Domain Services and DNS for the hub environment.  |
+| Central Firewall              | Contains the central firewall devices that control the traffic allowed to pass in and out of the VDC and how that traffic is directed. |
 
 Likewise spokes will have at least the following resource groups: 
 

@@ -16,7 +16,7 @@ allow you to manage access control within your IT estate.
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 
-Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation (VDC)](#federation) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
+Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation (VDC)](#federation-vdc) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
 
 There are a number of ways to deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design can provide clarity on the three SaaS enabled solutions. 
 

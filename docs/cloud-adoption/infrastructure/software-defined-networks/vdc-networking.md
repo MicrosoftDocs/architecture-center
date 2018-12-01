@@ -23,9 +23,9 @@ Workload spokes are separate virtual networks that, aside from network peering w
 
 **Virtual Datacenter Assumptions:** Deploying a virtual DataCenter assumes the following:
 
-- Your cloud migration will contain large number of assets and may be exceeding the number of resources allowed within a single account or subscription.
+- Your cloud migration will contain large number of assets and may exceed the number of resources allowed within a single account or subscription.
 - You have a common identity system between your on-premises and cloud environments.
-- The complexity of your deployment requires the central IT management provided by the virtual DataCenter hub and spoke networking model.
+- The complexity of your deployment requires the central IT management provided by the virtual datacenter hub and spoke networking model.
 - You will need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance.
 - You need a security model that allows central IT control over core services and security coupled with delegated control of workload resources.
 
