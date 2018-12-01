@@ -57,7 +57,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Integrate your on-premises and cloud directories with Azure AD.
 * Consider using the following access models:
   * [Least Privilege Access](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
-  * Privileged Identity Management access model 
+  * [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) access model 
 * Finalize all pre-integration details and review [Identity Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices).
   * Enable single identity, single sign-on (SSO), or seamless SSO
   * Configure multi-factor authentication (MFA) for admins
@@ -67,7 +67,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * Conduct a risk analysis of key admin activities for assigning to built-in roles
   * Consider an updated rollout of stronger authentication for all users 
   * Enable Privileged Identity Management (PIM) for JIT (using time-limited activation) for additional administrative roles
-  * Separate user accounts from Global admin accounts to make sure they do not inadvertently open emails or run programs associated with their admin accounts
+  * Separate user accounts from Global admin accounts (to make sure that admins do not inadvertently open emails or run programs associated with their Global admin accounts)
 
 ## Adopt / Migrate
 
