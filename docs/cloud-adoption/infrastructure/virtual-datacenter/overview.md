@@ -87,9 +87,9 @@ Within subscriptions, the [VDC model organizes resource groups](../resource-grou
 
 ### Key vault
 
-With policy rules enforcing encrypted storage on all VDC subscriptions, you need to securely host and store encryption keys before any storage or virtual machines can be deployed. The VDC model calls for provisioning a Key Vault instance for each the hub environment and each of the workload subscriptions. After these key vaults are deployed, a cryptographic key is created and stored in Key Vault, which is then used to perform storage encryption tasks. An encrypted storage account should also be  created in the Key Vault resource group for storing audit log information related to the vault.
+With policy rules enforcing encrypted storage on all VDC subscriptions, you need to securely host and store encryption keys before any storage or virtual machines can be deployed. The VDC model calls for provisioning a Key Vault instance for the hub environment and each of the workload subscriptions. After these key vaults are deployed, cryptographic keys are created and stored in Key Vault, which are then used to perform storage encryption tasks. An encrypted storage account should also be created in the Key Vault resource group for storing audit log information related to the vault itself.
 
-Edit access to secrets and keys within the vault is restricted to the central IT SecOps teams for the hub key vault, while workload key vaults can be accessed by users with the appropriate security role within the workload spoke environment. Other roles can use secrets and keys to encrypt and decrypt storage and access encrypted virtual machines, but they cannot modify or otherwise access any keys.
+Access to modify secrets and keys within the vault is restricted to the central IT SecOps teams for the hub key vault, while workload key vaults can be accessed by users with the appropriate security role within the workload spoke environment. Other roles can use secrets and keys to encrypt and decrypt storage and access encrypted virtual machines, but they cannot modify or otherwise access any keys.
 
 > See the [Encryption in VDC](../encryption/vdc-encryption.md) topic for more details.
 
@@ -103,9 +103,13 @@ Connectivity between your on-premises environment and the hub virtual network is
 
 > See the [VDC networking architecture](../software-defined-networks/vdc-networking.md) topic for more details.
 
-### Logs, reporting, and compliance
+### Monitoring and compliance
 
+The VDC model uses [Azure Monitor]((https://docs.microsoft.com/en-us/azure/azure-monitor/overview)) as the default monitoring and reporting service. Azure Monitor's Log Analytics feature allows you to capture log data related to virtual machines and your network environment. When deploying a VDC, a Log Analytics instance is created for the central IT hub and each of the workload spokes, which then allows you to configure reports and alerts for your deployed resources.
 
+Built in Azure features such as  [Azure Active Directory Reports](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-reports), [Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/), and [Azure Security Center (ASC)](https://docs.microsoft.com/en-us/azure/security-center/)are also a core monitoring component of the VDC model.
+
+> See the [VDC reporting, monitoring and compliance](../logs-and-reporting/vdc-monitoring.md) topic for more details.
 
 ### Hub components
 
