@@ -6,7 +6,7 @@ author: mattfarm
 ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 12/03/2018
 ---
 
 # Enterprise integration on Azure
@@ -182,7 +182,7 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 
 ## Next steps
 
-* For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next reference architecture in this series: [Enterprise integration using message queues and events](./queues-events).
+For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next reference architecture in this series: [Enterprise integration using message queues and events](./queues-events).
 
 <!-- links -->
 
