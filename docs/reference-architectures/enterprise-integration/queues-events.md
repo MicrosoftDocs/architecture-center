@@ -16,7 +16,7 @@ This architecture integrates enterprise backend systems, using message queues an
 
 ## Architecture
 
-The architecture shown here builds on a somewhat simpler architecture that is shown in [Enterprise integration on Azure][simple-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
+The architecture shown here builds on a simpler architecture that is shown in [Enterprise integration on Azure][simple-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
@@ -34,15 +34,15 @@ Asynchronous communication using a message broker provides a number of advantage
 
 Event Grid enables the various components in the system to react to events as they happen, rather than relying on polling or scheduled tasks. As with a message queue, it helps decouple applications and services. An application or service can publish events, and any interested subscribers will be notified. New subscribers can be added without updating the sender.
 
-Many Azure services support sending events to Event Grid. For example, a logic app can listen for an event when new files are added to a blob store. This enables reactive workflows, where uploading a file or putting a message on a queue kicks off a series of processes. The processes might be executed in parallel or in a specific sequence. 
+Many Azure services support sending events to Event Grid. For example, a logic app can listen for an event when new files are added to a blob store. This pattern enables reactive workflows, where uploading a file or putting a message on a queue kicks off a series of processes. The processes might be executed in parallel or in a specific sequence. 
 
 ## Recommendations
 
-The recommendations described in [Enterprise integration on Azure][simple-enterprise-integration] apply to this architecture. In addition, the following recommendations apply:
+The recommendations described in [Enterprise integration on Azure][simple-enterprise-integration] apply to this architecture. The following recommendations also apply:
 
 ### Service Bus 
 
-Service Bus supports two delivery modes, *pull* or *push*. In the pull model, the receiver continuously polls for new messages. This can be ineffiecient, especially if you have many queues that each receive a few messages, or if there a lot of time between messages. In the push model, Service Bus sends an event through Event Grid when there are new messages. The receiver subscribes to the event. When the event is triggered, the receiver pulls the next batch of messages from Service Bus. 
+Service Bus supports two delivery modes, *pull* or *push*. In the pull model, the receiver continuously polls for new messages. Polling can be inefficient, especially if you have many queues that each receive a few messages, or if there a lot of time between messages. In the push model, Service Bus sends an event through Event Grid when there are new messages. The receiver subscribes to the event. When the event is triggered, the receiver pulls the next batch of messages from Service Bus. 
 
 When you create a logic app to consume Service Bus messages, we recommend using the push model with Event Grid integration. It's generally more cost efficient, because the logic app doesn't need to poll Service Bus. For more information, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept). Currently, Service Bus [Premium tier](https://azure.microsoft.com/pricing/details/service-bus/) is required for Event Grid notifications.
 
@@ -73,7 +73,7 @@ To enable failover if a serious outage occurs, consider implementing geo-disaste
 
 To secure Service Bus, use shared access signature (SAS). For example, you can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
 
-If you need to expose a Service Bus queue as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way you can secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
+If you need to expose a Service Bus queue as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way to secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
 The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
