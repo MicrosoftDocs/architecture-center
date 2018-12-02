@@ -26,7 +26,7 @@ This version of the architecture adds two components that help make the system m
 
 Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous HTTP calls to backend services:
 
-- Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md).
+- Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
 - Reliably tracks the progress of long-running workflows that involve multiple applications.
 - Helps to decouple applications.
 - Integrates with existing message-based systems.
@@ -46,7 +46,7 @@ Service Bus supports two delivery modes, *pull* or *push*. In the pull model, th
 
 When you create a logic app to consume Service Bus messages, we recommend using the push model with Event Grid integration. It's generally more cost efficient, because the logic app doesn't need to poll Service Bus. For more information, see [Azure Service Bus to Event Grid integration overview](/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept). Currently, Service Bus [Premium tier](https://azure.microsoft.com/pricing/details/service-bus/) is required for Event Grid notifications.
 
-Use [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
+Use [PeekLock](/azure/service-bus-messaging/service-bus-messaging-overview#queues) for accessing a group of messages. When you use PeekLock, the logic app can perform steps to validate each message before completing or abandoning the message. This approach protects against accidental message loss.
 
 ### Event Grid 
 
@@ -56,11 +56,11 @@ Event Grid uses a serverless model. Billing is calculated based on the number of
 
 ## Scalability considerations
 
-To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Premium tier configurations can have one, two, or four messaging units. For more information about scaling Service Bus, see [Best practices for performance improvements by using Service Bus Messaging](../service-bus-messaging/service-bus-performance-improvements.md).
+To achieve higher scalability, the Service Bus Premium tier can scale out the number of messaging units. Premium tier configurations can have one, two, or four messaging units. For more information about scaling Service Bus, see [Best practices for performance improvements by using Service Bus Messaging](/azure/service-bus-messaging/service-bus-performance-improvements).
 
 ## Availability considerations
 
-To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md).
+To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 
 ## Diagnostics and monitoring
 
@@ -68,11 +68,11 @@ Like API Management and Logic Apps, you can monitor Service Bus by using Azure M
 
 ## Security
 
-To secure Service Bus, use shared access signature (SAS). For example, you can grant a user access to Service Bus resources with specific rights by using [SAS authentication](../service-bus-messaging/service-bus-sas.md). For more information, see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).
+To secure Service Bus, use shared access signature (SAS). For example, you can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
 
 If you need to expose a Service Bus queue as an HTTP endpoint, for example, to post new messages, use API Management to secure the queue by fronting the endpoint. You can then secure the endpoint with certificates or OAuth authentication as appropriate. The easiest way you can secure an endpoint is using a logic app with an HTTP request/response trigger as an intermediary.
 
-The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](../event-grid/security-authentication.md).
+The Event Grid service secures event delivery through a validation code. If you use Logic Apps to consume the event, validation is automatically performed. For more information, see [Event Grid security and authentication](/azure/event-grid/security-authentication).
 
 
 [apim]: /azure/api-management
