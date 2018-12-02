@@ -60,6 +60,13 @@ To achieve higher scalability, the Service Bus Premium tier can scale out the nu
 
 ## Availability considerations
 
+Review the SLA for each service:
+
+- [API Management SLA][apim-sla]
+- [Event Grid SLA][event-grid-sla]
+- [Logic Apps SLA][logic-apps-sla]
+- [Service Bus SLA][sb-sla]
+
 To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 
 ## Diagnostics and monitoring
@@ -76,7 +83,11 @@ The Event Grid service secures event delivery through a validation code. If you 
 
 
 [apim]: /azure/api-management
+[apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
 [event-grid]: /azure/event-grid/
+[event-grid-sla]: https://azure.microsoft.com/support/legal/sla/event-grid
 [logic-apps]: /azure/logic-apps/logic-apps-overview
+[logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
+[sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
 [service-bus]: /azure/service-bus-messaging/
 [simple-enterprise-integration]: ./simple-enterprise-integration.md

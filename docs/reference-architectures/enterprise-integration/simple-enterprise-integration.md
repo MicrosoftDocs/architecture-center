@@ -88,7 +88,7 @@ Review the SLA for each service:
 - [API Management SLA][apim-sla]
 - [Logic Apps SLA][logic-apps-sla]
 
-If deploy API Management across two or more regions with Premium tier, it is eligible for a higher SLA. See [API Management pricing][apim-pricing].
+If you deploy API Management across two or more regions with Premium tier, it is eligible for a higher SLA. See [API Management pricing][apim-pricing].
 
 ### Backups
 
