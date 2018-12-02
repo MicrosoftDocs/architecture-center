@@ -24,21 +24,21 @@ This version of the architecture adds two components that help make the system m
 
 - **[Azure Event Grid][event-grid]**. Event Grid is an event routing service. It uses a publish/subscribe (pub/sub) eventing model.
 
-Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous HTTP calls to backend services:
+Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services:
 
 - Provides load-leveling to handle bursts in workloads, using the [Queue-Based Load Leveling pattern](../../patterns/queue-based-load-leveling.md).
-- Reliably tracks the progress of long-running workflows that involve multiple applications.
+- Reliably tracks the progress of long-running workflows that involve multiple steps or multiple applications.
 - Helps to decouple applications.
 - Integrates with existing message-based systems.
 - Allows work to be queued when a backend system is not available.
 
-In conjunction with the message broker, pub/sub messaging enables components in the system to react to events as they happen, rather than relying on polling or scheduled tasks. As with a message queue, it decouples applications and services. An application or service can publish events, and any interested subscribers will be notified. New subscribers can be added without updating the sender. 
+Event Grid enables the various components in the system to react to events as they happen, rather than relying on polling or scheduled tasks. As with a message queue, it helps decouple applications and services. An application or service can publish events, and any interested subscribers will be notified. New subscribers can be added without updating the sender.
 
 Many Azure services support sending events to Event Grid. For example, a logic app can listen for an event when new files are added to a blob store. This enables reactive workflows, where uploading a file or putting a message on a queue kicks off a series of processes. The processes might be executed in parallel or in a specific sequence. 
 
 ## Recommendations
 
-The recommendations described in [Enterprise integration on Azure][simple-enterprise-integration] apply to this architecture. 
+The recommendations described in [Enterprise integration on Azure][simple-enterprise-integration] apply to this architecture. In addition, the following recommendations apply:
 
 ### Service Bus 
 
