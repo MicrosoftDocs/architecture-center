@@ -375,7 +375,7 @@
       items:
       - name: Basic enterprise integration on Azure
         href: reference-architectures/enterprise-integration/simple-enterprise-integration.md
-      - name: Enterprise integration using message queues and events
+      - name: Enterprise integration with queues and events
         href: reference-architectures/enterprise-integration/queues-events.md
 
     - name: Hybrid networks

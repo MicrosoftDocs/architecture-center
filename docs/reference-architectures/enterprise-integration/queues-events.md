@@ -69,11 +69,7 @@ Review the SLA for each service:
 
 To enable failover if a serious outage occurs, consider implementing geo-disaster recovery in Service Bus Premium. For more information, see [Azure Service Bus geo-disaster recovery](/azure/service-bus-messaging/service-bus-geo-dr).
 
-## Diagnostics and monitoring
-
-Like API Management and Logic Apps, you can monitor Service Bus by using Azure Monitor, which is enabled by default. Azure Monitor provides information based on the metrics that are configured for each service. 
-
-## Security
+## Security considerations
 
 To secure Service Bus, use shared access signature (SAS). For example, you can grant a user access to Service Bus resources with specific rights by using [SAS authentication](/azure/service-bus-messaging/service-bus-sas). For more information, see [Service Bus authentication and authorization](/azure/service-bus-messaging/service-bus-authentication-and-authorization).
 
