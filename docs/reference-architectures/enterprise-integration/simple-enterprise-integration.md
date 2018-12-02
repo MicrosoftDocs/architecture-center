@@ -1,5 +1,5 @@
 ---
-title: Simple enterprise integration architecture pattern - Azure Integration Services
+title: Enterprise integration using Azure Integration Services
 description: This architecture reference shows how you can implement a simple enterprise integration pattern by using Azure Logic Apps and Azure API Management
 services: logic-apps
 author: mattfarm
@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 10/25/2018
 ---
 
-# Simple enterprise integration
+# Enterprise integration on Azure
 
 This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
@@ -182,7 +182,7 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 
 ## Next steps
 
-* Learn about [enterprise integration with queues and events](/azure/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events)
+* For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next reference architecture in this series: [Enterprise integration using message queues and events](./queues-events).
 
 <!-- links -->
 
