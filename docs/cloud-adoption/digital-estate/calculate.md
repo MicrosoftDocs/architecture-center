@@ -13,7 +13,7 @@ Azure pricing tools help you manage cloud spend with transparency and accuracy t
 
 [Azure Migrate](/azure/migrate/migrate-overview): Azure migrate is perhaps the most cost effective approach to cost model alignment. This tool allows for digital estate [inventory](inventory.md), [limited rationalization](rationalize.md), and cost calculations in one tool.
 
-[Total Cost of Ownership (TCO) Calculator](https://www.tco.microsoft.com/): Lower the total cost of ownership of your on-premises infrastructure with the Azure cloud platform. Use the Azure TCO calculator to estimate the cost savings you can realize by migrating your application workloads to Azure. Simply provide a brief description of your on-premises environment to get an instant report.
+[Total Cost of Ownership (TCO) Calculator](https://azure.com/tco): Lower the total cost of ownership of your on-premises infrastructure with the Azure cloud platform. Use the Azure TCO calculator to estimate the cost savings you can realize by migrating your application workloads to Azure. Simply provide a brief description of your on-premises environment to get an instant report.
 
 [Pricing calculator](https://azure.microsoft.com/en-in/pricing/): Estimate your expected monthly bill using our pricing calculator to track your actual account usage and bill at any time using the billing portal. Set up automatic email billing alerts to be notified if your spend goes above an amount you configure.
 

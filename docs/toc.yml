@@ -549,10 +549,10 @@
       href: cloud-adoption/getting-started/azure-resource-access.md
   - name: Business Justification
     items:
+    - name: Building a cloud migration business case
+      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
     - name: Understanding Financial Models
       href: cloud-adoption/business-strategy/financial-models.md
-    - name: Creating a Cloud Migration Financial Model
-      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
   - name: Digital Estate
     items: 
     - name: 5 Rs of Rationalization - Making decisions 
