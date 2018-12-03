@@ -555,20 +555,20 @@
       href: cloud-adoption/business-strategy/cloud-migration-business-case.md
   - name: Digital Estate
     items: 
-    - name: Overview - What is a digital estate?
+    - name: 5 Rs of Rationalization - Making decisions 
+      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+    - name: Digital Estate Rationalization Process
       href: cloud-adoption/digital-estate/overview.md
     - name: Assessment Approaches 
       href: cloud-adoption/digital-estate/approach.md
     - name: Inventory Assets 
       href: cloud-adoption/digital-estate/inventory.md
-    - name: Rationalize 
-      href: cloud-adoption/digital-estate/rationalize.md
-    - name: Incremental Rationalization - Aligning applications and business drivers
-      href: cloud-adoption/digital-estate/rationalize-incremental.md
-    - name: 5 Rs of Rationalization 
-      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
     - name: Cost Calculations 
       href: cloud-adoption/digital-estate/calculate.md
+    - name: Analogy - Rationalize Plinko 
+      href: cloud-adoption/digital-estate/rationalize.md
+    - name: Analogy - Incremental Rationalization Plinko
+      href: cloud-adoption/digital-estate/rationalize-incremental.md
   - name: Governance
     items:
     - name: Overview
