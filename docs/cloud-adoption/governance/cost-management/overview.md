@@ -52,7 +52,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Potential Activities**
 
 * Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
-* Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview) to enforce architecture and cost guidelines over time.
+* Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
 
 ## Adopt / Migrate
 
