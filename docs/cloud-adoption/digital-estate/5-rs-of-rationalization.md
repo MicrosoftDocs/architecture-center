@@ -143,21 +143,19 @@ Business needs and business process change constantly. Some applications or work
 
 When efficiency gains are important business outcomes, this R can't be over indexed. The choice of cloud vendor and future state architecture can significantly impact cost savings. In a traditional on-prem environment, there is little fiscal return from retiring workloads. Cloud transformation creates a unique pivot point that can demonstrate tangible value with every workload retired. One of the greatest cost savings in the cloud comes from the termination of unused/underused applications that can be retired in parallel to the cloud transformation effort.
 
-Common drivers could include:
-
-* Cost control
-* Cost avoidance
-* Re-prioritize technical assets
-
-Quantitative Analysis factors:
-
-* VM size (CPU, Memory, Storage)
-* Dependencies (Validate absence of user traffic or identify remaining users)
-* Assets to be retired
-
-Qualitative Analysis Factors:
-
-* Validate impact of retirement
+|Common drivers could include:  |Quantitative Analysis factors:  |Qualitative Analysis Factors:  |
+|---------|---------|---------|
+| 
+Cost control
+Cost avoidance
+Re-prioritize technical assets
+|
+VM size (CPU, Memory, Storage)
+Dependencies (Validate absence of user traffic or identify remaining users)
+Assets to be retired
+| 
+Validate impact of retirement
+|
 
 ## Remediate
 
