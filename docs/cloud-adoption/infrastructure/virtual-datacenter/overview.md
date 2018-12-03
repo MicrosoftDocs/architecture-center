@@ -8,11 +8,12 @@ ms.date: 10/11/2018
 
 This section of the [Fusion framework](../../overview.md) guides you through the process and associated considerations when deploying workloads to Azure using the Azure Virtual Datacenter (VDC) model.
 
-Jump to: 
+Jump to: [VDC Assumptions](#vdc-assumptions) | [Fusion framework infrastructure and VDC](#fusion-framework-infrastructure-and-vdc) | [Azure Virtual Datacenter structure](#azure-virtual-datacenter-structure) | [Subscription design](#subscription-design) | [Identity](#identity) | [Resource organization](#resource-organization) | [Azure policy](#azure-policy) | [Key vault](#key-vault) | [Networking](#networking) | [Monitoring and compliance](#monitoring-and-compliance) | [Hub components](#hub-components) | [Spoke Components](#spoke-components) | [Azure Virtual Datacenter Automation Toolkit](#azure-virtual-datacenter-automation-toolkit)
+
 
 VDC is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the eBook "[Azure Virtual Datacenter](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)".
 
-Virtual Datacenter is an approach for deploying your applications and workloads in a cloud-based architecture while preserving key aspects of your current IT governance and taking advantage of cloud computing’s agility. The goal in implementing a VDC is to provide similar governance capabilities on large Azure deployments as you would have in a traditional datacenter. At the same time, the VDC model allows teams within your organization to deploy individual workloads with the agility and flexibility common to Azure solutions, while still adhering to central IT policies.
+Virtual Datacenter is an approach for deploying your applications and workloads in a cloud-based architecture while preserving key aspects of your current IT governance while taking advantage of cloud computing’s agility. The goal in implementing a VDC is to provide similar governance capabilities on large Azure deployments as you would have in a traditional datacenter. At the same time, the VDC model allows teams within your organization to deploy individual workloads with the agility and flexibility common to Azure solutions, while still adhering to central IT policies.
 
 ![Abstract view of the VDC model](../../_images/virtual-datacenter/vdc-abstract.png)
 
@@ -45,7 +46,7 @@ The [Infrastructure section](../overview.md) of the [Fusion framework](../../ove
 - [VDC naming and tagging recommendations](../resource-tagging/vdc-naming.md)
 - [VDC networking architecture](../software-defined-networks/vdc-networking.md)
 - [Encryption in VDC](../encryption/vdc-encryption.md)
-- [VDC reporting, monitoring and compliance](../logs-and-reporting/vdc-monitoring.md)
+- [VDC reporting and monitoring](../logs-and-reporting/vdc-monitoring.md)
 
 ## Azure Virtual Datacenter structure
 
@@ -109,33 +110,30 @@ The VDC model uses [Azure Monitor]((https://docs.microsoft.com/en-us/azure/azure
 
 Built in Azure features such as  [Azure Active Directory Reports](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-reports), [Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/), and [Azure Security Center (ASC)](https://docs.microsoft.com/en-us/azure/security-center/)are also a core monitoring component of the VDC model.
 
-> See the [VDC reporting, monitoring and compliance](../logs-and-reporting/vdc-monitoring.md) topic for more details.
+> See the [VDC reporting and monitoring](../logs-and-reporting/vdc-monitoring.md) topic for more details.
 
 ### Hub components
 
-*details to come *
+The hub subscription contains the core networking, external connectivity, and platform services enabling central management of the VDC. These resources are organized along functional sections, which is reflected in the recommended VDC [resource grouping strategy](../resource-grouping/vdc-resource-grouping.md). The VDC model recommends deploying resources to the hub environment in the following order:  
 
-    Operations
-    Key Vault
-    Networking
-        Hub network
-        On-premises connectivity
-        Peering
-        The central firewall
-    Management
-    Shared services
-    
+| Section          | Resources                                                               |
+|------------------|-------------------------------------------------------------------------|
+| Operations       | <ul><li>Log Analytics instance: responsible for logging VM and network activity in the hub environment and integration with Azure Monitor.</li></ul> |
+| Key Vault        | <ul><li>Key Vault instance: used to store keys and secrets used when encrypting resources in the hub or other sections of the VDC under direct central IT control. </li><li>KV diagnostic storage account: encrypted storage account used to record audit information related to key vault access and activity.</li></ul> |
+| Networking       | For details on how VDC networking is structured see the [VDC networking architecture](../software-defined-networks/vdc-networking.md) topic. <ul><li>Hub virtual network: contains required subnets and base network configuration used by the hub network. Spoke networks use virtual network peering to connect with the hub network. </li><li>Central firewall: The primary virtual appliance(s), VMs, or other mechanism used to route traffic in the hub network. </li><li>On-premises gateway: Virtual Network Gateway providing connectivity to the on-premises network's VPN or ExpressRoute connection. Hosted in its own subnet to allow additional security and routing rules between the on-premises connection and the rest of the VDC network.</li><li>Gateway NSG: Network security group containing network access and security rules applied to the subnet connected to the gateway.</li><li>Central NSG: Network security group containing network access and security rules applied to the primary subnet through which traffic will pass between on-premises and spokes.</li><li>Central UDR: User Defined Route table containing routing rules for in the primary subnet through which traffic will pass between on-premises and spokes.</li><li>Management ASG: Application Security Group used in NSG rules to manage access to the secure bastion hosts used for management purposes.</li><li>Shared Services ASG: Application Security Group used in NSG rules to manage access to the servers providing DNS and related shared services to the hub network.</li><li>Network diagnostic storage account: encrypted storage account used to store log data related to networking activity.</li></ul>  |
+| Management       | <ul><li>Management VMs: contains the secure bastion host used for management access to resources hosted on the hub network. </li><li>Management diagnostic storage account: encrypted storage account used to store log data related to management VMs.</li></ul> |
+| Shared services  | <ul><li>Shared services servers: VMs providing services, such as DNS, used across the hub and spoke networks. </li><li>Network diagnostic storage account: encrypted storage account used to store log data related to shared services VMs.</li></ul> |
 
 ### Spoke Components
 
-*details to come *
+As with the hub subscription, each spoke subscription requires a standard set of operations, key vault, and networking resources. These resources should be deployed in the following order:
 
-    Operations
-    Key Vault
-    Networking
-        Spoke network
-        Peering
-    Workload
+| Section          | Resources                                                               |
+|------------------|-------------------------------------------------------------------------|
+| Operations       | <ul><li>Log Analytics instance: responsible for logging VM and network activity in the spoke environment and integration with Azure Monitor.</li></ul> |
+| Key Vault        | <ul><li>Key Vault instance: used to store keys and secrets used when encrypting resources in the workload spoke. </li><li>KV diagnostic storage account: encrypted storage account used to record audit information related to key vault access and activity.</li></ul> |
+| Networking       | <ul><li>Spoke virtual network: contains a default subnet and base network configuration used by the spoke network. Uses virtual network peering to connect with (and only with) the hub network. </li><li>Spoke NSG: Network security group containing network access and security rules applied to the default subnet through which traffic will pass between on-premises and spokes.</li><li>Spoke UDR: User Defined Route table containing routing rules for in the default subnet which routes all traffic leaving the spoke network to the hub networks primary subnet for processing by the VDC central firewall.</li><li>Network diagnostic storage account: encrypted storage account used to store log data related to networking activity on the spoke network.</li></ul> |
+| Workload         | After the core spoke components are in place and configured, workload teams can deploy resources they need to the spoke environment.  |
 
 ## Azure Virtual Datacenter Automation Toolkit
 
