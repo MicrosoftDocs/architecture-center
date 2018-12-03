@@ -11,11 +11,11 @@ Cloud Rationalization is the process of evaluating assets to determine the best 
 
 ## 5 Rs rationalization
 
-Cloud Rationalization is an evolution of application rationalization, the process of removing duplicated applications in favor of standardized solutions. Similarly, Cloud Rationalization deals specifically with cloud compatibility, business justifications associated with specific applications, and the value the cloud may provide related to those applications.
+Cloud Rationalization is an evolution of application rationalization, the process of removing duplicated applications in favor of standardized solutions. Similarly, Cloud Rationalization deals specifically with cloud compatibility, business justifications associated with specific applications, and the value the cloud may provide related to those applications. For a visual reference of how applications flow through the Cloud Rationalization process, see the analogy on  [rationalization](rationalize.md).
 
-For a visual reference of how applications flow through the Cloud Rationalization process, see the analogy on  [rationalization](rationalize.md).
+To understand an individual rationalization option, Jump to: [Rehost](#rehost) | [Refactor](#refactor) | [Rearchitect](#rearchitect) | [Rebuild](#rebuild) | [Replace](#replace)
 
-### Rehost
+## Rehost
 
 Also known as "Lift & Shift", a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to current state.
 
@@ -38,7 +38,7 @@ Qualitative Analysis Factors:
 * Critical business events
 * Process dependencies
 
-### Refactor
+## Refactor
 
 Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
 
@@ -63,7 +63,7 @@ Qualitative Analysis Factors:
 * Bursting options/timelines
 * Business process dependencies
 
-### Rearchitect
+## Rearchitect
 
 Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
 
@@ -88,7 +88,7 @@ Qualitative Analysis Factors:
 * Operational costs
 * Potential feedback loops and DevOps investments
 
-### Rebuild
+## Rebuild
 
 In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are no unsupported &/or misaligned with how the business processes are executed today. In this case, a new code base is created to align with a cloud native approach.
 
@@ -111,7 +111,7 @@ Qualitative Analysis Factors:
 * Business processes limited by functionality
 * Potential cost, experience, or revenue gains
 
-### Replace
+## Replace
 
 Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
 
@@ -137,7 +137,7 @@ Qualitative Analysis Factors:
 
 In some cases, there are decisions that must be made outside of the context of Cloud Rationalization. These Rs often dictate preceding actions that would need to be completed before any of the 5s of Cloud Rationalization could be applied. These Rs are not likely to be a focal point for Cloud vendors, as they are generally on-prem considerations that can't easily be address at the point of cloud adoption. However, it is important to be aware of these Rs during Cloud adoption, as they may impact timelines, costs, or effort required to complete cloud adoption efforts.
 
-### Retire
+## Retire
 
 Business needs and business process change constantly. Some applications or workloads have outlived their usefulness and can no longer meet the intended business need. Detecting these applications can help reduce investments and operational costs associated with a transformation.
 
@@ -159,7 +159,7 @@ Qualitative Analysis Factors:
 
 * Validate impact of retirement
 
-### Remediate
+## Remediate
 
 This is a common rationalization step for applications that are being moved to the cloud via a Re-host approach.
 
@@ -184,7 +184,7 @@ Qualitative Analysis Factors:
 * Establish critical events and on-prem black out dates
 * Rationalize cost-benefit analysis of remediation against other application-focused options above or Reconfigure option below
 
-### Reconfigure
+## Reconfigure
 
 The options for configuration and deployment management has grown since the concept of application rationalization was coined. For many solutions, it could make more sense to change the deployment configuration of a solution by creating an automated DevOps deployment pipeline. In other cases, it may more sense to package the solution in a container prior to re-hosting to avoid the need for costly remediation or re-build efforts.
 
