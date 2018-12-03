@@ -16,7 +16,7 @@ This architecture integrates enterprise backend systems, using message queues an
 
 ## Architecture
 
-The architecture shown here builds on a simpler architecture that is shown in [Enterprise integration on Azure][simple-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
+The architecture shown here builds on a simpler architecture that is shown in [Basic enterprise integration on Azure][simple-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
