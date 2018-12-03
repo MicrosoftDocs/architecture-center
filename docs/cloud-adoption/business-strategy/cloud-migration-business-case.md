@@ -77,7 +77,7 @@ After considering the opportunities unlocked by the Cloud, work with the busines
 ### Migration Specific Cost Deltas
 
 ![Migration Specific Cost Deltas aligned to description in this paragraph](../_images/formula-migration-cost-deltas.png)
-*Figure 3. Migration Specific Cost Deltas aligned to description in this paragraph *
+*Figure 4. Migration Specific Cost Deltas aligned to description in this paragraph *
 
 Calculate any changes to costs that will come from the proposed migration. See [Financial Models](financial-models.md) article for details of the different types of cost deltas. Cloud providers often provide tools for cost delta calculations. An example of a cost delta calculator would be the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco)
 
@@ -94,7 +94,7 @@ Other examples of costs that may be reduced by a Cloud Migration:
 
 If the ROI for a Cloud Migration isn't inline with expectations, the common myths above may prove valuable.
 
-However, it is important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-prem. These applications can significantly skew results in an analysis. 
+However, it is important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-prem. These applications can significantly skew results in an analysis.
 
 When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md) or [incremental rationalization](../digital-estate/rationalize-incremental.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 

@@ -34,7 +34,7 @@ The steps to accomplish each is below:
 * [Collect current state inventory](inventory.md)
 * Evaluate the initial digital estate for accuracy and completeness
 * [Rationalize the assets in the digital estate](rationalize.md)
-* [Align assets to Cloud offerings to calculate pricing](price.md)
+* [Align assets to Cloud offerings to calculate pricing](calculate.md)
 
 Financial models and Migration Backlogs can be modified to reflect the rationalized and priced estate.
 

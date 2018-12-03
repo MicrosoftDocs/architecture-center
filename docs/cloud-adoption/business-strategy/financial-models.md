@@ -13,9 +13,10 @@ Creating a financial model that accurately represents the full business value of
 
 For readers with an MBA, this first section might not add a lot of value. No one will be offended, if you choose to skip ahead. For the technically minded reader, this basic understanding can prove very important.
 
-Return on Investment (ROI) is often an important criteria with the C-Suite and/or the board compare different ways to invest limited capital. The formula for each is fairly simple. The details required to create each formula may not be as simple. Essentially, ROI is the amount of return produced from an initial investment. Usually it is represented as a percentage.
+Return on Investment (ROI) is often an important criteria with the C-Suite and/or the board. ROI is used to compare different ways to invest limited capital resources. The formula for ROI is fairly simple. The details required to create each input to the formula may not be as simple. Essentially, ROI is the amount of return produced from an initial investment. Usually it is represented as a percentage.
 
-**Formula to calculate ROI:** ROI equals (Earnings minus Initial Investment) divided by Initial Investment
+![Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment](../_images/formula-roi.png)
+*Figure 1. Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment*
 
 In the next sections, we will walk through the data needed to calculate Earnings and Initial Investment.
 
@@ -25,17 +26,15 @@ Initial Investment is the Capital Expenditure (CapEx) and Operating Expenditure 
 
 Add these costs together to create an estimate of the Initial Investment. 
 
-## Calculate "Earnings"
+## Calculate "Gain from Investment"
 
-Earning require a second formula for calculation. Earnings are not as simple as calculating reduction in costs.
+Gain from investment often requires a second formula for calculation, which is very specific to the business outcomes and associated technical changes. Earnings are not as simple as calculating reduction in costs.
 To calculate earnings, two variables are required:
 
-* Delta in revenue &/or the Delta in costs
-* Operating Expenses (OpEx) after change
+![Gain from Investment equals Revenue Deltas + Cost Deltas](../_images/formula-gain-from-investment.png)
+*Figure 2. Gain from Investment equals Revenue Deltas + Cost Deltas*
 
-Formula to Calculate Earning: Earnings equal (Delta in Revenue + Delta in Costs) - Operating Expenses after transformation
-
-Each is described below in [Calculate Delta in revenue](#revenue-delta), [Calculate Delta in Costs](#cost-delta), and [Calculate OpEx](#opex-costs).
+Each is described below in [Calculate Delta in revenue](#revenue-delta) and [Calculate Delta in Costs](#cost-delta).
 
 ## Revenue Delta
 
@@ -43,7 +42,7 @@ Revenue Delta should be forecasted in partnership with the business. Once the bu
 
 ## Cost Deltas
 
-Cost Deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like Capital Expense Reductions, Cost Avoidance, Operational Cost Reductions, and Depreciation Reductions.
+Cost Deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like Capital Expense Reductions, Cost Avoidance, Operational Cost Reductions, and Depreciation Reductions. The following sections are examples of Cost Deltas to be considered.
 
 ### Depreciation Reductions or Acceleration
 
@@ -69,9 +68,15 @@ When an Operational Expense (OpEx) is expected, but not yet in an approved budge
 
 ### Soft Cost Reductions
 
-In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a DataCenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to a reduction in IT salaries or headcount, which is required to recoup any soft costs. When a CFO sees soft cost line items, they naturally assume that the final result will be a layoff to recover those costs. Seldom does a cloud transformation result in actual soft cost recovery. The skills needed on-prem generally map to a similar set of skills needed in the cloud, meaning people don't generally get laid off after a migration.
+In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a DataCenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to tangible cost savings. Seldom do technology projects result in actual soft cost recovery.
 
-The exception to this warning, is when operational capacity is provided by a third party or managed services company. If IT systems are managed by a 3rd party, the costs to operate could be replaced by a cloud native third party. In such a case, the cloud native partner is likely to operate more efficiently and potentially at a lower cost. If that is the case, then operational cost reductions belong in the hard cost calculations.
+### Headcount Reductions
+
+Often included in Soft Cost Reduction are time savings for staff. When those time savings map to actual reduction of IT salary or staffing, it could be calculated separately as a headcount reduction
+
+**Warning:** The skills needed on-prem generally map to a similar (or higher level) set of skills needed in the cloud, meaning people don't generally get laid off after a cloud migration.
+
+The exception to this warning, is when operational capacity is provided by a third party or managed services provider (msp). If IT systems are managed by a 3rd party, the costs to operate could be replaced by a cloud native solution or cloud-native msp. In such a case, the cloud native msp is likely to operate more efficiently and potentially at a lower cost. If that is the case, then operational cost reductions belong in the hard cost calculations.
 
 ### Capital Expense Reductions or Avoidance
 
