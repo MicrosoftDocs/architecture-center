@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Datacenter - A network perspective
+title: "Azure virtual datacenter: A network perspective"
 description: Learn how to build your virtual datacenter in Azure
 author: tracsman
 manager: rossort
@@ -10,7 +10,7 @@ ms.date: 11/28/2018
 ms.author: jonor
 ---
 
-# Azure Virtual Datacenter: A network perspective
+# Azure virtual datacenter: A network perspective
 
 ## Overview
 
@@ -18,13 +18,16 @@ Migrating on-premises applications to Azure provides organizations the benefits 
 
 Microsoft Azure delivers hyper-scale services and infrastructure with enterprise-grade capabilities and reliability. These services and infrastructure offer many choices in hybrid connectivity so customers can choose to access them over the public internet or over a private Azure ExpressRoute connection. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
 
-This article provides an overview of patterns and designs that can be used to solve the architectural scale, performance, and security concerns many customers face when thinking about moving en masse to the cloud. An overview of how to fit different organizational IT roles into the management and governance of the system is also discussed, with emphasis to security requirements and cost optimization.
+Customers can choose to access these cloud services either via the internet or with Azure ExpressRoute, which provides private network connectivity. With the Microsoft Azure platform, customers can seamlessly extend their infrastructure into the cloud and build multi-tier architectures. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
 
 ## What is the Virtual datacenter?
 
 At its inception, the cloud was essentially a platform for hosting public-facing applications. Enterprises began to understand the value of the cloud and began to move internal line-of-business applications to the cloud. These types of applications brought additional security, reliability, performance, and cost considerations that required additional flexibility in the way cloud services were delivered. This paved the way for new infrastructure and networking services designed to provide this flexibility but also new features for scale, disaster recovery, and other considerations.
 
-The following cloud deployment diagram illustrates some examples of security gaps (red box) and room for optimization network virtual appliances across workloads (yellow box).
+## What is a virtual datacenter?
+Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the life cycle of the cloud service.
+
+The following cloud deployment diagram shows an example of a security gap in the **red box**. The **yellow box** shows room for optimization network virtual appliances across workloads.
 
 [![0]][0]
 
@@ -39,10 +42,19 @@ The VDC concept is a set of recommendations and best practices for implementing 
 
 A VDC implementation can help enterprises get workloads and applications into Azure for the following scenarios:
 
--   Hosting multiple related workloads
--   Migrating workloads from an on-premises environment to Azure
--   Implementing shared or centralized security and access requirements across workloads
--   Mixing DevOps and Centralized IT appropriately for a large enterprise
+-   Host multiple related workloads.
+-   Migrate workloads from an on-premises environment to Azure.
+-   Implement shared or centralized security and access requirements across workloads.
+-   Mix Azure DevOps and centralized IT appropriately for a large enterprise.
+
+The key to unlock the advantages of the VDC is a centralized topology, hub and spokes, with a mix of Azure features: 
+
+- [Azure Virtual Network][VNet]. 
+- [Network security groups (NSGs)][NSG].
+- [Virtual network peering][VNetPeering]. 
+- [User-defined routes (UDRs)][UDR].
+- Azure identity services with [role-based access control (RBAC)][RBAC]. 
+- Optionally, [Azure Firewall][AzFW], [Azure DNS][DNS], [Azure Front Door][AFD], and [Azure Virtual WAN][vWAN].
 
 The key to unlock the advantages of VDC is a centralized hub and spoke network topology with a mix of Azure services and features:
 
@@ -64,10 +76,8 @@ Organizations that are looking to DevOps can also utilize the VDC concepts to pr
 
 When designing a VDC implementation, there are several pivotal issues to consider:
 
--   Identity and Directory Services
--   Security infrastructure
--   Connectivity to the cloud
--   Connectivity within the cloud
+### Identity and directory services
+Identity and directory services are a key aspect of all datacenters, both on-premises and in the cloud. Identity is related to all aspects of access and authorization to services within the VDC. To make sure that only authorized users and processes access your Azure account and resources, Azure uses several types of credentials for authentication. These include passwords to access the Azure account, cryptographic keys, digital signatures, and certificates. 
 
 ### Identity and Directory Service
 
@@ -77,9 +87,9 @@ Any large enterprise needs to define an identity management process that describ
 
 Enterprise/organizations can require a demanding mix of services for different Line-of-Businesses (LOBs), and employees often have different roles when involved with different projects. The VDC requires good cooperation between different teams, each with specific role definitions, to get systems running with good governance. The matrix of responsibilities, access, and rights can be complex. Identity management in the VDC is implemented through [*Azure Active Directory* (Azure AD)][AAD] and Role-Based Access Control (RBAC).
 
-A Directory Service is a shared information infrastructure for locating, managing, administering, and organizing everyday items and network resources. These resources can include volumes, folders, files, printers, users, groups, devices, and other objects. Each resource on the network is considered an object by the directory server. Information about a resource is stored as a collection of attributes associated with that resource or object.
+A directory service is a shared information infrastructure that locates, manages, administers, and organizes everyday items and network resources. These resources can include volumes, folders, files, printers, users, groups, devices, and other objects. Each resource on the network is considered an object by the directory server. Information about a resource is stored as a collection of attributes associated with that resource or object.
 
-All Microsoft online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure AD can be integrated with on-premises Active Directory to enable single sign-on for all cloud-based and locally hosted (on-premises) applications. The user attributes of on-premises Active Directory can be automatically synchronized to Azure AD.
+All Microsoft online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure AD can integrate with on-premises Active Directory to enable single sign-on for all cloud-based and locally hosted on-premises applications. The user attributes of on-premises Active Directory can be automatically synchronized to Azure AD.
 
 A single global administrator is not required to assign all permissions in a VDC implementation. Instead, each specific department, group of users, or services in the Directory Service can have the permissions required to manage their own resources within a VDC implementation. Structuring permissions requires balancing. Too many permissions can impede performance efficiency, and too few or loose permissions can increase security risks. Azure Role-Based Access Control (RBAC) helps to address this problem, by offering fine-grained access management for resources in a VDC implementation.
 
@@ -93,7 +103,7 @@ The Azure fabric allocates infrastructure resources to tenant workloads and mana
 
 A VDC implementation requires connectivity to external networks to offer services to customers, partners and/or internal users. This need for connectivity refers not only to the Internet, but also to on-premises networks and datacenters.
 
-Customers can build their security policies to control what and how specific VDC hosted services are accessible to/from the Internet using [Azure Firewall][AzFW] or Network Virtual Appliances, and custom routing policies and network filtering ([User Defined Routing][UDR] and [Network Security Groups][NSG]). It's recommended that all Internet facing resources be additionally protected by [**Azure DDOS Protection Standard**][DDOS].
+Customers control which services have access to and are accessible from the public internet by using [Azure Firewall][AzFW] or other types of virtual network appliances (NVAs), custom routing policies by using [user-defined routes][UDR], and network filtering by using [network security groups][NSG]. We recommend that all internet-facing resources also be protected by the [Azure DDoS Protection Standard][DDOS].
 
 Enterprises may need to connect their VDC implementation to on-premises datacenters or other resources. This connectivity between Azure and on-premises networks is a crucial aspect when designing an effective architecture. Enterprises have two different ways to create this interconnection: transit over the Internet and/or by private direct connections.
 
@@ -113,24 +123,24 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 ### Topology
 
-_Hub and spokes_ is a model for designing the network topology for a virtual datacenter implementation. 
+_Hub and spoke_ is a model for designing the network topology for a virtual datacenter implementation. 
 
 [![1]][1]
 
-The hub is the central zone that controls and inspects ingress and/or egress traffic between different zones: Internet, on-premises, and the spokes. The hub and spoke topology gives the IT department an effective way to enforce security policies in a central location, while reducing the potential for misconfiguration and exposure.
+A hub is the central network zone that controls and inspects ingress or egress traffic between different zones: internet, on-premises, and the spokes. The hub and spoke topology gives the IT department an effective way to enforce security policies in a central location. It also reduces the potential for misconfiguration and exposure.
 
-The hub contains the common service components consumed by the spokes. Here are a few typical examples of common central services:
+The hub contains the common service components consumed by the spokes. The following examples are common central services:
 
--   The Windows Active Directory infrastructure (with the related ADFS service) required for user authentication of third parties accessing from untrusted networks before getting access to the workloads in the spoke
--   A DNS service to resolve naming for the workload in the spokes, to access resources on-premises and on the Internet if [Azure DNS][DNS] isn't used
--   A PKI infrastructure, to implement single sign-on on workloads
--   Flow control (TCP/UDP) between the spokes and Internet
--   Flow control between the spoke and on-premises
--   If desired, flow control between one spoke and another
+-   The Windows Active Directory infrastructure, required for user authentication of third parties that access from untrusted networks before they get access to the workloads in the spoke. It includes the related Active Directory Federation Services (AD FS).
+-   A DNS service to resolve naming for the workload in the spokes, to access resources on-premises and on the internet if [Azure DNS][DNS] isn't used.
+-   A public key infrastructure (PKI), to implement single sign-on on workloads.
+-   Flow control of TCP and UDP traffic between the spoke network zones and the internet.
+-   Flow control between the spokes and on-premises.
+-   If needed, flow control between one spoke and another.
 
 The VDC reduces overall cost by using the shared hub infrastructure between multiple spokes.
 
-The role of each spoke can be to host different types of workloads. The spokes can also provide a modular approach for repeatable deployments (for example, dev and test, User Acceptance Testing, pre-production, and production) of the same workloads. The spokes can also be used to segregate and enable different groups within your organization (for example, DevOps groups). Inside a spoke, it is possible to deploy a basic workload or complex multi-tier workloads with traffic control between the tiers.
+The role of each spoke can be to host different types of workloads. The spokes also provide a modular approach for repeatable deployments of the same workloads. Examples are dev and test, user acceptance testing, preproduction, and production. The spokes can also segregate and enable different groups within your organization. An example is Azure DevOps groups. Inside a spoke, it's possible to deploy a basic workload or complex multi-tier workloads with traffic control between the tiers.
 
 #### Subscription limits and multiple hubs
 
@@ -140,19 +150,19 @@ A single VDC implementation can scale up to large number of spokes, although, as
 
 [![2]][2]
 
-The introduction of multiple hubs increases the cost and management effort of the system and would only be justified by scalability (examples: system limits or redundancy) and regional replication (examples: end-user performance or disaster recovery). In scenarios requiring multiple hubs, all the hubs should strive to offer the same set of services for operational ease.
+The introduction of multiple hubs increases the cost and management effort of the system. It would only be justified by scalability like system limits or redundancy and regional replication like end-user performance or disaster recovery. In scenarios requiring multiple hubs, all the hubs should strive to offer the same set of services for operational ease.
 
 #### Interconnection between spokes
 
 Inside a single spoke, it is possible to implement complex multi-tiers workloads. Multi-tier configurations can be implemented using subnets (one for every tier) in the same VNet and filtering the flows using NSGs.
 
-On the other hand, an architect may want to deploy a multi-tier workload across multiple VNets. Using VNet peering, spokes can connect to other spokes in the same hub or different hubs. A typical example of this scenario is the case where application processing servers are in one spoke (VNet), while the database is deployed in a different spoke (VNet). In this case, it is easy to interconnect the spokes with VNet peering and thereby avoid transiting through the hub. A careful architecture and security review should be performed to ensure that bypassing the hub doesn’t bypass important security or auditing points that may only exist in the hub.
+An architect might want to deploy a multi-tier workload across multiple virtual networks. With virtual network peering, spokes can connect to other spokes in the same hub or different hubs. A typical example of this scenario is the case where application processing servers are in one spoke, or virtual network. The database deploys in a different spoke, or virtual network. In this case, it's easy to interconnect the spokes with virtual network peering and thereby avoid transiting through the hub. A careful architecture and security review should be performed to ensure that bypassing the hub doesn’t bypass important security or auditing points that might exist only in the hub.
 
 [![3]][3]
 
 Spokes can also be interconnected to a spoke that acts as a hub. This approach creates a two-level hierarchy: the spoke in the higher level (level 0) become the hub of lower spokes (level 1) of the hierarchy. The spokes of a VDC implementation are required to forward the traffic to the central hub so that the traffic can transit to its destination in either the on-premises network or public internet. An architecture with two levels of hub introduces complex routing that removes the benefits of a simple hub-spoke relationship.
 
-Although Azure allows complex topologies, one of the core principles of the VDC concept is repeatability and simplicity. To minimize management effort, the simple hub-spoke design is the recommended VDC reference architecture.
+Although Azure allows complex topologies, one of the core principles of the VDC concept is repeatability and simplicity. To minimize management effort, the simple hub-spoke design is the VDC reference architecture that we recommend.
 
 ### Components
 
@@ -166,27 +176,27 @@ The preceding high-level conceptual architecture of the VDC shows different comp
 
 As good practice in general, access rights and privileges should be group-based. Dealing with groups rather than individual users eases maintenance of access policies by providing a consistent way to manage it across teams.  and aids in minimizing configuration errors. Assigning and removing users to and from appropriate groups helps keeping the privileges of a specific user up-to-date.
 
-Each role group should have a unique prefix on their names making it easy to identify which group is associated with which workload. For instance, a workload hosting an authentication service might have groups named *AuthServiceNetOps, AuthServiceSecOps, AuthServiceDevOps, and AuthServiceInfraOps.* Likewise for centralized roles, or roles not related to a specific service, could be prefaced with “Corp”, *CorpNetOps* for example.
+Each role group should have a unique prefix on their names. This prefix makes it easy to identify which group is associated with which workload. For example, a workload hosting an authentication service might have groups named **AuthServiceNetOps**, **AuthServiceSecOps**, **AuthServiceDevOps**, and **AuthServiceInfraOps**. Centralized roles, or roles not related to a specific service, might be prefaced with **Corp**. An example is **CorpNetOps**.
 
 Many organizations use a variation of the following groups to provide a major breakdown of roles:
 
--   The *central IT group (Corp)* has the ownership rights to control infrastructure (such as networking and security) components, and therefore needs to have the role of contributor on the subscription (and have control of the hub) and network contributor rights in the spokes. Large organization frequently split up these management responsibilities between multiple teams such as; a Network Operations (CorpNetOps) group (with exclusive focus on networking) and a Security Operations (CorpSecOps) group (responsible for firewall and security policy). In this specific case, two different groups need to be created for assignment of these custom roles.
--   The *dev & test (AppDevOps) group* has the responsibility to deploy workloads (Apps or Services). This group takes the role of Virtual Machine Contributor for IaaS deployments and/or one or more PaaS contributor’s roles (see [Built-in roles for Azure Role-Based Access Control][Roles]). Optionally the dev & test team may need to have visibility on security policies (NSGs) and routing policies (UDR) inside the hub or a specific spoke. Therefore, in addition to the roles of contributor for workloads, this group would also need the role of Network Reader.
--   The *operation and maintenance group (CorpInfraOps or AppInfraOps)* have the responsibility of managing workloads in production. This group needs to be a subscription contributor on workloads in any production subscriptions. Some organizations might also evaluate if they need an additional escalation support team group with the role of subscription contributor in production and in the central hub subscription, in order to fix potential configuration issues in the production environment.
+-   The central IT group, **Corp,** has the ownership rights to control infrastructure components. Examples are networking and security. The group needs to have the role of contributor on the subscription, control of the hub, and network contributor rights in the spokes. Large organizations frequently split up these management responsibilities between multiple teams. Examples are a network operations **CorpNetOps** group with exclusive focus on networking and a security operations **CorpSecOps** group responsible for the firewall and security policy. In this specific case, two different groups need to be created for assignment of these custom roles.
+-   The dev-test group, **AppDevOps,** has the responsibility to deploy app or service workloads. This group takes the role of virtual machine contributor for IaaS deployments or one or more PaaS contributor’s roles. See [Built-in roles for Azure resources][Roles]. Optionally, the dev-test team might need visibility on security policies, NSGs, and routing policies, UDRs, inside the hub or a specific spoke. In addition to the role of contributor for workloads, this group would also need the role of network reader.
+-   The operation and maintenance group, **CorpInfraOps** or **AppInfraOps,** has the responsibility of managing workloads in production. This group needs to be a subscription contributor on workloads in any production subscriptions. Some organizations might also evaluate if they need an additional escalation support team group with the role of subscription contributor in production and the central hub subscription. The additional group fixes potential configuration issues in the production environment.
 
 The VDC is designed so groups created for the central IT groups managing the hub have corresponding groups at the workload level. In addition to managing hub resources only, the central IT group is able to control external access and top-level permissions on the subscription. Workload groups are also able to control resources and permissions of their VNet independently on Central IT.
 
-The VDC is partitioned to securely host multiple projects across different Line-of-Businesses (LOBs). All projects require different isolated environments (Dev, UAT, production). Separate Azure subscriptions for each of these environments provide natural isolation.
+The VDC is partitioned to securely host multiple projects across different Lines-of-Business (LOBs). All projects require different isolated environments (Dev, UAT, production). Separate Azure subscriptions for each of these environments provide natural isolation.
 
 [![5]][5]
 
-The preceding diagram shows the relationship between an organization's projects, users, groups, and the environments where the Azure components are deployed.
+The preceding diagram shows the relationship between an organization's projects, users, and groups and the environments where the Azure components are deployed.
 
 Typically in IT, an environment (or tier) is a system in which multiple applications are deployed and executed. Large enterprises use a development environment (where changes originally made and tested) and a production environment (what end-users use). Those environments are separated, often with several staging environments in between them to allow phased deployment (rollout), testing, and rollback if problems arise. Deployment architectures vary significantly, but usually the basic process of starting at development (DEV) and ending at production (PROD) is still followed.
 
-A common architecture for these types of multi-tier environments consists of DevOps (development and testing), UAT (staging), and production environments. Organizations can leverage single or multiple Azure AD tenants to define access and rights to these environments. The previous diagram shows a case where two different Azure AD tenants are used: one for DevOps and UAT, and the other exclusively for production.
+A common architecture for these types of multi-tier environments consists of Azure DevOps for development and testing, UAT for staging, and production environments. Organizations can leverage single or multiple Azure AD tenants to define access and rights to these environments. The previous diagram shows a case where two different Azure AD tenants are used: one for Azure DevOps and UAT, and the other exclusively for production.
 
-The presence of different Azure AD tenants enforces the separation between environments. The same group of users (as an example, Central IT) needs to authenticate using a different URI to access a different AD tenant modify the roles or permissions of either the DevOps or production environments of a project. The presence of different user authentication to access different environments reduces possible outages and other issues caused by human errors.
+The presence of different Azure AD tenants enforces the separation between environments. The same group of users, such as the central IT, needs to authenticate by using a different URI to access a different Azure AD tenant to modify the roles or permissions of either the Azure DevOps or production environments of a project. The presence of different user authentications to access different environments reduces possible outages and other issues caused by human errors.
 
 #### Component type: Infrastructure
 
@@ -200,7 +210,7 @@ One of the primary tasks of the IT infrastructure team is to guarantee the consi
 
 While NAT on the on-premises edge routers or in Azure environments can avoid IP address conflicts, it adds complications to your infrastructure components. Simplicity of management is one of the key goals of the VDC, so using NAT to handle IP concerns is not a recommended solution.
 
-Infrastructure components contain the following functionality:
+Infrastructure components have the following functionality:
 
 -   [**Identity and directory services**][AAD]. Access to every resource type in Azure is controlled by an identity stored in a directory service. The directory service stores not only the list of users, but also the access rights to resources in a specific Azure subscription. These services can exist cloud-only, or they can be synchronized with on-premises identity stored in Active Directory.
 -   [**Virtual Network**][VPN]. Virtual Networks are one of main components of the VDC, and enable you to create a traffic isolation boundary on the Azure platform. A Virtual Network is composed of a single or multiple virtual network segments, each with a specific IP network prefix (a subnet). The Virtual Network defines an internal perimeter area where IaaS virtual machines and PaaS services can establish private communications. VMs (and PaaS services) in one virtual network cannot communicate directly to VMs (and PaaS services) in a different virtual network, even if both virtual networks are created by the same customer, under the same subscription. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
@@ -215,42 +225,40 @@ Infrastructure components contain the following functionality:
 
 [Perimeter network][DMZ] components enable network connectivity between your on-premises or physical datacenter networks, along with any connectivity to and from the Internet. It's also where your network and security teams likely spend most of their time.
 
-Incoming packets should flow through the security appliances in the hub, such as the firewall, IDS, and IPS, before reaching the back-end servers in the spokes. Internet-bound packets from the workloads should also flow through the security appliances in the perimeter network for policy enforcement, inspection, and auditing purposes, before leaving the network.
+Incoming packets should flow through the security appliances in the hub before reaching the back-end servers in the spokes. Examples are the firewall, IDS, and IPS. Before they leave the network, internet-bound packets from the workloads should also flow through the security appliances in the perimeter network. The purposes of this flow are policy enforcement, inspection, and auditing.
 
 Perimeter network components provide the following features:
 
--   [Virtual Networks][VNet], [UDR][UDR], [NSG][NSG]
--   [Network Virtual Appliance][NVA]
--   [Load Balancer][ALB]
--   [Application Gateway][AppGW] / [WAF][WAF]
+-   [Virtual networks][VNet], [UDRs][UDR], and [NSGs][NSG]
+-   [Network virtual appliances][NVA]
+-   [Azure Load Balancer][ALB]
+-   [Azure Application Gateway][AppGW] and [web application firewall (WAF)][WAF]
 -   [Public IPs][PIP]
 -   [Azure Front Door][AFD]
 -   [Azure Firewall][AzFW]
 
-Usually, the central IT and security teams have responsibility for requirement definition and operations of the perimeter networks.
+Usually, the central IT and security teams have responsibility for requirement definition and operation of the perimeter networks.
 
 [![7]][7]
 
 The preceding diagram shows the enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ and vWAN hubs. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of Web Application Firewalls (WAFs) and/or Azure Firewalls. In the vWAN hub, highly scalable branch to branch and branch to Azure connectivity is accomplished via VPN or ExpressRoute as needed.
 
-[**Virtual Networks**][VNet]
-The hub is typically built on a VNet with multiple subnets to host the different type of services filtering and inspecting traffic to or from the internet via NVAs, WAFs, and Azure Application Gateways.
+[**Virtual networks**][VNet]. The hub is typically built on a virtual network with multiple subnets to host the different types of services that filter and inspect traffic to or from the internet via NVAs, WAF, and Azure Application Gateway instances.
 
 [**UDR**][UDR]
 Using UDRs, customers can deploy firewalls, IDS/IPS, and other virtual appliances, and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection. UDRs can be created in both the hub and the spokes to guarantee that traffic transits through the specific custom VMs, Network Virtual Appliances, and load balancers used by a VDC implementation. To guarantee that traffic generated from VMs resident in the spoke transit to the correct virtual appliances, a UDR needs to be set in the subnets of the spoke by setting the front-end IP address of the internal load balancer as the next-hop. The internal load balancer distributes the internal traffic to the virtual appliances (load balancer back-end pool).
 
-[**Azure Firewall**][AzFW] is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. The service is fully integrated with Azure Monitor for logging and analytics.
+[**Azure Firewall**][AzFW] is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources. It allows outside firewalls to identify traffic that originates from your virtual network. The service is fully integrated with Azure Monitor for logging and analytics.
 
-[**Network Virtual Appliances**][NVA]
-In the hub, the perimeter network with access to the internet is normally managed through an Azure Firewall or a farm of firewalls and/or Web Application Firewalls (WAFs).
+[**Network virtual appliances**][NVA]. In the hub, the perimeter network with access to the internet is normally managed through an Azure Firewall instance or a farm of firewalls or web application firewall (WAF).
 
-Different LOBs commonly use many web applications, and these applications tend to suffer from various vulnerabilities and potential exploits. Web Applications Firewalls are a special breed of product used to detect attacks against web applications (HTTP/HTTPS) in more depth than a generic firewall. Compared with tradition firewall technology, WAFs have a set of specific features to protect internal web servers from threats.
+Different LOBs commonly use many web applications. These applications tend to suffer from various vulnerabilities and potential exploits. Web application firewalls are a special type of product used to detect attacks against web applications, HTTP/HTTPS, in more depth than a generic firewall. Compared with tradition firewall technology, WAFs have a set of specific features to protect internal web servers from threats.
 
 An Azure Firewall or NVA firewall both use a common administration plane, with a set of security rules to protect the workloads hosted in the spokes, and control access to on-premises networks. The Azure Firewall has scalability built in, whereas NVA firewalls can be manually scaled behind a load balancer. Generally, a firewall farm has less specialized software compared with a WAF, but has a broader application scope to filter and inspect any type of traffic in egress and ingress. If an NVA approach is used, they can be found and deployed from the Azure marketplace.
 
 Use one set of Azure Firewalls (or NVAs) for traffic originating on the Internet, and another for traffic originating on-premises. Using only one set of firewalls for both is a security risk, as it provides no security perimeter between the two sets of network traffic. Using separate firewall layers reduces the complexity of checking security rules, and makes it clear which rules correspond to which incoming network request.
 
-Most large enterprises manage multiple domains. [**Azure DNS**][DNS] can be used to host the DNS records for a particular domain. As example, the Virtual IP Address (VIP) of the Azure external load balancer (or the WAFs) can be registered in the A record of an Azure DNS record. [**Private DNS**][PrivateDNS] is also available for managing the private address spaces inside VNets.
+We recommend that you use one set of Azure Firewall instances, or NVAs, for traffic originating on the internet. Use another for traffic originating on-premises. Using only one set of firewalls for both is a security risk as it provides no security perimeter between the two sets of network traffic. Using separate firewall layers reduces the complexity of checking security rules and makes it clear which rules correspond to which incoming network request.
 
 [**Azure Load Balancer**][ALB] offers a high availability Layer 4 (TCP, UDP) service, which can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints (public IP endpoints or private IP endpoints) can be redistributed with or without address translation to a set of back-end IP address pool (examples being; Network Virtual Appliances or VMs).
 
@@ -261,66 +269,71 @@ Azure Load Balancer can probe the health of the various server instances as well
 [**Application Gateway**][AppGW]
 Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. 
 
-[**Public IPs**][PIP]
-Some Azure features enable you to associate service endpoints to a public IP address that allows to your resource to be accessed from the internet. This endpoint uses Network Address Translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. The Public IP addresses can be configured to determine which traffic is passed in, and how and where it's translated on to the virtual network.
+[**Application Gateway**][AppGW] is a dedicated virtual appliance that provides application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. You can optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway instance. It also provides other layer 7 routing capabilities that include the following examples: 
+* Round robin distribution of incoming traffic. 
+* Cookie-based session affinity. 
+* URL path-based routing. 
+* The ability to host multiple websites behind a single Application Gateway instance. 
+Web application firewall (WAF) is also provided as part of the Application Gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an internet-facing gateway, an internal-only gateway, or a combination of both. 
 
-[**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Application layer protection can be added through the Azure Application Gateway Web Application Firewall. Protection is provided for IPv4 Azure public IP addresses.
+[**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine which traffic is passed in and how and where it's translated onto the virtual network.
+
+[**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
 
 #### Component type: Monitoring
 
 Monitoring components provide visibility and alerting from all the other components types. All teams should have access to monitoring for the components and services they have access to. If you have a centralized help desk or operations teams, they require integrated access to the data provided by these components.
 
-Azure offers different types of logging and monitoring services to track the behavior of Azure hosted resources. Governance and control of workloads in Azure is based not just on collecting log data, but also the ability to trigger actions based on specific reported events.
+Azure offers different types of logging and monitoring services to track the behavior of Azure-hosted resources. Governance and control of workloads in Azure is based not just on collecting log data but also on the ability to trigger actions based on specific reported events.
 
-[**Azure Monitor**][Monitor] - Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application.
+[**Azure Monitor**][Monitor]. Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application.
 
 There are two major types of logs in Azure:
 
--   [**Activity Logs**][ActLog] (referred also as "Operational Log") provide insight into the operations that were performed on resources in the Azure subscription. These logs report the control-plane events for your subscriptions. Every Azure resource produces audit logs.
+-   The [Azure Activity Log][ActLog], previously called **Operational Logs**, provides insight into the operations that were performed on resources in the Azure subscription. These logs report the control-plane events for your subscriptions. Every Azure resource produces audit logs.
 
--   [**Azure Diagnostic Logs**][DiagLog] are logs generated by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+-   [Azure Monitor diagnostic logs][DiagLog] are logs generated by a resource that provides rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
 [![9]][9]
 
 It is important to track the NSGs logs, particularly this information:
 
--   [**Event logs**][NSGLog]: provides information on what NSG rules are applied to VMs and instance roles based on MAC address.
--   [**Counter logs**][NSGLog]: tracks how many times each NSG rule was executed to deny or allow traffic.
+-   [Event logs][NSGLog] provide information on what NSG rules are applied to VMs and instance roles based on MAC address.
+-   [Counter logs][NSGLog] track how many times each NSG rule was run to deny or allow traffic.
 
-All logs can be stored in Azure Storage Accounts for audit, static analysis, or backup purposes. When the logs are stored in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources.
+All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
 
-Large enterprises should already have acquired a standard framework for monitoring on-premises systems and can extend that framework to integrate logs generated by cloud deployments. For organizations that wish to keep all the logging in the cloud, [Log Analytics][../log-analytics/log-analytics-overview
-.md] is a great choice. Since Log Analytics is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. Log Analytics can also integrate with System Center components such as System Center Operations Manager to extend your existing management investments into the cloud.
+Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-queries], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud. 
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights using integrated search and custom dashboards to analyze all the records across all your workloads in your VDC implementation.
 
-[Azure Network Watcher][NetWatch] provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. It is a multifaceted service allowing the following functionality and more:
--    Monitor communication between a virtual machine and an endpoint
--    View resources in a virtual network and their relationships
--    Diagnose network traffic filtering problems to or from a VM
--    Diagnose network routing problems from a VM
--    Diagnose outbound connections from a VM
--    Capture packets to and from a VM
--    Diagnose problems with an Azure Virtual network gateway and connections
--    Determine relative latencies between Azure regions and internet service providers
--    View security rules for a network interface
--    View Network Metrics
--    Analyze traffic to or from a network security group
--    View diagnostic logs for network resources
+[Azure Network Watcher][NetWatch] provides tools to monitor, diagnose, and view metrics and enable or disable logs for resources in an Azure virtual network. It's a multifaceted service that allows the following functionalities and more:
+-    Monitor communication between a virtual machine and an endpoint.
+-    View resources in a virtual network and their relationships.
+-    Diagnose network traffic filtering problems to or from a VM.
+-    Diagnose network routing problems from a VM.
+-    Diagnose outbound connections from a VM.
+-    Capture packets to and from a VM.
+-    Diagnose problems with an Azure virtual network gateway and connections.
+-    Determine relative latencies between Azure regions and internet service providers.
+-    View security rules for a network interface.
+-    View network metrics.
+-    Analyze traffic to or from a network security group.
+-    View diagnostic logs for network resources.
 
-The [Network Performance Monitor][NPM] (NPM) solution inside OMS can provide detailed network information end-to-end, including a single view of your Azure networks and on-premises networks. With specific monitors for ExpressRoute and public services.
+The [Network Performance Monitor][NPM] solution inside Operations Management Suite can provide detailed network information end to end. This information includes a single view of your Azure networks and on-premises networks. The solution has specific monitors for ExpressRoute and public services.
 
 #### Component type: Workloads
 
 Workload components are where your actual applications and services reside. It's also where your application development teams spend most of their time.
 
-The workload possibilities are truly endless. The following are just a few of the possible workload types:
+The workload possibilities are endless. The following are just a few of the possible workload types:
 
 **Internal LOB Applications**: Line-of-business applications are computer applications critical to the ongoing operation of an enterprise. LOB applications have some common characteristics:
 
--   **Interactive**. LOB applications are interactive by nature: data is entered, and result/reports are returned.
--   **Data driven**. LOB applications are data intensive with frequent access to the databases or other storage.
--   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
+-   **Interactive** by nature. Data is entered, and results or reports are returned.
+-   **Data driven**&mdash;data intensive with frequent access to databases or other storage.
+-   **Integrated**&mdash;offer integration with other systems within or outside the organization.
 
 **Customer facing web sites (Internet or Internal facing)**: Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in a spoke network zone. Internal facing web sites don't need to expose a public internet endpoint becuase the resources are accessible via private non-internet routable addresses from the private VNet.
 
@@ -328,7 +341,7 @@ The workload possibilities are truly endless. The following are just a few of th
 
 **Events and Messaging**: [Azure Event Hubs][EventHubs] is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention, enabling you to ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
 
-A highly reliable cloud messaging service between applications and services, can be implemented through [Azure Service Bus][ServiceBus] that offers asynchronous brokered messaging between client and server, along with structured first-in-first-out (FIFO) messaging and publish/subscribe capabilities.
+You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, structured first-in-first-out (FIFO) messaging, and publish and subscribe capabilities.
 
 [![10]][10]
 
@@ -340,9 +353,9 @@ However, because a single VDC is typically implemented within a single region, i
 
 In addition to SLA concerns, there are several common scenarios where deploying multiple VDC implementations makes sense:
 
--   Regional/Global presence
--   Disaster Recovery
--   Mechanism to divert traffic between DC
+-   Regional or global presence.
+-   Disaster recovery.
+-   A mechanism to divert traffic between datacenters.
 
 #### Regional/global presence
 
@@ -393,7 +406,7 @@ The following features were discussed in this document. Follow the links to lear
  - Explore [VNet Peering][VNetPeering], the underpinning technology for VDC hub and spoke designs
  - Implement [Azure AD][AAD] to get started with [RBAC][RBAC] exploration
  - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and policies of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
-
+m
 <!--Image References-->
 [0]: ./images/networking-redundant-equipment.png "Examples of component overlap" 
 [1]: ./images/networking-vdc-high-level.png "High-level example of hub and spoke VDC"
@@ -446,4 +459,3 @@ The following features were discussed in this document. Follow the links to lear
 [EventHubs]: /azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: /azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: /azure/traffic-manager/traffic-manager-overview
-

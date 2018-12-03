@@ -2,7 +2,7 @@
 title: Sign-up and tenant onboarding in multitenant applications
 description: How to onboard tenants in a multitenant application
 author: MikeWasson
-ms:date: 07/21/2017
+ms.date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: claims

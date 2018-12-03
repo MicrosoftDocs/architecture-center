@@ -2,7 +2,7 @@
 title: Extending on-premises data solutions to the cloud
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Extending on-premises data solutions to the cloud

@@ -4,7 +4,7 @@ description: >-
   Best practices for authentication, authorization, and identity management in
   multitenant apps.
 author: MikeWasson
-ms:date: 07/21/2017
+ms.date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.next: tailspin

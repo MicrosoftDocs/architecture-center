@@ -2,7 +2,7 @@
 title: Choosing a search data store
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a search data store in Azure

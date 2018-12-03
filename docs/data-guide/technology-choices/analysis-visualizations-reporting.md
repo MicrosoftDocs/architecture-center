@@ -2,7 +2,7 @@
 title: Choosing a data analytics and reporting technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a data analytics technology in Azure

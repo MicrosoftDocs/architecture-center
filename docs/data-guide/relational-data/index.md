@@ -2,7 +2,7 @@
 title: Relational data
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Traditional relational database solutions
