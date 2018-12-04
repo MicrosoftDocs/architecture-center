@@ -551,7 +551,7 @@
     items:
     - name: Building a cloud migration business case
       href: cloud-adoption/business-strategy/cloud-migration-business-case.md
-    - name: Understanding Financial Models
+    - name: Understanding financial models
       href: cloud-adoption/business-strategy/financial-models.md
   - name: Digital Estate
     items: 
@@ -589,6 +589,8 @@
       href: cloud-adoption/operations/operational-fitness-review.md
   - name: Appendix
     items:
+    - name: Virtual Data Center (VDC)
+      href: vdc/index.md
     - name: Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold

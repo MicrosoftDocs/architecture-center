@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What options are available when rationalizing a digital estate?"
+title: "Enterprise Cloud Adoption: What options are available when rationalizing a digital estate?"
 description: Descriptions of commonly used tools for assessing on-prem infrastructure
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: What options are available when rationalizing a digital estate?
+# Enterprise Cloud Adoption: What options are available when rationalizing a digital estate?
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to hosting the asset in the cloud.
 Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, Cloud Rationalization can begin.

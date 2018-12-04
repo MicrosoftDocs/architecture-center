@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Examples of Fiscal Outcomes"
+title: "Enterprise Cloud Adoption: Examples of Fiscal Outcomes"
 description: Examples of Fiscal Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Examples of Fiscal Outcomes
+# Enterprise Cloud Adoption: Examples of Fiscal Outcomes
 
 At this highest level, Fiscal conversations consist of three rudimentary concepts:
 

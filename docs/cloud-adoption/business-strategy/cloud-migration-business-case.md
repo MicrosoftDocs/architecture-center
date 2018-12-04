@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Creating a business case for Cloud Migration"
+title: "Enterprise Cloud Adoption: Creating a business case for Cloud Migration"
 description: Things to consider when building out a business justification for cloud migration
 author: BrianBlanchard
 ms.date: 11/30/2018
 ---
 
-# Fusion: Creating a business justification for Cloud Migration
+# Enterprise Cloud Adoption: Creating a business justification for Cloud Migration
 
 Cloud migrations can generate early Return on Investment (ROI) from cloud transformation efforts. However the process for developing a clear business justification with tangible, relevant costs and returns can be a complex process.This article will help the reader think through the data needed to create a financial model that aligns with cloud migration outcomes. First, lets dispel a few myths to align this conversation and prepare the reader for common mistakes made during this process.
 
@@ -13,7 +13,7 @@ Cloud migrations can generate early Return on Investment (ROI) from cloud transf
 
 **Cloud is always cheaper:** Its a common belief that it is cheaper to operate a DataCenter in the cloud, than it is on-prem. While this can be an accurate statement, it's not an absolute. There are many use cases which could drive cloud operating costs beyond current on-prem costs. These use cases include: Poor Cost Governance, Misaligned system architecture, Duplication of processes, Increased staffing costs, Unusual system configurations. Many of these can be mitigated to create early ROI. Following the guidance in [Building the business justification](#building-the-business-justification) can help detect and avoid these misalignments. Dispelling the following myths could help with mitigation as well.
 
-**Everything should go into the cloud:** Quite the contrary. There are a number of workloads that operate better in physical machines or could be more costly when deployed to the cloud. There are also a number of business drivers for choosing a hybrid solution. Before finalizing the business model, it is wise to complete a first round quantitative analysis as described in the [Digital Estate articles](../digital-estate/rationalize-incremental.md) within Fusion. For additional information on the individual quantitative drivers involved in rationalization, see the article on the [5 Rs of rationalization](../digital-estate/rationalize-incremental.md). Either approach will leverage easily obtained inventory data and a brief quantitative analysis to identify workloads or applications that could result in higher costs in the cloud. These approaches could also identify dependencies or traffic patterns that would necessitate a hybrid solution.
+**Everything should go into the cloud:** Quite the contrary. There are a number of workloads that operate better in physical machines or could be more costly when deployed to the cloud. There are also a number of business drivers for choosing a hybrid solution. Before finalizing the business model, it is wise to complete a first round quantitative analysis as described in the [Digital Estate articles](../digital-estate/rationalize-incremental.md) within Enterprise Cloud Adoption. For additional information on the individual quantitative drivers involved in rationalization, see the article on the [5 Rs of rationalization](../digital-estate/rationalize-incremental.md). Either approach will leverage easily obtained inventory data and a brief quantitative analysis to identify workloads or applications that could result in higher costs in the cloud. These approaches could also identify dependencies or traffic patterns that would necessitate a hybrid solution.
 
 **IT is efficient:** During Digital Estate planning, it is not unheard of for customers to see unused capacity in excess of 50% of the provisioned environment. If assets are provisioned in the cloud to match current provisioning, cost savings will be hard to realize. Consider reducing the size of the deployed assets to align with usage patterns, not provisioning patterns.
 

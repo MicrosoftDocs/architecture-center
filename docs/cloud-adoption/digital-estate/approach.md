@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What approaches are available for Digital Estate Planning?"
+title: "Enterprise Cloud Adoption: What approaches are available for Digital Estate Planning?"
 description: Explanation of Digital Estate Planning approaches
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: What approaches are available for Digital Estate Planning?
+# Enterprise Cloud Adoption: What approaches are available for Digital Estate Planning?
 
 Digital Estate Planning can take a number of shapes, depending on the desired outcomes and size of the existing estate. There are also a number of options regarding the approach taken. Its important to set expectations regarding the approach early in planning cycles. Unclear expectations often leads to delays associated with additional inventory gathering exercises. The following outlines three approaches to analysis.
 
@@ -33,7 +33,7 @@ The Asset-driven approach provides a plan based on the assets that support an ap
 
 ## Incremental approach
 
-Like much of the Fusion framework, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
+Like much of the Enterprise Cloud Adoption framework, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
 
 * Initial cost analysis: If financial validation is required, start with an [asset driven approach](#asset-driven-approach) to get an initial cost calculation for the entire digital estate, with no rationalization. This establishes a worst case scenario benchmark.
 * Migration Planning: Once a Cloud Strategy Team has been assigned, build out an initial migration backlog using a [workload driven approach](#workload-driven-approach), based solely on their collective knowledge & limited stakeholder interviews. This approach quickly builds a light weight workload assessment to foster collaboration.

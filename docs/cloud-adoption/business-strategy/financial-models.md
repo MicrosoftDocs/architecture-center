@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Things to consider when creating a Cloud Transformation financial model"
+title: "Enterprise Cloud Adoption: Things to consider when creating a Cloud Transformation financial model"
 description: Explanation of the concept cloud financial models
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How to create a financial model for cloud transformation?
+# Enterprise Cloud Adoption: How to create a financial model for cloud transformation?
 
 Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and full business justification tends to be different from one organization to the next. This article will help establish a few formulas and point out a few things commonly missed when creating a financial model.
 
