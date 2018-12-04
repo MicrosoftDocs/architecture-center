@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/03/2018
 ---
 
-# Enterprise integration on Azure
+# Basic enterprise integration on Azure
 
 This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs.
+Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](./queues-events.md) builds on this basic architecture. 
 
 ![Architecture diagram - Simple enterprise integration](./_images/simple-enterprise-integration.png)
 

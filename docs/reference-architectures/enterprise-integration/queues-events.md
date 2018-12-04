@@ -16,7 +16,7 @@ This architecture integrates enterprise backend systems, using message queues an
 
 ## Architecture
 
-The architecture shown here builds on a simpler architecture that is shown in [Basic enterprise integration on Azure][simple-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
+The architecture shown here builds on a simpler architecture that is shown in [Basic enterprise integration][basic-enterprise-integration]. That architecture uses [Logic Apps][logic-apps] to orchestrate workflows and [API Management][apim] to create catalogs of APIs.
 
 This version of the architecture adds two components that help make the system more reliable and scalable:
 
@@ -38,7 +38,7 @@ Many Azure services support sending events to Event Grid. For example, a logic a
 
 ## Recommendations
 
-The recommendations described in [Enterprise integration on Azure][simple-enterprise-integration] apply to this architecture. The following recommendations also apply:
+The recommendations described in [Basic enterprise integration][basic-enterprise-integration] apply to this architecture. The following recommendations also apply:
 
 ### Service Bus 
 
@@ -86,4 +86,4 @@ The Event Grid service secures event delivery through a validation code. If you 
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [sb-sla]: https://azure.microsoft.com/support/legal/sla/service-bus/
 [service-bus]: /azure/service-bus-messaging/
-[simple-enterprise-integration]: ./simple-enterprise-integration.md
+[basic-enterprise-integration]: ./basic-enterprise-integration.md

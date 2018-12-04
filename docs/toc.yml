@@ -373,8 +373,8 @@
 
     - name: Enterprise integration
       items:
-      - name: Basic enterprise integration on Azure
-        href: reference-architectures/enterprise-integration/simple-enterprise-integration.md
+      - name: Basic enterprise integration
+        href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
       - name: Enterprise integration with queues and events
         href: reference-architectures/enterprise-integration/queues-events.md
 
