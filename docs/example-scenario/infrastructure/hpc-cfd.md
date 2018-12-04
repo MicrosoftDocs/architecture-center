@@ -53,7 +53,7 @@ Customers can also use Azure CycleCloud to create a grid entirely in Azure. In t
 
 For a modern application approach where management of a workload scheduler is not needed, [Azure Batch][batch] can help. Azure Batch can run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Azure Batch allows you to define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Azure Batch schedules compute-intensive tasks and dynamically adds and removes compute resources based on your requirements.
 
-### Scalability, and Security
+### Scalability and Security
 
 Scaling the execute nodes on Azure CycleCloud can be accomplished either manually or using autoscaling. For more information, see [CycleCloud Autoscaling][cycle-scale].
 

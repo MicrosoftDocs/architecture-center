@@ -22,7 +22,7 @@ Avoid naming the scenario after the Azure technologies that are used.
 
 > What were the benefits of implementing the solution described blow?
 
-## Potential use cases
+## Relevant use cases
 
 > Are there any other use cases or industries where this would be a fit?  
 > How similar or different are they to what's in this article?
