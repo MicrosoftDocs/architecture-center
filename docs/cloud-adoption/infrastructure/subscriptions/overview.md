@@ -54,6 +54,8 @@ This pattern lacks a more complex hierarchy at the department and account levels
 
 ![application archetype pattern](../../_images/infra-subscriptions/application.png)
 
+Note that as you begin to deploy resources across multiple subscriptions, the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md) can offer a useful approach for applying consistent centralized management, security, and policy control [across subscriptions](vdc-subscriptions.md). Simple deployments may not need the organization and management capabilities offered by the VDC model, but as your subscription design becomes more complex the VDC approach may more sense as a deployment strategy.
+
 ### Functional
 
 This pattern groups subscriptions and accounts along functional lines, such as finance, sales, or IT support. 

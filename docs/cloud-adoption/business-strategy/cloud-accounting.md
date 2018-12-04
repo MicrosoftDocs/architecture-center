@@ -47,7 +47,7 @@ This model provides balance between a true Charge Back model and the more tradit
 
 The choice of accounting models is very important in system design. The choice of accounting model can impact subscription strategies, naming standards, tagging standards, and Policy/BluePrint Designs.
 
-Once the Cloud Accounting Model and [Global Markets](global-markets.md) decisions have been made with the business, the team is ready to define [Technology Standards](../technology-standards/overview.md).
+Once the Cloud Accounting Model and [Global Markets](global-markets.md) decisions have been made with the business, the team is ready to define [Technology Standards](../technical-standards/overview.md).
 
 > [!div class="nextstepaction"]
-> [Define Technology Standards](../technology-standards/overview.md)
+> [Define Technology Standards](../technical-standards/overview.md)

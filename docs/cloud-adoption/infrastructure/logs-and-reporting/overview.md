@@ -7,21 +7,14 @@ ms.date: 11/07/2018
 
 # Fusion: Logs, Reporting, and Monitoring
 
-All organizations need mechanisms notifying IT teams of performance, uptime, and security
-issues before they become serious problems. A successful monitoring strategy
-allows you to understand how the individual components that make up your
-workloads and networking infrastructure are performing. Within the context of a
-public cloud migration, integrating logging and reporting with any of your
-existing monitoring systems, while surfacing important events and metrics to the
-appropriate IT staff, is critical in ensuring your organization is meeting
-uptime, security, and policy compliance goals.
+All organizations need mechanisms notifying IT teams of performance, uptime, and security issues before they become serious problems. A successful monitoring strategy allows you to understand how the individual components that make up your workloads and networking infrastructure are performing. Within the context of a public cloud migration, integrating logging and reporting with any of your existing monitoring systems, while surfacing important events and metrics to the appropriate IT staff, is critical in ensuring your organization is meeting uptime, security, and policy compliance goals.
 
 
 ## Logging and Reporting Decision Guide
 
 ![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
 
-Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [Hybrid monitoring (on-premises)](#hybrid-monitoring-on-premises) | [Hybrid monitoring (cloud based)](#hybrid-monitoring-cloud-based) | [Gateway](#gateway) | [Multi-cloud](#multi-cloud) | [Reporting and monitoring in Azure](#reporting-and-monitoring-in-azure)
+Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [Hybrid monitoring (on-premises)](#hybrid-monitoring-on-premises) | [Hybrid monitoring (cloud-based)](#hybrid-monitoring-cloud-based) | [Gateway](#gateway) | [Multi-cloud](#multi-cloud) | [Reporting and monitoring in Azure](#reporting-and-monitoring-in-azure)
 
 The inflection point when deciding a cloud identity strategy is based primarily on existing investments your organization has made in Operational Processes, and to some degree any requirements you have to support a multi-cloud strategy.
 
@@ -56,8 +49,7 @@ Cloud native logging solutions can be implemented ad-hoc per subscriptions or wo
 
 A hybrid monitoring solution combines log data from both your on-premises and cloud resources to provide an integrated view into your IT estate's operational status.
 
-If you have an existing investment in on-premises monitoring systems that would be difficult or costly to replace, you may need to integrate the telemetry from your cloud workloads into preexisting on-premises monitoring solutions. In a hybrid on-premises monitoring system, on-premises telemetry data continues to use the existing on-premises monitoring system. Cloud based telemetry data is either sent to the cloud monitoring system directly, or the data is stored on the cloud alongside your workloads and then compiled and ingested into the on-premises system at regular intervals.
-
+If you have an existing investment in on-premises monitoring systems that would be difficult or costly to replace, you may need to integrate the telemetry from your cloud workloads into preexisting on-premises monitoring solutions. In a hybrid on-premises monitoring system, on-premises telemetry data continues to use the existing on-premises monitoring system. Cloud-based telemetry data is either sent to the cloud monitoring system directly, or the data is stored on the cloud alongside your workloads and then compiled and ingested into the on-premises system at regular intervals.
 
 **On-premises hybrid monitoring assumptions:** Using an on-premises logging and reporting system for hybrid monitoring assumes the following:
 
@@ -68,17 +60,20 @@ If you have an existing investment in on-premises monitoring systems that would 
 > [!TIP]
 > As part of the iterative nature of cloud migration, transitioning from distinct cloud native and on-premises monitoring to some kind of partial hybrid is likely. Make sure to keep changes to your monitoring architecture in line with your overall IT and operational processes.
 
-### Hybrid monitoring (cloud based)
+### Hybrid monitoring (cloud-based)
 
 If you do not have a compelling need to maintain an on-premises monitoring system, or want to replace on-premises monitoring systems with a SaaS solution, you can also choose to integrate on-premises log data with a centralized cloud-based monitoring system.
 
 Mirroring the on-premises centered approach, in this scenario cloud workloads would use their default cloud logging mechanism, and on-premises applications and services would either send telemetry directory to the cloud-based logging system, or aggregate that data for ingestion into the cloud system at regular intervals. The cloud-based monitoring system would then serve as your primary monitoring and reporting system for your entire IT estate.
 
-**Cloud based hybrid monitoring assumptions:** Using cloud-based logging and reporting systems for hybrid monitoring assumes the following:
+**Cloud-based hybrid monitoring assumptions:** Using cloud-based logging and reporting systems for hybrid monitoring assumes the following:
 
 - You are not tied to existing on-premises monitoring systems.
 - Your workloads do not have regulatory or policy requirements to store log data on-premises.
 - Your cloud-based monitoring systems have APIs or other mechanisms available to ingest log data from on-premises applications and services.
+
+> [!NOTE]
+> The Azure Virtual Datacenter model's [monitoring and reporting strategy](vdc-monitoring.md) relies heavily on cloud hosted services such as [Azure Monitor](#reporting-and-monitoring-in-azure). Part of planning for a VDC deployment will include choosing the best hybrid monitoring approach to take for creating an integrated monitoring and reporting solution. 
 
 ### Gateway
 
@@ -98,7 +93,7 @@ A gateway can be used to aggregate and pre-process telemetry data bound for clou
 
 In scenarios where you need to integrate cloud telemetry with on-premises systems that do not support hybrid logging and reporting, you will need to provide a mechanism for cloud-based systems to send data directly to on-premises storage locations.
 
-In order to support this, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-defined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud virtual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
+In order to support this approach, your cloud resources will need to be able to community directly with your on-premises systems with a combination of [hybrid networking](../software-defined-networks/hybrid.md) and [replication of directory services](../identity/overview.md#directory-migration-with-federation) in your cloud environment. With this in place the cloud virtual networks function as a network extension of the on-premises environment, and cloud hosted workloads can communicate directly with the on-premises logging and reporting system.
 
 **On-premises only assumptions:**
 
@@ -111,17 +106,11 @@ In order to support this, your cloud resources will need to be able to community
 
 Integrating logging and reporting capabilities across multiple cloud platform can be complicated. Services offered between platforms are often not directly comparable, and logging and telemetry capabilities provided by these services differ as well. 
 
-Multi-cloud logging support often requires the use of gateway to process log data into a common format before submitting data to a hybrid logging solution. 
+Multi-cloud logging support often requires the use of gateway services to process log data into a common format before submitting data to a hybrid logging solution. 
 
 ## Reporting and monitoring in Azure
 
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
-is the default reporting and monitoring service on Azure. It consists of several
-tools capable of logging, visualizing, analyzing, and reporting on telemetry
-data generated by Azure resources. It's capable of providing insights into
-virtual machines, guest operating systems, virtual network, and workload
-application events. It also provides import and export mechanisms for
-integrating with on-premises or third-party systems.
+[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default reporting and monitoring service on Azure. It consists of several tools capable of logging, visualizing, analyzing, and reporting on telemetry data generated by Azure resources. It's capable of providing insights into virtual machines, guest operating systems, virtual network, and workload application events. It also provides import and export mechanisms for integrating with on-premises or third-party systems.
 
 ### Log Analytics
 

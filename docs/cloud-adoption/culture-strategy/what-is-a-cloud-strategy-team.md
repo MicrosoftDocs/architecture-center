@@ -13,7 +13,7 @@ Successful cloud transformation is unique among many technical implementations, 
 
 Digital Transformation, like many forms of business transformation, could trigger changes in business processes, the execution of operations, customer interactions, or even product development. Seldom can digital transformation drive business outcomes, if it is confined to an Information Technology (IT) team. To drive true business change, business leaders must participate in the process. The Cloud Strategy Team provides a means for involving key participants in a manageable construct.
 
-Members of the Cloud Strategy Team should be assigned based on the [Transformation Journey](../transformation-journey/overview.md) that best aligns with the current corporate objectives & priorities. The Cloud Strategy Team is often assigned by the CEO and CIO. Assignments are generally based on empowering this team to drive change that cuts across various different organizations within the enterprise.
+Members of the Cloud Strategy Team should be assigned based on the [Transformation Journey](../transformation-journeys/overview.md) that best aligns with the current corporate objectives & priorities. The Cloud Strategy Team is often assigned by the CEO and CIO. Assignments are generally based on empowering this team to drive change that cuts across various different organizations within the enterprise.
 
 ## Duties of a Cloud Strategy Team
 
@@ -21,7 +21,7 @@ The primary duty of a Cloud Strategy Team is to validate alignment between Busin
 
 **Early Planning Tasks:**
 
-* Review and provide feedback on [Business Outcomes](../business-strategy/business-outcomes/overview.md) and [Financial Models](../business-startegy/financial-models.md)
+* Review and provide feedback on [Business Outcomes](../business-strategy/business-outcomes/overview.md) and [Financial Models](../business-strategy/financial-models.md)
 * Aid in establishing clear [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) that align with corporate objectives
 * Define relevant [Transformation Metrics](../business-strategy/transformation-metrics.md) that clearly communicate progress towards business outcomes
 * Understand [business risks](../business-strategy/risk-tolerance.md) introduced by the plan, represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)

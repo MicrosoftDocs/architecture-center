@@ -9,7 +9,7 @@ ms.date: 10/10/2018
 
 The articles on [Business Outcomes](business-outcomes/overview.md) discussed ways to measure and communicate the impact a transformation will have on the business. Unfortunately, it can take years for some of those outcomes to produce measurable results. The Board and C-Suite generally are not happy to see reports that show a 0% delta for long periods of time. This article will discuss shorter term metrics that can be tied back to longer term business outcomes.
 
-As with much of the material in this framework, it is assumed that the reader is familiar with the [Transformation Journey](../transformation-journey/overview.md) that best aligns with the desired business outcomes.
+As with much of the material in this framework, it is assumed that the reader is familiar with the [Transformation Journey](../transformation-journeys/overview.md) that best aligns with the desired business outcomes.
 
 **Operational Transformation:** This transformation focuses on cost, complexity, and efficiency with an emphasis on IT operations. The most easily measured data behind this transformation is the movement of assets to the cloud. In this kind of transformation, the digital estate would be measured by Virtual Machines (VMs), Racks or Clusters hosting those VMs, DataCenter operational costs, required Capital Expenses to maintain systems, and depreciation of those assets over time.
 

@@ -1,10 +1,12 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Resource Grouping" 
 description: Discussing the resource grouping approach to the Azure Virtual Datacenter (VDC) model
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Resource grouping
+
+Jump to: [Resource groups](#resource-groups) | [Deployment templates](#deployment-templates)
 
 The Azure Virtual Datacenter model relies heavily on resource grouping for organizing assets within a VDC. They also server as a pillar of access control and policy enforcement.
 
@@ -17,8 +19,9 @@ Resources in the VDC model are assumed to be grouped according to function withi
 | Operations and monitoring     | Hosts log analytics instance and other operational assets for the central hub environment. |
 | Key vault                     | Hosts the central hub Key Vault instance. |
 | Networking                    | Hosts the hub virtual network, networking rules and devices, and the gateway connection to the on-premises environments. |
-| Jump box                      | Hosts secure bastion VMs used as management jump boxes for the hub environment. |
-| ADDS                          | Hosts servers providing Active Directory Domain Services and DNS for the hub environment.  |
+| Management                    | Hosts secure bastion VMs used as management jump boxes for the hub environment. |
+| Shared Services               | Hosts servers providing Active Directory Domain Services and DNS for the hub environment.  |
+| Central Firewall              | Contains the central firewall devices that control the traffic allowed to pass in and out of the VDC and how that traffic is directed. |
 
 Likewise spokes will have at least the following resource groups: 
 
@@ -32,9 +35,9 @@ In addition to these default groups any assets supporting workloads also have re
 
 Access control and Azure policy settings can be applied at the resource group level, so these groupings are one of the main ways consistent RBAC and policy are applied to resources in the VDC model.  
 
-## Deployment Templates
+## Deployment templates
 
-As with any other Azure deployment, developing [Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment) can help you standardize your VDC assets. 
+As with any other Azure deployment, developing [Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment) can help you standardize your VDC deployments. 
 
 Hub and spoke environments share similar base infrastructure that needs to be created before other components can be deployed. Spokes will all have a minimum set of security and access control that get applied on creation. A VDC is well suited to the use of deployment templates as a way to standardize the provisioning of resources and instrumenting consistent policy standards. 
 
@@ -42,7 +45,7 @@ To help you build templates and automate the deployment of VDC resources, the Az
 
 ## Next steps
 
-Learn  how [policy enforcement](../policy-enforcement/vdc-policy-enforcement.md) is implemented within an Azure Virtual Datacenter.
+Learn  how [Azure Policy](../policy-enforcement/vdc-policy-enforcement.md) is used to implement policy enforcement within an Azure Virtual Datacenter.
 
 > [!div class="nextstepaction"]
 > [Azure Virtual Datacenter: Policy Enforcement](../policy-enforcement/vdc-policy-enforcement.md)
