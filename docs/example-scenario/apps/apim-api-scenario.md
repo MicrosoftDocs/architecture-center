@@ -3,6 +3,7 @@ title: Migrating a legacy web application to an API-based architecture on Azure
 description: Use Azure API Management to modernize a legacy web application.
 author: begim
 ms.date: 09/13/2018
+ms.custom: fasttrack
 ---
 
 # Migrating a legacy web application to an API-based architecture on Azure

@@ -3,6 +3,7 @@ title: Using Service Fabric to decompose monolithic applications
 description: Decompose a large monolithic application into microservices.
 author: timomta
 ms.date: 09/20/2018
+ms.custom: fasttrack
 ---
 
 # Using Service Fabric to decompose monolithic applications

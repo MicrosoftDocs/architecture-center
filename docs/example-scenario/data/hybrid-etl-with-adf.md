@@ -3,6 +3,7 @@ title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory
 author: alhieng
 ms.date: 9/20/2018
+ms.custom: tsp-team
 ---
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory

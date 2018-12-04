@@ -3,6 +3,7 @@ title: Multi-tier web application built for high availability and disaster recov
 description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager
 author: sujayt
 ms.date: 11/16/2018
+ms.custom: product-team
 ---
 
 # Multitier web application built for high availability and disaster recovery on Azure

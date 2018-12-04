@@ -3,6 +3,7 @@ title: Ingestion and processing of real-time automotive IoT data
 description: Ingest and process real-time vehicle data using IoT.
 author: msdpalam
 ms.date: 09/12/2018
+ms.custom: fasttrack
 ---
 
 # Ingestion and processing of real-time automotive IoT data
