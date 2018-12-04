@@ -25,7 +25,6 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Minimum Suggested Activities**
 
 * Evaluate your [Cost Management tool Chain](toolchain.md) options.
-* Develop and surface a draft of Architecture Guidelines
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
