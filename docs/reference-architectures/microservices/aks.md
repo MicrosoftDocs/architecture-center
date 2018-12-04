@@ -1,10 +1,11 @@
-# Microservices architecture on 
-Azure Kubernetes Service (AKS)
+# Microservices architecture on Azure Kubernetes Service (AKS)
  
 This reference architectures shows a microservices application deployed to Azure Kubernetes Service (AKS). It shows a basic AKS configuration that can be the starting point for most deployments. More advanced options, including advanced networking options, will be covered in a separate reference architecture.
-The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices).
-This article assumes basic knowledge of Kubernetes.
- 
+
+This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices).
+
+![AKS reference architecture](./_images/aks.png)
+
 ## Architecture
 The architecture consists of the following components.
 
@@ -46,7 +47,7 @@ For a microservices architecture, considering organizing the microservices into 
 
 Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
 
-### Services
+### Microservices
 
 The Kubernetes Service object is a natural way to model microservices in Kubernetes. A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs, and are discoverable through some form of service discovery. The Kubernetes Service object provides a set of capabilities that match these requirements:
 
@@ -57,6 +58,8 @@ The Kubernetes Service object is a natural way to model microservices in Kuberne
 - Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
 
 The following diagram show the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
+
+![Services and pods](./_images/aks-services.png)
 
 ### Data storage
 
@@ -158,15 +161,16 @@ Use resource quotas to limit the total resources allowed for a namespace. That w
 ### Role based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
-Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. A service principal is a security identity used by applications &mdash; this is how an AKS cluster interacts with Azure APIs.
 
-Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create roles and role bindings.
+- Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. A service principal is a security identity used by applications &mdash; this is how an AKS cluster interacts with Azure APIs.
 
-- A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, etc.).
+- Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
 
-- A RoleBinding assigns users or groups to a Role.
+    - A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, etc.).
 
-There is also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
+    - A RoleBinding assigns users or groups to a Role.
+
+    - There is also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
 
 AKS integrates these two RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set this up, see [Integrate Azure Active Directory with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/aad-integration).
 
@@ -277,6 +281,8 @@ Consider using Helm to manage building and deploying services. Some of the featu
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](https://docs.microsoft.com/azure/container-registry/container-registry-helm-repos).
 
 The following diagram shows a possible CI/CD workflow. This example assumes there is a QA role that is separate from the developer role.
+
+![CI/CD workflow](./_images/aks-cicd.png)
 
 1. The developer commits a change, which
 1. Triggers the CI pipeline. This pipeline builds the code, runs tests, and builds the container image.
