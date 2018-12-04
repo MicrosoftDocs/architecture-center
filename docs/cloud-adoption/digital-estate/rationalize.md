@@ -16,9 +16,7 @@ It's easy understand rationalization, when visualizing the traditional process o
 
 For a streamlined, more modern approach to rationalization, check out the article on [Incremental Rationalization](rationalize-incremental.md).
 
-**Inventory:** Very few organizations invest the time, energy, and expense to maintain an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end user devices. However, the return on investment (ROI) of maintaining an accurate server and application inventory in a traditional, on-prem DataCenter is often low. Most IT organizations have other more pressing issues to address that produce greater returns than tracking the usage of fixed assets in a DataCenter.
-
-In a Cloud Transformation, inventory has a direct correlation on operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory.
+**Inventory:** A thorough inventory of assets, including applications, software, hardware, operating systems, and system performance metrics is required to complete a full rationalization using traditional models.
 
 **Quantitative analysis:** In the decision tree, quantitative questions drive the first layer of decisions. Common questions would include things like: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to classification of the inventory.
 
