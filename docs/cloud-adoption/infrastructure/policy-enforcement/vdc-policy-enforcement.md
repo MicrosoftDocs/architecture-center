@@ -48,7 +48,7 @@ As a baseline, all subscriptions used in a VDC deployment should have a common s
 | Enforce storage Service Endpoint | Requires storage accounts use [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview), preventing access to the account from outside the VDC virtual network.  |
 | Enforce subnets use UDR | Prevents the creation of subnets that aren't associated with a pre-existing UDR. This ensures all subnets, and the virtual devices connected to them, obey routing rules defined by central IT. |  
 | Permitted regions [optional]  | Defines the list of [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/) that resources are allowed to be created in.   |  
-| Enforce Hub VNet Peeering  | Applied to spoke subscriptions, this policy only allows virtual networks to peer with the hub network.    |  
+| Enforce Hub VNet Peeering [optional] | Applied to spoke subscriptions, this policy only allows virtual networks to peer with the hub network.    |  
 
 ### Resource Group policy
 
