@@ -557,18 +557,18 @@
     items: 
     - name: 5 Rs of Rationalization - Making decisions 
       href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
-    - name: Digital Estate Rationalization Process
+    - name: Digital Estate Rationalization
       href: cloud-adoption/digital-estate/overview.md
     - name: Assessment Approaches 
       href: cloud-adoption/digital-estate/approach.md
     - name: Inventory Assets 
       href: cloud-adoption/digital-estate/inventory.md
+    - name: Traditional Rationalization 
+      href: cloud-adoption/digital-estate/rationalize.md
+    - name: Incremental Rationalization
+      href: cloud-adoption/digital-estate/rationalize-incremental.md
     - name: Cost Calculations 
       href: cloud-adoption/digital-estate/calculate.md
-    - name: Analogy - Rationalize Plinko 
-      href: cloud-adoption/digital-estate/rationalize.md
-    - name: Analogy - Incremental Rationalization Plinko
-      href: cloud-adoption/digital-estate/rationalize-incremental.md
   - name: Governance
     items:
     - name: Overview
