@@ -36,7 +36,7 @@ Release Activities: During iterations in which a release is to be tested or prom
 * [Business Testing](business-test.md): Staged workload can be tested by power users to validate function and performance.
 * [Business Change Plan](business-change-plan.md): Once a workload passes Business Testing, a Business Change Plan can be initiated. This plan will guide the activities related to business changes, impact to processs, user readiness, promotion of a workload to production & finally user adoption.
 * [Ready](ready.md): Activities related to pre-production readiness. Often includes addition performance tuning, dependency/routing validation, etc...
-* [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomissioning of replaced assets.
+* [Promote](promote.md): The process of promoting a workload to production. Generally focuses on re-routing production traffic to the new assets & decomission replaced assets.
 * [Business Priorities](business-priorities.md): At the end of each release, a business stakeholder review will advise changes to the migration and release backlog, based on progress towards business outcomes and changes in market condition assumptions.
 
 ## Partnership options

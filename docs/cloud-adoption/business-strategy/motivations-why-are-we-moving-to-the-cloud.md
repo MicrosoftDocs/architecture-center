@@ -7,10 +7,10 @@ ms.date: 10/10/2018
 
 # Fusion: Why are we moving to the cloud?
 
-This is an extremely common question for business and technical stakeholders alike.
-If the answer is "Our board (CIO, C-Suite) told us to move to the cloud", the likelihood of failure is through the roof before the first account is created.
+"Why are we moving to the cloud?" is an extremely common question for business and technical stakeholders alike.
+If the answer is "Our board (CIO, C-Suite) told us to move to the cloud", it is unlikely that the business will experience the desired outcomes.
 
-In this article, we will discuss a few more valuable motivations behind cloud migration. These options are designed to help facilitate a more impactful conversation regarding motivations and ultimately business outcomes.
+In this article, we will discuss a few motivations behind cloud migration that could produce more impactful business outcomes. These options are designed to help facilitate a conversation regarding motivations and ultimately business outcomes.
 
 ## Common Motivations for Cloud Transformation
 

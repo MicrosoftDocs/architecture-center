@@ -14,7 +14,7 @@ This article outlines different phases of Security Management evolution, as a co
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Evolution of the Configuration Management Discipline across various phases of adoption](../../_images/governance-discipline-configuration-management.png)
+![Evolution of the Configuration Management Discipline across various phases of adoption](../../_images/governance-discipline-security-management.png)
 
 *Figure 1. Evolution of Configuration Management discipline across various phases of adoption
 

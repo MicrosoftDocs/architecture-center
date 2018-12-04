@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What is corporate policy in relation to cloud governance"
+title: "Fusion: How can corporate IT policy become Cloud-Ready?"
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How do corporate policy and compliance impact cloud adoption and cloud governance?
+# Fusion: How can corporate IT policy become Cloud-Ready?
 
 Technical and business transformations don't happen overnight. They are the product of effort over time. Cloud Adoption, like all other transformations, are no exception. Nor is Cloud Governance. Attempting to deliver either in a big bang push, seldom produces the desired results.
 

@@ -530,7 +530,7 @@
   items:
   - name: Introduction
     href: cloud-adoption/overview.md
-  - name: Transformation Journeys
+  - name: Transformation Journeys (Curated Content)
     items:
     - name: Overview and Roadmap
       href: cloud-adoption/transformation-journeys/overview.md
@@ -552,7 +552,7 @@
       href: cloud-adoption/transformation-journeys/incremental-transformation.md
     - name: Disruptive Transformation
       href: cloud-adoption/transformation-journeys/disruptive-transformation.md
-  - name: Business Strategy
+  - name: Business Decisions
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
@@ -584,7 +584,7 @@
       href: cloud-adoption/business-strategy/financial-models.md
     - name: Financial Models for Cloud Migration
       href: cloud-adoption/business-strategy/cloud-migration-business-case.md
-  - name: Cultural Strategy
+  - name: Culture Decisions
     items:
     - name: Overview
       href: cloud-adoption/culture-strategy/overview.md  
@@ -594,198 +594,200 @@
       href: cloud-adoption/culture-strategy/translate-roles-skills-processes-to-the-cloud.md  
     - name: How to ensure the team has the necessary skills?
       href: cloud-adoption/culture-strategy/skills-readiness-path.md
-  - name: Digital Estate
-    items: 
-    - name: Overview - What is a digital estate?
-      href: cloud-adoption/digital-estate/overview.md
-    - name: Assessment Approaches - What's important to our goals?
-      href: cloud-adoption/digital-estate/approach.md
-    - name: Inventory Assets - What do we own?
-      href: cloud-adoption/digital-estate/inventory.md
-    - name: Rationalize - What goes in the cloud?
-      href: cloud-adoption/digital-estate/rationalize.md
-    - name: Incremental Rationalization - Aligning applications and business drivers?
-      href: cloud-adoption/digital-estate/rationalize-incremental.md
-    - name: 5 Rs of Rationalization - What are my options?
-      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
-    - name: Cost Calculations - What will it cost?
-      href: cloud-adoption/digital-estate/calculate.md
-    - name: Rough Cloud Cost Estimates
-      href: cloud-adoption/digital-estate/size-estimates.md
-  - name: Migrate
+  - name: Technology Decisions
     items:
-    - name: Process Overview 
-      href: cloud-adoption/migration/execute/overview.md
-    - name: Assess 
-      href: cloud-adoption/migration/execute/assess.md
-    - name: Architect
-      href: cloud-adoption/migration/execute/architect.md
-    - name: Remediate
-      href: cloud-adoption/migration/execute/remediate.md
-    - name: Replicate
-      href: cloud-adoption/migration/execute/replicate.md
-    - name: Stage
-      href: cloud-adoption/migration/execute/stage.md
-    - name: Business Testing (UAT Testing)
-      href: cloud-adoption/migration/execute/business-test.md
-    - name: Business Change Plan (User Adoption Plan)
-      href: cloud-adoption/migration/execute/business-change-plan.md
-    - name: Ready for Production (Ready)
-      href: cloud-adoption/migration/execute/ready.md
-    - name: Promote to Production (Promote)
-      href: cloud-adoption/migration/execute/promote.md
-    - name: Update (Business Priorities)
-      href: cloud-adoption/migration/execute/business-priorities.md
-    - name: Retrospective
-      href: cloud-adoption/migration/execute/retrospective.md
-    - name: Understanding the Iteration and Release Backlog
-      href: cloud-adoption/migration/execute/iteration-release-backlog.md
-    - name: Partnership Options 
-      href: cloud-adoption/migration/execute/partnership-options.md
-    - name: Replication Options 
-      href: cloud-adoption/migration/execute/replicate-options.md
-  - name: Governance
-    items:
-    - name: Overview
-      href: cloud-adoption/governance/overview.md
-    - name: Policy & Compliance
+    - name: Digital Estate
+      items: 
+      - name: Overview - What is a digital estate?
+        href: cloud-adoption/digital-estate/overview.md
+      - name: Assessment Approaches - What's important to our goals?
+        href: cloud-adoption/digital-estate/approach.md
+      - name: Inventory Assets - What do we own?
+        href: cloud-adoption/digital-estate/inventory.md
+      - name: Rationalize - What goes in the cloud?
+        href: cloud-adoption/digital-estate/rationalize.md
+      - name: Incremental Rationalization - Aligning applications and business drivers?
+        href: cloud-adoption/digital-estate/rationalize-incremental.md
+      - name: 5 Rs of Rationalization - What are my options?
+        href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+      - name: Cost Calculations - What will it cost?
+        href: cloud-adoption/digital-estate/calculate.md
+      - name: Rough Cloud Cost Estimates
+        href: cloud-adoption/digital-estate/size-estimates.md
+    - name: Migrate
       items:
+      - name: Process Overview 
+        href: cloud-adoption/migration/execute/overview.md
+      - name: Assess 
+        href: cloud-adoption/migration/execute/assess.md
+      - name: Architect
+        href: cloud-adoption/migration/execute/architect.md
+      - name: Remediate
+        href: cloud-adoption/migration/execute/remediate.md
+      - name: Replicate
+        href: cloud-adoption/migration/execute/replicate.md
+      - name: Stage
+        href: cloud-adoption/migration/execute/stage.md
+      - name: Business Testing (UAT Testing)
+        href: cloud-adoption/migration/execute/business-test.md
+      - name: Business Change Plan (User Adoption Plan)
+        href: cloud-adoption/migration/execute/business-change-plan.md
+      - name: Ready for Production (Ready)
+        href: cloud-adoption/migration/execute/ready.md
+      - name: Promote to Production (Promote)
+        href: cloud-adoption/migration/execute/promote.md
+      - name: Update (Business Priorities)
+        href: cloud-adoption/migration/execute/business-priorities.md
+      - name: Retrospective
+        href: cloud-adoption/migration/execute/retrospective.md
+      - name: Understanding the Iteration and Release Backlog
+        href: cloud-adoption/migration/execute/iteration-release-backlog.md
+      - name: Partnership Options 
+        href: cloud-adoption/migration/execute/partnership-options.md
+      - name: Replication Options 
+        href: cloud-adoption/migration/execute/replicate-options.md
+    - name: Governance
+      items:
+      - name: Overview
+        href: cloud-adoption/governance/overview.md
+      - name: Policy & Compliance
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/policy-compliance/overview.md
+          - name: What is Regulatory Compliance?
+            href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+          - name: What is a Cloud Policy Review?
+            href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
+      - name: Cost Management
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/cost-management/overview.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/cost-management/toolchain.md
+      - name: Security Management
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/security-management/overview.md
+          - name: Sample Policy - Cloud Native Solution
+            href: cloud-adoption/governance/security-management/cloud-native-policy.md          
+          - name: Additional Security Guidance in Azure
+            href: cloud-adoption/governance/security-management/azure-security-guidance.md          
+      - name: Identity Management
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/identity-management/overview.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/identity-management/toolchain.md
+      - name: Resource Management
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/resource-management/overview.md
+          - name: Resource access governance in Azure
+            href: cloud-adoption/governance/resource-management/azure-resource-access.md
+          - name: Resouce governance design for a single team
+            href: cloud-adoption/governance/resource-management/governance-single-team.md
+          - name: Resouce governance design for multiple teams
+            href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
+      - name: Configuration Management
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/configuration-management/overview.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/configuration-management/toolchain.md
+      - name: Monitoring & Enforcement
+        items:
+          - name: Overview
+            href: cloud-adoption/governance/monitoring-enforcement/overview.md
+      - name: How can a CISO prepare for the cloud?
+        href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+      - name: What is Data Governance?
+        href: cloud-adoption/governance/what-is-data-governance.md
+    - name: Infrastructure
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/overview.md
+        items:
+      - name: Subscriptions
+        items:
         - name: Overview
-          href: cloud-adoption/governance/policy-compliance/overview.md
-        - name: What is Regulatory Compliance?
-          href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-        - name: What is a Cloud Policy Review?
-          href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
-    - name: Cost Management
-      items:
+          href: cloud-adoption/infrastructure/subscriptions/overview.md
+        - name: VDC Subscriptions
+          href: cloud-adoption/infrastructure/subscriptions/vdc-subscriptions.md
+      - name: Identity
+        items:
         - name: Overview
-          href: cloud-adoption/governance/cost-management/overview.md
-        - name: Azure Specific Tool Chain
-          href: cloud-adoption/governance/cost-management/toolchain.md
-    - name: Security Management
-      items:
+          href: cloud-adoption/infrastructure/identity/overview.md
+        - name: VDC Identity & Roles
+          href: cloud-adoption/infrastructure/identity/vdc-identity.md
+      - name: Policy Enforcement
+        items:
         - name: Overview
-          href: cloud-adoption/governance/security-management/overview.md
-        - name: Sample Policy - Cloud Native Solution
-          href: cloud-adoption/governance/security-management/cloud-native-policy.md          
-        - name: Additional Security Guidance in Azure
-          href: cloud-adoption/governance/security-management/azure-security-guidance.md          
-    - name: Identity Management
-      items:
+          href: cloud-adoption/infrastructure/policy-enforcement/overview.md
+        - name: VDC Policy Enforcement
+          href: cloud-adoption/infrastructure/policy-enforcement/vdc-policy-enforcement.md
+      - name: Resource Grouping
+        items:
         - name: Overview
-          href: cloud-adoption/governance/identity-management/overview.md
-        - name: Azure Specific Tool Chain
-          href: cloud-adoption/governance/identity-management/toolchain.md
-    - name: Resource Management
-      items:
+          href: cloud-adoption/infrastructure/resource-grouping/overview.md
+        - name: VDC Resource Grouping
+          href: cloud-adoption/infrastructure/resource-grouping/vdc-resource-grouping.md
+      - name: Resource Tagging
+        items:
         - name: Overview
-          href: cloud-adoption/governance/resource-management/overview.md
-        - name: Resource access governance in Azure
-          href: cloud-adoption/governance/resource-management/azure-resource-access.md
-        - name: Resouce governance design for a single team
-          href: cloud-adoption/governance/resource-management/governance-single-team.md
-        - name: Resouce governance design for multiple teams
-          href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
-    - name: Configuration Management
-      items:
+          href: cloud-adoption/infrastructure/resource-tagging/overview.md
+        - name: VDC Naming and Tagging Standards
+          href: cloud-adoption/infrastructure/resource-tagging/vdc-naming.md
+      - name: Encryption
+        items:
         - name: Overview
-          href: cloud-adoption/governance/configuration-management/overview.md
-        - name: Azure Specific Tool Chain
-          href: cloud-adoption/governance/configuration-management/toolchain.md
-    - name: Monitoring & Enforcement
-      items:
+          href: cloud-adoption/infrastructure/encryption/overview.md
+        - name: VDC Encryption
+          href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
+      - name: Software Defined Networks
+        items:
         - name: Overview
-          href: cloud-adoption/governance/monitoring-enforcement/overview.md
-    - name: How can a CISO prepare for the cloud?
-      href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
-    - name: What is Data Governance?
-      href: cloud-adoption/governance/what-is-data-governance.md
-  - name: Infrastructure
-    items:
-    - name: Overview
-      href: cloud-adoption/infrastructure/overview.md
-      items:
-    - name: Subscriptions
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/subscriptions/overview.md
-      - name: VDC Subscriptions
-        href: cloud-adoption/infrastructure/subscriptions/vdc-subscriptions.md
-    - name: Identity
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/identity/overview.md
-      - name: VDC Identity & Roles
-        href: cloud-adoption/infrastructure/identity/vdc-identity.md
-    - name: Policy Enforcement
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/policy-enforcement/overview.md
-      - name: VDC Policy Enforcement
-        href: cloud-adoption/infrastructure/policy-enforcement/vdc-policy-enforcement.md
-    - name: Resource Grouping
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/resource-grouping/overview.md
-      - name: VDC Resource Grouping
-        href: cloud-adoption/infrastructure/resource-grouping/vdc-resource-grouping.md
-    - name: Resource Tagging
+          href: cloud-adoption/infrastructure/software-defined-networks/overview.md
+        - name: PaaS Only
+          href: cloud-adoption/infrastructure/software-defined-networks/paas-only.md
+        - name: Cloud Native
+          href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
+        - name: Hybrid
+          href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
+        - name: VDC Networking
+          href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
+      - name: Logs & Reporting
+        items:
+        - name: Overview
+          href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
+        - name: VDC Reporting and Monitoring
+          href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
+      - name: Virtual Machines
+        items:
+          - name: Deploy a basic workload
+            href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
+      - name: Mainframe Migration
+        items:
+          - name: Can a mainframe be migrated to Azure?
+            href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+      - name: Alternative Models
+        items:
+        - name: Azure Virtual Datacenter (VDC)
+          href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
+      - name: Create Hybrid Cloud Consistency
+        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+    - name: Foundational Concepts
       items:
       - name: Overview
-        href: cloud-adoption/infrastructure/resource-tagging/overview.md
-      - name: VDC Naming and Tagging Standards
-        href: cloud-adoption/infrastructure/resource-tagging/vdc-naming.md
-    - name: Encryption
+        href: cloud-adoption/getting-started/overview.md
+      - name: How does Azure work?
+        href: cloud-adoption/getting-started/what-is-azure.md
+      - name: Intro to Deployment Models
+        href: cloud-adoption/getting-started/cloud-deployment-models.md
+    - name: Appendix
       items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/encryption/overview.md
-      - name: VDC Encryption
-        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
-    - name: Software Defined Networks
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/software-defined-networks/overview.md
-      - name: PaaS Only
-        href: cloud-adoption/infrastructure/software-defined-networks/paas-only.md
-      - name: Cloud Native
-        href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
-      - name: Hybrid
-        href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
-      - name: VDC Networking
-        href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
-    - name: Logs & Reporting
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
-      - name: VDC Reporting and Monitoring
-        href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
-    - name: Virtual Machines
-      items:
-        - name: Deploy a basic workload
-          href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Mainframe Migration
-      items:
-        - name: Can a mainframe be migrated to Azure?
-          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-    - name: Alternative Models
-      items:
-      - name: Azure Virtual Datacenter (VDC)
-        href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
-    - name: Create Hybrid Cloud Consistency
-      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-  - name: Foundational Concepts
-    items:
-    - name: Overview
-      href: cloud-adoption/getting-started/overview.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: Intro to Deployment Models
-      href: cloud-adoption/getting-started/cloud-deployment-models.md
-  - name: Appendix
-    items:
-    - name: Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold.md
-    - name: Implementing Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold-examples.md
-    - name: Establish an operational fitness review
-      href: cloud-adoption/operations/operational-fitness-review.md
+      - name: Azure enterprise scaffold
+        href: cloud-adoption/appendix/azure-scaffold.md
+      - name: Implementing Azure enterprise scaffold
+        href: cloud-adoption/appendix/azure-scaffold-examples.md
+      - name: Establish an operational fitness review
+        href: cloud-adoption/operations/operational-fitness-review.md
