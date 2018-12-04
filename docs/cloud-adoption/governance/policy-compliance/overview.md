@@ -5,11 +5,7 @@ author: BrianBlanchard
 ms.date: 11/27/2018
 ---
 
-<<<<<<< HEAD
 # Fusion: How can corporate IT policy become Cloud-Ready?
-=======
-# Fusion: How do corporate policy and compliance impact cloud adoption and governance?
->>>>>>> 6971f2f4a42b2640c852e2b6be18e801bfd4b7b0
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental governance model. 
 

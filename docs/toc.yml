@@ -778,7 +778,6 @@
     - name: Foundational Concepts
       items:
       - name: Overview
-<<<<<<< HEAD
         href: cloud-adoption/getting-started/overview.md
       - name: How does Azure work?
         href: cloud-adoption/getting-started/what-is-azure.md
@@ -792,38 +791,3 @@
         href: cloud-adoption/appendix/azure-scaffold-examples.md
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
-=======
-        href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
-      - name: VDC Reporting and Monitoring
-        href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
-    - name: Virtual Machines
-      items:
-        - name: Deploy a basic workload
-          href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Mainframe Migration
-      items:
-        - name: Can a mainframe be migrated to Azure?
-          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-    - name: Supporting Models
-      items:
-      - name: Azure Virtual Datacenter (VDC)
-        href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
-    - name: Create Hybrid Cloud Consistency
-      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-  - name: Foundational Concepts
-    items:
-    - name: Overview
-      href: cloud-adoption/getting-started/overview.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: Intro to Deployment Models
-      href: cloud-adoption/getting-started/cloud-deployment-models.md
-  - name: Appendix
-    items:
-    - name: Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold.md
-    - name: Implementing Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold-examples.md
-    - name: Establish an operational fitness review
-      href: cloud-adoption/operations/operational-fitness-review.md
->>>>>>> 6971f2f4a42b2640c852e2b6be18e801bfd4b7b0
