@@ -1,7 +1,7 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Policy enforcement" 
 description: Discussing the policy enforcement approach the the Azure Virtual Datacenter (VDC) model
-author: rotycen
+author: rotycenh
 ms.date: 11/08/2018
 ---
 # Fusion: Azure Virtual Datacenter - Azure Policy enforcement

@@ -31,8 +31,10 @@ These assumptions include:
 
 - You will need to securely access cloud-based resources with your on-premises environment using [hybrid networking](../software-defined-networks/hybrid.md).
 - Your cloud estate will contain large number of assets and may exceed the number of resources [allowed within a single subscription](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits), or your subscription design aims to segment workloads into separate subscriptions based on security or accounting requirements. If your deployments can exist within a single subscription a VDC structure is likely unnecessary.
+- You will need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance.
+- You need a security model that allows central IT control over core services and security coupled with delegated control of workload resources.
 - The data stored on your cloud deployment is sensitive and needs to be secured using [encryption](../encryption/overview.md) in transit and at rest. Public data does not benefit from encryption.
-- Your on-premises identity services are compatible with Azure AD-based [identity federation](../identity/overview.md#federation-vdc).
+- Your on-premises identity services can be [federated with Azure Active Directory](../identity/overview.md#federation-vdc).
 - Your workloads will be compatible with cloud-based authentication methods such as AML and oAuth/OpenID connect. Legacy authentication methods like Kerberos or NTLM are not incorporated in the VDC model by default and need to be provisioned separately. 
 
 ## Fusion framework infrastructure and VDC
@@ -101,6 +103,8 @@ The central hub and multiple workload spokes are deployed as separate virtual ne
 The hub network hosts both the on-premises connectivity and the central firewall capabilities that manage traffic going to and from the workload spokes. It also hosts secure bastion jump boxes used for management of the hub environment, and hosts any common shared services that workloads can take advantage of (for instance,  DNS servers).
 
 Connectivity between your on-premises environment and the hub virtual network is provided through either an [ExpressRoute circuit](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) or [Azure VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways). 
+
+The VDC model supports connecting hub and spoke networks across geo-regions. However, connecting between geo-regions has the potential to introduce higher latency than would be the case if all networks were in the same geo-region, and this potential latency would need to be accounted for in your network and workload planning.
 
 > See the [VDC networking architecture](../software-defined-networks/vdc-networking.md) topic for more details.
 
