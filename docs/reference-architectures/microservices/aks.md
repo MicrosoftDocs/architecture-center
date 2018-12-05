@@ -15,13 +15,13 @@ The architecture consists of the following components.
 
 **Virtual network**. By default, AKS creates a virtual network to deploy the agent nodes into. For more advanced scenarios, you can create the virtual network first, which lets you control things like how the subnets are configured, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 
-**API Gateway**. An API gateway is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. 
+**Ingress**. An ingress exposes HTTP(S) routes to services inside the cluster. For more information, see the section [API Gateway](#api-gateway) below.
 
-**External data stores**. Services are typically stateless and write state to external data stores, such as Azure SQL Database or Cosmos DB.
+**External data stores**. Microservices are typically stateless and write state to external data stores, such as Azure SQL Database or Cosmos DB.
 
-**Azure Active Directory**. An Azure Active Directory (Azure AD) service principal is created for the AKS cluster. The service principal is needed for AKS to create and manage other Azure resources such as Azure load balancers. Azure AD is also recommended for user authentication in client applications.
+**Azure Active Directory**. AKS uses an Azure Active Directory (Azure AD) identity to create and manage other Azure resources such as Azure load balancers. Azure AD is also recommended for user authentication in client applications.
 
-**Azure Container Registry**. Use Container Registry to store private Docker images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Azure AD service principal. Note that AKS does not require Azure Container Registry. You can use other container registries, such as Docker Hub.
+**Azure Container Registry**. Use Container Registry to store private Docker images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Azure AD identity. Note that AKS does not require Azure Container Registry. You can use other container registries, such as Docker Hub.
 
 **Azure Pipelines**. Pipelines is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins. 
 
@@ -32,6 +32,58 @@ The architecture consists of the following components.
 ## Design considerations
 
 This reference architecture is focused on microservices architectures, although many of the recommended practices will apply to other workloads running on AKS.
+
+### Microservices
+
+The Kubernetes Service object is a natural way to model microservices in Kubernetes. A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs, and are discoverable through some form of service discovery. The Kubernetes Service object provides a set of capabilities that match these requirements:
+
+- IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
+
+- Load balancing. Traffic sent to the service's IP address is load balanced to the pods. 
+
+- Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
+
+The following diagram show the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
+
+![Services and pods](./_images/aks-services.png)
+
+## API Gateway
+
+An *API gateway* is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. 
+
+Functionality provided by a gateway can be grouped as follows:
+
+- [Gateway Routing](../../patterns/gateway-routing.md): Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
+
+- [Gateway Aggregation](../../patterns/gateway-aggregation.md): Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
+
+- [Gateway Offloading](../../patterns/gateway-offloading.md). A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
+
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. 
+
+Other options include:
+
+- Azure Application Gateway and/or Azure API-Management, which are both managed services that reside outside of the cluster. An Application Gateway Ingress Controller is currently in beta.
+
+- Azure Functions Proxies. Proxies can modify requests and responses and route requests based on URL.
+
+The Kubernetes **Ingress** resource type abstracts the configuration settings for a proxy server. It works in conjunction with an ingress controller, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway (preview), among others.
+
+The ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
+
+On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. 
+
+A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
+
+### Data storage
+
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](https://docs.microsoft.com/azure/architecture/microservices/data-considerations).
+
+Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead, 
+
+- Use an external service such as Azure SQL Database or Cosmos DB, *or*
+
+- Mount a persistent volume using Azure Disks or Azure Files. Use Azure Files if the same volume needs to be shared by multiple pods.
 
 ### Namespaces
 
@@ -47,56 +99,7 @@ For a microservices architecture, considering organizing the microservices into 
 
 Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
 
-### Microservices
 
-The Kubernetes Service object is a natural way to model microservices in Kubernetes. A microservice is a loosely coupled, independently deployable unit of code. Microservices typically communicate through well-defined APIs, and are discoverable through some form of service discovery. The Kubernetes Service object provides a set of capabilities that match these requirements:
-
-- IP address. The Service object provides a dedicated IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is still reachable. Note that these IP addresses are virtual within the cluster, and not reachable externally unless explicitly published.
-
-- Load balancing. Traffic sent to the service's IP address is load balanced to the pods. 
-
-- Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
-
-The following diagram show the conceptual relation between services and pods. The actual mapping to endpoint IP addresses and ports is done by kube-proxy, the Kubernetes network proxy.
-
-![Services and pods](./_images/aks-services.png)
-
-### Data storage
-
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](https://docs.microsoft.com/azure/architecture/microservices/data-considerations).
-
-Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead, 
-
-- Use an external service such as Azure SQL Database or Cosmos DB, *or*
-
-- Mount a persistent volume using Azure Disks or Azure Files. Use Azure Files if the same volume needs to be shared by multiple pods.
-
-### Interservice communication
-
-Consider using the Ambassador Pattern to place a proxy between a service and other services that it calls. The Ambassador Pattern abstracts the service's remote calls, and can be used to implement cross-cutting concerns such as routing, monitoring, retry logic, and circuit breaking. Ambassadors are often deployed by using sidecar containers.
-
-### API Gateway
-
-An API gateway is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to services. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. Functionality provided by a gateway can be grouped as follows:
-
-Gateway Routing: Routing client requests to the right backend services. This provides a single endpoint for clients, and helps to decouple clients from services.
-
-Gateway Aggregation: Aggregation of multiple requests into a single request, to reduce chattiness between the client and the backend.
-
-Gateway Offloading. A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
-
-Probably the most common way to implement an API gateway in Kubernetes is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. (The diagram above shows this option.)  Kubernetes defines an Ingress resource type that abstracts the configuration settings for a proxy server. It works in conjunction with an ingress controller, which provides the underlying implementation of the Ingress. There are ingress controllers for Nginx, HAProxy, Traefik, and Application Gateway (preview), among others.
-
-The ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
-
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. 
-
-A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
-Other options for an API gateway include:
-
-- Azure Application Gateway and/or Azure API-Management, which are both managed services that reside outside of the cluster. An Application Gateway Ingress Controller is currently in beta.
-
-- Azure Functions Proxies. This is a feature of Azure Functions, but can work well for this architecture as well. A Functions proxy points to any endpoint, which can be a public IP on the AKS cluster. Proxies can modify requests and responses and route requests based on URL.
 
 ## Scalability considerations
 
@@ -156,13 +159,13 @@ Resource contention can affect the availability of a service. Define resource co
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
-##Security considerations
+## Security considerations
 
 ### Role based access control (RBAC)
 
 Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
-- Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. A service principal is a security identity used by applications &mdash; this is how an AKS cluster interacts with Azure APIs.
+- Azure RBAC controls access to resources in Azure, including the ability to create new Azure resources. Permissions can be assigned to users, groups, or service principals. (A service principal is a security identity used by applications.)
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
 
@@ -202,7 +205,7 @@ Finally, there is the question of what permissions the AKS cluster has to create
 
 Applications and services often need credentials that allow them to connect to external services such as Azure Storage or SQL Database. The challenge is to keep these credentials safe and not leak them. 
 
-For Azure resources, one option is to use managed identities. The idea of a managed identity is that an application or service has an identity stored in Azure AD, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Azure AD, and authenticates using OAuth 2.0 tokens. The executing process calls a localhost address to get the token. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning identities to individual pods, using the aad-pod-identity project (currently in beta).
+For Azure resources, one option is to use managed identities. The idea of a managed identity is that an application or service has an identity stored in Azure AD, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Azure AD, and authenticates using OAuth 2.0 tokens. The executing process calls a localhost address to get the token. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning identities to individual pods, using the [aad-pod-identity](https://github.com/Azure/aad-pod-identity) project.
 
 Currently, not all Azure services support authentication using managed identities. For a list, see [Azure services that support Azure AD authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi).
 
