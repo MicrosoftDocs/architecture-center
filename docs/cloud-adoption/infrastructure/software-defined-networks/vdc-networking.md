@@ -10,7 +10,6 @@ ms.date: 11/08/2018
 > [!NOTE]
 > The Azure Virtual Datacenter model is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. The networking aspects of the Azure Virtual datacenter model is discussed below, but for more information about this approach as a whole, and if it's right for your cloud migration, see the main [Azure Virtual Datacenter](../virtual-datacenter/overview.md) topic. 
 
-
 Jump to: [IP Policy](#ip-policy) | [On-premises connectivity](#on-premises-connectivity) | [Hub network](#hub-network) | [Spoke networks](#spoke-networks) | [Virtual network integration with PaaS](#virtual-network-integration-with-paas)
 
 ![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
@@ -25,7 +24,7 @@ The VDC model supports connecting hub and spoke networks across geo-regions. How
 
 ## IP Policy
 
-To interact with your on-premises network, your central hub and workload spoke networks need to have a compatible IP address configuration. IP ranges for the hub and workspace spokes should not conflict with each other or any on-premises networks the VDC connects with. Before deploying a VDC, integrate the networks in your VDC with your existing on-premises IP Address Management (IPAM) scheme before settling on the IP ranges for the main hub and any planned spoke networks.
+To interact with your on-premises network, your central hub and workload spoke networks need to have a compatible IP address configuration. IP ranges for the hub and workspace spokes should not conflict with each other or any on-premises networks the virtual datacenter connects with. Before deploying a VDC, integrate the networks in your virtual datacenter with your existing on-premises IP Address Management (IPAM) scheme before settling on the IP ranges for the main hub and any planned spoke networks.
 
 ## On-premises connectivity
 
@@ -46,13 +45,15 @@ Spoke virtual networks use [virtual network peering](https://docs.microsoft.com/
 
 ### Subnets
 
-The central hub virtual network is broken into several subnets, each allowing the separate application of route tables and security settings.
+The central hub virtual network hosts several subnets, each allowing the separate application of route tables and security settings. This subnet design can vary depending on what features the hub supports, but at the minimum will support the following three subnets:
 
 | Subnet               | Description                                                                       |
 |----------------------|-----------------------------------------------------------------------------------|
 | Gateway              | Contains the Virtual Network Gateway connecting the hub with the on-premises network.   |
 | Shared Services      | Contains the secure bastion host managment VMs and virtual servers hosting DNS or domain services.                       |
-| Central firewall     | Hosts the central firewall. Note, depending on how your central firewall is configured this may be broken into two or more subnets. For instance, you may have an ingress subnet to handle traffic handling incoming traffic using one virtual device, and an egress subnet that uses another mechanism to secure outbound traffic. |
+| Central firewall     | Hosts the central firewall.  |
+
+The central firewall subnet may be broken into two or more subnets. For instance, you may have an ingress subnet to handle traffic handling incoming traffic using one virtual device, and an egress subnet that uses another mechanism to secure outbound traffic. 
 
 ### User Defined Routes
 
@@ -65,7 +66,7 @@ Depending on your central firewall configuration, UDR rules can vary in complexi
 - Requests for tasks such as name resolution are routed to the shared services subnet. 
 - Requests for on-premises resources are passed to the gateway. 
 
-In any case where the VDC allows either incoming or outgoing access to the Internet without first passing through the on-premises network, the Azure Virtual Datacenter model requires a [full DMZ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz). In this scenario, UDRs send traffic coming into or out of the VDC to NVAs hosted on a DMZ subnet. This traffic gets processed, and only approved requests make it through either to the outside world or into the secured hub virtual network's central firewall, where it can be forwarded to the appropriate workloads spoke network.
+In any case where the virtual datacenter allows either incoming or outgoing access to the Internet without first passing through the on-premises network, the Azure Virtual Datacenter model requires a [full DMZ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz). In this scenario, UDRs send traffic coming into or out of the virtual datacenter to NVAs hosted on a DMZ subnet. This traffic gets processed, and only approved requests make it through either to the outside world or into the secured hub virtual network's central firewall, where it can be forwarded to the appropriate workloads spoke network.
 
 ### Gateway
 
@@ -102,30 +103,47 @@ The shared services subnet uses a separate set of rules applied to limit access 
 | Outbound  | Allow Internet Outbound | Allows any traffic from with the virtual network to access external locations (subject to UDR rules or firewall/DMZ access restriction). |
 | Outbound  | Deny All Outbound       | Prevents any outbound traffic to the subnet not explicitly allowed in previous rules.                    |
 
+### Shared Services (DNS)
+
+The shared services subnet provides a central place to deploy core functionality used by workloads. For example, workloads in a VDC need to resolve names for on-premises resources, and the on-premises network needs to resolve names for virtual datacenter resources, so DNS services are the first shared service you will deploy to the VDC. You will want to integrate VDC hosted DNS service with your existing DNS infrastructure, so that you have consistent name resolution across virtual and on-premises environments. 
+
+The standard VDC model provides DNS services by creating a primary and secondary domain controller running Azure Active Directory Domain Services in the central hub environment, configured to handle DNS resolution for the VDC. These servers are configured to forward DNS requests from the VDC to the on-premises environment, and the on-premises DNS servers will need to also be configured to forward DNS requests for names of workspace resources to the shared services DNS servers.
+
+After deploying DNS services, the hub and each spoke virtual network need to be configured to use the shared services VMs as their default DNS servers. 
+
 ### Management 
 
-*Description of secure bastion host management VMs to come.*
+By default, your on-premises network will lack direct access to a VDC's virtual networks or connected resources. However, your central IT teams will need to configure the central firewall and oversee other management tasks in the hub infrastructure that are not available through the Azure portal or management APIs. To support this capability, you will need to create a set of secured bastion host virtual machines connected to the network. UDR rules will allow administrators to connect to these virtual machines from the on-premises network only, and directly access virtual machines and NVAs hosted in the VDC network.
 
-### Shared Services (ADDS)
-
-*Description of ADDS servers and relationship with on-premises domain servers to come.*
+These management VMs are created inside the shared services subnet, and NSG rules applied to this subnet restrict access to specific IPs on the on-premises network. The VDC model recommends deploying two of these VMs to the hub environment as an [availability set](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability). It is also recommended that you use the [just in time access control](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time) mechanism to prevent unauthorized administrator access to the VMs.
 
 ### Central firewall
 
-*Description of the central firewall concept to come.*
+In the VDC model, the *central firewall* is not a specific virtual device, but an abstract reference to whatever devices or services are responsible for controlling what traffic is allowed to pass in and out of the VDC and determines how that traffic is directed. The central firewall manages network flow within the virtual datacenter and between resources hosted in the virtual datacenter and those in external environments, including the on-premises datacenter. Spoke networks and the gateway subnet use UDRs to route outbound traffic to the central firewall.
 
-Sample Options:
+The VDC model offers no prescriptive guidance on what devices to use to construct your central firewall. However, there are some standard approaches that you can apply:
 
-- UDRs
-- NVAs
-- Azure Firewall
-- Application Gateway
+#### Native Azure traffic management features 
 
+Several Azure features provide traffic management features that can be used within a VDC central firewall. For instance, [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview) is a web traffic load balancer that allows you to manage traffic targeting your workloads at both the transport layer (OSI layer 4 - TCP and UDP) using  source IP address and port and  application layer (OSI layer 7) load balancing based on request path. Application gateways can manage traffic coming from the public internet via a public IP or be used with an [Azure Internal Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview#a-name--internalloadbalancera-internal-load-balancer) to manage traffic within the virtual network.
+
+[Azure Firewall](https://docs.microsoft.com/en-us/azure/firewall/overview) is another Azure feature that can be used as part of your central firewall configuration. Azure firewall can be used to control outbound requests, allowing you to provide limited access to the public internet to resources hosted in your virtual datacenter. For instance, only allowing machines inside your virtual datacenter to access Windows Update services, while preventing access to the rest of the internet. 
+
+#### Network Virtual Appliances (NVAs)
+
+The [Azure Marketplace contains](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1) many pre-built VM images designed to provide the same capabilities as traditional physical network security and management devices. These [Network Virtual Appliances (NVAs)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha) can be deployed to your central firewall subnet and then configured using through your VDC's management VMs. 
+
+#### Custom VMs
+
+If existing NVAs don't meet your security needs, you can deploy a custom VM and configure it to perform traffic management for the VDC. You can either deploy an existing base image from the Marketplace, or, if your organization has existing pre-configured VM images on-premises, you can [create a VM in Azure using a custom image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+ 
 ## Spoke networks
 
 Workload spokes are separate virtual networks that, aside from network peering with the hub network, are isolated by default. All traffic travelling to the spoke from outside the VDC and form the spoke to the outside world are forced to travel through the hub where central security rules and access policies are applied. Much of the control over the spoke networks and connected workload resources can be delegated to the workload teams themselves, while critical security and access controls can be maintained through the central hub.
 
-*Description of secure bastion host management VMs to come.*
+
+
+
 
 ## Virtual network integration with PaaS
 
