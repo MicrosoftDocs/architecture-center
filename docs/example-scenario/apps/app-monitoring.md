@@ -3,6 +3,7 @@ title: Web application monitoring on Azure
 description: Monitor a web application hosted in Azure App Service.
 author: adamboeglin
 ms.date: 09/12/2018
+ms.custom: azcat
 ---
 
 # Web application monitoring on Azure

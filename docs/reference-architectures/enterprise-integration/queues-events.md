@@ -6,6 +6,7 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 12/03/2018
+ms.custom: integration-services
 ---
 
 # Enterprise integration on Azure using message queues and events

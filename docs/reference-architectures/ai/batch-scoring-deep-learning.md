@@ -4,6 +4,7 @@ description: This reference architecture shows how to apply neural style transfe
 author: jiata
 ms.date: 10/02/2018
 ms.author: jiata
+ms.custom: azcat-ai
 ---
 
 # Batch scoring on Azure for deep learning models
