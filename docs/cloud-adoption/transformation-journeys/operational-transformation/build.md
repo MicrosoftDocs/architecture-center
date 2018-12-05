@@ -51,4 +51,4 @@ If none of these articles appears aligned to current activities, it could indica
 Conversely, if the Build process is complete, this journey is ready to advance to the [Migrate process](migrate.md).
 
 > [!div class="nextstepaction"]
-> [Define Global Markets](../../business-strategy/global-markets.md)
+> [Begin Migration](migrate.md)
