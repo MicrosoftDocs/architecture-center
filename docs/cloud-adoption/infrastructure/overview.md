@@ -35,7 +35,7 @@ Define and enforce organizational policy rules for resources and workloads that 
 
 [Resource Grouping](resource-grouping/overview.md):
 Ensure that deployment and organization of cloud-based resources align to enforce management and 
-policy requirements. 
+policy requirements.
 
 [Resource Tagging](resource-tagging/overview.md):
 Organize your cloud-based resources to support management, access control, and operational 

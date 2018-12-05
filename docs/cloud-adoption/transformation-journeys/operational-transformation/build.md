@@ -21,7 +21,7 @@ The following activities align help expand the business vision and build the rel
 
 * [Global Markets](../../business-strategy/global-markets.md): Understanding global usage patterns and targets for delivering products and services in global markets directly impacts the technical strategy.
 * [Stakeholder Alignment](../../business-strategy/stakeholder-alignment.md): Business stakeholders will be essential during user adoption. Without them, business change is impossible. During the build phased, begin socializing plans and timelines for validation and logistical alignment.
-* [Business Reviews](../../business-strategy/business-reviews.md): Establish a **business review cadence** to keep stakeholders aligned. Communicating business impact, progress, and timing will prepare stakeholders for coming dependencies. 
+* [Business Reviews](../../business-strategy/business-reviews.md): Establish a **business review cadence** to keep stakeholders aligned. Communicating business impact, progress, and timing will prepare stakeholders for coming dependencies.
 
 ## Culture Activities
 
@@ -35,11 +35,10 @@ During the "Build" Phase, cultural impact is limited to a small group of archite
 During the Build process, the Cloud Adoption Team prepares the Digital Estate and cloud environment for migration.
 
 * [Prioritized Migration Backlog](../../migration/plan/migration-backlog.md): This backlog serves as the technical implementation strategy to support the business transformation strategy. During the plan stage, IT develops this plan in tandem with the business to maximize business outcomes throughout the transformation journey.
-* [Subscription and Tagging Strategy](../../migration/plan/rationalize.md): The first set of technical decisions is the subscription and tagging strategy. The backlog, global markets, and cloud accounting are all inputs to influence these decisions.
-* [Core Services](../../migration/plan/core-services.md): These core services will provide the foundation needed to host assets in the cloud. Prior to migration, a Minimally Viable Product (MVP) of each must be established to support assets to be deployed. At each release, these services are evolved to support planned migrations. 
-
+* [Subscription Strategy](../../infrastructure/subscriptions/overview.md): One of the most important decisions to be made in the early phases of adoption is the creation of a Subscription Strategy. This strategy will influence all other technical decisions. Additional, the strategy is influenced by proceeding decisions made about backlog, global markets, and cloud accounting. Each input is identified in the linked article.
+* [Tagging Strategy](../../infrastructure/resource-tagging/overview.md): Before deploying resources into a subscription, it is important to develop a strategy for tagging resources. Resource tagging along with other more advance resource management strategies will determine how cloud based assets are managed and operated. Choosing a general strategy prior to deployment of core infrastructure will embody operational best practices from day one.
+* [Core Infrastructure](../../infrastructure/overview.md): These core services will provide the foundation needed to host assets in the cloud. Prior to migration, a Minimally Viable Product (MVP) of each must be established to support assets to be deployed. At each release, these services are evolved to support planned migrations.
 * [Corporate Policy and Compliance](../../migration/plan/corporate-policy-and-compliance.md): Corporate policy and Compliance during the build phase is an effort to identify a Minimally Viable Product (MVP) for risk mitigation and controls. Much like the actual migration effort, these policies are meant to be advanced with the assets being migrated. This approach ensures adequate protection for the assets that are migrated to the cloud, with minimal intrusion in the business transformation.
-
     * [CISO Guidance](../../migration/plan/ciso-guidance.md): When possible, include the CISO to provide guidance and validate the MVP, even during technical spikes. This will ensure the Information Security team has time to adopt protection approaches to the cloud migration efforts.
 
 ## Next steps
