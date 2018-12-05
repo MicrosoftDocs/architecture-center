@@ -24,11 +24,17 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Evaluate [Tool Chain](toolchain.md) options
-* Develop and surface a draft of Architecture Guidelines
-* Educate and involve the teams impacted in the development of Architecture Guidelines
+* Evaluate your [Security Management Tool Chain](toolchain.md) options.
+* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
+* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
 **Potential Activities**
+* Determine whether your security management policy includes a [Cloud Native](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/security-management/cloud-native-policy?branch=brian%2FCOMIntegration) policy.
+* Review secuirity guidelines in the [Microsoft Service Trust Platform](https://www.microsoft.com/en-us/trustcenter/stp/default.aspx).
+* Determine whether your security management policy includes a [Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/). 
+* Review Microsoft's [top trends in cybersecurity](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) report.
+
+* Consider developing a [Security DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops)role in your organization.
 
 ## Build / Pre-Deployment
 
@@ -36,11 +42,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Implement [Tool Chain](toolchain.md)
-* Update Architecture Guidelines
-* Educate teams impacted in the Architecture Guidelines
+* Implement your [Security Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
+* Update the Architecture Guidelines document and distribute to key stakeholders.
+* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
 
-**Potential Activities**
+**Potential activities**
+* Determine whether you need [Data Protection Resources](https://servicetrust.microsoft.com/ViewPage/TrustDocuments) to protect and manage cloud data security and compliance for your organization.
+* Consider developing a security roadmap for closing the gaps between your current plan and best practices as described by the [Microsoft Service Trust Platform](https://www.microsoft.com/en-us/trustcenter/stp/default.aspx). 
+* Review your security management policy and determine if you need to modify your plans according to best practices outlined in the [Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/).
 
 ## Adopt / Migrate
 
@@ -48,11 +57,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Adjust [Tool Chain](toolchain.md)
-* Adjust Architecture Guidelines
-* Educate teams impacted in the Architecture Guidelines
+* Migrate your [Security Management Tool Chain](toolchain.md) from pre-deployment to production.
+* Update the Architecture Guidelines document and distribute to key stakeholders.
+* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption
 
 **Potential Activities**
+* Validate that the best practices defined during the Build / Pre-deployment phases are properly executed. 
+* Review security management and advanced threat protection information at the [Microsoft Azure Security Center](security management and advanced threat protection across hybrid cloud workloads).
+* Test your Security Management Tool Chain with your cloud apps and utilize Microsoft's [Cloud App Security Framework](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security) as necessary.
 
 ## Operate / Post-Implementation
 
@@ -60,12 +72,21 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum Suggested Activities**
 
-* Customize [Tool Chain](toolchain.md)
-* Automate [Tool Chain](toolchain.md)
-* Refine Architecture Guidelines to guide future adoption processes
-* Re-Educate impacted teams on a periodic basis to ensure on-going adherence to Architecture Guidelines
+* Validate and/or refine your [Security Management Tool Chain](toolchain.md).
+* Refine the Architecture Guidelines to guide future adoption processes.
+* Automate notifications and reports to alert you of potential security issues.
+* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure on-going adherence to Architecture Guidelines.
 
 **Potential Activities**
+
+* Consider adding security mechanisms to aid in the management and monitoring of [Azure cloud services and virtual machines (VMs)](https://docs.microsoft.com/en-us/azure/security/security-management-and-monitoring-overview).
+* Review security best practices oulined in the [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json):
+  * Centralized policy management – Ensure compliance with company or regulatory security requirements by centrally managing security policies across all your hybrid cloud workloads.
+  * Continuous security assessment – Monitor the security posture of machines, networks, storage and data services, and applications to discover potential security issues.
+  * Actionable recommendations – Remediate security vulnerabilities before they can be exploited by attackers with prioritized and actionable security recommendations.
+  * Prioritized alerts and incidents - Focus on the most critical threats first with prioritized security alerts and incidents.
+  * Advanced cloud defenses – Reduce threats with just in time access to management ports and adaptive application controls running on your VMs.
+  * Integrated security solutions - Collect, search, and analyze security data from a variety of sources, including connected partner solutions.
 
 ## Next steps
 
