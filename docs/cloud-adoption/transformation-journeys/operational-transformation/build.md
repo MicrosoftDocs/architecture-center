@@ -28,7 +28,7 @@ The following activities align help expand the business vision and build the rel
 During the "Build" Phase, cultural impact is limited to a small group of architects and technical SMEs. This process can take months to fully execute. During this time, it is suggested that the cultural focus be on continued development of the candidate pipeline and growth of technical skills in willing participants.
 
 > [!TIP]
-> The [Plan process](plan.md) can be exciting to business and technical participants. During the build process, that momentum can easily be lost. During larger or more complex build processes, it is advised that the Cloud Strategy Team continue to engage the business in planning, assessment, and architecture activities slated for early stage [Migration activities](migrate.md). In parallel, technical team members can stay engaged through the execution of additional [Technical Spikes](../../migration/plan/technical-spike-poc.md).
+> The [Plan process](plan.md) can be exciting to business and technical participants. During the build process, that momentum can easily be lost. During larger or more complex build processes, it is advised that the Cloud Strategy Team continue to engage the business in planning, assessment, and architecture activities slated for early stage [Migration activities](migrate.md). In parallel, technical team members often stay engaged through early execution of the [First Workload](../../migration/plan/first-workload.md) in a Dev/Test environment to prepare the team for larger production migrations.
 
 ## Technology Activities
 
