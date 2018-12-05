@@ -1,11 +1,11 @@
 ---
-title: Deploy Drupal in Azure for greater operational resiliency - Azure Example Scenarios
-description: Deploy the Drupal content management system on Azure for greater operational resiliency
+title: Deploy Drupal on Azure for greater operational resiliency - Azure Example Scenarios
+description: Deploy the Drupal content management system on Azure for greater operational resiliency.
 author: richstep
 ms.date: 11/28/2018
 ---
 
-# Deploy Drupal in Azure for greater operational resiliency
+# Deploy Drupal on Azure for greater operational resiliency
 
 Review this Azure example scenario to learn about deploying the Drupal content management system in Azure to achieve greater resiliency for content-based websites.
 
@@ -14,9 +14,10 @@ This scenario is based on a solution built by a [microgrid](https://www.energy.g
 As an early stage startup, the company could not afford a full-time software developer. They wanted a cloud provider with services usable by a tech-savvy end user. The founders decided to migrate to Azure and take advantage of Azure's platform as a service (PaaS) capabilities for their resilience and ease of use. The services chosen include Azure App Services for Linux, Azure DB for MySQL, Azure Application Gateway, Azure Container Registry, and Azure DevOps.
 
 This architecture provides a number of benefits:
-* Increased operational resilience by running Drupal on Azure App Services and Azure DB for MySQL instead of running on virtual machines, and by storing backups in separate geographic locations.
-* Significantly increased operational agility, driving innovations and changes to market quickly with fewer mistakes.
-* Increased security using Azure Application Gateway’s web application firewall.
+
+* Increased operational resilience by running Drupal on Azure App Services and Azure Database for MySQL instead of running on virtual machines, and by storing backups in separate geographic locations.
+* Significantly improved operational agility, driving innovations and changes to market quickly with fewer mistakes.
+* Increased security by using Azure Application Gateway’s web application firewall.
 * Optimized operations using Docker container technology for quick and accurate deployments.
 
 ## Relevant use cases
@@ -31,27 +32,13 @@ Other relevant use cases include:
 
 ![Architecture for Drupal on Azure][architecture]
 
-Part 1 (Customer Facing)
-
-Maintaining the reliability of an electrical grid is a responsibility with life-and-death consequences. User web requests first hit an Azure Application Gateway. The gateway performs application-level (layer-7) load balancing, but in this customers case, the gateway is used as a web application firewall (WAF). The WAF is partially based on the OWASP Top 10 and helps prevent common web server attacks such as SQL injection and cross-site scripting.
-
-The app gateway passes verified requests to the Azure App Service for Linux. This is merely a web server of your choice running in a Docker container. This customer choose Apache for their web server. Like most platforms, the Drupal platform depends on a database. In this case, Azure SQL DB for MySQL. 
-
-Drupal communicates with its database, Azure DB for MySQL, using standard drivers and secured connection strings. The MySQL service is regionally fault-tolerate and can scale-up and scale-down, by adding or removing virtual cores and memory with no downtime.
-
-Part 2 (DevOps)
-
-All Azure App service web apps are automatically be backed up on a recurring schedule.
-
-The Azure DB for MySQL services can make geo-redundant backups to better protect during a regional disaster. Transaction log backups occur every five minutes allowing a database to be restored to a point-in-time.
-
-Using container technology, such as Docker, requires organizations to rethink their DevOps process. In this example, to-be-hired Drupal developers on Apple Macs or PC will run Microsoft's open source IDE Visual Studio Code. VS Code has a Docker extension that makes developing and deploying container-based apps a seamless experience. Developers will run Docker locally, write code, and test on their local workstations. They then commit their code changes to their source control repository.
-
-Azure DevOps notices the commit and triggers a process that builds a new Docker image. The image is identical to the image running locally on the developer workstation (in this example, one of the founders is running Docker locally and makes minor code or Drupal component changes) The newly built image is pushed to the customer's Azure Container Registry. The registry securely stores container images similar to how Docker Hub operates.
-
-Azure DevOps notices the new image and deploys a new container to a dev or staging slot in the Azure App Service. Devs and quality assurance professionals can test the code changes before the DevOps team "swaps" the slots: the staging slot becomes production and the old production website is moved to the staging slot. If mistakes are found in production, a simple click will swap the older production site back into production.
-
-To implement this architecture, you should have staff who has container skills or is capable of learning Docker. Having staff that has familiarity with CI/CD also increases productivity and operational agility.
+1. Web user requests are intially routed through an Azure Application Gateway. The gateway performs application-level (layer 7) load balancing, but in this case the gateway is used as a web application firewall (WAF). The WAF helps prevent common web server attacks such as SQL injection and cross-site scripting.
+2. The gateway passes verified requests to the Azure App Service for Linux. This is merely a web server of your choice running in a Docker container. In this scenario, the organization chose Apache for their web server. All Azure App Service web apps are automatically backed up on a recurring schedule.
+3. Like most platforms, Drupal depends on a database such as the Azure Database for MySQL used here. Drupal communicates with Azure Database for MySQL using standard drivers and secured connection strings. The MySQL service is regionally fault tolerant and can scale up and down without downtime by adding or removing virtual cores and memory. The Azure Database for MySQL services can make geo-redundant backups to better protect during a regional disaster. Transaction log backups occur every five minutes allowing point-in-time database restores.
+4. Using container technologies such as Docker requires organizations to rethink their DevOps processes. In this example, Drupal developers using PCs or Macs will run Visual Studio Code, Microsoft's open source IDE. Visual Studio Code has a Docker extension that makes developing and deploying container-based apps a seamless experience. Developers run Docker locally, write code, and test on their local workstations. They then commit their code changes to their source control repository.
+5. Azure DevOps notices the commit and triggers a process that builds a new Docker image. The image is identical to the image running locally on the developer workstation.
+6. The newly built image is pushed to the customer's Azure Container Registry. The registry securely stores container images similar to the way Docker Hub operates.
+7. Azure DevOps notices the new image and deploys a new container to a dev or staging slot in the Azure App Service. Devs and quality assurance professionals can test the code changes before the DevOps team swaps the slots: the staging slot becomes production and the old production website is moved to the staging slot. If mistakes are found in production, the team can easily swap the older production site back into the production slot. An organization implementing this architecture, needs staff with container skills or the ability to learn Docker. Having staff familiar with continuous integration and continuous delivery processes also increases productivity and operational agility.
 
 ### Components
 
@@ -84,4 +71,4 @@ To deploy this scenario, follow the [deployment steps available on GitHub](https
 
 <!-- links -->
 
-[architecture]: ./media/architecture-appservice-for-linux-drupal.png
+[architecture]: ./media/architecture-drupal-linux-azure.png
