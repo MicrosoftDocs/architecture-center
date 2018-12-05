@@ -7,6 +7,7 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 12/03/2018
+ms.custom: integration-services
 ---
 
 # Basic enterprise integration on Azure
