@@ -45,7 +45,9 @@ During the Build process, the Cloud Adoption Team prepares the Digital Estate an
 ## Next steps
 
 Each of the sections above are designed to personalize next steps to the current activities experienced at this phase of transformation.
+
 If none of these articles appears aligned to current activities, it could indicate that the team is still focused on the [Plan process](plan.md).
+
 Conversely, if the Build process is complete, this journey is ready to advance to the [Migrate process](migrate.md).
 
 > [!div class="nextstepaction"]
