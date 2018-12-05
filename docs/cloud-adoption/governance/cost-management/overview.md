@@ -14,7 +14,7 @@ This article outlines different phases of Cost Management evolution, as a compan
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Four phases of adoption](../../_images/adoptionphases.png)
+![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the Cloud Governance Model
 
@@ -25,7 +25,6 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Minimum Suggested Activities**
 
 * Evaluate your [Cost Management tool Chain](toolchain.md) options.
-* Develop and surface a draft of Architecture Guidelines
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 

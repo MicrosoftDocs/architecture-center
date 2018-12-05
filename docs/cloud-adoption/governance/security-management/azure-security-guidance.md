@@ -1,15 +1,15 @@
 ---
 title: "Fusion: Azure Security guidance"
-description: What security guidance does microsoft provide?
+description: What security guidance does Microsoft provide?
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 12/4/2018
 ---
 
-# Fusion: What security guidance does microsoft provide?
+# Fusion: What security guidance does Microsoft provide?
 
 ## Security guidance and tools
 
-Microsoft introduced the Service Trust Portal and Compliance Manager to help with the following:
+Microsoft introduced the [Service Trust Platform](https://www.microsoft.com/en-us/trustcenter/stp/default.aspx) and Compliance Manager to help with the following:
 
 * Overcome compliance management challenges
 * Fulfill responsibilities of meeting regulatory requirements
@@ -17,9 +17,9 @@ Microsoft introduced the Service Trust Portal and Compliance Manager to help wit
 
 These tools are  designed to help organizations meet complex compliance obligations and improve data protection capabilities when choosing and using Microsoft Cloud services.
 
-**Service Trust Portal (STP)** provides in-depth information and tools to help meet your needs for using Microsoft Cloud services, including Azure, Office 365, Dynamics 365, and Windows. STP is a one-stop shop for security, regulatory, compliance, and privacy information related to the Microsoft Cloud. It is where we publish the information and resources needed to perform self-service risk assessments of cloud services and tools. STP was created to help track regulatory compliance activities within Azure, including:
+**Service Trust Platform (STP)** provides in-depth information and tools to help meet your needs for using Microsoft Cloud services, including Azure, Office 365, Dynamics 365, and Windows. STP is a one-stop shop for security, regulatory, compliance, and privacy information related to the Microsoft Cloud. It is where we publish the information and resources needed to perform self-service risk assessments of cloud services and tools. STP was created to help track regulatory compliance activities within Azure, including:
 
-* Compliance Manager: Compliance Manager, a workflow-based risk assessment tool in the Microsoft Service Trust Portal, enables you to track, assign, and verify your organization's regulatory compliance activities related to Microsoft Cloud services, such as Office 365, Dynamics 365 and Azure. You can find more details in the next section.
+* Compliance Manager: Compliance Manager, a workflow-based risk assessment tool in the Microsoft Service Trust Platform, enables you to track, assign, and verify your organization's regulatory compliance activities related to Microsoft Cloud services, such as Office 365, Dynamics 365 and Azure. You can find more details in the next section.
 * Trust documents: Currently there are three categories of guides that provide you with abundant resources to assess Microsoft Cloud; learn about Microsoft operations in security, compliance, and privacy; and help you act on improving your data protection capabilities. These include:
 * Audit reports: These audit reports allow you to stay current on the latest privacy, security, and compliance-related information for Microsoft Cloud services. This includes ISO, SOC, FedRAMP and other audit reports, bridge letters, and materials related to independent third-party audits of Microsoft Cloud services such as Azure, Office 365, Dynamics 365, and others.
 * Data protection guides: Data protection guides provide information about how Microsoft Cloud services protect your data, and how you can manage cloud data security and compliance for your organization. This includes deep-dive white papers that provide details on how Microsoft designs and operates cloud services, FAQs, reports of end-of-year security assessments, penetration test results, and guidance to help you conduct risk assessment and improve your data protection capabilities.
@@ -36,7 +36,7 @@ These tools are  designed to help organizations meet complex compliance obligati
     * Data Subject Requests: The GDPR grants individuals (or data subjects) certain rights in connection with the processing of their personal data. This includes the right to correct inaccurate data, erase data, or restrict its processing, as well as receive their data and fulfill a request to transmit their data to another controller.
     * Data Breach: The GDPR mandates notification requirements for data controllers and processors in the event of a breach of personal data. STP provides you with information about how Microsoft tries to prevent breaches in the first place, how Microsoft detects a breach, and how Microsoft will respond in the event of a breach and notify you as a data controller.
     * Data Protection Impact Assessment: Microsoft helps controllers complete GDPR Data Protection Impact Assessments. The GDPR provides an in-exhaustive list of cases in which DPIAs must be carried out, such as automated processing for the purposes of profiling and similar activities; processing on a large scale of special categories of personal data, and systematic monitoring of a publicly accessible area on a large scale.
-    * Other resources: In addition to tools guidance discussed in the above sections, STP also provides other resources including regional compliance, additional resources for the Security and Compliance Center, and frequently asked questions about the Service Trust Portal, Compliance Manager, and privacy/GDPR.
+    * Other resources: In addition to tools guidance discussed in the above sections, STP also provides other resources including regional compliance, additional resources for the Security and Compliance Center, and frequently asked questions about the Service Trust Platform, Compliance Manager, and privacy/GDPR.
 * Regional compliance: STP provides numerous compliance documents and guidance for Microsoft online services to meet compliance requirements for different regions including Czech Republic, Poland, and Romania.
 
 ## Unique intelligent insights
