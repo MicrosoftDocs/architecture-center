@@ -2,7 +2,7 @@
 title: Processing CSV and JSON files
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Working with CSV and JSON files for data solutions

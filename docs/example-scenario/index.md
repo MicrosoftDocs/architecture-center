@@ -2,7 +2,7 @@
 title: Azure Example Scenarios
 description: Example scenarios for specific business use cases
 author: david-stanford
-ms:date: 11/01/2018
+ms.date: 11/01/2018
 layout: LandingPage
 ms.topic: landing-page
 ---

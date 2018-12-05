@@ -2,7 +2,7 @@
 title: Batch processing
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Batch processing

@@ -2,7 +2,7 @@
 title: Non-relational data and NoSQL
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Non-relational data and NoSQL

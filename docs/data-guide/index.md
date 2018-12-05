@@ -2,7 +2,7 @@
 title: Azure Data Architecture Guide
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 layout: LandingPage
 ms.topic: landing-page
 ---

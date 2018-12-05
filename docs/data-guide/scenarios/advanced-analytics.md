@@ -2,7 +2,7 @@
 title: Advanced analytics
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Advanced analytics

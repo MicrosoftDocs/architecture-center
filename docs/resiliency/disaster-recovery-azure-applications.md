@@ -11,7 +11,7 @@ Disaster recovery (DR) is focused on recovering from a catastrophic loss of appl
 
 Business and technology owners must determine how much functionality is required during a disaster. This level of functionality can take a few forms: completely unavailable, partially available via reduced functionality or delayed processing, or fully available.
 
-Resiliency and high availability strategies are intended to handling temporary failure conditions.  Executing this plan involves people, processes, and supporting applications that allow the system to continue functioning. Your plan should include rehearsing failures and testing the recovery of databases to ensure the plan is sound. 
+Resiliency and high availability strategies are intended for handling temporary failure conditions.  Executing this plan involves people, processes, and supporting applications that allow the system to continue functioning. Your plan should include rehearsing failures and testing the recovery of databases to ensure the plan is sound. 
 
 ## Azure disaster recovery features
 
@@ -22,7 +22,7 @@ Azure maintains datacenters in many regions around the world. This infrastructur
 
 ## Azure Site Recovery
 
-[Azure Site Recovery](/azure/site-recovery/) provides a simple way to replicate Azure VMs between regions. It has minimumal management overhead, because you don't need to provision any additional resources in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on the source VM settings. It provides automated continuous replication, and enables you to perform application failover with a single click. You can also run disaster recovery drills by testing failover, without affecting your production workloads or ongoing replication. 
+[Azure Site Recovery](/azure/site-recovery/) provides a simple way to replicate Azure VMs between regions. It has minimal management overhead, because you don't need to provision any additional resources in the secondary region. When you enable replication, Site Recovery automatically creates the required resources in the target region, based on the source VM settings. It provides automated continuous replication, and enables you to perform application failover with a single click. You can also run disaster recovery drills by testing failover, without affecting your production workloads or ongoing replication. 
 
 ## Azure Traffic Manager
 When a region-specific failure occurs, you must redirect traffic to services or deployments in another region. It is most effective to handle this via services such as Azure Traffic Manager, which automates the failover of user traffic to another region if the primary region fails. Understanding the fundamentals of Traffic Manager is important when designing an effective DR strategy.

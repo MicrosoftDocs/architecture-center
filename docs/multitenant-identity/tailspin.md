@@ -2,7 +2,7 @@
 title: About the Tailspin Surveys application
 description: Tailspin Surveys application overview
 author: MikeWasson
-ms:date: 07/21/2017
+ms.date: 07/21/2017
 
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: index

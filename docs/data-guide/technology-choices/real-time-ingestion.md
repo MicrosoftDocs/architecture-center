@@ -2,7 +2,7 @@
 title: Choosing a real-time message ingestion technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a real-time message ingestion technology in Azure

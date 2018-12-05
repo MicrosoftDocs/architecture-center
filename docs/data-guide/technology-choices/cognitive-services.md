@@ -2,7 +2,7 @@
 title: Choosing a cognitive services technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a Microsoft cognitive services technology

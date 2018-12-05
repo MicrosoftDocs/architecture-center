@@ -1,19 +1,19 @@
 ---
-title: Simple enterprise integration architecture pattern - Azure Integration Services
+title: Enterprise integration using Azure Integration Services
 description: This architecture reference shows how you can implement a simple enterprise integration pattern by using Azure Logic Apps and Azure API Management
 services: logic-apps
 author: mattfarm
 ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 12/03/2018
 ---
 
-# Simple enterprise integration
+# Basic enterprise integration on Azure
 
 This reference architecture uses [Azure Integration Services][integration-services] to orchestrate calls to enterprise backend systems. The backend systems may include software as a service (SaaS) systems, Azure services, and existing web services in your enterprise.
 
-Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs.
+Azure Integration Services is a collection of services for integrating applications and data. This architecture uses two of those services: [Logic Apps][logic-apps] to orchestrate workflows, and [API Management][apim] to create catalogs of APIs. This architecture is sufficient for basic integration scenarios where the workflow is triggered by synchronous calls to backend services. A more sophisticated architecture using [queues and events](./queues-events.md) builds on this basic architecture. 
 
 ![Architecture diagram - Simple enterprise integration](./_images/simple-enterprise-integration.png)
 
@@ -21,11 +21,11 @@ Azure Integration Services is a collection of services for integrating applicati
 
 The architecture has the following components:
 
-- **Backend systems**. On the right-hand side of the diagram are the various backend systems that the enterprise has deployed or relies on. These might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
+- **Backend systems**. The right-hand side of the diagram shows the various backend systems that the enterprise has deployed or relies on. These might include SaaS systems, other Azure services, or web services that expose REST or SOAP endpoints.
 
 - **Azure Logic Apps**. [Logic Apps][logic-apps] is a serverless platform for building enterprise workflows that integrate applications, data, and services. In this architecture, the logic apps are triggered by HTTP requests. You can also nest workflows for more complex orchestration. Logic Apps uses [connectors][logic-apps-connectors] to integrate with commonly used services. Logic Apps offers hundreds of connectors, and you can create custom connectors.
 
-- **Azure API Management**. [API Management][apim] is a managed service for publishing catalogs of HTTP APIs, to promote re-use and discoverability. API Management consists of two related components:
+- **Azure API Management**. [API Management][apim] is a managed service for publishing catalogs of HTTP APIs, to promote reuse and discoverability. API Management consists of two related components:
 
     - **API gateway**. The API gateway accepts HTTP calls and routes them to the backend. 
 
@@ -45,14 +45,14 @@ Your specific requirements might differ from the generic architecture shown here
 
 ### API Management
 
-Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale out. The Premium tier also supports scale out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see 
+Use the API Management Basic, Standard, or Premium tiers. These tiers offer a production service level agreement (SLA) and support scale out within the Azure region. Throughput capacity for API Management is measured in *units*. Each pricing tier has a maximum scale-out. The Premium tier also supports scale out across multiple Azure regions. Choose your tier based on your feature set and the level of required throughput. For more information, see 
 [API Management pricing][apim-pricing] and [Capacity of an Azure API Management instance][apim-capacity].
 
-Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net` &mdash for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
+Each Azure API Management instance has a default domain name, which is a subdomain of `azure-api.net` &mdash, for example, `contoso.azure-api.net`. Consider configuring a [custom domain][apim-domain] for your organization.
 
 ### Logic Apps 
 
-Logic Apps works best in scenarios that don't require low latency. For example, Logic Apps works best for asynchronous or semi long-running API calls. If low latency is required, for example, a call that blocks a user interface, implement your API or operation by using a different technology. For example, use Azure Functions or a Web API that you deploy by using Azure App Service. Use API Management to front the API to your API consumers.
+Logic Apps works best in scenarios that don't require low latency for a response, such as asynchronous or semi long-running API calls. If low latency is required, for example in a call that blocks a user interface, use a different technology. For example, use Azure Functions or a web API deployed to Azure App Service. Use API Management to front the API to your API consumers.
 
 ### Region
 
@@ -88,7 +88,7 @@ Review the SLA for each service:
 - [API Management SLA][apim-sla]
 - [Logic Apps SLA][logic-apps-sla]
 
-If deploy API Management across two or more regions with Premium tier, it is eligible for a higher SLA. See [API Management pricing][apim-pricing].
+If you deploy API Management across two or more regions with Premium tier, it is eligible for a higher SLA. See [API Management pricing][apim-pricing].
 
 ### Backups
 
@@ -96,9 +96,9 @@ Regularly [back up][apim-backup] your API Management configuration. Store your b
 
 * In a disaster recovery event, provision a new API Management instance, restore the backup to the new instance, and repoint the DNS records.
 
-* Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance, to keep it in sync with the active service. To restore the service during a disaster recovery event, you need only repoint the DNS records. This approach incurs additional cost because you are paying for the passive instance, but reduces the time to recover. 
+* Keep a passive instance of the API Management service in another Azure region. Regularly restore backups to that instance, to keep it in sync with the active service. To restore the service during a disaster recovery event, you need only repoint the DNS records. This approach incurs additional cost because you pay for the passive instance, but reduces the time to recover. 
 
-For logic apps, we recommend a configuration-as-code approach to backup and restoring. Because logic apps are serverless, you can quickly recreate them from Azure Resource Manager templates. Save the templates in source control, integrate the templates with your continuous integration/continuous deployment (CI/CD) process. In a disaster recovery event, deploy the template to a new region.
+For logic apps, we recommend a configuration-as-code approach to backing up and restoring. Because logic apps are serverless, you can quickly recreate them from Azure Resource Manager templates. Save the templates in source control, integrate the templates with your continuous integration/continuous deployment (CI/CD) process. In a disaster recovery event, deploy the template to a new region.
 
 If you deploy a logic app to a different region, update the configuration in API Management. You can update the API's **Backend** property by using a basic PowerShell script.
 
@@ -120,7 +120,7 @@ When you assign resources to resource groups, consider these factors:
 
 Use [Azure Resource Manager templates][arm] to deploy the Azure resources. Templates make it easier to automate deployments using PowerShell or the Azure CLI.
 
-Put API Management and any individual logic apps in their own separate Resource Manager templates. By using separate templates, you can store the resources in source control systems. You can then deploy these templates together or individually as part of a continuous integration/continuous deployment (CI/CD) process.
+Put API Management and any individual logic apps in their own separate Resource Manager templates. By using separate templates, you can store the resources in source control systems. You can deploy the templates together or individually as part of a CI/CD process.
 
 ### Versions
 
@@ -134,7 +134,7 @@ API Management supports two distinct but complementary versioning concepts:
 
 You can make a revision in a development environment and deploy that change in other environments by using Resource Manager templates. For more information, see [Publish multiple versions of your API][apim-versions]
 
-You can also use revisions to test an API before making the changes current and accessible to users. However, this method isn't recommended for load testing or integration testing. Instead, use separate test or preproduction environments.
+You can also use revisions to test an API before making the changes current and accessible to users. However, this method isn't recommended for load testing or integration testing. Use separate test or preproduction environments instead.
 
 ## Diagnostics and monitoring
 
@@ -182,7 +182,7 @@ Logic Apps uses a [serverless](/azure/logic-apps/logic-apps-serverless-overview)
 
 ## Next steps
 
-* Learn about [enterprise integration with queues and events](/azure/logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events)
+For greater reliability and scalability, use message queues and events to decouple the backend systems. This pattern is shown in the next reference architecture in this series: [Enterprise integration using message queues and events](./queues-events.md).
 
 <!-- links -->
 

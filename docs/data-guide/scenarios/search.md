@@ -2,7 +2,7 @@
 title: Processing free-form text for search
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Processing free-form text for search

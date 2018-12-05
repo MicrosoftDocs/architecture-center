@@ -2,7 +2,7 @@
 title: Choosing a natural language processing technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
 ---
 
 # Choosing a natural language processing technology in Azure
