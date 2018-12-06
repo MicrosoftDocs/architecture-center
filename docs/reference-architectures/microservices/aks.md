@@ -211,24 +211,20 @@ Currently, not all Azure services support authentication using managed identitie
 
 Even with managed identities, you'll probably need to store some credentials or other application secrets, whether for Azure services that don't support managed identities, third-party services, API keys, and so on. Here are some options for storing secrets securely:
 
-- Azure Key Vault. In AKS, you can mount a secret from Key Vault as a volume. The volume reads the secret from Key Vault. The pod can then read the secret just like a regular volume. Currently each secret must be mounted as a separate volume. 
+- Azure Key Vault. In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets just like a regular volume. 
 
     The pod authenticates itself by using either a pod identity (described above) or by using an Azure AD Service Principal along with a client secret. Using pod identities is recommended because the client secret isn't needed in that case. 
 
 - HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, but it's recommend to run it in a separate dedicated cluster from your application cluster. 
 
-- Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but has some challenges. Secrets are stored in etcd, which is a distributed key-value store. By default, etcd is not encrypted, so secrets are stored in plaintext. If an attacker gets access to the etcd store, they can read the secrets. Kubernetes 1.7 (with etcd v3) supports encrypting data at rest inside etcd. This feature requires the encryption keys to be stored in configuration. You will need to manage rotating the keys; see [Rotating a decryption key](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/#rotating-a-decryption-key).
+- Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but has some challenges. Secrets are stored in etcd, which is a distributed key-value store. By default, etcd is not encrypted, so secrets are stored in plaintext. If an attacker gets access to the etcd store, they can read the secrets..
 
 Using a system like HashiCorp Vault or Azure Key Vault provides several advantages, such as:
 
 - Centralized control of secrets.
-
 - Ensuring that all secrets are encrypted at rest.
-
 - Centralized key management.
-
 - Access control of secrets.
-
 - Auditing
 
 ### Pod and container security
