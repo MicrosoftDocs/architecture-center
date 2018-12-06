@@ -45,7 +45,7 @@ This scenario covers a CI/CD pipeline for a .NET web application using Azure Dev
 
 ### CI/CD tooling options
 
-While this article focuses on Azure DevOps, [Team Foundation Server][team-foundation-server] could be used as on-premises substitute. Alternatively, you could also use a set of technologies for an open source development pipeline using [Jenkins][jenkins-on-azure].
+While this article focuses on Azure DevOps, [Team Foundation Server][team-foundation-server] could be used as on-premises substitute. Alternatively, you could also use a set of technologies for an open-source development pipeline using [Jenkins][jenkins-on-azure].
 
 From an infrastructure-as-code perspective, [Azure Resource Manager Templates][arm-templates] were used as part of the Azure DevOps project, but you could consider other management technologies such as [Terraform][terraform] or [Chef][chef]. If you prefer an infrastructure-as-a-service (IaaS)-based deployment and require configuration management, you could consider either [Azure Automation State Configuration][desired-state-configuration], [Ansible][ansible], or [Chef][chef].
 
@@ -93,7 +93,7 @@ Azure DevOps is billed on a per-user per-month basis. There may be additional ch
 
 ## Related resources
 
-Review the following resources to learn more about CI/CD and Azure Devops:
+Review the following resources to learn more about CI/CD and Azure DevOps:
 
 * [What is DevOps?][devops-whatis]
 * [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
