@@ -29,7 +29,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
 **Potential Activities**
-* Determine whether your security management policy includes a [Cloud Native](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/security-management/cloud-native-policy?branch=brian%2FCOMIntegration) policy.
+* Determine whether your security management policy includes a [Cloud Native](cloud-native-policy.md) policy.
 * Review secuirity guidelines in the [Microsoft Service Trust Platform](https://www.microsoft.com/en-us/trustcenter/stp/default.aspx).
 * Determine whether your security management policy includes a [Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/). 
 * Review Microsoft's [top trends in cybersecurity](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) report.
