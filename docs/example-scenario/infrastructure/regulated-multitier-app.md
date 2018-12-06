@@ -10,7 +10,7 @@ ms.custom: seodec18
 
 This scenario provides architecture and design guidance for running secure, multi-tier web applications on Microsoft Azure. In this example, an ASP.NET application securely connects to a protected back-end Microsoft SQL Server cluster using virtual machines.
 
-Traditionally, organizations had to maintain legacy on-premises applications and services to provide a secure infrastructure. By deploying these Windows Server applications securely in Azure, organizations can modernize their deployments are reduce their on-premises operating costs and management overhead.
+Traditionally, organizations had to maintain legacy on-premises applications and services to provide a secure infrastructure. By deploying these Windows Server applications securely in Azure, organizations can modernize their deployments and reduce their on-premises operating costs and management overhead.
 
 ## Relevant use cases
 
@@ -43,7 +43,7 @@ This scenario shows a front-end web application connecting to a back-end databas
 
 ### Alternatives
 
-* Linux and Windows can be used interchangeably since the infrastructure isn't dependant on the operating system.
+* Linux and Windows can be used interchangeably since the infrastructure isn't dependent on the operating system.
 
 * [SQL Server for Linux][sql-linux] can replace the back-end data store.
 
@@ -57,7 +57,7 @@ The VM instances in this scenario are deployed across Availability Zones. Each z
 
 The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, which allows the application to continue to be available. For more information, see [Overview of Always On availability groups for SQL Server][sqlalwayson-docs].
 
-For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
+For more availability guidance, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
