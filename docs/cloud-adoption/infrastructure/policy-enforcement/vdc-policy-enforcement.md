@@ -4,7 +4,7 @@ description: Discussing the policy enforcement approach the the Azure Virtual Da
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Azure Policy enforcement
+# Fusion: Azure Virtual Datacenter - Azure Policy enforcement in VDC
 
 Jump to: [Azure policy definitions](#azure-policy-definitions) | [VDC policy recommendations](#vdc-policy-recommendations) | [Policy template examples](#policy-template-examples)
 

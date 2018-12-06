@@ -4,7 +4,7 @@ description: Discusses how Azure Active Directory and RBAC is used within the Az
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Identity and roles
+# Fusion: Azure Virtual Datacenter - Identity and roles in VDC
 
 Jump to: [Azure Active Directory Tenants](#azure-active-directory-tenants) | [Federation and hybrid identity](#federation-and-hybrid-identity) | [Roles and RBAC](#roles-and-rbac)
 

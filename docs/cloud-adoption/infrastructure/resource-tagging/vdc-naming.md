@@ -4,7 +4,7 @@ description: Discusses how naming and tagging are used to organize resources and
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Naming and Tagging
+# Fusion: Azure Virtual Datacenter - VDC naming and tagging recommendations
 
 Jump to: [Naming recommendations](#naming-recommendations) | [Tagging](#tagging)
 

@@ -1,10 +1,10 @@
 ---
-title: "Fusion: Azure Virtual Datacenter - Monitoring, Reporting, and Compliance" 
+title: "Fusion: Azure Virtual Datacenter - Monitoring, and Reporting" 
 description: Discusses how monitoring and reporting are used to maximize policy compliance of workloads and resources host in an Azure Virtual Datacenter.
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Monitoring and Reporting
+# Fusion: Azure Virtual Datacenter - Monitoring and reporting
 
 Jump to: [Log data](#log-data) | [Azure Monitor](#azure-monitor) | [Azure Active Directory Reports](#azure-active-directory-reports) | [Azure Security Center](#azure-security-center) | [Azure Network Watcher](#azure-network-watcher)
 

@@ -4,7 +4,7 @@ description: Discussing the resource grouping approach to the Azure Virtual Data
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Resource grouping
+# Fusion: Azure Virtual Datacenter - Resource grouping in VDC
 
 Jump to: [Resource groups](#resource-groups) | [Deployment templates](#deployment-templates)
 

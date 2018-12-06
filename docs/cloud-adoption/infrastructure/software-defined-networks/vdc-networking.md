@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/08/2018
 ---
 
-# Fusion: Software Defined Networks - Virtual datacenter network architecture
+# Fusion: Software Defined Networks - VDC networking architecture
 
 > [!NOTE]
 > The Azure Virtual Datacenter model is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. The networking aspects of the Azure Virtual datacenter model is discussed below, but for more information about this approach as a whole, and if it's right for your cloud migration, see the main [Azure Virtual Datacenter](../virtual-datacenter/overview.md) topic. 

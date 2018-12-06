@@ -4,7 +4,7 @@ description: Discusses how encryption is used to secure data and resources in an
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Encryption and key management
+# Fusion: Azure Virtual Datacenter - Encryption and key management in VDC
 
 Jump to: [Data in transit](#data-in-transit) | [Data at rest](#data-at-rest) | [Azure Key Vault](#azure-key-vault)
 
