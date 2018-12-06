@@ -2,8 +2,8 @@
 title: Designing a CI/CD pipeline using Azure DevOps
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: christianreddington
-ms.date: 07/11/18
-ms.custom: "fasttrack", "seodec18"
+ms.date: 12/06/2018
+ms.custom: fasttrack|seodec18
 ---
 
 # Designing a CI/CD pipeline using Azure DevOps
