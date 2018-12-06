@@ -3,6 +3,7 @@ title: Running SAP production workloads using an Oracle database on Azure
 description: Run an SAP production deployment in Azure using an Oracle database.
 author: DharmeshBhagat
 ms.date: 9/12/2018
+ms.custom: fasttrack
 ---
 
 # Running SAP production workloads using an Oracle Database on Azure

@@ -3,6 +3,7 @@ title: Decentralized trust between banks on Azure
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
+ms.custom: csa-team
 ---
 
 # Decentralized trust between banks on Azure

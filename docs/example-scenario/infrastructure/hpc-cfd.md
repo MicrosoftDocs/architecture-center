@@ -3,6 +3,7 @@ title: Running computational fluid dynamics (CFD) simulations on Azure
 description: Execute computational fluid dynamics (CFD) simulations on Azure.
 author: mikewarr
 ms.date: 09/20/2018
+ms.custom: fasttrack
 ---
 
 # Running computational fluid dynamics (CFD) simulations on Azure

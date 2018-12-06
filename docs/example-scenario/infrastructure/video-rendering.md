@@ -3,6 +3,7 @@ title: 3D video rendering on Azure
 description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
+ms.custom: fasttrack
 ---
 
 # 3D video rendering on Azure

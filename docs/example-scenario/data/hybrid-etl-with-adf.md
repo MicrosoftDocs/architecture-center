@@ -3,6 +3,7 @@ title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory
 author: alhieng
 ms.date: 9/20/2018
+ms.custom: tsp-team
 ---
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory
@@ -24,7 +25,7 @@ Several potential on-premises use cases are listed below:
 * Loading network router logs to a database for analysis.
 * Preparing human resources employment data for analytical reporting.
 * Loading product and sales data into a data warehouse for sales forecasting.
-* Automating loading or operational data stores or data warehouses for finance and accounting.
+* Automating loading or operating data stores or data warehouses for finance and accounting.
 
 ## Architecture
 

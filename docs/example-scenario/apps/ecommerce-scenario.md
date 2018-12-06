@@ -3,6 +3,7 @@ title: E-commerce front end on Azure
 description: Host an e-commerce site on Azure.
 author: masonch
 ms.date: 7/13/18
+ms.custom: fasttrack
 ---
 
 # An e-commerce front end on Azure

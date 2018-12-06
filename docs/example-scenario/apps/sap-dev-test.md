@@ -3,6 +3,7 @@ title: Dev/test environments for SAP workloads on Azure
 description: Build a dev/test environment for SAP workloads.
 author: AndrewDibbins
 ms.date: 7/11/18
+ms.custom: fasttrack
 ---
 
 # Dev/test environments for SAP workloads on Azure

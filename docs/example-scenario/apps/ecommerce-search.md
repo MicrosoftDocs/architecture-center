@@ -3,6 +3,7 @@ title: Intelligent product search engine for e-commerce
 description: Provide a world-class search experience in an e-commerce application.
 author: jelledruyts
 ms.date: 09/14/2018
+ms.custom: fasttrack
 ---
 
 # Intelligent product search engine for e-commerce
