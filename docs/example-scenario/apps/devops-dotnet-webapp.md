@@ -8,7 +8,7 @@ ms.custom: fasttrack|seodec18
 
 # Designing a CI/CD pipeline using Azure DevOps
 
-This scenario provides architecture and design guidance for building a CI/CD pipeline deploying a two-tier .NET web application to Azure App Service. The web application being deployed depends on Azure platform as a service (PaaS) services.
+This scenario provides architecture and design guidance for building a CI/CD pipeline that deploys a two-tier .NET web application to Azure App Service. The application being deployed depends on Azure platform as a service (PaaS) services.
 
 Migrating to modern Continuous Integration and Continuous Deployment (CI/CD) processes provide many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
