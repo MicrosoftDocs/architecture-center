@@ -11,24 +11,24 @@ In the [Intro to Cloud Governance](../overview.md), Security Management is one o
 
 Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
-|  |Azure feature  |Azure Virtual Network  |Azure AD Auth  | Azure PowerShell |
-|---------|---------|---------|---------|---------|
-|Security risk assessment     | Cloud Service Trust Platform         | No         | Yes         | ? |
-|Secure on-premises network resources    | Azure Application Proxy | Yes         | No         | Yes |
-|Filter and route network traffic     | Network Security Groups         | Yes         | No         | Yes         |
-|Secure passwords, connection strings, and other sensitive data     | Azure Key Vault        | No         | No       | Yes | 
-|Azure Data Warehouse and SQL Database protection     | Transparent data encryption (TDE) and Azure SQL Firewall | Yes         | No         | Yes         |
-|General data protection    | Data Encryption at Rest | No | No         | Yes         |
-|SQL data security     | SQL Advanced Threat Protection | Yes | Yes | Yes |
-|RAM/CPU storage     | Azure Virtual Machines (VM) | Yes | No | No |
-|Identity authentication and conditional access    | Azure Active Directory and Role Based Access Control | No | Yes | Yes |
-|Software Defined Networks     | Azure Virtual Networks | Yes | No | No |
-|Storage service protection    | Storage Service Encryption (SSE) | No | Yes | No |
-|VM disk protection   | Azure Disk Encryption | Yes | No | Yes |
-|Database auditing and threat protection    | Azure SQL Database | No | Yes | No |
-|VMBA threat detection alerts    | Azure Security Center | Yes | No | No |
-|Third-party deployment    | Azure Active Directory Domain Services | No | Yes | No |
-|Backup and disaster recovery    | Azure Site Recovery | Yes | No| Yes |
+| Security task |Azure feature  |
+|---------|---------|
+|Security risk assessment     | Cloud Service Trust Platform         |
+|Secure on-premises network resources    | Azure Application Proxy |
+|Filter and route network traffic     | Network Security Groups         |
+|Secure passwords, connection strings, and other sensitive data     | Azure Key Vault        |
+|Azure Data Warehouse and SQL Database protection     | Transparent data encryption (TDE) and Azure SQL Firewall |     |
+|General data protection    | Data Encryption at Rest |
+|SQL data security     | SQL Advanced Threat Protection |
+|RAM/CPU storage     | Azure Virtual Machines (VM) |
+|Identity authentication and conditional access    | Azure Active Directory and Role Based Access Control |
+|Software Defined Networks     | Azure Virtual Networks |
+|Storage service protection    | Storage Service Encryption (SSE) |
+|VM disk protection   | Azure Disk Encryption |
+|Database auditing and threat protection    | Azure SQL Database |
+|VMBA threat detection alerts    | Azure Security Center |
+|Third-party deployment    | Azure Active Directory Domain Services |
+|Backup and disaster recovery    | Azure Site Recovery |
 
 Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage 3rd party tools for facilitating security management activities.
 
