@@ -3,38 +3,38 @@ title: Publisher-Subscriber pattern
 description: Enable an application to announce events to multiple interested consumers asynchronously.
 keywords: design pattern
 author: alexbuckgit
-ms.date: 04/05/2018
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [messaging]
+ms.date: 12/07/2018
 ---
 
 
 # Publisher-Subscriber pattern
 
-<!-- [!INCLUDE [header](../_includes/header.md)] -->
+Enable an application to announce events to multiple interested consumers aynchronously, without coupling the senders to the receivers.
 
-Enable an application to announce events to multiple interested consumers aynchronously, without coupling the sending application to the receiving applications.
+Also called: Pub/sub messaing
 
 # Context and problem
 
-Cloud-based applications often need to provide information to other applications as events happen. Asynchronous messaging is an effective strategy that decouples a sending application from its consumers and maintains the responsiveness of the sending application. However, using a dedicated message queue for each consumer does not effectively scale to many consumers. Additionally, some of the consumers might be interested in only a subset of the information. How can the application announce events to all interested consumers without knowing their identities? 
+In cloud-based and distributed applications, components of the system often need to provide information to other components as events happen. 
+
+Asynchronous messaging is an effective strategy that decouples the sender from the consumers and maintains the responsiveness of the sending application. However, using a dedicated message queue for each consumer does not effectively scale to many consumers. Also, some of the consumers might be interested in only a subset of the information. How can the sender announce events to all interested consumers without knowing their identities?
 
 # Solution
 
 Introduce an asynchronous messaging subsystem that includes the following:
 
-- An input messaging channel used by the sending application (called the publisher). The publisher packages each event into a message using a defined format known to the consumers. The publisher sends each of these messages via the input channel.
+- An input messaging channel used by the sender. The sender packages events into messages, using a known message format, and sends these messages via the input channel. The sender in this pattern is also called the *publisher*.
 
-- One output messaging channel per consumer. These consumers are known as subscribers. 
+  > Terminology: A *message* is a packet of data. An *event* is a message that notifies other components about a change or an action that has taken place. 
 
-- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by a intermediary process such as a message broker or event bus.
+- One output messaging channel per consumer. The consumers are known as *subscribers*. 
+
+- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by a intermediary such as a message broker or event bus.
+
+The following diagram shows the logical components of this pattern:
 
 ![Publish-subscribe pattern using a message broker](./_images/publish-subscribe.png)  
-
-> Like other asynchronous message-based approaches, a publish-subscribe approach usually drives additional considerations (such as message filtering, duplicate message handling, and many others discussed below). Because of this, it is strongly recommended that you take advantage of available messaging products and services that support a publish-subscribe model rather than building your own. While this diagram depicts a basic publish-subscribe aprroach, each product or service has its own variation on this approach.
-
-This solution has the following benefits:
+Pub/sub messaging has the following benefits:
 
 - It decouples applications from one another. Applications can be managed independently, and messages can be properly managed even if one or more receiving applications are offline.  
 
@@ -55,6 +55,8 @@ This solution has the following benefits:
 # Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
+
+- **Existing technologies.** It is strongly recommended to use available messaging products and services that support a publish-subscribe model, rather than building your own. In Azure, consider Azure Service Bus. Other technologies that can be used for pub/sub messaging include Redis, RabbitMQ, and Apache Kafka.
 
 - **Subscription handling.** The messaging infrastructure must provide mechanisms that consumers can use to subscribe to or unsubscribe from available channels.
 
@@ -120,7 +122,7 @@ This pattern might not be useful when:
 
 The following patterns and guidance might be relevant when implementing this pattern:
 
-- [Asynchronous Messaging Primer][https://msdn.microsoft.com/library/dn589781.aspx]. Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
+- [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). Message queues are an asynchronous communications mechanism. If a consumer service needs to send a reply to an application, it might be necessary to implement some form of response messaging. The Asynchronous Messaging Primer provides information on how to implement request/reply messaging using message queues.
 
 - [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
 
