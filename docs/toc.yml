@@ -671,7 +671,9 @@
           - name: Sample Policy - Cloud Native Solution
             href: cloud-adoption/governance/security-management/cloud-native-policy.md          
           - name: Additional Security Guidance in Azure
-            href: cloud-adoption/governance/security-management/azure-security-guidance.md          
+            href: cloud-adoption/governance/security-management/azure-security-guidance.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/security-management/toolchain.md        
       - name: Identity Management
         items:
           - name: Overview
