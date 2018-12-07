@@ -266,18 +266,15 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 Consider using Helm to manage building and deploying services. Some of the features of Helm that help with CI/CD include:
 
 - Organizing all of the Kubernetes objects for a particular microservice into a single Helm chart.
-
 - Deploying the chart as a single helm command, rather than a series of kubectl commands.
-
 - Tracking updates and revisions, using semantic versioning, along with the ability to roll back to a previous version.
-
 - The use of templates to avoid duplicating information, such as labels and selectors, across many files.
-
 - Managing dependencies between charts.
-
 - Publishing charts to a Helm repository, such as Azure Container Registry, and integrating them with the build pipeline. 
 
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](https://docs.microsoft.com/azure/container-registry/container-registry-helm-repos).
+
+### CI/CD workflow
 
 The following diagram shows a possible CI/CD workflow. This example assumes there is a QA role that is separate from the developer role.
 
