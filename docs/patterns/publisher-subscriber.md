@@ -11,15 +11,15 @@ ms.date: 12/07/2018
 
 Enable an application to announce events to multiple interested consumers aynchronously, without coupling the senders to the receivers.
 
-Also called: Pub/sub messaing
+**Also called**: Pub/sub messaing
 
-# Context and problem
+## Context and problem
 
 In cloud-based and distributed applications, components of the system often need to provide information to other components as events happen. 
 
 Asynchronous messaging is an effective strategy that decouples the sender from the consumers and maintains the responsiveness of the sending application. However, using a dedicated message queue for each consumer does not effectively scale to many consumers. Also, some of the consumers might be interested in only a subset of the information. How can the sender announce events to all interested consumers without knowing their identities?
 
-# Solution
+## Solution
 
 Introduce an asynchronous messaging subsystem that includes the following:
 
@@ -52,7 +52,7 @@ Pub/sub messaging has the following benefits:
 
 - It provides separation of concerns for your applications. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers. 
 
-# Issues and considerations
+## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
 
@@ -84,7 +84,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - TODO: **Distinguish between events and messages.** events (action events, data point events) and messages (commands, work jobs, transfers of control): https://azure.microsoft.com/en-us/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/
  
-# When to use this pattern
+## When to use this pattern
 
 Use this pattern when:
 
@@ -99,7 +99,7 @@ This pattern might not be useful when:
 - An application has only a few consumers who need significantly different information from the producing application.
 - An application requires near real-time interaction with consumers.
 
-# Technology options / examples
+## Technology options / examples
 
 **TODO: Create or reference examples with diagrams**
 
