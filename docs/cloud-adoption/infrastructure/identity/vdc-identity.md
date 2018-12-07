@@ -4,7 +4,7 @@ description: Discusses how Azure Active Directory and RBAC is used within the Az
 author: rotycenh
 ms.date: 11/08/2018
 ---
-# Fusion: Azure Virtual Datacenter - Identity and roles
+# Fusion: Azure Virtual Datacenter - Identity and roles in VDC
 
 Jump to: [Azure Active Directory Tenants](#azure-active-directory-tenants) | [Federation and hybrid identity](#federation-and-hybrid-identity) | [Roles and RBAC](#roles-and-rbac)
 
@@ -16,15 +16,15 @@ The Azure Virtual Datacenter model uses Azure Active Directory (Azure AD) as its
 
 An Azure AD tenant is a dedicated instance of an Azure AD directory that your organization receives when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories, and contains its own users, groups, and roles. An Azure AD tenant is a pre-requisite for deploying resources on Azure.
 
-Along with planning your [subscription](../subscriptions/vdc-subscriptions.md) strategy, picking the Azure AD tenant you'll be using with your VDC is one of the first things you'll need to decide. An Azure tenant can be used by multiple subscriptions, but subscriptions can only associate with a single tenant. As part of VDC deployment you can choose to use an existing tenant owned by your organization or create a net new one explicitly for the VDC. 
+Along with planning your [subscription](../subscriptions/vdc-subscriptions.md) strategy, planning how you will configure the common Azure AD tenant you'll be using with your VDC subscriptions should be one of your first design decisions. An Azure tenant can be used by multiple subscriptions, but subscriptions can only associate with a single tenant. As part of VDC deployment you can choose to use an existing tenant owned by your organization or create a net new one explicitly for the virtual datacenter. 
 
 ## Federation and hybrid identity
 
-VDC assumes you have existing on-premise identity infrastructure and need to use consistent users and roles across your organization. If you do not already have an federation identity solution in place, Azure AD Connect allows you to integrate their on-premises directory services with Azure AD. [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity?toc=%2Fen-us%2Fazure%2Factive-directory%2Fhybrid%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) is used to provide synchronization of users and roles between on-premises Active Directory service and the Azure AD tenant associated with the virtual datacenter.  
+VDC assumes you have existing on-premise identity infrastructure and need to use consistent users and roles across your organization. If you do not already have a federation identity solution in place, Azure AD Connect allows you to integrate your on-premises directory services with Azure AD. [Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity?toc=%2Fen-us%2Fazure%2Factive-directory%2Fhybrid%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) is used to provide synchronization of users and roles between on-premises Active Directory service and the Azure AD tenant associated with the virtual datacenter.  
 
 ## Roles and RBAC
 
-As with an on-premises datacenter, certain groups of people are responsible for jobs within your IT environment. A VDC doesn't need facilities management or physical security, but many other responsibilities, such as network security or operations, are very similar in a VDC to what they are in a physical data center. 
+As with an on-premises datacenter, certain groups of people are responsible for jobs within your IT environment. A VDC doesn't need facilities management or physical security, but many other responsibilities, such as network security or operations, are similar in a virtual datacenter to what they would be in a physical data center. 
 
 Central to the VDC access control and management architecture is using Azure AD roles to group users based on their jobs and responsibilities. These roles serve as the basis for a [role-based access control (RBAC) system](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview). 
 
@@ -45,7 +45,7 @@ RBAC allows the definition of organizational roles, which define the access righ
 
 The scope of a role can be at the Azure subscription, resource group, or single resource level. RBAC also allows the inheritance of permissions, so that a role assigned at a parent level also grants access to the children contained within it.
 
-This functionality allows different parts of the VDC to be managed by different teams, so that central IT control over core access and security features can be paired with developers and associated teams having large amounts of control over specific workloads.
+This functionality allows different parts of the VDC to be managed by different teams, so that central IT control over core access and security features can be paired with developers and associated teams having large amounts of control over specific workload resources.
 
 **Primary IT Roles**
 
@@ -54,10 +54,12 @@ The structure and breakdown of roles within your organization will very, but the
 | Group                  | Common role name    | Responsibilities                                                                                                                                                          |
 |------------------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Security Operations    | SecOps              | Provide general security oversight.<br><br>Establish and enforce security policy such as encryption at rest.<br><br>Manage encryption keys.<br><br>Manage firewall rules. |
-| Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual DataCenter such as routes and peerings.                                                |
+| Network Operations     | NetOps              | Manage network configuration and operations within virtual networks of the virtual dataCenter such as routes and peerings. Configures network routing to ensure inbound and outbound traffic passes through the hub central firewall.  |
 | Systems Operations     | SysOps              | Specify compute and storage infrastructure options and maintain resources that have been deployed.                                                                        |
 
-In addition to these three primary IT roles, each individual workload spoke is expected to have a DevOps role associated with it, having the delegated rights to create and manage resources necessary to support workload applications and services. Consider adopting a development security operations (DevSecOps) approach. This requires a change in organizational mindset, and is especially important for those organizations that develop their own applications and services.
+In addition to these three primary IT roles, each individual workload spoke is expected to have specific workload DevOps roles associated with it. These roles can mirror the structure of the central IT roles, only with rights limited to creating and managing resources necessary to support workload applications and services.
+
+When planning your VDC workload deployments, consider adopting a [development security operations (DevSecOps)](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/security-in-devops) approach. This requires a change in organizational mindset, and is especially important for those organizations that develop their own applications and services.
 
 ## Next steps
 

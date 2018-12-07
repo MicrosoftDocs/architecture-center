@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/08/2018
 ---
 
-# Fusion: Software Defined Networks - Virtual datacenter network architecture
+# Fusion: Software Defined Networks - VDC networking architecture
 
 > [!NOTE]
 > The Azure Virtual Datacenter model is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid deployments a virtual datacenter model is likely more complicated than necessary. The networking aspects of the Azure Virtual datacenter model is discussed below, but for more information about this approach as a whole, and if it's right for your cloud migration, see the main [Azure Virtual Datacenter](../virtual-datacenter/overview.md) topic. 
@@ -121,7 +121,7 @@ These management VMs are created inside the shared services subnet, and NSG rule
 
 In the VDC model, the *central firewall* is not a specific virtual device, but an abstract reference to whatever devices or services are responsible for controlling what traffic is allowed to pass in and out of the VDC and determines how that traffic is directed. The central firewall manages network flow within the virtual datacenter and between resources hosted in the virtual datacenter and those in external environments, including the on-premises datacenter. Spoke networks and the gateway subnet use UDRs to route outbound traffic to the central firewall.
 
-The VDC model offers no prescriptive guidance on what devices to use to construct your central firewall. However, there are some standard approaches that you can apply:
+The VDC model offers no prescriptive guidance on what devices to use to construct your central firewall, as organizations will vary widely on what they want the central firewall to do. However, there are several common scenarios:
 
 #### Native Azure traffic management features 
 
@@ -133,17 +133,21 @@ Several Azure features provide traffic management features that can be used with
 
 The [Azure Marketplace contains](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/networking?page=1) many pre-built VM images designed to provide the same capabilities as traditional physical network security and management devices. These [Network Virtual Appliances (NVAs)](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/nva-ha) can be deployed to your central firewall subnet and then configured using through your VDC's management VMs. 
 
+High traffic requirements may require the use of multiple NVAs within the central firewall. In these cases two load balancers will need to be used: A front-end load balancer handles traffic going to the workloads from the network on-premises, and a back-end load balancer handles traffic going from workloads to the network on-premises.  
+
 #### Custom VMs
 
 If existing NVAs don't meet your security needs, you can deploy a custom VM and configure it to perform traffic management for the VDC. You can either deploy an existing base image from the Marketplace, or, if your organization has existing pre-configured VM images on-premises, you can [create a VM in Azure using a custom image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
- 
+
+As with NVAs, if traffic load is sufficient you will need to use load balancers to distribute traffic across multiple custom VMs.
+
 ## Spoke networks
 
 Workload spokes are separate virtual networks that, aside from network peering with the hub network, are isolated by default. All traffic travelling to the spoke from outside the VDC and form the spoke to the outside world are forced to travel through the hub where central security rules and access policies are applied. Much of the control over the spoke networks and connected workload resources can be delegated to the workload teams themselves, while critical security and access controls can be maintained through the central hub.
 
+Spoke networks are significantly simpler than hub networks, consisting of the virtual network itself, subnet definitions, UDR rules to route outbound traffic to the hub central firewall, and NSGs that secure workload resources. 
 
-
-
+Spoke subnet design can vary by spoke workload needs. At a bare minimum a spoke virtual network will contain a single default subnet when it is created. Additional subnets can be requested by the workload team. The central IT NetOps role will be responsible for creating the spoke virtual network and any subnets, and ensuring all subnets have UDR rules in place to route outbound traffic to the hub's central firewall.  
 
 ## Virtual network integration with PaaS
 
