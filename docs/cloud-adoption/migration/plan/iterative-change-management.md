@@ -21,8 +21,8 @@ Migration to the cloud is deceptively similar to migration to a new data center.
 In the graphic above, management of Operational Transformation is represented as three concentric rings. Each ring represents an iterative layer of management, as follows:
 
 * [Migration Backlog](migration-backlog.md): The outer most ring of management. The migration backlog represents the business plan and business priorities, as they map to the digital estate. This backlog general contains collections of workloads, prioritized based on the order the business would like to see the applications released in production.
-* [Release Backlog](../execute/iteration-release-backlog): The middle layer of management. The release backlog serves as the change management tacking mechanism during a migration. This backlog generally contains as list of digital assets (VMs, appliances, data, etc...) grouped by the application(s) each asset supports. This backlog is used to track assets, as they are migrated and prepared for promotion to production.
-* [Iteration Backlog](../execute/iteration-release-backlog): The inner most layer of management. The iteration backlog generally consists of the actual tasks to be completed by the Cloud Migration or CLoud Governance teams.
+* [Release Backlog](../execute/iteration-release-backlog.md#release-backlog): The middle layer of management. The release backlog serves as the change management tacking mechanism during a migration. This backlog generally contains as list of digital assets (VMs, appliances, data, etc...) grouped by the application(s) each asset supports. This backlog is used to track assets, as they are migrated and prepared for promotion to production.
+* [Iteration Backlog](../execute/iteration-release-backlog.md#iteration-backlog): The inner most layer of management. The iteration backlog generally consists of the actual tasks to be completed by the Cloud Migration or CLoud Governance teams.
 
 ## Mapping Iterative Management to Azure Devops
 

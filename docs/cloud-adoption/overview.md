@@ -39,7 +39,7 @@ Jump to detailed descriptions: [Transformation Journeys - Adoption Guides](#tran
                         <a class="barLink" href="/azure/architecture/cloud-adoption/getting-started" data-linktype="absolute-path">Getting started</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/infrastructure" data-linktype="absolute-path">Core Infrastructure</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/migration" data-linktype="absolute-path">Migrate Digital Assets</a>
-                        <a class="barLink" href="/azure/architecture/cloud-adoption/govern" data-linktype="absolute-path">Govern Digital Assets</a>
+                        <a class="barLink" href="/azure/architecture/cloud-adoption/governance" data-linktype="absolute-path">Govern Digital Assets</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/manage" data-linktype="absolute-path">Change Management and Oversight</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/business-strategy" data-linktype="absolute-path">Business Strategy</a>
                         <a class="barLink" href="/azure/architecture/cloud-adoption/culture-strategy" data-linktype="absolute-path">Culture Strategy</a>
@@ -104,7 +104,7 @@ This framework can't replace a strong architect, but it can make an architect a 
 
 **[Migration](migration/overview.md):** Most enterprises today have some form of Digital Estate. Servers, VMs, Applications, Data, and Devices power most business processes. The migration section of the Fusion helps guide readers through the process of migrating those assets to the cloud.
 
-**[Cloud Governance](govern/overview.md):** Every connection point, every open port, every end user creates risk. This section of the Fusion aids in defining manageable policies that properly mitigate risks. Then wraps those policies in actionable governance disciplines to manage cloud adoption.
+**[Cloud Governance](governance/overview.md):** Every connection point, every open port, every end user creates risk. This section of the Fusion aids in defining manageable policies that properly mitigate risks. Then wraps those policies in actionable governance disciplines to manage cloud adoption.
 
 **[Business Strategy](business-strategy/overview.md):** The best technical decisions produce little results, if not well aligned to business needs. This section aids architects in evaluating business needs. It also aids business leaders in understanding how the cloud can aid in realizing business strategy.
 

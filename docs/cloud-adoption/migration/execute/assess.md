@@ -12,11 +12,11 @@ The [Migration section](../overview.md) of the [Fusion framework](../../overview
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
 
-As discussed in the  [Migration Execution Overview](overview.md), Assess is an activity that generally happens within an iteration (or sprint) as described in the article on [Incremental Change Management](../plan/incremental-change-management.md).
+As discussed in the  [Migration Execution Overview](overview.md), Assess is an activity that generally happens within an iteration (or sprint) as described in the article on [iterative change management and oversight](../plan/iterative-change-management.md).
 
 ## Assess Objectives
 
-Validate that all assets and associated dependencies are compatible with the chosen [deployment model](../../getting-started/cloud-deployment-models.md). Document any efforts required to [remediate](remediate.md) compatibility issues. Update the [plan](../plan/incremental-change-management.md) accordingly, which may change commitments in the current iteration.
+Validate that all assets and associated dependencies are compatible with the chosen [deployment model](../../getting-started/cloud-deployment-models.md). Document any efforts required to [remediate](remediate.md) compatibility issues. Update the [plan](../plan/iterative-change-management.md) accordingly, which may change commitments in the current iteration.
 
 > [!NOTE]
 > In some environments, remediation can require substantial efforts. This is common when VMs, Source Code, or Data structures haven't been frequently maintained & updated. Ex. A large contingent of Windows servers with versions older than 2008 R2. In such cases, Assess and Remediate may need to be run in parallel iterations, often referred to as waves. In such an approach, an Assess and Remediate wave would generally run several iterations (or even a full release) ahead of the Migration wave. In such a scenario, the following guidance would still apply, with minor vocabulary tweaks.
@@ -53,7 +53,7 @@ Be sure to document any discrepancies in host configuration, replicated VM confi
 * Calculate the drift or change rate of storage for all VMs to be replicated during the iterations leading up to a release.
 * Calculate the bandwidth requirements needed for each iteration by summing total storage and drift
 * Calculate unused bandwidth available on the current network to validate per iteration alignment
-* Document bandwidth needed to reach anticipated migration velocity. If any remediation is required to provide necessary bandwidth, notify the team responsible for  [Remediation Activities](remediate.md) and update the [Plan](../plan/incremental-change-management.md) accordingly.
+* Document bandwidth needed to reach anticipated migration velocity. If any remediation is required to provide necessary bandwidth, notify the team responsible for  [Remediation Activities](remediate.md) and update the [Plan](../plan/iterative-change-management.md) accordingly.
 
 > [!NOTE]
 > Total storage will directly impact bandwidth requirements during initial replication. However, storage drift will continue from the point of replication until release. This means that drift has an accumulative affect on available bandwidth.

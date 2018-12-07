@@ -21,7 +21,7 @@ Azure pricing tools help you manage cloud spend with transparency and accuracy t
 
 ## Next steps
 
-With a rationalized and costed Digital Estate, the transformation journey is ready for [Testing the first workload](technical-spikes.md) and [Prioritizing the rest of the transformation](migration-backlog.md).
+With a rationalized and costed Digital Estate, the transformation journey is ready for [Testing the first workload](../migration/plan/first-workload.md) and [Prioritizing the rest of the transformation](../migration/plan/migration-backlog.md).
 
 > [!div class="nextstepaction"]
 > [Price calculations for cloud services](calculate.md)

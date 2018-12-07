@@ -27,7 +27,7 @@ Properly establishing these technical principles will improve consistency and es
 
 ## Next steps
 
-Learn how to establish [core infrastructure](../infrastructure/overview) based on the defined technical standards.
+Learn how to establish [core infrastructure](../infrastructure/overview.md) based on the defined technical standards.
 
 > [!div class="nextstepaction"]
-> [core infrastructure](../infrastructure/overview)
+> [core infrastructure](../infrastructure/overview.md)

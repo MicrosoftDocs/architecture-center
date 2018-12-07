@@ -12,7 +12,7 @@ on-premises DataCenter with a hybrid cloud or the public cloud, based on a recen
 
 The cloud provides the freedom to deploy, build, and manage applications on a massive, global network using existing tools and frameworks. Public and hybrid cloud solutions provide means of increasing efficiency and productivity, while simultaneously reducing IT operating expenses (OpEx). Taking advantage of scale and consumption-based billing, provides access to services that might otherwise be far beyond an organization’s means to implement.
 
-With these benefits come increased options and increase complexity. Each Transformation Journey within the [Fusion framework](../../overview.md) is designed to reduce complexity by defining a personalized journey that fits specific customer objectives or Business Outcomes.
+With these benefits come increased options and increase complexity. Each Transformation Journey within the [Fusion framework](../overview.md) is designed to reduce complexity by defining a personalized journey that fits specific customer objectives or Business Outcomes.
 
 ## Transformation Journeys
 

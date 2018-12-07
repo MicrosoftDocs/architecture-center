@@ -60,7 +60,7 @@ Transparency:
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/) could be a useful guide during your policy review. 
+The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. 
 
 > [!div class="nextstepaction"]
 > [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)

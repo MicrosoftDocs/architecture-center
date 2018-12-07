@@ -575,7 +575,7 @@
       - name: Performance Outcomes
         href: cloud-adoption/business-strategy/business-outcomes/performance-outcomes.md  
     - name: Transformation Metrics
-      href: cloud-adoption/business-strategy/transformation-metrics.md
+      href: cloud-adoption/business-strategy/learning-metrics.md
     - name: Risk & Tolerance
       href: cloud-adoption/business-strategy/risk-tolerance.md
     - name: Cloud Accounting
