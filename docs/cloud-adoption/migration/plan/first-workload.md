@@ -7,7 +7,7 @@ ms.date: 10/11/2018
 
 # Fusion: What's different about the first workload?
 
-The article on [Incremental Rationalization](../../digital-estate/rationalize-inventory.md) discusses the value of the first workload relative to discovery, rationalization, and planning. In this article we discuss the value of the first workload from a technical perspective.
+The article on [Incremental Rationalization](../../digital-estate/rationalize-incremental.md) discusses the value of the first workload relative to discovery, rationalization, and planning. In this article we discuss the value of the first workload from a technical perspective.
 
 The first workload is different than any other workload because it creates the first opportunity test learnings. Prior to the deployment of the first workload, all cloud conversations are hypothetical. The first workload, is where the proverbial rubber meets the road. Once this workload is deployed all prior investments in cloud training are tested and validated. 
 

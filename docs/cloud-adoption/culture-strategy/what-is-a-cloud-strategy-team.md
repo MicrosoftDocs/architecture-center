@@ -5,7 +5,9 @@ author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: What is a Cloud Strategy Team (CST)?
+# Fusion: What is a Cloud Strategy Team?
+
+The goal of cloud transformation is to produce tangible business results which are enabled by cloud technologies. To change the business, the business must be involved. Cloud strategy team is the embodiment of this belief. It is a team of individuals that can see across business, culture, and technical change to shape transformation and influence the culture. This team is responsible for ensuring that the cloud transformation is progressing in alignment with business outcomes. The remainder of this article outlines the structure and duties of such a team.
 
 ## Structure of a Cloud Strategy Team
 
@@ -23,7 +25,7 @@ The primary duty of a Cloud Strategy Team is to validate alignment between Busin
 
 * Review and provide feedback on [Business Outcomes](../business-strategy/business-outcomes/overview.md) and [Financial Models](../business-strategy/financial-models.md)
 * Aid in establishing clear [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) that align with corporate objectives
-* Define relevant [Transformation Metrics](../business-strategy/transformation-metrics.md) that clearly communicate progress towards business outcomes
+* Define relevant [learning metrics](../business-strategy/learning-metrics.md) that clearly communicate progress towards business outcomes
 * Understand [business risks](../business-strategy/risk-tolerance.md) introduced by the plan, represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)
 * Review and approve the [rationalization of the digital estate](../digital-estate/overview.md)
 

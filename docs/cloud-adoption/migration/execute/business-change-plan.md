@@ -29,7 +29,7 @@ A Business Change Plan looks beyond the technical change and assumes that every 
 **Upstream questions:** Upstream questions look at impacts or changes that come before user adoption happens.
 
 * Has the an expected [business outcome](../../business-strategy/business-outcomes/overview.md) been quantified?
-* Does the business impact map to defined [Transformation Metrics](../../business-strategy/transformation-metrics.md)?
+* Does the business impact map to defined [learning metrics](../../business-strategy/learning-metrics.md)?
 * What business processes and teams leverage this technical solution?
 * Who on the business can best align Power Users for testing and feedback?
 * Have the impacted business leaders been involved in the prioritization and migration planning?
@@ -42,7 +42,7 @@ A Business Change Plan looks beyond the technical change and assumes that every 
 * Are business users responding well to the changes? 
 * Have performance anticipation been maintained, now that the technical change has been adopted?
 * Are business processes or customer experiences changing in the anticipated ways?
-* Are additional changes required to realize transformation metrics?
+* Are additional changes required to realize learning metrics?
 * Did the changes align to the targeted business outcomes? If not, why?
 * Are additional changes required to contribute to business outcomes?
 * Have any negative impacts been observed as a result of this change?

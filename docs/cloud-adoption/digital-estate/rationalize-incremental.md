@@ -16,7 +16,7 @@ This section of the article outlines the pieces needed to start an incremental r
 ![Rationalization as a plinko board with reduced options](../_images/rationalization-reduce-decisions.png)
 *Figure 1. Rationalization as a plinko board with reduced options*
 
-**Inventory:** Its hard to make decisions without an inventory. However, the inventory process can be streamlined based on the business outcomes. See Transformation Metrics to align inventory to the most important data points.
+**Inventory:** Its hard to make decisions without an inventory. However, the inventory process can be streamlined based on the business outcomes. See learning metrics to align inventory to the most important data points.
 
 **Quantitative analysis:** Each black peg in the image above represents a quantitative question: Is the asset used? If so, is it optimized and sized properly? These two questions are needed to properly size and make a few base assumptions about retirement and sizing. The answers to each will directly drive the financial model.
 
@@ -25,7 +25,7 @@ This section of the article outlines the pieces needed to start an incremental r
 > [!NOTE]
 > This streamlined approach produces baselines, financial plans, strategy, & direction. In later activities, like the Assess & Architect phases of a migration process, each asset would go through further rationalization and qualitative analysis to evaluate other options.
 > [!NOTE]
-> As outlined in the article on [Transformation Metrics](../business-strategy/transformation-metrics.md), different business outcomes would result in a different set of streamlined options. Incremental Transformations that focus on customer experience over cost savings would focus on Retire or Refactor options. Disruptive Transformations that focus on data and new products/services are more likely to focus on Rebuild or Replace.
+> As outlined in the article on [learning metrics](../business-strategy/learning-metrics.md), different business outcomes would result in a different set of streamlined options. Incremental Transformations that focus on customer experience over cost savings would focus on Retire or Refactor options. Disruptive Transformations that focus on data and new products/services are more likely to focus on Rebuild or Replace.
 
 ## Incremental Rationalization: Challenge assumptions
 

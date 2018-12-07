@@ -31,7 +31,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Potential Activities**
 
 * Ensure budgetary decisions that support the [Business Justification](../../business-strategy/cloud-migration-business-case.md) for your cloud strategy.
-* Validate [Transformation Metrics](../../business-strategy/transformation-metrics.md) that you use to report on the successful allocation of funding.
+* Validate [learning metrics](../../business-strategy/learning-metrics.md) that you use to report on the successful allocation of funding.
 * Understand the desired [Cloud Accounting Model](../../business-strategy/cloud-accounting.md) that impact how cloud costs should be accounted for.
 * Become familiar with the [Digital Estate Plan](../../digital-estate/overview.md) and validate accurate costing expectations.
 * Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-committment by purchasing an Enterprise Agreement.
