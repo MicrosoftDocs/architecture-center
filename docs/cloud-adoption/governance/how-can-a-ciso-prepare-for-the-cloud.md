@@ -25,7 +25,7 @@ As solutions move further "up stack" to incorporate Platform as a Service or Sof
 
 ## Resources for the Chief Information Security Office(r)
 
-Knowledge about the cloud is fundamental to approaching a [policy review](what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
+Knowledge about the cloud is fundamental to approaching a [policy review](policy-compliance/what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
 
 Security Platform Resources:
 

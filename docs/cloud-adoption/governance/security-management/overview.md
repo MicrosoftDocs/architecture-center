@@ -94,4 +94,4 @@ Once the transformation is complete, governance and operations must live on for 
 Now that you understand the concept of cloud resource governance, move on to learn more about [how resource access is managed](../resource-management/azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](../resource-management/governance-single-team.md) or [multiple teams](../resource-management/governance-multiple-teams.md).
 
 > [!div class="nextstepaction"]
-> [Learn about resource access in Azure](azure-resource-access.md)
+> [Learn about resource access in Azure](../resource-management/azure-resource-access.md)

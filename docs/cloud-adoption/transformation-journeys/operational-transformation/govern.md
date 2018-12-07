@@ -19,7 +19,7 @@ Download the full size infographic: [pdf format](../../_images/operational-trans
 
 In a governance process, the business experts have one major focus:
 
-* [Business Risks](../business-strategy/risks-tolerance.md): During each iteration, the Cloud Governance Team will identify and surface any new business risks associated with the assets being migrated to the cloud. Business stakeholders, the Cloud Strategy Team, and the Cloud Governance Team work together to evaluate and document risk tolerance and risk mitigation requirements. These risks and mitigation decisions will drive the creation or modification of corporate policies which govern azure migrations.
+* [Business Risks](../../business-strategy/risk-tolerance.md): During each iteration, the Cloud Governance Team will identify and surface any new business risks associated with the assets being migrated to the cloud. Business stakeholders, the Cloud Strategy Team, and the Cloud Governance Team work together to evaluate and document risk tolerance and risk mitigation requirements. These risks and mitigation decisions will drive the creation or modification of corporate policies which govern azure migrations.
 
 ## Culture Activities
 
@@ -27,7 +27,7 @@ During Governance iteration, its important that leadership be reminded to demons
 
 ## Strategic Activities (Meta Activities)
 
-When governance is implemented for governance sake, there are tangible risks of policy bloat and an overly constrained environment. In Operational Transformation, Governance begins with a Minimally Viable Product (MVP). Learn more about [Governance MVP](../migration/plan/corporate-policy-and-compliance.md)
+When governance is implemented for governance sake, there are tangible risks of policy bloat and an overly constrained environment. In Operational Transformation, Governance begins with a Minimally Viable Product (MVP). Learn more about [Governance MVP](../../governance/overview.md)
 
 * [Corporate Policy / Compliance](../../governance/policy-compliance/overview.md): During each iteration, the Governance team integrates changes to business risks and converts those risks to policies which protect the business. This approach allows for "Just Enough" governance to protect the deployed environment.
 * [Monitor and Enforce](../../governance/monitoring-enforcement/overview.md): Policies become real, when they can be enforced. During each iteration, the Cloud Governance Team will define the proper processes and actions associated with any new or changed corporate policies. The team will also define the best means to monitor policy adherence and proper actions to be taken when adherence isn't met.
