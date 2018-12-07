@@ -31,7 +31,7 @@ Cloud migrations can generate early Return on Investment (ROI) from cloud transf
 
 OpEx is not always a bad thing. Businesses are more likely to see OpEx as more favorable than CapEx. For instance, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
 
-Before providing a business justification that focuses on a conversion from Capital cost to Operating expense, understand which is better for the business & work with accounting to best align the message to financial objectives.
+Before providing a business justification that focuses on a conversion from CapEx to OpEx, understand which is better for the business. Accounting and procurement can often help best align the message to financial objectives.
 
 **Moving to the cloud is like flipping a switch:** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
@@ -48,14 +48,11 @@ The following process will define an approach to developing the business justifi
 At the highest level, the formula for business justification is simple. However, the subtle data points required to populate the formula can be difficult to align. At the highest level, the business justification focuses on the Return on Investment (ROI) associated with the proposed technical change. The generic formula for ROI is listed in the graphics below:
 
 ![Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment](../_images/formula-roi.png)
-*Figure 1. Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment*
+*Figure 1. Return on Investment (ROI) calculation*
 
 Unpacking this formula a bit creates a migration specific view of the formulas that drive each of the input variables on the right side of this equation. Each of those formulas will be pictured and described in the sections below.
 
 ### Migration Specific Initial Investment
-
-![Migration Specific Initial Investment equals Azure Costs during migration + Cost of Migration + Cost of Training + (Potential Investment Consideration) Burdened Cost of Internal Staff](../_images/formula-migration-initial-investment.png)
-*Figure 2. Migration Specific Initial Investment equals Azure Costs during migration + Cost of Migration + Cost of Training + (Potential Investment Consideration) Burdened Cost of Internal Staff*
 
 * Cloud providers like Azure offer calculators to estimate cloud investments. An example of such a calculator is the [Azure Pricing calculator](https://azure.microsoft.com/en-in/pricing/)
 * Some Cloud providers also support cost delta calculators. An example of a cost delta calculator would be the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco)
@@ -67,23 +64,16 @@ Unpacking this formula a bit creates a migration specific view of the formulas t
 
 ### Migration Specific Revenue Deltas
 
-![Migration Specific Revenue Deltas aligned to description in this paragraph](../_images/formula-migration-revenue-deltas.png)
-*Figure 3. Migration Specific Revenue Deltas aligned to description in this paragraph *
-
 This section is often overlooked when creating a migration business justification. In some areas, the Cloud can cut costs. However, the ultimate goal of any transformation is going to yield better results, when it looks a bit further into the future. Consider the downstream impacts to understand long term revenue improvements. What new technologies will be available to the business after this migration, that can't be leveraged today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on-hold, pending high cap-ex technology costs?
 
 After considering the opportunities unlocked by the Cloud, work with the business to calculate the revenue increases that could come from those opportunities.
 
 ### Migration Specific Cost Deltas
-
-![Migration Specific Cost Deltas aligned to description in this paragraph](../_images/formula-migration-cost-deltas.png)
-*Figure 4. Migration Specific Cost Deltas aligned to description in this paragraph *
-
 Calculate any changes to costs that will come from the proposed migration. See [Financial Models](financial-models.md) article for details of the different types of cost deltas. Cloud providers often provide tools for cost delta calculations. An example of a cost delta calculator would be the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco)
 
 Other examples of costs that may be reduced by a Cloud Migration:
 
-* Data Center termination (Environmental costs)
+* Data Center termination or reduction (Environmental costs)
 * Reduction in power consumed (Environmental costs)
 * Rack Termination (Physical asset recovery)
 * Prevent a hardware refresh (Cost Avoidance)
@@ -92,7 +82,7 @@ Other examples of costs that may be reduced by a Cloud Migration:
 
 ### Surprising Results
 
-If the ROI for a Cloud Migration isn't inline with expectations, the common myths above may prove valuable.
+If the ROI for a Cloud Migration isn't in line with expectations, the common myths above may prove valuable.
 
 However, it is important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-prem. These applications can significantly skew results in an analysis.
 
