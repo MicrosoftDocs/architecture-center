@@ -1,11 +1,12 @@
 ---
-title: Choose a solution for connecting an on-premises network to Azure
-description: Compares reference architectures for connecting an on-premises network to Azure.
+title: Connect an on-premises network to Azure
+titleSuffix: Azure Reference Architectures
+description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.date: 07/02/2018
 ---
 
-# Connect an on-premises network to Azure
+# Choose a solution for connecting an on-premises network to Azure
 
 This article compares options for connecting an on-premises network to an Azure Virtual Network (VNet). For each option, a more detailed reference architecture is available.
 
@@ -70,11 +71,9 @@ This architecture is suitable for hybrid applications that need the higher bandw
 
 - [Hybrid network with ExpressRoute and VPN failover](./expressroute-vpn-failover.md)
 
-
 ## Hub-spoke network topology
 
 A hub-spoke network topology is a way to isolate workloads while sharing services such as identity and security. The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub. Shared services are deployed in the hub, while individual workloads are deployed as spokes.
-
 
 **Reference architectures**
 

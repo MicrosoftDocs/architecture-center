@@ -1,21 +1,21 @@
 ---
-title: Batch scoring on Azure for deep learning models
-description: This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI
+title: Batch scoring for deep learning models
+titleSuffix: Azure Reference Architectures
+description: This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI.
 author: jiata
 ms.date: 10/02/2018
-ms.author: jiata
 ms.custom: azcat-ai
 ---
 
 # Batch scoring on Azure for deep learning models
 
-This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
- 
-![](./_images/batch-ai-deep-learning.png)
+This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution.**](#deploy-the-solution)
+
+![Architecture diagram for deep learning models using Azure Batch AI](./_images/batch-ai-deep-learning.png)
 
 **Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks][image-style-transfer] (PDF).
 
-| Style image: | Input/content video: | Output video: | 
+| Style image: | Input/content video: | Output video: |
 |--------|--------|---------|
 | <img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/style_image.jpg" width="300"> | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/input_video.mp4 "Input Video") *click to view video* | [<img src="https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video_image_0.jpg" width="300" height="300">](https://happypathspublic.blob.core.windows.net/assets/batch_scoring_for_dl/output_video.mp4 "Output Video") *click to view video* |
 
@@ -31,6 +31,7 @@ This reference architecture is designed for workloads that are triggered by the 
 1. Download the generated frames, and stitch back the images into a video.
 
 ## Architecture
+
 This architecture consists of the following components.
 
 ### Compute
@@ -58,7 +59,7 @@ This reference architecture uses video footage of an orangutan in a tree. You ca
 3. Use FFmpeg to break the video into individual frames. The frames will be processed independently, in parallel.
 4. Use AzCopy to copy the individual frames into your blob container.
 
-At this stage, the video footage is in a form that can be used for neural style transfer. 
+At this stage, the video footage is in a form that can be used for neural style transfer.
 
 ## Performance considerations
 
@@ -70,7 +71,7 @@ GPUs are not enabled by default in all regions. Make sure to select a region wit
 
 ### Parallelizing across VMs vs cores
 
-When running a style transfer process as a batch job, the jobs that run primarily on GPUs will have to be parallelized across VMs. Two approaches are possible: You can create a larger cluster using VMs that have a single GPU, or create a smaller cluster using VMs with many GPUs. 
+When running a style transfer process as a batch job, the jobs that run primarily on GPUs will have to be parallelized across VMs. Two approaches are possible: You can create a larger cluster using VMs that have a single GPU, or create a smaller cluster using VMs with many GPUs.
 
 For this workload, these two options will have comparable performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job for this workload is not very big, so you won't observe much throttling by blob storage.
 
@@ -92,7 +93,7 @@ For scenarios with more sensitive data, make sure that all of your storage keys 
 
 ### Data encryption and data movement
 
-This reference architecture uses style transfer as an example of a batch scoring process. For more data-sensitive scenarios, the data in storage should be encrypted at rest. Each time data is moved from one location to the next, use SSL to secure the data transfer. For more information, see [Azure Storage security guide][storage-security]. 
+This reference architecture uses style transfer as an example of a batch scoring process. For more data-sensitive scenarios, the data in storage should be encrypted at rest. Each time data is moved from one location to the next, use SSL to secure the data transfer. For more information, see [Azure Storage security guide][storage-security].
 
 ### Securing data in a virtual network
 
@@ -104,26 +105,25 @@ In scenarios where there are multiple users, make sure that sensitive data is pr
 
 - Use RBAC to limit users' access to only the resources they need.
 - Provision two separate storage accounts. Store input and output data in the first account. External users can be given access to this account. Store executable scripts and output log files in the other account. External users should not have access to this account. This will ensure that external users cannot modify any executable files (to inject malicious code), and don't have access to logfiles, which could hold sensitive information.
-- Malicious users can DDOS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors. 
+- Malicious users can DDOS the job queue or inject malformed poison messages in the job queue, causing the system to lock up or causing dequeuing errors.
 
 ## Monitoring and logging
 
 ### Monitoring Batch AI jobs
 
-While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes. 
+While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
 
-To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Jobs blade in the Azure Portal. 
+To get a sense of the overall state of the cluster, go to the Batch AI blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Jobs blade in the Azure Portal.
 
 Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the Batch AI cluster and its jobs.
 
 ### Logging in Batch AI
 
-Batch AI will automatically log all stdout/stderr to the associate blob storage account. Using a storage navigation tool such as Storage Explorer will provide a much easier experience for navigating log files. 
+Batch AI will automatically log all stdout/stderr to the associate blob storage account. Using a storage navigation tool such as Storage Explorer will provide a much easier experience for navigating log files.
 
-The deployment steps for this reference architecture also shows how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as shown below.
-Use these logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
+The deployment steps for this reference architecture also shows how to set up a more simple logging system, such that all the logs across the different jobs are saved to the same directory in your blob container, as shown below. Use these logs to monitor how long it takes for each job and each image to process. This will give you a better sense of how to optimize the process even further.
 
-![](./_images/batch-ai-logging.png)
+![Screenshot of logging for Azure Batch AI](./_images/batch-ai-logging.png)
 
 ## Cost considerations
 
@@ -138,6 +138,8 @@ Auto-scaling may not be appropriate for batch jobs that happen too close to each
 ## Deploy the solution
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][deployment].
+
+<!-- links -->
 
 [azcopy]: /azure/storage/common/storage-use-azcopy-linux
 [batch-ai]: /azure/batch-ai/

@@ -1,18 +1,19 @@
 ---
-title: Real-time Scoring of Python Scikit-Learn and Deep Learning Models on Azure
+title: Real-time scoring of Python models
+titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.
 author: njray
 ms.date: 11/09/2018
 ms.custom: azcat-ai
 ---
 
-# Real-time scoring of Python Scikit-Learn and Deep Learning Models on Azure
+# Real-time scoring of Python Scikit-Learn and deep learning models on Azure
 
 This reference architecture shows how to deploy Python models as web services to make real-time predictions. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
 
 Two reference implementations for this architecture are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
-![](./_images/python-model-architecture.png)
+![Architecture diagram for real-time scoring of Python models on Azure](./_images/python-model-architecture.png)
 
 ## Scenarios
 
@@ -24,33 +25,33 @@ This scenario uses a subset of Stack Overflow question data that includes origin
 
 The application flow for this architecture is as follows:
 
-1.  The client sends an HTTP POST request with the encoded question data.
+1. The client sends an HTTP POST request with the encoded question data.
 
-2.  The Flask app extracts the question from the request.
+2. The Flask app extracts the question from the request.
 
-3.  The question is sent to the scikit-learn pipeline model for featurization and scoring.
+3. The question is sent to the scikit-learn pipeline model for featurization and scoring.
 
-4.  The matching FAQ questions with their scores are piped into a JSON object and returned to the client.
+4. The matching FAQ questions with their scores are piped into a JSON object and returned to the client.
 
 Here is a screenshot of the example app that consumes the results:
 
-![](./_images/python-faq-matches.png)
+![Screenshot of the example app](./_images/python-faq-matches.png)
 
 **Scenario 2: Image classification.** This scenario shows how to deploy a Convolutional Neural Network (CNN) model as a web service to provide predictions on images. For this scenario, "Input Data" in the architecture diagram refers to image files. CNNs are very effective in computer vision for tasks such as image classification and object detection. This scenario is designed for the frameworks TensorFlow, Keras (with the TensorFlow back end), and PyTorch. However, it can be generalized to any scenario that uses deep learning models to make real-time predictions.
 
 This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 classes) dataset to predict which category (see figure below) an image belongs to. These predictions are made in real time using a REST API endpoint.
 
-![](./_images/python-example-predictions.png)
+![Example of predictions](./_images/python-example-predictions.png)
 
 The application flow for the deep learning model is as follows:
 
-1.  The client sends an HTTP POST request with the encoded image data.
+1. The client sends an HTTP POST request with the encoded image data.
 
-2.  The Flask app extracts the image from the request.
+2. The Flask app extracts the image from the request.
 
-3.  The image is preprocessed and sent to the model for scoring.
+3. The image is preprocessed and sent to the model for scoring.
 
-4.  The scoring result is piped into a JSON object and returned to the client.
+4. The scoring result is piped into a JSON object and returned to the client.
 
 ## Architecture
 
@@ -66,7 +67,7 @@ This architecture consists of the following components.
 
 ## Performance considerations
 
-For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, it's generally accepted that CPUs are sufficient to handle the workload. 
+For real-time scoring architectures, throughput performance becomes a dominant consideration. For regular Python models, it's generally accepted that CPUs are sufficient to handle the workload.
 
 However for deep learning workloads, when speed is a bottleneck, GPUs generally provide better [performance][gpus-vs-cpus] compared to CPUs. To match GPU performance using CPUs, a cluster with large number of CPUs is usually needed.
 
@@ -86,11 +87,11 @@ For visibility into AKS performance, use the [Azure Monitor for containers][moni
 
 While deploying your application, monitor the AKS cluster to make sure it's working as expected, all the nodes are operational, and all pods are running. Although you can use the [kubectl][kubectl] command-line tool to retrieve pod status, Kubernetes also includes a web dashboard for basic monitoring of the cluster status and management.
 
-![](./_images/python-kubernetes-dashboard.png)
+![Screenshot of the Kubernetes dashboard](./_images/python-kubernetes-dashboard.png)
 
 To see the overall state of the cluster and nodes, go to the **Nodes** section of the Kubernetes dashboard. If a node is inactive or has failed, you can display the error logs from that page. Similarly, go to the **Pods** and **Deployments** sections for information about the number of pods and status of your deployment.
 
-### AKS logs 
+### AKS logs
 
 AKS automatically logs all stdout/stderr to the logs of the pods in the cluster. Use kubectl to see these and also node-level events and logs. For details, see the deployment steps.
 
@@ -116,10 +117,12 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 ## Deployment
 
-To deploy this reference architecture, follow the steps described in the GitHub repos: 
+To deploy this reference architecture, follow the steps described in the GitHub repos:
 
-  - [Regular Python models][github-python]
-  - [Deep learning models][github-dl]
+- [Regular Python models][github-python]
+- [Deep learning models][github-dl]
+
+<!-- links -->
 
 [aad-auth]: /azure/aks/aad-integration
 [acr]: /azure/container-registry/
@@ -146,4 +149,3 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [scikit]: https://pypi.org/project/scikit-learn/
 [security-center]: /azure/security-center/security-center-intro
 [vm]: /azure/virtual-machines/
-
