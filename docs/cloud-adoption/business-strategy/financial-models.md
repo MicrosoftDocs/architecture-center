@@ -68,7 +68,7 @@ When an Operational Expense (OpEx) is expected, but not yet in an approved budge
 
 ### Soft Cost Reductions
 
-In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a DataCenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to tangible cost savings. Seldom do technology projects result in actual soft cost recovery.
+In some companies, Soft Costs such as reductions in Operational Complexity or reduction in FTE efforts to operate a datacenter could also be included. However, including Soft Costs can be ill advised. Inclusion of Soft Costs inserts an undocumented assumption that the reduction in costs will equate to tangible cost savings. Seldom do technology projects result in actual soft cost recovery.
 
 ### Headcount Reductions
 
@@ -80,6 +80,6 @@ The exception to this warning, is when operational capacity is provided by a thi
 
 ### Capital Expense Reductions or Avoidance
 
-Capital Expenses (CapEx) are slightly different that Operational Expenses. Generally, this category is driven by refresh cycles or DataCenter expansion. DataCenter Expansions like a new high-performance cluster to host a Big Data solution or data warehouse would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
+Capital Expenses (CapEx) are slightly different that Operational Expenses. Generally, this category is driven by refresh cycles or datacenter expansion. datacenter Expansions like a new high-performance cluster to host a Big Data solution or data warehouse would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
 
 If a refresh cycle is approved and budgeted, the Cloud Transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the Cloud Transformation could create a CapEx cost avoidance. Both scenarios would be added to the Cost Delta.

@@ -7,17 +7,17 @@ ms.date: 10/11/2018
 
 # Enterprise Cloud Adoption: What options are available when rationalizing a digital estate?
 
-Cloud Rationalization is the process of evaluating assets to determine the best approach to hosting or modernizing each asset in the cloud. For more information on the process of rationalization, see the article [outlining the rationalization process](overview.md).
+Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information on the process of rationalization, see the article [outlining the rationalization process](overview.md).
 
 ## 5 Rs rationalization
 
-Cloud Rationalization is an evolution of application rationalization, the process of removing duplicated applications in favor of standardized solutions. Similarly, Cloud Rationalization deals specifically with cloud compatibility, business justifications associated with specific applications, and the value the cloud may provide related to those applications. For a visual reference of how applications flow through the Cloud Rationalization process, see the analogy on  [rationalization](rationalize.md).
+Cloud Rationalization is the process of analyzing existing assets in a digital estate to find the most appropriate path to migration or modernization. For additional guidance on the Cloud Rationalization process, see the article on  [rationalization](rationalize.md).
 
 To understand an individual rationalization option, Jump to: [Rehost](#rehost) | [Refactor](#refactor) | [Rearchitect](#rearchitect) | [Rebuild](#rebuild) | [Replace](#replace)
 
 ## Rehost
 
-Also known as "Lift & Shift", a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to current state.
+Also known as "Lift & Shift", a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
 
 Common drivers could include:
 
@@ -123,19 +123,21 @@ Common drivers could include:
 
 Quantitative Analysis factors:
 
+* General operating cost reductions
 * VM size (CPU, Memory, Storage)
 * Dependencies (Network traffic)
 * Assets to be retired
 
 Qualitative Analysis Factors:
 
+* Cost benefit analysis of current architecture vs SaaS solution
 * Business process maps
 * Data schemas
 * Custom, or automated processes
 
 ## Next steps
 
-Collectively, these 8 Rs of Rationalization can be applied to a Digital Estate to make [rationalization](rationalize.md) decisions regarding the future state of each application.
+Collectively, these 5 Rs of Rationalization can be applied to a Digital Estate to make [rationalization](rationalize.md) decisions regarding the future state of each application.
 
 > [!div class="nextstepaction"]
 > [Rationalize the Digital Estate](rationalize.md)
