@@ -1,37 +1,34 @@
 ---
-title: "Enterprise Cloud Adoption: What options are available when rationalizing a digital estate?"
-description: Descriptions of commonly used tools for assessing on-prem infrastructure
+title: The 5 Rs of rationalization
+titleSuffix: Enterprise Cloud Adoption
+description: Describes the options that are available when rationalizing a digital estate
 author: BrianBlanchard
-ms.date: 10/11/2018
+ms.date: 12/10/2018
 ---
 
-# Enterprise Cloud Adoption: What options are available when rationalizing a digital estate?
+# Enterprise Cloud Adoption: The 5 Rs of rationalization
 
-Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information on the process of rationalization, see the article [outlining the rationalization process](overview.md).
+Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](overview.md)
 
-## 5 Rs rationalization
-
-Cloud Rationalization is the process of analyzing existing assets in a digital estate to find the most appropriate path to migration or modernization. For additional guidance on the Cloud Rationalization process, see the article on  [rationalization](rationalize.md).
-
-To understand an individual rationalization option, Jump to: [Rehost](#rehost) | [Refactor](#refactor) | [Rearchitect](#rearchitect) | [Rebuild](#rebuild) | [Replace](#replace)
+The "5 Rs of rationalization" listed here describe the most common options for rationalization.
 
 ## Rehost
 
-Also known as "Lift & Shift", a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
+Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
 
 Common drivers could include:
 
-* Reduce Capex
+* Reduce CapEx
 * Free up datacenter space
 * Quick cloud ROI
 
-Quantitative Analysis factors:
+Quantitative analysis factors:
 
-* VM size (CPU, Memory, Storage)
-* Dependencies (Network traffic)
+* VM size (CPU, memory, storage)
+* Dependencies (network traffic)
 * Asset compatibility
 
-Qualitative Analysis Factors:
+Qualitative analysis factors:
 
 * Tolerance for change
 * Business priorities
@@ -50,14 +47,14 @@ Common drivers could include:
 * Code portability
 * Greater cloud efficiency (resources, speed, cost)
 
-Quantitative Analysis factors:
+Quantitative analysis factors:
 
-* Application asset size (CPU, Memory, Storage)
-* Dependencies (Network traffic)
-* User Traffic (Page views, time on page, load time)
-* Development platform (Languages, data platform, middle tier services)
+* Application asset size (CPU, memory, storage)
+* Dependencies (network traffic)
+* User traffic (page views, time on page, load time)
+* Development platform (languages, data platform, middle tier services)
 
-Qualitative Analysis Factors:
+Qualitative analysis factors:
 
 * Continued business investments
 * Bursting options/timelines
@@ -67,22 +64,22 @@ Qualitative Analysis Factors:
 
 Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
 
-In other cases, applications that are cloud compatible, but not cloud native benefits, may produce costs & operational efficiencies by rearchitecting the solution to be a cloud native application.
+In other cases, applications that are cloud compatible, but not cloud native benefits, may produce cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud native application.
 
 Common drivers could include:
 
-* App scale and agility
+* Application scale and agility
 * Easier adoption of new cloud capabilities
-* Mix technology stacks
+* Mix of technology stacks
 
-Quantitative Analysis factors:
+Quantitative analysis factors:
 
-* Application asset size (CPU, Memory, Storage)
-* Dependencies (Network traffic)
-* User Traffic (Page views, time on page, load time)
-* Development platform (Languages, data platform, middle tier services)
+* Application asset size (CPU, memory, storage)
+* Dependencies (network traffic)
+* User traffic (page views, time on page, load time)
+* Development platform (languages, data platform, middle tier services)
 
-Qualitative Analysis Factors:
+Qualitative analysis factors:
 
 * Growing business investments
 * Operational costs
@@ -90,7 +87,7 @@ Qualitative Analysis Factors:
 
 ## Rebuild
 
-In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are no unsupported &/or misaligned with how the business processes are executed today. In this case, a new code base is created to align with a cloud native approach.
+In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are now unsupported or misaligned with how the business processes are executed today. In this case, a new code base is created to align with a cloud native approach.
 
 Common drivers could include:
 
@@ -98,14 +95,14 @@ Common drivers could include:
 * Build apps faster
 * Reduce operational cost
 
-Quantitative Analysis factors:
+Quantitative analysis factors:
 
-* Application asset size (CPU, Memory, Storage)
-* Dependencies (Network traffic)
-* User Traffic (Page views, time on page, load time)
-* Development platform (Languages, data platform, middle tier services)
+* Application asset size (CPU, memory, storage)
+* Dependencies (network traffic)
+* User traffic (page views, time on page, load time)
+* Development platform (languages, data platform, middle tier services)
 
-Qualitative Analysis Factors:
+Qualitative analysis Factors:
 
 * Declining end user satisfaction
 * Business processes limited by functionality
@@ -121,23 +118,23 @@ Common drivers could include:
 * Accelerate adoption of business process driven approaches
 * Reallocate development investments into applications that create competitive differentiation or advantages
 
-Quantitative Analysis factors:
+Quantitative analysis factors:
 
 * General operating cost reductions
-* VM size (CPU, Memory, Storage)
-* Dependencies (Network traffic)
+* VM size (CPU, memory, storage)
+* Dependencies (network traffic)
 * Assets to be retired
 
-Qualitative Analysis Factors:
+Qualitative analysis factors:
 
 * Cost benefit analysis of current architecture vs SaaS solution
 * Business process maps
 * Data schemas
-* Custom, or automated processes
+* Custom or automated processes
 
 ## Next steps
 
-Collectively, these 5 Rs of Rationalization can be applied to a Digital Estate to make [rationalization](rationalize.md) decisions regarding the future state of each application.
+Collectively, these 5 Rs of Rationalization can be applied to a digital estate to make rationalization decisions regarding the future state of each application.
 
 > [!div class="nextstepaction"]
-> [Rationalize the Digital Estate](rationalize.md)
+> [What is a digial estate?](overview.md)

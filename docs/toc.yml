@@ -555,19 +555,17 @@
       href: cloud-adoption/business-strategy/financial-models.md
   - name: Digital Estate
     items: 
-    - name: 5 Rs of Rationalization - Making decisions 
+    - name: 5 Rs of Rationalization 
       href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
-    - name: Digital Estate Rationalization
+    - name: What is a digital estate?
       href: cloud-adoption/digital-estate/overview.md
-    - name: Assessment Approaches 
+    - name: Approaches to digital estate planning
       href: cloud-adoption/digital-estate/approach.md
-    - name: Inventory Assets 
+    - name: Gather inventory data
       href: cloud-adoption/digital-estate/inventory.md
-    - name: Traditional Rationalization 
+    - name: Rationalize the digital estate
       href: cloud-adoption/digital-estate/rationalize.md
-    - name: Incremental Rationalization
-      href: cloud-adoption/digital-estate/rationalize-incremental.md
-    - name: Cost Calculations 
+    - name: Forecast cloud costs
       href: cloud-adoption/digital-estate/calculate.md
   - name: Governance
     items:
