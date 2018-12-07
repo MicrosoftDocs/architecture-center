@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Implement Active Directory Federation Services (AD FS) in Azure
 
-This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture implements a secure hybrid network that extends your on-premises network to Azure and uses [Active Directory Federation Services (AD FS)][active-directory-federation-services] to perform federated authentication and authorization for components running in Azure. [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture with Active Directory](./images/adfs.png)
 

@@ -12,7 +12,7 @@ pnp.series.prev: expressroute
 
 # Implement a hub-spoke network topology in Azure
 
-This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. [**Deploy this solution**](#deploy-the-solution).
 
 ![[0]][0]
 
@@ -132,7 +132,7 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -153,7 +153,7 @@ To deploy the hub VNet, perform the following steps.
 
 1. Open the `hub-vnet.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -162,7 +162,7 @@ To deploy the hub VNet, perform the following steps.
 
 3. Find both instances of `sharedKey` and enter a shared key for the VPN connection. The values must match.
 
-    ```bash
+    ```json
     "sharedKey": "",
     ```
 
@@ -214,7 +214,7 @@ TcpTestSucceeded : True
 
 4. Use the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
-   ```bash
+   ```shell
    ping 10.0.0.68
    ```
 
@@ -224,7 +224,7 @@ To deploy the spoke VNets, perform the following steps.
 
 1. Open the `spoke1.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -291,7 +291,7 @@ This step is optional. If you want to allow spokes to connect to each other, you
 
 1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```

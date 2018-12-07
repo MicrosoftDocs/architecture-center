@@ -14,7 +14,7 @@ cardTitle: DMZ between Azure and the Internet
 
 # Implement a DMZ between Azure and the Internet
 
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic. [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture](./images/dmz-public.png)
 

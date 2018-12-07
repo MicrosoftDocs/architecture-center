@@ -36,7 +36,7 @@ This architecture consists of the following infrastructure components.
 
 - **Network File System (NFS) storage**. The [NFS][nfs] server supports the network file share that provides secure data persistence for HANA Large Instance.
 
-- **ExpressRoute.** [ExpressRoute][expressroute] is the recommended Azure networking service for creating private connections between an on-premises network and Azure virtual networks that do not go over the  public Internet. Azure VMs connect to HANA Large Instances using another ExpressRoute connection. The ExpressRoute connection between the Azure virtual network and the HANA Large Instances is set up as part of the Microsoft offering.
+- **ExpressRoute**. [ExpressRoute][expressroute] is the recommended Azure networking service for creating private connections between an on-premises network and Azure virtual networks that do not go over the  public Internet. Azure VMs connect to HANA Large Instances using another ExpressRoute connection. The ExpressRoute connection between the Azure virtual network and the HANA Large Instances is set up as part of the Microsoft offering.
 
 - **Gateway**. The ExpressRoute Gateway is used to connect the Azure virtual network used for the SAP application layer to the HANA Large Instance network. Use the [High Performance or Ultra Performance][sku] SKU.
 

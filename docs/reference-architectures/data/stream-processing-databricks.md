@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Create a stream processing pipeline with Azure Databricks
 
-This reference architecture shows an end-to-end [stream processing](/azure/architecture/data-guide/big-data/real-time-processing) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows an end-to-end [stream processing](/azure/architecture/data-guide/big-data/real-time-processing) pipeline. This type of pipeline has four stages: ingest, process, store, and analysis and reporting. For this reference architecture, the pipeline ingests data from two sources, performs a join on related records from each stream, enriches the result, and calculates an average in real time. The results are stored for further analysis. [**Deploy this solution**](#deploy-the-solution).
 
 ![Reference architecture for stream processing with Azure Databricks](./images/stream-processing-databricks.png)
 
@@ -396,7 +396,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 4. The output of the deployment is written to the console once complete. Search the output for the following JSON:
 
-```JSON
+```json
 "outputs": {
         "cosmosDb": {
           "type": "Object",

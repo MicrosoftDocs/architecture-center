@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Extend Active Directory Domain Services (AD DS) to Azure
 
-This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS). [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS). [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture with Active Directory](./images/adds-extend-domain.png)
 
@@ -118,7 +118,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection.
 
-    ```bash
+    ```json
     "sharedKey": "",
     ```
 
@@ -142,7 +142,7 @@ After deployment completes, you can test conectivity from the simulated on-premi
 
 4. From inside your remote desktop session, open another remote desktop session to 10.0.4.4, which is the IP address of the VM named `adds-vm1`. The username is `contoso\testuser`, and the password is the one that you specified in the `azure.json` parameter file.
 
-5. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage.**
+5. From inside the remote desktop session for `adds-vm1`, go to **Server Manager** and click **Add other servers to manage**.
 
 6. In the **Active Directory** tab, click **Find now**. You should see a list of the AD, AD DS, and Web VMs.
 

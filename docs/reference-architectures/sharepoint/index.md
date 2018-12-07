@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Run a highly available SharePoint Server 2016 farm in Azure
 
-This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows proven practices for deploying a highly available SharePoint Server 2016 farm on Azure, using MinRole topology and SQL Server Always On availability groups. The SharePoint farm is deployed in a secured virtual network with no Internet-facing endpoint or presence. [**Deploy this solution**](#deploy-the-solution).
 
 ![Reference architecture for a highly available SharePoint Server 2016 farm in Azure](./images/sharepoint-ha.png)
 
@@ -203,6 +203,7 @@ The parameter files include a hard-coded password in various places. Change thes
 
     ```bash
     azbb -s <subscription_id> -g ra-onprem-sp2016-rg -l <location> -p azure2-cluster.json --deploy
+    ```
 
 5. Run the following command to deploy the remaining VMs.
 
@@ -226,7 +227,7 @@ At this point, verify that you can make a TCP connection from the web front end 
 
 The output should look similar to the following:
 
-```powershell
+```console
 ComputerName     : 10.0.3.100
 RemoteAddress    : 10.0.3.100
 RemotePort       : 1433

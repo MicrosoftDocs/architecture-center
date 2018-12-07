@@ -131,7 +131,7 @@ For more information, see [Azure Traffic Manager Cmdlets][tm-ps].
 
 ### Azure CLI
 
-```bat
+```azurecli
 az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile> \
     --name <endpoint-name> --type azureEndpoints --priority 3
 ```

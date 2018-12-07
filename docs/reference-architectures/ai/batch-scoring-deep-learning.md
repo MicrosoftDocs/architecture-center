@@ -9,7 +9,7 @@ ms.custom: azcat-ai
 
 # Batch scoring on Azure for deep learning models
 
-This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
 ![Architecture diagram for deep learning models using Azure Batch AI](./_images/batch-ai-deep-learning.png)
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Run a basic web application in Azure
 
-This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows proven practices for a web application that uses [Azure App Service][app-service] and [Azure SQL Database][sql-db]. [**Deploy this solution**](#deploy-the-solution).
 
 ![Reference architecture for a basic web application in Azure](./images/basic-web-app.png)
 

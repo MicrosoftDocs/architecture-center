@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 # Connect an on-premises network to Azure using ExpressRoute
 
-This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows how to connect an on-premises network to virtual networks on Azure, using [Azure ExpressRoute][expressroute-introduction]. ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure. [**Deploy this solution**](#deploy-the-solution).
 
 ![[0]][0]
 
@@ -118,7 +118,7 @@ Get-AzureRmExpressRouteCircuit -Name <<circuit-name>> -ResourceGroupName <<resou
 
 The output of this command shows several properties for your circuit, including `ProvisioningState`, `CircuitProvisioningState`, and `ServiceProviderProvisioningState` as shown below.
 
-```shell
+```powershell
 ProvisioningState                : Succeeded
 Sku                              : {
                                      "Name": "Standard_MeteredData",
@@ -235,7 +235,7 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 ## Deploy the solution
 
-**Prerequisites.** You must have an existing on-premises infrastructure already configured with a suitable network appliance.
+**Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
 
 To deploy the solution, perform the following steps.
 

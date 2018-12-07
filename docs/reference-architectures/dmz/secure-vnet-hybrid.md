@@ -14,7 +14,7 @@ cardTitle: DMZ between Azure and on-premises
 
 # Implement a DMZ between Azure and your on-premises datacenter
 
-This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited. [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture](./images/dmz-private.png)
 
@@ -41,7 +41,7 @@ The architecture consists of the following components.
     > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes instead of using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
     >
 
-- **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet.
+- **Management subnet**. This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet.
 
 ## Recommendations
 

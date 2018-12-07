@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure
 
-This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest. [**Deploy this solution.**](#deploy-the-solution)
+This reference architecture shows how to create a separate Active Directory domain in Azure that is trusted by domains in your on-premises AD forest. [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture with separate Active Directory domains](./images/adds-forest.png)
 
@@ -108,7 +108,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 2. In the same file, search for instances of `sharedKey` and enter shared keys for the VPN connection.
 
-    ```bash
+    ```json
     "sharedKey": "",
     ```
 
