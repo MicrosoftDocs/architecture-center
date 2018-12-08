@@ -1,16 +1,17 @@
 ---
 title: Serverless event processing using Azure Functions
+titleSuffix: Azure Reference Architectures
 description: Reference architecture that shows serverless event ingestion and processing
 author: MikeWasson
 ms.date: 10/16/2018
+ms.custom: seodec18
 ---
-
 
 # Serverless event processing using Azure Functions
 
 This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/), event-driven architecture that ingests a stream of data, processes the data, and writes the results to a back-end database. A reference implementation for this architecture is available on [GitHub][github].
 
-![](./_images/serverless-event-processing.png)
+![Reference architecture for serverless event processing using Azure Functions](./_images/serverless-event-processing.png)
 
 ## Architecture
 
@@ -45,16 +46,16 @@ Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). In or
 
 Here are some characteristics of a good partition key:
 
-- The key value space is large. 
+- The key value space is large.
 - There will be an even distribution of reads/writes per key value, avoiding hot keys.
-- The maximum data stored for any single key value will not exceed the maximum physical partition size (10 GB). 
-- The partition key for a document won't change. You can't update the partition key on an existing document. 
+- The maximum data stored for any single key value will not exceed the maximum physical partition size (10 GB).
+- The partition key for a document won't change. You can't update the partition key on an existing document.
 
 In the scenario for this reference architecture, the function stores exactly one document per device that is sending data. The function continually updates the documents with latest device status, using an upsert operation. Device ID is a good partition key for this scenario, because writes will be evenly distributed across the keys, and the size of each partition will be strictly bounded, because there is a single document for each key value. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
 ## Resiliency considerations
 
-When using the Event Hubs trigger with Functions, catch exceptions within your processing loop. If an unhandled exception occurs, the Functions runtime does not retry the messages. If a message cannot be processed, put the message into a dead letter queue. Use an out-of-band process to examine the messages and determine corrective action. 
+When using the Event Hubs trigger with Functions, catch exceptions within your processing loop. If an unhandled exception occurs, the Functions runtime does not retry the messages. If a message cannot be processed, put the message into a dead letter queue. Use an out-of-band process to examine the messages and determine corrective action.
 
 The following code shows how the ingestion function catches exceptions and puts unprocessed messages onto a dead letter queue.
 
@@ -95,9 +96,9 @@ public static async Task RunAsync(
 
 Notice that the function uses the [Queue storage output binding][queue-binding] to put items in the queue.
 
-The code shown above also logs exceptions to Application Insights. You can use the partition key and sequence number to correlate dead letter messages with the exceptions in the logs. 
+The code shown above also logs exceptions to Application Insights. You can use the partition key and sequence number to correlate dead letter messages with the exceptions in the logs.
 
-Messages in the dead letter queue should have enough information so that you can understand the context of error. In this example, the `DeadLetterMessage` class contains the exception message, the original event data, and the deserialized event message (if available). 
+Messages in the dead letter queue should have enough information so that you can understand the context of error. In this example, the `DeadLetterMessage` class contains the exception message, the original event data, and the deserialized event message (if available).
 
 ```csharp
 public class DeadLetterMessage
@@ -124,7 +125,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ## Deploy the solution
 
-To deploy this reference architecture, view the [GitHub readme][readme]. 
+To deploy this reference architecture, view the [GitHub readme][readme].
 
 <!-- links -->
 
