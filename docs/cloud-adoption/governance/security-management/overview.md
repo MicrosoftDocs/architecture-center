@@ -2,7 +2,7 @@
 title: "Fusion: How can a company add Security Management discipline to their Cloud Governance execution?"
 description: Explanation of the concept Resource management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/04/2018
+ms.date: 12/08/2018
 ---
 
 # Fusion: How can a company add Security Management discipline to their Cloud Governance execution?
@@ -14,9 +14,9 @@ This article outlines different phases of Security Management evolution, as a co
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Evolution of the Configuration Management Discipline across various phases of adoption](../../_images/governance-discipline-security-management.png)
+![Four phases of adoption](../../_images/adoptionphases.png)
 
-*Figure 1. Evolution of Configuration Management discipline across various phases of adoption
+*Figure 1. Adoption phases of the Cloud Governance Model
 
 ## Planning & Readiness
 
@@ -34,7 +34,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Determine whether your security management policy includes a [Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/). 
 * Review Microsoft's [top trends in cybersecurity](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) report.
 
-* Consider developing a [Security DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops)role in your organization.
+* Consider developing a [Security DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops) role in your organization.
 
 ## Build / Pre-Deployment
 
