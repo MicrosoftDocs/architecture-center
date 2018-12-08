@@ -1,54 +1,55 @@
 ---
-title: Implementing a hub-spoke network topology in Azure
-description: >-
-  How to implement a hub-spoke network topology in Azure.
+title: Implement a hub-spoke network topology in Azure
+titleSuffix: Azure Reference Architectures
+description: Implement a hub-spoke network topology in Azure.
 author: telmosampaio
 ms.date: 10/08/2018
+ms.custom: seodec18
 
 pnp.series.title: Implement a hub-spoke network topology in Azure
 pnp.series.prev: expressroute
 ---
+
 # Implement a hub-spoke network topology in Azure
 
-This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.  [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to implement a hub-spoke topology in Azure. The *hub* is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The *spokes* are VNets that peer with the hub, and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection. [**Deploy this solution**](#deploy-the-solution).
 
 ![[0]][0]
 
 *Download a [Visio file][visio-download] of this architecture*
 
-
 The benefits of this toplogy include:
 
-* **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
-* **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
-* **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
+- **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
+- **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
+- **Separation of concerns** between central IT (SecOps, InfraOps) and workloads (DevOps).
 
 Typical uses for this architecture include:
 
-* Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
-* Workloads that do not require connectivity to each other, but require access to shared services.
-* Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
+- Workloads deployed in different environments, such as development, testing, and production, that require shared services such as DNS, IDS, NTP, or AD DS. Shared services are placed in the hub VNet, while each environment is deployed to a spoke to maintain isolation.
+- Workloads that do not require connectivity to each other, but require access to shared services.
+- Enterprises that require central control over security aspects, such as a firewall in the hub as a DMZ, and segregated management for the workloads in each spoke.
 
 ## Architecture
 
 The architecture consists of the following components.
 
-* **On-premises network**. A private local-area network running within an organization.
+- **On-premises network**. A private local-area network running within an organization.
 
-* **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
+- **VPN device**. A device or service that provides external connectivity to the on-premises network. The VPN device may be a hardware device, or a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to Azure, see [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
-* **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the VNet to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
+- **VPN virtual network gateway or ExpressRoute gateway**. The virtual network gateway enables the VNet to connect to the VPN device, or ExpressRoute circuit, used for connectivity with your on-premises network. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 
 > [!NOTE]
 > The deployment scripts for this reference architecture use a VPN gateway for connectivity, and a VNet in Azure to simulate your on-premises network.
 
-* **Hub VNet**. Azure VNet used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke VNets.
+- **Hub VNet**. Azure VNet used as the hub in the hub-spoke topology. The hub is the central point of connectivity to your on-premises network, and a place to host services that can be consumed by the different workloads hosted in the spoke VNets.
 
-* **Gateway subnet**. The virtual network gateways are held in the same subnet.
+- **Gateway subnet**. The virtual network gateways are held in the same subnet.
 
-* **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
+- **Spoke VNets**. One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see [Running Windows VM workloads][windows-vm-ra] and [Running Linux VM workloads][linux-vm-ra].
 
-* **VNet peering**. Two VNets can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions. For more information, see [Requirements and constraints][vnet-peering-requirements].
+- **VNet peering**. Two VNets can be connected using a [peering connection][vnet-peering]. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke. You can peer virtual networks in the same region, or different regions. For more information, see [Requirements and constraints][vnet-peering-requirements].
 
 > [!NOTE]
 > This article only covers [Resource Manager](/azure/azure-resource-manager/resource-group-overview) deployments, but you can also connect a classic VNet to a Resource Manager VNet in the same subscription. That way, your spokes can host classic deployments and still benefit from services shared in the hub.
@@ -59,7 +60,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Resource groups
 
-The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet. 
+The hub VNet, and each spoke VNet, can be implemented in different resource groups, and even different subscriptions. When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Azure Active Directory tenant. This allows for a decentralized management of each workload, while sharing services maintained in the hub VNet.
 
 ### VNet and GatewaySubnet
 
@@ -72,7 +73,7 @@ For more information about setting up the gateway, see the following reference a
 
 For higher availability, you can use ExpressRoute plus a VPN for failover. See [Connect an on-premises network to Azure using ExpressRoute with VPN failover][hybrid-ha].
 
-A hub-spoke topology can also be used without a gateway, if you don't need connectivity with your on-premises network. 
+A hub-spoke topology can also be used without a gateway, if you don't need connectivity with your on-premises network.
 
 ### VNet peering
 
@@ -82,9 +83,9 @@ However, if you have several spokes that need to connect with each other, you wi
 
 You can also configure spokes to use the hub VNet gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub, and connect to remote networks, you must:
 
-  - Configure the VNet peering connection in the hub to **allow gateway transit**.
-  - Configure the VNet peering connection in each spoke to **use remote gateways**.
-  - Configure all VNet peering connections to **allow forwarded traffic**.
+- Configure the VNet peering connection in the hub to **allow gateway transit**.
+- Configure the VNet peering connection in each spoke to **use remote gateways**.
+- Configure all VNet peering connections to **allow forwarded traffic**.
 
 ## Considerations
 
@@ -131,7 +132,7 @@ To deploy the simulated on-premises datacenter as an Azure VNet, follow these st
 
 2. Open the `onprem.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -152,7 +153,7 @@ To deploy the hub VNet, perform the following steps.
 
 1. Open the `hub-vnet.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -161,7 +162,7 @@ To deploy the hub VNet, perform the following steps.
 
 3. Find both instances of `sharedKey` and enter a shared key for the VPN connection. The values must match.
 
-    ```bash
+    ```json
     "sharedKey": "",
     ```
 
@@ -188,6 +189,7 @@ Test conectivity from the simulated on-premises environment to the hub VNet.
    ```powershell
    Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
    ```
+
 The output should look similar to the following:
 
 ```powershell
@@ -212,7 +214,7 @@ TcpTestSucceeded : True
 
 4. Use the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
 
-   ```bash
+   ```shell
    ping 10.0.0.68
    ```
 
@@ -222,7 +224,7 @@ To deploy the spoke VNets, perform the following steps.
 
 1. Open the `spoke1.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -234,7 +236,7 @@ To deploy the spoke VNets, perform the following steps.
    ```bash
    azbb -s <subscription_id> -g spoke1-vnet-rg -l <location> -p spoke1.json --deploy
    ```
-  
+
 4. Repeat steps 1-2 for the `spoke2.json` file.
 
 5. Run the following command:
@@ -272,11 +274,11 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
-2. Click `Connect` and copy the `ssh` command shown in the portal. 
+2. Click `Connect` and copy the `ssh` command shown in the portal.
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
-5. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke:
+4. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
    ping 10.1.0.68
@@ -289,7 +291,7 @@ This step is optional. If you want to allow spokes to connect to each other, you
 
 1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
 
-    ```bash
+    ```json
     "adminUsername": "<user name>",
     "adminPassword": "<password>",
     ```
@@ -318,9 +320,9 @@ This step is optional. If you want to allow spokes to connect to each other, you
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [windows-vm-ra]: ../virtual-machines-windows/index.md
-
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
+
 [0]: ./images/hub-spoke.png "Hub-spoke topology in Azure"
 [1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
 [2]: ./images/hub-spoke-no-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing using an NVA"

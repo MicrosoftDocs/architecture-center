@@ -1,44 +1,40 @@
 ---
 title: Run a Windows VM on Azure
-description: >-
-  How to run a Windows VM on Azure, paying attention to scalability, resiliency,
-  manageability, and security.
-
+titleSuffix: Azure Reference Architectures
+description: Best practices for running a Windows virtual machine on Azure.
 author: telmosampaio
-
 ms.date: 09/13/2018
-
 ---
 
-# Run a Windows VM on Azure
+# Run a Windows virtual machine on Azure
 
-This article describes a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution.**](#deploy-the-solution)
+This article shows proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution**](#deploy-the-solution).
 
-![[0]][0]
+![Single Windows VM architecture in Azure](./images/single-vm-diagram.png)
 
 ## Components
 
 Provisioning an Azure VM requires some additional components besides the VM itself, including networking and storage resources.
 
-* **Resource group.** A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them. 
+- **Resource group**. A [resource group][resource-manager-overview] is a logical container that holds related Azure resources. In general, group resources based on their lifetime and who will manage them.
 
-* **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
+- **VM**. You can provision a VM from a list of published images, or from a custom managed image or virtual hard disk (VHD) file uploaded to Azure Blob storage.
 
-* **Managed Disks**. [Azure Managed Disks][managed-disks] simplify disk management by handling the storage for you. The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
+- **Managed Disks**. [Azure Managed Disks][managed-disks] simplify disk management by handling the storage for you. The OS disk is a VHD stored in [Azure Storage][azure-storage], so it persists even when the host machine is down. We also recommend creating one or more [data disks][data-disk], which are persistent VHDs used for application data.
 
-* **Temporary disk.** The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
+- **Temporary disk**. The VM is created with a temporary disk (the `D:` drive on Windows). This disk is stored on a physical drive on the host machine. It is *not* saved in Azure Storage and may be deleted during reboots and other VM lifecycle events. Use this disk only for temporary data, such as page or swap files.
 
-* **Virtual network (VNet).** Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
+- **Virtual network (VNet)**. Every Azure VM is deployed into a VNet that can be segmented into multiple subnets.
 
-* **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.  
+- **Network interface (NIC)**. The NIC enables the VM to communicate with the virtual network.
 
-* **Public IP address.** A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP).  
+- **Public IP address**. A public IP address is needed to communicate with the VM &mdash; for example, via remote desktop (RDP).
 
-* **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+- **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-* **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances. 
+- **Network security group (NSG)**. [Network security groups][nsg] are used to allow or deny network traffic to VMs. NSGs can be associated either with subnets or with individual VM instances.
 
-* **Diagnostics.** Diagnostic logging is crucial for managing and troubleshooting the VM.
+- **Diagnostics**. Diagnostic logging is crucial for managing and troubleshooting the VM.
 
 ## VM recommendations
 
@@ -46,17 +42,17 @@ Azure offers many different virtual machine sizes. For more information, see [Si
 
 Generally, choose an Azure region that is closest to your internal users or customers. However, not all VM sizes are available in all regions. For more information, see [Services by region][services-by-region]. For a list of the VM sizes available in a specific region, run the following command from the Azure command-line interface (CLI):
 
-```
+```azurecli
 az vm list-sizes --location <location>
 ```
 
 For information about choosing a published VM image, see [Find Windows VM images][select-vm-image].
 
-Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].  
+Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
 ## Disk and storage recommendations
 
-For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput). 
+For best disk I/O performance, we recommend [Premium Storage][premium-storage], which stores data on solid-state drives (SSDs). Cost is based on the capacity of the provisioned disk. IOPS and throughput (that is, data transfer rate) also depend on disk size, so when you provision a disk, consider all three factors (capacity, IOPS, and throughput).
 
 We also recommend using [Managed Disks][managed-disks]. Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed as a highly available resource.
 
@@ -67,13 +63,12 @@ Create a storage account to hold diagnostic logs. A standard locally redundant s
 > [!NOTE]
 > If you aren't using Managed Disks, create separate Azure storage accounts for each VM to hold the virtual hard disks (VHDs), in order to avoid hitting the [(IOPS) limits][vm-disk-limits] for storage accounts. Be aware of the total I/O limits of the storage account. For more information, see [virtual machine disk limits][vm-disk-limits].
 
-
 ## Network recommendations
 
 The public IP address can be dynamic or static. The default is dynamic.
 
-* Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
-* You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
+- Reserve a [static IP address][static-ip] if you need a fixed IP address that won't change &mdash; for example, if you need to create a DNS 'A' record or add the IP address to a safe list.
+- You can also create a fully qualified domain name (FQDN) for the IP address. You can then register a [CNAME record][cname-record] in DNS that points to the FQDN. For more information, see [Create a fully qualified domain name in the Azure portal][fqdn].
 
 All NSGs contain a set of [default rules][nsg-default-rules], including a rule that blocks all inbound Internet traffic. The default rules cannot be deleted, but other rules can override them. To enable Internet traffic, create rules that allow inbound traffic to specific ports &mdash; for example, port 80 for HTTP.
 
@@ -93,45 +88,45 @@ To protect against accidental data loss during normal operations (for example, b
 
 ## Manageability considerations
 
-**Resource groups.** Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
+**Resource groups**. Put closely associated resources that share the same lifecycle into the same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Assign meaningful resource names to simplify locating a specific resource and understanding its role. For more information, see [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
-**Stopping a VM.** Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
+**Stopping a VM**. Azure makes a distinction between "stopped" and "deallocated" states. You are charged when the VM status is stopped, but not when the VM is deallocated. In the Azure portal, the **Stop** button deallocates the VM. If you shut down through the OS while logged in, the VM is stopped but **not** deallocated, so you will still be charged.
 
-**Deleting a VM.** If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage]. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
+**Deleting a VM**. If you delete a VM, the VHDs are not deleted. That means you can safely delete the VM without losing data. However, you will still be charged for storage. To delete the VHD, delete the file from [Blob storage][blob-storage]. To prevent accidental deletion, use a [resource lock][resource-lock] to lock the entire resource group or lock individual resources, such as a VM.
 
 ## Security considerations
 
 Use [Azure Security Center][security-center] to get a central view of the security state of your Azure resources. Security Center monitors potential security issues and provides a comprehensive picture of the security health of your deployment. Security Center is configured per Azure subscription. Enable security data collection as described in the [Azure Security Center quick start guide][security-center-get-started]. When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
-**Patch management.** If enabled, Security Center checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
+**Patch management**. If enabled, Security Center checks whether any security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-**Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
+**Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-**Operations.** Use [role-based access control (RBAC)][rbac] to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+**Operations**. Use [role-based access control (RBAC)][rbac] to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
 > [!NOTE]
-> RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
+> RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
 
 Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-**Data encryption.** Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks. 
+**Data encryption**. Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
-**DDoS protection**. We recommend enabling [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which provides additional DDoS mitigation for resources in a VNet. Although basic DDoS protection is automatically enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure Virtual Network resources.  
+**DDoS protection**. We recommend enabling [DDoS Protection Standard](/azure/virtual-network/ddos-protection-overview), which provides additional DDoS mitigation for resources in a VNet. Although basic DDoS protection is automatically enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure Virtual Network resources.
 
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][github-folder]. It deploys the following:
 
-  * A virtual network with a single subnet named **web** used to host the VM.
-  * An NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
-  * A VM running the latest version of Windows Server 2016 Datacenter Edition.
-  * A sample custom script extension that formats the two data disks, and a PowerShell DSC script that deploys Internet Information Services (IIS).
+- A virtual network with a single subnet named **web** used to host the VM.
+- An NSG with two incoming rules to allow RDP and HTTP traffic to the VM.
+- A VM running the latest version of Windows Server 2016 Datacenter Edition.
+- A sample custom script extension that formats the two data disks, and a PowerShell DSC script that deploys Internet Information Services (IIS).
 
 ### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
-### Deploy the solution using azbb
+### Deployment steps
 
 To deploy this reference architecture, follow these steps:
 
@@ -139,20 +134,20 @@ To deploy this reference architecture, follow these steps:
 
 2. Open the `single-vm-v2.json` file and enter a username and password between the quotes, then save the file.
 
-  ```bash
-  "adminUsername": "",
-  "adminPassword": "",
-  ```
+    ```json
+    "adminUsername": "",
+    "adminPassword": "",
+    ```
 
 3. Run `azbb` to deploy the sample VM as shown below.
 
-  ```bash
+  ```azurecli
   azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
   ```
 
 To verify the deployment, run the following Azure CLI command to find the public IP address of the VM:
 
-```bash
+```azurecli
 az vm show -n ra-single-windows-vm1 -g <resource-group-name> -d -o table
 ```
 
@@ -208,4 +203,3 @@ For information about customizing this deployment, visit our [GitHub repository]
 [vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[0]: ./images/single-vm-diagram.png "Single Windows VM architecture in Azure"

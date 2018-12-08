@@ -1,7 +1,9 @@
 ---
-title: Choose a solution for integrating on-premises Active Directory with Azure.
-description: Compares reference architectures for integrating on-premises Active Directory with Azure.
+title: Integrate on-premises Active Directory with Azure
+titleSuffix: Azure Reference Architectures
+description: Compare reference architectures for integrating on-premises Active Directory with Azure.
 ms.date: 07/02/2018
+ms.custom: seodec18
 ---
 
 # Choose a solution for integrating on-premises Active Directory with Azure
@@ -10,21 +12,21 @@ This article compares options for integrating your on-premises Active Directory 
 
 Many organizations use Active Directory Domain Services (AD DS) to authenticate identities associated with users, computers, applications, or other resources that are included in a security boundary. Directory and identity services are typically hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, there may be latency sending authentication requests from Azure back to on-premises. Implementing directory and identity services in Azure can reduce this latency.
 
-Azure provides two solutions for implementing directory and identity services in Azure: 
+Azure provides two solutions for implementing directory and identity services in Azure:
 
-* Use [Azure AD][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with Azure AD.
+- Use [Azure AD][azure-active-directory] to create an Active Directory domain in the cloud and connect it to your on-premises Active Directory domain. [Azure AD Connect][azure-ad-connect] integrates your on-premises directories with Azure AD.
 
-* Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a domain controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. Several variations of this architecture are possible: 
+- Extend your existing on-premises Active Directory infrastructure to Azure, by deploying a VM in Azure that runs AD DS as a domain controller. This architecture is more common when the on-premises network and the Azure virtual network (VNet) are connected by a VPN or ExpressRoute connection. Several variations of this architecture are possible:
 
-    - Create a domain in Azure and join it to your on-premises AD forest.
-    - Create a separate forest in Azure that is trusted by domains in your on-premises forest.
-    - Replicate an Active Directory Federation Services (AD FS) deployment to Azure. 
+  - Create a domain in Azure and join it to your on-premises AD forest.
+  - Create a separate forest in Azure that is trusted by domains in your on-premises forest.
+  - Replicate an Active Directory Federation Services (AD FS) deployment to Azure.
 
 The next sections describe each of these options in more detail.
 
 ## Integrate your on-premises domains with Azure AD
 
-Use Azure Active Directory (Azure AD) to create a domain in Azure and link it to an on-premises AD domain. 
+Use Azure Active Directory (Azure AD) to create a domain in Azure and link it to an on-premises AD domain.
 
 The Azure AD directory is not an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises are copied to Azure AD, but changes made in Azure AD are not replicated back to the on-premises domain.
 
@@ -32,15 +34,15 @@ You can also use Azure AD without using an on-premises directory. In this case, 
 
 **Benefits**
 
-* You don't need to maintain an AD infrastructure in the cloud. Azure AD is entirely managed and maintained by Microsoft.
-* Azure AD provides the same identity information that is available on-premises.
-* Authentication can happen in Azure, reducing the need for external applications and users to contact the on-premises domain.
+- You don't need to maintain an AD infrastructure in the cloud. Azure AD is entirely managed and maintained by Microsoft.
+- Azure AD provides the same identity information that is available on-premises.
+- Authentication can happen in Azure, reducing the need for external applications and users to contact the on-premises domain.
 
 **Challenges**
 
-* Identity services are limited to users and groups. There is no ability to authenticate service and computer accounts.
-* You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized. 
-* Applications may need to be rewritten to enable authentication through Azure AD.
+- Identity services are limited to users and groups. There is no ability to authenticate service and computer accounts.
+- You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized. 
+- Applications may need to be rewritten to enable authentication through Azure AD.
 
 **Reference architecture**
 
@@ -54,15 +56,15 @@ Consider this option if you need to use AD DS features that are not currently im
 
 **Benefits**
 
-* Provides access to the same identity information that is available on-premises.
-* You can authenticate user, service, and computer accounts on-premises and in Azure.
-* You don't need to manage a separate AD forest. The domain in Azure can belong to the on-premises forest.
-* You can apply group policy defined by on-premises Group Policy Objects to the domain in Azure.
+- Provides access to the same identity information that is available on-premises.
+- You can authenticate user, service, and computer accounts on-premises and in Azure.
+- You don't need to manage a separate AD forest. The domain in Azure can belong to the on-premises forest.
+- You can apply group policy defined by on-premises Group Policy Objects to the domain in Azure.
 
 **Challenges**
 
-* You must deploy and manage your own AD DS servers and domain in the cloud.
-* There may be some synchronization latency between the domain servers in the cloud and the servers running on-premises.
+- You must deploy and manage your own AD DS servers and domain in the cloud.
+- There may be some synchronization latency between the domain servers in the cloud and the servers running on-premises.
 
 **Reference architecture**
 
@@ -76,13 +78,13 @@ Typical uses for this architecture include maintaining security separation for o
 
 **Benefits**
 
-* You can implement on-premises identities and separate Azure-only identities.
-* You don't need to replicate from the on-premises AD forest to Azure.
+- You can implement on-premises identities and separate Azure-only identities.
+- You don't need to replicate from the on-premises AD forest to Azure.
 
 **Challenges**
 
-* Authentication within Azure for on-premises identities requires extra network hops to the on-premises AD servers.
-* You must deploy your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
+- Authentication within Azure for on-premises identities requires extra network hops to the on-premises AD servers.
+- You must deploy your own AD DS servers and forest in the cloud, and establish the appropriate trust relationships between forests.
 
 **Reference architecture**
 
@@ -94,20 +96,20 @@ Replicate an Active Directory Federation Services (AD FS) deployment to Azure, t
 
 Typical uses for this architecture:
 
-* Authenticate and authorize users from partner organizations.
-* Allow users to authenticate from web browsers running outside of the organizational firewall.
-* Allow users to connect from authorized external devices such as mobile devices. 
+- Authenticate and authorize users from partner organizations.
+- Allow users to authenticate from web browsers running outside of the organizational firewall.
+- Allow users to connect from authorized external devices such as mobile devices. 
 
 **Benefits**
 
-* You can leverage claims-aware applications.
-* Provides the ability to trust external partners for authentication.
-* Compatibility with large set of authentication protocols.
+- You can leverage claims-aware applications.
+- Provides the ability to trust external partners for authentication.
+- Compatibility with large set of authentication protocols.
 
 **Challenges**
 
-* You must deploy your own AD DS, AD FS, and AD FS Web Application Proxy servers in Azure.
-* This architecture can be complex to configure.
+- You must deploy your own AD DS, AD FS, and AD FS Web Application Proxy servers in Azure.
+- This architecture can be complex to configure.
 
 **Reference architecture**
 
