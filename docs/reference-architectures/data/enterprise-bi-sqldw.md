@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Enterprise BI in Azure with SQL Data Warehouse
 
-This reference architecture implements an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis.
+This reference architecture implements an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis.
 
 A reference implementation for this architecture is available on [GitHub][github-folder].
 

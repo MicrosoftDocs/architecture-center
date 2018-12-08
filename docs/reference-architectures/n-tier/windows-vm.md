@@ -1,14 +1,14 @@
 ---
 title: Run a Windows VM on Azure
 titleSuffix: Azure Reference Architectures
-description: Run a Windows virtual machine on Azure for scalability, resiliency, manageability, and security.
+description: Best practices for running a Windows virtual machine on Azure.
 author: telmosampaio
 ms.date: 09/13/2018
 ---
 
 # Run a Windows virtual machine on Azure
 
-This article describes a set of proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution**](#deploy-the-solution).
+This article shows proven practices for running a Windows virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution**](#deploy-the-solution).
 
 ![Single Windows VM architecture in Azure](./images/single-vm-diagram.png)
 
@@ -126,7 +126,7 @@ A deployment for this architecture is available on [GitHub][github-folder]. It d
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
-### Deploy the solution using azbb
+### Deployment steps
 
 To deploy this reference architecture, follow these steps:
 

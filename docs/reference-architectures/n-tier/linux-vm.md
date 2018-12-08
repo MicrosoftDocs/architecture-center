@@ -1,7 +1,7 @@
 ---
 title: Run a Linux VM on Azure
 titleSuffix: Azure Reference Architectures
-description: Run a Linux virtual machine on Azure for scalability, resiliency, manageability, and security.
+description: Best practices for running a Linux virtual machine on Azure.
 author: telmosampaio
 ms.date: 09/13/2018
 ms.custom: seodec18
@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Run a Linux virtual machine on Azure
 
-This reference architecture shows proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution**](#deploy-the-solution).
+This article shows proven practices for running a Linux virtual machine (VM) on Azure. It includes recommendations for provisioning the VM along with networking and storage components. [**Deploy this solution**](#deploy-the-solution).
 
 [0]: ./images/single-vm-diagram.png "Single Linux VM in Azure"
 
@@ -145,24 +145,24 @@ A deployment is available on [GitHub][github-folder]. It deploys the following:
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
-Create an SSH key pair. For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
-
 ### Deploy the solution using azbb
 
-1. Navigate to the `virtual-machines/single-vm/parameters/linux` folder for the repository you downloaded in the prerequisites step above.
+1. Create an SSH key pair. For more information, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-2. Open the `single-vm-v2.json` file and enter a username and your SSH public key between the quotes, then save the file.
+2. Navigate to the `virtual-machines/single-vm/parameters/linux` folder for the repository you downloaded in the prerequisites step above.
+
+3. Open the `single-vm-v2.json` file and enter a username and your SSH public key between the quotes, then save the file.
 
     ```json
     "adminUsername": "<your username>",
     "sshPublicKey": "ssh-rsa AAAAB3NzaC1...",
     ```
 
-3. Run `azbb` to deploy the sample VM as shown below.
+4. Run `azbb` to deploy the sample VM as shown below.
 
-  ```azurecli
-  azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
-  ```
+    ```azurecli
+    azbb -s <subscription_id> -g <resource_group_name> -l <location> -p single-vm-v2.json --deploy
+    ```
 
 To verify the deployment, run the following Azure CLI command to find the public IP address of the VM:
 

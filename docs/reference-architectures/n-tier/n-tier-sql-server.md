@@ -158,7 +158,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
 
-### Deployment Steps
+### Deployment steps
 
 1. Run the following command to create a resource group.
 
