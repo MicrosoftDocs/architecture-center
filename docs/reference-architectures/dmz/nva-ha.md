@@ -3,12 +3,8 @@ title: Deploy highly available network virtual appliances
 titleSuffix: Azure Reference Architectures
 description: Deploy network virtual appliances with high availability.
 author: telmosampaio
-ms.date: 12/06/2016
+ms.date: 12/08/2018
 ms.custom: seodec18
-
-pnp.series.title: Network DMZ
-pnp.series.prev: secure-vnet-dmz
-cardTitle: Deploy highly available network virtual appliances
 ---
 
 # Deploy highly available network virtual appliances
@@ -75,16 +71,35 @@ The following architecture demonstrates an architecture with one active and one 
 
 ![[3]][3]
 
+> [!TIP]
+> A complete solution for this architecture is available on [GitHub](https://github.com/mspnp/ha-nva).
+
 This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming layer 4 requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. These changes to the UDR and PIP can either be done manually or using an automated process. The automated process is typically daemon or other monitoring service running in Azure. It queries a health probe on the active NVA and performs the UDR and PIP switch when it detects a failure of the NVA.
 
 The preceding figure shows an example [ZooKeeper][zookeeper] cluster providing a high availability daemon. Within the ZooKeeper cluster, a quorum of nodes elects a leader. If the leader fails, the remaining nodes hold an election to elect a new leader. For this architecture, the leader node executes the daemon that queries the health endpoint on the NVA. If the NVA fails to respond to the health probe, the daemon activates the passive NVA. The daemon then calls the Azure REST API to remove the PIP from the failed NVA and attaches it to newly activated NVA. The daemon then modifies the UDR to point to the newly activated NVA's internal IP address.
 
-> [!NOTE]
-> Do not include the ZooKeeper nodes in a subnet that is only accessible using a route that includes the NVA. Otherwise, the ZooKeeper nodes are inaccessible if the NVA fails. Should the daemon fail for any reason, you won't be able to access any of the ZooKeeper nodes to diagnose the problem.
+Do not include the ZooKeeper nodes in a subnet that is only accessible using a route that includes the NVA. Otherwise, the ZooKeeper nodes are inaccessible if the NVA fails. Should the daemon fail for any reason, you won't be able to access any of the ZooKeeper nodes to diagnose the problem.
 
-<!--### Solution Deployment-->
+## PIP-UDR NVAs without SNAT
 
-<!-- instructions for deploying this solution here -->
+This architecture uses two Azure virtual machines to host the NVA firewall in an active-passive configuration that supports automated failover but does not require Source Network Address Translation (SNAT).
+
+![PIP-UDR NVAs without SNAT architecture](./images/nva-ha/pip-udr-without-snat.png)
+
+> [!TIP]
+> A complete solution for this architecture is available on [GitHub](https://aka.ms/ha-nva-fo).
+
+This solution is designed for Azure customers who cannot configure SNAT for inbound requests on their NVA firewalls. SNAT hides the original source client IP address. If you need to log the original IPs or used them within other layered security components behind your NVAs, this solution offers a basic approach.
+
+The failover of UDR table entries is automated by a next-hop address set to the IP address of an interface on the active NVA firewall virtual machine. The automated failover logic is hosted in a function app that you create using [Azure Functions](/azure/azure-functions/). The failover code runs as a serverless function inside Azure Functions. Deployment is convenient, cost-effective, and easy to maintain and customize. In addition, the function app is hosted within Azure Functions, so it has no dependencies on the virtual network. If changes to the virtual network impact the NVA firewalls, the function app continues to run independently. Testing is more accurate as well, because it takes place outside the virtual network using the same route as the inbound client requests.
+
+To check the availability of the NVA firewall, the function app code probes it in one of two ways:
+
+- By monitoring the state of the Azure virtual machines hosting the NVA firewall.
+
+- By testing whether there is an open port through the firewall to the back-end web server. For this option, the NVA must expose a socket via PIP for the function app code to test.
+
+You choose the type of probe you want to use when you configure the function app.
 
 ## Next steps
 
