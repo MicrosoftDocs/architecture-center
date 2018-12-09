@@ -1,13 +1,13 @@
 ---
 title: Real-time scoring of R machine learning models
-description:  This reference architecture shows how to implement a real-time (synchronous) prediction service in R using Azure Container Registry and Azure Kubernetes Service (AKS).
+description:  Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 author: njray
 ms.date: 12/10/18
 ---
 
 # Real-time scoring of R machine learning models
 
-This reference architecture shows how to implement a real-time (synchronous) prediction service in R using Azure Container Registry and Azure Kubernetes Service (AKS). This architecture is intended to be generic and suited for use with any predictive model built in R that you want to deploy as a real-time service. **[Deploy this solution][github]**.
+This reference architecture shows how to implement a real-time (synchronous) prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS). This architecture is intended to be generic and suited for any predictive model built in R that you want to deploy as a real-time service. **[Deploy this solution][github]**.
 
 ## Architecture
 
@@ -27,11 +27,11 @@ The architecture of this workflow includes the following components.
 
 Machine learning workloads tend to be compute-intensive, both when training and when scoring new data. As a rule of thumb, try not to run more than one scoring process per core. Machine Learning Server lets you define the number of R processes running in each container. The default is five processes. When creating a relatively simple model, such as a linear regression with a small number of variables, or a small decision tree, you can increase the number of processes. Monitor the CPU load on your cluster nodes to determine the appropriate limit on the number of containers.
 
-A GPU-enabled cluster can speed up some types of workloads, and deep learning models in particular. Not all workloads can take advantage of GPUs—only those that make heavy use of matrix algebra. For example, tree-based models, including random forests and boosting models, generally derive no advantage from GPUs.
+A GPU-enabled cluster can speed up some types of workloads, and deep learning models in particular. Not all workloads can take advantage of GPUs &mdash; only those that make heavy use of matrix algebra. For example, tree-based models, including random forests and boosting models, generally derive no advantage from GPUs.
 
 Some model types such as random forests are massively parallelizable on CPUs. In these cases, speed up the scoring of a single request by distributing the workload across multiple cores. However, doing so reduces your capacity to handle multiple scoring requests given a fixed cluster size.
 
-In general, open source R models store all their data in memory, so ensure that your nodes have enough memory to accommodate all the processes you plan to run concurrently. If you are using Machine Learning Server to fit your models, use the libraries that can process data on disk, rather than reading it all into memory. This can help reduce memory requirements significantly. Regardless of whether you use Machine Learning Server or open source R, monitor your nodes to ensure that your scoring processes are not memory-starved.
+In general, open-source R models store all their data in memory, so ensure that your nodes have enough memory to accommodate the processes you plan to run concurrently. If you are using Machine Learning Server to fit your models, use the libraries that can process data on disk, rather than reading it all into memory. This can help reduce memory requirements significantly. Regardless of whether you use Machine Learning Server or open-source R, monitor your nodes to ensure that your scoring processes are not memory-starved.
 
 ## Security considerations
 
@@ -61,7 +61,7 @@ Although the dashboard gives you a view of the overall health of your cluster, i
 
 Machine Learning Server is licensed on a per-core basis, and all the cores in the cluster that will run Machine Learning  Server count towards this. If you are an enterprise Machine Learning Server or Microsoft SQL Server customer, contact your Microsoft representative for pricing details.
 
-An open source alternative to Machine Learning Server is [Plumber][plumber], an R package that turns your code into a REST API. Plumber is less fully featured than Machine Learning Server. For example, it does not by default include any features that provide request authentication. If you use Plumber, it’s recommended that you enable [Azure API Management][API] to handle authentication details.
+An open-source alternative to Machine Learning Server is [Plumber][plumber], an R package that turns your code into a REST API. Plumber is less fully featured than Machine Learning Server. For example, by default it doesn't include any features that provide request authentication. If you use Plumber, it’s recommended that you enable [Azure API Management][API] to handle authentication details.
 
 Besides licensing, the main cost consideration is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times. To limit the impact of idle resources, enable the [horizontal autoscaler][autoscaler] for the cluster using the kubectl tool. Or use the AKS [cluster autoscaler][cluster-autoscaler].
 
