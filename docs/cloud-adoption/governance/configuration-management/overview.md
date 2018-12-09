@@ -14,9 +14,9 @@ This article outlines different phases of Configuration Management evolution, as
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Evolution of the Configuration Management Discipline across various phases of adoption](../../_images/governance-discipline-configuration-management.png)
+![Four phases of adoption](../../_images/adoptionphases.png)
 
-*Figure 1. Evolution of Configuration Management discipline across various phases of adoption
+*Figure 1. Adoption phases of the Cloud Governance Model
 
 ## Planning & Readiness
 
@@ -24,16 +24,16 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Evaluate [Tool Chain](toolchain.md) options
-* Develop and surface a draft of Architecture Guidelines
-* Educate and involve the teams impacted in the development of Architecture Guidelines
+* Evaluate your [Configuration Management Tool Chain](toolchain.md) options.
+* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
+* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
 **Potential Activities**
 
-* Establish deployment configuration and automation processes
-* Establish configuration alignment processes
-* Establish formal SLA classifications and recovery requirements
-* Align SLA costs and SLA classifications with the [Business Justification](../../business-strategy/cloud-migration-business-case.md)
+* Establish deployment configuration and automation processes.
+* Establish configuration alignment processes.
+* Establish formal SLA classifications and recovery requirements.
+* Align SLA costs and SLA classifications with the [Business Justification](../../business-strategy/cloud-migration-business-case.md).
 
 ## Build / Pre-Deployment
 
@@ -41,15 +41,16 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Implement [Tool Chain](toolchain.md)
-* Update Architecture Guidelines
-* Educate teams impacted in the Architecture Guidelines
+* Implement your [Configuration Management Tool Chain](toolchain.md) out in a pre-deployment phase.
+* Update the Architecture Guidelines document and distribute to key stakeholders.
+* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
 
 **Potential Activities**
 
-* Implement Deployment or DevOps strategy
-* Implement Configuration Alignment strategy
-* Implement HA/DR strategy
+* Implement a:
+  * Deployment, DevOps or DevSecOps strategy.
+  * Configuration Alignment strategy.
+  * HA/DR strategy.
 
 ## Adopt / Migrate
 
@@ -57,17 +58,18 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum Suggested Activities**
 
-* Adjust [Tool Chain](toolchain.md)
-* Adjust Architecture Guidelines
-* Educate teams impacted in the Architecture Guidelines
+* Migrate your [Configuration Management Tool Chain](toolchain.md) from pre-deployment to production.
+* Update the Architecture Guidelines document and distribute to key stakeholders.
+* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
 
 **Potential Activities**
 
-* Validate proper use of deployment approaches
-* Validate OS & App Hardening has been completed
-* Validate configuration alignment approaches
-* Validate adherence to HA/DR strategy and SLA classification
-* Test deployment, configuration, and recovery policies in staging to validate adherence
+* Validate: 
+  * Proper use of deployment approaches.
+  * OS and App Hardening has been completed.
+  * Configuration alignment approaches.
+  * Adherence to HA/DR strategy and SLA classification.
+* Test deployment, configuration, and recovery policies in staging to validate adherence.
 
 ## Operate / Post-Implementation
 
@@ -75,15 +77,18 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum Suggested Activities**
 
-* Customize [Tool Chain](toolchain.md)
-* Automate [Tool Chain](toolchain.md) notifications and reports
-* Refine Architecture Guidelines to guide future adoption processes
-* Re-Educate impacted teams on a periodic basis to ensure on-going adherence to Architecture Guidelines
+* Customize your [Configuration Management Tool Chain](toolchain.md).
+* Automate notifications and reports to alert you of potential configuration issues.
+* Refine Architecture Guidelines to guide future adoption processes.
+* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure on-going adherence to Architecture Guidelines.
 
 **Potential Activities**
 
-* Review OS and Application vulnerabilities
-* Test recovery plans (intrusive and non-instrusive)
-* Configuration drift monitoring
-* Maintain and execute patch cycles
-* Quarterly report of SLA costs vs business impact, along with results from recovery plan testing
+* Review OS and Application vulnerabilities.
+* Test recovery plans (intrusive and non-instrusive).
+* Implement configuration drift monitoring.
+* Maintain and execute patch cycles.
+* Prepare quarterly report including SLA costs versus business impact, along with results from recovery plan testing.
+
+# Next steps
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/logs-and-reporting/overview?branch=brian%2FCOMIntegration) with your existing processes and tools.
