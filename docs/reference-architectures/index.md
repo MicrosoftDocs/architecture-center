@@ -64,7 +64,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/icon-r.svg" />
+                            <img src="../_images/icons/logo-r.svg" />
                         </div>
                     </div>
                     <div class="cardText">
