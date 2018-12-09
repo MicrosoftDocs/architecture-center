@@ -31,6 +31,7 @@ The following architectures describe the resources and configuration necessary f
 | [Egress with layer 7 NVAs][egress-with-layer-7] |All NVA nodes are active | Requires an NVA that can terminate connections and implements source network address translation (SNAT)
 | [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
 | [PIP-UDR switch][pip-udr-switch] |Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules) |Active-passive<br/>Requires a failover process |
+| [PIP-UDR without SNAT](#pip-udr-nvas-without-snat) | Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)<br/>Does not require configuring SNAT for inbound requests |Active-passive<br/>Requires a failover process<br/>Probing and failover logic run outside the virtual network |
 
 ## Ingress with layer 7 NVAs
 
