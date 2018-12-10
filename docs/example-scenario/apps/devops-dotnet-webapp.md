@@ -109,7 +109,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
-[architecture]: ./media/architecture-devops-dotnet-webapp.png
+[architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [availability]: /azure/architecture/checklist/availability
 [chef]: /azure/chef/
 [design-patterns-availability]: /azure/architecture/patterns/category/availability
