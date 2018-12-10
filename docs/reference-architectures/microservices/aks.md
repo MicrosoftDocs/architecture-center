@@ -58,7 +58,7 @@ The following diagram show the conceptual relation between services and pods. Th
 
 ![Services and pods](./_images/aks-services.png)
 
-## API Gateway
+### API Gateway
 
 An *API gateway* is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. 
 
@@ -136,7 +136,7 @@ Whereas HPA looks at actual resources consumed or other metrics from running pod
 
 You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster. 
 
-### Availability considerations
+## Availability considerations
 
 ### Health probes
 
@@ -246,7 +246,7 @@ Scan images for known vulnerabilities, using a scanning solution such as Twistlo
 
 Automate image patching using ACR Tasks, a feature of Azure Container Registry. A container image is built up from layers. The base layers include the OS image and application framework images, such as ASP.NET Core or Node.js. The base images are typically created upstream from the application developers, and are maintained by other project maintainers. When these images are patched upstream, it's important to update, test, and redeploy your own images, so that you don't leave any known security vulnerabilities. ACR Tasks can help to automate this process.
 
-## Deployment (CI/CD)
+## Deployment (CI/CD) considerations
 
 Here are some goals of a robust CI/CD process for a microservices architecture:
 
