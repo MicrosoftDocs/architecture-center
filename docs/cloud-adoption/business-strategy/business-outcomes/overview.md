@@ -11,7 +11,7 @@ The most successful Transformation Journeys start with a business outcome in min
 
 During any Cloud Transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document & gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s Transformation Journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions. 
 
-To learn more about business outcomes and the business outcome template, check out the article on [documenting business outcomes](how-to-use-the-business-outcome-template.md) or download the [excel template](business-outcome-template.xlsx).
+To learn more about business outcomes and the business outcome template, check out the article on [documenting business outcomes](how-to-use-the-business-outcome-template.md) or download the [excel template](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx).
 
 ## Prepare for conversations with different personas
 
