@@ -17,7 +17,7 @@ Unlike the cloud agnostic position throughout Fusion, this article is Azure spec
 |---------|---------|---------|---------|---------|---------|
 | Deploy resources                             | Yes | Yes | Yes | Yes | No  |
 | Manage resources                             | Yes | Yes | Yes | Yes | No  |
-| Deploy resources using templates             | No  | Yes | No  | No  | No  |
+| Deploy resources using ARM templates         | No  | Yes | No  | Yes | No  |
 | Orchestrated environment deployment          | No  | No  | Yes | No  | No  |
 | Define resource groups                       | Yes | Yes | Yes | No  | No  |
 | Manage workload and account owners           | Yes | Yes | Yes | No  | No  |
