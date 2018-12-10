@@ -18,7 +18,7 @@ In some industry verticals, [regulatory compliance](policy-compliance/what-is-re
 
 **Governance execution** The Cloud Governance Model focuses on the five disciplines of cloud governance, and each implements a different aspect of corporate policies to support safe cloud adoption. These disciplines include [cost management](cost-management/overview.md), [security management](security-management/overview.md), [identity management](identity-management/overview.md), [resource management](resource-management/overview.md), and [configuration management](configuration-management/overview.md). When policy focuses on risk and tolerance, the management disciplines can extend policy by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
 
-**Adoption phases of the Cloud Governance Model**
+## Adoption phases of the Cloud Governance Model
 
 The objective of each adoption phase in the Cloud Governance Model is to help build a [Policy MVP](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/policy-compliance/overview), but establish a framework for [Incremental Policy evolution](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/policy-compliance/overview). The Cloud Governance Team should decide how much to invest in the potential activities to improve each of the five cloud goverance disciplines.
 
@@ -26,22 +26,15 @@ While not directly aligned, each phase of governance maturity most closely maps 
 
 ![Four phases of adoption](../_images/adoption-phases.png)
 
-*Figure 1. Evolution of each cloud governance discipline across various phases of adoption
+*Figure 1. Evolution of each cloud governance discipline across various phases of adoption*
 
-*Planning and readiness*
+**Planning and readiness** This process bridges the divide between business outcomes and actionable strategies. During this process, the leadership team defines specific metrics, maps those metrics to the digital estate, and begins planning the overall migration effort.
 
-This process bridges the divide between business outcomes and actionable strategies. During this process, the leadership team defines specific metrics, maps those metrics to the digital estate, and begins planning the overall migration effort.
+**Build and pre-deployment** A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
-*Build and pre-deployment*
+**Adopt and migrate** Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.
 
-A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
-
-*Adopt and migrate*
-
-Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.
-
-*Post-implementation*
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+**Post-implementation** Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
 ## Next steps
 
