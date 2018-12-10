@@ -13,7 +13,7 @@ ms.date: 10/11/2018
 
 *Figure 1. Build process within Operational Transformation. Activities within the process detailed below*
 
-Download the full size infographic from the [Operational Transformation page](overview.md).
+Download the full size infographic: [pdf format](https://archcenter.blob.core.windows.net/cdn/operational-transformation-infographic.pdf?) [png format](../../_images/operational-transformation-infographic.pdf)
 
 ## Business Activities
 

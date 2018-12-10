@@ -13,7 +13,7 @@ ms.date: 10/11/2018
 
 *Figure 1. Plan process within Operational Transformation. Activities within the process detailed below*
 
-Download the full size infographic: [pdf format](../../_images/operational-transformation-infographic.png) [png format](../../_images/operational-transformation-infographic.pdf)
+Download the full size infographic: [pdf format](https://archcenter.blob.core.windows.net/cdn/operational-transformation-infographic.pdf?) [png format](../../_images/operational-transformation-infographic.pdf)
 
 ## Business Activities
 
