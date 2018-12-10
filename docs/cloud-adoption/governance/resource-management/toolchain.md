@@ -10,28 +10,30 @@ ms.date: 12/5/2018
 
 In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the Five Disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the Five Disciplines of Cloud Governance, Resource management includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
-
 Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 
-|  | Azure Portal  | Azure Resource Manager  | Azure Blueprints | Azure Automation | Azure AD |
+|    | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/)  | [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)  | [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/overview) | [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-intro) | [Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
 |---------|---------|---------|---------|---------|---------|
-|Manage resources (singe team)   |Yes | Yes | Yes | Yes | No  |
-|Manage resources (multiple teams) |Yes | Yes | Yes | Yes | No  |
-|Define resource groups    | No | Yes  | Yes  | No  | No  |
-|Manage workload and account owners    | Yes | No | Yes  | Yes | Yes  |
-|Manage conditional access to resources   | Yes | Yes | Yes  | Yes |  Yes |
-|Assign roles and permissions to to resources   | Yes | No | Yes  | Yes |  Yes |
-|Define dependencies between resources    | No | No | Yes  | No  | No  |
-|Conduct asset performance     | No | No | No  | Yes | No  |
-|Apply access control to all services     | Yes | No | Yes  | Yes | Yes  |
-|Assess availability and scalability    | No | No | No  | Yes | No  |
-|Apply tags to resources    | No | Yes  | Yes  | No  | No  |
-|Plan resources for disaster recovery    | No | No  | Yes  | Yes | No  |
-|Apply automated remediation    | No | No | Yes  | Yes  | Yes  |
-|Manage billing and SLAs    | Yes | No | Yes  | Yes | Yes   |
+| Deploy resources                             | Yes | Yes | Yes | Yes | No  |
+| Manage resources                             | Yes | Yes | Yes | Yes | No  |
+| Deploy resources using templates             | No  | Yes | No  | No  | No  |
+| Orchestrated environment deployment          | No  | No  | Yes | No  | No  |
+| Define resource groups                       | Yes | Yes | Yes | No  | No  |
+| Manage workload and account owners           | Yes | Yes | Yes | No  | No  |
+| Manage conditional access to resources       | Yes | Yes | Yes | No  | No  |
+| Configure RBAC users                         | Yes | No  | No  | No  | Yes |
+| Assign roles and permissions to to resources | Yes | Yes | Yes | No  | Yes |
+| Define dependencies between resources        | No  | Yes | Yes | No  | No  |
+| Apply access control                         | Yes | Yes | Yes | No  | Yes |
+| Assess availability and scalability          | No  | No  | No  | Yes | No  |
+| Apply tags to resources                      | Yes | Yes | Yes | No  | No  |
+| Assign Azure Policy rules                    | Yes | Yes | Yes | No  | No  |
+| Plan resources for disaster recovery         | Yes | Yes | Yes | No  | No  |
+| Apply automated remediation                  | No  | No  | No  | Yes | No  |
+| Manage billing                               | Yes | No  | No  | No  | No  |
 
-Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage 3rd party tools for facilitating resource management activities.
+Coupled with these resource management tools and features is the need to [monitor your deployed assets](../monitoring-enforcement/overview.md). [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure, although 3rd party tools are also often used to monitor workloads and resources.
 
 # Next steps
 Learn how to create, assign, and manage [policy definitions](https://docs.microsoft.com/en-us/azure/governance/policy/) in Azure. 

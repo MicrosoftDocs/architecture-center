@@ -694,6 +694,8 @@
             href: cloud-adoption/governance/resource-management/governance-single-team.md
           - name: Resouce governance design for multiple teams
             href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/resource-management/toolchain.md
       - name: Configuration Management
         items:
           - name: Overview
