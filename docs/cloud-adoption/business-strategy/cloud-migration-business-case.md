@@ -97,3 +97,8 @@ However, it's important to understand that a cost savings outcome is not always 
 When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/en-us/migration/partners/).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create a financial model for cloud transformation](financial-models.md)
