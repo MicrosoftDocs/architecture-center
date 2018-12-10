@@ -16,19 +16,23 @@ Unlike the cloud agnostic position throughout Fusion, this article is Azure spec
 
 |  |Azure Portal  |Azure Resource Manager  |ARM Templates  | Azure Policy |
 |---------|---------|---------|---------|---------|
-|Deploy resources (single team)?     | |  |  |  |
-|Deploy resources (multiple teams)     | |  |  |  |
-|Manage resources (singe team)   | |  |  |  |
-|Manage resources (multiple teams)  | |  |  |  |
-|Define resource groups    | |  |  |  |
-|Manage workload and account owners    | |  |  |  |
-|Define dependencies between resources    | |  |  |  |
-|Conduct asset performance     | |  |  |  |
-|Apply access control to all services     | |  |  |  |
-|Assess availability and scalability    | |  |  |  |
-|Apply tags to resources    | |  |  |  |
-|Plan resources for disaster recovery    | |  |  |  |
-|Apply automated remediation    | |  |  |  |
-|Manage billing and SLAs    | |  |  |  |
+|Deploy resources (single team)?     |Yes | Yes | Yes | No |
+|Deploy resources (multiple teams)     |Yes | Yes | Yes | No |
+|Manage resources (singe team)   |Yes | Yes | Yes | No |
+|Manage resources (multiple teams) |Yes | Yes | Yes | No |
+|Define resource groups    | No | Yes  | Yes  | No  |
+|Manage workload and account owners    | Yes | No | No  | Yes |
+|Define dependencies between resources    | No | Yes | Yes  | No  |
+|Conduct asset performance     | Yes | No | No  | Yes |
+|Apply access control to all services     | Yes | No | No  | Yes |
+|Assess availability and scalability    | Yes | No | No  | Yes |
+|Apply tags to resources    | No | Yes  | Yes  | No  |
+|Plan resources for disaster recovery    | No | No  | No  | Yes |
+|Apply automated remediation    | No | Yes | Yes  | No  |
+|Manage billing and SLAs    | Yes | No | No  | Yes |
 
 Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage 3rd party tools for facilitating resource management activities.
+
+# Next steps
+Learn how to create, assign, and manage [policy definitions](https://docs.microsoft.com/en-us/azure/governance/policy/) in Azure. 
+
