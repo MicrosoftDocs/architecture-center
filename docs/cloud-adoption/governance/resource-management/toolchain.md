@@ -14,8 +14,8 @@ In the [Intro to Cloud Governance](../overview.md), Resource Management is one o
 Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 
-|  | Azure Portal  | Azure Resource Manager  | Blueprints | Azure Automation | Azure AD |
-|---------|---------|---------|---------|---------|
+|  | Azure Portal  | Azure Resource Manager  | Azure Blueprints | Azure Automation | Azure AD |
+|---------|---------|---------|---------|---------|---------|
 |Manage resources (singe team)   |Yes | Yes | Yes | Yes | No  |
 |Manage resources (multiple teams) |Yes | Yes | Yes | Yes | No  |
 |Define resource groups    | No | Yes  | Yes  | No  | No  |
