@@ -3,14 +3,14 @@ title: Designing a CI/CD pipeline using Azure DevOps
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: christianreddington
 ms.date: 12/06/2018
-ms.custom: fasttrack|seodec18
+ms.custom: "fasttrack", "seodec18"
 ---
 
 # Designing a CI/CD pipeline using Azure DevOps
 
-This scenario provides architecture and design guidance for building a CI/CD pipeline that deploys a two-tier .NET web application to Azure App Service. The application being deployed depends on Azure platform as a service (PaaS) services.
+This scenario provides architecture and design guidance for building a Continuous Integration and Continuous Deployment (CI/CD) pipeline.  In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
-Migrating to modern Continuous Integration and Continuous Deployment (CI/CD) processes provide many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
+Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
 ## Relevant use cases
 
