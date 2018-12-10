@@ -12,7 +12,7 @@ This reference architectures shows a microservices application deployed to Azure
 This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](/azure/architecture/microservices).
 
 > [!NOTE]
-> We are working on a reference implementation (RI) to accompany this article, which we expect to publish in early 2019. This article will be updated to incporate additional best practices from that RI.
+> We are working on a reference implementation (RI) to accompany this article, which we expect to publish in early 2019. This article will be updated to incorporate additional best practices from that RI.
 
 ![AKS reference architecture](./_images/aks.png)
 
