@@ -14,7 +14,7 @@ This article outlines different phases of Configuration Management evolution, as
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Four phases of adoption](../../_images/adoptionphases.png)
+![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the Cloud Governance Model
 
