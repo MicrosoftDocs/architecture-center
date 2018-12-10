@@ -1,12 +1,11 @@
 ---
-title: Cache-Aside
+title: Cache-Aside pattern
+titleSuffix: Cloud Design Patterns
 description: Load data on demand into a cache from a data store
 keywords: design pattern
 author: dragon119
 ms.date: 11/01/2018
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [data-management, performance-scalability]
+ms.custom: seodec18
 ---
 
 # Cache-Aside pattern
@@ -29,14 +28,13 @@ An application can emulate the functionality of read-through caching by implemen
 
 ![Using the Cache-Aside pattern to store data in the cache](./_images/cache-aside-diagram.png)
 
-
 If an application updates information, it can follow the write-through strategy by making the modification to the data store, and by invalidating the corresponding item in the cache.
 
 When the item is next required, using the cache-aside strategy will cause the updated data to be retrieved from the data store and added back into the cache.
 
 ## Issues and considerations
 
-Consider the following points when deciding how to implement this pattern: 
+Consider the following points when deciding how to implement this pattern:
 
 **Lifetime of cached data**. Many caches implement an expiration policy that invalidates data and removes it from the cache if it's not accessed for a specified period. For cache-aside to be effective, ensure that the expiration policy matches the pattern of access for applications that use the data. Don't make the expiration period too short because this can cause applications to continually retrieve data from the data store and add it to the cache. Similarly, don't make the expiration period so long that the cached data is likely to become stale. Remember that caching is most effective for relatively static data, or data that is read frequently.
 
@@ -62,9 +60,9 @@ This pattern might not be suitable:
 
 ## Example
 
-In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application. 
+In Microsoft Azure you can use Azure Redis Cache to create a distributed cache that can be shared by multiple instances of an application.
 
-This following code examples use the [StackExchange.Redis] client, which is a Redis client library written for .NET. To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
+This following code examples use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client, which is a Redis client library written for .NET. To connect to an Azure Redis Cache instance, call the static `ConnectionMultiplexer.Connect` method and pass in the connection string. The method returns a `ConnectionMultiplexer` that represents the connection. One approach to sharing a `ConnectionMultiplexer` instance in your application is to have a static property that returns a connected instance, similar to the following example. This approach provides a thread-safe way to initialize only a single connected instance.
 
 ```csharp
 private static ConnectionMultiplexer Connection;
@@ -83,7 +81,6 @@ The `GetMyEntityAsync` method in the following code example shows an implementat
 
 An object is identified by using an integer ID as the key. The `GetMyEntityAsync` method tries to retrieve an item with this key from the cache. If a matching item is found, it's returned. If there's no match in the cache, the `GetMyEntityAsync` method retrieves the object from a data store, adds it to the cache, and then returns it. The code that actually reads the data from the data store is not shown here, because it depends on the data store. Note that the cached item is configured to expire to prevent it from becoming stale if it's updated elsewhere.
 
-
 ```csharp
 // Set five minute expiration as a default
 private const double DefaultExpirationTimeInMinutes = 5.0;
@@ -93,23 +90,23 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
   // Define a unique key for this method and its parameters.
   var key = $"MyEntity:{id}";
   var cache = Connection.GetDatabase();
-  
+
   // Try to get the entity from the cache.
   var json = await cache.StringGetAsync(key).ConfigureAwait(false);
-  var value = string.IsNullOrWhiteSpace(json) 
-                ? default(MyEntity) 
+  var value = string.IsNullOrWhiteSpace(json)
+                ? default(MyEntity)
                 : JsonConvert.DeserializeObject<MyEntity>(json);
-  
+
   if (value == null) // Cache miss
   {
     // If there's a cache miss, get the entity from the original store and cache it.
-    // Code has been omitted because it's data store dependent.  
+    // Code has been omitted because it is data store dependent.
     value = ...;
 
     // Avoid caching a null value.
     if (value != null)
     {
-      // Put the item in the cache with a custom expiration time that 
+      // Put the item in the cache with a custom expiration time that
       // depends on how critical it is to have stale data.
       await cache.StringSetAsync(key, JsonConvert.SerializeObject(value)).ConfigureAwait(false);
       await cache.KeyExpireAsync(key, TimeSpan.FromMinutes(DefaultExpirationTimeInMinutes)).ConfigureAwait(false);
@@ -120,7 +117,7 @@ public async Task<MyEntity> GetMyEntityAsync(int id)
 }
 ```
 
->  The examples use Redis Cache to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-web-app-howto)
+> The examples use Redis Cache to access the store and retrieve information from the cache. For more information, see [Using Microsoft Azure Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache) and [How to create a Web App with Redis Cache](https://docs.microsoft.com/azure/redis-cache/cache-web-app-howto)
 
 The `UpdateEntityAsync` method shown below demonstrates how to invalidate an object in the cache when the value is changed by the application. The code updates the original data store and then removes the cached item from the cache.
 
@@ -128,7 +125,7 @@ The `UpdateEntityAsync` method shown below demonstrates how to invalidate an obj
 public async Task UpdateEntityAsync(MyEntity entity)
 {
     // Update the object in the original data store.
-    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false); 
+    await this.store.UpdateEntityAsync(entity).ConfigureAwait(false);
 
     // Invalidate the current cache object.
     var cache = Connection.GetDatabase();
@@ -141,14 +138,10 @@ public async Task UpdateEntityAsync(MyEntity entity)
 > [!NOTE]
 > The order of the steps is important. Update the data store *before* removing the item from the cache. If you remove the cached item first, there is a small window of time when a client might fetch the item before the data store is updated. That will result in a cache miss (because the item was removed from the cache), causing the earlier version of the item to be fetched from the data store and added back into the cache. The result will be stale cache data.
 
-
-## Related guidance 
+## Related guidance
 
 The following information may be relevant when implementing this pattern:
 
 - [Caching Guidance](https://docs.microsoft.com/azure/architecture/best-practices/caching). Provides additional information on how you can cache data in a cloud solution, and the issues that you should consider when you implement a cache.
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Cloud applications typically use data that's spread across data stores. Managing and maintaining data consistency in this environment is a critical aspect of the system, particularly the concurrency and availability issues that can arise. This primer describes issues about consistency across distributed data, and summarizes how an application can implement eventual consistency to maintain the availability of data.
-
-
-[StackExchange.Redis]: https://github.com/StackExchange/StackExchange.Redis

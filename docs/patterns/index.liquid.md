@@ -1,8 +1,13 @@
 ---
 title: Cloud Design Patterns
+titleSuffix: Azure Architecture Center
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
+author: dragon119
+ms.date: 12/10/2018
+ms.custom: seodec18
 ---
+
 # Cloud Design Patterns
 
 [!INCLUDE [header](../../_includes/header.md)]
@@ -13,6 +18,8 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 ## Problem areas in the cloud
 
+<!-- markdownlint-disable MD033 -->
+
 <ul id="categories" class="panel">
 {%- for category in categories %}
     <li>
@@ -20,6 +27,8 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </li>
 {%- endfor %}
 </ul>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Catalog of patterns
 

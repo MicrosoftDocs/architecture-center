@@ -1,12 +1,11 @@
 ---
-title: Materialized View
+title: Materialized View pattern
+titleSuffix: Cloud Design Patterns
 description: Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [data-management, performance-scalability]
+ms.custom: seodec18
 ---
 
 # Materialized View pattern
@@ -33,7 +32,6 @@ When the source data for the view changes, the view must be updated to include t
 
 ![Figure 1 shows an example of how the Materialized View pattern might be used](./_images/materialized-view-pattern-diagram.png)
 
-
 ## Issues and considerations
 
 Consider the following points when deciding how to implement this pattern:
@@ -55,6 +53,7 @@ Where the storage mechanism supports it, consider indexing the materialized view
 ## When to use this pattern
 
 This pattern is useful when:
+
 - Creating materialized views over data that's difficult to query directly, or where queries must be very complex to extract data that's stored in a normalized, semi-structured, or unstructured way.
 - Creating temporary views that can dramatically improve query performance, or can act directly as source views or data transfer objects for the UI, for reporting, or for display.
 - Supporting occasionally connected or disconnected scenarios where connection to the data store isn't always available. The view can be cached locally in this case.
@@ -63,6 +62,7 @@ This pattern is useful when:
 - Bridging different data stores, to take advantage of their individual capabilities. For example, using a cloud store that's efficient for writing as the reference data store, and a relational database that offers good query and read performance to hold the materialized views.
 
 This pattern isn't useful in the following situations:
+
 - The source data is simple and easy to query.
 - The source data changes very quickly, or can be accessed without using a view. In these cases, you should avoid the processing overhead of creating views.
 - Consistency is a high priority. The views might not always be fully consistent with the original data.
@@ -73,15 +73,15 @@ The following figure shows an example of using the Materialized View pattern to 
 
 ![Figure 2: Using the Materialized View pattern to generate a summary of sales](./_images/materialized-view-summary-diagram.png)
 
-
 Creating this materialized view requires complex queries. However, by exposing the query result as a materialized view, users can easily obtain the results and use them directly or incorporate them in another query. The view is likely to be used in a reporting system or dashboard, and can be updated on a scheduled basis such as weekly.
 
->  Although this example utilizes Azure table storage, many relational database management systems also provide native support for materialized views.
+> Although this example utilizes Azure table storage, many relational database management systems also provide native support for materialized views.
 
 ## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
+
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). The summary information in a materialized view has to be maintained so that it reflects the underlying data values. As the data values change, it might not be practical to update the summary data in real time, and instead you'll have to adopt an eventually consistent approach. Summarizes the issues surrounding maintaining consistency over distributed data, and describes the benefits and tradeoffs of different consistency models.
-- [Command and Query Responsibility Segregation (CQRS) pattern](cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
-- [Event Sourcing pattern](event-sourcing.md). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
-- [Index Table pattern](index-table.md). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.
+- [Command and Query Responsibility Segregation (CQRS) pattern](./cqrs.md). Use to update the information in a materialized view by responding to events that occur when the underlying data values change.
+- [Event Sourcing pattern](./event-sourcing.md). Use in conjunction with the CQRS pattern to maintain the information in a materialized view. When the data values a materialized view is based on are changed, the system can raise events that describe these changes and save them in an event store.
+- [Index Table pattern](./index-table.md). The data in a materialized view is typically organized by a primary key, but queries might need to retrieve information from this view by examining data in other fields. Use to create secondary indexes over data sets for data stores that don't support native secondary indexes.

@@ -1,12 +1,11 @@
 ---
-title: Static Content Hosting
+title: Static Content Hosting pattern
+titleSuffix: Cloud Design Patterns
 description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
+ms.custom: seodec18
 ---
 
 # Static Content Hosting pattern
@@ -41,7 +40,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically-generated content containing the links.
 
-- The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content. Consider using a valet key or token to control access to resources that shouldn't be available anonymously&mdash;see the [Valet Key pattern](valet-key.md) for more information.
+- The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content. Consider using a valet key or token to control access to resources that shouldn't be available anonymously&mdash;see the [Valet Key pattern](./valet-key.md) for more information.
 
 ## When to use this pattern
 
@@ -69,15 +68,13 @@ Static content located in Azure Blob storage can be accessed directly by a web b
 
 `https://[ storage-account-name ].blob.core.windows.net/[ container-name ]/[ file-name ]`
 
-
-When uploading the content it's necessary to create one or more blob containers to hold the files and documents. Note that the default permission for a new container is Private, and you must change this to Public to allow clients to access the contents. If it's necessary to protect the content from anonymous access, you can implement the [Valet Key pattern](valet-key.md) so users must present a valid token to download the resources.
+When uploading the content it's necessary to create one or more blob containers to hold the files and documents. Note that the default permission for a new container is Private, and you must change this to Public to allow clients to access the contents. If it's necessary to protect the content from anonymous access, you can implement the [Valet Key pattern](./valet-key.md) so users must present a valid token to download the resources.
 
 > [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx) has information about blob storage, and the ways that you can access and use it.
 
 The links in each page will specify the URL of the resource and the client will access it directly from the storage service. The figure illustrates delivering static parts of an application directly from a storage service.
 
 ![Figure 1 - Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
-
 
 The links in the pages delivered to the client must specify the full URL of the blob container and resource. For example, a page that contains a link to an image in a public container might contain the following HTML.
 
@@ -161,5 +158,5 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 ## Related patterns and guidance
 
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting).
-- [Valet Key pattern](valet-key.md). If the target resources aren't supposed to be available to anonymous users it's necessary to implement security over the store that holds the static content. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service such as a cloud-hosted storage service.
+- [Valet Key pattern](./valet-key.md). If the target resources aren't supposed to be available to anonymous users it's necessary to implement security over the store that holds the static content. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service such as a cloud-hosted storage service.
 - [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx)

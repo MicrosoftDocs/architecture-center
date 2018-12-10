@@ -1,8 +1,10 @@
 ---
 title: Monolithic Persistence antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Putting all of an application's data into a single data store can hurt performance.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # Monolithic Persistence antipattern
@@ -11,15 +13,14 @@ Putting all of an application's data into a single data store can hurt performan
 
 ## Problem description
 
-Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team. 
+Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team.
 
 Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogenous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
 - Storing and retrieving large amounts of unrelated data in the same data store can cause contention, which in turn leads to slow response times and connection failures.
-- Whichever data store is chosen, it might not be the best fit for all of the different types of data, or it might not be optimized for the operations that the application performs. 
+- Whichever data store is chosen, it might not be the best fit for all of the different types of data, or it might not be optimized for the operations that the application performs.
 
-The following example shows an ASP.NET Web API controller that adds a new record to a database and also records the result to a
-log. The log is held in the same database as the business data. You can find the complete sample [here][sample-app].
+The following example shows an ASP.NET Web API controller that adds a new record to a database and also records the result to a log. The log is held in the same database as the business data. You can find the complete sample [here][sample-app].
 
 ```csharp
 public class MonoController : ApiController
@@ -39,7 +40,7 @@ The rate at which log records are generated will probably affect the performance
 
 ## How to fix the problem
 
-Separate data according to its use. For each data set, select a data store that best matches how that data set will be used. In the previous example, the application should be logging to a separate store from the database that holds business data: 
+Separate data according to its use. For each data set, select a data store that best matches how that data set will be used. In the previous example, the application should be logging to a separate store from the database that holds business data:
 
 ```csharp
 public class PolyController : ApiController
@@ -63,8 +64,7 @@ public class PolyController : ApiController
 
 - Consider the data access pattern for each type of data. For example, store formatted reports and documents in a document database such as [Cosmos DB][CosmosDB], but use [Azure Redis Cache][Azure-cache] to cache temporary data.
 
-- If you follow this guidance but still reach the limits of the database, you may need to scale up the database. Also consider scaling
-horizontally and partitioning the load across database servers. However, partitioning may require redesigning the application. For more information, see [Data partitioning][DataPartitioningGuidance].
+- If you follow this guidance but still reach the limits of the database, you may need to scale up the database. Also consider scaling horizontally and partitioning the load across database servers. However, partitioning may require redesigning the application. For more information, see [Data partitioning][DataPartitioningGuidance].
 
 ## How to detect the problem
 
@@ -73,10 +73,10 @@ The system will likely slow down dramatically and eventually fail, as the system
 You can perform the following steps to help identify the cause.
 
 1. Instrument the system to record the key performance statistics. Capture timing information for each operation, as well as the points where the application reads and writes data.
-1. If possible, monitor the system running for a few days in a production environment to get a real-world view of how the system is used. If this is not possible, run scripted load tests with a realistic volume of virtual users performing a typical series of operations.
-2. Use the telemetry data to identify periods of poor performance.
-3. Identify which data stores were accessed during those periods.
-4. Identify data storage resources that might be experiencing contention.
+2. If possible, monitor the system running for a few days in a production environment to get a real-world view of how the system is used. If this is not possible, run scripted load tests with a realistic volume of virtual users performing a typical series of operations.
+3. Use the telemetry data to identify periods of poor performance.
+4. Identify which data stores were accessed during those periods.
+5. Identify data storage resources that might be experiencing contention.
 
 ## Example diagnosis
 
@@ -104,7 +104,7 @@ The next graph shows the utilization of database throughput units (DTU) during t
 
 ### Examine the telemetry for the data stores
 
-Instrument the data stores to capture the low-level details of the activity. In the sample application, the data access statistics showed a high volume of insert operations performed against both the `PurchaseOrderHeader` table and the `MonoLog` table. 
+Instrument the data stores to capture the low-level details of the activity. In the sample application, the data access statistics showed a high volume of insert operations performed against both the `PurchaseOrderHeader` table and the `MonoLog` table.
 
 ![The data access statistics for the sample application][MonolithicDataAccessStats]
 
@@ -130,7 +130,6 @@ per second higher. The average response time is marginally lower. However, these
 Similarly, the maximum DTU utilization of the log database only reaches about 70%. The databases are no longer the limiting factor in the performance of the system.
 
 ![The database monitor in the Azure classic portal showing resource utilization of the log database in the polyglot scenario][LogDatabaseUtilization]
-
 
 ## Related resources
 

@@ -1,12 +1,11 @@
 ---
-title: Pipes and Filters
+title: Pipes and Filters pattern
+titleSuffix: Cloud Design Patterns
 description: Break down a task that performs complex processing into a series of separate elements that can be reused.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [design-implementation, messaging]
+ms.custom: seodec18
 ---
 
 # Pipes and Filters pattern
@@ -33,7 +32,6 @@ Break down the processing required for each stream into a set of separate compon
 
 ![Figure 2 - A solution implemented using pipes and filters](./_images/pipes-and-filters-solution.png)
 
-
 The time it takes to process a single request depends on the speed of the slowest filter in the pipeline. One or more filters could be a bottleneck, especially if a large number of requests appear in a stream from a particular data source. A key advantage of the pipeline structure is that it provides opportunities for running parallel instances of slow filters, enabling the system to spread the load and improve throughput.
 
 The filters that make up a pipeline can run on different machines, enabling them to be scaled independently and take advantage of the elasticity that many cloud environments provide. A filter that is computationally intensive can run on high performance hardware, while other less demanding filters can be hosted on less expensive commodity hardware. The filters don't even have to be in the same data center or geographical location, which allows each element in a pipeline to run in an environment that is close to the resources it requires.  The next figure shows an example applied to the pipeline for the data from Source 1.
@@ -44,11 +42,12 @@ If the input and output of a filter are structured as a stream, it's possible to
 
 Another benefit is the resiliency that this model can provide. If a filter fails or the machine it's running on is no longer available, the pipeline can reschedule the work that the filter was performing and direct this work to another instance of the component. Failure of a single filter doesn't necessarily result in failure of the entire pipeline.
 
-Using the Pipes and Filters pattern in conjunction with the [Compensating Transaction pattern](compensating-transaction.md) is an alternative approach to implementing distributed transactions. A distributed transaction can be broken down into separate, compensable tasks, each of which can be implemented by using a filter that also implements the Compensating Transaction pattern. The filters in a pipeline can be implemented as separate hosted tasks running close to the data that they maintain.
+Using the Pipes and Filters pattern in conjunction with the [Compensating Transaction pattern](./compensating-transaction.md) is an alternative approach to implementing distributed transactions. A distributed transaction can be broken down into separate, compensable tasks, each of which can be implemented by using a filter that also implements the Compensating Transaction pattern. The filters in a pipeline can be implemented as separate hosted tasks running close to the data that they maintain.
 
 ## Issues and considerations
 
 You should consider the following points when deciding how to implement this pattern:
+
 - **Complexity**. The increased flexibility that this pattern provides can also introduce complexity, especially if the filters in a pipeline are distributed across different servers.
 
 - **Reliability**. Use an infrastructure that ensures that data flowing between filters in a pipeline won't be lost.
@@ -64,11 +63,12 @@ You should consider the following points when deciding how to implement this pat
 ## When to use this pattern
 
 Use this pattern when:
+
 - The processing required by an application can easily be broken down into a set of independent steps.
 
 - The processing steps performed by an application have different scalability requirements.
 
-    >  It's possible to group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](compute-resource-consolidation.md).
+    >  It's possible to group filters that should scale together in the same process. For more information, see the [Compute Resource Consolidation pattern](./compute-resource-consolidation.md).
 
 - Flexibility is required to allow reordering of the processing steps performed by an application, or the capability to add and remove steps.
 
@@ -77,6 +77,7 @@ Use this pattern when:
 - A reliable solution is required that minimizes the effects of failure in a step while data is being processed.
 
 This pattern might not be useful when:
+
 - The processing steps performed by an application aren't independent, or they have to be performed together as part of the same transaction.
 
 - The amount of context or state information required by a step makes this approach inefficient. It might be possible to persist state information to a database instead, but don't use this strategy if the additional load on the database causes excessive contention.
@@ -87,10 +88,9 @@ You can use a sequence of message queues to provide the infrastructure required 
 
 ![Figure 4 - Implementing a pipeline using message queues](./_images/pipes-and-filters-message-queues.png)
 
-
 If you're building a solution on Azure you can use Service Bus queues to provide a reliable and scalable queuing mechanism. The `ServiceBusPipeFilter` class shown below in C# demonstrates how you can implement a filter that receives input messages from a queue, processes these messages, and posts the results to another queue.
 
->  The `ServiceBusPipeFilter` class is defined in the PipesAndFilters.Shared project available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
+> The `ServiceBusPipeFilter` class is defined in the PipesAndFilters.Shared project available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
 
 ```csharp
 public class ServiceBusPipeFilter
@@ -272,8 +272,9 @@ public class FinalReceiverRoleEntry : RoleEntryPoint
 ## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
+
 - A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/pipes-and-filters).
-- [Competing Consumers pattern](competing-consumers.md). A pipeline can contain multiple instances of one or more filters. This approach is useful for running parallel instances of slow filters, enabling the system to spread the load and improve throughput. Each instance of a filter will compete for input with the other instances, two instances of a filter shouldn't be able to process the same data. Provides an explanation of this approach.
-- [Compute Resource Consolidation pattern](compute-resource-consolidation.md). It might be possible to group filters that should scale together into the same process. Provides more information about the benefits and tradeoffs of this strategy.
-- [Compensating Transaction pattern](compensating-transaction.md). A filter can be implemented as an operation that can be reversed, or that has a compensating operation that restores the state to a previous version in the event of a failure. Explains how this can be implemented to maintain or achieve eventual consistency.
+- [Competing Consumers pattern](./competing-consumers.md). A pipeline can contain multiple instances of one or more filters. This approach is useful for running parallel instances of slow filters, enabling the system to spread the load and improve throughput. Each instance of a filter will compete for input with the other instances, two instances of a filter shouldn't be able to process the same data. Provides an explanation of this approach.
+- [Compute Resource Consolidation pattern](./compute-resource-consolidation.md). It might be possible to group filters that should scale together into the same process. Provides more information about the benefits and tradeoffs of this strategy.
+- [Compensating Transaction pattern](./compensating-transaction.md). A filter can be implemented as an operation that can be reversed, or that has a compensating operation that restores the state to a previous version in the event of a failure. Explains how this can be implemented to maintain or achieve eventual consistency.
 - [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog.

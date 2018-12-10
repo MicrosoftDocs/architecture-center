@@ -1,12 +1,11 @@
 ---
-title: Queue-Based Load Leveling
+title: Queue-Based Load Leveling pattern
+titleSuffix: Cloud Design Patterns
 description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [messaging, availability, performance-scalability, resiliency]
+ms.custom: seodec18
 ---
 
 # Queue-Based Load Leveling pattern
@@ -69,6 +68,9 @@ To resolve this, you can use a queue to level the load between the web role inst
 The following patterns and guidance might also be relevant when implementing this pattern:
 
 - [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). Message queues are inherently asynchronous. It might be necessary to redesign the application logic in a task if it's adapted from communicating directly with a service to using a message queue. Similarly, it might be necessary to refactor a service to accept requests from a message queue. Alternatively, it might be possible to implement a proxy service, as described in the example.
-- [Competing Consumers pattern](competing-consumers.md). It might be possible to run multiple instances of a service, each acting as a message consumer from the load-leveling queue. You can use this approach to adjust the rate at which messages are received and passed to a service.
-- [Throttling pattern](throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.
+
+- [Competing Consumers pattern](./competing-consumers.md). It might be possible to run multiple instances of a service, each acting as a message consumer from the load-leveling queue. You can use this approach to adjust the rate at which messages are received and passed to a service.
+
+- [Throttling pattern](./throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.
+
 - [Queue Service Concepts](https://msdn.microsoft.com/library/azure/dd179353.aspx). Information about choosing a messaging and queuing mechanism in Azure applications.
