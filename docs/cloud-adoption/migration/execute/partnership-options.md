@@ -8,15 +8,17 @@ ms.date: 10/11/2018
 
 The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
 
-## What happens after you have developed a [migration plan & strategy](../plan/overview.md) and [built out an Azure environment for migration](../build/overview.md)?
+## What happens after you have developed a [migration backlog](../plan/migration-backlog.md) and [built out an Azure environment for migration](../../infrastructure/overview.md)?
 
-Now it’s time to start the [migration process](overview.md). In this process, the team will perform the actual migration of apps to the cloud. Unlike the collaborative and problem solving tasks in [Plan](../plan/overview.md) and [Build](../build/overview.md), migration tends to be repetitive & largely turnkey.
+Now it’s time to start the [migration process](overview.md). In this process, the team will perform the actual migration of apps to the cloud. Unlike the collaborative and problem solving tasks when defining the [Digital Estate](../../digital-estate/overview.md) or building the [Core Cloud Infrastructure](../../infrastructure/overview.md), migration tends to be repetitive. Beyond the repetitive aspects, there will likely be testing and tuning efforts that require deep knowledge of the cloud provider. The repetitive nature of this process can sometimes be best addressed by a partner. Additionally, partners may be able to better align deep technical expertise, when problems arise in the repetitive processes.
+
+Partners tend to be very closely aligned with a single cloud vendor, or small number of cloud vendors. To better illustrate partnership options, the remainder of this article assumes Microsoft Azure is the chosen Cloud Provider.
 
 During Plan, Build, or Migrate, a company generally has three execution options:
 
 * Guided self-service: Existing technical team will execute the migration, with help from Microsoft
 * Microsoft FastTrack for Azure: Use the Microsoft FastTrack program for Azure to accelerate migration
-* Solutions partner: Get connected with Microsoft Cloud Solution Partners (CSPs) to accelerate migration
+* Solutions partner: Get connected with Azure Solution Partners or Cloud Solution Providers (CSPs) to accelerate migration
 
 ## Guided Self-Service
 

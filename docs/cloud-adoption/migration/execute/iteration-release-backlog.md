@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 
 The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This article focuses specifically on building an iteration and/or release backlog.
   
-This article assumes, migration processes are incremental in nature, running parallel to the [Govern process](../govern/overview.md). However, the same guidance could be used to populate initial tasks in a "Work Breakdown Structure" for traditional waterfall change management approaches.
+This article assumes, migration processes are incremental in nature, running parallel to the [Govern process](../../governance/overview.md). However, the same guidance could be used to populate initial tasks in a "Work Breakdown Structure" for traditional waterfall change management approaches.
 
 ## Release Backlog
 
