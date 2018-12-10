@@ -296,6 +296,6 @@ The following diagram shows a possible CI/CD workflow. This example assumes ther
 
 Use imagePullPolicy of Always, so that Kubernetes will always pull the latest image from the repository, and not use a cached image. You can enforce this across the cluster by using the AlwaysPullImages admission controller.
 
-Don't use the `latest`` tag for images in a pod spec. Always specify the image version.
+Don't use the `latest` tag for images in a pod spec. Always specify the image version.
 
 Use namespaces in Azure Container Service to organize container images by microservice or development team.
