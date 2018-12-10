@@ -1,19 +1,30 @@
+---
+title: Microservices architecture on Azure Kubernetes Service (AKS)
+description: Deploy a microservices architecture on Azure Kubernetes Service (AKS)
+author: MikeWasson
+ms.date: 12/10/2018
+---
+
 # Microservices architecture on Azure Kubernetes Service (AKS)
- 
+
 This reference architectures shows a microservices application deployed to Azure Kubernetes Service (AKS). It shows a basic AKS configuration that can be the starting point for most deployments. More advanced options, including advanced networking options, will be covered in a separate reference architecture.
 
-This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices).
+This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](/azure/architecture/microservices).
+
+> [!NOTE]
+> We are working on a reference implementation (RI) to accompany this article, which we expect to publish in early 2019. This article will be updated to incporate additional best practices from that RI.
 
 ![AKS reference architecture](./_images/aks.png)
 
 ## Architecture
+
 The architecture consists of the following components.
 
 **Azure Kubernetes Service** (AKS). AKS is an Azure service that deploys a managed Kubernetes cluster. 
 
 **Kubernetes cluster**. AKS is responsible for deploying the Kubernetes cluster and for managing the Kubernetes masters. You only manage the agent nodes.
 
-**Virtual network**. By default, AKS creates a virtual network to deploy the agent nodes into. For more advanced scenarios, you can create the virtual network first, which lets you control things like how the subnets are configured, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
+**Virtual network**. By default, AKS creates a virtual network to deploy the agent nodes into. For more advanced scenarios, you can create the virtual network first, which lets you control things like how the subnets are configured, on-premises connectivity, and IP addressing. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-advanced-networking).
 
 **Ingress**. An ingress exposes HTTP(S) routes to services inside the cluster. For more information, see the section [API Gateway](#api-gateway) below.
 
@@ -77,7 +88,7 @@ A reverse proxy server is a potential bottleneck or single point of failure, so 
 
 ### Data storage
 
-In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](https://docs.microsoft.com/azure/architecture/microservices/data-considerations).
+In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](/azure/architecture/microservices/data-considerations).
 
 Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead, 
 
@@ -99,14 +110,11 @@ For a microservices architecture, considering organizing the microservices into 
 
 Place utility services into their own separate namespace. For example, you might deploy Elasticsearch or Prometheus for cluster monitoring, or Tiller for Helm.
 
-
-
 ## Scalability considerations
 
 Kubernetes supports scale-out at two levels:
 
 - Scale the number of pods allocated to a deployment.
-
 - Scale the nodes in the cluster, to increase the total compute resources available to the cluster.
 
 Although you can scale out pods and nodes manually, we recommend using autoscaling, to minimize the chance that services will become resource starved under high load. An autoscaling strategy must take both pods and nodes into account. If you just scale out the pods, eventually you will reach the resource limits of the nodes. 
@@ -118,7 +126,6 @@ The Horizontal Pod Autoscaler (HPA) scales pods based on observed CPU, memory, o
 A side-effect of autoscaling is that pods may be created or evicted more frequently, as scale-out and scale-in events happen. To mitigate the effects of this:
 
 - Use readiness probes to let Kubernetes know when a new pod is ready to accept traffic.
-
 - Use pod disruption budgets to limit how many pods can be evicted from a service at a time.
 
 ### Cluster autoscaling
@@ -155,7 +162,7 @@ Here are some considerations when designing probes:
 
 ### Resource constraints
 
-Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](https://docs.microsoft.com/azure/architecture/patterns/bulkhead) to isolate resources.
+Resource contention can affect the availability of a service. Define resource constraints for containers, so that a single container cannot overwhelm the cluster resources (memory and CPU). For non-container resources, such as threads or network connections, consider using the [Bulkhead Pattern](/azure/architecture/patterns/bulkhead) to isolate resources.
 
 Use resource quotas to limit the total resources allowed for a namespace. That way, the front end can't starve the backend services for resources or vice-versa.
 
@@ -169,15 +176,15 @@ Kubernetes and Azure both have mechanisms for role-based access control (RBAC):
 
 - Kubernetes RBAC controls permissions to the Kubernetes API. For example, creating pods and listing pods are actions that can be authorized (or denied) to a user through RBAC. To assign Kubernetes permissions to users, you create *roles* and *role bindings*:
 
-    - A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, etc.).
+  - A Role is a set of permissions that apply within a namespace. Permissions are defined as verbs (get, update, create, delete) on resources (pods, deployments, etc.).
 
-    - A RoleBinding assigns users or groups to a Role.
+  - A RoleBinding assigns users or groups to a Role.
 
-    - There is also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
+  - There is also a ClusterRole object, which is like a Role but applies to the entire cluster, across all namespaces. To assign users or groups to a ClusterRole, create a ClusterRoleBinding.
 
-AKS integrates these two RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set this up, see [Integrate Azure Active Directory with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/aad-integration).
+AKS integrates these two RBAC mechanisms. When you create an AKS cluster, you can configure it to use Azure AD for user authentication. For details on how to set this up, see [Integrate Azure Active Directory with Azure Kubernetes Service](/azure/aks/aad-integration).
 
-Once this is configured, a user who wants to access the Kubernetes API (for example, through kubectl) must sign in using their Azure AD credentials. 
+Once this is configured, a user who wants to access the Kubernetes API (for example, through kubectl) must sign in using their Azure AD credentials.
 
 By default, an Azure AD user has no access to the cluster. To grant access, the cluster administrator creates RoleBindings that refer to Azure AD users or groups. If a user doesn't have permissions for a particular operation, it will fail.
 
@@ -192,14 +199,12 @@ Because the cluster admin credentials are so powerful, use Azure RBAC to restric
 When you define your RBAC policies (both Kubernetes and Azure), think about the roles in your organization:
 
 - Who can create or delete an AKS cluster and download the admin credentials?
-
 - Who can administer a cluster?
-
 - Who can create or update resources within a namespace?
 
 It's a good practice to scope Kubernetes RBAC permissions by namespace, using Roles and RoleBindings, rather than ClusterRoles and ClusterRoleBindings.
 
-Finally, there is the question of what permissions the AKS cluster has to create and manage Azure resources, such as load balancers, networking, or storage. To authenticate itself with Azure APIs, the cluster uses an Azure AD service principal. If you don't specify a service principal when you create the cluster, one is created automatically. However, it's a good security practice to create the service principal first and assign the minimal RBAC permissions to it. For more information, see [Service principals with Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-service-principal).
+Finally, there is the question of what permissions the AKS cluster has to create and manage Azure resources, such as load balancers, networking, or storage. To authenticate itself with Azure APIs, the cluster uses an Azure AD service principal. If you don't specify a service principal when you create the cluster, one is created automatically. However, it's a good security practice to create the service principal first and assign the minimal RBAC permissions to it. For more information, see [Service principals with Azure Kubernetes Service](/azure/aks/kubernetes-service-principal).
 
 ### Secrets management and application credentials
 
@@ -207,7 +212,7 @@ Applications and services often need credentials that allow them to connect to e
 
 For Azure resources, one option is to use managed identities. The idea of a managed identity is that an application or service has an identity stored in Azure AD, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Azure AD, and authenticates using OAuth 2.0 tokens. The executing process calls a localhost address to get the token. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning identities to individual pods, using the [aad-pod-identity](https://github.com/Azure/aad-pod-identity) project.
 
-Currently, not all Azure services support authentication using managed identities. For a list, see [Azure services that support Azure AD authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi).
+Currently, not all Azure services support authentication using managed identities. For a list, see [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi).
 
 Even with managed identities, you'll probably need to store some credentials or other application secrets, whether for Azure services that don't support managed identities, third-party services, API keys, and so on. Here are some options for storing secrets securely:
 
@@ -272,7 +277,7 @@ Consider using Helm to manage building and deploying services. Some of the featu
 - Managing dependencies between charts.
 - Publishing charts to a Helm repository, such as Azure Container Registry, and integrating them with the build pipeline. 
 
-For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](https://docs.microsoft.com/azure/container-registry/container-registry-helm-repos).
+For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
 
 ### CI/CD workflow
 
@@ -294,4 +299,3 @@ Use imagePullPolicy of Always, so that Kubernetes will always pull the latest im
 Don't use the `latest`` tag for images in a pod spec. Always specify the image version.
 
 Use namespaces in Azure Container Service to organize container images by microservice or development team.
-
