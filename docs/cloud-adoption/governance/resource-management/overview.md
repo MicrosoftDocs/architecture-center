@@ -14,7 +14,7 @@ This article outlines different phases of Resource Management evolution, as a co
 > [!CAUTION]
 > Neither the minimum suggested activities, nor the potential activities, outlined in this article are aligned to individual corporate policies or 3rd party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
 
-![Four phases of adoption](../../_images/adoptionphases.png)
+![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the Cloud Governance Model
 
@@ -53,7 +53,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Authenticate users and authorize user access to resources with [Azure AD](https://review.docs.microsoft.com/en-us/azure/active-directory).
 * Leverage the [Resource Grouping Strategy](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/resource-grouping/overview) to enforce architecture guidelines over time.
 * Define dependencies between resources.
-* Conduct access performance to 
+* Conduct access performance to measure the quality of services received.
 * Utilize [resource naming and tagging schemes](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/resource-tagging/overview?branch=brian%2FCOMIntegration) for your resrouces. 
 * Consider deploying [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) to manage subscription level enforcement using configuration settings and resource creation rules. 
 
