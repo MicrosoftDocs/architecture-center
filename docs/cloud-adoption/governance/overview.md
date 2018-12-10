@@ -2,7 +2,7 @@
 title: "Fusion: What is cloud governance?"
 description: Overview of governance content for Azure Fusion
 author: BrianBlanchard
-ms.date: 10/03/2018
+ms.date: 12/08/2018
 ---
 
 # Fusion: What is cloud governance?
@@ -24,7 +24,7 @@ The objective of each adoption phase in the Cloud Governance Model is to help bu
 
 While not directly aligned, each phase of governance maturity most closely maps to the activities outlined in the [Operational Transformation Journey](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/transformation-journeys/operational-transformation/overview).
 
-![Four phases of adoption](../../_images/adoption-phases.png)
+![Four phases of adoption](../_images/adoption-phases.png)
 
 *Figure 1. Evolution of each cloud governance discipline across various phases of adoption
 
