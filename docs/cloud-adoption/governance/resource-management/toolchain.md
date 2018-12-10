@@ -14,22 +14,22 @@ In the [Intro to Cloud Governance](../overview.md), Resource Management is one o
 Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 
-|  |Azure Portal  |Azure Resource Manager  |ARM Templates  | Azure Policy |
+|  | Azure Portal  | Azure Resource Manager  | Blueprints | Azure Automation | Azure AD |
 |---------|---------|---------|---------|---------|
-|Deploy resources (single team)?     |Yes | Yes | Yes | No |
-|Deploy resources (multiple teams)     |Yes | Yes | Yes | No |
-|Manage resources (singe team)   |Yes | Yes | Yes | No |
-|Manage resources (multiple teams) |Yes | Yes | Yes | No |
-|Define resource groups    | No | Yes  | Yes  | No  |
-|Manage workload and account owners    | Yes | No | No  | Yes |
-|Define dependencies between resources    | No | Yes | Yes  | No  |
-|Conduct asset performance     | Yes | No | No  | Yes |
-|Apply access control to all services     | Yes | No | No  | Yes |
-|Assess availability and scalability    | Yes | No | No  | Yes |
-|Apply tags to resources    | No | Yes  | Yes  | No  |
-|Plan resources for disaster recovery    | No | No  | No  | Yes |
-|Apply automated remediation    | No | Yes | Yes  | No  |
-|Manage billing and SLAs    | Yes | No | No  | Yes |
+|Manage resources (singe team)   |Yes | Yes | Yes | Yes | No  |
+|Manage resources (multiple teams) |Yes | Yes | Yes | Yes | No  |
+|Define resource groups    | No | Yes  | Yes  | No  | No  |
+|Manage workload and account owners    | Yes | No | Yes  | Yes | Yes  |
+|Manage conditional access to resources   | Yes | Yes | Yes  | Yes |  Yes |
+|Assign roles and permissions to to resources   | Yes | No | Yes  | Yes |  Yes |
+|Define dependencies between resources    | No | No | Yes  | No  | No  |
+|Conduct asset performance     | No | No | No  | Yes | No  |
+|Apply access control to all services     | Yes | No | Yes  | Yes | Yes  |
+|Assess availability and scalability    | No | No | No  | Yes | No  |
+|Apply tags to resources    | No | Yes  | Yes  | No  | No  |
+|Plan resources for disaster recovery    | No | No  | Yes  | Yes | No  |
+|Apply automated remediation    | No | No | Yes  | Yes  | Yes  |
+|Manage billing and SLAs    | Yes | No | Yes  | Yes | Yes   |
 
 Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage 3rd party tools for facilitating resource management activities.
 
