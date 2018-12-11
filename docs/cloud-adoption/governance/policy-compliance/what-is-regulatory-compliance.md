@@ -2,20 +2,20 @@
 title: "Fusion: intro to regulatory compliance"
 description: What is regulatory compliance
 author: BrianBlanchard
-ms.date: 11/28/2018
+ms.date: 12/10/2018
 ---
 
 # Fusion: Intro to regulatory compliance
 
-This is an introductory article on the general topic of regulatory compliance, therefore it's not intended to provide you with enough context to implement a compliance strategy. It is for general awareness only. More detailed information about Azure compliance offerings is available at the [Trust Center](https://aka.ms/allcompliance). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://aka.ms/stp).
+This is an introductory article about regulatory compliance, therefore it's not intended for implementing a compliance strategy. It is for general awareness only. More detailed information about Azure compliance offerings is available at the [Trust Center](https://aka.ms/allcompliance). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://aka.ms/stp).
 
 Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws set by governing bodies in their geography or industry. For IT regulatory compliance, people and/or processes monitor corporate systems in an effort to detect and prevent violations of policies and procedures established by governing laws and regulations. This in turn applies to a very wide area of monitoring and enforcement processes. Depending on the industry and geography, these processes can become quite lengthy and complex.
 
 For multinational organizations (particularly those in heavily regulated industries, such as healthcare and financial services), compliance can be very challenging. Standards and regulations abound and, of course, they change frequently, making it difficult for businesses to keep abreast of evolving international electronic data handling laws.
 
-As with security controls, businesses should understand the division of responsibilities regarding regulatory compliance in the cloud. Cloud providers make an effort to ensure that their platforms and services are compliant. But businesses also need to confirm that their applications, and those supplied by third parties, are compliant. Similarly, applications in regulated industries that use cloud services might require certification from the cloud provider.
+As with security controls, organizations should understand the division of responsibilities regarding regulatory compliance in the cloud. Cloud providers strive to ensure that their platforms and services are compliant. But organizations also need to confirm that their applications, and those supplied by third parties, are compliant. Similarly, applications in regulated industries that use cloud services might require certification from the cloud provider.
 
-The following are brief descriptions of compliance regulations in various industries and geographies:
+The following are descriptions of compliance regulations in various industries and geographies:
 
 ## HIPAA
 
