@@ -2,14 +2,14 @@
 title: "Fusion: What tools can help better manage asset configuration in Azure?"
 description: Explanation of the tools that can facilitate improved asset configuration in Azure
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ---
 
 # Fusion: What tools can help better manage asset configuration in Azure?
 
-In the [Intro to Cloud Governance](../overview.md), [Configuration Management](overview.md) is one of the Five Disciplines to Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the Five Disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
+In the [Intro to Cloud Governance](../overview.md), [Configuration Management](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 
-Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
+Unlike the cloud-agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 |  |Azure Portal  |ARM Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
 |---------|---------|---------|---------|---------|
