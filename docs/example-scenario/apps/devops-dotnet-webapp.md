@@ -1,5 +1,5 @@
 ---
-title: Designing a CI/CD pipeline using Azure DevOps
+title: Design a CI/CD pipeline using Azure DevOps
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: christianreddington
 ms.date: 12/06/2018
@@ -8,9 +8,9 @@ ms.custom:
     - seodec18
 ---
 
-# Designing a CI/CD pipeline using Azure DevOps
+# Design a CI/CD pipeline using Azure DevOps
 
-This scenario provides architecture and design guidance for building a Continuous Integration and Continuous Deployment (CI/CD) pipeline.  In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
+This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline.  In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
 Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
@@ -18,13 +18,13 @@ Migrating to modern CI/CD processes provides many benefits for application build
 
 Consider Azure DevOps and CI/CD processes for:
 
-* Accelerating application development and development life cycles
-* Building quality and consistency into an automated build and release process
-* Increasing application stability and uptime
+- Accelerating application development and development life cycles
+- Building quality and consistency into an automated build and release process
+- Increasing application stability and uptime
 
 ## Architecture
 
-![Architecture overview of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
+![Architecture diagram of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
 
 The data flows through the scenario as follows:
 
@@ -39,39 +39,49 @@ The data flows through the scenario as follows:
 
 ### Components
 
-* [Azure DevOps][vsts] is a service for managing your development life cycle end-to-end &mdash; from planning and project management, to code management, and continuing to build and release.
-* [Azure Web Apps][web-apps] is a PaaS service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional development platform options supported.
-* [Application Insights][application-insights] is a first-party, extensible Application Performance Management (APM) service for web developers on multiple platforms.
+- [Azure DevOps][vsts] is a service for managing your development life cycle end-to-end &mdash; from planning and project management, to code management, and continuing to build and release.
+
+- [Azure Web Apps][web-apps] is a PaaS service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional development platform options supported.
+
+- [Application Insights][application-insights] is a first-party, extensible Application Performance Management (APM) service for web developers on multiple platforms.
 
 ### Alternatives
 
-While this article focuses on Azure DevOps, [Team Foundation Server][team-foundation-server] could be used as on-premises substitute. Alternatively, you could also use a set of technologies for an open-source development pipeline using [Jenkins][jenkins-on-azure].
+While this article focuses on Azure DevOps, [Azure DevOps Server][azure-devops-server] (previously known as Team Foundation Server) could be used as an on-premises substitute. Alternatively, you could also use a set of technologies for an open-source development pipeline using [Jenkins][jenkins-on-azure].
 
-From an infrastructure-as-code perspective, [Azure Resource Manager Templates][arm-templates] were used as part of the Azure DevOps project, but you could consider other management technologies such as [Terraform][terraform] or [Chef][chef]. If you prefer an infrastructure-as-a-service (IaaS)-based deployment and require configuration management, you could consider either [Azure Automation State Configuration][desired-state-configuration], [Ansible][ansible], or [Chef][chef].
+From an infrastructure-as-code perspective, [Resource Manager templates][arm-templates] were used as part of the Azure DevOps project, but you could consider other management technologies such as [Terraform][terraform] or [Chef][chef]. If you prefer an infrastructure-as-a-service (IaaS)-based deployment and require configuration management, you could consider either [Azure Automation State Configuration][desired-state-configuration], [Ansible][ansible], or [Chef][chef].
 
 You could consider these alternatives to hosting in Azure Web Apps:
 
-* [Azure Virtual Machines][compare-vm-hosting] &mdash; For workloads that require a high degree of control, or depend on OS components and services that are not possible with Web Apps (for example, the Windows GAC, or COM).
-* [Service Fabric][service-fabric] &mdash; a good option if the workload architecture is focused around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
-* [Azure Functions][azure-functions] - an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+- [Azure Virtual Machines][compare-vm-hosting] handles workloads that require a high degree of control, or depend on OS components and services that are not possible with Web Apps (for example, the Windows GAC, or COM).
 
-This [decision tree](/azure/architecture/guide/technology-choices/compute-decision-tree) may help when choosing the right path to take for a migration.
+- [Service Fabric][service-fabric] is a good option if the workload architecture is focused around distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
+
+- [Azure Functions][azure-functions] provides an effective serverless approach if the workload architecture is centered around fine grained distributed components, requiring minimal dependencies, where individual components are only required to run on demand (not continuously) and orchestration of components is not required.
+
+This [decision tree for Azure compute services](/azure/architecture/guide/technology-choices/compute-decision-tree) may help when choosing the right path to take for a migration.
 
 ## Management and Security Considerations
 
-* Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
-* [Azure Key Vault][download-keyvault-secrets] tasks can download secrets from an Azure Key Vault into your release. You can then use those secrets as variables in your release definition, so you can avoid storing them in source control.
-* Use [release variables][vsts-release-variables] in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
-* [Deployment gates][vsts-deployment-gates] should be used in your release pipeline. This lets you leverage monitoring data in association with external systems (for example, incident management or additional bespoke systems) to determine whether a release should be promoted.
-* Where manual intervention in a release pipeline is required, use the [approvals][vsts-approvals] functionality.
-* Consider using [Application Insights][application-insights] and additional monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment; by monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
+- Consider leveraging one of the [tokenization tasks][vsts-tokenization] available in the VSTS marketplace.
+
+- [Azure Key Vault][download-keyvault-secrets] tasks can download secrets from an Azure Key Vault into your release. You can then use those secrets as variables in your release definition, which avoids storing them in source control.
+
+- Use [release variables][vsts-release-variables] in your release definitions to drive configuration changes of your environments. Release variables can be scoped to an entire release or a given environment. When using variables for secret information, ensure that you select the padlock icon.
+
+- [Deployment gates][vsts-deployment-gates] should be used in your release pipeline. This lets you leverage monitoring data in association with external systems (for example, incident management or additional bespoke systems) to determine whether a release should be promoted.
+
+- Where manual intervention in a release pipeline is required, use the [approvals][vsts-approvals] functionality.
+
+- Consider using [Application Insights][application-insights] and additional monitoring tools as early as possible in your release pipeline. Many organizations only begin monitoring in their production environment. By monitoring your other environments, you can identify bugs earlier in the development process and avoid issues in your production environment.
 
 ## Deploy the scenario
 
 ### Prerequisites
 
-* You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
-* You must sign up for an Azure DevOps organization. For more information, see [Quickstart: Create your organization][vsts-account-create].
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
+
+- You must sign up for an Azure DevOps organization. For more information, see [Quickstart: Create your organization][vsts-account-create].
 
 ### Walk-through
 
@@ -85,7 +95,7 @@ The project creates a release pipeline and continuous deployment trigger, deploy
 
 Azure DevOps costs depend on the number of users in your organization that require access, along with other factors like the number of concurrent build/releases required and number of test users. For more information, see [Azure DevOps pricing][vsts-pricing-page].
 
-This [Pricing Calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
+This [pricing calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
 
 Azure DevOps is billed on a per-user per-month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users or user basic licenses.
 
@@ -93,13 +103,14 @@ Azure DevOps is billed on a per-user per-month basis. There may be additional ch
 
 Review the following resources to learn more about CI/CD and Azure DevOps:
 
-* [What is DevOps?][devops-whatis]
-* [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
-* [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
-* [Devops Checklist][devops-checklist]
-* [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
+- [What is DevOps?][devops-whatis]
+- [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
+- [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
+- [Devops Checklist][devops-checklist]
+- [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
+
 [ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
@@ -137,7 +148,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [vsts-tokenization]: https://marketplace.visualstudio.com/search?term=token&target=VSTS&category=All%20categories&sortBy=Relevance
 [azure-key-vault]: /azure/key-vault/key-vault-overview
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
-[team-foundation-server]: https://visualstudio.microsoft.com/tfs/
+[azure-devops-server]: https://visualstudio.microsoft.com/tfs/
 [infra-as-code]: https://blogs.msdn.microsoft.com/mvpawardprogram/2018/02/13/infrastructure-as-code/
 [service-fabric]: /azure/service-fabric/
 [azure-functions]: /azure/azure-functions/
