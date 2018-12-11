@@ -2,7 +2,7 @@
 #
 # Parse and generate article list for index file
 #
-# Usage (Bash or WSL): ./build_index.sh > articles.md
+# Usage (Bash or WSL): ./build_index.sh > ../../includes/scenario_articles.md
 
 for folder in $(ls -d */ | cut -f1 -d'/'); do
 
