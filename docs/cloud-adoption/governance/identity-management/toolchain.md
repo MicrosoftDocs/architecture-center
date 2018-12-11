@@ -2,14 +2,14 @@
 title: "Fusion: What tools can help better manage user identities in Azure?"
 description: Explanation of the tools that can facilitate improved identity management in Azure
 author: BrianBlanchard
-ms.date: 11/30/2018
+ms.date: 12/11/2018
 ---
 
 # Fusion: What tools can help better manage user identities in Azure?
 
-In the [Intro to Cloud Governance](../overview.md), [Identity Management](overview.md) is one of the Five Disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
+In the [Intro to Cloud Governance](../overview.md), [Identity Management](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 
-Unlike the cloud agnostic position throughout Fusion, this article is Azure specific. The following tools are included in the discovery guide on Hybrid Identity.
+Unlike the cloud-agnostic position throughout Fusion, this article is Azure specific. The following tools are included in the discovery guide on Hybrid Identity.
 
 **Active Directory (on-prem):** Active Directory is the identity provider most frequently used in the enterprise to store and validate user credentials.
 
@@ -19,15 +19,15 @@ Unlike the cloud agnostic position throughout Fusion, this article is Azure spec
 
 Identity is the control plane for IT security. So authentication is an organization’s access guard to the cloud. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.
 
-**Cloud authentication**
+## Cloud authentication
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud.
 
 When you choose this method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options: 
 
-**Azure AD password hash synchronization**. The simplest way to enable authentication for on-premises directory objects in Azure AD. This method can also be used with any method as a back-up failover authentication method in case your on-premesis server goes down.
+**Azure AD password hash synchronization**: The simplest way to enable authentication for on-premises directory objects in Azure AD. This method can also be used with any method as a back-up failover authentication method in case your on-premesis server goes down.
 
-**Azure AD Pass-through Authentication**. Provides a persistent password validation for Azure AD authentication services by using a software agent that runs on one or more on-premises servers.
+**Azure AD Pass-through Authentication**: Provides a persistent password validation for Azure AD authentication services by using a software agent that runs on one or more on-premises servers.
 
 > [!NOTE] 
 > Companies with a security requirement to immediately enforce on-premises user account states, password policies, and sign-in hours should consider the Pass-through Authentication method. 
