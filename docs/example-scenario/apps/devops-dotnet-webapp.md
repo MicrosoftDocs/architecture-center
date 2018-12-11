@@ -26,16 +26,16 @@ Consider Azure DevOps and CI/CD processes for:
 
 ![Architecture overview of the Azure components involved in a DevOps scenario using Azure DevOps and Azure App Service][architecture]
 
-This scenario covers a CI/CD pipeline for a .NET web application using Azure DevOps. The data flows through the scenario as follows:
+The data flows through the scenario as follows:
 
 1. A developer changes application source code.
-2. Application code including the web.config file is commited to the source code repository.
-3. Continuous integration triggers application build and unit tests.
-4. Continuous deployment triggers an automated deployment of application artifacts *with environment-specific configuration values*.
+2. Application code including the web.config file is committed to the source code repository in Azure Repos.
+3. Continuous integration triggers application build and unit tests using Azure Test Plans.
+4. Continuous deployment within Azure Pipelines triggers an automated deployment of application artifacts *with environment-specific configuration values*.
 5. The artifacts are deployed to Azure App Service.
 6. Azure Application Insights collects and analyzes health, performance, and usage data.
 7. Developers monitor and mange health, performance, and usage information.
-8. Backlog information is used to prioritize new features and bug fixes.
+8. Backlog information is used to prioritize new features and bug fixes using Azure Boards.
 
 ### Components
 
@@ -45,13 +45,9 @@ This scenario covers a CI/CD pipeline for a .NET web application using Azure Dev
 
 ### Alternatives
 
-### CI/CD tooling options
-
 While this article focuses on Azure DevOps, [Team Foundation Server][team-foundation-server] could be used as on-premises substitute. Alternatively, you could also use a set of technologies for an open-source development pipeline using [Jenkins][jenkins-on-azure].
 
 From an infrastructure-as-code perspective, [Azure Resource Manager Templates][arm-templates] were used as part of the Azure DevOps project, but you could consider other management technologies such as [Terraform][terraform] or [Chef][chef]. If you prefer an infrastructure-as-a-service (IaaS)-based deployment and require configuration management, you could consider either [Azure Automation State Configuration][desired-state-configuration], [Ansible][ansible], or [Chef][chef].
-
-### Alternatives to Azure Web Apps
 
 You could consider these alternatives to hosting in Azure Web Apps:
 
@@ -104,14 +100,10 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 * [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
-[ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
-[architecture]: ./media/architecture-devops-dotnet-webapp.svg
-[availability]: /azure/architecture/checklist/availability
-[chef]: /azure/chef/
 [design-patterns-availability]: /azure/architecture/patterns/category/availability
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
@@ -128,13 +120,9 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: /azure/architecture/checklist/resiliency
-[scalability]: /azure/architecture/checklist/scalability
-[vsts]: /vsts/?view=vsts#pivot=services
 [continuous-integration]: /azure/devops/what-is-continuous-integration
 [continuous-delivery]: /azure/devops/what-is-continuous-delivery
 [web-apps]: /azure/app-service/app-service-web-overview
-[terraform]: /azure/terraform/
 [vsts-account-create]: /azure/devops/organizations/accounts/create-organization-msa-or-work-student?view=vsts
 [vsts-approvals]: /vsts/pipelines/release/approvals/approvals?view=vsts
 [devops-project]: https://portal.azure.com/?feature.customportal=false#create/Microsoft.AzureProject
@@ -154,4 +142,3 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [app-insights-cd-monitoring]: /azure/application-insights/app-insights-vsts-continuous-monitoring
 [azure-region-pair-bcdr]: /azure/best-practices-availability-paired-regions
 [devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
-[security]: /azure/security/
