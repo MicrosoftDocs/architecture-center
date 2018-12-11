@@ -775,8 +775,14 @@
             href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
       - name: Mainframe Migration
         items:
-          - name: Can a mainframe be migrated to Azure?
+          - name: Overview
             href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+          - name: Myths & facts
+            href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
+          - name: Migration strategies
+            href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
+          - name: Application strategies
+            href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
       - name: Alternative Models
         items:
         - name: Azure Virtual Datacenter (VDC)
