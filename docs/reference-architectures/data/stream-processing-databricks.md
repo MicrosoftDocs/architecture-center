@@ -31,7 +31,11 @@ The architecture consists of the following components.
 
 ## Data ingestion
 
+<!-- markdownlint-disable MD033 -->
+
 To simulate a data source, this reference architecture uses the [New York City Taxi Data](https://uofi.app.box.com/v/NYCtaxidata/folder/2332218797) dataset<sup>[[1]](#note1)</sup>. This dataset contains data about taxi trips in New York City over a four-year period (2010 &ndash; 2013). It contains two types of record: Ride data and fare data. Ride data includes trip duration, trip distance, and pickup and dropoff location. Fare data includes fare, tax, and tip amounts. Common fields in both record types include medallion number, hack license, and vendor ID. Together these three fields uniquely identify a taxi plus a driver. The data is stored in CSV format.
+
+<!-- markdownlint-enable MD033 -->
 
 The data generator is a .NET Core application that reads the records and sends them to Azure Event Hubs. The generator sends ride data in JSON format and fare data in CSV format.
 
@@ -268,7 +272,7 @@ The methods in the StreamingMetricsListener are called by the Apache Spark runti
 ```shell
 taxijob_CL
 | where TimeGenerated > startofday(datetime(<date>)) and TimeGenerated < endofday(datetime(<date>))
-| project  mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
+| project mdc_inputRowsPerSecond_d, mdc_durationms_triggerExecution_d
 | render timechart
 ```
 
@@ -330,7 +334,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 1. Create a directory named `DataFile` in the root of the cloned Github repository in your local file system.
 
-2. Open a web browser and navigate to https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935.
+2. Open a web browser and navigate to [https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935](https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935).
 
 3. Click the **Download** button on this page to download a zip file of all the taxi data for that year.
 
@@ -350,7 +354,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
             ...
     ```
 
-5. Open a web browser and navigate to https://www.zillow.com/howto/api/neighborhood-boundaries.htm.
+5. Open a web browser and navigate to [https://www.zillow.com/howto/api/neighborhood-boundaries.htm](https://www.zillow.com/howto/api/neighborhood-boundaries.htm).
 
 6. Click on **New York Neighborhood Boundaries** to download the file.
 
@@ -468,10 +472,11 @@ Next, enter the secrets for Cosmos DB:
 1. Open the Azure portal, and navigate to the resource group specified in step 3 of the **deploy the Azure resources** section. Click on the Azure Cosmos DB Account.
 
 2. Using the **Azure Databricks CLI**, add the secret for the Cosmos DB user name:
+
     ```shell
     databricks secrets put --scope azure-databricks-job --key "cassandra-username"
     ```
-Once executed, this command opens the vi editor. Enter the **username** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
+    Once executed, this command opens the vi editor. Enter the **username** value from the **CosmosDb** output section in step 4 of the *deploy the Azure resources* section. Save and exit vi.
 
 3. Next, add the secret for the Cosmos DB password:
     ```shell
@@ -536,6 +541,8 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 ### Create a Databricks cluster
 
+<!-- markdownlint-disable MD033 -->
+
 1. In the Databricks workspace, click "Clusters", then click "create cluster". Enter the cluster name you created in step 3 of the **configure custom logging for the Databricks job** section above.
 
 2. Select a **standard** cluster mode.
@@ -559,6 +566,8 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 11. Click the **Add** button.
 
 12. Click the **Create Cluster** button.
+
+<!-- markdownlint-enable MD033 -->
 
 ### Create a Databricks job
 
@@ -601,7 +610,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
     11. Enter `http://download.osgeo.org/webdav/geotools/` in the **Repository** text box.
 
-    12. Click **Create Library** to open the **Artifacts** window. 
+    12. Click **Create Library** to open the **Artifacts** window.
 
     13. Under **Status on running clusters** check the **Attach automatically to all clusters** checkbox.
 
@@ -660,7 +669,7 @@ For this section, you require the Log Analytics workspace ID and primary key. Th
 
 The output should look like the following:
 
-```
+```console
 Created 10000 records for TaxiFare
 Created 10000 records for TaxiRide
 Created 20000 records for TaxiFare
@@ -669,6 +678,10 @@ Created 30000 records for TaxiFare
 ...
 ```
 
-To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and examine the data in the **taxi records** table. 
+To verify the Databricks job is running correctly, open the Azure portal and navigate to the Cosmos DB database. Open the **Data Explorer** blade and examine the data in the **taxi records** table.
+
+<!-- markdownlint-disable MD033 -->
 
 [1] <span id="note1">Donovan, Brian; Work, Dan (2016): New York City Taxi Trip Data (2010-2013). University of Illinois at Urbana-Champaign. https://doi.org/10.13012/J8PN93H8
+
+<!-- markdownlint-enable MD033 -->

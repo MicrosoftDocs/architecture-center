@@ -22,7 +22,7 @@ Active Directory Domain Services (AD DS) stores identity information in a hierar
 
 Typical uses for this architecture include maintaining security separation for objects and identities held in the cloud, and migrating individual domains from on-premises to the cloud.
 
-For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations]. 
+For additional considerations, see [Choose a solution for integrating on-premises Active Directory with Azure][considerations].
 
 ## Architecture
 

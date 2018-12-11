@@ -172,7 +172,7 @@ The following recommendations are useful for determining if your on-premises VPN
         EntryType          : Error
         Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
                              interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                             successfully because of the  following error: The network connection between your computer and
+                             successfully because of the following error: The network connection between your computer and
                              the VPN server could not be established because the remote server is not responding. This could
                              be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
                              and the remote server is not configured to allow VPN connections. Please contact your
@@ -204,7 +204,7 @@ The following recommendations are useful for determining if your on-premises VPN
         EntryType          : Error
         Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
                              interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                             successfully because of the  following error: Internet key exchange (IKE) authentication credentials are unacceptable.
+                             successfully because of the following error: Internet key exchange (IKE) authentication credentials are unacceptable.
 
         Source             : RemoteAccess
         ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, IKE authentication credentials are

@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Cloud Design Patterns for Microsoft Azure
 keywords: Azure
 author: dragon119
-ms.date: 06/23/2017
+ms.date: 12/10/2018
 ms.custom: seodec18
 ---
 

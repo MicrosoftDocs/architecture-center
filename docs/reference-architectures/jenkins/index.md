@@ -15,7 +15,7 @@ This reference architecture shows how to deploy and operate a scalable, enterpri
 
 *Download a [Visio file](https://archcenter.blob.core.windows.net/cdn/Jenkins-architecture.vsdx) that contains this architecture diagram.*
 
-This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on  Azure][jenkins-on-azure].
+This architecture supports disaster recovery with Azure services but does not cover more advanced scale-out scenarios involving multiple masters or high availability (HA) with no downtime. For general insights about the various Azure components, including a step-by-step tutorial about building out a CI/CD pipeline on Azure, see [Jenkins on Azure][jenkins-on-azure].
 
 The focus of this document is on the core Azure operations needed to support Jenkins, including the use of Azure Storage to maintain build artifacts, the security items needed for SSO, other services that can be integrated, and scalability for the pipeline. The architecture is designed to work with an existing source control repository. For example, a common scenario is to start Jenkins jobs based on GitHub commits.
 
@@ -39,7 +39,7 @@ The architecture consists of the following components:
 
 - **Managed disks**. A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
 
-- **Azure Blob Storage**. The [Windows Azure Storage plugin][configure-storage] uses Azure Blob  Storage to store the build artifacts that are created and shared with other Jenkins builds.
+- **Azure Blob Storage**. The [Windows Azure Storage plugin][configure-storage] uses Azure Blob Storage to store the build artifacts that are created and shared with other Jenkins builds.
 
 - **Azure Active Directory (Azure AD)**. [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
 
@@ -55,7 +55,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 The [Azure AD][azure-ad] tenant for your Azure subscription is used to enable SSO for Jenkins users and set up [service principals][service-principal] that enable Jenkins jobs to access Azure resources.
 
-SSO authentication and authorization are implemented by the Azure AD plugin  installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkins server.
+SSO authentication and authorization are implemented by the Azure AD plugin installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkins server.
 
 To provide Jenkins jobs with access to Azure resources, an Azure AD administrator creates service principals. These grant applications—in this case, the Jenkins jobs—[authenticated, authorized access][ad-sp] to Azure resources.
 
@@ -187,7 +187,7 @@ Use the [Azure AD Plugin][configure-azure-ad] from the Jenkins Update Center in 
 
 The step is run by the Jenkins administrator to set up the Azure VM Agent plugin, which is already installed.
 
-[Follow these steps to configure the plugin][configure-agent]. For a tutorial about setting up service principals for the plugin, see [Scale your  Jenkins deployments to meet demand with Azure VM agents][scale-agent].
+[Follow these steps to configure the plugin][configure-agent]. For a tutorial about setting up service principals for the plugin, see [Scale your Jenkins deployments to meet demand with Azure VM agents][scale-agent].
 
 ### Step 4: Provision Jenkins server with Azure Storage
 

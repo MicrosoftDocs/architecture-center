@@ -66,7 +66,7 @@ $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 Verify that your organization meets the [ExpressRoute prerequisite requirements][expressroute-prereq] for connecting to Azure.
 
-If you already have a VPN virtual network gateway in your Azure VNet, use the following  Powershell command to remove it:
+If you already have a VPN virtual network gateway in your Azure VNet, use the following Powershell command to remove it:
 
 ```powershell
 Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
