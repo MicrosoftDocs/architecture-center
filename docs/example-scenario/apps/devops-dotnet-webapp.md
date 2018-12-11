@@ -104,6 +104,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
+[architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [design-patterns-availability]: /azure/architecture/patterns/category/availability
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
@@ -120,6 +121,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
+[vsts]: /vsts/?view=vsts#pivot=services
 [continuous-integration]: /azure/devops/what-is-continuous-integration
 [continuous-delivery]: /azure/devops/what-is-continuous-delivery
 [web-apps]: /azure/app-service/app-service-web-overview
