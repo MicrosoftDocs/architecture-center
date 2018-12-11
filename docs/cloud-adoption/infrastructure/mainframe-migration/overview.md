@@ -5,7 +5,7 @@ author: njray
 ms.date: 12/08/2018
 ---
 
-# Fusion: Migration Migration Overview
+# Fusion: Mainframe Migration Overview
 
 Many companies and organizations benefit from moving some or all their mainframe workloads, applications, and databases to the cloud. Azure provides mainframe-like features at cloud scale without many of the drawbacks associated with mainframes.
 
