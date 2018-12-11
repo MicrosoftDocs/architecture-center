@@ -33,7 +33,7 @@ Unlike the cloud agnostic position throughout Fusion, this article is Azure spec
 | Apply automated remediation                  | No  | No  | No  | Yes | No  |
 | Manage billing                               | Yes | No  | No  | No  | No  |
 
-Coupled with these resource management tools and features is the need to [monitor your deployed assets](../monitoring-enforcement/overview.md). [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure, although 3rd party tools are also often used to monitor workloads and resources.
+Along with these resource management tools and features, you will need to [monitor your deployed resources](../monitoring-enforcement/overview.md) for performance and health issues. [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure, although 3rd party tools are also often used to monitor workloads and resources.
 
 # Next steps
 Learn how to create, assign, and manage [policy definitions](https://docs.microsoft.com/en-us/azure/governance/policy/) in Azure. 
