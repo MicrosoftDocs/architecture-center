@@ -334,7 +334,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
 
 1. Create a directory named `DataFile` in the root of the cloned Github repository in your local file system.
 
-2. Open a web browser and navigate to [https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935](https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935).
+2. Open a web browser and navigate to <https://uofi.app.box.com/v/NYCtaxidata/folder/2332219935>.
 
 3. Click the **Download** button on this page to download a zip file of all the taxi data for that year.
 
@@ -354,7 +354,7 @@ A deployment for this reference architecture is available on [GitHub](https://gi
             ...
     ```
 
-5. Open a web browser and navigate to [https://www.zillow.com/howto/api/neighborhood-boundaries.htm](https://www.zillow.com/howto/api/neighborhood-boundaries.htm).
+5. Open a web browser and navigate to <https://www.zillow.com/howto/api/neighborhood-boundaries.htm>.
 
 6. Click on **New York Neighborhood Boundaries** to download the file.
 
