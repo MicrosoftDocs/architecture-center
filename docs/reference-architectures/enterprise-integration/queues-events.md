@@ -23,7 +23,7 @@ This version of the architecture adds two components that help make the system m
 
 - **[Azure Service Bus][service-bus]**. Service Bus is a secure, reliable message broker.
 
-- **[Azure Event Grid][event-grid]**. Event Grid is an event routing service. It uses a publish/subscribe (pub/sub) eventing model.
+- **[Azure Event Grid][event-grid]**. Event Grid is an event routing service. It uses a [publish/subscribe](../../patterns/publisher-subscriber.md) (pub/sub) eventing model.
 
 Asynchronous communication using a message broker provides a number of advantages over making direct, synchronous calls to backend services:
 
