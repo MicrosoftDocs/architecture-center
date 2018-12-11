@@ -100,11 +100,13 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 * [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
+[ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
+[chef]: /azure/chef/
 [design-patterns-availability]: /azure/architecture/patterns/category/availability
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
