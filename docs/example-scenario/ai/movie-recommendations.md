@@ -18,7 +18,7 @@ Consider this scenario for the following use cases:
 
 * Movie recommendations on a website.
 * Consumer product recommendations in a mobile app.
-* *News recommendations on streaming media.
+* News recommendations on streaming media.
 
 ## Architecture
 
@@ -27,15 +27,10 @@ Consider this scenario for the following use cases:
 This scenario covers the training and evaluating of the machine learning model by using the Spark [alternating least squares][als] (ALS) algorithm on a dataset with ratings of movies. The steps for this scenario are as following:
 
 1. The front-end website or app service collects historical user-movie interaction data, which are usually represented in a table of user, item, and numerical rating tuples.
-
 2. The collected historical data is stored in a blob storage.
-
 3. A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
-
 4. Azure Machine Learning service is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
-
 5. A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
-
 6. The model is then deployed onto a web or app service by using Azure Container Instances or Azure Kubernetes Service.
 
 ### Components
@@ -81,7 +76,7 @@ Follow these steps to run the [ALS quick start notebook][notebook]:
 1. [Create a DSVM][dsvm-ubuntu] from the Azure portal.
 2. Clone the repo in the Notebooks folder:
 
-    ```bash
+    ```shell
     cd notebooks
     git clone https://github.com/Microsoft/Recommenders
     ```
