@@ -41,7 +41,7 @@ Cloud-based batch environments use parallel compute and high speed networks for 
 
 ### Data ingestion systems
 
-Mainframes ingest large batches of data from retail, financial services, manufacturing, and other solutions for processing. On Azure, simple command-line utilities such as [AzCopy](/azure/storage/common/storage-use-azcopy) can be used for copying data to and from storage, or a service such as [Azure Data Factory](/azure/data-factory/introduction), which can ingest data from disparate data stores to create and schedule data-driven workflows.
+Mainframes ingest large batches of data from retail, financial services, manufacturing, and other solutions for processing. On Azure, simple command-line utilities such as [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) can be used for copying data to and from storage, or a service such as [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction), which can ingest data from disparate data stores to create and schedule data-driven workflows.
 
 In addition to emulation environments, Azure provides platform-as-a-service (PaaS) offerings and analytics services that can enhance existing mainframe environments.
 
@@ -53,7 +53,7 @@ TP monitors are available from various vendors and run in virtual machines, an i
 
 ![Lift-and-shift of a mainframe environment to Azure using emulation software](../../_images/mainframe-migration/mainframe-vs-azure.png)
 
-On Azure, emulation environments are used to run the TP manager and the batch jobs that use JCL. In the data tier, Db2 is replaced by [Azure SQL Database](/azure/sql-database/sql-database-technical-overview), although Microsoft SQL Server, Db2 LUW, or Oracle Database can also be used. An emulator supports IMS, VSAM, and SEQ. The mainframe’s system management tools are replaced by Azure services, and software from other vendors, that run in VMs.
+On Azure, emulation environments are used to run the TP manager and the batch jobs that use JCL. In the data tier, Db2 is replaced by [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview), although Microsoft SQL Server, Db2 LUW, or Oracle Database can also be used. An emulator supports IMS, VSAM, and SEQ. The mainframe’s system management tools are replaced by Azure services, and software from other vendors, that run in VMs.
 
 The screen handling and form entry functionality is commonly implemented using web servers, which can be combined with database APIs, such as ADO, ODBC, and JDBC for data access and transactions. The exact line-up of Azure IaaS components to use depends on the operating system you prefer. For example:
 
@@ -65,7 +65,7 @@ The screen handling and form entry functionality is commonly implemented using w
 
 Batch operations in Azure differ from the typical batch environment on mainframes. Mainframe batch jobs are typically serial in nature and depend on the IOPS provided by the mainframe backbone for performance. Cloud-based batch environments use parallel computing and high-speed networks for performance.
 
-To optimize batch performance in Azure, consider the [compute](/azure/virtual-machines/windows/overview), [storage](/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](/azure/azure-monitor/overview) options as follows.
+To optimize batch performance in Azure, consider the [compute](https://docs.microsoft.com/azure/virtual-machines/windows/overview), [storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](https://docs.microsoft.com/azure/azure-monitor/overview) options as follows.
 
 ### Compute
 
@@ -79,7 +79,7 @@ To optimize batch performance in Azure, consider the [compute](/azure/virtual-ma
 
 ### Storage
 
--   Use [Azure Premium SSD](/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
+-   Use [Azure Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
 
 -   Use striping with multiple disks for more IOPS per storage size.
 
@@ -87,11 +87,11 @@ To optimize batch performance in Azure, consider the [compute](/azure/virtual-ma
 
 ### Networking
 
--   Use [Azure Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
+-   Use [Azure Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
 
 ### Monitoring
 
--   Use monitoring tools. [Azure Monitor](/azure/azure-monitor/overview), [Azure Application Insights](/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over-performance of batch runs and help eliminate bottlenecks.
+-   Use monitoring tools. [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over-performance of batch runs and help eliminate bottlenecks.
 
 ## Migrate development environments
 
@@ -112,7 +112,7 @@ The cloud’s distributed architectures rely on a different set of development t
 ## Migrate databases and data
 
 Application migration usually means rehosting the data tier. SQL Server, open-source, and other relational databases can be migrated to fully managed
-solutions on Azure, such as [Azure SQL Database Managed Instance](/azure/sql-database/sql-database-managed-instance), [Azure Database Service for PostgreSQL](/azure/postgresql/overview), and [Azure Database for MySQL](/azure/mysql/overview) with [Azure Database Migration Service](/azure/dms/dms-overview).
+solutions on Azure, such as [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance), [Azure Database Service for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview), and [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) with [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
 
 For example, if the mainframe data tier uses:
 
@@ -160,7 +160,7 @@ Moving solutions from the mainframe to Azure may involve a *staged* migration, w
 
 A common scenario is to move an application to Azure while keeping the data used by the application on the mainframe. Some kind of software is used to enable the application in Azure to access data from the mainframe. Fortunately, a wide range of solutions provide integration between Azure and existing mainframe environments, support for hybrid scenarios, and migration over time. Microsoft partners, independent software vendors, and system integrators can help you on your journey.
 
-One option is [Microsoft Host Integration Server](/host-integration-server/) (HIS), a solution that provides the Distributed Relational Database Architecture (DRDA) required for applications in Azure to access data in Db2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
+One option is [Microsoft Host Integration Server](https://docs.microsoft.com/host-integration-server/) (HIS), a solution that provides the Distributed Relational Database Architecture (DRDA) required for applications in Azure to access data in Db2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
 
 ## Partner solutions
 
@@ -175,7 +175,7 @@ For detailed guidance about choosing a partner solution, refer to the [Platform 
 
 For more information, see the following resources:
 
--   [Get started with Azure](/azure/)
+-   [Get started with Azure](https://docs.microsoft.com/azure/)
 
 -   [Platform Modernization Alliance: Mainframe migration](https://www.platformmodernization.org/pages/mainframe.aspx)
 

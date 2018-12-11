@@ -41,7 +41,7 @@ By comparison, Azure offers commitment-based service-level agreements (SLAs), wh
 
 Azure provides additional availability by replicating data from multiple storage devices, either locally or in other geographic regions. In the event of an Azure-based failure, compute resources can access the replicated data on either the local or regional level.
 
-When you use Azure platform-as-a-service (PaaS) resources, such as [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](/azure/cosmos-db/introduction), the platform handles failovers automatically. When you use Azure infrastructure as a service IaaS), failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
+When you use Azure platform-as-a-service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction), the platform handles failovers automatically. When you use Azure infrastructure as a service IaaS), failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
 
 ## Scalability
 
@@ -55,7 +55,7 @@ Mainframe customers typically maintain disaster recovery sites or make use or an
 
 Automated geo-redundancy is also available through the mainframe coupling facility, albeit at great expense, and is usually  reserved for mission-critical systems.
 
-In contrast, Azure, as an enterprise cloud provider, has easy-to-implement and cost-effective options for [backup](/azure/backup/backup-introduction-to-azure-backup), [recovery](/azure/site-recovery/site-recovery-overview), and [redundancy](/azure/storage/common/storage-redundancy) at local or regional levels, or via geo-redundancy.
+In contrast, Azure, as an enterprise cloud provider, has easy-to-implement and cost-effective options for [backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), [recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and [redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) at local or regional levels, or via geo-redundancy.
 
 ## Storage
 
@@ -69,7 +69,7 @@ Types of physical storage include:
 
 -   **Auxiliary storage.** Located separately from the mainframe, this type includes storage on DASDs and is also known as paging storage.
 
-In the cloud, you have a range of flexible, scalable options, and you pay only for what you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service
+In the cloud, you have a range of flexible, scalable options, and you pay only for what you need. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service
 for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
 ## Mainframe development and testing
