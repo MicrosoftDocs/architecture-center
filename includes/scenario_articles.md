@@ -110,7 +110,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/" height="140px" />
+                            <img src="./apps/media/architecture-devops-dotnet-webapp.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
