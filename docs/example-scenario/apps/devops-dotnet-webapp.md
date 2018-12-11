@@ -146,3 +146,4 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [app-insights-cd-monitoring]: /azure/application-insights/app-insights-vsts-continuous-monitoring
 [azure-region-pair-bcdr]: /azure/best-practices-availability-paired-regions
 [devops-project-create]: /azure/devops-project/azure-devops-project-aspnet-core
+[terraform]: /azure/terraform/
