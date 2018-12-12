@@ -1,11 +1,11 @@
 ---
-title: "Fusion: How can corporate IT policy become Cloud-Ready?"
+title: "Fusion: How can corporate IT policy become cloud-ready?"
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
-ms.date: 11/27/2018
+ms.date: 12/10/2018
 ---
 
-# Fusion: How can corporate IT policy become Cloud-Ready?
+# Fusion: How can corporate IT policy become cloud-ready?
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental governance model. 
 
@@ -17,19 +17,20 @@ This article outlines key activities that can help you shape your corporate poli
 
 ## Define corporate policy to mature cloud governance
 
-In traditional governance and incremental governance, Corporate Policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those Corporate Policies. Cloud Governance is built on similar concepts.
+In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those corporate policies. Cloud Governance is built on similar concepts.
 
 ![Corporate Governance and Governance Disciplines](../../_images/operational-transformation-govern.png)
+
 *Figure 1. Corporate Governance and Governance Disciplines*
 
-The image above demonstrates the interactions between Business Risk, Policy & Compliance, and Monitor & Enforce to create a Governance Strategy. Followed by the Five Disciplines of Cloud Governance to realize that strategy.
+The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a Governance Strategy. Followed by the five disciplines of Cloud Governance to realize your strategy.
 
 ## Review existing policies
 
 In the image above, the governance strategy (risk, policy and compliance, monitor and enforce) starts with recognizing business risks. Understanding how [business risk](understanding-business-risk.md) changes in the cloud is the first step to creating a lasting cloud governance strategy. Working with your business units to gain an accurate [gauge of the business's tolerance for risk](../../business-strategy/risk-tolerance.md), helps you understand what level of risks need to be mitigated. Your understanding of new risks and acceptable tolerance can fuel a [review of existing policies](what-is-a-cloud-policy-review.md), in order to determine the required level of governance that is appropriate for your organization.
 
 > [!TIP]
-> If your organization is governed by 3rd-party compliance, one of the biggest business risks to consider may be a risk of adherence to [regulatory compliance](what-is-regulatory-compliance.md). Often times this risk cannot be mitigated, and instead may require a strict adherence. Be sure to understand your 3rd-party compliance requirements before beginning a policy review.
+> If your organization is governed by third-party compliance, one of the biggest business risks to consider may be a risk of adherence to [regulatory compliance](what-is-regulatory-compliance.md). Often times this risk cannot be mitigated, and instead may require a strict adherence. Be sure to understand your third-party compliance requirements before beginning a policy review.
 
 ## Incremental governance model
 
