@@ -22,7 +22,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![App Monitor Architecture Diagram][architecture]
+[![](./images/architecture-diagram-app-monitoring.svg "App Monitoring Architecture Diagram")](./images/architecture-diagram-app-monitoring.svg #lightbox)
 
 This scenario uses a managed Azure environment to host an application and data tier. The data flows through the scenario as follows:
 
@@ -114,7 +114,7 @@ Check out these resources designed to help you get started with your own monitor
 [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
 
 <!-- links -->
-[architecture]: ./media/architecture-app-monitoring.png
+[architecture]: ./images/architecture-diagram-app-monitoring.svg
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor
