@@ -1,13 +1,15 @@
 ---
 title: Scalability checklist
+titleSuffix: Azure Design Review Framework
 description: Scalability checklist guidance for design concerns for Azure Autoscaling.
 author: dragon119
 ms.date: 01/10/2018
 ms.custom: checklist
 ---
+
 # Scalability checklist
 
-Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from a scalability standpoint. 
+Scalability is the ability of a system to handle increased load, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from a scalability standpoint.
 
 ## Application design
 
@@ -23,7 +25,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Offload intensive CPU/IO tasks as background tasks**. If a request to a service is expected to take a long time to run or absorb considerable resources, offload the processing for this request to a separate task. Use worker roles or background jobs (depending on the hosting platform) to execute these tasks. This strategy enables the service to continue receiving further requests and remain responsive.  For more information, see [Background jobs guidance](../best-practices/background-jobs.md).
 
-**Distribute the workload for background tasks**. Where there are many background tasks, or the tasks require considerable time or resources, spread the work across multiple compute units (such as worker roles or background jobs). For one possible solution, see the [Competing Consumers Pattern](https://msdn.microsoft.com/library/dn568101.aspx).
+**Distribute the workload for background tasks**. Where there are many background tasks, or the tasks require considerable time or resources, spread the work across multiple compute units (such as worker roles or background jobs). For one possible solution, see the [Competing Consumers pattern](../patterns/competing-consumers.md).
 
 **Consider moving towards a *shared-nothing* architecture**. A shared-nothing architecture uses independent, self-sufficient nodes that have no single point of contention (such as shared services or storage). In theory, such a system can scale almost indefinitely. While a fully shared-nothing approach is generally not practical for most applications, it may provide opportunities to design for better scalability. For example, avoiding the use of server-side session state, client affinity, and data partitioning are good examples of moving towards a shared-nothing architecture.
 
@@ -35,7 +37,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Reduce chatty interactions between components and services**. Avoid designing interactions in which an application is required to make multiple calls to a service (each of which returns a small amount of data), rather than a single call that can return all of the data. Where possible, combine several related operations into a single request when the call is to a service or component that has noticeable latency. This makes it easier to monitor performance and optimize complex operations. For example, use stored procedures in databases to encapsulate complex logic, and reduce the number of round trips and resource locking.
 
-**Use queues to level the load for high velocity data writes**. Surges in demand for a service can overwhelm that service and cause escalating failures. To prevent this, consider implementing the [Queue-Based Load Leveling Pattern](https://msdn.microsoft.com/library/dn589783.aspx). Use a queue that acts as a buffer between a task and a service that it invokes. This can smooth intermittent heavy loads that may otherwise cause the service to fail or the task to time out.
+**Use queues to level the load for high velocity data writes**. Surges in demand for a service can overwhelm that service and cause escalating failures. To prevent this, consider implementing the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md). Use a queue that acts as a buffer between a task and a service that it invokes. This can smooth intermittent heavy loads that may otherwise cause the service to fail or the task to time out.
 
 **Minimize the load on the data store**. The data store is commonly a processing bottleneck, a costly resource, and often not easy to scale out. Where possible, remove logic (such as processing XML documents or JSON objects) from the data store, and perform processing within the application. For example, instead of passing XML to the database (other than as an opaque string for storage), serialize or deserialize the XML within the application layer and pass it in a form that is native to the data store. It's typically much easier to scale out the application than the data store, so you should attempt to do as much of the compute-intensive processing as possible within the application.
 
@@ -61,7 +63,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Review the performance antipatterns**. See [Performance antipatterns for cloud applications](../antipatterns/index.md) for common practices that are likely to cause scalability problems when an application is under pressure.
 
-**Use asynchronous calls**. Use asynchronous code wherever possible when accessing resources or services that may be limited by I/O or network bandwidth, or that have a noticeable latency, in order to avoid locking the calling thread. 
+**Use asynchronous calls**. Use asynchronous code wherever possible when accessing resources or services that may be limited by I/O or network bandwidth, or that have a noticeable latency, in order to avoid locking the calling thread.
 
 **Avoid locking resources, and use an optimistic approach instead**. Never lock access to resources such as storage or other services that have noticeable latency, because this is a primary cause of poor performance. Always use optimistic approaches to managing concurrent operations, such as writing to storage. Use features of the storage layer to manage conflicts. In distributed applications, data may be only eventually consistent.
 
@@ -73,8 +75,6 @@ Scalability is the ability of a system to handle increased load, and is one of t
   
 > [!NOTE]
 > APIs for some services automatically reuse connections, provided service-specific guidelines are followed. It's important that you understand the conditions that enable connection reuse for each service that your application uses.
-> 
-> 
 
 **Send requests in batches to optimize network use**. For example, send and read messages in batches when accessing a queue, and perform multiple reads or writes as a batch when accessing storage or a cache. This can help to maximize efficiency of the services and data stores by reducing the number of calls across the network.
 
@@ -84,12 +84,11 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Create resource dependencies during deployment or at application startup**. Avoid repeated calls to methods that test the existence of a resource and then create the resource if it does not exist. Methods such as *CloudTable.CreateIfNotExists* and *CloudQueue.CreateIfNotExists* in the Azure Storage Client Library follow this pattern. These methods can impose considerable overhead if they are invoked before each access to a storage table or storage queue. Instead:
 
-* Create the required resources when the application is deployed, or when it first starts (a single call to *CreateIfNotExists* for each resource in the startup code for a web or worker role is acceptable). However, be sure to handle exceptions that may arise if your code attempts to access a resource that doesn't exist. In these situations, you should log the exception, and possibly alert an operator that a resource is missing.
-* Under some circumstances, it may be appropriate to create the missing resource as part of the exception handling code. But you should adopt this approach with caution as the non-existence of the resource might be indicative of a programming error (a misspelled resource name for example), or some other infrastructure-level issue.
+- Create the required resources when the application is deployed, or when it first starts (a single call to *CreateIfNotExists* for each resource in the startup code for a web or worker role is acceptable). However, be sure to handle exceptions that may arise if your code attempts to access a resource that doesn't exist. In these situations, you should log the exception, and possibly alert an operator that a resource is missing.
+- Under some circumstances, it may be appropriate to create the missing resource as part of the exception handling code. But you should adopt this approach with caution as the non-existence of the resource might be indicative of a programming error (a misspelled resource name for example), or some other infrastructure-level issue.
 
 **Use lightweight frameworks**. Carefully choose the APIs and frameworks you use to minimize resource usage, execution time, and overall load on the application. For example, using Web API to handle service requests can reduce the application footprint and increase execution speed, but it may not be suitable for advanced scenarios where the additional capabilities of Windows Communication Foundation are required.
 
 **Consider minimizing the number of service accounts**. For example, use a specific account to access resources or services that impose a limit on connections, or perform better where fewer connections are maintained. This approach is common for services such as databases, but it can affect the ability to accurately audit operations due to the impersonation of the original user.
 
 **Carry out performance profiling and load testing** during development, as part of test routines, and before final release to ensure the application performs and scales as required. This testing should occur on the same type of hardware as the production platform, and with the same types and quantities of data and user load as it will encounter in production. For more information, see [Testing the performance of a cloud service](/azure/vs-azure-tools-performance-profiling-cloud-services/).
-
