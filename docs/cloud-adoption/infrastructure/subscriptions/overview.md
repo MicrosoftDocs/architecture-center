@@ -19,7 +19,7 @@ Subscription design is one of the top technical strategies organizations use to 
 
 Subscription design ranges in complexity. Decisions around a design strategy have unique inflection points, as they typically involve both business and IT constraints. Before making technical decisions, IT architects and decision makers should work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md), cost accounting practices within your business units, and global market needs for your organization as a whole. 
 
-Additionally, technical entry points that are based upon digital estate size versus cloud provider subscription limits, isolation and segregation policies, and IT operational divisions usually have a large impact on subscription design. Deployment structure and automation also have a large impact on how you structure subscription design, so consider how [resource grouping](../resource-grouping/overview.md) decisions might influence your design choices.
+Additionally, technical decision points that are based upon digital estate size versus cloud provider subscription limits, isolation and segregation policies, and IT operational divisions usually have a large impact on subscription design. Deployment structure and automation also have a large impact on how you structure subscription design, so consider how [resource grouping](../resource-grouping/overview.md) decisions might influence your design choices.
 
 ## Subscriptions design and Azure Enterprise Agreements 
 
