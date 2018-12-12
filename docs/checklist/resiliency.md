@@ -1,10 +1,12 @@
 ---
 title: Resiliency checklist
+titleSuffix: Azure Design Review Framework
 description: Checklist that provides guidance for resiliency concerns during design.
 author: petertaylor9999
 ms.date: 11/26/2018
 ms.custom: resiliency, checklist
 ---
+
 # Resiliency checklist
 
 Resiliency is the ability of a system to recover from failures and continue to function, and is one of the [pillars of software quality](../guide/pillars.md). Designing your application for resiliency requires planning for and mitigating a variety of failure modes that could occur. Use this checklist to review your application architecture from a resiliency standpoint. Also review the [Resiliency checklist for specific Azure services](./resiliency-per-service.md).
@@ -17,25 +19,24 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Perform a failure mode analysis (FMA) for your application.** FMA is a process for building resiliency into an application early in the design stage. For more information, see [Failure mode analysis][fma]. The goals of an FMA include:  
 
-* Identify what types of failures an application might experience.
-* Capture the potential effects and impact of each type of failure on the application.
-* Identify recovery strategies.
+- Identify what types of failures an application might experience.
+- Capture the potential effects and impact of each type of failure on the application.
+- Identify recovery strategies.
   
-
-**Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](/azure/app-service/app-service-value-prop-what-is/), select an [App Service Plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me/#scaling-and-management). For [Azure Virtual Machines (VMs)](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set][availability-sets].   
+**Deploy multiple instances of services.** If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances improves both resiliency and scalability. For [Azure App Service](/azure/app-service/app-service-value-prop-what-is/), select an [App Service Plan](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview/) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me/#scaling-and-management). For [Azure Virtual Machines (VMs)](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set][availability-sets].
 
 **Use autoscaling to respond to increases in load.** If your application is not configured to scale out automatically as load increases, it's possible that your application's services will fail if they become saturated with user requests. For more details, see the following:
 
-* General: [Scalability checklist](./scalability.md)
-* Azure App Service: [Scale instance count manually or automatically][app-service-autoscale]
-* Cloud Services: [How to auto scale a cloud service][cloud-service-autoscale]
-* Virtual Machines: [Automatic scaling and virtual machine scale sets][vmss-autoscale]
+- General: [Scalability checklist](./scalability.md)
+- Azure App Service: [Scale instance count manually or automatically][app-service-autoscale]
+- Cloud Services: [How to auto scale a cloud service][cloud-service-autoscale]
+- Virtual Machines: [Automatic scaling and virtual machine scale sets][vmss-autoscale]
 
 **Use load balancing to distribute requests.** Load balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation. If your service uses Azure App Service or Azure Cloud Services, it is already load balanced for you. However, if your application uses Azure VMs, you will need to provision a load balancer. See the [Azure Load Balancer](/azure/load-balancer/load-balancer-overview/) overview for more details.
 
 **Configure Azure Application Gateways to use multiple instances.** Depending on your application's requirements, an [Azure Application Gateway](/azure/application-gateway/application-gateway-introduction/) may be better suited to distributing requests to your application's services. However, single instances of the Application Gateway service are not guaranteed by an SLA so it's possible that your application could fail if the Application Gateway instance fails. Provision more than one medium or larger Application Gateway instance to guarantee availability of the service under the terms of the [SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/).
 
-**Use Availability Sets for each application tier.** Placing your instances in an [availability set][availability-sets] provides a higher [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+**Use Availability Sets for each application tier.** Placing your instances in an [availability set][availability-sets] provides a higher [SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
 **Replicate VMs using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you a Recovery Point Objective (RPO) in the order of minutes.
 
@@ -45,22 +46,25 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Configure and test health probes for your load balancers and traffic managers.** Ensure that your health logic checks the critical parts of the system and responds appropriately to health probes.
 
-* The health probes for [Azure Traffic Manager][traffic-manager] and [Azure Load Balancer][load-balancer] serve a specific function. For Traffic Manager, the health probe determines whether to fail over to another region. For a load balancer, it determines whether to remove a VM from rotation.      
-* For a Traffic Manager probe, your health endpoint should check any critical dependencies that are deployed within the same region, and whose failure should trigger a failover to another region.  
-* For a load balancer, the health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
-* For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring Pattern](https://msdn.microsoft.com/library/dn589789.aspx).
+- The health probes for [Azure Traffic Manager][traffic-manager] and [Azure Load Balancer][load-balancer] serve a specific function. For Traffic Manager, the health probe determines whether to fail over to another region. For a load balancer, it determines whether to remove a VM from rotation.
+
+- For a Traffic Manager probe, your health endpoint should check any critical dependencies that are deployed within the same region, and whose failure should trigger a failover to another region.
+
+- For a load balancer, the health endpoint should report the health of the VM. Don't include other tiers or external services. Otherwise, a failure that occurs outside the VM will cause the load balancer to remove the VM from rotation.
+
+- For guidance on implementing health monitoring in your application, see [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md).
 
 **Monitor third-party services.** If your application has dependencies on third-party services, identify where and how these third-party services can fail and what effect those failures will have on your application. A third-party service may not include monitoring and diagnostics, so it's important to log your invocations of them and correlate them with your application's health and diagnostic logging using a unique identifier. For more information on proven practices for monitoring and diagnostics, see [Monitoring and Diagnostics guidance][monitoring-and-diagnostics-guidance].
 
 **Ensure that any third-party service you consume provides an SLA.** If your application depends on a third-party service, but the third party provides no guarantee of availability in the form of an SLA, your application's availability also cannot be guaranteed. Your SLA is only as good as the least available component of your application.
 
-**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow [design patterns](../patterns/category/resiliency.md) for dealing with transient failures, such as [Retry Pattern][retry-pattern], and [Circuit Breaker Pattern][circuit-breaker]. 
+**Implement resiliency patterns for remote operations where appropriate.** If your application depends on communication between remote services, follow [design patterns](../patterns/category/resiliency.md) for dealing with transient failures, such as the [Retry pattern](../patterns/retry.md) and the [Circuit Breaker pattern](../patterns/circuit-breaker.md).
 
 **Implement asynchronous operations whenever possible.** Synchronous operations can monopolize resources and block other operations while the caller waits for the process to complete. Design each part of your application to allow for asynchronous operations whenever possible. For more information on how to implement asynchronous programming in C#, see [Asynchronous Programming with async and await][asynchronous-c-sharp].
 
 ## Data management
 
-**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. If you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. 
+**Understand the replication methods for your application's data sources.** Your application data will be stored in different data sources and have different availability requirements. Evaluate the replication methods for each type of data storage in Azure, including [Azure Storage Replication](/azure/storage/storage-redundancy/) and [SQL Database Active Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) to ensure that your application's data requirements are satisfied. If you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes.
 
 **Ensure that no single user account has access to both production and backup data.** Your data backups are compromised if one single user account has permission to write to both production and backup sources. A malicious user could purposely delete all your data, while a regular user could accidentally delete it. Design your application to limit the permissions of each user account so that only the users that require write access have write access and it's only to either production or backup, but not both.
 
@@ -71,9 +75,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 **Consider using a storage account type that is geo-redundant.** Data stored in an Azure Storage account is always replicated locally. However, there are multiple replication strategies to choose from when a Storage Account is provisioned. Select [Azure Read-Access Geo Redundant Storage (RA-GRS)](/azure/storage/storage-redundancy/#read-access-geo-redundant-storage) to protect your application data against the rare case when an entire region becomes unavailable.
 
 > [!NOTE]
-> For VMs, do not rely on RA-GRS replication to restore the VM disks (VHD files). Instead, use [Azure Backup][azure-backup].   
->
->
+> For VMs, do not rely on RA-GRS replication to restore the VM disks (VHD files). Instead, use [Azure Backup][azure-backup].
 
 ## Security
 
@@ -91,15 +93,15 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 ## Deployment
 
-**Document the release process for your application.** Without detailed release process documentation, an operator might deploy a bad update or improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team. 
+**Document the release process for your application.** Without detailed release process documentation, an operator might deploy a bad update or improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-**Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail. 
+**Automate your application's deployment process.** If your operations staff is required to manually deploy your application, human error can cause the deployment to fail.
 
 **Design your release process to maximize application availability.** If your release process requires services to go offline during deployment, your application will be unavailable until they come back online. Use the [blue/green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary release](https://martinfowler.com/bliki/CanaryRelease.html) deployment technique to deploy your application to production. Both of these techniques involve deploying your release code alongside production code so users of release code can be redirected to production code in the event of a failure.
 
 **Log and audit your application's deployments.** If you use staged deployment techniques such as blue/green or canary releases there will be more than one version of your application running in production. If a problem should occur, it's critical to determine which version of your application is causing a problem. Implement a robust logging strategy to capture as much version-specific information as possible.
 
-**Have a rollback plan for deployment.** It's possible that your application deployment could fail and cause your application to become unavailable. Design a rollback process to go back to a last known good version and minimize downtime. 
+**Have a rollback plan for deployment.** It's possible that your application deployment could fail and cause your application to become unavailable. Design a rollback process to go back to a last known good version and minimize downtime.
 
 ## Operations
 
@@ -115,7 +117,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Ensure that your application does not run up against [Azure subscription limits](/azure/azure-subscription-service-limits/).** Azure subscriptions have limits on certain resource types, such as number of resource groups, number of cores, and number of storage accounts.  If your application requirements exceed Azure subscription limits, create another Azure subscription and provision sufficient resources there.
 
-**Ensure that your application does not run up against [per-service limits](/azure/azure-subscription-service-limits/).** Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits. This will result in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (adding new instances).  
+**Ensure that your application does not run up against [per-service limits](/azure/azure-subscription-service-limits/).** Individual Azure services have consumption limits &mdash; for example, limits on storage, throughput, number of connections, requests per second, and other metrics. Your application will fail if it attempts to use resources beyond these limits. This will result in service throttling and possible downtime for affected users. Depending on the specific service and your application requirements, you can often avoid these limits by scaling up (for example, choosing another pricing tier) or scaling out (adding new instances).
 
 **Design your application's storage requirements to fall within Azure storage scalability and performance targets.** Azure storage is designed to function within predefined scalability and performance targets, so design your application to utilize storage within those targets. If you exceed these targets your application will experience storage throttling. To fix this, provision additional Storage Accounts. If you run up against the Storage Account limit, provision additional Azure Subscriptions and then provision additional Storage Accounts there. For more information, see [Azure Storage Scalability and Performance Targets](/azure/storage/storage-scalability-targets/).
 
@@ -158,7 +160,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 - [Resiliency checklist for specific Azure services](./resiliency-per-service.md)
 - [Failure mode analysis](../resiliency/failure-mode-analysis.md)
 
-
 <!-- links -->
 [app-service-autoscale]: /azure/monitoring-and-diagnostics/insights-how-to-scale/
 [asynchronous-c-sharp]: /dotnet/articles/csharp/async
@@ -170,7 +171,6 @@ Resiliency is the ability of a system to recover from failures and continue to f
 [load-balancer]: /azure/load-balancer/load-balancer-overview/
 [monitoring-and-diagnostics-guidance]: ../best-practices/monitoring.md
 [resource-manager]: /azure/azure-resource-manager/resource-group-overview/
-[retry-pattern]: ../patterns/retry.md
 [retry-service-guidance]: ../best-practices/retry-service-specific.md
 [site-recovery]: /azure/site-recovery/
 [site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure

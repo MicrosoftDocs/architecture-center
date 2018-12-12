@@ -235,8 +235,6 @@ This model is implemented by using Redis clustering, and is described in more de
 
 > [!IMPORTANT]
 > Azure Redis Cache does not currently support Redis clustering. If you want to implement this approach with Azure, then you must implement your own Redis servers by installing Redis on a set of Azure virtual machines and configuring them manually. The page [Running Redis on a CentOS Linux VM in Azure] walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
->
->
 
 The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides more information about implementing partitioning with Redis. The remainder of this section assumes that you are implementing client-side or proxy-assisted partitioning.
 

@@ -1,14 +1,15 @@
 ---
 title: Availability checklist
+titleSuffix: Azure Design Review Framework
 description: Checklist that provides guidance for availability concerns during design.
 author: dragon119
 ms.date: 11/26/2018
 ms.custom: checklist
-
 ---
+
 # Availability checklist
 
-Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint. 
+Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint.
 
 ## Application design
 
@@ -24,7 +25,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Design applications to gracefully degrade.** The load on an application may exceed the capacity of one or more parts, causing reduced availability and failed connections. Scaling can help to alleviate this, but it may reach a limit imposed by other factors, such as resource availability or cost. When an application reaches a resource limit, it should take appropriate action to minimize the impact for the user. For example, in an ecommerce system, if the order-processing subsystem is under strain or fails, it can be temporarily disabled while allowing other functionality, such as browsing the product catalog. It might be appropriate to postpone requests to a failing subsystem, for example still enabling customers to submit orders but saving them for later processing, when the orders subsystem is available again.
 
-**Gracefully handle rapid burst events.** Most applications need to handle varying workloads over time. Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests. Prevent sudden and unexpected bursts of activity from overwhelming the application: design it to queue requests to the services it uses and degrade gracefully when queues are near to full capacity. Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests. For more information, see the [Queue-Based Load Leveling Pattern](https://msdn.microsoft.com/library/dn589783.aspx).
+**Gracefully handle rapid burst events.** Most applications need to handle varying workloads over time. Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests. Prevent sudden and unexpected bursts of activity from overwhelming the application: design it to queue requests to the services it uses and degrade gracefully when queues are near to full capacity. Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests. For more information, see the [Queue-Based Load Leveling [pattern](..\patterns\queue-based-load-leveling.md).
 
 ## Deployment and maintenance
 
@@ -50,7 +51,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Use periodic backup and point-in-time restore**. Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Ensure that backups meet your Recovery Point Objective (RPO). Data replication is not a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../resiliency/recovery-data-corruption.md)
 
-**Replicate VM disks using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you an RPO in the order of minutes. 
+**Replicate VM disks using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you an RPO in the order of minutes.
 
 ## Errors and failures
 
@@ -58,7 +59,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Retry failed operations caused by transient faults.** Design a retry strategy for access to all services and resources where they do not inherently support automatic connection retry. Use a strategy that includes an increasing delay between retries as the number of failures increases, to prevent overloading of the resource and to allow it to gracefully recover and handle queued requests. Continual retries with very short delays are likely to exacerbate the problem. For more information, see [Retry guidance for specific services](../best-practices/retry-service-specific.md).
 
-**Implement circuit breaking to avoid cascading failures.** There may be situations in which transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal. , if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections. Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure. Use the Circuit Breaker pattern to reject requests for specific operations for defined periods. For more information, see [Circuit Breaker Pattern](../patterns/circuit-breaker.md).
+**Implement circuit breaking to avoid cascading failures.** There may be situations in which transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal. , if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections. Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure. Use the Circuit Breaker pattern to reject requests for specific operations for defined periods. For more information, see the [Circuit Breaker pattern](../patterns/circuit-breaker.md).
 
 **Compose or fall back to multiple components.** Design applications to use multiple instances without affecting operation and existing connections where possible. Use multiple instances and distribute requests between them, and detect and avoid sending requests to failed instances, in order to maximize availability.
 
@@ -74,7 +75,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Test the monitoring systems.** Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards, all depend on monitoring and instrumentation functioning correctly. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
 
-**Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor Pattern](../patterns/scheduler-agent-supervisor.md).
+**Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
 **Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, create a fully automated recovery plan to failover the entire application within minutes.
 
@@ -82,4 +83,3 @@ Availability is the proportion of time that a system is functional and working, 
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
 [site-recovery]: /azure/site-recovery/
 [site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure
-

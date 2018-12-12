@@ -595,8 +595,6 @@ Consider starting with following settings for retrying operations. These are gen
 
 > [!NOTE]
 > The end-to-end latency targets assume the default timeout for connections to the service. If you specify longer connection timeouts, the end-to-end latency will be extended by this additional time for every retry attempt.
->
->
 
 ### Examples
 
@@ -753,8 +751,6 @@ Consider starting with the following settings for retrying operations. You canno
 
 > [!NOTE]
 > The end-to-end latency targets assume the default timeout for connections to the service. If you specify longer connection timeouts, the end-to-end latency will be extended by this additional time for every retry attempt.
->
->
 
 ### Examples
 
