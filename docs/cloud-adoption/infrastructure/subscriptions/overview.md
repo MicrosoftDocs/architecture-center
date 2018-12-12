@@ -75,7 +75,7 @@ For organizations with global operations, this pattern groups subscriptions and 
 
 ### More complex patterns
 
-Azure Enterprise Agreements are limited to the four-level enterprise/department/account/subscriptions hierarchy. However, you can combine combinations such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource grouping design](../resource-grouping/overview.md) can further extend the governance and organizational structfure of your subscription design.
+Azure Enterprise Agreements are limited to the four-level enterprise/department/account/subscriptions hierarchy. However, you can combine combinations such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource grouping design](../resource-grouping/overview.md) can further extend the governance and organizational structure of your subscription design.
 
 Management groups, as discussed in the following section, can help support more complicated organizational structures.
 
