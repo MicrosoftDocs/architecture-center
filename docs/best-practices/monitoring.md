@@ -111,7 +111,7 @@ You can calculate the percentage availability of a service over a period of time
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-This is useful for SLA purposes. ([SLA monitoring](#SLA-monitoring) is described in more detail later in this guidance.) The definition of *downtime* depends on the service. For example, Visual Studio Team Services Build Service defines downtime as the period (total accumulated minutes) during which Build Service is unavailable. A minute is considered unavailable if all continuous HTTP requests to Build Service to perform customer-initiated operations throughout the minute either result in an error code or do not return a response.
+This is useful for SLA purposes. ([SLA monitoring](#sla-monitoring) is described in more detail later in this guidance.) The definition of *downtime* depends on the service. For example, Visual Studio Team Services Build Service defines downtime as the period (total accumulated minutes) during which Build Service is unavailable. A minute is considered unavailable if all continuous HTTP requests to Build Service to perform customer-initiated operations throughout the minute either result in an error code or do not return a response.
 
 ## Performance monitoring
 
