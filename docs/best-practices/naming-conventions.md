@@ -1,38 +1,39 @@
 ---
 title: Naming conventions for Azure resources
-description: Naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities
+titleSuffix: Best practices for cloud applications
+description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities.
 author: telmosampaio
 ms.date: 10/19/2018
-
-pnp.series.title: Best Practices
+ms.custom: seodec18
 ---
-# Naming conventions
+
+# Naming conventions for Azure resources
 
 [!INCLUDE [header](../_includes/header.md)]
 
-This article is a summary of the naming rules and restrictions for Azure resources
-and a baseline set of recommendations for naming conventions.  You can use these recommendations as a starting point for your own conventions specific to your needs.
+This article is a summary of the naming rules and restrictions for Azure resources and a baseline set of recommendations for naming conventions. You can use these recommendations as a starting point for your own conventions specific to your needs.
 
 The choice of a name for any resource in Microsoft Azure is important because:
 
-* It is difficult to change a name later.
-* Names must meet the requirements of their specific resource type.
+- It is difficult to change a name later.
+- Names must meet the requirements of their specific resource type.
 
 Consistent naming conventions make resources easier to locate. They can also indicate the role of a resource in a solution.
 
 The key to success with naming conventions is establishing and following them across your applications and organizations.
 
 ## Naming subscriptions
-When naming Azure subscriptions, verbose names make understanding the context and purpose of each subscription clear.  When working in an environment with many subscriptions, following a shared naming convention can improve clarity.
+
+When naming Azure subscriptions, verbose names make understanding the context and purpose of each subscription clear. When working in an environment with many subscriptions, following a shared naming convention can improve clarity.
 
 A recommended pattern for naming subscriptions is:
 
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
-* Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
-* Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
-* Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
-* Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
+- Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
+- Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
+- Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
+- Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
 
 | Company | Department | Product Line or Service | Environment | Full Name |
 | --- | --- | --- | --- | --- |
@@ -41,16 +42,16 @@ A recommended pattern for naming subscriptions is:
 | Contoso |IT |InternalApps |Production |Contoso IT InternalApps Production |
 | Contoso |IT |InternalApps |Dev |Contoso IT InternalApps Dev |
 
-For more information on how to organize subscriptions for larger enterprises, see [Azure enterprise scaffold - prescriptive subscription governance][scaffold].
+For more information on how to organize subscriptions for larger enterprises, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 ## Use affixes to avoid ambiguity
 
-When naming resources in Azure, it is recommended to use common prefixes or suffixes to identify the type and context of the resource.  While all the information about type, metadata, context, is available programmatically, applying common affixes simplifies visual identification.  When incorporating affixes into your naming convention, it is important to clearly specify whether the affix is at the beginning of the name (prefix) or at the end (suffix).
+When naming resources in Azure, it is recommended to use common prefixes or suffixes to identify the type and context of the resource. While all the information about type, metadata, context, is available programmatically, applying common affixes simplifies visual identification. When incorporating affixes into your naming convention, it is important to clearly specify whether the affix is at the beginning of the name (prefix) or at the end (suffix).
 
 For instance, here are two possible names for a service hosting a calculation engine:
 
-* SvcCalculationEngine (prefix)
-* CalculationEngineSvc (suffix)
+- SvcCalculationEngine (prefix)
+- CalculationEngineSvc (suffix)
 
 Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
 
@@ -66,7 +67,7 @@ When developing a specific naming convention for your company or projects, it is
 
 ## Naming rules and restrictions
 
-Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope.  For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
+Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope. For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 
@@ -74,7 +75,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the regex documented [here](/rest/api/resources/resourcegroups/createorupdate).  |`<service short name>-<environment>-rg` |`profx-prod-rg` |
+|Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the regex documented [here](/rest/api/resources/resourcegroups/createorupdate). |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric |`"key" : "value"` |`"department" : "Central IT"` |
 
@@ -122,11 +123,9 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Container Registry | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
 
-
 ## Organize resources with tags
 
-The Azure Resource Manager supports tagging entities with arbitrary
-text strings to identify context and streamline automation.  For example, the tag `"sqlVersion"="sql2014ee"` could identify VMs running SQL Server 2014 Enterprise Edition. Tags should be used to augment and enhance context along side of the naming conventions chosen.
+The Azure Resource Manager supports tagging entities with arbitrary text strings to identify context and streamline automation. For example, the tag `"sqlVersion"="sql2014ee"` could identify VMs running SQL Server 2014 Enterprise Edition. Tags should be used to augment and enhance context along side of the naming conventions chosen.
 
 > [!TIP]
 > One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across disparate deployments.
@@ -137,12 +136,12 @@ For more information on resource tagging, refer to [Using tags to organize your 
 
 Some of the common tagging use cases are:
 
-* **Billing**; Grouping resources and associating them with billing or charge back codes.
-* **Service Context Identification**; Identify groups of resources across Resource Groups for common operations and grouping
-* **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc.
+- **Billing**. Grouping resources and associating them with billing or charge back codes.
+- **Service Context Identification**. Identify groups of resources across Resource Groups for common operations and grouping.
+- **Access Control and Security Context**. Administrative role identification based on portfolio, system, service, app, instance, etc.
 
 > [!TIP]
-> Tag early - tag often.  Better to have a baseline tagging scheme in place and adjust over time rather than having to retrofit after the fact.
+> Tag early, tag often. Better to have a baseline tagging scheme in place and adjust over time rather than having to retrofit after the fact.
 
 An example of some common tagging approaches:
 
@@ -166,12 +165,12 @@ Especially in larger topologies, carefully naming virtual machines streamlines i
 
 ### Storage accounts and storage entities
 
-There are two primary use cases for storage accounts - backing disks for VMs, and storing data in blobs, queues and tables.  Storage accounts used for VM disks should follow the naming convention of associating them with the parent VM name (and with the potential need for multiple storage accounts for high-end VM SKUs, also apply a number suffix).
+There are two primary use cases for storage accounts: backing disks for VMs, and storing data in blobs, queues and tables. Storage accounts used for VM disks should follow the naming convention of associating them with the parent VM name (and with the potential need for multiple storage accounts for high-end VM SKUs, also apply a number suffix).
 
 > [!TIP]
 > Storage accounts - whether for data or disks - should follow a naming convention that allows for multiple storage accounts to be leveraged (i.e. always using a numeric suffix).
 
-It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is https://\<name\>.blob.core.windows.net.
+It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://\<name\>.blob.core.windows.net`.
 
 But if you map a custom domain (such as www.contoso.com) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
 `https://www.contoso.com/mycontainer/myblob`.
@@ -180,11 +179,11 @@ For more information about configuring this feature, refer to [Configure a custo
 
 For more information on naming blobs, containers and tables, refer to the following list:
 
-* [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
-* [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
-* [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
+- [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
+- [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
+- [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
 
-A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the **virtual** directory separator. Do not use a backward slash (\\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
+A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the *virtual* directory separator. Do not use a backward slash (\\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
 
 It is not possible to modify the name of a storage account or container after it has been created. If you want to use a new name, you must delete it and create a new one.
 
@@ -192,6 +191,3 @@ It is not possible to modify the name of a storage account or container after it
 > We recommend that you establish a naming convention for all storage accounts and types
 > before embarking on the development of a new service or application.
 
-<!-- links -->
-
-[scaffold]: /azure/architecture/cloud-adoption/appendix/azure-scaffold
