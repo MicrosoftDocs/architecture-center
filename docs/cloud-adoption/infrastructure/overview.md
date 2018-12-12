@@ -47,7 +47,7 @@ efficiency. Resource tagging requires a consistent and well-organized naming and
 
 [Software Defined Networks](software-defined-networks/overview.md):
 Deploy secure workloads to the cloud using rapid deployment and modification of virtualized 
-networking capabilities. Software defined networks {SDNs) support agile workflows, are capable of 
+networking capabilities. Software defined networks (SDNs) support agile workflows, are capable of 
 isolating resources, and can integrate cloud-based systems with your existing IT infrastructure.
 
 [Encryption](encryption/overview.md):
