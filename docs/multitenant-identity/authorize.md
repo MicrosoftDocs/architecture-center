@@ -162,7 +162,7 @@ The application also defines a set of possible operations on surveys:
 * Update
 * Delete
 * Publish
-* Unpublsh
+* Unpublish
 
 The following code creates a list of permissions for a particular user and survey. Notice that this code looks at both the user's app roles, and the owner/contributor fields in the survey.
 

@@ -14,6 +14,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 
 ## AI and machine learning
 
+<!-- markdownlint-disable MD033 -->
 <ul  class="panelContent cardsF">
 <!-- Batch scoring for deep learning models -->
 <li style="display: flex; flex-direction: column;">
@@ -49,6 +50,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     <div class="cardText">
                         <h3>Real-time scoring of Python models</h3>
                         <p>Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Batch scoring for R models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/realtime-scoring-r.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/logo-r.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Real-time scoring of R machine learning models</h3>
+                        <p>Implement a real-time prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS).</p>
                     </div>
                 </div>
             </div>
