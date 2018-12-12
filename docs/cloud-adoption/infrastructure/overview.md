@@ -2,14 +2,17 @@
 title: "Fusion: Core Infrastructure overview"
 description: Overview of Core infrastructure content for Azure Fusion
 author: rotycenh
-ms.date: 11/02/2018
+ms.date: 12/11/2018
 ---
 
 # Fusion: Core infrastructure overview
 
-Understanding how cloud platforms work is about knowing how resources are deployed, 
-organized, managed, and brought into compliance with your overall governance policies. 
-This first step is critical in making correct architectural decisions for your migration.  
+The first critical step in making architectural decisions for your cloud migration 
+is understanding how cloud platforms work. The next step is determining how to bring a new 
+cloud platform into your existing architecture so that it is in compliance with your 
+organization's overall governance policies. Lastly, you need to learn the best way 
+to deploy, organize, and manage ongoing, innovative cloud-based solutions into your 
+existing architecture. 
 
 This section provides a summary of the most important technologies and models 
 used in designing and building cloud-based solutions, as well as providing concrete 
@@ -19,12 +22,13 @@ public cloud platform.
 ## Core infrastructure components
 
 Each of the following components represents a key foundational technology underlying 
-all cloud deployments. It's important to learn how these components work, and to 
-understand which features and deployment models are appropriate for your needs.
+all cloud deployments. It's important to learn how these components work and 
+understand which features and deployment models are appropriate for your organization's
+needs.
 
 [Subscriptions](subscriptions/overview.md):
-Plan your your cloud deployment's subscription design and account structure to match your organization's ownership, billing, 
-and management capabilities.
+Plan your your cloud deployment's subscription design and account structure to match your organization's 
+ownership, billing, and management capabilities.
 
 [Identity](identity/overview.md):
 Integrate cloud-based identity services with your existing identity resources to support access 
@@ -34,8 +38,8 @@ control within your IT environment.
 Define and enforce organizational policy rules for resources and workloads that you deploy to the cloud.
 
 [Resource Grouping](resource-grouping/overview.md):
-Ensure that deployment and organization of cloud-based resources align to enforce management and 
-policy requirements.
+Ensure that deployment and organization of your organization's cloud-based resources align to enforce 
+resource management and policy requirements.
 
 [Resource Tagging](resource-tagging/overview.md):
 Organize your cloud-based resources to support management, access control, and operational 
@@ -43,7 +47,7 @@ efficiency. Resource tagging requires a consistent and well-organized naming and
 
 [Software Defined Networks](software-defined-networks/overview.md):
 Deploy secure workloads to the cloud using rapid deployment and modification of virtualized 
-networking capabilities. Software defined networks support agile workflows, are capable of 
+networking capabilities. Software defined networks {SDNs) support agile workflows, are capable of 
 isolating resources, and can integrate cloud-based systems with your existing IT infrastructure.
 
 [Encryption](encryption/overview.md):
@@ -58,8 +62,9 @@ into the operations, maintenance, and policy enforcement status of workloads.
 
 In addition to understanding how cloud platforms work in a general way, planning
 a migration to Azure requires learning how core infrastructure components are organized. 
-You use these components to build solutions on the Azure platform and design your deployments
-to best meet your organizations goals. 
+
+You can use these components to build solutions on the Azure platform and design your deployments
+to best meet your organization's goals. 
 
 These topics provide details about each of the infrastructure components:
 
@@ -70,19 +75,19 @@ It also includes links to more detailed guidance for deploying more complex work
 
 [Can a mainframe be migrated to
 Azure?](mainframe-migration/overview.md):
-This section guides you through the process for migrating a mainframe solution to Azure.
+This section guides you through the process of migrating a mainframe solution to the Azure platform.
 
 [How To: Create Hybrid Cloud
 Consistency](misc/hybrid-consistency.md):
-A hybrid cloud solution enables access to cloud-based resources, while maintaining on-premise 
+A hybrid cloud solution enables access to cloud-based resources, while maintaining on-premises 
 services in your pre-existing IT environment. This section provides guidance on 
-establishing consistent hybrid identity, security, management, and operations standards.
+establishing consistent hybrid identity, and security, management, and operations standards.
 
 [How To: Build a Virtual
 Datacenter](virtual-datacenter/overview.md):
 Building upon ideas of cloud consistency, Azure Virtual Datacenter (VDC) is an
-approach to help IT organizations balance governance and developer agility while 
-deploying enterprise cloud workloads. This section provides guidance and examples on 
+approach to help IT balance governance and developer agility while 
+deploying enterprise cloud-based workloads. This section provides guidance and examples on 
 how to build a VDC using the Azure platform.
 
 ## Next steps
