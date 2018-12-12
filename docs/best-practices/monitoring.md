@@ -121,6 +121,7 @@ System performance depends on a number of factors. Each factor is typically meas
 
 > [!NOTE]
 > Determining poor or good performance requires that you understand the level of performance at which the system should be capable of running. This requires observing the system while it's functioning under a typical load and capturing the data for each KPI over a period of time. This might involve running the system under a simulated load in a test environment and gathering the appropriate data before deploying the system to a production environment.
+>
 > You should also ensure that monitoring for performance purposes does not become a burden on the system. You might be able to dynamically adjust the level of detail for the data that the performance monitoring process gathers.
 
 ### Requirements for performance monitoring
