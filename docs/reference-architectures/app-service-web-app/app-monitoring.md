@@ -22,7 +22,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-[![](./images/architecture-diagram-app-monitoring.svg "App Monitoring Architecture Diagram")](./images/architecture-diagram-app-monitoring.svg #lightbox)
+[![](./images/architecture-diagram-app-monitoring.svg "Architecture Diagram")](./images/architecture-diagram-app-monitoring.svg#lightbox)
 
 This scenario uses a managed Azure environment to host an application and data tier. The data flows through the scenario as follows:
 
