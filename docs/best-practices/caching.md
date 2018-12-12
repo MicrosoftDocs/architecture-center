@@ -479,7 +479,7 @@ var customer2 = cache.Wait(task2);
 
 For additional information on writing client applications that can the Azure Redis Cache, see [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md).
 
-The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library. The next section in this article, Using Redis caching, provides examples of some of the more advanced techniques that you can apply to data that's held in a Redis cache.
+The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library. 
 
 ## Using Redis caching
 
@@ -903,23 +903,9 @@ The following patterns might also be relevant to your scenario when you implemen
 
 ## More information
 
-- The [MemoryCache class](/dotnet/api/system.runtime.caching.memorycache) page on the Microsoft website
-- The [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) page on the Microsoft website
-- The [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq) page on the Microsoft website
-- The [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap) page on the Microsoft website
-- The [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) page on the StackExchange.Redis GitHub repo
-- The [Redis persistence](https://redis.io/topics/persistence) page on the Redis website
-- The [Replication page](https://redis.io/topics/replication) on the Redis website
-- The [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial) page on the Redis website
-- The [Partitioning: how to split data among multiple Redis instances](https://redis.io/topics/partitioning) page on the Redis website
-- The [Using Redis as an LRU Cache](https://redis.io/topics/lru-cache) page on the Redis website
-- The [Transactions](https://redis.io/topics/transactions) page on the Redis website
-- The [Redis security](https://redis.io/topics/security) page on the Redis website
-- The [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) page on the Azure blog
-- The [Running Redis on a CentOS Linux VM in Azure](https://blogs.msdn.microsoft.com/tconte/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure/) page on the Microsoft website
-- The [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider) page on the Microsoft website
-- The [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider) page on the Microsoft website
-- The [An Introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro) page on the Redis website
-- The [Basic usage](https://stackexchange.github.io/StackExchange.Redis/Basics) page on the StackExchange.Redis website
-- The [Transactions in Redis](https://stackexchange.github.io/StackExchange.Redis/Transactions) page on the StackExchange.Redis repo
-- The [Data partitioning guide](https://msdn.microsoft.com/library/dn589795.aspx) on the Microsoft website
+- [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/cache/) 
+- [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq)
+- [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+- [Redis documentation](https://redis.io/documentation)
+- [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/)
+- [Data partitioning guide](https://msdn.microsoft.com/library/dn589795.aspx)

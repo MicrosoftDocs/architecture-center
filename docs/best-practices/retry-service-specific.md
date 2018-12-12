@@ -562,7 +562,7 @@ var client = serviceProxyFactory.CreateServiceProxy<ISomeService>(
 
 ### More information
 
-- [Remote exception handling](https://github.com/Microsoft/azure-docs/blob/master/articles/service-fabric/service-fabric-reliable-services-communication-remoting.md#remoting-exception-handling)
+- [Remote exception handling](/azure/service-fabric/service-fabric-reliable-services-communication-remoting#remoting-exception-handling)
 
 ## SQL Database using ADO.NET
 

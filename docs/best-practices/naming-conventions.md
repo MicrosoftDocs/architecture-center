@@ -9,8 +9,6 @@ ms.custom: seodec18
 
 # Naming conventions for Azure resources
 
-[!INCLUDE [header](../_includes/header.md)]
-
 This article is a summary of the naming rules and restrictions for Azure resources and a baseline set of recommendations for naming conventions. You can use these recommendations as a starting point for your own conventions specific to your needs.
 
 The choice of a name for any resource in Microsoft Azure is important because:
@@ -170,7 +168,7 @@ There are two primary use cases for storage accounts: backing disks for VMs, and
 > [!TIP]
 > Storage accounts - whether for data or disks - should follow a naming convention that allows for multiple storage accounts to be leveraged (i.e. always using a numeric suffix).
 
-It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://\<name\>.blob.core.windows.net`.
+It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://<name>.blob.core.windows.net`.
 
 But if you map a custom domain (such as www.contoso.com) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
 `https://www.contoso.com/mycontainer/myblob`.

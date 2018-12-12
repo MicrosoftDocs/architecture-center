@@ -574,7 +574,7 @@ ServicePoint sp = ServicePointManager.FindServicePoint(uri);
 sp.Expect100Continue = false;
 ```
 
-You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created `ServicePoint` objects. For more information, see [ServicePoint class](https://msdn.microsoft.com/library/system.net.servicepoint.aspx).
+You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created [ServicePoint]](/dotnet/api/system.net.servicepoint) objects.
 
 ### Support pagination for requests that may return large numbers of objects
 
@@ -706,7 +706,7 @@ You should also create and run performance tests to check that the web API opera
 
 ## Using Azure API Management
 
-On Azure, consider using [Azue API Management](https://azure.microsoft.com/documentation/services/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
+On Azure, consider using [Azue API Management](/azure/api-management//services/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 
