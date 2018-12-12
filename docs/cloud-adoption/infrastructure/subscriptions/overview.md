@@ -27,7 +27,7 @@ Additionally, technical decision points that are based upon digital estate size 
 
 Azure subscriptions are based on the real work that happens when deploying, managing, and applying policy to resources. For small Azure deployments, a single subscription or a small collection of subscriptions may compose your entire cloud estate. However, large Azure deployments likely need to span multiple subscriptions to support your organizational structure and bypass [subscription quotas and limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). This can impose technical limits on the number of resources you can deploy to a single subscriptions. 
 
-All Azure subscriptions are associated with at least one account, which is connected to billing and top-level access control for each subscription. A single account can own multiple subscriptions and can provide a base level of subscriptions organization.
+All Azure subscriptions are associated with one account, which is connected to billing and top-level access control for each subscription. A single account can own multiple subscriptions and can provide a base level of subscriptions organization.
 
 Each Azure Enterprise Agreement provides a further ability to organize subscriptions, and accounts into hierarchies that reflect your organizational priorities. Your organizational enterprise enrollment defines the shape and use of Azure services within your company from a contractual point of view. Within each enterprise agreement, you can further subdivide the environment into departments, accounts, and subscriptions to match your organization's structure.
 
