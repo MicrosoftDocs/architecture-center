@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 This reference architecture shows how to perform incremental loading in an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into SQL Data Warehouse. Transactional data is transformed into a tabular model for analysis.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2Gnz2]
+> [!VIDEO <https://www.microsoft.com/videoplayer/embed/RE2Gnz2>]
 
 A reference implementation for this architecture is available on [GitHub][github].
 
@@ -195,6 +195,15 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 - An Azure SQL Data Warehouse instance.
 - An Azure Analysis Services instance.
 - Azure Data Factory and the Data Factory pipeline for the ELT job.
+
+## Related resources
+
+You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+
+- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+
+<!-- links -->
 
 [adf]: /azure/data-factory
 [github]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw_advanced

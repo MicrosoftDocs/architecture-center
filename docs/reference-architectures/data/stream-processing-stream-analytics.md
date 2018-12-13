@@ -216,4 +216,13 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
+## Related resources
+
+You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+
+- [IoT and data analytics in the construction industry](/azure/architecture/example-scenario/data/big-data-with-iot)
+- [Real-time fraud detection](/azure/architecture/example-scenario/data/fraud-detection)
+
+<!-- links -->
+
 [github]: https://github.com/mspnp/reference-architectures/tree/master/data/streaming_asa
