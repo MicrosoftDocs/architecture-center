@@ -1,5 +1,6 @@
 ---
-title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
+title: Hybrid ETL with existing on-premises SSIS and ADF
+titleSuffix: Azure Example Scenarios
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory
 author: alhieng
 ms.date: 9/20/2018
@@ -22,10 +23,10 @@ Traditionally, SSIS has been the ETL tool of choice for many SQL Server data pro
 
 Several potential on-premises use cases are listed below:
 
-* Loading network router logs to a database for analysis.
-* Preparing human resources employment data for analytical reporting.
-* Loading product and sales data into a data warehouse for sales forecasting.
-* Automating loading of operational data stores or data warehouses for finance and accounting.
+- Loading network router logs to a database for analysis.
+- Preparing human resources employment data for analytical reporting.
+- Loading product and sales data into a data warehouse for sales forecasting.
+- Automating loading of operational data stores or data warehouses for finance and accounting.
 
 ## Architecture
 
@@ -39,10 +40,10 @@ Several potential on-premises use cases are listed below:
 
 ### Components
 
-* [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
-* [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
-* [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and loads the data into a data warehouse.
-* [SQL Data Warehouse][docs-sql-data-warehouse] centralizes data in the cloud for easy access using standard ANSI SQL queries.
+- [Blob storage][docs-blob-storage] is used to store files and as a source for Data Factory to retrieve data.
+- [SQL Server Integration Services][docs-ssis] contains the on-premises ETL packages used to execute task-specific workloads.
+- [Azure Data Factory][docs-data-factory] is the cloud orchestration engine that takes data from multiple sources and combines, orchestrates, and loads the data into a data warehouse.
+- [SQL Data Warehouse][docs-sql-data-warehouse] centralizes data in the cloud for easy access using standard ANSI SQL queries.
 
 ### Alternatives
 
@@ -62,20 +63,20 @@ Ultimately, the intent is to move the processed data into the cloud for further 
 
 Azure Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on the several factors.
 
-* Number of pipeline executions
-* Number of entities/activities used within the pipeline
-* Number of monitoring operations
-* Number of Integration Runs (Azure-hosted IR or self-hosted IR)
+- Number of pipeline executions
+- Number of entities/activities used within the pipeline
+- Number of monitoring operations
+- Number of Integration Runs (Azure-hosted IR or self-hosted IR)
 
 ADF uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
 
-When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk).  If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
+When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk). If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 
 ## Next Steps
 
-* Learn more about [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
-* Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/#step-by-step-tutorials).
-* [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure).
+- Learn more about [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
+- Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/#step-by-step-tutorials).
+- [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure).
 
 <!-- links -->
 [architecture-diagram]: ./media/architecture-diagram-hybrid-etl-with-adf.png

@@ -1,5 +1,6 @@
 ---
-title: Decentralized trust between banks on Azure
+title: Decentralized trust between banks
+titleSuffix: Azure Example Scenarios
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
@@ -60,7 +61,7 @@ For other extended or different scenarios, concerns such as transaction privacy 
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics. 
+[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics.
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 

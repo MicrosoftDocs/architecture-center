@@ -1,5 +1,6 @@
 ---
-title: E-commerce front end on Azure
+title: E-commerce front end
+titleSuffix: Azure Example Scenarios
 description: Host an e-commerce site on Azure.
 author: masonch
 ms.date: 7/13/18
@@ -29,7 +30,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 2. Azure CDN serves static images and content to the user.
 3. User signs in to the application through an Azure Active Directory B2C tenant.
 4. User searches for concerts using Azure Search.
-5. Web site pulls concert details from Azure SQL Database. 
+5. Web site pulls concert details from Azure SQL Database.
 6. Web site refers to purchased ticket images in Blob Storage.
 7. Database query results are cached in Azure Redis Cache for better performance.
 8. User submits ticket orders and concert reviews, which are placed in the queue.

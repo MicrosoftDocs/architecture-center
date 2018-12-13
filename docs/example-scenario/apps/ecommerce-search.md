@@ -1,5 +1,6 @@
 ---
 title: Intelligent product search engine for e-commerce
+titleSuffix: Azure Example Scenarios
 description: Provide a world-class search experience in an e-commerce application.
 author: jelledruyts
 ms.date: 09/14/2018
@@ -29,6 +30,7 @@ Ultimately, _any_ application that has some form of search functionality can ben
 ![Architecture overview of the Azure components involved in an intelligent product search engine for e-commerce][architecture]
 
 This scenario covers an e-commerce solution where customers can search through a product catalog.
+
 1. Customers navigate to the **e-commerce web application** from any device.
 2. The product catalog is maintained in an **Azure SQL Database** for transactional processing.
 3. Azure Search uses a **search indexer** to automatically keep its search index up-to-date through integrated change tracking.

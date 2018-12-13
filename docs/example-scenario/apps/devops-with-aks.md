@@ -1,5 +1,6 @@
 ---
 title: CI/CD pipeline for container-based workloads
+titleSuffix: Azure Example Scenarios
 description: Build a DevOps pipeline for a Node.js web app with Jenkins, Azure Container Registry, Azure Kubernetes Service, Cosmos DB, and Grafana.
 author: iainfoulds
 ms.date: 07/05/2018
@@ -66,7 +67,7 @@ For other availability topics, see the [availability checklist][availability] av
 
 Azure Kubernetes Service lets you scale the number of cluster nodes to meet the demands of your applications. As your application increases, you can scale out the number of Kubernetes nodes that run your service.
 
-Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your  infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
+Application data is stored in Azure Cosmos DB, a globally distributed, multi-model database that can scale globally. Cosmos DB abstracts the need to scale your infrastructure as with traditional database components, and you can choose to replicate your Cosmos DB globally to meet the demands of your customers.
 
 For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
@@ -86,10 +87,12 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ## Deploy the scenario
 
-**Prerequisites.**
+### Prerequisites
 
-* You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
 * You need an SSH public key pair. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
+
 * You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
@@ -98,7 +101,11 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
 
+### Walk-through
+
 To deploy this scenario with an Azure Resource Manager template, perform the following steps.
+
+<!-- markdownlint-disable MD033 -->
 
 1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
@@ -109,6 +116,8 @@ To deploy this scenario with an Azure Resource Manager template, perform the fol
    * Provide an SSH key to secure logins to the Linux VMs.
    * Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    * Select the **Purchase** button.
+
+<!-- markdownlint-enable MD033 -->
 
 It can take 15-20 minutes for the deployment to complete.
 

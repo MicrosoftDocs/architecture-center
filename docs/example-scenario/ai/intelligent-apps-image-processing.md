@@ -1,5 +1,6 @@
 ---
-title: Image classification for insurance claims on Azure
+title: Image classification for insurance claims
+titleSuffix: Azure Example Scenarios
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
