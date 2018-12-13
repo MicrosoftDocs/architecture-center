@@ -264,3 +264,50 @@ You should compare the results with the bandwidth available to the VPN gateway (
 **Verify that you have deployed the right number and size of VMs for your application load.** Determine if any of the virtual machines in the Azure VNet are running slowly. If so, they may be overloaded, there may be too few to handle the load, or the load-balancers may not be configured correctly. To determine this, [capture and analyze diagnostic information][azure-vm-diagnostics]. You can examine the results using the Azure portal, but many third-party tools are also available that can provide detailed insights into the performance data.
 
 **Verify that the application is making efficient use of cloud resources.** Instrument application code running on each VM to determine whether applications are making the best use of resources. You can use tools such as [Application Insights][application-insights].
+
+<!-- links -->
+
+[adds-extend-domain]: ../identity/adds-extend-domain.md
+[expressroute]: ../hybrid-networking/expressroute.md
+[windows-vm-ra]: ../virtual-machines-windows/index.md
+[linux-vm-ra]: ../virtual-machines-linux/index.md
+
+[naming conventions]: /azure/guidance/guidance-naming-conventions
+
+[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
+[arm-templates]: /azure/resource-group-authoring-templates
+[azure-cli]: /azure/virtual-machines-command-line-tools
+[azure-portal]: /azure/azure-portal/resource-group-portal
+[azure-powershell]: /azure/powershell-azure-resource-manager
+[azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
+[azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
+[connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
+[vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
+[policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
+[route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
+[network-security-group]: /azure/virtual-network/virtual-networks-nsg
+[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/v1_2/
+[additional-firewall-rules]: https://technet.microsoft.com/library/dn786406.aspx#firewall
+[nagios]: https://www.nagios.org/
+[azure-vpn-gateway-diagnostics]: https://blogs.technet.microsoft.com/keithmayer/2014/12/18/diagnose-azure-virtual-network-vpn-connectivity-issues-with-powershell/
+[ping]: https://technet.microsoft.com/library/ff961503.aspx
+[tracert]: https://technet.microsoft.com/library/ff961507.aspx
+[psping]: https://technet.microsoft.com/sysinternals/jj729731.aspx
+[nmap]: https://nmap.org
+[changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
+[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
+[troubleshooting-vpn-errors]: https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors/
+[rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
+[create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
+[azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
+[application-insights]: /azure/application-insights/app-insights-overview-usage
+[forced-tunneling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
+[vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
+[vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
+[virtualNetworkGateway-parameters]: https://github.com/mspnp/hybrid-networking/vpn/parameters/virtualNetworkGateway.parameters.json
+[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
