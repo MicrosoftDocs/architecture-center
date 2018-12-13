@@ -25,7 +25,7 @@ Several potential on-premises use cases are listed below:
 * Loading network router logs to a database for analysis.
 * Preparing human resources employment data for analytical reporting.
 * Loading product and sales data into a data warehouse for sales forecasting.
-* Automating loading or operating data stores or data warehouses for finance and accounting.
+* Automating loading of operational data stores or data warehouses for finance and accounting.
 
 ## Architecture
 
