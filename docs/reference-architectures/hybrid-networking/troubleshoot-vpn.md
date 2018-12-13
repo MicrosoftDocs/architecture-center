@@ -54,7 +54,7 @@ The *Message* property of each entry provides a description of the error. Some c
   Container          :
   ```
 
-  - The wrong shared key being specified in the RRAS VPN network interface configuration.
+- The wrong shared key being specified in the RRAS VPN network interface configuration.
 
   ```console
   EventID            : 20111

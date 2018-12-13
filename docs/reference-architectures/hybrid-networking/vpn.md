@@ -163,7 +163,7 @@ To deploy the solution, perform the following steps.
 
 <!-- markdownlint-enable MD033 -->
 
-To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md)
+To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md).
 
 <!-- links -->
 
