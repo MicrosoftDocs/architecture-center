@@ -382,7 +382,7 @@
 
     - name: Hybrid networks
       items:
-      - name: Overview
+      - name: Choose a hybrid network architecture
         href: reference-architectures/hybrid-networking/index.md
       - name: VPN
         href: reference-architectures/hybrid-networking/vpn.md
@@ -394,10 +394,12 @@
         href: reference-architectures/hybrid-networking/hub-spoke.md
       - name: Hub-spoke topology with shared services
         href: reference-architectures/hybrid-networking/shared-services.md
+      - name: Troubleshoot a hybrid VPN connection
+        href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
 
     - name: Identity management
       items:
-      - name: Overview
+      - name: Choose an Active Directory integration architecture
         href: reference-architectures/identity/index.md
       - name: Integrate on-premises AD with Azure AD
         href: reference-architectures/identity/azure-ad.md
