@@ -303,8 +303,6 @@
       href: example-scenario/apps/hpc-saas.md
     - name: Decentralized trust between banks
       href: example-scenario/apps/decentralized-trust.md
-    - name: Web application monitoring
-      href: example-scenario/apps/app-monitoring.md
     - name: DevOps with containers
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with Azure DevOps
@@ -460,6 +458,8 @@
         href: reference-architectures/app-service-web-app/scalable-web-app.md
       - name: Multi-region deployment
         href: reference-architectures/app-service-web-app/multi-region.md
+      - name: Web application monitoring
+        href: reference-architectures/app-service-web-app/app-monitoring.md
 
 - name: Design Guides
   items:
