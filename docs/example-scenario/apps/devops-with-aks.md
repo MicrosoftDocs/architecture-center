@@ -18,9 +18,9 @@ By using Azure services such as Azure Kubernetes Service, Container Registry, an
 
 Other relevant use cases include:
 
-* Modernizing application development practices to a microservice, container-based approach.
-* Speeding up application development and deployment lifecycles.
-* Automating deployments to test or acceptance environments for validation.
+- Modernizing application development practices to a microservice, container-based approach.
+- Speeding up application development and deployment lifecycles.
+- Automating deployments to test or acceptance environments for validation.
 
 ## Architecture
 
@@ -39,19 +39,19 @@ This scenario covers a DevOps pipeline for a Node.js web application and databas
 
 ### Components
 
-* [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this scenario, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
-* [Azure Linux Virtual Machines][docs-virtual-machines] is the IaaS platform used to run the Jenkins and Grafana instances.
-* [Azure Container Registry][docs-acr] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
-* [Azure Kubernetes Service][docs-aks] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
-* [Azure Cosmos DB][docs-cosmos-db] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
-* [Azure Monitor][docs-azure-monitor] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
-* [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
+- [Jenkins][jenkins] is an open-source automation server that can integrate with Azure services to enable continuous integration (CI) and continuous deployment (CD). In this scenario, Jenkins orchestrates the creation of new container images based on commits to source control, pushes those images to Azure Container Registry, then updates application instances in Azure Kubernetes Service.
+- [Azure Linux Virtual Machines][docs-virtual-machines] is the IaaS platform used to run the Jenkins and Grafana instances.
+- [Azure Container Registry][docs-acr] stores and manages container images that are used by the Azure Kubernetes Service cluster. Images are securely stored, and can be replicated to other regions by the Azure platform to speed up deployment times.
+- [Azure Kubernetes Service][docs-aks] is a managed Kubernetes platform that lets you deploy and manage containerized applications without container orchestration expertise. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you.
+- [Azure Cosmos DB][docs-cosmos-db] is a globally distributed, multi-model database that allows you to choose from various database and consistency models to suit your needs. With Cosmos DB, your data can be globally replicated, and there is no cluster management or replication components to deploy and configure.
+- [Azure Monitor][docs-azure-monitor] helps you track performance, maintain security, and identify trends. Metrics obtained by Monitor can be used by other resources and tools, such as Grafana.
+- [Grafana][grafana] is an open-source solution to query, visualize, alert, and understand metrics. A data source plugin for Azure Monitor allows Grafana to create visual dashboards to monitor the performance of your applications running in Azure Kubernetes Service and using Cosmos DB.
 
 ### Alternatives
 
-* [Azure Pipelines][azure-pipelines] help you implement a continuous integration (CI), test, and deployment (CD) pipeline for any app.
-* [Kubernetes][kubernetes] can be run directly on Azure VMs instead of via a managed service if you would like more control over the cluster.
-* [Service Fabric][service-fabric] is another alternate container orchestrator that can replace AKS.
+- [Azure Pipelines][azure-pipelines] help you implement a continuous integration (CI), test, and deployment (CD) pipeline for any app.
+- [Kubernetes][kubernetes] can be run directly on Azure VMs instead of via a managed service if you would like more control over the cluster.
+- [Service Fabric][service-fabric] is another alternate container orchestrator that can replace AKS.
 
 ## Considerations
 
@@ -89,11 +89,11 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Prerequisites
 
-* You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-* You need an SSH public key pair. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
+- You need an SSH public key pair. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
 
-* You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
+- You need an Azure Active Directory (AD) service principal for the authentication of service and resources. If needed, you can create a service principal with [az ad sp create-for-rbac][createsp]
 
     ```azurecli-interactive
     az ad sp create-for-rbac --name myDevOpsScenario
@@ -109,13 +109,13 @@ To deploy this scenario with an Azure Resource Manager template, perform the fol
 
 1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fdevops-with-aks%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
-   * Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsScenario* in the text box.
-   * Select a region from the **Location** drop-down box.
-   * Enter your service principal app ID and password from the `az ad sp create-for-rbac` command.
-   * Provide a username and secure password for the Jenkins instance and Grafana console.
-   * Provide an SSH key to secure logins to the Linux VMs.
-   * Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
-   * Select the **Purchase** button.
+   - Choose to **Create new** resource group, then provide a name such as *myAKSDevOpsScenario* in the text box.
+   - Select a region from the **Location** drop-down box.
+   - Enter your service principal app ID and password from the `az ad sp create-for-rbac` command.
+   - Provide a username and secure password for the Jenkins instance and Grafana console.
+   - Provide an SSH key to secure logins to the Linux VMs.
+   - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
+   - Select the **Purchase** button.
 
 <!-- markdownlint-enable MD033 -->
 
@@ -127,9 +127,9 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on the number of container images to store and Kubernetes nodes to run your applications.
 
-* [Small][small-pricing]: this pricing example correlates to 1000 container builds per month.
-* [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
-* [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
+- [Small][small-pricing]: this pricing example correlates to 1000 container builds per month.
+- [Medium][medium-pricing]: this pricing example correlates to 100,000 container builds per month.
+- [Large][large-pricing]: this pricing example correlates to 1,000,000 container builds per month.
 
 ## Related resources
 

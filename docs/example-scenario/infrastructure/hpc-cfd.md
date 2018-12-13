@@ -63,7 +63,9 @@ For general guidance on designing secure solutions, see the [Azure security docu
 
 ## Deploy the scenario
 
-Before deploying in Azure, some pre-requisites are required. Follow these steps before deploying the Resource Manager template:
+### Prerequisites
+
+Follow these steps before deploying the Resource Manager template:
 
 1. Create a [service principal][cycle-svcprin] for retrieving the appId, displayName, name, password, and tenant.
 2. Generate an [SSH key pair][cycle-ssh] to sign in securely to the CycleCloud server.
