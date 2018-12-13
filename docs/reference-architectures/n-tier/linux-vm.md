@@ -3,7 +3,7 @@ title: Run a Linux VM on Azure
 titleSuffix: Azure Reference Architectures
 description: Best practices for running a Linux virtual machine on Azure.
 author: telmosampaio
-ms.date: 09/13/2018
+ms.date: 12/13/2018
 ms.custom: seodec18
 ---
 
@@ -84,7 +84,7 @@ All NSGs contain a set of [default rules][nsg-default-rules], including a rule t
 
 **Diagnostics**. Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose boot failure if your VM gets into a non-bootable state. Create an Azure Storage account to store the logs. A standard locally redundant storage (LRS) account is sufficient for diagnostic logs. For more information, see [Enable monitoring and diagnostics][enable-monitoring].
 
-**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). This also provides a higher [service level agreement (SLA)][vm-sla].
+**Availability**. Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned downtime][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance. For higher availability, deploy multiple VMs in an [availability set](/azure/virtual-machines/linux/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). This also provides a higher [service level agreement (SLA)][vm-sla].
 
 **Backups** To protect against accidental data loss, use the [Azure Backup](/azure/backup/) service to back up your VMs to geo-redundant storage. Azure Backup provides application-consistent backups.
 
@@ -100,7 +100,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-**Access control**. Use [role-based access control (RBAC)][rbac] to control access to Azure resources. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. 
+**Access control**. Use [role-based access control (RBAC)][rbac] to control access to Azure resources. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network].
 
 > [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
@@ -111,28 +111,20 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 ## Next steps
 
-- To provision a Windows VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
+- To provision a Linux VM, see [Create and Manage Linux VMs with the Azure CLI](/azure/virtual-machines/linux/tutorial-manage-vm)
 - For a complete N-tier architecture on Linux VMs, see [Linux N-tier application in Azure with Apache Cassandra](./n-tier-cassandra.md).
 
 <!-- links -->
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: /azure/virtual-machines/virtual-machines-linux-manage-availability
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[azbbv2]: https://github.com/mspnp/template-building-blocks
-[azure-cli-2]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-linux]: /azure/virtual-machines/virtual-machines-linux-azure-overview
 [azure-storage]: /azure/storage/storage-introduction
-[blob-snapshot]: /azure/storage/storage-blob-snapshots
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: /azure/virtual-machines/virtual-machines-linux-about-disks-vhds
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
-[azure-dns]: /azure/dns/dns-overview
 [fqdn]: /azure/virtual-machines/virtual-machines-linux-portal-create-fqdn
-[git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
@@ -141,13 +133,11 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [nsg-default-rules]: /azure/virtual-network/virtual-networks-nsg#default-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance
 [premium-storage]: /azure/virtual-machines/linux/premium-storage
-[premium-storage-supported]: /azure/virtual-machines/linux/premium-storage#supported-vms
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [security-center]: /azure/security-center/security-center-intro
@@ -158,7 +148,5 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-linux-sizes
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
-[vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-linux-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
