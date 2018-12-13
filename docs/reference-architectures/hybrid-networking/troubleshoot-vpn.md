@@ -8,7 +8,7 @@ ms.date: 10/08/2018
 
 # Troubleshoot a hybrid VPN connection
 
-This article gives some tips for troubleshooting a VPN gateway connection betweeen an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
+This article gives some tips for troubleshooting a VPN gateway connection between an on-premises network and Azure. For general information on troubleshooting common VPN-related errors, see [Troubleshooting common VPN related errors][troubleshooting-vpn-errors].
 
 ## Verify the VPN appliance is functioning correctly
 
@@ -160,11 +160,11 @@ Connecting to 10.20.1.6:80:
 
 **Verify that the on-premises VPN appliance uses an encryption method that is compatible with the Azure VPN gateway.** For policy-based routing, the Azure VPN gateway supports the AES256, AES128, and 3DES encryption algorithms. Route-based gateways support AES256 and 3DES. For more information, see [About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections][vpn-appliance].
 
-## Determinie if there is a problem with the Azure VPN gateway
+## Check for problems with the Azure VPN gateway
 
 The following recommendations are useful for determining if there is a problem with the Azure VPN gateway:
 
-**Examine Azure VPN gateway diagnostic logs for potential issues.** See [Step-by-Step: Capturing Azure Resource Manager (ARM) VNET Gateway Diagnostic Logs][gateway-diagnostic-logs].
+**Examine Azure VPN gateway diagnostic logs for potential issues.** See [Step-by-Step: Capturing Azure Resource Manager VNET Gateway Diagnostic Logs][gateway-diagnostic-logs].
 
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 
@@ -182,7 +182,7 @@ You can view the subnet details using the following Azure CLI command:
 azure network vnet subnet show -g <<resource-group>> -e <<vnet-name>> -n GatewaySubnet
 ```
 
-Ensure there is no data field named *Network Security Group id*. The following example shows the results for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
+Ensure there is no data field named *Network Security Group ID*. The following example shows the results for an instance of the *GatewaySubnet* that has an assigned NSG (*VPN-Gateway-Group*). This can prevent the gateway from working correctly if there are any rules defined for this NSG.
 
 ```console
 C:\>azure network vnet subnet show -g profx-prod-rg -e profx-vnet -n GatewaySubnet
