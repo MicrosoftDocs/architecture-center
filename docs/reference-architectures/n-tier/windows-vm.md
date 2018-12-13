@@ -3,12 +3,12 @@ title: Run a Windows VM on Azure
 titleSuffix: Azure Reference Architectures
 description: Best practices for running a Windows virtual machine on Azure.
 author: telmosampaio
-ms.date: 09/13/2018
+ms.date: 12/13/2018
 ---
 
 # Run a Windows virtual machine on Azure
 
-This article shows proven practices for running a Windows virtual machine (VM) on Azure. Provisioning an Azure VM requires some additional components besides the VM itself, including networking and storage resources.
+Provisioning an virtual machine (VM) in Azure requires some additional components besides the VM itself, including networking and storage resources. This article shows best practices for running a Windows VM on Azure.
 
 ![Windows VM in Azure](./images/single-vm-diagram.png)
 
@@ -79,28 +79,23 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 
 **Antimalware**. If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-**Operations**. Use [role-based access control (RBAC)][rbac] to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+**Access control**. Use [role-based access control (RBAC)][rbac] to control access to Azure resources. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some permissions are specific to an Azure resource type. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so on. Other [built-in RBAC roles][rbac-roles] that may be useful for this architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. 
 
 > [!NOTE]
 > RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.
 
-Use [audit logs][audit-logs] to see provisioning actions and other VM events.
+**Audit logs**. Use [audit logs][audit-logs] to see provisioning actions and other VM events.
 
-**Data encryption**. Consider [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
+**Data encryption**. Use [Azure Disk Encryption][disk-encryption] if you need to encrypt the OS and data disks.
 
 ## Next steps
 
-For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md).
+- To provision a Windows VM, see [Create and Manage Windows VMs with Azure PowerShell](/azure/virtual-machines/windows/tutorial-manage-vm)
+- For a complete N-tier architecture on Windows VMs, see [Windows N-tier application on Azure with SQL Server](./n-tier-sql-server.md).
 
 <!-- links -->
 [audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
-[availability-set]: /azure/virtual-machines/virtual-machines-windows-create-availability-set
-[azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
-[azbbv2]: https://github.com/mspnp/template-building-blocks
-[azure-cli-2]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[azure-dns]: /azure/dns/dns-overview
 [azure-storage]: /azure/storage/storage-introduction
-[blob-snapshot]: /azure/storage/storage-blob-snapshots
 [blob-storage]: /azure/storage/storage-introduction
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
@@ -108,10 +103,7 @@ For a complete N-tier architecture on Windows VMs, see [Windows N-tier applicati
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[git]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
-[github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/single-vm
 [group-policy]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn595129(v=ws.11)
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [naming-conventions]: ../../best-practices/naming-conventions.md
@@ -119,13 +111,11 @@ For a complete N-tier architecture on Windows VMs, see [Windows N-tier applicati
 [nsg-default-rules]: /azure/virtual-network/virtual-networks-nsg#default-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
 [premium-storage]: /azure/virtual-machines/windows/premium-storage
-[premium-storage-supported]: /azure/virtual-machines/windows/premium-storage#supported-vms
 [rbac]: /azure/active-directory/role-based-access-control-what-is
 [rbac-roles]: /azure/active-directory/role-based-access-built-in-roles
 [rbac-devtest]: /azure/active-directory/role-based-access-built-in-roles#devtest-labs-user
 [rbac-network]: /azure/active-directory/role-based-access-built-in-roles#network-contributor
 [reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
-[ref-arch-repo]: https://github.com/mspnp/reference-architectures
 [resize-os-disk]: /azure/virtual-machines/virtual-machines-windows-expand-os-disk
 [resource-lock]: /azure/resource-group-lock-resources
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
@@ -136,7 +126,5 @@ For a complete N-tier architecture on Windows VMs, see [Windows N-tier applicati
 [static-ip]: /azure/virtual-network/virtual-networks-reserved-public-ip
 [virtual-machine-sizes]: /azure/virtual-machines/virtual-machines-windows-sizes
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-[vm-disk-limits]: /azure/azure-subscription-service-limits#virtual-machine-disk-limits
-[vm-resize]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [vm-size-tables]: /azure/virtual-machines/virtual-machines-windows-sizes
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
