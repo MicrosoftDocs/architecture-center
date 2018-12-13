@@ -144,7 +144,6 @@ If the application in the VNet sends data to the Internet, consider [implementin
 > Forced tunneling can impact connectivity to Azure services (the Storage Service, for example) and the Windows license manager.
 >
 
-
 ## Deploy the solution
 
 **Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
@@ -164,20 +163,15 @@ To deploy the solution, perform the following steps.
 
 <!-- markdownlint-enable MD033 -->
 
+To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md)
+
 <!-- links -->
 
 [adds-extend-domain]: ../identity/adds-extend-domain.md
-[expressroute]: ../hybrid-networking/expressroute.md
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
 
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[arm-templates]: /azure/resource-group-authoring-templates
 [azure-cli]: /azure/virtual-machines-command-line-tools
-[azure-portal]: /azure/azure-portal/resource-group-portal
-[azure-powershell]: /azure/powershell-azure-resource-manager
 [azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
@@ -187,26 +181,15 @@ To deploy the solution, perform the following steps.
 [vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
 [policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
 [route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
-[network-security-group]: /azure/virtual-network/virtual-networks-nsg
-[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/v1_2/
+[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/
 [additional-firewall-rules]: https://technet.microsoft.com/library/dn786406.aspx#firewall
 [nagios]: https://www.nagios.org/
-[azure-vpn-gateway-diagnostics]: https://blogs.technet.microsoft.com/keithmayer/2014/12/18/diagnose-azure-virtual-network-vpn-connectivity-issues-with-powershell/
-[ping]: https://technet.microsoft.com/library/ff961503.aspx
-[tracert]: https://technet.microsoft.com/library/ff961507.aspx
-[psping]: https://technet.microsoft.com/sysinternals/jj729731.aspx
-[nmap]: https://nmap.org
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
-[troubleshooting-vpn-errors]: https://blogs.technet.microsoft.com/rrasblog/2009/08/12/troubleshooting-common-vpn-related-errors/
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
-[create-on-prem-network]: https://technet.microsoft.com/library/dn786406.aspx#routing
-[azure-vm-diagnostics]: https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/
-[application-insights]: /azure/application-insights/app-insights-overview-usage
 [forced-tunneling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
-[virtualNetworkGateway-parameters]: https://github.com/mspnp/hybrid-networking/vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
