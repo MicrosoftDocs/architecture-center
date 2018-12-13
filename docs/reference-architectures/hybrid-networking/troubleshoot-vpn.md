@@ -22,63 +22,63 @@ Get-EventLog -LogName System -EntryType Error -Source RemoteAccess | Format-List
 
 The *Message* property of each entry provides a description of the error. Some common examples are:
 
-    - Inability to connect, possibly due to an incorrect IP address specified for the Azure VPN gateway in the RRAS VPN network interface configuration.
+- Inability to connect, possibly due to an incorrect IP address specified for the Azure VPN gateway in the RRAS VPN network interface configuration.
 
-    ```console
-    EventID            : 20111
-    MachineName        : on-prem-vm
-    Data               : {41, 3, 0, 0}
-    Index              : 14231
-    Category           : (0)
-    CategoryNumber     : 0
-    EntryType          : Error
-    Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
-                            interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                            successfully because of the  following error: The network connection between your computer and
-                            the VPN server could not be established because the remote server is not responding. This could
-                            be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
-                            and the remote server is not configured to allow VPN connections. Please contact your
-                            Administrator or your service provider to determine which device may be causing the problem.
-    Source             : RemoteAccess
-    ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, The network connection between
-                            your computer and the VPN server could not be established because the remote server is not
-                            responding. This could be because one of the network devices (for example, firewalls, NAT, routers, and so on)
-                            between your computer and the remote server is not configured to allow VPN connections. Please
-                            contact your Administrator or your service provider to determine which device may be causing the
-                            problem.}
-    InstanceId         : 20111
-    TimeGenerated      : 3/18/2016 1:26:02 PM
-    TimeWritten        : 3/18/2016 1:26:02 PM
-    UserName           :
-    Site               :
-    Container          :
-    ```
+  ```console
+  EventID            : 20111
+  MachineName        : on-prem-vm
+  Data               : {41, 3, 0, 0}
+  Index              : 14231
+  Category           : (0)
+  CategoryNumber     : 0
+  EntryType          : Error
+  Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
+                          interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
+                          successfully because of the  following error: The network connection between your computer and
+                          the VPN server could not be established because the remote server is not responding. This could
+                          be because one of the network devices (for example, firewalls, NAT, routers, and so on) between your computer
+                          and the remote server is not configured to allow VPN connections. Please contact your
+                          Administrator or your service provider to determine which device may be causing the problem.
+  Source             : RemoteAccess
+  ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, The network connection between
+                          your computer and the VPN server could not be established because the remote server is not
+                          responding. This could be because one of the network devices (for example, firewalls, NAT, routers, and so on)
+                          between your computer and the remote server is not configured to allow VPN connections. Please
+                          contact your Administrator or your service provider to determine which device may be causing the
+                          problem.}
+  InstanceId         : 20111
+  TimeGenerated      : 3/18/2016 1:26:02 PM
+  TimeWritten        : 3/18/2016 1:26:02 PM
+  UserName           :
+  Site               :
+  Container          :
+  ```
 
-    - The wrong shared key being specified in the RRAS VPN network interface configuration.
+  - The wrong shared key being specified in the RRAS VPN network interface configuration.
 
-    ```console
-    EventID            : 20111
-    MachineName        : on-prem-vm
-    Data               : {233, 53, 0, 0}
-    Index              : 14245
-    Category           : (0)
-    CategoryNumber     : 0
-    EntryType          : Error
-    Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
-                            interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
-                            successfully because of the  following error: Internet key exchange (IKE) authentication credentials are unacceptable.
+  ```console
+  EventID            : 20111
+  MachineName        : on-prem-vm
+  Data               : {233, 53, 0, 0}
+  Index              : 14245
+  Category           : (0)
+  CategoryNumber     : 0
+  EntryType          : Error
+  Message            : RoutingDomainID- {00000000-0000-0000-0000-000000000000}: A demand dial connection to the remote
+                          interface AzureGateway on port VPN2-4 was successfully initiated but failed to complete
+                          successfully because of the  following error: Internet key exchange (IKE) authentication credentials are unacceptable.
 
-    Source             : RemoteAccess
-    ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, IKE authentication credentials are
-                            unacceptable.
-                            }
-    InstanceId         : 20111
-    TimeGenerated      : 3/18/2016 1:34:22 PM
-    TimeWritten        : 3/18/2016 1:34:22 PM
-    UserName           :
-    Site               :
-    Container          :
-    ```
+  Source             : RemoteAccess
+  ReplacementStrings : {{00000000-0000-0000-0000-000000000000}, AzureGateway, VPN2-4, IKE authentication credentials are
+                          unacceptable.
+                          }
+  InstanceId         : 20111
+  TimeGenerated      : 3/18/2016 1:34:22 PM
+  TimeWritten        : 3/18/2016 1:34:22 PM
+  UserName           :
+  Site               :
+  Container          :
+  ```
 
 You can also obtain event log information about attempts to connect through the RRAS service using the following PowerShell command:
 
@@ -158,13 +158,13 @@ Connecting to 10.20.1.6:80:
 
 **Verify that the on-premises firewall allows VPN traffic to pass and that the correct ports are opened.**
 
-**Verify that the on-premises VPN appliance uses an encryption method that is [compatible with the Azure VPN gateway][vpn-appliance].** For policy-based routing, the Azure VPN gateway supports the AES256, AES128, and 3DES encryption algorithms. Route-based gateways support AES256 and 3DES.
+**Verify that the on-premises VPN appliance uses an encryption method that is compatible with the Azure VPN gateway.** For policy-based routing, the Azure VPN gateway supports the AES256, AES128, and 3DES encryption algorithms. Route-based gateways support AES256 and 3DES. For more information, see [About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 ## Determinie if there is a problem with the Azure VPN gateway
 
 The following recommendations are useful for determining if there is a problem with the Azure VPN gateway:
 
-**Examine [Azure VPN gateway diagnostic logs][gateway-diagnostic-logs] for potential issues.**
+**Examine Azure VPN gateway diagnostic logs for potential issues.** See [Step-by-Step: Capturing Azure Resource Manager (ARM) VNET Gateway Diagnostic Logs][gateway-diagnostic-logs].
 
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 
@@ -247,11 +247,11 @@ ProvisioningState          : Succeeded
 ...
 ```
 
-## Miscellaneous issues 
+## Miscellaneous issues
 
 The following recommendations are useful for determining if there is an issue with Host VM configuration, network bandwidth utilization, or application performance:
 
-**Verify that the firewall in the guest operating system running on the Azure VMs in the subnet is configured correctly to allow permitted traffic from the on-premises IP ranges.**
+**Verify firewall configuration.** Verify that the firewall in the guest operating system running on the Azure VMs in the subnet is configured correctly to allow permitted traffic from the on-premises IP ranges.
 
 **Verify that the volume of traffic is not close to the limit of the bandwidth available to the Azure VPN gateway.** How to verify this depends on the VPN appliance running on-premises. For example, if you are using RRAS on Windows Server 2012, you can use Performance Monitor to track the volume of data being received and transmitted over the VPN connection. Using the *RAS Total* object, select the *Bytes Received/Sec* and *Bytes Transmitted/Sec* counters:
 
