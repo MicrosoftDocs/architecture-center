@@ -27,7 +27,7 @@ The architecture has the following components:
 
 - **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard][ddos], which has enhanced DDoS mitigation features. See [Security considerations](#security-considerations).
 
-- **Virtual machines**. For recommendations on configuring VMs, see [Run a Windows VM on Azure](./windows-vm.md) and [Run a Linux VM on Azure](./linux-vm.md).
+- **Virtual machines**. For recommendations on configuring VMs, see [Azure and Linux](/azure/virtual-machines/linux/overview).
 
 - **Availability sets**. Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier, which makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla].
 

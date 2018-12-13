@@ -226,6 +226,26 @@
          "source_path": "docs/example-scenario/apps/app-monitoring.md",
          "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/reference-architectures/n-tier/linux-vm.md",
+         "redirect_url": "/azure/virtual-machines/linux/overview",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/reference-architectures/virtual-machines-linux/single-vm.md",
+         "redirect_url": "/azure/virtual-machines/linux/overview",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/reference-architectures/n-tier/windows-vm.md",
+         "redirect_url": "/azure/virtual-machines/windows/overview",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/reference-architectures/virtual-machines-windows/single-vm.md",
+         "redirect_url": "/azure/virtual-machines/windows/overview",
+         "redirect_document_id": true
       }
   ] 
   } 
