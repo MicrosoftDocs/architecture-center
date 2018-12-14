@@ -82,7 +82,7 @@ The main drivers of cost in this scenario are:
 
 Manage the Azure Databricks costs by retraining less frequently and turning off the Spark cluster when not in use. The AKS and Azure Cosmos DB costs are tied to the throughput and performance required by your site and will scale up and down depending on the volume of traffic to your site.
 
-## Deployment
+## Deploy the solution
 
 To deploy this architecture, first create an Azure Databricks environment to prepare data and train a recommender model:
 

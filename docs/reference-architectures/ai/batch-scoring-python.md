@@ -79,7 +79,7 @@ For work that doesn't require immediate processing, configure the automatic scal
 
 Automatic scaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs. That depends on whether scoring processes are scheduled to run at a high frequency (every hour, for example), or less frequently (once a month, for example).
 
-## Deployment
+## Deploy the solution
 
 The reference implementation of this architecture is available on [GitHub][github]. Follow the setup steps there to build a scalable solution for scoring many models in parallel using Batch AI.
 
