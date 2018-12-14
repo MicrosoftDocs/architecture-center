@@ -5,7 +5,7 @@ author: njray
 ms.date: 12/12/2018
 ---
 
-# Build a Real-time Recommendation API on Azure
+# Build a real-time recommendation API on Azure
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
 

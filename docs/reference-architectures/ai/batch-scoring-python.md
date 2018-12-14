@@ -1,12 +1,15 @@
 ---
 title: Batch scoring of Python models on Azure
-description:  This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Batch AI.
+description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Batch AI.
 author: njray
 ms.date: 12/13/18
 ---
+
 # Batch scoring of Python models on Azure
 
-This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Batch AI. The solution can be used as a template and can generalize to different problems. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Batch AI. The solution can be used as a template and can generalize to different problems.
+
+A reference implementation for this architecture is available on [GitHub][github].
 
 ![Batch scoring of Python models on Azure](./_images/batch-scoring-python.png)
 
