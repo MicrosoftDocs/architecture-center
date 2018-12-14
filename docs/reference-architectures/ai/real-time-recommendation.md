@@ -9,7 +9,7 @@ ms.date: 12/12/2018
 
 This reference architecture shows how to train a recommendation model using Azure Databricks and deploy it as an API by using Azure Cosmos DB, Azure Machine Learning, and Azure Kubernetes Service (AKS). This architecture can be generalized for most recommendation engine scenarios, including recommendations for products, movies, and news.
 
-A reference implementation for this architecture is available on [GitHub](https://github.com/Microsoft/Recommenders/).
+A reference implementation for this architecture is available on [GitHub](https://github.com/Microsoft/Recommenders/blob/master/notebooks/04_operationalize/als_movie_o16n.ipynb).
 
 ![Architecture of a machine learning model for training movie recommendations](./_images/recommenders-architecture.png)
 
