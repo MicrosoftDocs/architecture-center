@@ -357,10 +357,14 @@
       items:
       - name: Batch scoring for deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
+      - name: Batch scoring of Python models
+        href: reference-architectures/ai/batch-scoring-python.md
       - name: Real-time scoring of Python models
         href: reference-architectures/ai/realtime-scoring-python.md
       - name: Real-time scoring of R machine learning models
         href: reference-architectures/ai/realtime-scoring-r.md
+      - name: Real-time Recommendation API
+        href: reference-architectures/ai/real-time-recommendation.md
 
     - name: Big data
       items:
