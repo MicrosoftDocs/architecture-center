@@ -64,7 +64,7 @@ Batch AI logs all stdout/stderr to the associated Azure storage account. For eas
 
 When you deploy this reference architecture, you have the option to set up a simpler logging system. With this option, all the logs across the different jobs are saved to the same directory in your blob container as shown below. Use these logs to monitor how long it takes for each job and each image to process, so you have a better sense of how to optimize the process.
 
-![Azure Storage Explorer](./_images/_batch-scoring-python-monitor.png)
+![Azure Storage Explorer](./_images/batch-scoring-python-monitor.png)
 
 ## Cost considerations
 
