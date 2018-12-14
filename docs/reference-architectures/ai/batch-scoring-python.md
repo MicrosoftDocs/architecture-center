@@ -27,7 +27,7 @@ This architecture consists of the following components:
 
 [Azure Blob Storage][storage]. Blob containers are used to store the pretrained models, the data, and the output predictions. The models are uploaded to Blob storage in the [create\_resources.ipynb][create-resources] notebook. These [one-class SVM][one-class-svm] models are trained on data that represents values of different sensors for different devices. This solution assumes that the data values are aggregated over a fixed interval of time.
 
-[Azure Logic Apps][logic-apps]. This solution creates a Logic App that runs hourly Batch AI jobs. Logic Apps provide an easy way to create the runtime workflow and scheduling for the solution. The Batch AI jobs are submitted using a Python [script][script] that also runs in a Docker container.
+[Azure Logic Apps][logic-apps]. This solution creates a Logic App that runs hourly Batch AI jobs. Logic Apps provides an easy way to create the runtime workflow and scheduling for the solution. The Batch AI jobs are submitted using a Python [script][script] that also runs in a Docker container.
 
 [Azure Container Registry][acr]. Docker images are used in both Batch AI and Logic Apps and are created in the [create\_resources.ipynb][create-resources] notebook, then pushed to Container Registry. This provides a convenient way to host images and instantiate containers through other Azure services—Logic Apps and Batch AI in this solution.
 

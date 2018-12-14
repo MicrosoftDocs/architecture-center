@@ -19,11 +19,11 @@ This reference architecture is for training and deploying a real-time recommende
 
 The data flow for this recommendation model is as follows:
 
-1. The service back end tracks user behaviors on the website. For example, it tracks logs when a user gives a rating to a movie or a user clicks a product or news article.
+1. Track user behaviors. For example, a backend service might log when a user rates a movie or clicks a product or news article.
 
-2. Load the data as in Azure Databricks from an available [data source][data-source].
+2. Load the data into Azure Databricks from an available [data source][data-source].
 
-3. Prepare the data and split it into training and testing sets to train your model. ([This guide][guide] describes options for splitting data.)
+3. Prepare the data and split it into training and testing sets to train the model. ([This guide][guide] describes options for splitting data.)
 
 4. Fit the [Alternating Least Squares][als] model to the data.
 
@@ -33,7 +33,7 @@ The data flow for this recommendation model is as follows:
 
 7. Deploy an API service to AKS using the Azure Machine Learning APIs to containerize and deploy the API.
 
-8. When the backend service gets a request from a user, call the recommendations API hosted in Azure Kubernetes Service to get the top 10 recommendations and display them to the user.
+8. When the backend service gets a request from a user, call the recommendations API hosted in AKS to get the top 10 recommendations and display them to the user.
 
 ## Architecture
 
@@ -48,13 +48,13 @@ This architecture consists of the following components:
 
 [Azure Machine Learning Service][mls]. This service is used to track and manage machine learning models, and then package and deploy these models to a scalable AKS environment.
 
-[Microsoft Recommenders][github]. This open source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
+[Microsoft Recommenders][github]. This open-source repository contains utility code and samples to help users get started in building, evaluating, and operationalizing a recommender system.
 
 ## Performance considerations
 
 Performance is a primary consideration for real-time recommendations, because recommendations usually fall in the critical path of the request a user makes on your site.
 
-The combination of AKS and Azure Cosmos DB enables this architecture to provide a good starting point to provide recommendations for a medium-sized workload with minimal overhead. Under a load test with 200 concurrent users, this architecture provides recommendations at a median latency of about 60 ms and performs at a throughput of 180 requests per second. The load test was run against the default deployment configuration (a 3x D3 v2 AKS cluster with 12 vCPUs, 42 GB memory, and 11,000 [Request Units (RUs) per second][ru] provisioned for Azure Cosmos DB).
+The combination of AKS and Azure Cosmos DB enables this architecture to provide a good starting point to provide recommendations for a medium-sized workload with minimal overhead. Under a load test with 200 concurrent users, this architecture provides recommendations at a median latency of about 60 ms and performs at a throughput of 180 requests per second. The load test was run against the default deployment configuration (a 3x D3 v2 AKS cluster with 12 vCPUs, 42 GB of memory, and 11,000 [Request Units (RUs) per second][ru] provisioned for Azure Cosmos DB).
 
 ![Graph of performance](./_images/recommenders-performance.png)
 
@@ -64,13 +64,13 @@ Azure Cosmos DB is recommended for its turnkey global distribution and usefulnes
 
 ## Scalability considerations
 
-If you don't plan to use Sparkm, or you have a smaller workload where you don't need distribution, consider using [Data Science Virtual Machine][dsvm] (DSVM) instead of Azure Databricks. DVSM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Azure Machine Learning.
+If you don't plan to use Sparks, or you have a smaller workload where you don't need distribution, consider using [Data Science Virtual Machine][dsvm] (DSVM) instead of Azure Databricks. DVSM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Azure Machine Learning.
 
 During training, provision a larger fixed-size Spark cluster in Azure Databricks or configure [autoscaling][autoscaling]. When autoscaling is enabled, Databricks monitors the load on your cluster and scales up and downs when required. Provision or scale out a larger cluster if you have a large data size and you want to reduce the amount of time it takes for data preparation or modeling tasks.
 
 Scale the AKS cluster to meet your performance and throughput requirements. Take care to scale up the number of [pods][scale] to fully utilize the cluster, and to scale the [nodes][nodes] of the cluster to meet the demand of your service. For more information on how to scale your cluster to meet the performance and throughput requirements of your recommender service, see [Scaling Azure Container Service Clusters][blog].
 
-To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best ractices for [partitioning and horizontal scaling][partition-data].
+To manage Azure Cosmos DB performance, estimate the number of reads required per second, and provision the number of [RUs per second][ru] (throughput) needed. Use best practices for [partitioning and horizontal scaling][partition-data].
 
 ## Cost considerations
 
