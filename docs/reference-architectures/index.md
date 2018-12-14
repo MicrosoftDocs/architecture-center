@@ -98,7 +98,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 </li>
 <!-- Real-time Recommendation API -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./ai/batch-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./ai/real-time-recommendation.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
