@@ -1,6 +1,6 @@
 ---
 title: Cloud Design Patterns
-description: Cloud Design Patterns for Microsoft Azure
+description: Cloud Design Patterns for building reliable, scalable, secure applications in the cloud
 keywords: Azure
 ms.date: 12/10/2018
 ---
