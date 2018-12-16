@@ -3,6 +3,7 @@ title: Build a Real-time Recommendation API on Azure
 description: Use machine learning to automate recommendations using Azure Databricks and Azure Data Science Virtual Machines (DSVM) to train a model on Azure.
 author: njray
 ms.date: 12/12/2018
+ms.custom: azcat-ai
 ---
 
 # Build a real-time recommendation API on Azure
@@ -25,7 +26,7 @@ The data flow for this recommendation model is as follows:
 
 3. Prepare the data and split it into training and testing sets to train the model. ([This guide][guide] describes options for splitting data.)
 
-4. Fit the [Alternating Least Squares][als] model to the data.
+4. Fit the [Spark Collaborative Filtering][als] model to the data.
 
 5. Evaluate the quality of the model using rating and ranking metrics. ([This guide][eval-guide] provides details about the metrics you can evaluate your recommender on.)
 
@@ -64,7 +65,7 @@ Azure Cosmos DB is recommended for its turnkey global distribution and usefulnes
 
 ## Scalability considerations
 
-If you don't plan to use Spark, or you have a smaller workload where you don't need distribution, consider using [Data Science Virtual Machine][dsvm] (DSVM) instead of Azure Databricks. DVSM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Azure Machine Learning.
+If you don't plan to use Spark, or you have a smaller workload where you don't need distribution, consider using [Data Science Virtual Machine][dsvm] (DSVM) instead of Azure Databricks. DSVM is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. As with Azure Databricks, any model you create in a DSVM can be operationalized as a service on AKS via Azure Machine Learning.
 
 During training, provision a larger fixed-size Spark cluster in Azure Databricks or configure [autoscaling][autoscaling]. When autoscaling is enabled, Databricks monitors the load on your cluster and scales up and downs when required. Provision or scale out a larger cluster if you have a large data size and you want to reduce the amount of time it takes for data preparation or modeling tasks.
 
@@ -144,7 +145,7 @@ To deploy this architecture, first create an Azure Databricks environment to pre
 [eval-guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/03_evaluate/evaluation.ipynb
 [free]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [github]: https://github.com/Microsoft/Recommenders
-[guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/01_data/data_split.ipynb
+[guide]: https://github.com/Microsoft/Recommenders/blob/master/notebooks/01_prepare_data/data_split.ipynb
 [latency]: https://github.com/jessebenson/azure-performance
 [mls]: /azure/machine-learning/service/
 [n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
