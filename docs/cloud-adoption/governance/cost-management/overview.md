@@ -2,7 +2,7 @@
 title: "Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?"
 description: Explanation of the concept cost management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 12/17/2018
 ---
 
 # Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?
@@ -47,11 +47,13 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Implement your [Cost Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Dertemine if your purchase requirements align with your budgets and goals. 
 
 **Potential activities**
 
 * Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
 * Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
+* Determine if there are any cost anomolies that impact your adoption and migration plans.
 
 ## Adopt and migrate
 
@@ -65,6 +67,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Potential activities**
 
+* Impelement your Cloud Accounting Model.
 * Ensure that your budgets reflect your actual spending durring each release and adjust as necessary.
 * Monitor changes in budgetary plans and validate with stakeholders if additional sign-offs are needed.
 * Update changes to the Architecture Guidelines document to reflect actual costs.
@@ -84,6 +87,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 * Execute a Quarterly Cloud Business Review to communicate value delivered to the business and associated costs.
 * Adjust plans quarterly to reflect changes to actual spending.
+* Determine financial alignment to P&Ls for business unit subcriptions.
 * Analyze stakeholder value and cost reporting methods on a monthly basis.
 * Remediate underused assets and determine if they're worth continuing. 
 * Detect misalignments and anomalies between the plan and actual spending.
