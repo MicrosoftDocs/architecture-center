@@ -12,13 +12,13 @@ In the [Intro to Cloud Governance](../overview.md), [Configuration Management](o
 Unlike the cloud-agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 |  |Azure Portal  |ARM Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
-|---------|---------|---------|---------|---------|
-|Manual deployment (single asset)     | Yes         | Yes         | No         | Not efficiently | No | Yes |
-|Manual deployment (full environment)     | Not efficiently | Yes         | No         | Not efficiently | No | Yes |
-|Automated deployment (full environment)     | No         | Yes         | No         | Yes         | No | Yes |
-|Update configuration of a single asset     | Yes         | Yes         | Not efficiently         | Not efficiently | No | Yes - during replication |
-|Update configuration of a full environment     | Not efficiently | Yes         | Yes         | Yes         | No | Yes - during replication |
-|Manage configuration drift     | Not efficiently | Not efficiently | Yes         | Yes         | No | Yes - during replication |
+|---------|---------|---------|---------|---------|---------|---------|
+|Manual deployment (single asset)     | Yes | Yes  | No  | Not efficiently | No | Yes |
+|Manual deployment (full environment)     | Not efficiently | Yes | No  | Not efficiently | No | Yes |
+|Automated deployment (full environment)     | No  | Yes  | No  | Yes  | No | Yes |
+|Update configuration of a single asset     | Yes | Yes | Not efficiently | Not efficiently | No | Yes - during replication |
+|Update configuration of a full environment     | Not efficiently | Yes | Yes | Yes  | No | Yes - during replication |
+|Manage configuration drift     | Not efficiently | Not efficiently | Yes  | Yes  | No | Yes - during replication |
 |Create an automated pipeline to deploy code and configure assets (DevOps)     | No | No | No | Yes | No | No |
 |Recover data during an outage or SLA violation     | No | No | No | Yes | Yes | Yes |
 |Recover applications and data during an outage or SLA violation     | No | No | No | Yes | No | Yes |
