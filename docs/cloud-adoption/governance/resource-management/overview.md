@@ -27,18 +27,18 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Evaluate your [Resource Management Tool Chain](toolchain.md) options.
 * Understand the licensing requirements for your cloud strategy.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
+* Add the required resource deployment tasks to your [prioritized migration backlog](../../migration/plan/migration-backlog.md).
 * Become familiar with the resource manager you use to deploy, manage, and monitor all the resources for your solution as a group.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
 **Potential activities**
 
-* Define the resource grouping, naming, and tagging standards for your cloud solution.
+* Work with the business stakeholders and/or your [cloud strategy team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/culture-strategy/what-is-a-cloud-strategy-team) to understand the desired [cloud accounting approach](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/business-strategy/cloud-accounting) and cost accounting practices within your business units and organization as a whole.
+* Define your monitoring and reporting policies and requirements.
+* Examine the business value and cost of outage to define remediation policy and SLA requirements.
 * Determine whether you'll deploy [single team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/resource-management/governance-single-team?branch=brian%2FCOMIntegration) or [multiple team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/resource-management/governance-multiple-teams?branch=brian%2FCOMIntegration) governance strategy for your resources. 
-* Determine your worlkload and account owners.
-* Consider establishing a permissions model of least privilege where users have no permissions by default. 
-* Establish cloud roles and responsibilities for access control to all services.
-* Work with the business stakeholders and/or your [cloud strategy team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/culture-strategy/what-is-a-cloud-strategy-team) to understand the desired [cloud accounting approach](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/business-strategy/cloud-accounting), cost accounting practices within your business units, and scalability needs for your organization as a whole.
-* Evaluate existing operational monitoring tools to determine which ones, if any, that you would like to replace.
+* Determine scalability requirements for your planned workloads. 
+
 
 ## Build and pre-deployment
 
@@ -48,20 +48,23 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Implement your [Resource Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
+* Implement resource deployment tasks on your prioritized migration backlog.
 * Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
 
 **Potential activities**
-* Authenticate users and authorize user access to resources.
-* Enforce common configurations amongst resource groups to create proactive point-in-time governance.
-* Leverage a resource grouping strategy to enforce architecture guidelines over time.
+
+* Decide on a [subscription design strategy](../../infrastructure/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
+* Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
+* Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements. 
+* To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
+* Evaluate how your cloud-based monitoring systems [will integrate with your existing](../../infrastructure/logs-and-reporting/overview.md) on-premises or other external monitoring and reporting solution. and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
+* Establish a least privilege permissions model, where users have no permissions by default. 
+* Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
 * Define dependencies between resources.
+* Implement automated resource scaling to match requirements defined in the Plan stage.
 * Conduct access performance to measure the quality of services received.
-* Implement [resource naming and tagging schemes](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/resource-tagging/overview?branch=brian%2FCOMIntegration) for your resrouces. 
-* Ensure a consistent grouping structure by using a template deployment.
 * Consider deploying [policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) to manage SLA enforcement using configuration settings and resource creation rules. 
-* Create subscription patterns around application types or architypes with IT Ops as the department and account owners.
-* Implement APIs and other exports used to pull logs from cloud native or centralized solutions.
-* Determine wither all logging can be replicated to an on-premises, cloud gateway, or hybrid solution. 
+
 
 ## Adopt and migrate
 
@@ -72,21 +75,23 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Migrate your [Resource Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
-* Replicate all logging to an on-premises, cloud gateway, or hybrid solution. 
-
+* Migrate any existing automated remediation scripts or tools to support defined SLA requirements.
 
 **Potential activities**
-* Determine whether changes need to be made to managing your resources.
-* Improve Ops by implementing efficient query capabilities across your adoption efforts. 
+
+* Complete and test integration of cloud monitoring and reporting data with your chosen on-premises, cloud gateway, or hybrid solution. 
+* Determine if changes need to be made to SLA or management policy for resources.
+* Improve operations tasks by implementing query capabilities to efficiently find resource across your cloud estate. 
 * Align resources to changing business needs and governance requirements.
-* Ensure that your virtual machines, virtual networks, and storage accounts reflect actual resource access needs during each release, and adjust as necessary.
-* Review your access resources, resoure groups, and Azure subscriptions, and adjust as necessary.
+* Ensure that your virtual machines, virtual networks, and storage accounts reflect actual resource access needs during each release, and adjust as necessary. 
+* Verify automated scaling of resources meets access requirements.
+* Review user access to resources, resource groups, and Azure subscriptions, and adjust access controls as necessary.
 * Monitor changes in resource access plans and validate with stakeholders if additional sign-offs are needed.
 * Update changes to the Architecture Guidelines document to reflect actual costs.
 * Determine whether your organization requires clearer financial alignment to P&Ls for business units.
 * For global organizations, implement your SLA compliance or sovereignty requirements.
 * For cloud aggregation, deploy a gateway solution to a cloud provider.
-* For tools that don't allow for hyprid or gateway options, tightly couple monitoring with an operational monitoring tool.
+* For tools that don't allow for hybrid or gateway options, tightly couple monitoring with an operational monitoring tool.
 
 ## Operate and post-implementation
 
@@ -103,12 +108,12 @@ Once the transformation is complete, governance and operations must live on for 
 
 * Adjust plans quarterly to reflect changes to actual resources.
 * Automatically apply and enforce governance requirements during future deployments.
-* Remediate underused resources and determine if they're worth continuing.
-* Detect misalignments and anomalies between the plan and actual resource usage.
+* Evaluate underused resources and determine if they're worth continuing.
+* Detect misalignments and anomalies between planned and actual resource usage.
 * Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies. 
-* Determine if changes needd to be made to resource management for billing and SLAs.
+* Determine if changes need to be made to resource management for billing and SLAs.
 * Evaluate logging and monitoring tools to determine whether your on-premises, cloud gateway, or hybrid solution needs adjusting.
-* For business units and geographically-distributed groups, determine if your organization should consider using management groups for meeting SLA requirements.
+* For business units and geographically-distributed groups, determine if your organization should consider using additional cloud management features (for example [management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
 
 ## Next steps
 
