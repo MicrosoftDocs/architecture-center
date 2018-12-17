@@ -53,8 +53,8 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Evaluate your logical and physical architecture and determine a [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
 * Map identity access management policies, such as login ID assignments, and choose the appropriate authentication method for Azure AD.
-  * If federated, enable tenant restrictions for administrative accounts
-* Integrate your on-premises and cloud directories with Azure AD.
+  * If federated, enable tenant restrictions for administrative accounts.
+* Integrate your on-premises and cloud directories.
 * Consider using the following access models:
   * [Least Privilege Access](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
   * [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) access model 
@@ -87,7 +87,9 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Validate that single sign-on (SSO) and seamless SSO is working within the application(s) as expected.
 * Reduce or eliminate the number of alternative identity stores, when possible.
 * Scrutinize the need for any in-app or in-database identity stores. Identities that fall outside of a proper identity provider (1st or 3rd party) can represent risk to the application and the users.
-* Enable conditional access for [on-premises federated applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup).
+* Enable conditional access for [on-premises federated applications](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-device-registration-on-premises-setup).]
+* Distribute identity across global regions in multiple hubs with synchronization between regions.
+* Establish central role-based access control (RBAC) federation.
 
 ## Operate and post-implementation
 
@@ -106,7 +108,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 * Conduct periodic audits of identity policies and adherence practices.
 * Scan for malicious actors and data breaches regularly, particularly those related to identity fraud, such as potential admin account takeovers.
-* Configure a monitoring and reporting tool, such as [Azure AD Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection).
+* Configure a monitoring and reporting tool.
 * Consider integrating more closely with security and fraud-prevention systems.
 * Regularly review access rights for elevated users or roles.
   * Identify every user who is eligible to activate admin privilege.
