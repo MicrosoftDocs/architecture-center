@@ -24,8 +24,9 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 | Detect malicious activity                                  | No                              | No              | No       | No           | Yes                   | Yes           |
 | Preemptively detect vulnerabilities                        | No                              | No              | No       | No           | Yes                   | No            |
 | Configure backup and disaster recovery                     | Yes                             | No              | No       | No           | No                    | No            |
+
 For a complete list of Azure security tools and services, see [Security services and technologies available on Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-services-technologies).
 
-In addition to these tools, the [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) contains extensive guidance, reports, and related documentation that can help you perform risk assessments as part of your migration planning process. 
-
 It is also extremely common for customers to leverage third-party tools for facilitating security management activities. For more information, see the article [Integrate security solutions in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-partner-integration).
+
+In addition to security tools, the [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) contains extensive guidance, reports, and related documentation that can help you perform risk assessments as part of your migration planning process. 
