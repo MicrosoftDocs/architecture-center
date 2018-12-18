@@ -27,16 +27,16 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Evaluate your [Resource Management Tool Chain](toolchain.md) options.
 * Understand the licensing requirements for your cloud strategy.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Add the required resource deployment tasks to your [prioritized migration backlog](../../migration/plan/migration-backlog.md).
 * Become familiar with the resource manager you use to deploy, manage, and monitor all the resources for your solution as a group.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+* Add prioritized resource deployment tasks to your [migration backlog](../../migration/plan/migration-backlog.md).
 
 **Potential activities**
 
-* Work with the business stakeholders and/or your [cloud strategy team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/culture-strategy/what-is-a-cloud-strategy-team) to understand the desired [cloud accounting approach](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/business-strategy/cloud-accounting) and cost accounting practices within your business units and organization as a whole.
+* Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting) and cost accounting practices within your business units and organization as a whole.
 * Define your monitoring and reporting policies and requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
-* Determine whether you'll deploy [single team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/resource-management/governance-single-team?branch=brian%2FCOMIntegration) or [multiple team](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/resource-management/governance-multiple-teams?branch=brian%2FCOMIntegration) governance strategy for your resources. 
+* Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources. 
 * Determine scalability requirements for your planned workloads. 
 
 
@@ -122,4 +122,4 @@ Now that you understand the concept of cloud resource governance, move on to lea
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
 > [Learn about SLAs for Azure](https://azure.microsoft.com/en-us/support/legal/sla/)
-> [Learn about logging, reporting, and monitoring](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/logs-and-reporting/overview)
+> [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview)
