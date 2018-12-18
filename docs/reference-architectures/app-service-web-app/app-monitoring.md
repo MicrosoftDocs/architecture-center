@@ -2,7 +2,7 @@
 title: Web application monitoring on Azure
 description: Monitor a web application hosted in Azure App Service.
 author: adamboeglin
-ms.date: 09/12/2018
+ms.date: 12/12/2018
 ms.custom: azcat
 ---
 
@@ -22,7 +22,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![App Monitor Architecture Diagram][architecture]
+!["Architecture Diagram"](./images/architecture-diagram-app-monitoring.svg)
 
 This scenario uses a managed Azure environment to host an application and data tier. The data flows through the scenario as follows:
 
@@ -48,7 +48,7 @@ A recommended practice is adding Application Insights to your code during develo
 
 Runtime monitoring is another easy way to get started. The telemetry that is collected must be controlled through configuration files. For example, you can include runtime methods that enable tools such as [Application Insights Status Monitor][Application Insights Status Monitor] to deploy the SDKs into the correct folder and add the right configurations to begin monitoring.
 
-Like Application Insights, Log Analytics provides tools for [analyzing data across sources][analyzing data across sources], creating complex queries, and [sending proactive alerts][sending proactive alerts] on specified conditions. You can also view telemetry in [the Azure portal][the Azure portal]. Log Analytics adds value to existing monitoring services such as [Azure Monitor][Azure Monitor] and can also monitor on-premises environments.
+Like Application Insights, Log Analytics provides tools for [analyzing data across sources][analyzing data across sources], creating complex queries, and [sending proactive alerts][sending proactive alerts] on specified conditions. You can also view telemetry in [the Azure portal][the Azure portal]. Log Analytics adds value to existing monitoring services such as [Azure Monitor][azure-monitor] and can also monitor on-premises environments.
 
 Both Application Insights and Log Analytics use [Azure Log Analytics Query Language][Azure Log Analytics Query Language]. You can also use [cross-resource queries](https://azure.microsoft.com/blog/query-across-resources) to analyze the telemetry gathered by Application Insights and Log Analytics in a single query.
 
@@ -95,7 +95,7 @@ Telemetry from Application Insights is sent to the Azure portal during debugging
 
 After deployment, you can watch a [Live Metrics Stream][Live Metrics Stream] of performance indicators. This data is not stored &mdash; you are viewing real-time metrics &mdash; but the telemetry can be collected and analyzed later. There is no charge for Live Stream data.
 
-Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace. 
+Log Analytics is billed per gigabyte (GB) of data ingested into the service. The first 5 GB of data ingested to the Azure Log Analytics service every month is offered free, and the data is retained at no charge for first 31 days in your Log Analytics workspace.
 
 ## Next steps
 
@@ -114,7 +114,7 @@ Check out these resources designed to help you get started with your own monitor
 [Find and diagnose run-time exceptions with Azure Application Insights][Find and diagnose run-time exceptions with Azure Application Insights]
 
 <!-- links -->
-[architecture]: ./media/architecture-app-monitoring.png
+[architecture]: ./images/architecture-diagram-app-monitoring.svg
 [availability-tests]: /azure/application-insights/app-insights-monitor-web-app-availability
 [application-insights]: /azure/application-insights/app-insights-overview
 [azure-monitor]: /azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor

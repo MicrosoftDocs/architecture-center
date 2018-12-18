@@ -1,19 +1,21 @@
 ---
-title: Enterprise BI with SQL Data Warehouse
-description: Use Azure to gain business insights from relational data stored on-premises
+title: Enterprise business intelligence
+titleSuffix: Azure Reference Architectures
+description: Use Azure to gain business insights from relational data stored on-premises.
 author: MikeWasson
 ms.date: 11/06/2018
+ms.custom: seodec18
 ---
 
 # Enterprise BI in Azure with SQL Data Warehouse
 
-This reference architecture implements an [ELT](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) (extract-load-transform) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis. 
+This reference architecture implements an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) pipeline that moves data from an on-premises SQL Server database into SQL Data Warehouse and transforms the data for analysis.
 
-A reference implementation for this architecture is available on [GitHub][github-folder]
+A reference implementation for this architecture is available on [GitHub][github-folder].
 
-![](./images/enterprise-bi-sqldw.png)
+![Architecture diagram for Enteprise BI in Azure with SQL Data Warehouse](./images/enterprise-bi-sqldw.png)
 
-**Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use SQL Data Warehouse to perform analysis using Power BI. 
+**Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use SQL Data Warehouse to perform analysis using Power BI.
 
 This reference architecture is designed for one-time or on-demand jobs. If you need to move data on a continuing basis (hourly or daily), we recommend using Azure Data Factory to define an automated workflow. For a reference architecture that uses Data Factory, see [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf-ra].
 
@@ -29,7 +31,7 @@ The architecture consists of the following components.
 
 **Blob Storage**. Blob storage is used as a staging area to copy the data before loading it into SQL Data Warehouse.
 
-**Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics. 
+**Azure SQL Data Warehouse**. [SQL Data Warehouse](/azure/sql-data-warehouse/) is a distributed system designed to perform analytics on large data. It supports massive parallel processing (MPP), which makes it suitable for running high-performance analytics.
 
 ### Analysis and reporting
 
@@ -41,10 +43,10 @@ Currently, Azure Analysis Services supports tabular models but not multidimensio
 
 ### Authentication
 
-**Azure Active Directory** (Azure AD) authenticates users who connect to the Analysis Services server through Power BI.
+**Azure Active Directory (Azure AD)** authenticates users who connect to the Analysis Services server through Power BI.
 
 ## Data pipeline
- 
+
 This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide-importers/wide-world-importers-oltp-database) sample database as a data source. The data pipeline has the following stages:
 
 1. Export the data from SQL Server to flat files (bcp utility).
@@ -53,10 +55,11 @@ This reference architecture uses the [WorldWideImporters](/sql/sample/world-wide
 4. Transform the data into a star schema (T-SQL).
 5. Load a semantic model into Analysis Services (SQL Server Data Tools).
 
-![](./images/enterprise-bi-sqldw-pipeline.png)
- 
+![Diagram of the enterprise BI pipeline](./images/enterprise-bi-sqldw-pipeline.png)
+
 > [!NOTE]
-> For steps 1 &ndash; 3, consider using Redgate Data Platform Studio. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse. For more information, see [Load data with Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate). 
+> For steps 1 &ndash; 3, consider using Redgate Data Platform Studio. Data Platform Studio applies the most appropriate compatibility fixes and optimizations, so it's the quickest way to get started with SQL Data Warehouse. For more information, see [Load data with Redgate Data Platform Studio](/azure/sql-data-warehouse/sql-data-warehouse-load-with-redgate).
+>
 
 The next sections describe these stages in more detail.
 
@@ -66,7 +69,7 @@ The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to c
 
 **Recommendations**
 
-If possible, schedule data extraction during off-peak hours, to minimize resource contention in the production environment. 
+If possible, schedule data extraction during off-peak hours, to minimize resource contention in the production environment.
 
 Avoid running bcp on the database server. Instead, run it from another machine. Write the files to a local drive. Ensure that you have sufficient I/O resources to handle the concurrent writes. For best performance, export the files to dedicated fast storage drives.
 
@@ -78,11 +81,11 @@ The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for h
 
 **Recommendations**
 
-Create the storage account in a region near the location of the source data. Deploy the storage account and the SQL Data Warehouse instance in the same region. 
+Create the storage account in a region near the location of the source data. Deploy the storage account and the SQL Data Warehouse instance in the same region.
 
-Don't run AzCopy on the same machine that runs your production workloads, because the CPU and I/O consumption can interfere with the production workload. 
+Don't run AzCopy on the same machine that runs your production workloads, because the CPU and I/O consumption can interfere with the production workload.
 
-Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.  
+Test the upload first to see what the upload speed is like. You can use the /NC option in AzCopy to specify the number of concurrent copy operations. Start with the default value, then experiment with this setting to tune the performance. In a low-bandwidth environment, too many concurrent operations can overwhelm the network connection and prevent the operations from completing successfully.
 
 AzCopy moves data to storage over the public internet. If this isn't fast enough, consider setting up an [ExpressRoute](/azure/expressroute/) circuit. ExpressRoute is a service that routes your data through a dedicated private connection to Azure. Another option, if your network connection is too slow, is to physically ship the data on disk to an Azure datacenter. For more information, see [Transferring data to and from Azure](/azure/architecture/data-guide/scenarios/data-transfer).
 
@@ -90,7 +93,7 @@ During a copy operation, AzCopy creates a temporary journal file, which enables 
 
 ### Load data into SQL Data Warehouse
 
-Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse, which makes it the fastest way to load data into SQL Data Warehouse. 
+Use [PolyBase](/sql/relational-databases/polybase/polybase-guide) to load the files from blob storage into the data warehouse. PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture of SQL Data Warehouse, which makes it the fastest way to load data into SQL Data Warehouse.
 
 Loading the data is a two-step process:
 
@@ -109,7 +112,7 @@ PolyBase can read Gzip compressed files. However, only a single reader is used p
 
 Be aware of the following limitations:
 
-- PolyBase supports a maximum column size of `varchar(8000)`, `nvarchar(4000)`, or `varbinary(8000)`. If you have data that exceeds these limits, one option is to break the data up into chunks when you export it, and then reassemble the chunks after import. 
+- PolyBase supports a maximum column size of `varchar(8000)`, `nvarchar(4000)`, or `varbinary(8000)`. If you have data that exceeds these limits, one option is to break the data up into chunks when you export it, and then reassemble the chunks after import.
 
 - PolyBase uses a fixed row terminator of \n or newline. This can cause problems if newline characters appear in the source data.
 
@@ -149,7 +152,7 @@ We recommend Live Connection because it doesn't require copying data into the Po
 
 **Recommendations**
 
-Avoid running BI dashboard queries directly against the data warehouse. BI dashboards require very low response times, which direct queries against the warehouse may be unable to satisfy. Also, refreshing the dashboard will count against the number of concurrent queries, which could impact performance. 
+Avoid running BI dashboard queries directly against the data warehouse. BI dashboards require very low response times, which direct queries against the warehouse may be unable to satisfy. Also, refreshing the dashboard will count against the number of concurrent queries, which could impact performance.
 
 Azure Analysis Services is designed to handle the query requirements of a BI dashboard, so the recommended practice is to query Analysis Services from Power BI.
 
@@ -163,7 +166,7 @@ With SQL Data Warehouse, you can scale out your compute resources on demand. The
 
 For production workloads, we recommend the Standard Tier for Azure Analysis Services, because it supports partitioning and DirectQuery. Within a tier, the instance size determines the memory and processing power. Processing power is measured in Query Processing Units (QPUs). Monitor your QPU usage to select the appropriate size. For more information, see [Monitor server metrics](/azure/analysis-services/analysis-services-monitor).
 
-Under high load, query performance can become degraded due to query concurrency. You can scale out Analysis Services by creating a pool of replicas to process queries, so that more queries can be performed concurrently. The work of processing the data model always happens on the primary server. By default, the primary server also handles queries. Optionally, you can designate the primary server to run processing exclusively, so that the query pool handles all queries. If you have high processing requirements, you should separate the processing from the query pool. If you have high query loads, and relatively light processing, you can include the primary server in the query pool. For more information, see [Azure Analysis Services scale-out](/azure/analysis-services/analysis-services-scale-out). 
+Under high load, query performance can become degraded due to query concurrency. You can scale out Analysis Services by creating a pool of replicas to process queries, so that more queries can be performed concurrently. The work of processing the data model always happens on the primary server. By default, the primary server also handles queries. Optionally, you can designate the primary server to run processing exclusively, so that the query pool handles all queries. If you have high processing requirements, you should separate the processing from the query pool. If you have high query loads, and relatively light processing, you can include the primary server in the query pool. For more information, see [Azure Analysis Services scale-out](/azure/analysis-services/analysis-services-scale-out).
 
 To reduce the amount of unnecessary processing, consider using partitions to divide the tabular model into logical parts. Each partition can be processed separately. For more information, see [Partitions](/sql/analysis-services/tabular-models/partitions-ssas-tabular).
 
@@ -186,11 +189,10 @@ For more information, see [Manage database roles and users](/azure/analysis-serv
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github-folder]. It deploys the following:
 
-  * A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
-  * An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
-  * An Azure SQL Data Warehouse instance.
-  * An Azure Analysis Services instance.
-
+- A Windows VM to simulate an on-premises database server. It includes SQL Server 2017 and related tools, along with Power BI Desktop.
+- An Azure storage account that provides Blob storage to hold data exported from the SQL Server database.
+- An Azure SQL Data Warehouse instance.
+- An Azure Analysis Services instance.
 
 ## Next steps
 
@@ -201,4 +203,3 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 [adf-ra]: ./enterprise-bi-adf.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/data/enterprise_bi_sqldw
 [wwi]: /sql/sample/world-wide-importers/wide-world-importers-oltp-database
-

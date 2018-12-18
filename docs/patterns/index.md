@@ -1,8 +1,8 @@
 ---
 title: Cloud Design Patterns
-description: Cloud Design Patterns for Microsoft Azure
+description: Cloud Design Patterns for building reliable, scalable, secure applications in the cloud
 keywords: Azure
-ms.date: 06/23/2017
+ms.date: 12/10/2018
 ---
 # Cloud Design Patterns
 
@@ -98,6 +98,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |              [Materialized View](./materialized-view.md)              |                                        Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.                                        |
 |              [Pipes and Filters](./pipes-and-filters.md)              |                                                        Break down a task that performs complex processing into a series of separate elements that can be reused.                                                        |
 |                 [Priority Queue](./priority-queue.md)                 |                                 Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.                                  |
+| [Publisher/Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers aynchronously, without coupling the senders to the receivers. |
 |      [Queue-Based Load Leveling](./queue-based-load-leveling.md)      |                                               Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.                                               |
 |                          [Retry](./retry.md)                          |               Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed.                |
 |     [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md)     |                                                              Coordinate a set of actions across a distributed set of services and other remote resources.                                                               |
