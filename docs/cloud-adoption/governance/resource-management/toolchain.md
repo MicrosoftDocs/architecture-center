@@ -38,7 +38,7 @@ Along with these resource management tools and features, you will need to [monit
 Azure Monitor provides a number of individual features that you can use to monitor your cloud resources, and the following list shows which feature is responsible for common monitoring requirement.
 
 |                                                    | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/) | [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview) | [Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview) | [Azure Monitor Rest API](https://docs.microsoft.com/en-us/rest/api/monitor/) |
-|----------------------------------------------------|--------------|----------------------|---------------|------------------|------------------------|
+|----------------------------------------------------|--------------|----------------------|---------------|------------------------|------------------------|
 | Log virtual machine telemetry data                 | No           | No                   | Yes           | No                     |
 | Log virtual networking telemetry data              | No           | No                   | Yes           | No                     |
 | Log PaaS services telemetry data                   | No           | No                   | Yes           | No                     |
@@ -50,8 +50,8 @@ Azure Monitor provides a number of individual features that you can use to monit
 
 When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview) with your existing processes and tools. 
 
-|!Note
-|Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps Tool Integrations](https://azure.microsoft.com/en-us/products/devops-tool-integrations/).
+> [!Note]
+> Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps Tool Integrations](https://azure.microsoft.com/en-us/products/devops-tool-integrations/).
 
 
 # Next steps
