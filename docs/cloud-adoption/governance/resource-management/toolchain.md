@@ -33,9 +33,7 @@ Unlike the cloud-agnostic position throughout Fusion, this article is Azure spec
 | Apply automated remediation                  | No  | No  | No  | Yes | No  |
 | Manage billing                               | Yes | No  | No  | No  | No  |
 
-Along with these resource management tools and features, you will need to [monitor your deployed resources](../monitoring-enforcement/overview.md) for performance and health issues. [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure. 
-
-Azure Monitor provides a number of individual features that you can use to monitor your cloud resources, and the following list shows which feature is responsible for common monitoring requirement.
+Along with these resource management tools and features, you will need to [monitor your deployed resources](../monitoring-enforcement/overview.md) for performance and health issues. [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure. Azure Monitor provides a number of individual features that you can use to monitor your cloud resources, and the following list shows which feature allows you to address common monitoring requirements.
 
 |                                                    | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/) | [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview) | [Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview) | [Azure Monitor Rest API](https://docs.microsoft.com/en-us/rest/api/monitor/) |
 |----------------------------------------------------|--------------|----------------------|---------------|------------------------|
