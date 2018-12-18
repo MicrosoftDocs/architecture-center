@@ -89,7 +89,7 @@ For general guidance on designing resilient solutions, see [Designing resilient 
 
 ### Prerequisites
 
-- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - You need an SSH public key pair. For steps on how to create a public key pair, see [Create and use an SSH key pair for Linux VMs][sshkeydocs].
 

@@ -1,5 +1,5 @@
 ---
-title: Hybrid ETL with existing on-premises SSIS and ADF
+title: Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 titleSuffix: Azure Example Scenarios
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory
 author: alhieng
@@ -9,13 +9,13 @@ ms.custom: tsp-team
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory
 
-Organizations that migrate their SQL Server databases to the cloud can realize tremendous cost savings, performance gains, added flexibility, and greater scalability. However, reworking existing extract, transform, and load (ETL) processes built with SQL Server Integration Services (SSIS) can be a migration roadblock. In other cases, the data load process requires complex logic and/or specific data tool components that are not yet supported by Azure Data Factory v2 (ADF). Commonly used SSIS capabilities include Fuzzy Lookup and Fuzzy Grouping transformations, Change Data Capture (CDC), Slowly Changing Dimensions (SCD), and Data Quality Services (DQS).
+Organizations that migrate their SQL Server databases to the cloud can realize tremendous cost savings, performance gains, added flexibility, and greater scalability. However, reworking existing extract, transform, and load (ETL) processes built with SQL Server Integration Services (SSIS) can be a migration roadblock. In other cases, the data load process requires complex logic and/or specific data tool components that are not yet supported by Azure Data Factory v2. Commonly used SSIS capabilities include Fuzzy Lookup and Fuzzy Grouping transformations, Change Data Capture (CDC), Slowly Changing Dimensions (SCD), and Data Quality Services (DQS).
 
-To facilitate a lift-and-shift migration of an existing SQL database, a hybrid ETL approach may be the most suitable option. A hybrid approach uses ADF as the primary orchestration engine, but continues to leverage existing SSIS packages to clean data and work with on-premise resources. This approach uses the ADF SQL Server Integrated Runtime (IR) to enable a lift-and-shift of existing databases into the cloud, while using existing code and SSIS packages.
+To facilitate a lift-and-shift migration of an existing SQL database, a hybrid ETL approach may be the most suitable option. A hybrid approach uses Data Factory as the primary orchestration engine, but continues to leverage existing SSIS packages to clean data and work with on-premise resources. This approach uses the Data Factory SQL Server Integrated Runtime (IR) to enable a lift-and-shift of existing databases into the cloud, while using existing code and SSIS packages.
 
-This example scenario is relevant to organizations that are moving databases to the cloud and are considering using ADF as their primary cloud-based ETL engine while incorporating existing SSIS packages into their new cloud data workflow. Many organizations have significant invested in developing SSIS ETL packages for specific data tasks. Rewriting these packages can be daunting. Also, many existing code packages have dependencies on local resources, preventing migration to the cloud.
+This example scenario is relevant to organizations that are moving databases to the cloud and are considering using Data Factory as their primary cloud-based ETL engine while incorporating existing SSIS packages into their new cloud data workflow. Many organizations have significant invested in developing SSIS ETL packages for specific data tasks. Rewriting these packages can be daunting. Also, many existing code packages have dependencies on local resources, preventing migration to the cloud.
 
-ADF lets customers take advantage of their existing ETL packages while limiting further investment in on-premises ETL development. This example discusses potential use cases for leveraging existing SSIS packages as part of a new cloud data workflow using Azure Data Factory v2.
+Data Factory lets customers take advantage of their existing ETL packages while limiting further investment in on-premises ETL development. This example discusses potential use cases for leveraging existing SSIS packages as part of a new cloud data workflow using Azure Data Factory v2.
 
 ## Potential use cases
 
@@ -57,18 +57,18 @@ For the Azure-hosted approach, you should decide how much power is required to p
 
 The decision is much easier when you already have existing SSIS packages that have on-premise dependencies such as data sources or files that are not accessible from Azure. In this scenario, your only option is the self-hosted IR. This approach provides the most flexibility to leverage the cloud as the orchestration engine, without having to rewrite existing packages.
 
-Ultimately, the intent is to move the processed data into the cloud for further refinement or combining with other data stored in the cloud. As part of the design process, keep track of the number of activities used in the ADF pipelines. For more information, see [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities).
+Ultimately, the intent is to move the processed data into the cloud for further refinement or combining with other data stored in the cloud. As part of the design process, keep track of the number of activities used in the Data Factory pipelines. For more information, see [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities).
 
 ## Pricing
 
-Azure Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on the several factors.
+Data Factory is a cost-effective way to orchestrate data movement in the cloud. The cost is based on the several factors.
 
 - Number of pipeline executions
 - Number of entities/activities used within the pipeline
 - Number of monitoring operations
 - Number of Integration Runs (Azure-hosted IR or self-hosted IR)
 
-ADF uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
+Data Factory uses consumption-based billing. Therefore, cost is only incurred during pipeline executions and monitoring. The execution of a basic pipeline would cost as little as 50 cents and the monitoring as little as 25 cents. The [Azure cost calculator](https://azure.microsoft.com/pricing/calculator/) can be used to create a more accurate estimate based on your specific workload.
 
 When running a hybrid ETL workload, you must factor in the cost of the virtual machine used to host your SSIS packages. This cost is based on the size of the VM ranging from a D1v2 (1 core, 3.5 GB RAM, 50 GB Disk) to E64V3 (64 cores, 432 GB RAM, 1600 GB disk). If you need further guidance on selection the appropriate VM size, see [VM performance considerations](/azure/cloud-services/cloud-services-sizes-specs#performance-considerations).
 

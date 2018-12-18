@@ -80,7 +80,7 @@ This [decision tree for Azure compute services](/azure/architecture/guide/techno
 
 ### Prerequisites
 
-- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - You must sign up for an Azure DevOps organization. For more information, see [Quickstart: Create your organization][vsts-account-create].
 

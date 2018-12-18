@@ -82,7 +82,7 @@ For general guidance on designing resilient scenarios, see [Designing resilient 
 
 ### Prerequisites
 
-- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - To deploy a SQL Server cluster into the back-end scale set, you would need a domain in Azure Active Directory (AD) Domain Services.
 

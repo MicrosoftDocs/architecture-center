@@ -90,7 +90,7 @@ This scenario is divided into three components for you to explore areas that you
 
 ### Prerequisites
 
-You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ### Walk-through
 
