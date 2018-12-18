@@ -216,4 +216,4 @@ Interestingly, this had the side effect of increasing the SU utilization in the 
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme][github].
 
-[github]: https://github.com/mspnp/reference-architectures/tree/master/data/streaming_asa
+[github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
