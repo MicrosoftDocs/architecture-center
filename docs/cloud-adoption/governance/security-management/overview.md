@@ -2,7 +2,7 @@
 title: "Fusion: How can a company add Security Management discipline to their Cloud Governance execution?"
 description: Explanation of the concept Resource management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 12/17/2018
 ---
 
 # Fusion: How can a company add Security Management discipline to their Cloud Governance execution?
@@ -56,7 +56,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Determine your organization's [encryption](../../infrastructure/encryption/overview.md) strategy for cloud-hosted data.
 * Evaluate your cloud deployment's [identity](../../infrastructure/identity/overview.md) strategy. Determine how your cloud-based identity solution will co-exist or integrate with on-premises identity providers. 
-* Determine network boundary policies for your [Software Defined Networking(SDN)](../../infrastructure/software-defined-networks/overview.md) design to ensure secure virtualized networking capabilities.
+* Determine network boundary policies for your [Software Defined Networking (SDN)](../../infrastructure/software-defined-networks/overview.md) design to ensure secure virtualized networking capabilities.
 * Evaluate your organization's [least privilege access](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-by-task) policies, and use task-based roles to provide access to specific resources.
 * Apply security and monitoring mechanisms to for all cloud services and virtual machines.
 * Automate [security policies](../../infrastructure/policy-enforcement/overview.md) where possible.
