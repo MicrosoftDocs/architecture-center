@@ -9,7 +9,7 @@ ms.custom: resiliency
 
 In a distributed system, failures will happen. Hardware can fail. The network can have transient failures. Rarely, an entire service or region may experience a disruption, but even those must be planned for.
 
-Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of scaling up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of focusing on preventing failures and optimizing "mean time between failures (MTBF)" in this new environment the focus shifts to "mean time to recover (MTTR)" The goal is to minimize the effects of a failure of a component within the system, we will explain these terms in more detail below.
+Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you must scale out instead of scaling up. Costs for cloud environments are kept low through the use of commodity hardware. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a failure within the system.
 
 This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
@@ -35,7 +35,7 @@ Backup is distinct from **data replication**. Data replication involves copying 
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
 1. **Define** your availability requirements, based on business needs.
-2. **Design** the application for resiliency. Start with a [reference architecture][reference architecture] that follows proven practices, and then identify the possible failure points in that architecture.
+2. **Design** the application for resiliency. Start with an architecture that follows proven practices, and then identify the possible failure points in that architecture.
 3. **Implement** strategies to detect and recover from failures.
 4. **Test** the implementation by simulating faults and triggering forced failovers.
 5. **Deploy** the application into production using a reliable, repeatable process.
@@ -54,34 +54,29 @@ Many cloud solutions consist of multiple application workloads. The term "worklo
 * Create and track orders.
 * View recommendations.
 
-These workloads might have different requirements for availability, scalability, data consistency, disaster recovery, and so forth. Again, there are business decisions to be made to balance cost with risk, alongside data and business process availability.
+These workloads might have different requirements for availability, scalability, data consistency, and disaster recovery. There are business decisions to be made in terms of balancing cost versus risk.
 
-Also consider usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline, a video streaming service must stay up during a big sports event, and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is potentially more expensive, so during less critical times, you might run the application in a single region. 
-
-> [!NOTE] Some aspects of this additional expense can be mitigated using modern serverless techniques, where running idle instances of a service has no effective cost as the service is not being consumed in that region unless it is active.
+Also consider usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline, a video streaming service must stay up during a big sports event, and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is potentially more expensive, so during less critical times, you might run the application in a single region. In some cases, the additional expense can be mitigated by using modern serverless techniques, which use consumption-based billing, so you are not charged for under-utilitzed compute resources.
 
 ### RTO and RPO
-Two important metrics to consider are the recovery time objective and recovery point objective, as they pertain to Disaster Recovery.
+Two important metrics to consider are the recovery time objective and recovery point objective, as they pertain to disaster recovery.
 
-* **Recovery time objective** (RTO) is the maximum acceptable time that an application can be unavailable after an incident. If your RTO is 90 minutes, you must be able to restore the application to a running state within 90 minutes from the start of a disaster. If you have a very low RTO, you might keep a second regional deployment continually running an active/passive configuration on standby, to protect against a regional outage. If your RTO is extreme, for example, zero (or near zero) then this standby service might well be running and spun up continually, or the service might be architected to be deployed in an active/active configuration.
+* **Recovery time objective** (RTO) is the maximum acceptable time that an application can be unavailable after an incident. If your RTO is 90 minutes, you must be able to restore the application to a running state within 90 minutes from the start of a disaster. If you have a very low RTO, you might keep a second regional deployment continually running an active/passive configuration on standby, to protect against a regional outage. In some cases you might deploy an active/active configuration to achieve even lower RTO.
 
 * **Recovery point objective** (RPO) is the maximum duration of data loss that is acceptable during a disaster. For example, if you store data in a single database, with no replication to other databases, and perform hourly backups, you could lose up to an hour of data.
 
-> [!NOTE]
-> RTO and RPO are non-functional requirements of a system, and they should be dictated by business requirements and used to drive an appropriate DR architecture. Conducting a risk assessment, coupled with understanding the cost of downtime + cost of data loss of an application at recovery can help you define the application's Disaster Recovery RTO and RPO values. 
- 
+RTO and RPO are non-functional requirements of a system, and should be dictated by business requirements. To derive these values, it's a good idea to conduct a risk assessment, and clearly understanding the cost of downtime or data loss.
 
 ### MTTR and MTBF
-As we referred to earlier, two other very common measures of availability that can help are **mean time to recover** (MTTR) and **mean time between failures** (MTBF). These measures are usually used internally by service providers to determine where to add redundancy to cloud services, and which SLAs to provide to customers. 
 
-**Mean time to recover** (MTTR), is the average time that it takes to restore a component after a failure. MTTR is an empirical fact about a component and from this we can make calculated estimates about the MTTR of an entire application. Building applications from multiple components with low MTTR values means you will have an application with a low MTTR itself, which recovers quickly from failures - and increasing uptime.   
+Two other common measures of availability are mean time to recover (MTTR) and mean time between failures (MTBF). These measures are usually used internally by service providers to determine where to add redundancy to cloud services, and which SLAs to provide to customers.
 
-**Mean time between failures** (MTBF), is the runtime that a component can reasonably expect to last between outages, this metric can help by allowing you to calculate how frequently a service will become unavailable. An unreliable service component, will have a low MTBF (resulting in a low SLA number), but this can be mitigated by deploying multiple instances and implementing failover between them.
+**Mean time to recover** (MTTR) is the average time that it takes to restore a component after a failure. MTTR is an empirical fact about a component. Based on the MTTR of each component, you can estimate the MTTR of an entire application. Building applications from multiple components with low MTTR values results in an application with a low overall MTTR &mdash; one that recovers quickly from failures.
 
-See redundancy later in the document.
+**Mean time between failures** (MTBF) is the runtime that a component can reasonably expect to last between outages. This metric can help you to calculate how frequently a service will become unavailable. An unreliable component has a low MTBF, resulting in a low SLA number for that component. However, a low MTBF can be mitigated by deploying multiple instances of the component and implementing failover between them.
 
 > [!NOTE]
-> If ANY of the MTTR values of components in a HA setup exceed the RTO of the system, then a failure in the system will cause an unacceptable business disruption, because it won't be possible to restore the system within the defined RTO and this will guarantee DR invocation in the event of loss of a component.
+> If ANY of the MTTR values of components in a high-availability setup exceed the RTO of the system, then a failure in the system will cause an unacceptable business disruption. It won't be possible to restore the system within the defined RTO.
 
 ### SLAs
 In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commitments for uptime and connectivity. If the SLA for a particular service is 99.9%, it means you should expect the service to be available 99.9% of the time.
@@ -109,7 +104,8 @@ Here are some other considerations when defining an SLA:
 
 * To achieve four 9's (99.99%), you probably can't rely on manual intervention to recover from failures. The application must be self-diagnosing and self-healing.
 * Beyond four 9's, it is challenging to detect outages quickly enough to meet the SLA.
-* Think about the time window that your SLA is measured against in conjnunction with the MTBF and MTTR measurements of your service above. The smaller the window, the tighter the tolerances, the less frequently the service can go down, and the quicker your service has to recover. It probably doesn't make sense to define your SLA in terms of hourly or daily uptime.
+* Think about the time window that your SLA is measured against. The smaller the window, the tighter the tolerances. It probably doesn't make sense to define your SLA in terms of hourly or daily uptime.
+* Consider the MTBF and MTTR measurements. The lower your SLA, the less frequently the service can go down, and the quicker the service must recover.
 
 ### Composite SLAs
 Consider an App Service web app that writes to Azure SQL Database. At the time of this writing, these Azure services have the following SLAs:
@@ -121,7 +117,7 @@ Consider an App Service web app that writes to Azure SQL Database. At the time o
 
 What is the maximum downtime you would expect for this application? If either service fails, the whole application fails. In general, the probability of each service failing is independent, so the composite SLA for this application is 99.95% &times; 99.99% = 99.94%. That's lower than the individual SLAs, which isn't surprising, because an application that relies on multiple services has more potential failure points.
 
-On the other hand, you can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue, to be processed later. In these calculations we will round the SLAs to 6 decimal places.
+On the other hand, you can improve the composite SLA by creating independent fallback paths. For example, if SQL Database is unavailable, put transactions into a queue, to be processed later. 
 
 ![Composite SLA](./images/sla2.png)
 
@@ -131,23 +127,22 @@ With this design, the application is still available even if it can't connect to
 
 The total composite SLA is:
 
-* Web app AND (database OR queue) = 99.950000% &times; 99.99999% = ~99.950000%
+* Web app AND (database OR queue) = 99.95% &times; 99.99999% = ~99.95%
 
 But there are tradeoffs to this approach. The application logic is more complex, you are paying for the queue, and there may be data consistency issues to consider.
 
 **SLA for multi-region deployments**. Another HA technique is to deploy the application in more than one region, and use Azure Traffic Manager to fail over if the application fails in one region. For a multi-region deployment, the composite SLA is calculated as follows.
 
-Let *N* be the composite SLA for the application deployed in one region. The expected chance that the application will fail in multiple regions at the same time is ((1 - Single Region Composite SLA) ^ No of Regions deployed). Therefore,
+Let *N* be the composite SLA for the application deployed in one region, and *R* be the number of regions where the application is deployed. The expected chance that the application will fail in all regions at the same time is ((1 &minus N) ^ R).
 
-* Hence the Combined SLA for two regions where a single region is 99.950000% = (1 - (0.9995 ^ 2))  = 99.999975%
-* Hence the Combined SLA for four regions where a single region is 99.950000% = (1 - (0.9995 ^ 4)) = 99.999999% 
+For example, if the single-region SLA is 99.95%,
 
-Finally, you must factor in the [SLA for Traffic Manager][tm-sla]. At the time of this writing, the SLA for Traffic Manager SLA is 99.99%.
+* The combined SLA for two regions = (1 &minus; (0.9995 ^ 2)) = 99.999975%
+* The combined SLA for four regions = (1 &minus; (0.9995 ^ 4)) = 99.999999%
 
-* Composite SLA = 99.99% &times; (combined SLA for both regions)
-* Hence the Composite multi-region SLA for two regions using traffic manager where a single region is 99.950000% = ((1 - (0.9995 ^ 2)) * 0.9999) = ~99.989975%
+You must also factor in the [SLA for Traffic Manager][tm-sla]. At the time of this writing, the SLA for Traffic Manager SLA is 99.99%.
 
-Also, failing over is not instantaneous in active / passive services and can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
+Also, failing over is not instantaneous in active-passive configurations, which can result in some downtime during a failover. See [Traffic Manager endpoint monitoring and failover][tm-failover].
 
 The calculated SLA number is a useful baseline, but it doesn't tell the whole story about availability. Often, an application can degrade gracefully when a non-critical path fails. Consider an application that shows a catalog of books. If the application can't retrieve the thumbnail image for the cover, it might show a placeholder image. In that case, failing to get the image does not reduce the application's uptime, although it affects the user experience.  
 
@@ -171,10 +166,7 @@ For more information about the FMA process, with specific recommendations for Az
 | Authentication |HTTP 401 (Unauthorized) |
 | Slow response |Request times out |
 
-
 ### Redundancy and designing for failure
-
-At the Azure service level, Microsoft uses redundant hardware and software fabric to decrease MTTR and increase MTBF to make the service more reliable for you (resulting in a higher base SLA), you can use the same tactic to increase availability of your services by deploying multiple instances.
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
 
@@ -184,17 +176,15 @@ Azure has a number of features to make an application redundant at every level o
 
 ![](./images/redundancy.svg)
 
-**Single VM**. Azure provides an uptime SLA for single VMs ONLY if all boot and data volumes use premium storage. Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads as your MTTR is low, so the virtual machine can reboot more quickly after patches or if restarted after hardware failure. For production workloads, we recommend using two or more VMs for redundancy.
+**Single VM**. Azure provides an [uptime SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) for single VMs. (The VM must use premium storage for all Operating System Disks and Data Disks.) Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, however, we recommend using two or more VMs for redundancy.
 
-**Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability). 
+**Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
 **Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
 
-Ideally you would use Managed Premium Storage AND Availability Sets or Availability Zones together to increase MTBF via redundancy and speed recovery of an instance of a VM (decreasing MTTR of your service tier) for maximum availability.
-
 **Azure Site Recovery**.  Replicate Azure virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region. For more information, see [Replicate Azure VMs using ASR][site-recovery]. Consider the RTO and RPO numbers for your solution here and ensure that when testing, the recovery time and recovery point is appropriate for your needs.
 
-**Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes. 
+**Paired regions**. To protect an application against a regional outage, you can deploy the application across multiple regions, using Azure Traffic Manager to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair](/azure/best-practices-availability-paired-regions). With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
 When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asynchronous data replication across regions. 
 
@@ -381,4 +371,3 @@ Here are the major points to take away from this article:
 [site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
 [site-recovery-test-failover]:/azure/site-recovery/azure-to-azure-tutorial-dr-drill/
 [site-recovery-failover]:/azure/site-recovery/azure-to-azure-tutorial-failover-failback/
-[reference-architecture]: https://martinfowler.com/bliki/BlueGreenDeployment.html
