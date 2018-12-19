@@ -2,7 +2,7 @@
 title: Designing resilient applications for Azure
 description: How to build resilient applications in Azure, for high availability and disaster recovery.
 author: MikeWasson
-ms.date: 11/26/2018
+ms.date: 12/18/2018
 ms.custom: resiliency
 ---
 # Designing resilient applications for Azure
@@ -14,6 +14,7 @@ Building a reliable application in the cloud is different than building a reliab
 This article provides an overview of how to build resilient applications in Microsoft Azure. It starts with a definition of the term *resiliency* and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 
 ## What is resiliency?
+
 **Resiliency** is the ability of a system to recover from failures and continue to function. It's not about *avoiding* failures, but *responding* to failures in a way that avoids downtime or data loss. The goal of resiliency is to return the application to a fully functioning state following a failure.
 
 Two important aspects of resiliency are high availability and disaster recovery.
@@ -32,6 +33,7 @@ Another common term is **business continuity** (BC), which is the ability to per
 Backup is distinct from **data replication**. Data replication involves copying data in near-real-time, so that the system can fail over quickly to a replica. Many databases systems support replication; for example, SQL Server supports SQL Server Always On Availability Groups. Data replication can reduce how long it takes to recover from an outage, by ensuring that a replica of the data is always standing by. However, data replication won't protect against human error. If data gets corrupted because of human error, the corrupted data just gets copied to the replicas. Therefore, you still need to include long-term backup in your DR strategy.
 
 ## Process to achieve resiliency
+
 Resiliency is not an add-on. It must be designed into the system and put into operational practice. Here is a general model to follow:
 
 1. **Define** your availability requirements, based on business needs.
@@ -45,9 +47,11 @@ Resiliency is not an add-on. It must be designed into the system and put into op
 In the remainder of this article, we discuss each of these steps in more detail.
 
 ## Define your availability requirements
+
 Resiliency planning starts with business requirements. Here are some approaches for thinking about resiliency in those terms.
 
 ### Decompose by workload
+
 Many cloud solutions consist of multiple application workloads. The term "workload" in this context means a discrete capability or computing task, which can be logically separated from other tasks, in terms of business logic and data storage requirements. For example, an e-commerce app might include the following workloads:
 
 * Browse and search a product catalog.
@@ -59,6 +63,7 @@ These workloads might have different requirements for availability, scalability,
 Also consider usage patterns. Are there certain critical periods when the system must be available? For example, a tax-filing service can't go down right before the filing deadline, a video streaming service must stay up during a big sports event, and so on. During the critical periods, you might have redundant deployments across several regions, so the application could fail over if one region failed. However, a multi-region deployment is potentially more expensive, so during less critical times, you might run the application in a single region. In some cases, the additional expense can be mitigated by using modern serverless techniques, which use consumption-based billing, so you are not charged for under-utilitzed compute resources.
 
 ### RTO and RPO
+
 Two important metrics to consider are the recovery time objective and recovery point objective, as they pertain to disaster recovery.
 
 * **Recovery time objective** (RTO) is the maximum acceptable time that an application can be unavailable after an incident. If your RTO is 90 minutes, you must be able to restore the application to a running state within 90 minutes from the start of a disaster. If you have a very low RTO, you might keep a second regional deployment continually running an active/passive configuration on standby, to protect against a regional outage. In some cases you might deploy an active/active configuration to achieve even lower RTO.
@@ -83,7 +88,6 @@ In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commi
 
 > [!NOTE]
 > The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of "availability" for each service. That aspect of the SLA acts as an enforcement policy.
->
 >
 
 You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service.
@@ -174,13 +178,15 @@ One of the main ways to make an application resilient is through redundancy. But
 
 Azure has a number of features to make an application redundant at every level of failure, from an individual VM to an entire region.
 
-![](./images/redundancy.svg)
+![Azure resiliency features](./images/redundancy.svg)
 
 **Single VM**. Azure provides an [uptime SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) for single VMs. (The VM must use premium storage for all Operating System Disks and Data Disks.) Although you can get a higher SLA by running two or more VMs, a single VM may be reliable enough for some workloads. For production workloads, however, we recommend using two or more VMs for redundancy.
 
 **Availability sets**. To protect against localized hardware failures, such as a disk or network switch failing, deploy two or more VMs in an availability set. An availability set consists of two or more *fault domains* that share a common power source and network switch. VMs in an availability set are distributed across the fault domains, so if a hardware failure affects one fault domain, network traffic can still be routed the VMs in the other fault domains. For more information about Availability Sets, see [Manage the availability of Windows virtual machines in Azure](/azure/virtual-machines/windows/manage-availability).
 
-**Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures.
+**Availability zones**.  An Availability Zone is a physically separate zone within an Azure region. Each Availability Zone has a distinct power source, network, and cooling. Deploying VMs across availability zones helps to protect an application against datacenter-wide failures. Not all regions support Availability Zones. For a list of supported regions and services, see [What are Availability Zones in Azure?](/azure/availability-zones/az-overview).
+
+If you are planning to use Availability Zones in your deployment, first validate that your application architecture and code base can support this configuration. If you are deploying commercial off-the-shelf software, consult with the software vendor and test adequately before deploying into production. An application must be able to maintain state and prevent loss of data during an outage within the configured zone. The application must support running in an elastic and distributed infrastructure with no hard-coded infrastructure components specified in the code base. 
 
 **Azure Site Recovery**.  Replicate Azure virtual machines to another Azure region for business continuity and disaster recovery needs. You can conduct periodic DR drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region. For more information, see [Replicate Azure VMs using ASR][site-recovery]. Consider the RTO and RPO numbers for your solution here and ensure that when testing, the recovery time and recovery point is appropriate for your needs.
 
