@@ -13,7 +13,7 @@ In this process, the Cloud Adoption Team will execute a process which focuses on
 ![Migration Execution Process and related activities](../../_images/migration-execute.png)
 *Figure 1. Migration Execution Process and related activities.*
 
-Generally, this process is incremental in nature, running parallel to the [Govern process](../govern/overview.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [iterative change management](../plan/iterative-change-management.md) can help illustrate this approach.
+Generally, this process is incremental in nature, running parallel to the [Govern process](../../transformation-journeys/operational-transformation/govern.md). Each increment is typically time-bound to a consistent number of weeks. For instance, the team will attempt to migrate a committed number of VMs over the course of a 2-week iteration/sprint. Additional information about [iterative change management](../plan/iterative-change-management.md) can help illustrate this approach.
 
 This process assumes that a re-host or re-platform model of migration (often referred to as a "Lift & Shift") is most appropriate for the workloads or applications being migrated. This will be validated during the "Architect" activity of this process, see activity #2 below. For other approaches to migration, see the [rationalize process](../../digital-estate/rationalize.md).
 

@@ -33,7 +33,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Potential activities**
 
-* Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting) and cost accounting practices within your business units and organization as a whole.
+* Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md) and cost accounting practices within your business units and organization as a whole.
 * Define your monitoring and reporting policies and requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
 * Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources. 
@@ -57,7 +57,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
 * Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements. 
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
-* Evaluate how your cloud-based monitoring systems will integrate with your existing on-premises or other external [monitoring and reporting](../infrastructure/logs-and-reporting/overview.md) solution, and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
+* Evaluate how your cloud-based monitoring systems will integrate with your existing on-premises or other external [monitoring and reporting](../../infrastructure/logs-and-reporting/overview.md) solution, and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
 * Establish a least privilege permissions model, where users have no permissions by default. 
 * Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
 * Define dependencies between resources.
@@ -122,4 +122,4 @@ Now that you understand the concept of cloud resource governance, move on to lea
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
 > [Learn about SLAs for Azure](https://azure.microsoft.com/en-us/support/legal/sla/)
-> [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview)
+> [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview.md)
