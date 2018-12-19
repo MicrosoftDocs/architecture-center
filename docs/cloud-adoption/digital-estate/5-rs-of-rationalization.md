@@ -137,4 +137,4 @@ Qualitative analysis factors:
 Collectively, these 5 Rs of Rationalization can be applied to a digital estate to make rationalization decisions regarding the future state of each application.
 
 > [!div class="nextstepaction"]
-> [What is a digial estate?](overview.md)
+> [What is a digital estate?](overview.md)

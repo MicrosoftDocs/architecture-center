@@ -32,8 +32,6 @@ However, the traditional CRUD approach has some disadvantages:
 
 - It can make managing security and permissions more complex because each entity is subject to both read and write operations, which might expose data in the wrong context.
 
-> For a deeper understanding of the limits of the CRUD approach see [CRUD, Only When You Can Afford It](https://blogs.msdn.microsoft.com/maarten_mullender/2004/07/23/crud-only-when-you-can-afford-it-revisited/).
-
 ## Solution
 
 Command and Query Responsibility Segregation (CQRS) is a pattern that segregates the operations that read data (queries) from the operations that update data (commands) by using separate interfaces. This means that the data models used for querying and updates are different. The models can then be isolated, as shown in the following figure, although that's not an absolute requirement.
