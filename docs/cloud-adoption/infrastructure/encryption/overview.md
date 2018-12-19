@@ -2,19 +2,19 @@
 title: "Fusion: Encryption" 
 description: Discussion of encryption as a core service in Azure migrations
 author: rotycenh
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ---
 
 # Fusion: Encryption
 
-Encrypting data, either in the cloud or on-premises, protects it against
-unauthorized access. In the cloud, properly implemented encryption policy can
-provide additional layers of security to your workloads, and safeguard against
-attackers and other unauthorized users from both inside or outside your
-organization and networks.
+Encrypting data, whether in the cloud or on-premises, protects it against
+unauthorized access. In the cloud, properly implemented encryption policy 
+provides additional layers of security to your workloads, and safeguards 
+it against attackers and other unauthorized users from both inside and outside 
+your organization and networks.
 
 While encrypting resources is generally desirable, encryption does have costs
-which can impact latency and overall resource usage. For demanding workloads
+that can impact latency and overall resource usage. For demanding workloads,
 striking the correct balance between encryption and performance is key.
 
 ## Encryption decision guide
@@ -23,15 +23,15 @@ striking the correct balance between encryption and performance is key.
 
 Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Encryption in Azure](#encryption-in-azure) | [Azure Key Vault](#azure-key-vault)
 
-The inflection point when deciding on a cloud encryption strategy focuses on corporate policy and compliance mandates.
+The inflection point when determining a cloud encryption strategy focuses on corporate policy and compliance mandates.
 
-There are a number of ways to deliver encryption within a cloud environment, with varying degrees of cost and complexity. Corporate policy and third-party compliance are the biggest drivers when planning an encryption strategy. Most cloud-based solutions provide standard mechanisms for encrypting data at rest and in transit. However, when policies and compliance requirements demand tighter controls such as standardized secrets and key management, encryption in-use, or data specific encryption, the solution becomes more complex.
+There are a number of ways you can deliver encryption within a cloud environment, each with varying degrees of cost and complexity. Corporate policy and third-party compliance are the biggest drivers when planning an encryption strategy. Most cloud-based solutions provide standard mechanisms for encrypting data, whether at rest or in transit. However, for policies and compliance requirements that demand tighter controls, such as standardized secrets and key management, encryption in-use, or data specific encryption, you will likely need to implement a complex solution.
 
 ## Key management
 
-A key management system is critical to your organizations ability to create and store cryptographic keys, important passwords, connection strings, and other IT secrets. Modern key management systems should offer support for storing keys using hardware security modules (HSMs) for increased protection.
+Modern key management systems should offer support for storing keys using hardware security modules (HSMs) for increased protection. Thus, a key management system is critical to your organization's ability to create and store cryptographic keys, important passwords, connection strings, and other IT confidential information. 
 
-When planning a cloud migration understanding how you will store and manage your encryption keys, certificates, and secrets is critical for creating secure and manageable cloud deployments:
+When planning a cloud migration, the following table describes how you can store and manage encryption keys, certificates, and secrets, which are critical for creating secure and manageable cloud deployments:
 
 | Question                                                                                                                              | Cloud Native | Hybrid | On-premises |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
@@ -39,35 +39,35 @@ When planning a cloud migration understanding how you will store and manage your
 | Will you need to limit the creation of keys and secrets to devices to your on-premises hardware, while using these keys in the cloud? | No           | Yes    | No          |
 | Does your organization have rules or policies in place that would prevent keys and secrets from being stored off-site?                | No           | No     | Yes         |
 
-### Cloud Native
+### Cloud native
 
 With cloud native key management, all keys and secrets are generated, managed,
-and stored in a cloud-based vault. This approach can simplify many of the IT
+and stored in a cloud-based vault. This approach simplifies many IT
 tasks related to key management.
 
-**Cloud Native Key Management Assumptions:** Using a cloud native key management system assumes the following:
+**Cloud native key management assumptions:** Using a cloud native key management system assumes the following:
 
-- You trust the cloud key management solution with the creation, management, and hosting of your organization's secrets and keys. 
-- Any on-premises applications or services that rely on accessing encryption services or secrets can access the cloud key management system.  
+- You trust the cloud key management solution with creating, managing, and hosting your organization's secrets and keys. 
+- You enable all on-premises applications and services that rely on accessing encryption services or secrets to access the cloud key management system.  
 
 ### Hybrid (bring your own key)
 
-With a bring your own key approach, you can generate keys on dedicated HSM
-hardware within your on-premises environment, and then transfer them to a secure
+With a bring your own key approach, you generate keys on dedicated HSM
+hardware within your on-premises environment, then transfer the keys to a secure
 cloud key management system for use with cloud resources.
 
-**Hybrid Key Management Assumptions:** Using a hybrid key management system assumes the following:
+**Hybrid key management assumptions:** Using a hybrid key management system assumes the following:
 
 - You trust the underlying security and access control infrastructure of the cloud platform for hosting and using your keys and secrets.
-- You are required by regulation or organizational policy to keep the creation, and management of your organization's secrets and keys on-premises.
+- You are required by regulatory or organizational policy to keep the creation and management of your organization's secrets and keys on-premises.
 
 ### On-premises (hold your own key)
 
-In certain scenarios there may be regulatory, policy, or technical reasons why you can't store keys on a key management system provided by a public cloud service. In these cases, you would maintain keys using on-premises hardware, and provision a mechanism to allow cloud-based resource to access these keys for encryptions purposes. Note that a hold your own key approach may not be compatible with all cloud services.
+In certain scenarios, there may be regulatory, policy, or technical reasons why you can't store keys on a key management system provided by a public cloud service. In these cases, you must maintain keys using on-premises hardware, and provision a mechanism to allow cloud-based resource to access these keys for encryptions purposes. Note that a hold your own key approach may not be compatible with all cloud services.
 
-**On-premises Key Management Assumptions:** Using an On-premises key management system assumes the following:
+**On-premises key management assumptions:** Using an on-premises key management system assumes the following:
 
-- You are required by regulation or organizational policy to keep the creation, management, *and hosting* of your organization's secrets and keys on-premises.
+- You are required by regulatory or organizational policy to keep the creation, management, *and hosting* of your organization's secrets and keys on-premises.
 - Any cloud-based applications or services that rely on accessing encryption services or secrets can access the on-premises key management system.  
 
 ## Data encryption
@@ -76,29 +76,29 @@ There are several different states of data with different encryption needs to co
 
 | Data state      | Data                                                                                               |
 |-----------------|-----------------------------------------------------------------------------------------------------|
-| Data in transit | Internal network traffic, Internet connections, connections between DataCenters or virtual networks |
+| Data in transit | Internal network traffic, internet connections, connections between datacenters or virtual networks |
 | Data at rest    | Databases, files, virtual drives, PaaS storage                                                      |
 | Data in use     | Data loaded in RAM or in CPU caches                                          |
 
 ### Data in transit
 
 Data in transit is data moving between resources on the internal, between
-DataCenters or external networks, or over the internet.
+datacenters or external networks, or over the internet.
 
-Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between  your cloud hosted resources to external network or the public internet should always be encrypted. PaaS resources will generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you Cloud Adoption Team and workload owner, but is generally recommended.
+Encrypting data in transit is usually done through enforcing the use of SSL/TLS protocols to traffic. Traffic transiting between your cloud-hosted resources to external network or the public internet should always be encrypted. PaaS resources generally also enforce SSL/TLS encryption to traffic by default. Whether you enforce encryption for traffic between IaaS resources hosted inside your virtual networks is a decision for you Cloud Adoption Team and workload owner, and is generally recommended.
 
- **Encrypting Data in Transit Assumptions:** Implementing proper encryption policy for data in transit assumes the following:
+ **Encrypting data in transit assumptions:** Implementing proper encryption policy for data in transit assumes the following:
 
 - All publicly accessible endpoints in your cloud environment will communicate with the public internet using SSL/TLS protocols.
 - When connecting cloud networks with on-premises or other external network over the public internet, use encrypted VPN protocols.
 - When connecting cloud networks with on-premises or other external network using a dedicated WAN connection such as ExpressRoute, use firewalls on both end of the connection. 
-- If you  are dealing with sensitive data that shouldn't be included in traffic logs or other diagnostics reports visible to IT staff, you will encrypt all traffic between resources in your virtual network.
+- If you have sensitive data that shouldn't be included in traffic logs or other diagnostics reports visible to IT staff, you will encrypt all traffic between resources in your virtual network.
 
 ### Data at rest
 
-Data at rest represents any data not being actively moved or processed, including files, databases, virtual machine drives, PaaS storage accounts or similar assets. Encrypting stored data protects virtual devices or files against unauthorized access either from an external network penetration, rogue internal user, or accidental release.
+Data at rest represents any data not being actively moved or processed, including files, databases, virtual machine drives, PaaS storage accounts, or similar assets. Encrypting stored data protects virtual devices or files against unauthorized access either from external network penetration, rogue internal users, or accidental releases.
 
-PaaS storage and database resources will generally enforce encryption by default. IaaS virtual resources can be secured through  virtual disk encryption using cryptographic keys stored in your key management system.
+PaaS storage and database resources generally enforce encryption by default. IaaS virtual resources can be secured through virtual disk encryption using cryptographic keys stored in your key management system.
 
 Encryption for data at rest also encompasses more advanced database encryption techniques, such as column-level and row level encryption, which provides much more control over exactly what data is being secured. 
 
@@ -111,9 +111,9 @@ Your overall policy and compliance requirements, the sensitivity of the data bei
 
 ### Data in use
 
-Encryption for data in use involves securing data in non-persistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies like Intel's Secure Guard Extensions (SGX), and cryptographic techniques like homomorphic encryption can be used to create secure, trusted execution environments.
+Encryption for data in use involves securing data in non-persistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies, such as Intel's Secure Guard Extensions (SGX). This also includes cryptographic techniques, such as homomorphic encryption that can be used to create secure, trusted execution environments.
 
-**Encrypting Data at Rest Assumptions:** Encrypting data in use assumes the following:
+**Encrypting data at rest assumptions:** Encrypting data in use assumes the following:
 
 - You are required to maintain data ownership separate from the underlying cloud platform at all times, even at the RAM and CPU level.
 
