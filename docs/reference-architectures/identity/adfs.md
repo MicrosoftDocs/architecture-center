@@ -70,61 +70,17 @@ This architecture extends the implementation described in [Extending AD DS to Az
   > You can also configure a VPN tunnel using Azure gateway to provide direct access to AD FS for trusted partners. Requests received from these partners do not pass through the WAP servers.
   >
 
-For more information about the parts of the architecture that are not related to AD FS, see the following:
-
-- [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]
-- [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]
-- [Implementing a secure hybrid network architecture with Active Directory identities in Azure][extending-ad-to-azure].
-
 ## Recommendations
 
 The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them.
-
-### VM recommendations
-
-Create VMs with sufficient resources to handle the expected volume of traffic. Use the size of the existing machines hosting AD FS on premises as a starting point. Monitor the resource utilization. You can resize the VMs and scale down if they are too large.
-
-Follow the recommendations listed in [Running a Windows VM on Azure][vm-recommendations].
 
 ### Networking recommendations
 
 Configure the network interface for each of the VMs hosting AD FS and WAP servers with static private IP addresses.
 
-Do not give the AD FS VMs public IP addresses. For more information, see the Security considerations section.
+Do not give the AD FS VMs public IP addresses. For more information, see the [Security considerations](#security-considerations) section.
 
-Set the IP address of the preferred and secondary domain name service (DNS) servers for the network interfaces for each AD FS and WAP VM to reference the Active Directory DS VMs. The Active Directory DS VMS should be running DNS. This step is necessary to enable each VM to join the domain.
-
-### AD FS availability
-
-Create an AD FS farm with at least two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account does not make the entire farm inaccessible.
-
-> [!IMPORTANT]
-> We recommend the use of [managed disks](/azure/storage/storage-managed-disks-overview). Managed disks do not require a storage account. You simply specify the size and type of disk and it is deployed in a highly available way. Our [reference architectures](/azure/architecture/reference-architectures/) do not currently deploy managed disks but the [template building blocks](https://github.com/mspnp/template-building-blocks/wiki) will be updated to deploy managed disks in version 2.
-
-Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. Each availability set must have at least two update domains and two fault domains.
-
-Configure the load balancers for the AD FS VMs and WAP VMs as follows:
-
-- Use an Azure load balancer to provide external access to the WAP VMs, and an internal load balancer to distribute the load across the AD FS servers in the farm.
-- Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
-- Give the load balancer a static IP address.
-- Create a health probe using HTTP against `/adfs/probe`. For more information, see [Hardware Load Balancer Health Checks and Web Application Proxy / AD FS 2012 R2](https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/).
-
-  > [!NOTE]
-  > AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
-  >
-
-- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name clients and the WAP servers use to access the AD FS server farm.
-
-### AD FS security
-
-Prevent direct exposure of the AD FS servers to the Internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from external users not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
-
-Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define firewall rules. If you require more comprehensive protection you can implement an additional security perimeter around servers by using a pair of subnets and network virtual appliances (NVAs), as described in the document [Implementing a secure hybrid network architecture with Internet access in Azure][implementing-a-secure-hybrid-network-architecture-with-internet-access]. All firewalls should allow traffic on port 443 (HTTPS).
-
-Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect.
-
-Do not join the WAP servers to the domain.
+Set the IP address of the preferred and secondary domain name service (DNS) servers for the network interfaces for each AD FS and WAP VM to reference the Active Directory DS VMs. The Active Directory DS VMs should be running DNS. This step is necessary to enable each VM to join the domain.
 
 ### AD FS installation
 
@@ -187,6 +143,23 @@ If you are using the Windows Internal Database to store AD FS configuration data
 
 ## Availability considerations
 
+Create an AD FS farm with at least two servers to increase availability of the service. Use different storage accounts for each AD FS VM in the farm. This approach helps to ensure that a failure in a single storage account does not make the entire farm inaccessible.
+
+Create separate Azure availability sets for the AD FS and WAP VMs. Ensure that there are at least two VMs in each set. Each availability set must have at least two update domains and two fault domains.
+
+Configure the load balancers for the AD FS VMs and WAP VMs as follows:
+
+- Use an Azure load balancer to provide external access to the WAP VMs, and an internal load balancer to distribute the load across the AD FS servers in the farm.
+- Only pass traffic appearing on port 443 (HTTPS) to the AD FS/WAP servers.
+- Give the load balancer a static IP address.
+- Create a health probe using HTTP against `/adfs/probe`. For more information, see [Hardware Load Balancer Health Checks and Web Application Proxy / AD FS 2012 R2](https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/).
+
+  > [!NOTE]
+  > AD FS servers use the Server Name Indication (SNI) protocol, so attempting to probe using an HTTPS endpoint from the load balancer fails.
+  >
+
+- Add a DNS *A* record to the domain for the AD FS load balancer. Specify the IP address of the load balancer, and give it a name in the domain (such as adfs.contoso.com). This is the name clients and the WAP servers use to access the AD FS server farm.
+
 You can use either SQL Server or the Windows Internal Database to hold AD FS configuration information. The Windows Internal Database provides basic redundancy. Changes are written directly to only one of the AD FS databases in the AD FS cluster, while the other servers use pull replication to keep their databases up to date. Using SQL Server can provide full database redundancy and high availability using failover clustering or mirroring.
 
 ## Manageability considerations
@@ -202,6 +175,12 @@ DevOps staff should be prepared to perform the following tasks:
 
 AD FS uses HTTPS, so make sure that the NSG rules for the subnet containing the web tier VMs permit HTTPS requests. These requests can originate from the on-premises network, the subnets containing the web tier, business tier, data tier, private DMZ, public DMZ, and the subnet containing the AD FS servers.
 
+Prevent direct exposure of the AD FS servers to the Internet. AD FS servers are domain-joined computers that have full authorization to grant security tokens. If a server is compromised, a malicious user can issue full access tokens to all web applications and to all federation servers that are protected by AD FS. If your system must handle requests from external users not connecting from trusted partner sites, use WAP servers to handle these requests. For more information, see [Where to Place a Federation Server Proxy][where-to-place-an-fs-proxy].
+
+Place AD FS servers and WAP servers in separate subnets with their own firewalls. You can use NSG rules to define firewall rules. All firewalls should allow traffic on port 443 (HTTPS).
+
+Restrict direct sign in access to the AD FS and WAP servers. Only DevOps staff should be able to connect. Do not join the WAP servers to the domain.
+
 Consider using a set of network virtual appliances that logs detailed information on traffic traversing the edge of your virtual network for auditing purposes.
 
 ## Deploy the solution
@@ -212,15 +191,15 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
 
-2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
+1. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
 
    ```bash
    npm install -g @mspnp/azure-building-blocks
    ```
 
-4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
+1. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
 
    ```bash
    az login
@@ -230,9 +209,9 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. Navigate to the `adfs` folder of the GitHub repository.
 
-2. Open the `onprem.json` file. Search for instances of `adminPassword`, `Password`, and `SafeModeAdminPassword` and update the passwords.
+1. Open the `onprem.json` file. Search for instances of `adminPassword`, `Password`, and `SafeModeAdminPassword` and update the passwords.
 
-3. Run the following command and wait for the deployment to finish:
+1. Run the following command and wait for the deployment to finish:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p onprem.json --deploy
@@ -240,9 +219,9 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Deploy the Azure infrastructure
 
-1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords. 
+1. Open the `azure.json` file.  Search for instances of `adminPassword` and `Password` and add values for the passwords.
 
-2. Run the following command and wait for the deployment to finish:
+1. Run the following command and wait for the deployment to finish:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
@@ -250,16 +229,17 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Set up the AD FS farm
 
-1. Open the `adfs-farm-first.json` file.  Search for `AdminPassword` and replace the default password. 
+1. Open the `adfs-farm-first.json` file.  Search for `AdminPassword` and replace the default password.
 
-2. Run the following command:
+1. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-first.json --deploy
     ```
-3. Open the `adfs-farm-rest.json` file.  Search for `AdminPassword` and replace the default password.
 
-4. Run the following command and wait for the deployment to finish:
+1. Open the `adfs-farm-rest.json` file.  Search for `AdminPassword` and replace the default password.
+
+1. Run the following command and wait for the deployment to finish:
 
     ```bash
     azbb -s <subscription_id> -g <resource group> -l <location> -p adfs-farm-rest.json --deploy
@@ -267,13 +247,13 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Configure AD FS (part 1)
 
-1. Open a remote desktop session with the VM named `ra-adfs-jb-vm1`, which is the jumpbox VM. The user name is `testuser`.
+1. Open a remote desktop session to the VM named `ra-adfs-jb-vm1`, which is the jumpbox VM. The user name is `testuser`.
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-proxy-vm1`. The private IP address is 10.0.6.4.
 
 1. From this remote desktop session, run the [PowerShell ISE](/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-).
 
-1. Navigate to the following directory:
+1. In PowerShell, navigate to the following directory:
 
     ```powershell
     C:\Packages\Plugins\Microsoft.Powershell.DSC\2.77.0.0\DSCWork\adfs-v2.0
@@ -293,7 +273,6 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
         )
     }
 
-    ## This step will prompt for the password:
     $c1 = Get-Credential -UserName testuser -Message "Enter password"
     InstallWebProxyApp -DomainName contoso.com -FederationName adfs.contoso.com -WebApplicationProxyName "Contoso App" -AdminCreds $c1 -ConfigurationData $cd
     Start-DscConfiguration .\InstallWebProxyApp
@@ -301,7 +280,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the DSC configuration:
+1. Run the following command to monitor the progress of the [DSC](/powershell/dsc/overview/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
@@ -343,9 +322,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
         )
     }
 
-    ## This step will prompt for the password:
     $c1 = Get-Credential -UserName testuser -Message "Enter password"
-
     InstallWebProxy -DomainName contoso.com -FederationName adfs.contoso.com -WebApplicationProxyName "Contoso App" -AdminCreds $c1 -ConfigurationData $cd
     Start-DscConfiguration .\InstallWebProxy
     ```
@@ -368,7 +345,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
     Success    12/17/2018 8:21:09 PM     Consistency     PUSH  True                 4
     ```
 
-    Sometimes this step fails. If the status check shows `Status=Failure` and `Type=Consistency`, try re-running this step.
+    Sometimes this DSC fails. If the status check shows `Status=Failure` and `Type=Consistency`, try re-running step 4.
 
 ### Sign into AD FS
 
