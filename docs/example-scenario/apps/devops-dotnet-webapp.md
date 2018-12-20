@@ -1,16 +1,17 @@
 ---
 title: Design a CI/CD pipeline using Azure DevOps
+titleSuffix: Azure Example Scenarios
 description: Build and release a .NET app to Azure Web Apps using Azure DevOps.
 author: christianreddington
 ms.date: 12/06/2018
-ms.custom: 
+ms.custom:
     - fasttrack
     - seodec18
 ---
 
 # Design a CI/CD pipeline using Azure DevOps
 
-This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline.  In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
+This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline. In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
 Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
@@ -79,7 +80,7 @@ This [decision tree for Azure compute services](/azure/architecture/guide/techno
 
 ### Prerequisites
 
-- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][azure-free-account] before you begin.
+- You must have an existing Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - You must sign up for an Azure DevOps organization. For more information, see [Quickstart: Create your organization][vsts-account-create].
 
@@ -114,7 +115,6 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [ansible]: /azure/ansible/
 [application-insights]: /azure/application-insights/app-insights-overview
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[azure-free-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
 [architecture]: ./media/architecture-devops-dotnet-webapp.svg
 [chef]: /azure/chef/

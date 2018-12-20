@@ -1,5 +1,6 @@
 ---
-title: Migrating a legacy web application to an API-based architecture on Azure
+title: Migrating a web app to an API-based architecture
+titleSuffix: Azure Example Scenarios
 description: Use Azure API Management to modernize a legacy web application.
 author: begim
 ms.date: 09/13/2018
@@ -12,9 +13,9 @@ An e-commerce company in the travel industry is modernizing their legacy browser
 
 Goals for the project include addressing technical debt, improving ongoing maintenance, and accelerating feature development with fewer regression bugs. The project will use an iterative process to avoid risk, with some steps performed in parallel:
 
-* The development team will modernize the application back end, which is composed of relational databases hosted on VMs.
-* The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
-* A contract development team will build a new browser-based UI, which will be hosted in Azure.
+- The development team will modernize the application back end, which is composed of relational databases hosted on VMs.
+- The in-house development team will write new business functionality that will be exposed over new HTTP APIs.
+- A contract development team will build a new browser-based UI, which will be hosted in Azure.
 
 New application features will be delivered in stages. These features will gradually replace the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
 
@@ -31,38 +32,38 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 1. The existing on-premises web application will continue to directly consume the existing on-premises web services.
 2. Calls from the existing web app to the existing HTTP services will remain unchanged. These calls are internal to the corporate network.
 3. Inbound calls are made from Azure to the existing internal services:
-    * The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
-    * The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [white-listing the IP address of the APIM instance][apim-whitelist-ip] within the corporate network perimeter.
-    * A new module is configured into the on-premises HTTP services request pipeline (to act upon **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
-1. The new API:
-    * Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
-    * Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
-    * Is white-listed (via [Web App settings][azure-appservice-ip-restrict]) to accept only the [APIM VIP][apim-faq-vip].
-    * Is hosted in Azure Web Apps with Secure Transport/SSL turned on.
-    * Has authorization enabled, [provided by the Azure App Service][azure-appservice-auth] using Azure Active Directory and OAuth2.
-2. The new browser-based web application will depend on the Azure API Management instance for **both** the existing HTTP API and the new API.
+    - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
+    - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [white-listing the IP address of the APIM instance][apim-whitelist-ip] within the corporate network perimeter.
+    - A new module is configured into the on-premises HTTP services request pipeline (to act upon **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
+4. The new API:
+    - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
+    - Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
+    - Is white-listed (via [Web App settings][azure-appservice-ip-restrict]) to accept only the [APIM VIP][apim-faq-vip].
+    - Is hosted in Azure Web Apps with Secure Transport/SSL turned on.
+    - Has authorization enabled, [provided by the Azure App Service][azure-appservice-auth] using Azure Active Directory and OAuth2.
+5. The new browser-based web application will depend on the Azure API Management instance for **both** the existing HTTP API and the new API.
 
 The APIM instance will be configured to map the legacy HTTP services to a new API contract. By doing this, the new Web UI is unaware of the integration with a set of legacy services/APIs and new APIs. In the future, the project team will gradually port functionality to the new APIs and retire the original services. These changes will be handled within APIM configuration, leaving the front-end UI unaffected and avoiding redevelopment work.
 
 ### Alternatives
 
-* If the organization was planning to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
-* If the customer had decided to keep the existing endpoints private and not expose them publicly, their API Management instance could be linked to an [Azure Virtual Network (VNet)][azure-vnet]:
-  * In an [Azure lift and shift scenario][azure-vm-lift-shift] linked to their deployed Azure Virtual Network, the customer could directly address the back-end service through private IP addresses.
-  * In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making this a [hybrid Azure and on-premises scenario][azure-hybrid].
-* The API Management instance can be kept private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Connecting APIM in internal mode to a VNET][apim-vnet-internal].
+- If the organization was planning to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
+- If the customer had decided to keep the existing endpoints private and not expose them publicly, their API Management instance could be linked to an [Azure Virtual Network (VNet)][azure-vnet]:
+  - In an [Azure lift and shift scenario][azure-vm-lift-shift] linked to their deployed Azure Virtual Network, the customer could directly address the back-end service through private IP addresses.
+  - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making this a [hybrid Azure and on-premises scenario][azure-hybrid].
+- The API Management instance can be kept private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Connecting APIM in internal mode to a VNET][apim-vnet-internal].
 
 > [!NOTE]
 > For general information on connecting API Management to a VNET, [see here][apim-vnet].
 
 ### Availability and scalability
 
-* Azure API Management can be [scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
-* Scaling also happen [automatically with auto scaling][apim-autoscale].
-* [Deploying across multiple regions][apim-multi-regions] will enable fail over options and can be done in the [Premium tier][apim-pricing].
-* Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
+- Azure API Management can be [scaled out][apim-scaleout] by choosing a pricing tier and then adding units.
+- Scaling also happen [automatically with auto scaling][apim-autoscale].
+- [Deploying across multiple regions][apim-multi-regions] will enable fail over options and can be done in the [Premium tier][apim-pricing].
+- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
 
-## Deployment
+## Deploy the scenario
 
 To get started, [create an Azure API Management instance in the portal.][apim-create]
 
@@ -83,8 +84,8 @@ To view projected costs and customize to your deployment needs, you can modify t
 
 Review the extensive Azure API Management [documentation and reference articles][apim].
 
-
 <!-- links -->
+
 [architecture]: ./media/architecture-apim-api-scenario.png
 [apim-create]: /azure/api-management/get-started-create-service-instance
 [apim-git]: /azure/api-management/api-management-configuration-repository-git

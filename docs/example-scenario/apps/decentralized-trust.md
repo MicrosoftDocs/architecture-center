@@ -1,5 +1,6 @@
 ---
-title: Decentralized trust between banks on Azure
+title: Decentralized trust between banks
+titleSuffix: Azure Example Scenarios
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
@@ -20,11 +21,11 @@ This example will show you how Azure services such as virtual machine scale sets
 
 Other relevant use cases include:
 
-* Movement of allocated budgets between different business units of a multinational corporation
-* Cross-border payments
-* Trade finance scenarios
-* Loyalty systems involving different companies
-* Supply chain ecosystems
+- Movement of allocated budgets between different business units of a multinational corporation
+- Cross-border payments
+- Trade finance scenarios
+- Loyalty systems involving different companies
+- Supply chain ecosystems
 
 ## Architecture
 
@@ -40,11 +41,11 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Components
 
-* Virtual machines within virtual machine scale sets provides the on-demand compute facility to host the validator processes for the blockchain
-* Key Vault is used as the secure storage facility for the private keys of each validator
-* Load Balancer spreads the RPC, peering, and Governance DApp requests
-* Storage hosting persistent network information and coordinating leasing
-* Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
+- Virtual machines within virtual machine scale sets provides the on-demand compute facility to host the validator processes for the blockchain
+- Key Vault is used as the secure storage facility for the private keys of each validator
+- Load Balancer spreads the RPC, peering, and Governance DApp requests
+- Storage hosting persistent network information and coordinating leasing
+- Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
 
 ### Alternatives
 
@@ -52,15 +53,15 @@ The Ethereum PoA approach is chosen for this example because it is a good entry 
 
 For other extended or different scenarios, concerns such as transaction privacy may arise. For example, in a securities transfer scenario, members in a consortium may not want their transactions to be visible even to other members. Other alternatives to Ethereum PoA exist that addresses these concerns in their own way:
 
-* Corda
-* Quorum
-* Hyperledger
+- Corda
+- Quorum
+- Hyperledger
 
 ## Considerations
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics. 
+[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics.
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 
@@ -88,9 +89,9 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on the number of scale set VM instances that run your applications (the instances can reside in different regions).
 
-* [Small][small-pricing]: this pricing example correlates to 2 VMs per month with monitoring turned off
-* [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
-* [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
+- [Small][small-pricing]: this pricing example correlates to 2 VMs per month with monitoring turned off
+- [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
+- [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 

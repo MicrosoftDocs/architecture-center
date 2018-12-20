@@ -1,5 +1,6 @@
 ---
-title: Using Service Fabric to decompose monolithic applications
+title: Using Service Fabric to decompose applications
+titleSuffix: Azure Example Scenarios
 description: Decompose a large monolithic application into microservices.
 author: timomta
 ms.date: 09/20/2018
@@ -11,11 +12,12 @@ ms.custom: fasttrack
 In this example scenario, we walk through an approach using [Service Fabric](/azure/service-fabric/service-fabric-overview) as a platform for decomposing an unwieldy monolithic application. Here we consider an iterative approach to decomposing an IIS/ASP.NET web site into an application composed of multiple, manageable microservices.
 
 Moving from a monolithic architecture to a microservice architecture provides the following benefits:
-* You can change one small, understandable unit of code and deploy only that unit.
-* Each code unit requires just a few minutes or less to deploy.
-* If there is an error in that small unit, only that unit stops working, not the whole application.
-* Small units of code can be distributed easily and discretely among multiple development teams.
-* New developers can quickly and easily grasp the discrete functionality of each unit.
+
+- You can change one small, understandable unit of code and deploy only that unit.
+- Each code unit requires just a few minutes or less to deploy.
+- If there is an error in that small unit, only that unit stops working, not the whole application.
+- Small units of code can be distributed easily and discretely among multiple development teams.
+- New developers can quickly and easily grasp the discrete functionality of each unit.
 
 A large IIS application on a server farm is used in this example, but the concepts of iterative decomposition and hosting can be used for any type of large application. While this solution uses Windows, Service Fabric can also run on Linux. It can be run on-premises, in Azure, or on VM nodes in the cloud provider of your choice.
 

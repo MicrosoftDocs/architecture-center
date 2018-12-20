@@ -108,7 +108,7 @@ Create the staging tables as heap tables, which are not indexed. The queries tha
 
 PolyBase automatically takes advantage of parallelism in the warehouse. The load performance scales as you increase DWUs. For best performance, use a single load operation. There is no performance benefit to breaking the input data into chunks and running multiple concurrent loads.
 
-PolyBase can read Gzip compressed files. However, only a single reader is used per compressed file, because uncompressing the file is a single-threaded operation. Therefore, avoid loading a single large compressed file. Instead, split the data into multiple compressed files, in order to take advantage of parallelism. 
+PolyBase can read Gzip compressed files. However, only a single reader is used per compressed file, because uncompressing the file is a single-threaded operation. Therefore, avoid loading a single large compressed file. Instead, split the data into multiple compressed files, in order to take advantage of parallelism.
 
 Be aware of the following limitations:
 
@@ -178,10 +178,10 @@ Consider using the Analysis Services firewall feature to whitelist client IP add
 
 ### Authorization
 
-Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can: 
+Azure Analysis Services uses Azure Active Directory (Azure AD) to authenticate users who connect to an Analysis Services server. You can restrict what data a particular user is able to view, by creating roles and then assigning Azure AD users or groups to those roles. For each role, you can:
 
-- Protect tables or individual columns. 
-- Protect individual rows based on filter expressions. 
+- Protect tables or individual columns.
+- Protect individual rows based on filter expressions.
 
 For more information, see [Manage database roles and users](/azure/analysis-services/analysis-services-database-users).
 
@@ -197,6 +197,13 @@ To the deploy and run the reference implementation, follow the steps in the [Git
 ## Next steps
 
 - Use Azure Data Factory to automate the ELT pipeline. See [Automated enterprise BI with SQL Data Warehouse and Azure Data Factory][adf-ra].
+
+## Related resources
+
+You may want to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+
+- [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
+- [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
 
 <!-- links -->
 
