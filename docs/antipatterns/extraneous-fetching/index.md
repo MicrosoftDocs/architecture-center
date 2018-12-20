@@ -1,13 +1,15 @@
 ---
-title: Extraneous Fetching anitpattern
+title: Extraneous Fetching antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # Extraneous Fetching antipattern
 
-Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness. 
+Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
 
 ## Problem description
 
@@ -47,7 +49,7 @@ public async Task<IHttpActionResult> AggregateOnClientAsync()
 }
 ```
 
-The next example shows a subtle problem caused by the way Entity Framework uses LINQ to Entities. 
+The next example shows a subtle problem caused by the way Entity Framework uses LINQ to Entities.
 
 ```csharp
 var query = from p in context.Products.AsEnumerable()
@@ -57,13 +59,13 @@ var query = from p in context.Products.AsEnumerable()
 List<Product> products = query.ToList();
 ```
 
-The application is trying to find products with a `SellStartDate` more than a week old. In most cases, LINQ to Entities would translate a `where` clause to a SQL statement that is executed by the database. In this case, however, LINQ to Entities cannot map the `AddDays` method to SQL. Instead, every row from the `Product` table is returned, and the results are filtered in memory. 
+The application is trying to find products with a `SellStartDate` more than a week old. In most cases, LINQ to Entities would translate a `where` clause to a SQL statement that is executed by the database. In this case, however, LINQ to Entities cannot map the `AddDays` method to SQL. Instead, every row from the `Product` table is returned, and the results are filtered in memory.
 
-The call to `AsEnumerable` is a hint that there is a problem. This method converts the results to an `IEnumerable` interface. Although `IEnumerable` supports filtering, the filtering is done on the *client* side, not the database. By default, LINQ to Entities uses `IQueryable`, which passes the responsibility for filtering to the data source. 
+The call to `AsEnumerable` is a hint that there is a problem. This method converts the results to an `IEnumerable` interface. Although `IEnumerable` supports filtering, the filtering is done on the *client* side, not the database. By default, LINQ to Entities uses `IQueryable`, which passes the responsibility for filtering to the data source.
 
 ## How to fix the problem
 
-Avoid fetching large volumes of data that may quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed. 
+Avoid fetching large volumes of data that may quickly become outdated or might be discarded, and only fetch the data needed for the operation being performed.
 
 Instead of getting every column from a table and then filtering them, select the columns that you need from the database.
 
@@ -98,7 +100,7 @@ public async Task<IHttpActionResult> AggregateOnDatabaseAsync()
 When using Entity Framework, ensure that LINQ queries are resolved using the `IQueryable`interface and not `IEnumerable`. You may need to adjust the query to use only functions that can be mapped to the data source. The earlier example can be refactored to remove the `AddDays` method from the query, allowing filtering to be done by the database.
 
 ```csharp
-DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out. 
+DateTime dateSince = DateTime.Now.AddDays(-7); // AddDays has been factored out.
 var query = from p in context.Products
             where p.SellStartDate < dateSince // This criterion can be passed to the database by LINQ to Entities
             select ...;
@@ -112,22 +114,21 @@ List<Product> products = query.ToList();
 
 - For operations that have to support unbounded queries, implement pagination and only fetch a limited number of entities at a time. For example, if a customer is browsing a product catalog, you can show one page of results at a time.
 
-- When possible, take advantage of features built into the data store. For example, SQL databases typically provide aggregate functions. 
+- When possible, take advantage of features built into the data store. For example, SQL databases typically provide aggregate functions.
 
 - If you're using a data store that doesn't support a particular function, such as aggregration, you could store the calculated result elsewhere, updating the value as records are added or updated, so the application doesn't have to recalculate the value each time it's needed.
 
-- If you see that requests are retrieving a large number of fields, examine the source code to determine whether all of these fields are actually necessary. Sometimes these requests are the result of poorly designed `SELECT *` query. 
+- If you see that requests are retrieving a large number of fields, examine the source code to determine whether all of these fields are actually necessary. Sometimes these requests are the result of poorly designed `SELECT *` query.
 
-- Similarly, requests that retrieve a large number of entities may be sign that the application is not filtering data correctly. Verify that all of these entities are actually needed. Use database-side filtering if possible, for example, by using `WHERE` clauses in SQL. 
+- Similarly, requests that retrieve a large number of entities may be sign that the application is not filtering data correctly. Verify that all of these entities are actually needed. Use database-side filtering if possible, for example, by using `WHERE` clauses in SQL.
 
 - Offloading processing to the database is not always the best option. Only use this strategy when the database is designed or optimized to do so. Most database systems are highly optimized for certain functions, but are not designed to act as general-purpose application engines. For more information, see the [Busy Database antipattern][BusyDatabase].
-
 
 ## How to detect the problem
 
 Symptoms of extraneous fetching include high latency and low throughput. If the data is retrieved from a data store, increased contention is also probable. End users are likely to report extended response times or failures caused by services timing out. These failures could return HTTP 500 (Internal Server) errors or HTTP 503 (Service Unavailable) errors. Examine the event logs for the web server, which are likely to contain more detailed information about the causes and circumstances of the errors.
 
-The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence]. 
+The symptoms of this antipattern and some of the telemetry obtained might be very similar to those of the [Monolithic Persistence antipattern][MonolithicPersistence].
 
 You can perform the following steps to help identify the cause:
 
@@ -135,8 +136,8 @@ You can perform the following steps to help identify the cause:
 2. Observe any behavioral patterns exhibited by the system. Are there particular limits in terms of transactions per second or volume of users?
 3. Correlate the instances of slow workloads with behavioral patterns.
 4. Identify the data stores being used. For each data source, run lower level telemetry to observe the behavior of operations.
-6. Identify any slow-running queries that reference these data sources.
-7. Perform a resource-specific analysis of the slow-running queries and ascertain how the data is used and consumed.
+5. Identify any slow-running queries that reference these data sources.
+6. Perform a resource-specific analysis of the slow-running queries and ascertain how the data is used and consumed.
 
 Look for any of these symptoms:
 
@@ -145,13 +146,13 @@ Look for any of these symptoms:
 - An operation that frequently receives large volumes of data over the network.
 - Applications and services spending significant time waiting for I/O to complete.
 
-## Example diagnosis    
+## Example diagnosis
 
 The following sections apply these steps to the previous examples.
 
 ### Identify slow workloads
 
-This graph shows performance results from a load test that simulated up to 400 concurrent users running the `GetAllFieldsAsync` method shown earlier. Throughput diminishes slowly as the load increases. Average response time goes up as the workload increases. 
+This graph shows performance results from a load test that simulated up to 400 concurrent users running the `GetAllFieldsAsync` method shown earlier. Throughput diminishes slowly as the load increases. Average response time goes up as the workload increases.
 
 ![Load test results for the GetAllFieldsAsync method][Load-Test-Results-Client-Side1]
 
@@ -169,7 +170,7 @@ A slow operation is not necessarily a problem, if it is not being performed when
 
 ### Identify data sources in slow workloads
 
-If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance. 
+If you suspect that a service is performing poorly because of the way it retrieves data, investigate how the application interacts with the repositories it uses. Monitor the live system to see which sources are accessed during periods of poor performance.
 
 For each data source, instrument the system to capture the following:
 
@@ -199,7 +200,6 @@ Look for database queries that consume the most resources and take the most time
 
 ![The Query Details pane in the Windows Azure SQL Database management portal][QueryDetails]
 
-
 ## Implement the solution and verify the result
 
 After changing the `GetRequiredFieldsAsync` method to use a SELECT statement on the database side, load testing showed the following results.
@@ -214,19 +214,17 @@ Load testing using the `AggregateOnDatabaseAsync` method generates the following
 
 ![Load test results for the AggregateOnDatabaseAsync method][Load-Test-Results-Database-Side2]
 
-The average response time is now minimal. This is an order of magnitude improvement in performance, caused primarily by the large reduction in I/O from the database. 
+The average response time is now minimal. This is an order of magnitude improvement in performance, caused primarily by the large reduction in I/O from the database.
 
 Here is the corresponding telemetry for the `AggregateOnDatabaseAsync` method. The amount of data retrieved from the database was vastly reduced, from over 280Kb per transaction to 53 bytes. As a result, the maximum sustained number of requests per minute was raised from around 2,000 to over 25,000.
 
 ![Telemetry for the `AggregateOnDatabaseAsync` method][TelemetryAggregateInDatabaseAsync]
-
 
 ## Related resources
 
 - [Busy Database antipattern][BusyDatabase]
 - [Chatty I/O antipattern][chatty-io]
 - [Data partitioning best practices][data-partitioning]
-
 
 [BusyDatabase]: ../busy-database/index.md
 [data-partitioning]: ../../best-practices/data-partitioning.md

@@ -51,7 +51,7 @@ API Management can also be used to implement cross-cutting concerns such as:
 
 If you don't need all of the functionality provided by API Management, another option is to use [Functions Proxies][functions-proxy]. This feature of Azure Functions lets you define a single API surface for multiple function apps, by creating routes to back-end functions. Function proxies can also perform limited transformations on the HTTP request and response. However, they don't provide the same rich policy-based capabilities of API Management.
 
-**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database  service. For this scenario, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client.
+**Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service. For this scenario, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client.
 
 **Azure Active Directory** (Azure AD). Users sign into the web application by using their Azure AD credentials. Azure AD returns an access token for the API, which the web application uses to authenticate API requests (see [Authentication](#authentication)).
 

@@ -1,12 +1,11 @@
 ---
-title: Compensating Transaction
+title: Compensating Transaction pattern
+titleSuffix: Cloud Design Patterns
 description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [resiliency]
+ms.custom: seodec18
 ---
 
 # Compensating Transaction pattern
@@ -81,7 +80,7 @@ Notice that the steps in the compensating transaction might not be the exact opp
 
 ![Generating a compensating transaction to undo a long-running transaction to book a travel itinerary](./_images/compensating-transaction-diagram.png)
 
-
+> [!NOTE]
 > It might be possible for the steps in the compensating transaction to be performed in parallel, depending on how you've designed the compensating logic for each step.
 
 In many business solutions, failure of a single step doesn't always necessitate rolling the system back by using a compensating transaction. For example, if&mdash;after having booked flights F1, F2, and F3 in the travel website scenario&mdash;the customer is unable to reserve a room at hotel H1, it's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel (in which case the compensating transaction runs and undoes the bookings made on flights F1, F2, and F3), but this decision should be made by the customer rather than by the system.
@@ -92,6 +91,6 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information on the benefits and tradeoffs of eventual consistency.
 
-- [Scheduler-Agent-Supervisor Pattern](scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
+- [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
 
-- [Retry Pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.
+- [Retry pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.

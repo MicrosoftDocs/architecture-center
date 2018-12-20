@@ -1,12 +1,11 @@
 ---
-title: Compute Resource Consolidation
+title: Compute Resource Consolidation pattern
+titleSuffix: Cloud Design Patterns
 description: Consolidate multiple tasks or operations into a single computational unit
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [design-implementation]
+ms.custom: seodec18
 ---
 
 # Compute Resource Consolidation pattern
@@ -22,7 +21,6 @@ A cloud application often implements a variety of operations. In some solutions 
 As an example, the figure shows the simplified structure of a cloud-hosted solution that is implemented using more than one computational unit. Each computational unit runs in its own virtual environment. Each function has been implemented as a separate task (labeled Task A through Task E) running in its own computational unit.
 
 ![Running tasks in a cloud environment using a set of dedicated computational units](./_images/compute-resource-consolidation-diagram.png)
-
 
 Each computational unit consumes chargeable resources, even when it's idle or lightly used. Therefore, this isn't always the most cost-effective solution.
 
@@ -62,7 +60,7 @@ Consider the following points when implementing this pattern:
 **Contention**. Avoid introducing contention between tasks that compete for resources in the same computational unit. Ideally, tasks that share the same computational unit should exhibit different resource utilization characteristics. For example, two compute-intensive tasks should probably not reside in the same computational unit, and neither should two tasks that consume large amounts of memory. However, mixing a compute intensive task with a task that requires a large amount of memory is a workable combination.
 
 > [!NOTE]
->  Consider consolidating compute resources only for a system that's been in production for a period of time so that operators and developers can monitor the system and create a _heat map_ that identifies how each task utilizes differing resources. This map can be used to determine which tasks are good candidates for sharing compute resources.
+> Consider consolidating compute resources only for a system that's been in production for a period of time so that operators and developers can monitor the system and create a _heat map_ that identifies how each task utilizes differing resources. This map can be used to determine which tasks are good candidates for sharing compute resources.
 
 **Complexity**. Combining multiple tasks into a single computational unit adds complexity to the code in the unit, possibly making it more difficult to test, debug, and maintain.
 
@@ -80,7 +78,7 @@ This pattern might not be suitable for tasks that perform critical fault-toleran
 
 When building a cloud service on Azure, it’s possible to consolidate the processing performed by multiple tasks into a single role. Typically this is a worker role that performs background or asynchronous processing tasks.
 
-> In some cases it's possible to include background or asynchronous processing tasks in the web role. This technique helps to reduce costs and simplify deployment, although it can impact the scalability and responsiveness of the public-facing interface provided by the web role. 
+> In some cases it's possible to include background or asynchronous processing tasks in the web role. This technique helps to reduce costs and simplify deployment, although it can impact the scalability and responsiveness of the public-facing interface provided by the web role.
 
 The role is responsible for starting and stopping the tasks. When the Azure fabric controller loads a role, it raises the `Start` event for the role. You can override the `OnStart` method of the `WebRole` or `WorkerRole` class to handle this event, perhaps to initialize the data and other resources the tasks in this method depend on.
 
@@ -99,7 +97,6 @@ When a role shuts down or is recycled, the fabric controller prevents any more i
 The tasks are started by the `Run` method that waits for the tasks to complete. The tasks implement the business logic of the cloud service, and can respond to messages posted to the role through the Azure load balancer. The figure shows the lifecycle of tasks and resources in a role in an Azure cloud service.
 
 ![The lifecycle of tasks and resources in a role in an Azure cloud service](./_images/compute-resource-consolidation-lifecycle.png)
-
 
 The _WorkerRole.cs_ file in the _ComputeResourceConsolidation.Worker_ project shows an example of how you might implement this pattern in an Azure cloud service.
 

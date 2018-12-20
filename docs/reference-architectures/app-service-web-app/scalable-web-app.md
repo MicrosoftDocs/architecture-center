@@ -76,7 +76,7 @@ Modern applications often process large amounts of data. In order to scale for t
 | Non-relational data with a flexible schema requiring basic querying |Product catalog |Document database, such as Azure Cosmos DB, MongoDB, or Apache CouchDB |
 | Relational data requiring richer query support, strict schema, and/or strong consistency |Product inventory |Azure SQL Database |
 
- See [Choose the right data store][datastore].
+See [Choose the right data store][datastore].
 
 ## Scalability considerations
 

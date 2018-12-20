@@ -1,11 +1,11 @@
 ---
 title: Data Management patterns
+titleSuffix: Cloud Design Patterns
 description: Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
+ms.custom: seodec18
 ---
 
 # Data Management patterns
@@ -13,7 +13,6 @@ pnp.series.title: Cloud Design Patterns
 [!INCLUDE [header](../../_includes/header.md)]
 
 Data management is the key element of cloud applications, and influences most of the quality attributes. Data is typically hosted in different locations and across multiple servers for reasons such as performance, scalability or availability, and this can present a range of challenges. For example, data consistency must be maintained, and data will typically need to be synchronized across different locations.
-
 
 |                        Pattern                         |                                                                  Summary                                                                  |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,4 +24,3 @@ Data management is the key element of cloud applications, and influences most of
 |               [Sharding](../sharding.md)               |                                    Divide a data store into a set of horizontal partitions or shards.                                     |
 | [Static Content Hosting](../static-content-hosting.md) |                   Deploy static content to a cloud-based storage service that can deliver them directly to the client.                    |
 |              [Valet Key](../valet-key.md)              |                 Use a token or key that provides clients with restricted direct access to a specific resource or service.                 |
-

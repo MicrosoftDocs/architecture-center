@@ -12,6 +12,8 @@ Our reference architectures are arranged by scenario, with related architectures
 
 Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Web apps](#web-applications) | [Active Directory](#extend-on-premises-active-directory-to-azure)
 
+<!-- markdownlint-disable MD033 -->
+
 ## AI and machine learning
 
 <!-- markdownlint-disable MD033 -->
@@ -745,3 +747,4 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 </li>
 </ul>
 
+<!-- markdownlint-disable MD033 -->

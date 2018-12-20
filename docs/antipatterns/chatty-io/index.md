@@ -1,8 +1,10 @@
 ---
 title: Chatty I/O antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: A large number of I/O requests can hurt performance and responsiveness.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # Chatty I/O antipattern
@@ -21,7 +23,7 @@ The following example reads from a database of products. There are three tables,
 2. Find all products in that subcategory by querying the `Product` table.
 3. For each product, query the pricing data from the `ProductPriceListHistory` table.
 
-The application uses [Entity Framework][ef] to query the database. You can find the complete sample [here][code-sample]. 
+The application uses [Entity Framework][ef] to query the database. You can find the complete sample [here][code-sample].
 
 ```csharp
 public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcategoryId)
@@ -52,11 +54,11 @@ public async Task<IHttpActionResult> GetProductsInSubCategoryAsync(int subcatego
 }
 ```
 
-This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the "N+1 problem". 
+This example shows the problem explicitly, but sometimes an O/RM can mask the problem, if it implicitly fetches child records one at a time. This is known as the "N+1 problem".
 
 ### Implementing a single logical operation as a series of HTTP requests
 
-This often happens when developers try to follow an object-oriented paradigm, and treat remote objects as if they were local objects in memory. This can result in too many network round trips. For example, the following web API exposes the individual properties of `User` objects through individual HTTP GET methods. 
+This often happens when developers try to follow an object-oriented paradigm, and treat remote objects as if they were local objects in memory. This can result in too many network round trips. For example, the following web API exposes the individual properties of `User` objects through individual HTTP GET methods.
 
 ```csharp
 public class UserController : ApiController
@@ -84,7 +86,7 @@ public class UserController : ApiController
 }
 ```
 
-While there's nothing technically wrong with this approach, most clients will probably need to get several properties for each `User`, resulting in client code like the following. 
+While there's nothing technically wrong with this approach, most clients will probably need to get several properties for each `User`, resulting in client code like the following.
 
 ```csharp
 HttpResponseMessage response = await client.GetAsync("users/1/username");
@@ -102,8 +104,7 @@ var dob = await response.Content.ReadAsStringAsync();
 
 ### Reading and writing to a file on disk
 
-File I/O involves opening a file and moving to the appropriate point before reading or writing data. When the operation is complete, the file might be closed to save operating system resources. An application that continually reads and writes small amounts of information to a file will generate
-significant I/O overhead. Small write requests can also lead to file fragmentation, slowing subsequent I/O operations still further. 
+File I/O involves opening a file and moving to the appropriate point before reading or writing data. When the operation is complete, the file might be closed to save operating system resources. An application that continually reads and writes small amounts of information to a file will generate significant I/O overhead. Small write requests can also lead to file fragmentation, slowing subsequent I/O operations still further.
 
 The following example uses a `FileStream` to write a `Customer` object to a file. Creating the `FileStream` opens the file, and disposing it closes the file. (The `using` statement automatically disposes the `FileStream` object.) If the application calls this method repeatedly as new customers are added, the I/O overhead can accumulate quickly.
 
@@ -207,7 +208,7 @@ await SaveCustomerListToFileAsync(customers);
 
 - The first two examples make *fewer* I/O calls, but each one retrieves *more* information. You must consider the tradeoff between these two factors. The right answer will depend on the actual usage patterns. For example, in the web API example, it might turn out that clients often need just the user name. In that case, it might make sense to expose it as a separate API call. For more information, see the [Extraneous Fetching][extraneous-fetching] antipattern.
 
-- When reading data, do not make your I/O requests too large. An application should only retrieve the information that it is likely to use. 
+- When reading data, do not make your I/O requests too large. An application should only retrieve the information that it is likely to use.
 
 - Sometimes it helps to partition the information for an object into two chunks, *frequently accessed data* that accounts for most requests, and *less frequently accessed data* that is used rarely. Often the most frequently accessed data is a relatively small portion of the total data for an object, so returning just that portion can save significant I/O overhead.
 
@@ -227,15 +228,13 @@ You can perform the following steps to help identify the causes of any problems:
 2. Perform load testing of each operation identified in the previous step.
 3. During the load tests, gather telemetry data about the data access requests made by each operation.
 4. Gather detailed statistics for each request sent to a data store.
-5. Profile the application in the test environment to establish where possible I/O bottlenecks might be occurring. 
+5. Profile the application in the test environment to establish where possible I/O bottlenecks might be occurring.
 
 Look for any of these symptoms:
 
 - A large number of small I/O requests made to the same file.
-- A large number of small network requests made by an application instance to the same
-service.
-- A large number of small requests made by an application instance to the same data
-store.
+- A large number of small network requests made by an application instance to the same service.
+- A large number of small requests made by an application instance to the same data store.
 - Applications and services becoming I/O bound.
 
 ## Example diagnosis
@@ -244,16 +243,16 @@ The following sections apply these steps to the example shown earlier that queri
 
 ### Load test the application
 
-This graph shows the results of load testing. Median response time is measured in 10s of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query. 
+This graph shows the results of load testing. Median response time is measured in 10s of seconds per request. The graph shows very high latency. With a load of 1000 users, a user might have to wait for nearly a minute to see the results of a query.
 
 ![Key indicators load-test results for the chatty I/O sample application][key-indicators-chatty-io]
 
 > [!NOTE]
-> The application was deployed as an Azure App Service web app, using Azure SQL Database. The load test used a simulated step workload of up to 1000 concurrent users. The database was configured with a connection pool supporting up to 1000 concurrent connections, to reduce the chance that contention for connections would affect the results. 
+> The application was deployed as an Azure App Service web app, using Azure SQL Database. The load test used a simulated step workload of up to 1000 concurrent users. The database was configured with a connection pool supporting up to 1000 concurrent connections, to reduce the chance that contention for connections would affect the results.
 
 ### Monitor the application
 
-You can use an application performance monitoring (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries. 
+You can use an application performance monitoring (APM) package to capture and analyze the key metrics that might identify chatty I/O. Which metrics are important will depend on the I/O workload. For this example, the interesting I/O requests were the database queries.
 
 The following image shows results generated using [New Relic APM][new-relic]. The average database response time peaked at approximately 5.6 seconds per request during the maximum workload. The system was able to support an average of 410 requests per minute throughout the test.
 
@@ -278,7 +277,7 @@ The next image shows the actual SQL statements that were issued. The query that 
 
 ![Query details for the sample application under test][queries3]
 
-If you are using an O/RM, such as Entity Framework, tracing the SQL queries can provide insight into how the O/RM translates programmatic calls into SQL statements, and indicate areas where data access might be optimized. 
+If you are using an O/RM, such as Entity Framework, tracing the SQL queries can provide insight into how the O/RM translates programmatic calls into SQL statements, and indicate areas where data access might be optimized.
 
 ### Implement the solution and verify the result
 
@@ -292,7 +291,7 @@ This time the system supported an average of 3,970 requests per minute, compared
 
 ![Transaction overview for the chunky API][databasetraffic2]
 
-Tracing the SQL statement shows that all the data is fetched in a single SELECT statement. Although this query is considerably more complex, it is performed only once per operation. And while complex joins can become expensive, relational database systems are optimized for this type of query.  
+Tracing the SQL statement shows that all the data is fetched in a single SELECT statement. Although this query is considerably more complex, it is performed only once per operation. And while complex joins can become expensive, relational database systems are optimized for this type of query.
 
 ![Query details for the chunky API][queries4]
 
@@ -321,4 +320,3 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 [queries2]: _images/DatabaseQueries2.jpg
 [queries3]: _images/DatabaseQueries3.jpg
 [queries4]: _images/DatabaseQueries4.jpg
-

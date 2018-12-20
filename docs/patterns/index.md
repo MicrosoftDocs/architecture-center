@@ -1,9 +1,13 @@
 ---
 title: Cloud Design Patterns
+titleSuffix: Azure Architecture Center
 description: Cloud Design Patterns for building reliable, scalable, secure applications in the cloud
 keywords: Azure
+author: dragon119
 ms.date: 12/10/2018
+ms.custom: seodec18
 ---
+
 # Cloud Design Patterns
 
 These design patterns are useful for building reliable, scalable, secure applications in the cloud.
@@ -12,6 +16,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 ## Challenges in cloud development
 
+<!-- markdownlint-disable MD033 -->
 <table>
 <tr>
     <td style="width: 64px; vertical-align: middle;"><a href="./category/availability.md"><img src="_images/category/availability.svg" alt="Availability" /></a></td>
@@ -70,6 +75,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </td>
 </tr>
 </table>
+<!-- markdownlint-disable MD033 -->
 
 ## Catalog of patterns
 
@@ -108,4 +114,3 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |                      [Strangler](./strangler.md)                      |                                            Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.                                            |
 |                     [Throttling](./throttling.md)                     |                                                 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.                                                 |
 |                      [Valet Key](./valet-key.md)                      |                                                        Use a token or key that provides clients with restricted direct access to a specific resource or service.                                                        |
-

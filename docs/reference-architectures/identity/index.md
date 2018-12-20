@@ -41,7 +41,7 @@ You can also use Azure AD without using an on-premises directory. In this case, 
 **Challenges**
 
 - Identity services are limited to users and groups. There is no ability to authenticate service and computer accounts.
-- You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized. 
+- You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized.
 - Applications may need to be rewritten to enable authentication through Azure AD.
 
 **Reference architecture**
@@ -50,9 +50,9 @@ You can also use Azure AD without using an on-premises directory. In this case, 
 
 ## AD DS in Azure joined to an on-premises forest
 
-Deploy AD Domain Services (AD DS) servers to Azure. Create a domain in Azure and join it to your on-premises AD forest. 
+Deploy AD Domain Services (AD DS) servers to Azure. Create a domain in Azure and join it to your on-premises AD forest.
 
-Consider this option if you need to use AD DS features that are not currently implemented by Azure AD. 
+Consider this option if you need to use AD DS features that are not currently implemented by Azure AD.
 
 **Benefits**
 
@@ -92,13 +92,13 @@ Typical uses for this architecture include maintaining security separation for o
 
 ## Extend AD FS to Azure
 
-Replicate an Active Directory Federation Services (AD FS) deployment to Azure, to perform federated authentication and authorization for components running in Azure. 
+Replicate an Active Directory Federation Services (AD FS) deployment to Azure, to perform federated authentication and authorization for components running in Azure.
 
 Typical uses for this architecture:
 
 - Authenticate and authorize users from partner organizations.
 - Allow users to authenticate from web browsers running outside of the organizational firewall.
-- Allow users to connect from authorized external devices such as mobile devices. 
+- Allow users to connect from authorized external devices such as mobile devices.
 
 **Benefits**
 

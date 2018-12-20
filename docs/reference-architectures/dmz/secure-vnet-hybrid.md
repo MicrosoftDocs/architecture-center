@@ -5,11 +5,6 @@ description: Implement a secure hybrid network architecture in Azure.
 author: telmosampaio
 ms.date: 10/22/2018
 ms.custom: seodec18
-
-pnp.series.title: Network DMZ
-pnp.series.prev: ./index
-pnp.series.next: secure-vnet-dmz
-cardTitle: DMZ between Azure and on-premises
 ---
 
 # Implement a DMZ between Azure and your on-premises datacenter
@@ -30,7 +25,7 @@ This architecture requires a connection to your on-premises datacenter, using ei
 
 The architecture consists of the following components.
 
-- **On-premises network**. A  private local-area network implemented in an organization.
+- **On-premises network**. A private local-area network implemented in an organization.
 - **Azure virtual network (VNet)**. The VNet hosts the application and other resources running in Azure.
 - **Gateway**. The gateway provides connectivity between the routers in the on-premises network and the VNet.
 - **Network virtual appliance (NVA)**. NVA is a generic term that describes a VM performing tasks such as allowing or denying access as a firewall, optimizing wide area network (WAN) operations (including network compression), custom routing, or other network functionality.
@@ -218,7 +213,7 @@ In this step, you will connect the two local network gateways.
 
 ## Next steps
 
-- Learn how to implement a [DMZ between Azure and the Internet](secure-vnet-dmz.md).
+- Learn how to implement a [DMZ between Azure and the Internet](./secure-vnet-dmz.md).
 - Learn how to implement a [highly available hybrid network architecture][ra-vpn-failover].
 - For more information about managing network security with Azure, see [Microsoft cloud services and network security][cloud-services-network-security].
 - For detailed information about protecting resources in Azure, see [Getting started with Microsoft Azure security][getting-started-with-azure-security].

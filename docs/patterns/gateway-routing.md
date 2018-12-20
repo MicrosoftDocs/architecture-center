@@ -1,8 +1,11 @@
 ---
 title: Gateway Routing pattern
+titleSuffix: Cloud Design Patterns
 description: Route requests to multiple services using a single endpoint.
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.custom: seodec18
 ---
 
 # Gateway Routing pattern
@@ -21,8 +24,8 @@ With this pattern, the client application only needs to know about and communica
 
 A gateway also lets you abstract backend services from the clients, allowing you to keep client calls simple while enabling changes in the backend services behind the gateway. Client calls can be routed to whatever service or services need to handle the expected client behavior, allowing you to add, split, and reorganize services behind the gateway without changing the client.
 
-![](./_images/gateway-routing.png)
- 
+![Diagram of the Gateway Routing pattern](./_images/gateway-routing.png)
+
 This pattern can also help with deployment, by allowing you to manage how updates are rolled out to users. When a new version of your service is deployed, it can be deployed in parallel with the existing version. Routing lets you control what version of the service is presented to the clients, giving you the flexibility to use various release strategies, whether incremental, parallel, or complete rollouts of updates. Any issues discovered after the new service is deployed can be quickly reverted by making a configuration change at the gateway, without affecting clients.
 
 ## Issues and considerations
@@ -46,7 +49,7 @@ This pattern may not be suitable when you have a simple application that uses on
 
 Using Nginx as the router, the following is a simple example configuration file for a server that routes requests for applications residing on different virtual directories to different machines at the back end.
 
-```
+```console
 server {
     listen 80;
     server_name domain.com;
@@ -70,6 +73,3 @@ server {
 - [Backends for Frontends pattern](./backends-for-frontends.md)
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
-
-
-

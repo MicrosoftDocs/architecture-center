@@ -60,7 +60,7 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 As a best practice, create a health probe endpoint that reports the overall health of the application and use this endpoint for the health probe. The endpoint should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy endpoint when critical parts of the application are actually failing.
 
-On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. This is not a high enough priority to cause the application to fail over. For more information, see [Health Endpoint Monitoring Pattern][health-endpoint-monitoring-pattern].
+On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. This is not a high enough priority to cause the application to fail over. For more information, see the [Health Endpoint Monitoring pattern][health-endpoint-monitoring-pattern].
 
 ### SQL Database
 

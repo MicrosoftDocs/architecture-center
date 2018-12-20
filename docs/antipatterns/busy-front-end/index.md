@@ -1,8 +1,10 @@
 ---
 title: Busy Front End antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Asynchronous work on a large number of background threads can starve other foreground tasks of resources.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # Busy Front End antipattern
@@ -57,11 +59,11 @@ The primary concern is the resource requirements of the `Post` method. Although 
 
 ## How to fix the problem
 
-Move processes that consume significant resources to a separate back end. 
+Move processes that consume significant resources to a separate back end.
 
 With this approach, the front end puts resource-intensive tasks onto a message queue. The back end picks up the tasks for asynchronous processing. The queue also acts as a load leveler, buffering requests for the back end. If the queue length becomes too long, you can configure autoscaling to scale out the back end.
 
-Here is a revised version of the previous code. In this version, the `Post` method puts a message on a Service Bus queue. 
+Here is a revised version of the previous code. In this version, the `Post` method puts a message on a Service Bus queue.
 
 ```csharp
 public class WorkInBackgroundController : ApiController
@@ -116,7 +118,7 @@ public async Task RunAsync(CancellationToken cancellationToken)
 - This approach adds some additional complexity to the application. You must handle queuing and dequeuing safely to avoid losing requests in the event of a failure.
 - The application takes a dependency on an additional service for the message queue.
 - The processing environment must be sufficiently scalable to handle the expected workload and meet the required throughput targets.
-- While this approach should improve overall responsiveness, the tasks that are moved to the back end may take longer to complete. 
+- While this approach should improve overall responsiveness, the tasks that are moved to the back end may take longer to complete.
 
 ## How to detect the problem
 
@@ -125,12 +127,12 @@ Symptoms of a busy front end include high latency when resource-intensive tasks 
 You can perform the following steps to help identify this problem:
 
 1. Perform process monitoring of the production system, to identify points when response times slow down.
-2. Examine the telemetry data captured at these points to determine the mix of operations being performed and the resources being used. 
+2. Examine the telemetry data captured at these points to determine the mix of operations being performed and the resources being used.
 3. Find any correlations between poor response times and the volumes and combinations of operations that were happening at those times.
-4. Load test each suspected operation to identify which operations are consuming resources and starving other operations. 
+4. Load test each suspected operation to identify which operations are consuming resources and starving other operations.
 5. Review the source code for those operations to determine why they might cause excessive resource consumption.
 
-## Example diagnosis 
+## Example diagnosis
 
 The following sections apply these steps to the sample application described earlier.
 
@@ -150,18 +152,17 @@ The next image shows some of the metrics gathered to monitor resource utilizatio
 
 At this point, it appears the `Post` method in the `WorkInFrontEnd` controller is a prime candidate for closer examination. Further work in a controlled environment is needed to confirm the hypothesis.
 
-### Perform load testing 
+### Perform load testing
 
 The next step is to perform tests in a controlled environment. For example, run a series of load tests that include and then omit each request in turn to see the effects.
 
-The graph below shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller. 
+The graph below shows the results of a load test performed against an identical deployment of the cloud service used in the previous tests. The test used a constant load of 500 users performing the `Get` operation in the `UserProfile` controller, along with a step load of users performing the `Post` operation in the `WorkInFrontEnd` controller.
 
 ![Initial load test results for the WorkInFrontEnd controller][Initial-Load-Test-Results-Front-End]
 
 Initially, the step load is 0, so the only active users are performing the `UserProfile` requests. The system is able to respond to approximately 500 requests per second. After 60 seconds, a load of 100 additional users starts sending POST requests to the `WorkInFrontEnd` controller. Almost immediately, the workload sent to the `UserProfile` controller drops to about 150 requests per second. This is due to the way the load-test runner functions. It waits for a response before sending the next request, so the longer it takes to receive a response, the lower the request rate.
 
 As more users send POST requests to the `WorkInFrontEnd` controller, the response rate of the `UserProfile` controller continues to drop. But note that the volume of requests handled by the `WorkInFrontEnd`controller remains relatively constant. The saturation of the system becomes apparent as the overall rate of both requests tends towards a steady but low limit.
-
 
 ### Review the source code
 
@@ -170,11 +171,11 @@ The final step is to look at the source code. The development team was aware tha
 However, the work performed by this method still consumes CPU, memory, and other resources. Enabling this process to run asynchronously might actually damage performance, as users can trigger a large number of these operations simultaneously, in an uncontrolled manner. There is a limit to the number of threads that a server can run. Past this limit, the application is likely to get an exception when it tries to start a new thread.
 
 > [!NOTE]
-> This doesn't mean you should avoid asynchronous operations. Performing an asynchronous await on a network call is a recommended practice. (See the [Synchronous I/O][sync-io] antipattern.) The problem here is that CPU-intensive work was spawned on another thread. 
+> This doesn't mean you should avoid asynchronous operations. Performing an asynchronous await on a network call is a recommended practice. (See the [Synchronous I/O][sync-io] antipattern.) The problem here is that CPU-intensive work was spawned on another thread.
 
 ### Implement the solution and verify the result
 
-The following image shows performance monitoring after the solution was implemented. The load was similar to that shown earlier, but the response times for the `UserProfile` controller are now much faster. The volume of requests increased over the same duration, from 2,759 to 23,565. 
+The following image shows performance monitoring after the solution was implemented. The load was similar to that shown earlier, but the response times for the `UserProfile` controller are now much faster. The volume of requests increased over the same duration, from 2,759 to 23,565.
 
 ![AppDynamics Business Transactions pane showing the effects of the response times of all requests when the WorkInBackground controller is used][AppDynamics-Transactions-Background-Requests]
 
@@ -213,5 +214,3 @@ The following graph shows the results of a load test. The overall volume of requ
 [AppDynamics-Transactions-Background-Requests]: ./_images/AppDynamicsBackgroundPerformanceStats.jpg
 [AppDynamics-Metrics-Background-Requests]: ./_images/AppDynamicsBackgroundMetrics.jpg
 [Load-Test-Results-Background]: ./_images/LoadTestResultsBackground.jpg
-
-

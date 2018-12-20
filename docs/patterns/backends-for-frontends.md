@@ -1,8 +1,11 @@
 ---
 title: Backends for Frontends pattern
+titleSuffix: Cloud Design Patterns
 description: Create separate backend services to be consumed by specific frontend applications or interfaces.
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.custom: seodec18
 ---
 
 # Backends for Frontends pattern
@@ -13,19 +16,19 @@ Create separate backend services to be consumed by specific frontend application
 
 An application may initially be targeted at a desktop web UI. Typically, a backend service is developed in parallel that provides the features needed for that UI. As the application's user base grows, a mobile application is developed that must interact with the same backend. The backend service becomes a general-purpose backend, serving the requirements of both the desktop and mobile interfaces.
 
-But the capabilities of a mobile device differ significantly from a desktop browser, in terms of screen size, performance, and display limitations. As a result, the requirements for a mobile application backend differ from the desktop web UI. 
+But the capabilities of a mobile device differ significantly from a desktop browser, in terms of screen size, performance, and display limitations. As a result, the requirements for a mobile application backend differ from the desktop web UI.
 
 These differences result in competing requirements for the backend. The backend requires regular and significant changes to serve both the desktop web UI and the mobile application. Often, separate interface teams work on each frontend, causing the backend to become a bottleneck in the development process. Conflicting update requirements, and the need to keep the service working for both frontends, can result in spending a lot of effort on a single deployable resource.
 
-![](./_images/backend-for-frontend.png) 
+![Context-and-problem diagram of the Backends for Frontends pattern](./_images/backend-for-frontend.png)
 
-As the development activity focuses on the backend service, a separate team may be created to manage and maintain the backend. Ultimately, this results in a disconnect between the interface and backend development teams, placing a burden on the backend team to balance the competing requirements of the different UI teams. When one interface team requires changes to the backend, those changes must be validated with other interface teams before they can be integrated into the backend. 
+As the development activity focuses on the backend service, a separate team may be created to manage and maintain the backend. Ultimately, this results in a disconnect between the interface and backend development teams, placing a burden on the backend team to balance the competing requirements of the different UI teams. When one interface team requires changes to the backend, those changes must be validated with other interface teams before they can be integrated into the backend.
 
 ## Solution
 
 Create one backend per user interface. Fine tune the behavior and performance of each backend to best match the needs of the frontend environment, without worrying about affecting other frontend experiences.
 
-![](./_images/backend-for-frontend-example.png) 
+![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-example.png)
 
 Because each backend is specific to one interface, it can be optimized for that interface. As a result, it will be smaller, less complex, and likely faster than a generic backend that tries to satisfy the requirements for all interfaces. Each interface team has autonomy to control their own backend and doesn't rely on a centralized backend development team. This gives the interface team flexibility in language selection, release cadence, prioritization of workload, and feature integration in their backend.
 
@@ -59,5 +62,3 @@ This pattern may not be suitable:
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)
-
-

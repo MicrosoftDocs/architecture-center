@@ -1,15 +1,18 @@
 ---
 title: Bulkhead pattern
+titleSuffix: Cloud Design Patterns
 description: Isolate elements of an application into pools so that if one fails, the others will continue to function
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.custom: seodec18
 ---
 
 # Bulkhead pattern
 
 Isolate elements of an application into pools so that if one fails, the others will continue to function.
 
-This pattern is named *Bulkhead* because it resembles the sectioned partitions of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking. 
+This pattern is named *Bulkhead* because it resembles the sectioned partitions of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
 
 ## Context and problem
 
@@ -29,16 +32,16 @@ The benefits of this pattern include:
 
 - Isolates consumers and services from cascading failures. An issue affecting a consumer or service can be isolated within its own bulkhead, preventing the entire solution from failing.
 - Allows you to preserve some functionality in the event of a service failure. Other services and features of the application will continue to work.
-- Allows you to deploy services that offer a different quality of service for consuming applications. A high-priority consumer pool can be configured to use high-priority services. 
+- Allows you to deploy services that offer a different quality of service for consuming applications. A high-priority consumer pool can be configured to use high-priority services.
 
 The following diagram shows bulkheads structured around connection pools that call individual services. If Service A fails or causes some other issue, the connection pool is isolated, so only workloads using the thread pool assigned to Service A are affected. Workloads that use Service B and C are not affected and can continue working without interruption.
 
-![](./_images/bulkhead-1.png) 
+![First diagram of the Bulkhead pattern](./_images/bulkhead-1.png)
 
 The next diagram shows multiple clients calling a single service. Each client is assigned a separate service instance. Client 1 has made too many requests and overwhelmed its instance. Because each service instance is isolated from the others, the other clients can continue making calls.
 
-![](./_images/bulkhead-2.png)
-     
+![First diagram of the Bulkhead pattern](./_images/bulkhead-2.png)
+
 ## Issues and considerations
 
 - Define partitions around the business and technical requirements of the application.
@@ -87,11 +90,10 @@ spec:
 
 ## Related guidance
 
-- [Circuit Breaker pattern](./circuit-breaker.md)
 - [Designing resilient applications for Azure](../resiliency/index.md)
+- [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.md)
 - [Throttling pattern](./throttling.md)
-
 
 <!-- links -->
 
