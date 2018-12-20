@@ -7,21 +7,37 @@ ms.date: 10/11/2018
 
 # Fusion: What is a Cloud Strategy Team?
 
-The goal of cloud transformation is to produce tangible business results which are enabled by cloud technologies. To change the business, the business must be involved. Cloud strategy team is the embodiment of this belief. It is a team of individuals that can see across business, culture, and technical change to shape transformation and influence the culture. This team is responsible for ensuring that the cloud transformation is progressing in alignment with business outcomes. The remainder of this article outlines the structure and duties of such a team.
+Successful cloud transformation must engage business leaders from across the organization. To unite various leaders, the recommendation is that the executive leadership create a cloud strategy team.
 
-## Structure of a Cloud Strategy Team
+The goal of the cloud strategy team is to produce tangible business results that are enabled by cloud technologies. The team ensures that the cloud transformation progresses in alignment with business outcomes. 
 
-Successful cloud transformation is unique among many technical implementations, in that it must engage business leaders from across the organization. To unite various leaders, it is suggested that executive leadership create a cloud strategy team (CST). This team consists of business leaders from finance, line of business, HR, operations,enterprise architecture, IT infrastructure, and application groups. These teams can help guide critical prioritization and discovery efforts during business transformation.
+The cloud strategy team members can see across business, culture, and technical change to shape transformation and influence the culture.
 
-Digital Transformation, like many forms of business transformation, could trigger changes in business processes, the execution of operations, customer interactions, or even product development. Seldom can digital transformation drive business outcomes, if it is confined to an Information Technology (IT) team. To drive true business change, business leaders must participate in the process. The Cloud Strategy Team provides a means for involving key participants in a manageable construct.
+## Team structure
 
-Members of the Cloud Strategy Team should be assigned based on the [Transformation Journey](../transformation-journeys/overview.md) that best aligns with the current corporate objectives & priorities. The Cloud Strategy Team is often assigned by the CEO and CIO. Assignments are generally based on empowering this team to drive change that cuts across various different organizations within the enterprise.
+This team consists of business leaders from:
 
-## Duties of a Cloud Strategy Team
+ - Finance
+ - Line of business
+ - HR 
+ - Operations
+ - Enterprise architecture 
+ - IT infrastructure 
+ - Application groups 
+ 
+The members can help guide critical prioritization and discover efforts during the transformation.
 
-The primary duty of a Cloud Strategy Team is to validate alignment between Business Priorities and the Transformation Journey. However, that primary duty is broad and ambiguous. The following represent a series of tasks usually executed by a Cloud Strategy Team on a monthly basis to help action that primary duty.
+Consider digital transformation. It can trigger changes in business processes, the execution of operations, customer interactions, or even product development. If it is only confined to the IT team, the transormation cannot be fully successful. To drive true business change, business leaders must participate in the process. cloud strategy team provides a means for involving key participants in a structured way.
 
-**Early Planning Tasks:**
+The organization's CEO and CIO often assign the team. Assignments are generally based on empowering this team to drive change that cuts across various different organizations within the enterprise. The cloud strategy team members should be assigned based on the [Transformation Journey](../transformation-journeys/overview.md) that best aligns with the current corporate objectives & priorities. 
+
+## Key responsibilities
+
+The primary duty of the cloud strategy team is to validate alignment between business priorities and the [Transformation Journey](../transformation-journeys/overview.md). However, the primary duty is broader. 
+
+These tasks are usually executed by the cloud strategy team on a monthly basis: 
+
+**Early planning tasks**
 
 * Review and provide feedback on [Business Outcomes](../business-strategy/business-outcomes/overview.md) and [Financial Models](../business-strategy/financial-models.md)
 * Aid in establishing clear [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) that align with corporate objectives
@@ -29,13 +45,17 @@ The primary duty of a Cloud Strategy Team is to validate alignment between Busin
 * Understand [business risks](../business-strategy/risk-tolerance.md) introduced by the plan, represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)
 * Review and approve the [rationalization of the digital estate](../digital-estate/overview.md)
 
-**On-going Monthly Tasks:**
+**On-going monthly tasks**
 
-* Support the Cloud Governance Team during risk/tolerance conversations
+* Support the [cloud governance team](what-is-a-cloud-governance-team.md) during risk/tolerance conversations
 * Review release plans to understand timelines and business impact of technical change
 * Define Business Change Plans associated with planned releases
 * Ensure business teams are ready to execute Business Testing and Business Change Plan
 
-## Cloud Strategy Team cadence
+## Meeting cadence
 
-Generally, the tasks mentioned above can be time consuming in the early planning phases. It is advised that each member plan on spending an hour per week to meet with the team. Once the migration plan starts to solidify (usually within 4-6 weeks), the time requirements can often be reduced. Throughout the transformation journey, it is advised that Cloud Strategy Team members plan on investing 1-2 hours per month. Additionally time is likely to be required from delegated members of the executive's team on an as-needed-basis.
+The tasks listed in preceding section can be time consuming in the early planning phases. Here are some recommendations for the cloud strategy team members: 
+- Spend an hour each week to meet with team. After the migration plan starts to solidify (usually within 4-6 weeks), the time requirements can be reduced. 
+- Spend 1-2 hours each month throughout the transformation journey. Additionally, time is likely to be required from delegated members of the executive's team on an as-needed-basis.
+
+
