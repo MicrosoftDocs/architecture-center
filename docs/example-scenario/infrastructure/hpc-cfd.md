@@ -1,5 +1,6 @@
 ---
-title: Running computational fluid dynamics (CFD) simulations on Azure
+title: Running CFD simulations
+titleSuffix: Azure Example Scenarios
 description: Execute computational fluid dynamics (CFD) simulations on Azure.
 author: mikewarr
 ms.date: 09/20/2018
@@ -18,11 +19,11 @@ To simplify the creation, management, and optimization of HPC clusters, Azure Cy
 
 Other relevant industries for CFD applications include:
 
-* Aeronautics
-* Automotive
-* Building HVAC
-* Oil and gas
-* Life sciences
+- Aeronautics
+- Automotive
+- Building HVAC
+- Oil and gas
+- Life sciences
 
 ## Architecture
 
@@ -41,12 +42,12 @@ This diagram shows a high-level overview of a typical hybrid design providing jo
 
 ### Components
 
-* [Azure CycleCloud][cyclecloud] a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
-* [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
-* [Azure Virtual Machines (VMs)][vms] are used to create a static set of compute instances.
-* [Virtual Machine Scale Sets (virtual machine scale set)][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
-* [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-* [Virtual Networks](/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
+- [Azure CycleCloud][cyclecloud] a tool for creating, managing, operating, and optimizing HPC and Big Compute clusters in Azure.
+- [Avere vFXT on Azure][avere] is used to provide an enterprise-scale clustered file system built for the cloud.
+- [Azure Virtual Machines (VMs)][vms] are used to create a static set of compute instances.
+- [Virtual Machine Scale Sets (virtual machine scale set)][vmss] provide a group of identical VMs capable of being scaled up or down by Azure CycleCloud.
+- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) enable many types of Azure resources, such as Azure Virtual Machines (VMs), to securely communicate with each other, the internet, and on-premises networks.
 
 ### Alternatives
 
@@ -60,15 +61,22 @@ Scaling the execute nodes on Azure CycleCloud can be accomplished either manuall
 
 For general guidance on designing secure solutions, see the [Azure security documentation][security].
 
-## Deploy this scenario
+## Deploy the scenario
 
-Before deploying in Azure, some pre-requisites are required. Follow these steps before deploying the Resource Manager template:
+### Prerequisites
+
+Follow these steps before deploying the Resource Manager template:
+
 1. Create a [service principal][cycle-svcprin] for retrieving the appId, displayName, name, password, and tenant.
 2. Generate an [SSH key pair][cycle-ssh] to sign in securely to the CycleCloud server.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
+    <!-- markdownlint-disable MD033 -->
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json" target="_blank">
+        <img src="https://azuredeploy.net/deploybutton.png"/>
+    </a>
+
+    <!-- markdownlint-enable MD033 -->
 
 3. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster.
 4. [Create a cluster][cycle-create].
@@ -85,12 +93,12 @@ The cost of running an HPC implementation using CycleCloud server will vary depe
 
 This scenario shows how CFD applications can be run in Azure, so the machines will require RDMA functionality, which is only available on specific VM sizes. The following are examples of costs that could be incurred for a scale set that is allocated continuously for eight hours per day for one month, with data egress of 1 TB. It also includes pricing for the Azure CycleCloud server and the Avere vFXT for Azure install:
 
-* Region: North Europe
-* Azure CycleCloud Server: 1 x Standard D3 (4 x CPUs, 14 GB Memory, Standard HDD 32 GB)
-* Azure CycleCloud Master Server: 1 x Standard D12 v (4 x CPUs, 28 GB Memory, Standard HDD 32 GB)
-* Azure CycleCloud Node Array: 10 x Standard H16r (16 x CPUs, 112 GB Memory)
-* Avere vFXT on Azure Cluster: 3 x D16s v3 (200 GB OS, Premium SSD 1-TB data disk)
-* Data Egress: 1 TB
+- Region: North Europe
+- Azure CycleCloud Server: 1 x Standard D3 (4 x CPUs, 14 GB Memory, Standard HDD 32 GB)
+- Azure CycleCloud Master Server: 1 x Standard D12 v (4 x CPUs, 28 GB Memory, Standard HDD 32 GB)
+- Azure CycleCloud Node Array: 10 x Standard H16r (16 x CPUs, 112 GB Memory)
+- Avere vFXT on Azure Cluster: 3 x D16s v3 (200 GB OS, Premium SSD 1-TB data disk)
+- Data Egress: 1 TB
 
 Review this [price estimate][pricing] for the hardware listed above.
 
@@ -100,8 +108,8 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 
 ## Related resources
 
-* [RDMA Capable Machine Instances][rdma]
-* [Customizing an RDMA Instance VM][rdma-custom]
+- [RDMA Capable Machine Instances][rdma]
+- [Customizing an RDMA Instance VM][rdma-custom]
 
 <!-- links -->
 [architecture]: ./media/architecture-hpc-cfd.png

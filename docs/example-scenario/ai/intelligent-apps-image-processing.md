@@ -1,5 +1,6 @@
 ---
-title: Image classification for insurance claims on Azure
+title: Image classification for insurance claims
+titleSuffix: Azure Example Scenarios
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
@@ -17,8 +18,8 @@ By using Azure services such as the Computer Vision API and Azure Functions, com
 
 Other relevant use cases include:
 
-* Classifying images on a fashion website.
-* Classifying telemetry data from screenshots of games.
+- Classifying images on a fashion website.
+- Classifying telemetry data from screenshots of games.
 
 ## Architecture
 
@@ -34,16 +35,16 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-* [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
-* [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-* [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
-* [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-* [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
+- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
+- [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ## Alternatives
 
-* [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-* [Azure Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
+- [Azure Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
 
 ## Considerations
 
@@ -75,9 +76,9 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 kb in size):
 
-* [Small][small-pricing]: this pricing example correlates to processing &lt; 5000 images a month.
-* [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
-* [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
+- [Small][small-pricing]: this pricing example correlates to processing &lt; 5000 images a month.
+- [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
+- [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
 ## Related resources
 

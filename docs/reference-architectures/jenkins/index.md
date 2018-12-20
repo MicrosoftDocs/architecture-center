@@ -211,6 +211,12 @@ The Microsoft Jenkins product group has created disaster recovery scripts that b
 
 Download and run the disaster recovery scripts from [GitHub][disaster].
 
+You may wish to review the following [Azure example scenario](/azure/architecture/example-scenario) that demonstrates specific solutions using some of the same technologies:
+
+- [CI/CD pipeline for container-based workloads](/azure/architecture/example-scenario/apps/devops-with-aks)
+
+<!-- links -->
+
 [acs]: https://aka.ms/azjenkinsacs
 [ad-sp]: /azure/active-directory/develop/active-directory-integrating-applications
 [app-service]: https://plugins.jenkins.io/azure-app-service

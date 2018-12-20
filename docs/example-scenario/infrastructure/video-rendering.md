@@ -1,5 +1,6 @@
 ---
-title: 3D video rendering on Azure
+title: 3D video rendering
+titleSuffix: Azure Example Scenarios
 description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
@@ -16,10 +17,10 @@ Batch gives you a consistent management experience and job scheduling, whether y
 
 Other relevant use cases include:
 
-* 3D modeling
-* Visual FX (VFX) rendering
-* Video transcoding
-* Image processing, color correction, and resizing
+- 3D modeling
+- Visual FX (VFX) rendering
+- Video transcoding
+- Image processing, color correction, and resizing
 
 ## Architecture
 
@@ -40,9 +41,9 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 Azure Batch builds upon the following Azure technologies:
 
-* [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
-* [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-* [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources.
+- [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
+- [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
+- [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources.
 
 ## Considerations
 
@@ -50,18 +51,18 @@ Azure Batch builds upon the following Azure technologies:
 
 While most rendering customers will choose resources with high CPU power, other workloads using virtual machine scale sets may choose VMs differently and will depend on a number of factors:
 
-* Is the application being run memory bound?
-* Does the application need to use GPUs? 
-* Are the job types embarrassingly parallel or require infiniband connectivity for tightly coupled jobs?
-* Require fast I/O to access storage on the compute Nodes.
+- Is the application being run memory bound?
+- Does the application need to use GPUs?
+- Are the job types embarrassingly parallel or require infiniband connectivity for tightly coupled jobs?
+- Require fast I/O to access storage on the compute Nodes.
 
 Azure has a wide range of VM sizes that can address each and every one of the above application requirements, some are specific to HPC, but even the smallest sizes can be utilized to provide an effective grid implementation:
 
-* [HPC VM sizes][compute-hpc] Due to the CPU bound nature of rendering, Microsoft typically suggests the Azure H-Series VMs. This type of VM is built specifically for high end computational needs, they have 8 and 16 core vCPU sizes available, and features DDR4 memory, SSD temporary storage, and Haswell E5 Intel technology.
-* [GPU VM sizes][compute-gpu] GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
-* NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.
-* [Memory optimized VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
-* [General purposes VM sizes][compute-general] General-purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
+- [HPC VM sizes][compute-hpc] Due to the CPU bound nature of rendering, Microsoft typically suggests the Azure H-Series VMs. This type of VM is built specifically for high end computational needs, they have 8 and 16 core vCPU sizes available, and features DDR4 memory, SSD temporary storage, and Haswell E5 Intel technology.
+- [GPU VM sizes][compute-gpu] GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
+- NC, NCv2, NCv3, and ND sizes are optimized for compute-intensive and network-intensive applications and algorithms, including CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios utilizing frameworks such as OpenGL and DirectX.
+- [Memory optimized VM sizes][compute-memory] When more memory is required, the memory optimized VM sizes offer a higher memory-to-CPU ratio.
+- [General purposes VM sizes][compute-general] General-purpose VM sizes are also available and provide balanced CPU-to-memory ratio.
 
 ### Alternatives
 
@@ -86,32 +87,35 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 While there is currently no failover capability in Azure Batch, we recommend using the following steps to ensure availability if there is an unplanned outage:
 
-* Create an Azure Batch account in an alternate Azure location with an alternate Storage Account
-* Create the same node pools with the same name, with zero nodes allocated
-* Ensure Applications are created and updated to the alternate Storage Account
-* Upload input files and submit jobs to the alternate Azure Batch account
+- Create an Azure Batch account in an alternate Azure location with an alternate Storage Account
+- Create the same node pools with the same name, with zero nodes allocated
+- Ensure Applications are created and updated to the alternate Storage Account
+- Upload input files and submit jobs to the alternate Azure Batch account
 
-## Deploy this scenario
+## Deploy the scenario
 
-### Creating an Azure Batch account and pools manually
+### Create an Azure Batch account and pools manually
 
 This scenario demonstrates how Azure Batch works while showcasing Azure Batch Labs as an example SaaS solution that can be developed for your own customers:
 
 [Azure Batch Masterclass][batch-labs-masterclass]
 
-### Deploying the example scenario using an Azure Resource Manager template
+### Deploy the components
 
 The template will deploy:
 
-* A new Azure Batch account
-* A storage account
-* A node pool associated with the batch account
-* The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
-* The node pool will contain zero VMs initially and will require you to manually scale to add VMs
+- A new Azure Batch account
+- A storage account
+- A node pool associated with the batch account
+- The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
+- The node pool will contain zero VMs initially and will require you to manually scale to add VMs
+
+<!-- markdownlint-disable MD033 -->
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
+<!-- markdownlint-enable MD033 -->
 
 [Learn more about Resource Manager templates][azure-arm-templates]
 
@@ -121,15 +125,15 @@ The cost of using Azure Batch will depend on the VM sizes that are used for the 
 
 The following are examples of costs that could be incurred for a job that completes in 8 hours using a different number of servers:
 
-* 100 High-Performance CPU VMs: [Cost Estimate][hpc-est-high]
+- 100 High-Performance CPU VMs: [Cost Estimate][hpc-est-high]
 
   100 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
-* 50 High-Performance CPU VMs: [Cost Estimate][hpc-est-med]
+- 50 High-Performance CPU VMs: [Cost Estimate][hpc-est-med]
 
   50 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
-* 10 High-Performance CPU VMs: [Cost Estimate][hpc-est-low]
+- 10 High-Performance CPU VMs: [Cost Estimate][hpc-est-low]
 
   10 x H16m (16 cores, 225 GB RAM, Premium Storage 512 GB), 2 TB Blob Storage, 1-TB egress
 
@@ -137,7 +141,7 @@ The following are examples of costs that could be incurred for a job that comple
 
 Azure Batch also supports the use of low-priority VMs in the node pools, which can potentially provide a substantial cost saving. For more information, including a price comparison between standard VMs and low-priority VMs, see [Azure Batch Pricing][batch-pricing].
 
-> [!NOTE] 
+> [!NOTE]
 > Low-priority VMs are only suitable for certain applications and workloads.
 
 ## Related resources

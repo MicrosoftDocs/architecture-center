@@ -98,7 +98,21 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Prerequisites
 
-[!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
+1. Clone, fork, or download the zip file for the [GitHub repository](https://github.com/mspnp/identity-reference-architectures).
+
+2. Install [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+3. Install the [Azure building blocks](https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks) npm package.
+
+   ```bash
+   npm install -g @mspnp/azure-building-blocks
+   ```
+
+4. From a command prompt, bash prompt, or PowerShell prompt, sign into your Azure account as follows:
+
+   ```bash
+   az login
+   ```
 
 ### Deploy the simulated on-premises datacenter
 

@@ -1,5 +1,6 @@
 ---
-title: Real-time fraud detection on Azure 
+title: Real-time fraud detection
+titleSuffix: Azure Example Scenarios
 description: Detect fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.
 author: alexbuckgit
 ms.date: 07/05/2018
@@ -19,9 +20,9 @@ This sample represents one part of a broader data processing architecture and st
 
 Other relevant use cases include:
 
-* Detecting fraudulent mobile-phone calls in telecommunications scenarios.
-* Identifying fraudulent credit card transactions for banking institutions.
-* Identifying fraudulent purchases in retail or e-commerce scenarios.
+- Detecting fraudulent mobile-phone calls in telecommunications scenarios.
+- Identifying fraudulent credit card transactions for banking institutions.
+- Identifying fraudulent purchases in retail or e-commerce scenarios.
 
 ## Architecture
 
@@ -29,16 +30,16 @@ Other relevant use cases include:
 
 This scenario covers the back-end components of a real-time analytics pipeline. Data flows through the scenario as follows:
 
-1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance. 
+1. Mobile phone call metadata is sent from the source system to an Azure Event Hubs instance.
 2. A Stream Analytics job is started, which receives data via the event hub source.
 3. The Stream Analytics job runs a predefined query to transform the input stream and analyze it based on a fraudulent-transaction algorithm. This query uses a tumbling window to segment the stream into distinct temporal units.
 4. The Stream Analytics job writes the transformed stream representing detected fraudulent calls to an output sink in Azure Blob storage.
 
 ### Components
 
-* [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
-* [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
-* [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used in this scenario to store the results of the Stream Analytics job.
+- [Azure Event Hubs][docs-event-hubs] is a real-time streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. In this scenario, Event Hubs receives all phone call metadata to be analyzed for fraudulent activity.
+- [Azure Stream Analytics][docs-stream-analytics] is an event-processing engine that can analyze high volumes of data streaming from devices and other data sources. It also supports extracting information from data streams to identify patterns and relationships. These patterns can trigger other downstream actions. In this scenario, Stream Analytics transforms the input stream from Event Hubs to identify fraudulent calls.
+- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) is used in this scenario to store the results of the Stream Analytics job.
 
 ## Considerations
 
@@ -50,7 +51,7 @@ Additionally, more complex algorithms for fraud detection can be produced by var
 
 ### Availability
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor. 
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](/azure/monitoring-and-diagnostics/monitoring-overview). Event Hubs and Stream Analytics are both integrated with Azure Monitor.
 
 For other availability considerations, see the [availability checklist][availability] in the Azure Architecture Center.
 
@@ -80,9 +81,9 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-* [Small][small-pricing]: process one million events through one standard streaming unit per month.
-* [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
-* [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
+- [Small][small-pricing]: process one million events through one standard streaming unit per month.
+- [Medium][medium-pricing]: process 100M events through five standard streaming units per month.
+- [Large][large-pricing]: process 999 million events through 20 standard streaming units per month.
 
 ## Related resources
 
@@ -105,4 +106,3 @@ More complex fraud detection scenarios can benefit from a machine learning model
 [scalability]: /azure/architecture/checklist/scalability
 [resiliency]: ../../resiliency/index.md
 [security]: /azure/security/
-

@@ -70,7 +70,7 @@ For a list of supported VPN appliances, see [About VPN devices for Site-to-Site 
 > After the gateway has been created, you cannot change between gateway types without deleting and re-creating the gateway.
 >
 
-Select the Azure VPN gateway SKU that most closely matches your throughput requirements. For more informayion, see [Gateway SKUs][azure-gateway-skus]
+Select the Azure VPN gateway SKU that most closely matches your throughput requirements. For more information, see [Gateway SKUs][azure-gateway-skus]
 
 > [!NOTE]
 > The Basic SKU is not compatible with Azure ExpressRoute. You can [change the SKU][changing-SKUs] after the gateway has been created.

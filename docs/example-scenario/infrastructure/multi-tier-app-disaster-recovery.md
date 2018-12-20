@@ -1,5 +1,6 @@
 ---
-title: Multi-tier web application built for high availability and disaster recovery on Azure
+title: Multi-tier web application built for HA/DR
+titleSuffix: Azure Example Scenarios
 description: Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager
 author: sujayt
 ms.date: 11/16/2018
@@ -20,9 +21,9 @@ Common application scenarios include any mission critical application running on
 
 Other relevant use cases include:
 
-* Deploying highly resilient applications such as SAP and SharePoint
-* Designing a business continuity and disaster recovery plan for line-of-business applications
-* Configure disaster recovery and perform related drills for compliance purposes
+- Deploying highly resilient applications such as SAP and SharePoint
+- Designing a business continuity and disaster recovery plan for line-of-business applications
+- Configure disaster recovery and perform related drills for compliance purposes
 
 ## Architecture
 
@@ -44,17 +45,17 @@ This scenario demonstrates a multitier application that uses ASP.NET and Microso
 
 ### Components
 
-* [Availability sets][docs-availability-sets] ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
-* [Availability zones][docs-availability-zones] protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking. 
-* [Azure Site Recovery (ASR)][docs-azure-site-recovery] allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.
-* [Azure Traffic Manager][docs-traffic-manager] is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.
-* [Azure Load Balancer][docs-load-balancer] distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
+- [Availability sets][docs-availability-sets] ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. If a hardware or software failure occurs within Azure, only a subset of your VMs are affected and your entire solution remains available and operational.
+- [Availability zones][docs-availability-zones] protect your applications and data from datacenter failures. Availability zones are separate physical locations within an Azure region. Each zone consists of one or more datacenters equipped with independent power, cooling, and networking.
+- [Azure Site Recovery (ASR)][docs-azure-site-recovery] allows you to replicate VMs to another Azure region for business continuity and disaster recovery needs. You can conduct periodic disaster recovery drills to ensure you meet the compliance needs. The VM will be replicated with the specified settings to the selected region so that you can recover your applications in the event of outages in the source region.
+- [Azure Traffic Manager][docs-traffic-manager] is a DNS-based traffic load balancer that distributes traffic optimally to services across global Azure regions while providing high availability and responsiveness.
+- [Azure Load Balancer][docs-load-balancer] distributes inbound traffic according to defined rules and health probes. A load balancer provides low latency and high throughput, scaling up to millions of flows for all TCP and UDP applications. A public load balancer is used in this scenario to distribute incoming client traffic to the web tier. An internal load balancer is used in this scenario to distribute traffic from the business tier to the back-end SQL Server cluster.
 
 ### Alternatives
 
-* Windows can be replaced by other operating systems because nothing in the infrastructure is dependent on the operating system.
-* [SQL Server for Linux][docs-sql-server-linux] can replace the back-end data store.
-* The database can be replaced by any standard database application available.
+- Windows can be replaced by other operating systems because nothing in the infrastructure is dependent on the operating system.
+- [SQL Server for Linux][docs-sql-server-linux] can replace the back-end data store.
+- The database can be replaced by any standard database application available.
 
 ## Other considerations
 
