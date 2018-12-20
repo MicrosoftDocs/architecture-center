@@ -118,7 +118,6 @@ Tags are used in many ways beyond billing and management. They are often used as
 ## Azure Policy and Initiatives
 
 The second pillar of the scaffold involves using [Azure Policy and Initiatives](/azure/azure-policy/azure-policy-introduction) to manage risk by enforcing rules (with effects) over the resources and services in your subscriptions. Azure Initiatives are collections of policies that are designed to achieve a single goal. Azure policy and initiatives are then assigned to a resource scope to begin enforcement of the particular policies.
-<IMG of Initiatives/Policies/Assignments>
 
 Azure Policy and Initiatives are even more powerful when used with the management groups mentioned earlier. Management groups enable the assignment of an initiative or policy to an entire set of subscriptions.
 
