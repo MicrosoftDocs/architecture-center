@@ -75,7 +75,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * Configuration alignment approaches
   * Adherence to HA/DR strategy and SLA classification
 * Test deployment, configuration, and recovery policies in staging to validate adherence.
-* Test disaster recovery plans (intrusive and non-instrusive).
+* Test disaster recovery plans (intrusive and non-intrusive).
 
 ## Operate and post-implementation
 
@@ -91,10 +91,10 @@ Once the transformation is complete, governance and operations must live on for 
 **Potential activities**
 
 * Review OS and Application vulnerabilities.
-* Modify disaster recovery plans (intrusive and non-instrusive) as necessary.
+* Modify disaster recovery plans (intrusive and non-intrusive) as necessary.
 * Implement configuration drift monitoring.
 * Maintain and execute patch cycles.
 * Prepare quarterly report including SLA costs versus business impact, along with results from recovery plan testing.
 
 # Next steps
-When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/logs-and-reporting/overview?branch=brian%2FCOMIntegration) with your existing processes and tools.
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.

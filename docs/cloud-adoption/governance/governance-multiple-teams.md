@@ -10,6 +10,7 @@ ms.date: 09/10/2018
 The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments.  We'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements.
 
 The requirements are:
+
 * The enterprise plans to transition new cloud roles and responsibilities to a set of users and therefore requires identity management for multiple teams with different resource access needs in Azure. This identity management system is required to store the identity of the following users:
   1. The individual in your organization responsible for ownership of **subscriptions**.
   2. The individual in your organization responsible for the **shared infrastructure resources** used to connect your on-premises network to an Azure virtual network. 
@@ -134,6 +135,7 @@ If we compare each example to the requirements, we see that both examples suppor
 ## Resource management model
 
 Now that we've designed a permissions model of least privilege, let's move on to take a look at some practical applications of these governance models. Recall from the requirements that we must support the following three environments:
+
 1. **Shared infrastructure:** a single group of resources shared by all workloads. These are resources such as network gateways, firewalls, and security services.  
 2. **Development:** multiple groups of resources representing multiple non-production ready workloads. These resources are used for proof-of-concept, testing, and other developer activities. These resources may have a more relaxed governance model to enable increased developer agility.
 3. **Production:** multiple groups of resources representing multiple production workloads. These resources are used to host the private and public facing application artifacts. These resources typically have the tightest governance and security models to protect the resources, application code, and data from unauthorized access.
@@ -156,6 +158,7 @@ Once the subscription has been created, the **Azure Account Owner** can add the 
 The **subscription owner** can now create **resource groups** and delegate resource access management.
 
 First let's look at an example resource management model using a single subscription. The first decision is how to align resource groups to the three environments. We have two options:
+
 1. Align each environment to a single resource group. All shared infrastructure resources are deployed to a single **shared infrastructure** resource group. All resources associated with development workloads are deployed to a single **development** resource group. All resources associated with production workloads are deployed into a single **production** resource group for the **production** environment. 
 2. Create separate resource groups for each workload, using a naming convention and tags to align resource groups with each of the three environments.  
 
@@ -204,6 +207,7 @@ Next, let's look at a single subscription with multiple resources groups for dif
 ![](../_images/governance-3-16.png)
 
 The resulting management model is similar to the first example, with several key differences:
+
 * Each of the two workloads is isolated by workload and by environment.
 * This model required two more virtual networks than the first example model. While this is not an important distinction with only two workloads, the theoretical limit on the number of workloads for this model is 24. 
 * Resources are no longer grouped in a single resource group for each environment. Grouping resources requires an understanding of the naming conventions used for each environment. 

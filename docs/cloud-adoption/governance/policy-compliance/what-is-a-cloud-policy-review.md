@@ -41,7 +41,7 @@ To provide an example of the process, lets again leverage the tape backup policy
 * A corporate policy mandates off-site tape backups for all production systems. In this policy, you can see two data points of interest:
     * Legacy dependency on a tape backup solution
     * An assumed business risk associated with the storage of backups in the same physical location as the production equipment.
-* Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk impacting the business then was present in the on-prem solution, but the risk still exists.
+* Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk impacting the business then was present in the on-premises solution, but the risk still exists.
 * Re-write of the policy. In the case of a datacenter-wide disaster, there must exist a means of restoring production systems within 24 hours of the outage in a different datacenter and different geographic location.
 * Review with the Cloud Adoption Team. Depending on the solution being implemented, there are multiple means of adhering to this resource management policy.
 

@@ -7,13 +7,13 @@ ms.date: 10/10/2018
 
 # Fusion: How does Business Risk change in the cloud?
 
-An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-prem or in the cloud.
+An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-premises or in the cloud.
 
 ## Relativity of Risk
 
 Risk is relative. A small company with a few IT assets, in a closed building has little risk. Add users and an internet connection with access to those assets, the risk is intensified. When that small company grows to Fortune 500 status, the risks are exponentially greater. As revenue, business process, employee counts, and IT assets accumulate, risks increase and coalesce. IT assets that aid in generating revenue are at tangible risk of stopping that revenue stream in the event of an outage. Every moment of downtime equates to losses. Likewise, as data accumulates, the risk of harming customers grows.
 
-In the traditional on-prem world, IT governance teams focus on assessing those risks. Creating processes to mitigate the risk. Deploying systems to ensure mitigation measures are successful and implemented. This balances the risks required to operate in a connected, modern business environment.
+In the traditional on-premises world, IT governance teams focus on assessing those risks. Creating processes to mitigate the risk. Deploying systems to ensure mitigation measures are successful and implemented. This balances the risks required to operate in a connected, modern business environment.
 
 ## Understanding business risks in the cloud
 
@@ -24,7 +24,7 @@ During a transformation, the same relative risks can be seen.
 * As more workloads come online, risks change at each release. New apps go live, risks change.
 * When a company brings the first 10-20 applications online, the risk profile is much different that it is when the 1000th applications go into production in the cloud.
 
-The assets that accumulated in the traditional, on-prem estate likely accumulated overtime. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
+The assets that accumulated in the traditional, on-premises estate likely accumulated overtime. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
 
 During a cloud transformation, both the business and IT teams have an opportunity to reset those policies and build new with a matured mindset.
 
