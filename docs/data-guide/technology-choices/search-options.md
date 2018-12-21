@@ -7,15 +7,20 @@ ms.date: 02/12/2018
 
 # Choosing a search data store in Azure
 
-This article compares technology choices for search data stores in Azure. A seach data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.md). 
+This article compares technology choices for search data stores in Azure. A seach data store is used to create and store specialized indexes for performing searches on free-form text. The text that is indexed may reside in a separate data store, such as blob storage. An application submits a query to the search data store, and the result is a list of matching documents. For more information about this scenario, see [Processing free-form text for search](../scenarios/search.md).
+
+<!-- markdownlint-disable MD026 -->
 
 ## What are your options when choosing a search data store?
+
+<!-- markdownlint-enable MD026 -->
+
 In Azure, all of the following data stores will meet the core requirements for search against free-form text data by providing a search index:
+
 - [Azure Search](/azure/search/search-what-is-azure-search)
 - [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.elasticsearch?tab=Overview)
 - [HDInsight with Solr](/azure/hdinsight/hdinsight-hadoop-solr-install-linux)
 - [Azure SQL Database with full text search](/sql/relational-databases/search/full-text-search)
-
 
 ## Key selection criteria
 
@@ -39,37 +44,37 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
-| --- | --- | --- | --- | --- | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes | Yes |  
 | REST API | Yes | Yes | Yes | No |
-| Programmability | .NET | Java | Java | T-SQL | 
+| Programmability | .NET | Java | Java | T-SQL |
 | Document indexers for common file types (PDF, DOCX, TXT, and so on) | Yes | No | Yes | No |
 
 ### Manageability capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Updateable schema | No | Yes | Yes | Yes |
 | Supports scale out  | Yes | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
-| --- | --- | --- | --- | --- | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| --- | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes | Yes |
 | Part of a log analytics stack | No | Yes (ELK) |  No | No |
-| Supports semantic search | Yes (find similar documents only) | Yes | Yes | Yes | 
+| Supports semantic search | Yes (find similar documents only) | Yes | Yes | Yes |
 
 ### Security capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database | 
-| --- | --- | --- | --- | --- | 
-| Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes | 
+| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| --- | --- | --- | --- | --- |
+| Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
 | Transparent data encryption | No | No | No | Yes |  
-| Restrict access to specific IP addresses | No | Yes | Yes | Yes |   
+| Restrict access to specific IP addresses | No | Yes | Yes | Yes |
 | Restrict access to allow virtual network access only | No | Yes | Yes | Yes |  
-| Active Directory authentication (integrated authentication) | No | No | No | Yes | 
+| Active Directory authentication (integrated authentication) | No | No | No | Yes |
 
 ## See also
 

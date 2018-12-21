@@ -1,6 +1,6 @@
 ---
 title: Work with claim-based identities in multitenant applications
-description: How a use claims for issuer validation and authorization
+description: How a use claims for issuer validation and authorization.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -8,11 +8,13 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authenticate
 pnp.series.next: signup
 ---
+
 # Work with claims-based identities
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
 ## Claims in Azure AD
+
 When a user signs in, Azure AD sends an ID token that contains a set of claims about the user. A claim is simply a piece of information, expressed as a key/value pair. For example, `email`=`bob@contoso.com`.  Claims have an issuer &mdash; in this case, Azure AD &mdash; which is the entity that authenticates the user and creates the claims. You trust the claims because you trust the issuer. (Conversely, if you don't trust the issuer, don't trust the claims!)
 
 At a high level:
@@ -46,15 +48,15 @@ This table lists the claim types as they appear in the ID token. In ASP.NET Core
 * upn > `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`
 
 ## Claims transformations
+
 During the authentication flow, you might want to modify the claims that you get from the IDP. In ASP.NET Core, you can perform claims transformation inside of the **AuthenticationValidated** event from the OpenID Connect middleware. (See [Authentication events].)
 
 Any claims that you add during **AuthenticationValidated** are stored in the session authentication cookie. They don't get pushed back to Azure AD.
 
 Here are some examples of claims transformation:
 
-* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information.
-  For example, Azure AD sends a "upn" claim that contains the user's email. Other IDPs might send an "email" claim. The following code converts the "upn" claim into an "email" claim:
-  
+* **Claims normalization**, or making claims consistent across users. This is particularly relevant if you are getting claims from multiple IDPs, which might use different claim types for similar information. For example, Azure AD sends a "upn" claim that contains the user's email. Other IDPs might send an "email" claim. The following code converts the "upn" claim into an "email" claim:
+
   ```csharp
   var email = principal.FindFirst(ClaimTypes.Upn)?.Value;
   if (!string.IsNullOrWhiteSpace(email))
@@ -62,12 +64,14 @@ Here are some examples of claims transformation:
       identity.AddClaim(new Claim(ClaimTypes.Email, email));
   }
   ```
+
 * Add **default claim values** for claims that aren't present &mdash; for example, assigning a user to a default role. In some cases this can simplify authorization logic.
-* Add **custom claim types** with application-specific information about the user. For example, you might store some information about the user in a database. You could add a custom claim with this information to the authentication ticket. The claim is stored in a cookie, so you only need to get it from the database once per login session. On the other hand, you also want to avoid creating excessively large cookies, so you need to consider the trade-off between cookie size versus database lookups.   
+* Add **custom claim types** with application-specific information about the user. For example, you might store some information about the user in a database. You could add a custom claim with this information to the authentication ticket. The claim is stored in a cookie, so you only need to get it from the database once per login session. On the other hand, you also want to avoid creating excessively large cookies, so you need to consider the trade-off between cookie size versus database lookups.
 
 After the authentication flow is complete, the claims are available in `HttpContext.User`. At that point, you should treat them as a read-only collection &mdash; e.g., use them to make authorization decisions.
 
 ## Issuer validation
+
 In OpenID Connect, the issuer claim ("iss") identifies the IDP that issued the ID token. Part of the OIDC authentication flow is to verify that the issuer claim matches the actual issuer. The OIDC middleware handles this for you.
 
 In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>`). Therefore, an application should do an additional check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
@@ -82,25 +86,28 @@ For a single-tenant application, you can just check that the issuer is your own 
 For a more detailed discussion, see [Sign-up and tenant onboarding in a multitenant application][signup].
 
 ## Using claims for authorization
+
 With claims, a user's identity is no longer a monolithic entity. For example, a user might have an email address, phone number, birthday, gender, etc. Maybe the user's IDP stores all of this information. But when you authenticate the user, you'll typically get a subset of these as claims. In this model, the user's identity is simply a bundle of claims. When you make authorization decisions about a user, you will look for particular sets of claims. In other words, the question "Can user X perform action Y" ultimately becomes "Does user X have claim Z".
 
 Here are some basic patterns for checking claims.
 
 * To check that the user has a particular claim with a particular value:
-  
+
    ```csharp
    if (User.HasClaim(ClaimTypes.Role, "Admin")) { ... }
    ```
+
    This code checks whether the user has a Role claim with the value "Admin". It correctly handles the case where the user has no Role claim or multiple Role claims.
   
    The **ClaimTypes** class defines constants for commonly-used claim types. However, you can use any string value for the claim type.
 * To get a single value for a claim type, when you expect there to be at most one value:
-  
+
   ```csharp
   string email = User.FindFirst(ClaimTypes.Email)?.Value;
   ```
+
 * To get all the values for a claim type:
-  
+
   ```csharp
   IEnumerable<Claim> groups = User.FindAll("groups");
   ```
@@ -109,8 +116,7 @@ For more information, see [Role-based and resource-based authorization in multit
 
 [**Next**][signup]
 
-
-<!-- Links -->
+<!-- links -->
 
 [scope parameter]: https://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect/
 [Supported Token and Claim Types]: /azure/active-directory/active-directory-token-and-claims/

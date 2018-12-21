@@ -8,11 +8,13 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: adfs
 pnp.series.next: key-vault
 ---
+
 # Use client assertion to get access tokens from Azure AD
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
 ## Background
+
 When using authorization code flow or hybrid flow in OpenID Connect, the client exchanges an authorization code for an access token. During this step, the client has to authenticate itself to the server.
 
 ![Client secret](./images/client-secret.png)
@@ -21,7 +23,7 @@ One way to authenticate the client is by using a client secret. That's how the [
 
 Here is an example request from the client to the IDP, requesting an access token. Note the `client_secret` parameter.
 
-```
+```http
 POST https://login.microsoftonline.com/b9bd2162xxx/oauth2/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
@@ -40,7 +42,7 @@ For additional security, you can use [client assertion] instead of a client secr
 
 Here is a token request using client assertion:
 
-```
+```http
 POST https://login.microsoftonline.com/b9bd2162xxx/oauth2/token HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
@@ -56,8 +58,6 @@ Notice that the `client_secret` parameter is no longer used. Instead, the `clien
 
 > [!NOTE]
 > X.509 certificates are not the only form of client assertion; we focus on it here because it is supported by Azure AD.
-> 
-> 
 
 At run time, the web application reads the certificate from the certificate store. The certificate must be installed on the same machine as the web app.
 
@@ -96,7 +96,8 @@ For information about setting up client assertion in the Surveys application, se
 
 [**Next**][key vault]
 
-<!-- Links -->
+<!-- links -->
+
 [configure-web-app]: /azure/app-service-web/web-sites-configure/
 [azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521

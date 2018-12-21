@@ -7,9 +7,13 @@ ms.date: 02/12/2018
 
 # Choosing a real-time message ingestion technology in Azure
 
-Real time processing deals with streams of data that are captured in real-time and processed with minimal latency. Many real-time processing solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics. 
+Real time processing deals with streams of data that are captured in real-time and processed with minimal latency. Many real-time processing solutions need a message ingestion store to act as a buffer for messages, and to support scale-out processing, reliable delivery, and other message queuing semantics.
+
+<!-- markdownlint-disable MD026 -->
 
 ## What are your options for real-time message ingestion?
+
+<!-- markdownlint-enable MD026 -->
 
 - [Azure Event Hubs](/azure/event-hubs/)
 - [Azure IoT Hub](/azure/iot-hub/)
@@ -25,24 +29,24 @@ Real time processing deals with streams of data that are captured in real-time a
 
 Feature of IoT Hub include:
 
-* Multiple options for device-to-cloud and cloud-to-device communication. These options include one-way messaging, file transfer, and request-reply methods.
-* Message routing to other Azure services.
-* Queryable store for device metadata and synchronized state information.
-* Secure communications and access control using per-device security keys or X.509 certificates.
-* Monitoring of device connectivity and device identity management events.
+- Multiple options for device-to-cloud and cloud-to-device communication. These options include one-way messaging, file transfer, and request-reply methods.
+- Message routing to other Azure services.
+- Queryable store for device metadata and synchronized state information.
+- Secure communications and access control using per-device security keys or X.509 certificates.
+- Monitoring of device connectivity and device identity management events.
 
-In terms of message ingestion, IoT Hub is similar to Event Hubs. However, it was specifically designed for managing IoT device connectivity, not just message ingestion. For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs). 
+In terms of message ingestion, IoT Hub is similar to Event Hubs. However, it was specifically designed for managing IoT device connectivity, not just message ingestion. For more information, see [Comparison of Azure IoT Hub and Azure Event Hubs](/azure/iot-hub/iot-hub-compare-event-hubs).
 
 ## Kafka on HDInsight
 
-[Apache Kafka](https://kafka.apache.org/) is an open-source distributed streaming platform that can be used to build real-time data pipelines and streaming applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. It is horizontally scalable, fault-tolerant, and extremely fast. [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started) provides a Kafka as a managed, highly scalable, and highly available service in Azure. 
+[Apache Kafka](https://kafka.apache.org/) is an open-source distributed streaming platform that can be used to build real-time data pipelines and streaming applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. It is horizontally scalable, fault-tolerant, and extremely fast. [Kafka on HDInsight](/azure/hdinsight/kafka/apache-kafka-get-started) provides a Kafka as a managed, highly scalable, and highly available service in Azure.
 
 Some common use cases for Kafka are:
 
-* **Messaging**. Because it supports the publish-subscribe message pattern, Kafka is often used as a message broker.
-* **Activity tracking**. Because Kafka provides in-order logging of records, it can be used to track and re-create activities, such as user actions on a web site.
-* **Aggregation**. Using stream processing, you can aggregate information from different streams to combine and centralize the information into operational data.
-* **Transformation**. Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
+- **Messaging**. Because it supports the publish-subscribe message pattern, Kafka is often used as a message broker.
+- **Activity tracking**. Because Kafka provides in-order logging of records, it can be used to track and re-create activities, such as user actions on a web site.
+- **Aggregation**. Using stream processing, you can aggregate information from different streams to combine and centralize the information into operational data.
+- **Transformation**. Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
 
 ## Key selection criteria
 
@@ -54,7 +58,9 @@ To narrow the choices, start by answering these questions:
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities. 
+The following tables summarize the key differences in capabilities.
+
+<!-- markdownlint-disable MD033 -->
 
 | | IoT Hub | Event Hubs | Kafka on HDInsight |
 | --- | --- | --- | --- |
@@ -63,6 +69,8 @@ The following tables summarize the key differences in capabilities.
 | Device state information | [Device twins](/azure/iot-hub/iot-hub-devguide-device-twins) | No | No |
 | Protocol support | MQTT, AMQP, HTTPS <sup>1</sup> | AMQP, HTTPS | [Kafka Protocol](https://cwiki.apache.org/confluence/display/KAFKA/A+Guide+To+The+Kafka+Protocol) |
 | Security | Per-device identity; revocable access control. | Shared access policies; limited revocation through publisher policies. | Authentication using SASL; pluggable authorization; integration with external authentication services supported. |
+
+<!-- markdownlint-enable MD026 -->
 
 [1] You can also use [Azure IoT protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) as a custom gateway to enable protocol adaptation for IoT Hub.
 

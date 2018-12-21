@@ -1,17 +1,19 @@
 ---
 title: Big data architecture style
-description: Describes benefits, challenges, and best practices for Big Data architectures on Azure
+titleSuffix: Azure Application Architecture Guide
+description: Describes benefits, challenges, and best practices for Big Data architectures on Azure.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.custom: seojan19
 ---
 
 # Big data architecture style
 
 A big data architecture is designed to handle the ingestion, processing, and analysis of data that is too large or complex for traditional database systems.
 
-![](./images/big-data-logical.svg)
+![Logical diagram of a big data architecture style](./images/big-data-logical.svg)
 
- Big data solutions typically involve one or more of the following types of workload:
+Big data solutions typically involve one or more of the following types of workload:
 
 - Batch processing of big data sources at rest.
 - Real-time processing of big data in motion.
@@ -22,11 +24,11 @@ Most big data architectures include some or all of the following components:
 
 - **Data sources**: All big data solutions start with one or more data sources. Examples include:
 
-    - Application data stores, such as relational databases.
-    - Static files produced by applications, such as web server log files.
-    - Real-time data sources, such as IoT devices.
+  - Application data stores, such as relational databases.
+  - Static files produced by applications, such as web server log files.
+  - Real-time data sources, such as IoT devices.
 
-- **Data storage**: Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store or blob containers in Azure Storage. 
+- **Data storage**: Data for batch processing operations is typically stored in a distributed file store that can hold high volumes of large files in various formats. This kind of store is often called a *data lake*. Options for implementing this storage include Azure Data Lake Store or blob containers in Azure Storage.
 
 - **Batch processing**: Because the data sets are so large, often a big data solution must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. Options include running U-SQL jobs in Azure Data Lake Analytics, using Hive, Pig, or custom Map/Reduce jobs in an HDInsight Hadoop cluster, or using Java, Scala, or Python programs in an HDInsight Spark cluster.
 
@@ -92,7 +94,7 @@ Consider this architecture style when you need to:
 
 Internet of Things (IoT) is a specialized subset of big data solutions. The following diagram shows a possible logical architecture for IoT. The diagram emphasizes the event-streaming components of the architecture.
 
-![](./images/iot.png)
+![Diagram of an IoT architecture](./images/iot.png)
 
 The **cloud gateway** ingests device events at the cloud boundary, using a reliable, low latency messaging system.
 
@@ -104,9 +106,9 @@ The following are some common types of processing. (This list is certainly not e
 
 - Writing event data to cold storage, for archiving or batch analytics.
 
-- Hot path analytics, analyzing the event stream in (near) real time, to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream. 
+- Hot path analytics, analyzing the event stream in (near) real time, to detect anomalies, recognize patterns over rolling time windows, or trigger alerts when a specific condition occurs in the stream.
 
-- Handling special types of non-telemetry messages from devices, such as notifications and alarms. 
+- Handling special types of non-telemetry messages from devices, such as notifications and alarms.
 
 - Machine learning.
 

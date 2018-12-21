@@ -3,7 +3,7 @@ title: Dev/test environments for SAP workloads
 titleSuffix: Azure Example Scenarios
 description: Build a dev/test environment for SAP workloads.
 author: AndrewDibbins
-ms.date: 7/11/18
+ms.date: 07/11/2018
 ms.custom: fasttrack
 ---
 
@@ -26,12 +26,12 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture diagram for dev/test environments for SAP workloads](media/architecture-sap-dev-test.png)
+![Architecture diagram for dev/test environments for SAP workloads](./media/architecture-sap-dev-test.png)
 
 This scenario demonstrates provisioning a single SAP system database and SAP application server on a single virtual machine. The data flows through the scenario as follows:
 
 1. Customers use the SAP user interface or other client tools (Excel, a web browser, or other web application) to access the Azure-based SAP system.
-2. Connectivity is provided through the use of an established ExpressRoute. The ExpressRoute connection is terminated in Azure at the ExpressRoute gateway. Network traffic routes through the ExpressRoute gateway to the gateway subnet, and from the gateway subnet to the application-tier spoke subnet (see the [hub-spoke pattern][hub-spoke]) and via a Network Security Gateway to the SAP application virtual machine.
+2. Connectivity is provided through the use of an established ExpressRoute. The ExpressRoute connection is terminated in Azure at the ExpressRoute gateway. Network traffic routes through the ExpressRoute gateway to the gateway subnet, and from the gateway subnet to the application-tier spoke subnet (see the [hub-spoke network topology][hub-spoke]) and via a Network Security Gateway to the SAP application virtual machine.
 3. The identity management servers provide authentication services.
 4. The jump box provides local management capabilities.
 
@@ -47,7 +47,7 @@ This scenario demonstrates provisioning a single SAP system database and SAP app
 
 ### Availability
 
- Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
+Microsoft offers a service level agreement (SLA) for single VM instances. For more information on Microsoft Azure Service Level Agreement for Virtual Machines [SLA For Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines)
 
 ### Scalability
 

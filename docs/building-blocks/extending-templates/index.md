@@ -1,6 +1,6 @@
 ---
 title: Extend Azure Resource Manager template functionality
-description: Describes tips and tricks on how to extend Azure Resource Manager template functionality
+description: Describes tips and tricks on how to extend Azure Resource Manager template functionality.
 author: petertay
 ms.date: 06/09/2017
 

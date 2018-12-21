@@ -1,6 +1,6 @@
 ---
 title: Secure a backend web API in a multitenant application
-description: How to secure a backend web API
+description: How to secure a backend web API.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -8,19 +8,20 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
 pnp.series.next: token-cache
 ---
+
 # Secure a backend web API
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
 The [Tailspin Surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
 
-```
+```http
 GET /users/{userId}/surveys
 ```
 
 The web API returns a JSON object:
 
-```
+```http
 {
   "Published":[],
   "Own":[
@@ -35,8 +36,6 @@ The web API does not allow anonymous requests, so the web app must authenticate 
 
 > [!NOTE]
 > This is a server-to-server scenario. The application does not make any AJAX calls to the API from the browser client.
-> 
-> 
 
 There are two main approaches you can take:
 
@@ -45,7 +44,7 @@ There are two main approaches you can take:
 
 The Tailspin application implements delegated user identity. Here are the main differences:
 
-**Delegated user identity**
+**Delegated user identity:**
 
 * The bearer token sent to the web API contains the user identity.
 * The web API makes authorization decisions based on the user identity.
@@ -53,7 +52,7 @@ The Tailspin application implements delegated user identity. Here are the main d
 * Typically, the web application still makes some authorization decisions that affect UI, such as showing or hiding UI elements).
 * The web API can potentially be used by untrusted clients, such as a JavaScript application or a native client application.
 
-**Application identity**
+**Application identity:**
 
 * The web API does not get information about the user.
 * The web API cannot perform any authorization based on the user identity. All authorization decisions are made by the web application.  
@@ -70,6 +69,7 @@ The rest of this article assumes the application is authenticating with Azure AD
 ![Getting the access token](./images/access-token.png)
 
 ## Register the web API in Azure AD
+
 In order for Azure AD to issue a bearer token for the web API, you need to configure some things in Azure AD.
 
 1. Register the web API in Azure AD.
@@ -77,16 +77,17 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 2. Add the client ID of the web app to the web API application manifest, in the `knownClientApplications` property. See [Update the application manifests].
 
 3. Give the web application permission to call the web API. In the Azure Management Portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
-   
+
    ![Delegated permissions](./images/delegated-permissions.png)
 
 ## Getting an access token
+
 Before calling the web API, the web application gets an access token from Azure AD. In a .NET application, use the [Azure AD Authentication Library (ADAL) for .NET][ADAL].
 
 In the OAuth 2 authorization code flow, the application exchanges an authorization code for an access token. The following code uses ADAL to get the access token. This code is called during the `AuthorizationCodeReceived` event.
 
 ```csharp
-// The OpenID Connect middleware sends this event when it gets the authorization code.   
+// The OpenID Connect middleware sends this event when it gets the authorization code.
 public override async Task AuthorizationCodeReceived(AuthorizationCodeReceivedContext context)
 {
     string authorizationCode = context.ProtocolMessage.Code;
@@ -122,9 +123,10 @@ var result = await authContext.AcquireTokenSilentAsync(resourceID, credential, n
 where `userId` is the user's object ID, which is found in the `http://schemas.microsoft.com/identity/claims/objectidentifier` claim.
 
 ## Using the access token to call the web API
+
 Once you have the token, send it in the Authorization header of the HTTP requests to the web API.
 
-```
+```http
 Authorization: Bearer xxxxxxxxxx
 ```
 
@@ -150,6 +152,7 @@ public static async Task<HttpResponseMessage> SendRequestWithBearerTokenAsync(th
 ```
 
 ## Authenticating in the web API
+
 The web API has to authenticate the bearer token. In ASP.NET Core, you can use the [Microsoft.AspNet.Authentication.JwtBearer][JwtBearer] package. This package provides middleware that enables the application to receive OpenID Connect bearer tokens.
 
 Register the middleware in your web API `Startup` class.
@@ -167,7 +170,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Applicat
         },
         Events= new SurveysJwtBearerEvents(loggerFactory.CreateLogger<SurveysJwtBearerEvents>())
     });
-    
+
     // ...
 }
 ```
@@ -178,6 +181,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Applicat
 * **Events** is a class that derives from **JwtBearerEvents**.
 
 ### Issuer validation
+
 Validate the token issuer in the **JwtBearerEvents.TokenValidated** event. The issuer is sent in the "iss" claim.
 
 In the Surveys application, the web API doesn't handle [tenant sign-up]. Therefore, it just checks if the issuer is already in the application database. If not, it throws an exception, which causes authentication to fail.
@@ -216,7 +220,8 @@ public override async Task TokenValidated(TokenValidatedContext context)
 As this example shows, you can also use the **TokenValidated** event to modify the claims. Remember that the claims come directly from Azure AD. If the web application modifies the claims that it gets, those changes won't show up in the bearer token that the web API receives. For more information, see [Claims transformations][claims-transformation].
 
 ## Authorization
-For a general discussion of authorization, see [Role-based and resource-based authorization][Authorization]. 
+
+For a general discussion of authorization, see [Role-based and resource-based authorization][Authorization].
 
 The JwtBearer middleware handles the authorization responses. For example, to restrict a controller action to authenticated users, use the **[Authorize]** atrribute and specify **JwtBearerDefaults.AuthenticationScheme** as the authentication scheme:
 
@@ -243,18 +248,18 @@ public void ConfigureServices(IServiceCollection services)
             policy =>
             {
                 policy.AddRequirements(new SurveyCreatorRequirement());
-                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
+                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement
                 policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
             });
         options.AddPolicy(PolicyNames.RequireSurveyAdmin,
             policy =>
             {
                 policy.AddRequirements(new SurveyAdminRequirement());
-                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
+                policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement
                 policy.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
             });
     });
-    
+
     // ...
 }
 ```

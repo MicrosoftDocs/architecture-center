@@ -1,7 +1,7 @@
 ---
 title: Extend Active Directory Domain Services (AD DS) to Azure
 titleSuffix: Azure Reference Architectures
-description: Extend your on-premises Active Directory domain to Azure
+description: Extend your on-premises Active Directory domain to Azure.
 author: telmosampaio
 ms.date: 05/02/2018
 ms.custom: seodec18

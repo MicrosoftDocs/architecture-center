@@ -9,7 +9,7 @@ ms.date: 02/12/2018
 
 Real time processing deals with streams of data that are captured in real-time and processed with minimal latency to generate real-time (or near-real-time) reports or automated responses. For example, a real-time traffic monitoring solution might use sensor data to detect high traffic volumes. This data could be used to dynamically update a map to show congestion, or automatically initiate high-occupancy lanes or other traffic management systems.
 
-![](./images/real-time-pipeline.png)
+![Diagram of a real time processing pipeline](./images/real-time-pipeline.png)
 
 Real-time processing is defined as the processing of unbounded stream of input data, with very short latency requirements for processing &mdash; measured in milliseconds or seconds. This incoming data typically arrives in an unstructured or semi-structured format, such as JSON, and has the same processing requirements as [batch processing](./batch-processing.md), but with shorter turnaround times to support real-time consumption.
 
@@ -27,9 +27,9 @@ A real-time processing architecture has the following logical components.
 
 - **Stream processing.** After capturing real-time messages, the solution must process them by filtering, aggregating, and otherwise preparing the data for analysis.
 
-- **Analytical data store.** Many big data solutions are designed to prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools. 
+- **Analytical data store.** Many big data solutions are designed to prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools.
 
-- **Analysis and reporting.** The goal of most big data solutions is to provide insights into the data through analysis and reporting. 
+- **Analysis and reporting.** The goal of most big data solutions is to provide insights into the data through analysis and reporting.
 
 ## Technology choices
 

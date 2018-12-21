@@ -260,4 +260,3 @@ Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
 
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-hub-spoke.vsdx
 [ref-arch-repo]: https://github.com/mspnp/reference-architectures
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/

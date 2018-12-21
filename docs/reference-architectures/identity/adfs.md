@@ -384,9 +384,9 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [publish_applications_using_AD_FS_preauthentication]: https://technet.microsoft.com/library/dn383640.aspx
 [managing-adfs-components]: https://technet.microsoft.com/library/cc759026.aspx
 [oms-adfs-pack]: https://www.microsoft.com/download/details.aspx?id=41184
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[aad]: https://azure.microsoft.com/documentation/services/active-directory/
-[aadb2c]: https://azure.microsoft.com/documentation/services/active-directory-b2c/
+[azure-powershell-download]: /powershell/azure/overview
+[aad]: /azure/active-directory/
+[aadb2c]: /azure/active-directory-b2c/
 [adfs-intro]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [github]: https://github.com/mspnp/identity-reference-architectures/tree/master/adfs
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx

@@ -11,26 +11,33 @@ Microsoft cognitive services are cloud-based APIs that you can use in artificial
 
 The cognitive services include:
 
-* Text analysis
-* Computer vision
-* Video analytics
-* Speech recognition and generation
-* Natural language understanding
-* Intelligent search
+- Text analysis
+- Computer vision
+- Video analytics
+- Speech recognition and generation
+- Natural language understanding
+- Intelligent search
 
 Key benefits:
 
-* Minimal development effort for state-of-the-art AI services.
-* Easy integration into apps via HTTP REST interfaces.
-* Built-in support for consuming cognitive services in Azure Data Lake Analytics.
+- Minimal development effort for state-of-the-art AI services.
+- Easy integration into apps via HTTP REST interfaces.
+- Built-in support for consuming cognitive services in Azure Data Lake Analytics.
 
 Considerations:
 
-* Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
-* Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
+- Only available over the web. Internet connectivity is generally required. An exception is the Custom Vision Service, whose trained model you can export for prediction on devices and at the IoT edge.
+
+- Although considerable customization is supported, the available services may not suit all predictive analytics requirements.
+
+<!-- markdownlint-disable MD026 -->
 
 ## What are your options when choosing amongst the cognitive services?
+
+<!-- markdownlint-disable MD026 -->
+
 In Azure, there are dozens of Cognitive Services available. The current listing of these is available in a directory categorized by the functional area they support:
+
 - [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
 - [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
 - [Knowledge](https://azure.microsoft.com/services/cognitive-services/directory/know/)
@@ -41,13 +48,13 @@ In Azure, there are dozens of Cognitive Services available. The current listing 
 
 To narrow the choices, start by answering these questions:
 
-- What type of data are you dealing with? Narrow your options based on the type of input data you are working with. For example, if your input is text, select from the services that have an input type of text. 
+- What type of data are you dealing with? Narrow your options based on the type of input data you are working with. For example, if your input is text, select from the services that have an input type of text.
 
-- Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide, for improved accuracy and performance. 
+- Do you have the data to train a model? If yes, consider the custom services that enable you to train their underlying models with data that you provide, for improved accuracy and performance.
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities. 
+The following tables summarize the key differences in capabilities.
 
 ### Uses prebuilt models
 
@@ -84,7 +91,6 @@ The following tables summarize the key differences in capabilities.
 | | Input type | Key benefit |
 | --- | --- | --- |
 | Custom Vision Service | Images (or frames from video) | Customize your own computer vision models. |
-| Custom Speech Service | Speech | Overcome speech recognition barriers like speaking style, background noise, and vocabulary. | 
+| Custom Speech Service | Speech | Overcome speech recognition barriers like speaking style, background noise, and vocabulary. |
 | Custom Decision Service | Web content (for example, RSS feed) | Use machine learning to automatically select the appropriate content for your home page |
 | Bing Custom Search API | Text (web search query) | Commercial-grade search tool. |
-

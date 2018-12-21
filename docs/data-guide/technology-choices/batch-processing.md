@@ -7,7 +7,7 @@ ms.date: 11/03/2018
 
 # Choosing a batch processing technology in Azure
 
-Big data solutions often use long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage. 
+Big data solutions often use long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files from scalable storage (like HDFS, Azure Data Lake Store, and Azure Storage), processing them, and writing the output to new files in scalable storage.
 
 The key requirement of such batch processing engines is the ability to scale out computations, in order to handle a large volume of data. Unlike real-time processing, however, batch processing is expected to have latencies (the time between data ingestion and computing a result) that measure in minutes to hours.
 
@@ -19,10 +19,10 @@ The key requirement of such batch processing engines is the ability to scale out
 
 ### Azure Data Lake Analytics
 
-[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store. 
+[Data Lake Analytics](/azure/data-lake-analytics/data-lake-analytics-overview) is an on-demand analytics job service. It is optimized for distributed processing of very large data sets stored in Azure Data Lake Store.
 
 - Languages: [U-SQL](/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started) (including Python, R, and C# extensions).
--  Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and SQL Data Warehouse.
+- Integrates with Azure Data Lake Store, Azure Storage blobs, Azure SQL Database, and SQL Data Warehouse.
 - Pricing model is per-job.
 
 ### HDInsight
@@ -33,21 +33,21 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 - Kerberos authentication with Active Directory, Apache Ranger based access control
 - Gives you full control of the Hadoop cluster
 
-### Azure Databricks 
+### Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.  
+[Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.
 
 - Languages: R, Python, Java, Scala, Spark SQL
 - Fast cluster start times, auto-termination, auto-scaling.
 - Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure SQL Data Warehouse (SQL DW), and other services. See [Data Sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 - User authentication with Azure Active Directory.
-- Web-based [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) for collaboration and data exploration. 
+- Web-based [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) for collaboration and data exploration.
 - Supports [GPU-enabled clusters](https://docs.azuredatabricks.net/user-guide/clusters/gpu.html)
 
-### Azure Distributed Data Engineering Toolkit 
+### Azure Distributed Data Engineering Toolkit
 
-The [Distributed Data Engineering Toolkit](https://github.com/azure/aztk) (AZTK) is a tool for provisioning on-demand Spark on Docker clusters in Azure. 
+The [Distributed Data Engineering Toolkit](https://github.com/azure/aztk) (AZTK) is a tool for provisioning on-demand Spark on Docker clusters in Azure.
 
 AZTK is not an Azure service. Rather, it's a client-side tool with a CLI and Python SDK interface, that's built on Azure Batch. This option gives you the most control over the infrastructure when deploying a Spark cluster.
 
@@ -70,13 +70,15 @@ To narrow the choices, start by answering these questions:
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities. 
+The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
+<!-- markdownlint-disable MD033 -->
+
 | | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- | --- |
-| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes | 
+| Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | No |
 | Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
 
@@ -97,6 +99,8 @@ The following tables summarize the key differences in capabilities.
 | Row-level security | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>2</sup> | Yes <sup>2</sup> | No |
 | Dynamic data masking | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+
+<!-- markdownlint-enable MD033 -->
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
