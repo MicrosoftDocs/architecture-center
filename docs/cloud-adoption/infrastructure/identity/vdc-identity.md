@@ -14,7 +14,7 @@ The [Identity topic](overview.md) of the [Fusion framework](../../overview.md)'s
 
 The Azure Virtual Datacenter model uses Azure Active Directory (Azure AD) as its primary identity provider. Workloads hosted within a virtual datacenter (VDC) may take advantage of other identity solutions, but the hub network, shared services, and management plane features are all dependent on Azure AD for access control and management.
 
-An Azure AD tenant is a dedicated instance of an Azure AD directory that your organization receives when it signs up for a Microsoft cloud service such as Azure or Office 365. Each Azure AD directory is distinct and separate from other Azure AD directories, and contains its own users, groups, and roles. An Azure AD tenant is a pre-requisite for deploying resources on Azure.
+An Azure AD tenant is a dedicated instance of Azure AD that your organization receives when it signs up with a Microsoft cloud service, such as Azure or Office 365. Each Azure AD tenant is distinct and separate from other Azure AD instances, and each tenant contains its own users, groups, and roles. You must establish an Azure AD tenant, as it is a pre-requisite for deploying resources on Azure.
 
 Along with planning your [subscription](../subscriptions/vdc-subscriptions.md) strategy, planning how you will configure the common Azure AD tenant you'll be using with your VDC subscriptions should be one of your top design decisions. An Azure tenant can be used by multiple subscriptions, but subscriptions can only be associated with a single tenant. As part of your VDC deployment, you choose to use an existing tenant owned by your organization or you can create a net new one explicitly for the VDC. 
 
