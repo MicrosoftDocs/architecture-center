@@ -7,7 +7,7 @@ ms.date: 12/17/2018
 
 # Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?
 
-In the [Intro to Cloud Governance](../overview.md), Cost Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing cloud spend plans, allocations of cloud budgets,  monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the plan when actual spending is misaligned.
+In the [Intro to Cloud Governance](../overview.md), Cost Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing cloud spend plans, allocations of cloud budgets,  monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the plan when actual spending is misaligned.
 
 This article outlines the Cost Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md) and establish a framework for [Incremental Policy](../policy-compliance/overview.md) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Cost Management position.
 
