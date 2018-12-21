@@ -69,7 +69,7 @@ The central hub environment and workload spokes are intended to be created in se
 
 All subscriptions hosting VDC resources need to be associated with a common Azure AD tenant. It's assumed that this tenant is [federated with your on-premises identity provider](../identity/vdc-identity.md) so that you can use a common set of users, groups, and roles across your organization.
 
-The VDC model breaks down the central IT teams into [three primary roles](../identity/vdc-identity.md#roles-and-rbac): Security Operations (SecOps), Network Operations(NetOps), and System Operations(SysOps). To support centralized IT control over core security, policy, and networking features, and also to encourage separation of duties among IT staff, RBAC is used to assign users with these roles access to appropriate pieces of the VDC environment.
+The VDC model breaks down the central IT teams into [three primary roles](../identity/vdc-identity.md#roles-and-role-based-access-control-rbac): Security Operations (SecOps), Network Operations(NetOps), and System Operations(SysOps). To support centralized IT control over core security, policy, and networking features, and also to encourage separation of duties among IT staff, RBAC is used to assign users with these roles access to appropriate pieces of the VDC environment.
 
 These central roles are responsible for managing the core hub infrastructure and other global security and operations tasks. Workload teams can also configure their own version of these roles with responsibilities and access limited to the workload spoke environment.
 
