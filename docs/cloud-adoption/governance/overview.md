@@ -31,8 +31,8 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/cloud-native.png" height="140px" />
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -50,8 +50,8 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/protected-data.png" height="140px" />
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/protected-data.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -69,8 +69,8 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/enterprise-mvp.png" height="140px" />
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/enterprise-mvp.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -88,8 +88,8 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/enterprise-scale.png" height="140px" />
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/enterprise-scale.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -107,8 +107,8 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/enterprise-enforcement.png" height="140px" />
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/enterprise-enforcement.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
