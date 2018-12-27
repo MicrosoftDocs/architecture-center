@@ -23,7 +23,7 @@ For tracking access control and network security in a VDC, it is critical to tra
 
 ## Azure Monitor
 
-The Azure Virtual Datacenter model assumes the use of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) as the primary monitoring and reporting service for the VDC. Azure Monitor enables performance metrics and diagnostic logging on most Azure features and services. Many resources used in a VDC are automatically integrated within Azure Monitor, including SQL Server databases, NSGs, and data stored using Azure Storage.
+The Azure Virtual Datacenter model assumes the use of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) as the primary monitoring and reporting service for the VDC. Azure Monitor enables performance metrics and diagnostic logging on most Azure features and services. Many resources used in a VDC are automatically integrated within Azure Monitor, including SQL Database instances, NSGs, and data stored using Azure Storage.
 
 Azure Monitor allows custom alert rules that can notify admins on security or performance issues, or even trigger specific actions automatically. Azure Monitor provides detailed activity and audit logs for all management operations on Azure resources, such as creating or deleting resources.
 
