@@ -32,7 +32,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/illustrations/biztalk-get-started-get-started.svg" height="140px" />
+                            <img src="../_images/governance/cloud-native.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -51,7 +51,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/illustrations/bcs-partner-advanced-management-password-3.svg" height="140px" />
+                            <img src="../_images/governance/protected-data.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -70,7 +70,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/illustrations/nuget-tools-policies_5.svg" height="140px" />
+                            <img src="../_images/governance/enterprise-mvp.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -89,7 +89,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/illustrations/team-services-agile-customize.svg" height="140px" />
+                            <img src="../_images/governance/enterprise-scale.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -108,7 +108,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/illustrations/team-services-agile-track.svg" height="140px" />
+                            <img src="../_images/governance/enterprise-enforcement.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
