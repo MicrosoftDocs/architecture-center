@@ -3,6 +3,8 @@ title: "Fusion: What is cloud governance?"
 description: Overview of governance content for Azure Fusion
 author: BrianBlanchard
 ms.date: 12/08/2018
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Fusion: What is cloud governance?
@@ -35,6 +37,109 @@ While not directly aligned, each phase of governance maturity most closely maps 
 **Adopt and migrate** Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.
 
 **Post-implementation** Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+
+
+
+## Data Scenarios
+
+<ul  class="panelContent cardsC">
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/big-data-with-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./data/media/architecture-big-data-with-iot.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>IoT and data analytics in the construction industry</h3>
+                        <p>Use IoT devices and data analytics to provide comprehensive management and operation of construction projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/data-warehouse.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./data/media/architecture-data-warehouse.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Data warehousing and analytics for sales and marketing</h3>
+                        <p>Consolidate data from multiple sources and optimize data analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/ecommerce-order-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./data/media/architecture-ecommerce-order-processing.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Scalable order processing on Azure</h3>
+                        <p>Build a highly scalable order processing pipeline using Azure Cosmos DB.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/fraud-detection.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./data/media/architecture-fraud-detection.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Real-time fraud detection on Azure</h3>
+                        <p>Detect fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./data/realtime-analytics-vehicle-iot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./data/media/architecture-realtime-analytics-vehicle-data1.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Ingestion and processing of real-time automotive IoT data</h3>
+                        <p>Ingest and process real-time vehicle data using IoT.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
 
 ## Next steps
 
