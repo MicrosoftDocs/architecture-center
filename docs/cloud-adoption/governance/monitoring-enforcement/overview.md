@@ -56,6 +56,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Evaluate how your cloud-based monitoring systems will integrate with your existing on-premises or other external [monitoring and reporting](../../infrastructure/logs-and-reporting/overview.md) solution, and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
 * Identify teams and individuals that need to be included in alerts and reporting.
+* Establish SLA standards for resolving detected issues.
 * Implement security and access control monitoring.
 * Implement VM and service health monitoring.
 * Implement network traffic monitoring.
