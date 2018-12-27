@@ -22,9 +22,9 @@ In some industry verticals, [regulatory compliance](policy-compliance/what-is-re
 
 ## Adoption phases of the Cloud Governance Model
 
-The objective of each adoption phase in the Cloud Governance Model is to help build a [Policy MVP](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/policy-compliance/overview), but establish a framework for [Incremental Policy evolution](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/governance/policy-compliance/overview). The Cloud Governance Team should decide how much to invest in the potential activities to improve each of the five cloud goverance disciplines.
+The objective of each adoption phase in the Cloud Governance Model is to help build a [Policy MVP](policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy evolution](policy-compliance/overview.md). The Cloud Governance Team should decide how much to invest in the potential activities to improve each of the five cloud governance disciplines.
 
-While not directly aligned, each phase of governance maturity most closely maps to the activities outlined in the [Operational Transformation Journey](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/transformation-journeys/operational-transformation/overview).
+While not directly aligned, each phase of governance maturity most closely maps to the activities outlined in the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md).
 
 ![Four phases of adoption](../_images/adoption-phases.png)
 

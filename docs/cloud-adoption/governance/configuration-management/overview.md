@@ -7,9 +7,9 @@ ms.date: 12/17/2018
 
 # Fusion: How can a company add Configuration Management discipline to their Cloud Governance execution?
 
-In the [Intro to Cloud Governance](../overview.md), Configuration Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
+In the [Intro to Cloud Governance](../overview.md), Configuration Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 
-This article outlines the Configuration Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md), but establish a framework for [Incremental Policy](../policy-compliance/overview.md) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the  Configuration Management position.
+This article outlines the Configuration Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp), but establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the  Configuration Management position.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -75,7 +75,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * Configuration alignment approaches
   * Adherence to HA/DR strategy and SLA classification
 * Test deployment, configuration, and recovery policies in staging to validate adherence.
-* Test disaster recovery plans (intrusive and non-instrusive).
+* Test disaster recovery plans (intrusive and non-intrusive).
 
 ## Operate and post-implementation
 
@@ -91,10 +91,10 @@ Once the transformation is complete, governance and operations must live on for 
 **Potential activities**
 
 * Review OS and Application vulnerabilities.
-* Modify disaster recovery plans (intrusive and non-instrusive) as necessary.
+* Modify disaster recovery plans (intrusive and non-intrusive) as necessary.
 * Implement configuration drift monitoring.
 * Maintain and execute patch cycles.
 * Prepare quarterly report including SLA costs versus business impact, along with results from recovery plan testing.
 
 # Next steps
-When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/infrastructure/logs-and-reporting/overview?branch=brian%2FCOMIntegration) with your existing processes and tools.
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.

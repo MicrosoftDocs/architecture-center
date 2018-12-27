@@ -9,7 +9,7 @@ ms.date: 12/14/2018
 
 In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
 
-This article outlines the Cost Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md), but establish a framework for [Incremental Policy](../policy-compliance/overview.md) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Resource Management position.
+This article outlines the Resource Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Resource Management position.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -34,7 +34,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Potential activities**
 
 * Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md) and cost accounting practices within your business units and organization as a whole.
-* Define your monitoring and reporting policies and requirements.
+* Define your [monitoring and policy enforcement](../monitoring-enforcement/overview.md) requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
 * Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources. 
 * Determine scalability requirements for your planned workloads. 
@@ -57,7 +57,6 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
 * Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements. 
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
-* Evaluate how your cloud-based monitoring systems will integrate with your existing on-premises or other external [monitoring and reporting](../../infrastructure/logs-and-reporting/overview.md) solution, and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
 * Establish a least privilege permissions model, where users have no permissions by default. 
 * Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
 * Define dependencies between resources.
@@ -79,7 +78,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Potential activities**
 
-* Complete and test integration of cloud monitoring and reporting data with your chosen on-premises, cloud gateway, or hybrid solution. 
+* Complete and test monitoring and reporting data. with your chosen on-premises, cloud gateway, or hybrid solution. 
 * Determine if changes need to be made to SLA or management policy for resources.
 * Improve operations tasks by implementing query capabilities to efficiently find resource across your cloud estate. 
 * Align resources to changing business needs and governance requirements.

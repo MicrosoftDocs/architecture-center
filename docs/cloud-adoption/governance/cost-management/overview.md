@@ -7,9 +7,9 @@ ms.date: 12/17/2018
 
 # Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?
 
-In the [Intro to Cloud Governance](../overview.md), Cost Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing cloud spend plans, allocations of cloud budgets,  monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the plan when actual spending is misaligned.
+In the [Intro to Cloud Governance](../overview.md), Cost Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing cloud spend plans, allocations of cloud budgets,  monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the plan when actual spending is misaligned.
 
-This article outlines the Cost Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md) and establish a framework for [Incremental Policy](../policy-compliance/overview.md) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Cost Management position.
+This article outlines the Cost Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Cost Management position.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -34,7 +34,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Validate [learning metrics](../../business-strategy/learning-metrics.md) that you use to report on the successful allocation of funding.
 * Understand the desired [Cloud Accounting Model](../../business-strategy/cloud-accounting.md) that impact how cloud costs should be accounted for.
 * Become familiar with the [Digital Estate Plan](../../digital-estate/overview.md) and validate accurate costing expectations.
-* Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-committment by purchasing an Enterprise Agreement.
+* Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-commitment by purchasing an Enterprise Agreement.
 * Align business goals with planned budgets and adjust budgetary plans as necessary.
 * Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
 
@@ -67,8 +67,8 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Potential activities**
 
-* Impelement your Cloud Accounting Model.
-* Ensure that your budgets reflect your actual spending durring each release and adjust as necessary.
+* Implement your Cloud Accounting Model.
+* Ensure that your budgets reflect your actual spending during each release and adjust as necessary.
 * Monitor changes in budgetary plans and validate with stakeholders if additional sign-offs are needed.
 * Update changes to the Architecture Guidelines document to reflect actual costs.
 
@@ -87,7 +87,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 * Execute a Quarterly Cloud Business Review to communicate value delivered to the business and associated costs.
 * Adjust plans quarterly to reflect changes to actual spending.
-* Determine financial alignment to P&Ls for business unit subcriptions.
+* Determine financial alignment to P&Ls for business unit subscriptions.
 * Analyze stakeholder value and cost reporting methods on a monthly basis.
 * Remediate underused assets and determine if they're worth continuing. 
 * Detect misalignments and anomalies between the plan and actual spending.

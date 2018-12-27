@@ -10,7 +10,7 @@ ms.date: 12/11/2018
 
 In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
-Unlike the cloud-agnostic position throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
+Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 
 |    | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/)  | [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)  | [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/overview) | [Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-intro) | [Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) |
@@ -46,7 +46,7 @@ Along with these resource management tools and features, you will need to [monit
 | Visualize and analyze log and performance data     | Yes          | No                   | No            | No                     |
 | Integrate with on-premises or third-party monitoring solution     | No           | No                   | No            | Yes                    |
 
-When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview) with your existing processes and tools. 
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools. 
 
 > [!Note]
 > Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps Tool Integrations](https://azure.microsoft.com/en-us/products/devops-tool-integrations/).
