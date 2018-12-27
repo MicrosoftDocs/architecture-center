@@ -7,7 +7,7 @@ ms.date: 12/26/2018
 
 # Fusion: Make the switch from mainframes to Azure
 
-Azure is a platform for running traditional mainframe applications, offering organizations hyperscale, compute, and storage in a high availability environment. You can have the value and agility of a modern, cloud-based platform without the high costs associated with a mainframe environment.
+As an alternative platform for running traditional mainframe applications, Azure offers hyperscale compute and storage in a high availability environment. You get the value and agility of a modern, cloud-based platform without the costs associated with a mainframe environment.
 
 This section provides technical guidance for making the switch from a mainframe platform to Azure.
 
@@ -35,29 +35,29 @@ This guide estimates 200 MIPS per vCPU for online processing and 100 MIPS per vC
 
 ## High availability and failover
 
-Mainframe systems often offer five 9s availability (99.999 percent) when mainframe coupling and Parallel Sysplex are used. In this case, system operators need to schedule downtime for maintenance and initial program loads (IPLs). The actual availability approaches two or three 9s, on par with high end, Intel-based servers.
+Mainframe systems often offer five 9s availability (99.999 percent) when mainframe coupling and Parallel Sysplex are used. Yet system operators still need to schedule downtime for maintenance and initial program loads (IPLs). The actual availability approaches two or three 9s, on par with high end, Intel-based servers.
 
 By comparison, Azure offers commitment-based service level agreements (SLAs), where multiple 9s availability is the default, optimized with local or geo-based replication of services.
 
 Azure provides additional availability by replicating data from multiple storage devices, either locally or in other geographic regions. In the event of an Azure-based failure, compute resources can access the replicated data on either the local or regional level.
 
-When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos Database](https://docs.microsoft.com/azure/cosmos-db/introduction), Azure can automatically handle failovers. When you implement Azure using IaaS, failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
+When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos Database](https://docs.microsoft.com/azure/cosmos-db/introduction), Azure can automatically handle failovers. When you use Azure infrastructure as a service(IaaS), failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
 
 ## Scalability
 
-Mainframes typically scale up, while cloud environment scale out. Mainframes can scale out with the use of a coupling facility (CF), but the high costs of hardware and storage makes mainframes very expensive to scale out.
+Mainframes typically scale up, while cloud environments scale out. Mainframes can scale out with the use of a coupling facility (CF), but the high costs of hardware and storage makes mainframes very expensive to scale out.
 
-In addition, a CF offers tightly coupled compute, whereas the scale-out features of Azure are loosely coupled. The cloud can scale up or down to match exact user specifications. With Azure, compute power, storage, and services scale on demand using a usage-based billing model.
+In addition, a CF offers tightly coupled compute, whereas the scale-out features of Azure are loosely coupled. The cloud can scale up or down to match exact user specifications, with compute power, storage, and services scaling on demand under a usage-based billing model.
 
 ## Backup and recovery
 
 Mainframe customers typically maintain disaster recovery sites or make use or an independent mainframe provider for disaster contingencies. Synchronization with a disaster recovery site is usually done through offline copies of data. Both options incur high costs.
 
-Automated geo-redundancy is also available through the mainframe coupling facility, albeit at great expense, and is usually reserved for mission-critical systems. Azure has easy-to-implement and cost-effective options for [backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), [recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and [redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) at local or regional levels, or via geo-redundancy.
+Automated geo-redundancy is also available through the mainframe coupling facility, albeit at great expense, and is usually reserved for mission-critical systems. In contrast, Azure has easy-to-implement and cost-effective options for [backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup), [recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and [redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) at local or regional levels, or via geo-redundancy.
 
 ## Storage
 
-Part of understanding how mainframes work involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage generally refer to storage attached directly to the mainframe processor.
+Part of understanding how mainframes work involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage all generally refer to storage attached directly to the mainframe processor.
 
 Mainframe hardware includes processors and many other devices, such as direct access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
 
@@ -77,8 +77,7 @@ Mainframes typically have separate logical partitions (LPARs) for development an
 
 Emulation environments and compilers are available on x86 platforms, so development and testing can typically be among the first workloads to migrate from a mainframe to Azure. The availability and widespread use of [DevOps tools in Azure](https://azure.microsoft.com/solutions/devops/) is accelerating the migration of development and testing environments.
 
-> [!NOTE]
-> If you develop and test solutions on Azure that are ready for deployment to a mainframe, you will need to also compile the source code on the mainframe.
+When solutions are developed and tested on Azure and are ready for deployment to the mainframe, you will need to copy the code to the mainframe and compile it there. 
 
 ## Next steps
 
