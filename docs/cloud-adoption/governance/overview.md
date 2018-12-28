@@ -1,22 +1,90 @@
 ---
-title: "Fusion: What is cloud governance?"
-description: Overview of governance content for Azure Fusion
+title: "Fusion: Executing the right Cloud Governance Strategy"
+description: Overview of governance content within Fusion
 author: BrianBlanchard
 ms.date: 12/08/2018
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: What is cloud governance?
+# Fusion: Executing the right Cloud Governance Strategy
 
-Any change to technology platforms or business processes introduces risks to the business. The Fusion model to cloud governance guides architects through the processes of identifying risks, understanding tolerance for risk, and maturing cloud governance disciplines in alignment with cloud adoption. 
+Any change to technology platforms or business processes introduces risks to the business. The Fusion model to cloud governance guides architects through the processes of identifying risks, understanding tolerance for risk, and maturing cloud governance disciplines in alignment with cloud adoption.
 
 ![Corporate policy and governance disciplines](../_images/operational-transformation-govern.png)<br>
 *Figure 1. Corporate policy and five governance disciplines*
 
 Fusion cloud governance starts with [Corporate Policy](#corporate-policy), which guides decisions regarding Business Risks, Policy Definition, and Enforcement. The model then builds on corporate policy by guiding decisions regarding the [disciplines of Cloud Governance](#disciplines-of-cloud-governance). [Actionable design guides](#actionable-design-guides) provide a number of specific customer scenarios, to guide implementation of the model in a relatable context.
 
-Jump to Cloud Governance Guidance: [Design Guides](#actionable-design-guides) | [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance)
+Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Design Guides](#actionable-design-guides) 
+
+## Corporate Policy
+
+Healthy cloud governance strategy begins with sound corporate policy which mitigates real business risks.
+
+<ul  class="panelContent cardsD">
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Cloud Native</h3>
+                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Cloud Native</h3>
+                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Cloud Native</h3>
+                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+ The cloud offers a variety of management tools. You can use these tools to automate and define action-based policies. A healthy governance strategy starts with an [understanding of business risks](policy-compliance/understanding-business-risk.md). Then you enact [policies](policy-compliance/overview.md) to create barriers that help mitigate those risks. Once policy is established, [monitoring and enforcement](monitoring-enforcement/overview.md) provides additional guidelines that define how policy is enforced and what happens when a deviation to policy occurs.
+
+In some industry verticals, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) supercedes corporate policy, and therefore requires a set of stricter guidelines. These enforceable yet flexible policies are the basis of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, and not technical dogma, you can more easily adapt policy and resulting strategy to align with the cloud or any other technical deployment.
 
 ## Actionable Design Guides
 
@@ -93,7 +161,7 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise @ scale</h3>
+                        <h3>Enterprise @ Scale</h3>
                         <p>As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs.</p>
                     </div>
                 </div>
@@ -120,13 +188,28 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
         </div>
     </a>
 </li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/multi-cloud.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/multi-cloud.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Multi-Cloud Governance</h3>
+                        <p>Industry analysts are predicting that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 </ul>
 
-## Corporate Policy
 
- The cloud offers a variety of management tools. You can use these tools to automate and define action-based policies. A healthy governance strategy starts with an [understanding of business risks](policy-compliance/understanding-business-risk.md). Then you enact [policies](policy-compliance/overview.md) to create barriers that help mitigate those risks. Once policy is established, [monitoring and enforcement](monitoring-enforcement/overview.md) provides additional guidelines that define how policy is enforced and what happens when a deviation to policy occurs.
-
-In some industry verticals, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) supercedes corporate policy, and therefore requires a set of stricter guidelines. These enforceable yet flexible policies are the basis of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, and not technical dogma, you can more easily adapt policy and resulting strategy to align with the cloud or any other technical deployment.
 
 ## Disciplines of Cloud Governance
 
