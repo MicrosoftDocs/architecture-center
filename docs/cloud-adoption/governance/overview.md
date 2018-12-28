@@ -9,12 +9,12 @@ ms.topic: landing-page
 
 # Fusion: Implementing a Cloud Governance Strategy
 
-<ul  class="panelContent cardsL">
+<ul  class="panelContent cardsI">
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding">
             <div class="card" style="padding-bottom:10px;">
-                <div class="cardText">
+                <div class="cardText" style="padding-left:0px;">
 Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
                 </div>
             </div>
@@ -25,7 +25,7 @@ Any change to business processes or technology platforms introduce risk to the b
     <div class="cardSize">
         <div class="cardPadding">
             <div class="card" style="padding-bottom:10px;">
-                <div class="cardText">
+                <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
 *Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines*
@@ -34,25 +34,13 @@ Any change to business processes or technology platforms introduce risk to the b
         </div>
     </div>
 </li>
-<li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card" style="padding-bottom:10px;">
-                <div class="cardText">
-                    <h3>Quick Links</h3>
-                    <a class="barLink x-hidden-focus" href="#corporate-policy">Corporate Policy</a>
-                    <a class="barLink x-hidden-focus" href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>
-                    <a class="barLink x-hidden-focus" href="#actionable-design-guides">Azure Specific Design Guides</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</li>
 </ul>
+
+Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Specific Design Guides](#actionable-design-guides)
 
 ## Corporate Policy
 
-Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
+Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy, the following three step process guides iterative development of such policies.
 
 <ul  class="panelContent cardsA">
 <li style="display: flex; flex-direction: column;">
