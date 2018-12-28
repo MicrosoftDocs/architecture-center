@@ -27,7 +27,7 @@ Any change to business processes or technology platforms introduce risk to the b
             <div class="cardPadding" style="padding-bottom:10px;">
                 <div class="card" style="padding-bottom:10px;">
                     <div class="cardText" style="padding-left:0px;">
-<img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
+<img src="../_images/operational-transformation-govern-highres.png" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
 <i>Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines</i>
                     </div>
