@@ -18,10 +18,10 @@ Any change to technology platforms or business processes introduces risks to the
 Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Design Guides](#actionable-design-guides) 
 
 ## Corporate Policy
-
-Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
-
 <ul  class="panelContent cardsA">
+<li class="fullspan">
+Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
+</li>
 <li style="display: flex; flex-direction: column;">
     <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -52,8 +52,8 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Policy</h3>
-                        <p>Evaluate risk tolerance to inform minimally invasive policies which govern cloud adoption and mitigate risks.</p>
+                        <h3>Policy & Compliance</h3>
+                        <p>Evaluate risk tolerance to inform minimally invasive policies which govern cloud adoption and mitigate risks. In some industries, 3rd party compliance impacts initial policy creation.</p>
                     </div>
                 </div>
             </div>
@@ -73,25 +73,6 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
                     <div class="cardText">
                         <h3>Monitoring & Enforcement</h3>
                         <p>The pace of adoption and innovation will create policy violations. Detect & resolve violations before release.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./policy-compliance/what-is-regulatory-compliance.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/compliance.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>External Compliance</h3>
-                        <p>In some industries, regulatory or 3rd party compliance supercedes corporate policy. Understand Microsoft's position on Compliance.</p>
                     </div>
                 </div>
             </div>
