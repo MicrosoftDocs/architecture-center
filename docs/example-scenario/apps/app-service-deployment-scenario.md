@@ -78,7 +78,7 @@ https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-f
 
 ## Deploy the scenario
 
-To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple ticket purchasing application. Additionally, there is a Resource Manager template to automate the deployment of most of the Azure resources.
+To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple Contoso Expenses reporting application. 
 
 ## Pricing
 
@@ -92,8 +92,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 
 ## Related resources
 
-* [Reference Architecture for Multi-Region Web Application][multi-region-web-app]
-* [eShop on Containers Reference Example][microservices-ecommerce]
+* [Integrate your ILB App Service Environment with the Azure Application Gateway][integrate-ilb-ase-with-appgw]
+* [Integrate your Web Apps with the Azure Application Gateway][use-app-svc-web-apps-with-appgw]
 
 <!-- links -->
 [architecture]: ./media/ilb-ase-architecture.png
@@ -123,8 +123,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
-[microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
-[multi-region-web-app]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
+[use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
+[integrate-ilb-ase-with-appgw]: /azure/app-service/environment/integrate-with-application-gateway
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
 [resiliency]: /azure/architecture/checklist/resiliency
