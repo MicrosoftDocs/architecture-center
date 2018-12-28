@@ -9,7 +9,7 @@ ms.topic: landing-page
 
 # Fusion: Implementing a Cloud Governance Strategy
 
-Any change to technology platforms or business processes introduces risks to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks without hindering adoption and innovation. Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform. This model focuses on the [development of Corporate Policy](#corporate-policy) and the [Disciplines of Cloud Governance](#disciplines-of-cloud-governance). Implementing cloud governance decisions is still vendor specific, to make the decisions actionable, the model also includes [Azure specific design guides](#actionable-design-guides).
+Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts. Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform. This model focuses on the [development of Corporate Policy](#corporate-policy) and the [Disciplines of Cloud Governance](#disciplines-of-cloud-governance). Implementing cloud governance decisions is still vendor specific, to make the decisions actionable, the model also includes [Azure specific design guides](#actionable-design-guides).
 
 <img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
