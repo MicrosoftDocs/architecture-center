@@ -9,14 +9,12 @@ ms.topic: landing-page
 
 # Fusion: Executing the right Cloud Governance Strategy
 
-Any change to technology platforms or business processes introduces risks to the business. The Fusion model to cloud governance guides architects through the processes of identifying risks, understanding tolerance for risk, and maturing cloud governance disciplines in alignment with cloud adoption.
+Any change to technology platforms or business processes introduces risks to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks without hindering adoption and innovation. Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform. This model focuses on the [development of Corporate Policy](#corporate-policy) and the [Disciplines of Cloud Governance](#disciplines-of-cloud-governance). Implementing cloud governance decisions is still vendor specific, to make the decisions actionable, the model also includes [Azure specific design guides](#actionable-design-guides).
 
-![Corporate policy and governance disciplines](../_images/operational-transformation-govern.png)<br>
-*Figure 1. Corporate policy and five governance disciplines*
+![Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines](../_images/operational-transformation-govern.png)<br>
+*Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines*
 
-Fusion cloud governance starts with [Corporate Policy](#corporate-policy), which guides decisions regarding Business Risks, Policy Definition, and Enforcement. The model then builds on corporate policy by guiding decisions regarding the [disciplines of Cloud Governance](#disciplines-of-cloud-governance). [Actionable design guides](#actionable-design-guides) provide a number of specific customer scenarios, to guide implementation of the model in a relatable context.
-
-Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Design Guides](#actionable-design-guides) 
+Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Design Guides](#actionable-design-guides) 
 
 ## Corporate Policy
 
