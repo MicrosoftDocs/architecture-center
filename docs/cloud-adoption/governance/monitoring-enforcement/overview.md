@@ -7,7 +7,7 @@ ms.date: 12/21/2018
 
 # Fusion: What is monitoring and enforcement in relation to cloud governance?
 
-The five disciplines of Cloud Governance that are introduced in the [intro to cloud governance](../overview.md) provide the building blocks needed to develop corporate cloud governance standards, giving you a baseline [policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) to use when migrating to the cloud. Critical to all of these disciplines, and the wider process of [incremental policy](../policy-compliance/overview.md#incremental-policy-growth) evolution, is the ability to detect policy non-compliance and use historical information about past resource activity to guide policy revision.
+The five disciplines of Cloud Governance that are introduced in the [intro to cloud governance](../overview.md) provide the building blocks needed to develop corporate cloud governance standards, giving you a baseline [policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) to use when migrating to the cloud. Critical to all of these disciplines, and the wider process of [incremental policy](../policy-compliance/overview.md#incremental-policy-growth) evolution, is the ability to detect policy non-compliance and use historical information about past activity and resource usage to guide policy revision.
 
 Establishing monitoring and reporting standards, and implementing automated systems and processes to support these standards, provides visibility into the behavior and operations or your cloud-based resources. During operations, the reports and alerts generated from monitoring systems are critical for IT staff to detect and resolve performance issues, security vulnerabilities, or otherwise enforce policy standards. Monitoring systems are also critical in triggering automation remediation systems. 
 
@@ -56,6 +56,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Evaluate how your cloud-based monitoring systems will integrate with your existing on-premises or other external [monitoring and reporting](../../infrastructure/logs-and-reporting/overview.md) solution, and determine if logging data should be replicated to an on-premises, cloud gateway, or hybrid solution. Implement any APIs or other import/export mechanisms used to support this decision.
 * Identify teams and individuals that need to be included in alerts and reporting.
+* Establish SLA standards for resolving detected issues.
 * Implement security and access control monitoring.
 * Implement VM and service health monitoring.
 * Implement network traffic monitoring.

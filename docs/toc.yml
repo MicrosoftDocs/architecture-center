@@ -706,6 +706,8 @@
         items:
           - name: Overview
             href: cloud-adoption/governance/monitoring-enforcement/overview.md
+          - name: Azure Specific Tool Chain
+            href: cloud-adoption/governance/monitoring-enforcement/toolchain.md
       - name: How can a CISO prepare for the cloud?
         href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
       - name: What is Data Governance?
