@@ -20,7 +20,11 @@ Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disc
 ## Corporate Policy
 <ul  class="panelContent cardsA">
 <li class="fullspan">
+    <div class="container intro">
+        <p class="x-hidden-focus">
 Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
+        </p>
+    </div>
 </li>
 <li style="display: flex; flex-direction: column;">
     <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
