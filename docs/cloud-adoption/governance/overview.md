@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Executing the right Cloud Governance Strategy"
+title: "Fusion: Implementing a Cloud Governance Strategy"
 description: Overview of governance content within Fusion
 author: BrianBlanchard
 ms.date: 12/08/2018
@@ -7,11 +7,12 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Executing the right Cloud Governance Strategy
+# Fusion: Implementing a Cloud Governance Strategy
 
 Any change to technology platforms or business processes introduces risks to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks without hindering adoption and innovation. Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform. This model focuses on the [development of Corporate Policy](#corporate-policy) and the [Disciplines of Cloud Governance](#disciplines-of-cloud-governance). Implementing cloud governance decisions is still vendor specific, to make the decisions actionable, the model also includes [Azure specific design guides](#actionable-design-guides).
 
-![Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines](../_images/operational-transformation-govern.png)<br>
+<img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
+<br>
 *Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines*
 
 Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Design Guides](#actionable-design-guides) 
@@ -20,7 +21,7 @@ Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disc
 
 Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
 
-<ul  class="panelContent cardsD">
+<ul  class="panelContent cardsA">
 <li style="display: flex; flex-direction: column;">
     <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
