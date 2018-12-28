@@ -656,7 +656,7 @@
         href: cloud-adoption/governance/overview.md
       - name: Policy & Compliance
         items:
-          - name: Overview
+          - name: Defining Corporate Policy
             href: cloud-adoption/governance/policy-compliance/overview.md
           - name: What is Regulatory Compliance?
             href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
@@ -664,7 +664,7 @@
             href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
       - name: Cost Management
         items:
-          - name: Overview
+          - name: Cost Management Decisions
             href: cloud-adoption/governance/cost-management/overview.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
