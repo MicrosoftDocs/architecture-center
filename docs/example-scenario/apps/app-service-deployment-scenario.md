@@ -20,7 +20,7 @@ This scenario covers the data flows through the scenario as follows:
 
 ### Components
 
-* ILB [App Service Environment][[intro-to-app-svc-env]] The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. 
+* ILB [App Service Environment][intro-to-app-svc-env] The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. 
 * [Isolated App Service Plan Pricing Tier][isolated-tier-pricing-and-ase-pricing] The Isolated service plan is designed to run mission critical workloads, that are required to run in a virtual network. The Isolated plan allows customers to run their apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
 * Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs allowing autoscale and high availability without having to manage infrastructure.
 
