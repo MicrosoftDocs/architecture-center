@@ -22,17 +22,19 @@ Any change to business processes or technology platforms introduce risk to the b
     </div>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding">
-            <div class="card" style="padding-bottom:10px;">
-                <div class="cardText" style="padding-left:0px;">
+    <a href="../_images/operational-transformation-govern-highres.png" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card" style="padding-bottom:10px;">
+                    <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
-*Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines*
+<i>Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines</i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </li>
 </ul>
 
