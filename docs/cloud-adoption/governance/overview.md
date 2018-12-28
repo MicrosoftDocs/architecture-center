@@ -24,18 +24,18 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
 
 <ul  class="panelContent cardsD">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/business-risk.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cloud Native</h3>
-                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                        <h3>Business Risk</h3>
+                        <p>Investigate current cloud adoption plans and data classification to identify real risks to the business.</p>
                     </div>
                 </div>
             </div>
@@ -43,18 +43,18 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./policy-compliance/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/corporate-policy.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cloud Native</h3>
-                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                        <h3>Policy</h3>
+                        <p>Evaluate risk tolerance to inform minimally invasive policies which govern cloud adoption and mitigate risks.</p>
                     </div>
                 </div>
             </div>
@@ -62,18 +62,37 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./monitoring-enforcement/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/policy-enforcement.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cloud Native</h3>
-                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                        <h3>Monitoring & Enforcement</h3>
+                        <p>The pace of adoption and innovation will create policy violations. Detect & resolve violations before release.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./policy-compliance/what-is-regulatory-compliance.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img src="../_images/governance/compliance.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>External Compliance</h3>
+                        <p>In some industries, regulatory or 3rd party compliance supercedes corporate policy. Understand Microsoft's position on Compliance.</p>
                     </div>
                 </div>
             </div>
@@ -82,9 +101,6 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
 </li>
 </ul>
 
- The cloud offers a variety of management tools. You can use these tools to automate and define action-based policies. A healthy governance strategy starts with an [understanding of business risks](policy-compliance/understanding-business-risk.md). Then you enact [policies](policy-compliance/overview.md) to create barriers that help mitigate those risks. Once policy is established, [monitoring and enforcement](monitoring-enforcement/overview.md) provides additional guidelines that define how policy is enforced and what happens when a deviation to policy occurs.
-
-In some industry verticals, [regulatory compliance](policy-compliance/what-is-regulatory-compliance.md) supercedes corporate policy, and therefore requires a set of stricter guidelines. These enforceable yet flexible policies are the basis of any mature governance strategy. When policies accurately reflect tangible risks and the business' tolerance for risk, and not technical dogma, you can more easily adapt policy and resulting strategy to align with the cloud or any other technical deployment.
 
 ## Actionable Design Guides
 
