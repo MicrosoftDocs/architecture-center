@@ -20,7 +20,7 @@ Jump to Cloud Governance Guidance: [Corporate Policy](#corporate-policy) | [Disc
 
 ## Corporate Policy
 
-Healthy cloud governance strategy begins with sound corporate policy which mitigates real business risks.
+Adoption of any cloud platform introduces risk. The following model demonstrates a process for identifying and mitigating those risks regardless of the chosen technology. Healthy cloud governance strategy begins with sound corporate policy which mitigates tangible business risks.
 
 <ul  class="panelContent cardsD">
 <li style="display: flex; flex-direction: column;">
@@ -35,7 +35,7 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
                     </div>
                     <div class="cardText">
                         <h3>Business Risk</h3>
-                        <p>Investigate current cloud adoption plans and data classification to identify real risks to the business.</p>
+                        <p>Investigate current cloud adoption plans and data classification to identify risks to the business. Work with the business to balance risk tolerance and mitigation costs.</p>
                     </div>
                 </div>
             </div>
@@ -101,12 +101,111 @@ Healthy cloud governance strategy begins with sound corporate policy which mitig
 </li>
 </ul>
 
+## Disciplines of Cloud Governance
+
+Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align tool chains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
+
+<ul  class="panelContent cardsA">
+<li style="display: flex; flex-direction: column;">
+    <a href="./cost-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Cost Management</h3>
+                        <p>Cost is a primary concern for cloud users. Develop policies for cost control for all cloud platforms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./security-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/security-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Security Management</h3>
+                        <p>Security is a complex & personal topic, unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data and asset configurations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./identity-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/identity-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Identity Management</h3>
+                        <p>Isolated identity providers introduce management overhead and increase the risk profile. Policies, which enforce hybrid identity and extend/improve on-prem identity management, mitigate several business risks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./configuration-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/configuration-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Resource Management</h3>
+                        <p>Sound governance happens at the resource level. Policy and architecture guidance regarding hierarchy, grouping, tagging, and access to resources is the foundation for all cloud governance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./configuration-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/configuration-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Configuration Management</h3>
+                        <p>Changes to asset configuration is the most likely point of policy violation. As cloud adoption matures, so should the tools and approaches to inspect configuration during deployment, modification, and outage recovery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
 
 ## Actionable Design Guides
 
-To demonstrate actionable implementation patterns of the Fusion Cloud Governance model, this section provides design guides based on the governance tools available in Azure.
-
-However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger than a single cloud provider. To avoid vendor lock-in and guide holistic decision making, each design guide is supported by a decision process that can be applied to any cloud platform. See [Corporate Policy](#corporate-policy) and [Disciplines of Cloud Governance](#disciplines-of-cloud-governance), for cloud governance decision guidance that must be made for any cloud platform.
+To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following design guides align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure.
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
@@ -225,17 +324,6 @@ However, in a multi-cloud/hybrid-cloud world, governance decisions are bigger th
 </li>
 </ul>
 
+## Additional Guidance
 
-
-## Disciplines of Cloud Governance
-
-The Fusion cloud governance model focuses on the five disciplines of cloud governance, and each implements a different aspect of corporate policies to support safe cloud adoption. These disciplines include [cost management](cost-management/overview.md), [security management](security-management/overview.md), [identity management](identity-management/overview.md), [resource management](resource-management/overview.md), and [configuration management](configuration-management/overview.md). When policy focuses on risk and tolerance, the management disciplines can extend policy by applying proper risk mitigation to the chosen [deployment model](../getting-started/cloud-deployment-models.md).
-
-If a design guide mitigates some of the identified business risks, but doesn't fit perfectly, the discipline descriptions can help make decisions that better align implementation.
-
-## Next steps
-
-The first step to taking action for any governance strategy is conducting a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and compliance](policy-compliance/overview.md) is a useful guide for you to reference during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
-
-> [!div class="nextstepaction"]
-> [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)
+Evaluating current policy through a [cloud policy review](policy-compliance/what-is-a-cloud-policy-review.md) can be a good place to begin the governance journey. [Policy and compliance](policy-compliance/overview.md) can be a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
