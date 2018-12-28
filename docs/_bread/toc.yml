@@ -27,25 +27,6 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
-    - name: Fusion
-      tocHref: /azure/architecture/cloud-adoption/
-      topicHref: /azure/architecture/cloud-adoption
-      items:
-      - name: Getting Started
-        tocHref: /azure/architecture/cloud-adoption/getting-started/
-        topicHref: /azure/architecture/cloud-adoption/getting-started
-      - name: Governance
-        tocHref: /azure/architecture/cloud-adoption/governance/
-        topicHref: /azure/architecture/cloud-adoption/governance
-      - name: Infrastructure
-        tocHref: /azure/architecture/cloud-adoption/infrastructure/
-        topicHref: /azure/architecture/cloud-adoption/infrastructure
-      - name: Operations
-        tocHref: /azure/architecture/cloud-adoption/operations/
-        topicHref: /azure/architecture/cloud-adoption/operations
-      - name: Appendix
-        tocHref: /azure/architecture/cloud-adoption/appendix/
-        topicHref: /azure/architecture/cloud-adoption/appendix
     - name: Example Scenarios
       tocHref: /azure/architecture/example-scenario/
       topicHref: /azure/architecture/example-scenario
@@ -61,3 +42,22 @@
     - name: Performance Antipatterns
       tocHref: /azure/architecture/antipatterns/
       topicHref: /azure/architecture/antipatterns
+  - name: Fusion
+    tocHref: /azure/architecture/cloud-adoption/
+    topicHref: /azure/architecture/cloud-adoption
+    items:
+    - name: Getting Started
+      tocHref: /azure/architecture/cloud-adoption/getting-started/
+      topicHref: /azure/architecture/cloud-adoption/getting-started
+    - name: Governance
+      tocHref: /azure/architecture/cloud-adoption/governance/
+      topicHref: /azure/architecture/cloud-adoption/governance
+    - name: Infrastructure
+      tocHref: /azure/architecture/cloud-adoption/infrastructure/
+      topicHref: /azure/architecture/cloud-adoption/infrastructure
+    - name: Operations
+      tocHref: /azure/architecture/cloud-adoption/operations/
+      topicHref: /azure/architecture/cloud-adoption/operations
+    - name: Appendix
+      tocHref: /azure/architecture/cloud-adoption/appendix/
+      topicHref: /azure/architecture/cloud-adoption/appendix

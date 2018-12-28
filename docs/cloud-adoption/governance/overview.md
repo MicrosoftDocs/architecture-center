@@ -90,7 +90,7 @@ Developing corporate policy focuses on identifying and mitigating business risks
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/governance/policy-enforcement.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/enforcement.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
