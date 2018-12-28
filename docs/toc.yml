@@ -654,6 +654,8 @@
       items:
       - name: Overview
         href: cloud-adoption/governance/overview.md
+      - name: Defining Corporate Policy
+        href: cloud-adoption/governance/policy-compliance/overview.md
       - name: Policy & Compliance
         items:
           - name: Defining Corporate Policy
