@@ -13,11 +13,9 @@ ms.topic: landing-page
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding">
-            <div class="card">
+            <div class="card" style="padding-bottom:10px;">
                 <div class="cardText">
-Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts. 
-
-Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
+Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
                 </div>
             </div>
         </div>
@@ -26,7 +24,7 @@ Fusion's model to Cloud Governance guides these decisions regardless of the chos
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding">
-            <div class="card">
+            <div class="card" style="padding-bottom:10px;">
                 <div class="cardText">
 <img src="../_images/operational-transformation-govern-highres.png" style="height:200px" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
@@ -39,7 +37,7 @@ Fusion's model to Cloud Governance guides these decisions regardless of the chos
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding">
-            <div class="card">
+            <div class="card" style="padding-bottom:10px;">
                 <div class="cardText">
                     <h3>Quick Links</h3>
                     <a class="barLink x-hidden-focus" href="#corporate-policy">Corporate Policy</a>
@@ -107,7 +105,7 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
                     </div>
                     <div class="cardText">
                         <h3>Monitoring & Enforcement</h3>
-                        <p>The pace of adoption and innovation will create policy violations. Detect & resolve violations before release.</p>
+                        <p>The pace of adoption and innovation will naturally create policy violations. Ensure policies include the proper requirements to detect & resolve violations <u>before</u> they are released.</p>
                     </div>
                 </div>
             </div>
