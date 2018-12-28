@@ -655,11 +655,11 @@
       - name: Overview
         href: cloud-adoption/governance/overview.md
       - name: Defining Corporate Policy
-        href: cloud-adoption/governance/policy-compliance/overview.md
-      - name: Policy & Compliance
         items:
-          - name: Defining Corporate Policy
-            href: cloud-adoption/governance/policy-compliance/overview.md
+          - name: Understanding business risks
+            href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
+          - name: Evaluate Risk Tolerance
+            href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
           - name: What is Regulatory Compliance?
             href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
           - name: What is a Cloud Policy Review?

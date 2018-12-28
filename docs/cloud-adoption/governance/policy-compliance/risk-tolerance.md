@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Understanding risks related to Cloud Transformation
+# Fusion: Evaluating risk tolerance
 
 Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud Transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (Cloud or on-prem) open up new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
 
