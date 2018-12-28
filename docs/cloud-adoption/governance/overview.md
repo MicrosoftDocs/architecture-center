@@ -32,7 +32,7 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
+                        <div class="cardImage">
                             <img src="../_images/governance/business-risk.png" class="x-hidden-focus"/>
                         </div>
                     </div>
@@ -51,7 +51,7 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
+                        <div class="cardImage">
                             <img src="../_images/governance/corporate-policy.png" class="x-hidden-focus"/>
                         </div>
                     </div>
@@ -70,7 +70,7 @@ Adoption of any cloud platform introduces risk. The following model demonstrates
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
+                        <div class="cardImage">
                             <img src="../_images/governance/policy-enforcement.png" class="x-hidden-focus"/>
                         </div>
                     </div>
