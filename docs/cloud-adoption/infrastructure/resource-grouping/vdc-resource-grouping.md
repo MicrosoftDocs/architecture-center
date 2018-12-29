@@ -8,7 +8,7 @@ ms.date: 12/28/2018
 
 Jump to: [Resource groups](#resource-groups) | [Deployment templates](#deployment-templates)
 
-The Azure Virtual Datacenter model relies heavily on resource grouping for organizing assets within a virtual datacenter (VDC). This model also serves as a pillar of access control and policy enforcement.
+The Azure Virtual Datacenter model relies heavily on resource grouping for organizing assets within a virtual datacenter (VDC). Resource grouping also serves as a pillar of access control and policy enforcement.
 
 ## Resource groups
 
@@ -23,7 +23,7 @@ The Azure Virtual Datacenter assumes that resources are grouped according to fun
 | Shared Services               | Hosts servers providing Active Directory Domain Services and DNS for the hub environment  |
 | Central Firewall              | Contains the central firewall devices that control the traffic allowed to pass in and out of the VDC and how that traffic is directed |
 
-Spokes resource grouping will vary depending on workload, and include the following resource groups. These groups provide the following basic infrastructure and connectivity components within the hub: 
+Spoke resource grouping will vary depending on workload, but will include the following resource groups to host the basic management and security infrastructure, as well as to enable connectivity to the hub network: 
 
 | Resource group                | Use                                                              |
 |-------------------------------|------------------------------------------------------------------|
@@ -31,7 +31,7 @@ Spokes resource grouping will vary depending on workload, and include the follow
 | Key vault                     | Hosts the workload-specific Key Vault instance |
 | Networking                    | Hosts the spoke virtual network, and networking rules and devices |
 
-Resources supporting workloads also have resource groups organized by function. For instance, for a spoke supporting an N-tier application, you can have separate resource groups for each of the web, data, and business tiers, containing the relevant VMs and virtual devices.
+Resources supporting workloads also have resource groups organized by function. For instance, for a spoke supporting an N-tier application, you can have separate resource groups for each of the web, data, and business tiers, each containing the relevant VMs and virtual devices for that functionality within the overall workload.
 
 Access control and Azure policy settings can be applied at the resource group level. These groupings are one of the main ways consistent role-based access control (RBAC) and Policy are applied to resources in the Azure Datacenter model.  
 
@@ -41,7 +41,7 @@ As with any Azure deployment, developing [Resource Manager templates](https://do
 
 Hub and spoke environments share a similar base infrastructure that needs to be created before other components can be deployed. Spokes will all have a minimum set of security and access control that get applied on creation. A VDC is well suited to the use of deployment templates as a way to standardize the provisioning of resources and instrumenting consistent policy standards. 
 
-To help you build templates and automate the deployment of VDC resources, Azure has created the Azure Virtual Datacenter Automation Tookit [need public link]. This toolkit provides examples and code that uses a combination of python scripting, parameter files, and Resource Manager templates, allowing you to radically simplify and standardize your VDC deployment process.
+To help you build templates and automate the deployment of VDC resources, Azure has created the Azure Virtual Datacenter Automation Tookit [need public link]. This toolkit provides examples and code that uses a combination of python scripting, parameter files, and Resource Manager templates, allowing you to radically simplify and standardize your VDC deployment processes.
 
 ## Next steps
 
