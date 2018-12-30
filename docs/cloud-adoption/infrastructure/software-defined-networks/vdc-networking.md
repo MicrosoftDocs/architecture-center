@@ -8,7 +8,7 @@ ms.date: 12/29/2018
 # Fusion: Software Defined Networks - Networking architecture
 
 > [!NOTE]
-> The Azure Virtual Datacenter model includes more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller networks, a virtual datacenter (VDC) may be too complex a solution for your hybrid deployment needs. 
+> The Azure Virtual Datacenter model is more than networking functionality. Implementing this model requires integrating requirements from enterprise IT, security, governance, and developer teams. For simpler or smaller hybrid network deployments, a virtual datacenter (VDC) may be a more complicated model than you need. 
 > 
 > This section discusses the networking aspects of the Azure Virtual Datacenter model. For more information about this approach and to determine if it's right for your cloud migration, see the main [Azure Virtual Datacenter](../virtual-datacenter/overview.md) topic. 
 
@@ -22,7 +22,7 @@ As with other hybrid cloud architectures, the VDC hub network hosts a connection
 
 The Azure Visual Datacenter model's networking architecture extends the common [hub and spoke architecture](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) by adding centralized traffic management, Azure Policy settings, network governance, and access control capabilities. Hub and spoke networks can be hosted on separate accounts or subscriptions, allowing VDCs to bypass single-subscription resource limits. A single hub can connect to many spokes, with each hub and spoke virtual network hosted in separate subscriptions.
 
-This model also supports connecting hub and spoke networks across [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/). However, connecting between regions has the potential to introduce higher latency than would be the case if all networks were in the same region. Also, this potential latency should be accounted for in your network and workload planning.
+This model also supports connecting hub and spoke networks across [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/). However, connecting between regions has the potential to introduce higher latency than would be the case if all networks were in the same region. If your deployment plans to host resources in multiple regions, you need to account for latency  in your network and workload planning.
 
 ## IP policy
 
@@ -78,7 +78,7 @@ A VDC can support multiple connections using the gateway, either hosting redunda
 
 ### Network security groups
 
-[Network Security Groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) filter network traffic to and from Azure resources in an Azure virtual network. In the Azure Virtual Datacenter model, NSGs are assigned to each of the subnets. You can lock these rules as securely as you like, but the default rules for all subnets are as follows in order of priority:
+[Network Security Groups (NSGs)](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) filter network traffic to and from Azure resources in an Azure virtual network. In the Azure Virtual Datacenter model, NSGs are assigned to each of the subnets. You can set these rules as securely as you like, but the default rules for all subnets are as follows in order of priority:
 
 | Rule Type | NSG rule                | Description                                                                                              |
 |-----------|-------------------------|----------------------------------------------------------------------------------------------------------|
