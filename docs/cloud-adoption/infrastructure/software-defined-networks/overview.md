@@ -8,7 +8,7 @@ ms.date: 12/29/2018
 # Fusion: Which Software Defined Network is best for my deployment?
 
 Software Defined Networking (SDN) is a network architecture designed to allow
-virtualized networking functionality, and can be centrally managed, configured,
+virtualized networking functionality that can be centrally managed, configured,
 and modified through software. SDN provides an abstraction layer over the
 physical networking infrastructure, and enables the virtualized equivalent to
 physical routers, firewalls, and other networking hardware you would find in an
@@ -29,7 +29,7 @@ Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | [Hybrid](
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies. 
 
-The inflection point in this guide assumes that the Cloud Strategy Team has completed some networking analysis prior to making a decision about SDN: [Digital Estate definition](../../digital-estate/overview.md), [Subscription Design](../subscriptions/overview.md) (which may require inputs from [cloud accounting](../../business-strategy/cloud-accounting.md) & [global markets](../../business-strategy/global-markets.md) decisions).
+The inflection point in this guide depends on several key decisions that your Cloud Strategy Team have made prior to making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your [cloud accounting](../../business-strategy/cloud-accounting.md) and [global markets](../../business-strategy/global-markets.md) strategies).
 
 Small, single region deployments of less than 1,000 VMs are less likely to be significantly impacted by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially impacted by your SDN decision and this key inflection point.
 
