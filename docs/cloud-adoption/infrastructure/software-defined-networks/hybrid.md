@@ -9,7 +9,7 @@ ms.date: 12/29/2018
 
 The hybrid cloud network architecture allows virtual networks to access your on-premises resources and services and vice versa, using a virtual private network (VPN) or other connection to directly connect the networks.
 
-As with a cloud native virtual network, a hybrid virtual network is isolated by default. Adding connectivity to the on-premises environment grants access to and from the on-premises network, altough all other inbound traffic targeting resources
+As with a cloud native virtual network, a hybrid virtual network is isolated by default. Adding connectivity to the on-premises environment grants access to and from the on-premises network, although all other inbound traffic targeting resources
 in the virtual network need to be explicitly allowed. You can secure the connection using virtual firewall devices and routing rules to limit access or you can specify exactly what services can be accessed between the two networks.
 
 The [virtual datacenter (VDC) concept](vdc-networking.md) extends the hybrid cloud architecture by connecting your on-premises environment with multiple virtual networks in the cloud, while providing central management and access control mechanisms. This also enables you to support consistent policy and governance across your entire IT infrastructure.
