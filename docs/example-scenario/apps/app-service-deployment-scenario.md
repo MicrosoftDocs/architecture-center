@@ -79,7 +79,7 @@ Another [solution to consider][ase-and-internally-issued-cert] on how to make IL
 
 ### Resiliency
 
-* Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
+* Consider using [Geo Distributed Scale with ASE][design-geo-distributed-ase] for greater resiliency and scalability.
 * Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
 * You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
 * Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
@@ -121,6 +121,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
 [design-patterns-security]: /azure/architecture/patterns/category/security
+[design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
 
 [docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
 
