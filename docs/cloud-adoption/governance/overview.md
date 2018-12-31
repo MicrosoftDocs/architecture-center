@@ -223,7 +223,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                     </div>
                     <div class="cardText">
                         <h3>Future Proof</h3>
-                        <p>Current adoption doesn't produce significant business risk, nor does it warrant extensive governance investments. In this case, leverage the native governance and enforcement capabilities of a cloud provider. However, establish a few standard architecture guidelines and design policies to future proof adoption and ensure ease of governance in the future.</p>
+                        <p>Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future proof adoption and ensure that proper governance can be added later.</p>
                     </div>
                 </div>
             </div>

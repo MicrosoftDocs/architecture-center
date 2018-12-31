@@ -666,6 +666,8 @@
         items:
           - name: Cost Management Decisions
             href: cloud-adoption/governance/cost-management/overview.md
+          - name: Alternate Cost Management Approach for team consideration
+            href: cloud-adoption/governance/cost-management/alt-overview.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
       - name: Security Management
