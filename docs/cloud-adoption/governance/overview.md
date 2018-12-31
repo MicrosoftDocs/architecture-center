@@ -212,7 +212,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/cloud-native.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/future-proof.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -222,8 +222,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cloud Native</h3>
-                        <p>Cloud native applications leverage the native governance and enforcement capabilities of a cloud provider. This reduces the amount of governance effort required, when compared to similar solutions that include PaaS, IaaS, and multi-cloud architectures.</p>
+                        <h3>Future Proof</h3>
+                        <p>Current adoption doesn't produce significant business risk, nor does it warrant extensive governance investments. In this case, leverage the native governance and enforcement capabilities of a cloud provider. However, establish a few standard architecture guidelines and design policies to future proof adoption and ensure ease of governance in the future.</p>
                     </div>
                 </div>
             </div>
