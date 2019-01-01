@@ -1,13 +1,13 @@
 ---
-title: "Fusion: Subscriptions Design" 
+title: "Fusion: Subscriptions design" 
 description: Discussion of cloud platform subscriptions as a core service in Azure migrations
 author: rotycenh
-ms.date: 12/11/2018
+ms.date: 12/31/2018
 ---
 
 # Fusion: Subscription design
 
-All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that the Azure migration model takes is differnet from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another person who is assigned as a top-level owner for managing resources.
+All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that the Azure migration model uses is differnet from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
 
 ## Subscription decision guide
 
@@ -21,7 +21,7 @@ Subscription design ranges in complexity. Decisions around a design strategy hav
 
 Additionally, technical decision points that are based upon digital estate size versus cloud provider subscription limits, isolation and segregation policies, and IT operational divisions usually have a large impact on subscription design. Deployment structure and automation also have a large impact on how you structure subscription design, so consider how [resource grouping](../resource-grouping/overview.md) decisions might influence your design choices.
 
-## Subscriptions design and Azure Enterprise Agreements 
+## Subscriptions design and Azure Enterprise agreements 
 
 *Reviewers note: This document heavily repurposes subscription content from the existing [Azure enterprise scaffold](../../appendix/azure-scaffold.md). The correct location of this content within the overall Azure Fusion guidance is still under consideration.*
 
@@ -35,7 +35,7 @@ Each Azure Enterprise Agreement provides a further ability to organize subscript
 
 ## Subscription design patterns
 
-Every enterprise is different. Therefore, the Department/Account/Subscription hierarchy enabled throughout an Azure Enterprise Agreement allows for significant flexibility in how Azure is organized. Modeling your organization's hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first, and most important, decision that you make when starting in the public cloud.
+Every enterprise is different. Therefore, the department/account/subscription hierarchy enabled throughout an Azure Enterprise Agreement allows for significant flexibility in how Azure is organized. Modeling your organization's hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first, and most important, decision that you make when starting in the public cloud.
 
 The following subscription patterns reflect a general increase subscription design complexity to support potential organizational priorities:
 
@@ -53,7 +53,7 @@ Note that this pattern may lack a more complex hierarchy at the department and a
 
 ![application archetype pattern](../../_images/infra-subscriptions/application.png)
 
-As you begin to deploy resources across multiple subscriptions, the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md) can offer a useful approach for applying consistent centralized management, security, and policy control [across subscriptions](vdc-subscriptions.md). Simple deployments may not need the organization and management capabilities offered by the VDC model, but as your subscription design becomes more complex the VDC approach may more sense as a deployment strategy.
+As you begin to deploy resources across multiple subscriptions, the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md) offers a useful approach for applying consistent centralized management, security, and policy control [across subscriptions](vdc-subscriptions.md). Simple deployments may not need the organization and management capabilities offered by the model; but as your subscription design becomes more complex, this approach may make more sense as a deployment strategy.
 
 ### Functional
 
@@ -63,13 +63,13 @@ This pattern groups subscriptions and accounts along functional lines, such as f
 
 ### Business unit
 
-This pattern groups subscriptions and accounts based on business unit, profit center, or similar organizational structure.
+This pattern groups subscriptions and accounts based on business unit, division, profit center, or similar organizational structure.
 
 ![business subscription pattern](../../_images/infra-subscriptions/business.png)
 
-### Geographic patterns
+### Geographic
 
-For organizations with global operations, this pattern groups subscriptions and accounts on geographic region.  
+For organizations with global operations, this pattern groups subscriptions and accounts based on geographic regions.  
 
 ![geographic subscription pattern](../../_images/infra-subscriptions/geographic.png)
 
@@ -83,25 +83,29 @@ Management groups, as discussed in the following section, can help support more 
 
 In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, allowing you to create a hierarchy that is separate from your billing hierarchy. This can be solely for efficient management of resources. 
 
-Management groups can mirror your billing hierarchy, and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash. Regardless where they are in the billing hierarchy &mdash; they are grouped together and need common roles assigned as well as policies and initiatives. A few examples include:
+Management groups can mirror your billing hierarchy, and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash. Regardless where they are in the billing hierarchy &mdash; they are grouped together, and therefore need common roles assigned, as well as policies and initiatives. 
 
-* **Production/Non-Production**. Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+A few examples include:
 
-* **Internal Services/External Services**. Much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
+* **Production/non-production**: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+
+* **Internal services/external services**: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
 
 ## Organization at the subscription level
 
-When deciding on your departments and accounts (or management groups), you primarily look at how you're dividing your Azure environment to match your organization. Subscriptions, however, are where the real work happens and your decisions here impact security, scalability and billing. Many organizations look at the following patterns as their guides:
+When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. Subscriptions, however, are where the real work happens and your decisions made here will impact security, scalability and billing. 
 
-* **Application/Service**: Subscriptions represent an application or a service (portfolio of applications)
-* **Lifecycle**: Subscriptions represent a lifecycle of a service, such as Production or Development
-* **Department**: Subscriptions represent departments in the organization
+Consider the following patterns as guides:
 
-The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions. "Production" and "Non-Production," and then use resource groups to break out the environments further.
+* **Application/service**: Subscriptions represent an application or a service (portfolio of applications).
+* **Lifecycle**: Subscriptions represent a lifecycle of a service, such as production or development.
+* **Department**: Subscriptions represent departments in the organization.
+
+The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: "production" and "non-production," and then use resource groups to break out the environments further.
 
 **Learn more**
 
--   For a general description of how Azure Subscriptions and Resource Groups are used to
+-   For a general description of how Azure subscriptions and resource groups are used to
     group and manage resources, see [Resource access management in
     Azure](../../getting-started/azure-resource-access.md).
 
