@@ -52,11 +52,9 @@ Considerations:
 
 ### Azure Machine Learning
 
-Azure Machine Learning is a cloud-based service for managing machine learning experiments and models. It includes an experimentation service that tracks data preparation and modeling training scripts, maintaining a history of all executions so you can compare model performance across iterations. A cross-platform client tool named Azure Machine Learning Workbench provides a central interface for script management and history, while still enabling data scientists to create scripts in their tool of choice, such as Jupyter Notebooks or Visual Studio Code.
+Azure Machine Learning is a cloud-based service for managing machine learning experiments and models. It includes an experimentation service that tracks data preparation and modeling training scripts, maintaining a history of all executions so you can compare model performance across iterations. Data scientists can create scripts in their tool of choice, such as Jupyter Notebooks or Visual Studio Code, and then deploy to a variety of different [compute resources](/azure/machine-learning/service/how-to-set-up-training-targets) in Azure.
 
-From Azure Machine Learning Workbench, you can use the interactive data preparation tools to simplify common data transformation tasks, and you can configure the script execution environment to run model training scripts locally, in a scalable Docker container, or in Spark.
-
-When you are ready to deploy your model, use the Workbench environment to package the model and deploy it as a web service to a Docker container, Spark on Azure HDinsight, Microsoft Machine Learning Server, or SQL Server. The Azure Machine Learning Model Management service then enables you to track and manage model deployments in the cloud, on edge devices, or across the enterprise.
+Models can be deployed as a web service to a Docker container, Spark on Azure HDinsight, Microsoft Machine Learning Server, or SQL Server. The Azure Machine Learning Model Management service then enables you to track and manage model deployments in the cloud, on edge devices, or across the enterprise.
 
 Key benefits:
 
@@ -65,7 +63,7 @@ Key benefits:
 * Easy deployment and management of models to the cloud or edge devices.
 
 Considerations:
-* Requires some familiarity with the model management model and Workbench tool environment.
+* Requires some familiarity with the model management model.
 
 ### Azure Batch AI
 
@@ -99,7 +97,7 @@ Apache Spark includes Spark MLlib, a framework and library for machine learning 
 Key benefits:
 
 * Spark is a distributed platform that offers high scalability for high-volume machine learning processes.
-* You can deploy models directly to Spark in HDinsight from Azure Machine Learning Workbench, and manage them using the Azure Machine Learning Model Management service.
+* You can deploy models directly to Spark in HDinsight and manage them using the Azure Machine Learning Model Management service.
 
 Considerations:
 
@@ -117,7 +115,6 @@ Key Benefits:
 
 * Containers are a lightweight and generally cost effective way to package and deploy services.
 * The ability to deploy to an edge device enables you to move your predictive logic closer to the data.
-* You can deploy to a container directly from Azure Machine Learning Workbench.
 
 Considerations:
 
@@ -130,7 +127,6 @@ Machine Learning Server (formerly Microsoft R Server) is a scalable platform for
 Key benefits:
 
 * High scalability.
-* Direct deployment from Azure Machine Learning Workbench.
 
 Considerations:
 
