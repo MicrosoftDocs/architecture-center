@@ -10,8 +10,6 @@ ms.custom: seodec18
 
 # Queue-Based Load Leveling pattern
 
-[!INCLUDE [header](../_includes/header.md)]
-
 Use a queue that acts as a buffer between a task and a service it invokes in order to smooth intermittent heavy loads that can cause the service to fail or the task to time out. This can help to minimize the impact of peaks in demand on availability and responsiveness for both the task and the service.
 
 ## Context and problem
@@ -54,14 +52,13 @@ This pattern isn't useful if the application expects a response from the service
 
 ## Example
 
-A Microsoft Azure web role stores data using a separate storage service. If a large number of instances of the web role run concurrently, it's possible that the storage service will be unable to respond to requests quickly enough to prevent these requests from timing out or failing. This figure highlights a service being overwhelmed by a large number of concurrent requests from instances of a web role.
+A web app writes data to an external data store. If a large number of instances of the web app run concurrently, the data store might be unable to respond to requests quickly enough, causing requests to time out, be throttled, or otherwise fail. The following diagram shows a data store being overwhelmed by a large number of concurrent requests from instances of an application.
 
-![Figure 2 - A service being overwhelmed by a large number of concurrent requests from instances of a web role](./_images/queue-based-load-leveling-overwhelmed.png)
+![Figure 2 - A service being overwhelmed by a large number of concurrent requests from instances of a web app](./_images/queue-based-load-leveling-overwhelmed.png)
 
+To resolve this, you can use a queue to level the load between the application instances and the data store. An Azure Functions app reads the messages from the queue and performs the read/write requests to the data store. The application logic in the function app can control the rate at which it passes requests to the data store, to prevent the store from being overwhelmed. The following diagram shows this pattern.
 
-To resolve this, you can use a queue to level the load between the web role instances and the storage service. However, the storage service is designed to accept synchronous requests and can't be easily modified to read messages and manage throughput. You can introduce a worker role to act as a proxy service that receives requests from the queue and forwards them to the storage service. The application logic in the worker role can control the rate at which it passes requests to the storage service to prevent the storage service from being overwhelmed. This figure illustrates using a queue and a worker role to level the load between instances of the web role and the service.
-
-![Figure 3 - Using a queue and a worker role to level the load between instances of the web role and the service](./_images/queue-based-load-leveling-worker-role.png)
+![Figure 3 - Using a queue and a function app to level the load](./_images/queue-based-load-leveling-worker-role.png)
 
 ## Related patterns and guidance
 
