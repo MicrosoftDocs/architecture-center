@@ -60,7 +60,7 @@ Other options for the web tier and functions include:
 * [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 * [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
 * [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
-* [Service Bus][service-bus] could be used in place of Storage Queue's.
+* [Service Bus][docs-service-bus] could be used in place of Storage Queue's.
 
 Other options for the data tier include:
 
@@ -141,6 +141,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
 [docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
+[docs-service-bus]: /azure/service-bus/
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
 [multi-region-web-app]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
