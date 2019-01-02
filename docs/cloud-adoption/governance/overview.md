@@ -15,7 +15,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions regardless of the chosen cloud platform by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
+Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
                 </div>
             </div>
         </div>
@@ -330,3 +330,11 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
 ## Additional Guidance
 
 Evaluating current policy through a [cloud policy review](policy-compliance/what-is-a-cloud-policy-review.md) can be a good place to begin the governance journey. [Policy and compliance](policy-compliance/overview.md) can be a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
+
+
+## Next steps
+
+Sound cloud governance strategy starts with an [understanding of business risk](./policy-compliance/understanding-business-risk.md). Lets begin there.
+
+> [!div class="nextstepaction"]
+> [Understanding Business Risk](./policy-compliance/understanding-business-risk.md)
