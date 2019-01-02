@@ -53,9 +53,9 @@ This could be a good point in time to make a pre-commitment or pre-purchase to m
 
 These basic processes will help align spending and establish a foundation for the cost management discipline.
 
-## Common Corporate Policies to strengthen a Cost Management Discipline
+## Common Policy Statements to strengthen a Cost Management Discipline
 
-In addition to the core processes for establishing and monitoring the baseline, there are a number of policies that can be implemented to mitigate business risks. This section will outline a few common policies:
+In addition to the core processes for establishing and monitoring the baseline, there are a number of policy statements that can be implemented to mitigate business risks. This section will outline a few common policy statements:
 
 **Future Proof:** Current criteria doesn't warrant an investment in a Cost Management Discipline from the governance team. However, such an investment is anticipated in the future. Current policy requires that all assets deployed to the cloud be associated with a billing unit, application/workload, and meet naming standards. This policy will ensure that future cost management efforts will be effective. For guidance on establishing a future proofed foundation, see the [design guide for Cloud Native deployments](../design-guides/future-proof.md).
 

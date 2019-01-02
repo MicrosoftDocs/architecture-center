@@ -652,16 +652,18 @@
       items:
       - name: Overview
         href: cloud-adoption/governance/overview.md
-      - name: Understand business risks
-        href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
-      - name: Evaluate risk tolerance
-        href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
-      - name: Define corporate policy statements
-        href: cloud-adoption/governance/policy-compliance/define-policy.md
-      - name: Align architecture design guides
-        href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
-      - name: Monitor and enforce policy adherence
-        href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
+      - name: Developing Governance Policies
+        items:
+          - name: Understand business risks
+            href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
+          - name: Evaluate risk tolerance
+            href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
+          - name: Define corporate policy statements
+            href: cloud-adoption/governance/policy-compliance/define-policy.md
+          - name: Align architecture design guides
+            href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
+          - name: Monitor and enforce policy adherence
+            href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
       - name: Azure Design Guides
         items:
           - name: Future Proof

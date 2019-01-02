@@ -1,94 +1,141 @@
 ---
-title: "Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?"
+title: "Fusion: Understanding the Cost Management Discipline within Cloud Governance"
 description: Explanation of the concept cost management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 12/17/2018
+layout: LandingPage
+ms.topic: landing-page
 ---
 
-# Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?
+# Fusion: Understanding the Cost Management Discipline within Cloud Governance
 
-In the [Intro to Cloud Governance](../overview.md), Cost Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing cloud spend plans, allocations of cloud budgets,  monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the plan when actual spending is misaligned.
+Cost Management is one of the core disciplines of cloud governance. This discipline focuses on mitigating risks related to the cost of the cloud. In particular, when multiple teams deploy assets to a cloud provider, it can be difficult to consistently track and manage spend across the various teams. The Cost Management Discipline identifies specific business risks commonly associated with controlling cost, along with processes and approaches to mitigate those risks.
 
-This article outlines the Cost Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Cost Management position.
+## Why is cost management relevant?
 
-> [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+Cloud adoption creates a paradigm shift when it comes to cost governance. Management of cost in a traditional on-prem world is based on refresh cycles, data center acquisitions, host renewals, or recurring maintenance. Each of these costs can be forecasted, planned, and refined to align with annual Capital Expenditure budgets.
 
-![Four phases of adoption](../../_images/adoption-phases.png)
+In the cloud, customers tend to take a more re-active approach to cost management. In many cases, the customer will pre-purchase, or commit to use, a set amount of cloud services. This model maximizes discounts based on how much of the customer plans to spend with the specific cloud vendor. This creates the perception of a proactive, planned cost cycle. However, that perception is only reality, if mature cost management disciplines are in place.
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance*
+The cloud offers self-service capabilities that were unheard of in traditional on-prem datacenters. Those new capabilities empower the business to be more agile, less restrictive, and more open to adopt new technologies. However, the downside of self-service is that end users can unknowingly exceed allocated budgets. Conversely, the same users could experience a change in plans and unexpectedly not use the amount of cloud services forecasted. The potential of shift in either direction prompts many IT organizations to execute a cost management discipline within the governance team.
 
-## Planning and readiness
+## Business Risk
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+The cost management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-**Minimum suggested activities**
+<ul  class="panelContent cardsZ">
+<li style="display: flex; flex-direction: column;">
+    <div class="cardSize">
+        <div class="cardPadding" >
+            <div class="card" >
+                <div class="cardText" style="padding-left:0px;">
+                    <h3>Budget Control</h3>
+                    <p class="x-hidden-focus">Without proper process and tooling to control budget, there is a risk of cloud adoption teams generating unintended or unplanned spending.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <div class="cardSize">
+        <div class="cardPadding" >
+            <div class="card" >
+                <div class="cardText" style="padding-left:0px;">
+                    <h3>Commitment Waste</h3>
+                    <p class="x-hidden-focus">It is common to pre-purchase or commit to a specific amount of cloud services to receive a discount. This creates a risk of over or underspending that could be managed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <div class="cardSize">
+        <div class="cardPadding" >
+            <div class="card" >
+                <div class="cardText" style="padding-left:0px;">
+                    <h3>Over provisioned assets</h3>
+                    <p class="x-hidden-focus">It is common for IT assets to be over-provisioned to maximize performance. In th cloud, there is a risk of this practice producing overspending.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <div class="cardSize">
+        <div class="cardPadding" >
+            <div class="card" >
+                <div class="cardText" style="padding-left:0px;">
+                    <h3>Cost anomalies</h3>
+                    <p class="x-hidden-focus">Self-healing, self-service deployment, burstable workloads and other features of the cloud create a potential risk of spikes in spending. Detecting cost anomalies can mitigate this risk.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>
 
-* Evaluate your [Cost Management tool Chain](toolchain.md) options.
-* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+## Risk Tolerance
 
-**Potential activities**
+During early deployments, such as Dev/Test or first workloads, cost management is likely to be of relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as more cloud adoption teams are given the ability to configure or deploy assets to the cloud, the risk grows and tolerance decreases. Conversely, growing a cost management discipline will take people from the effort to adoption the cloud and deploy innovative new technologies.
 
-* Ensure budgetary decisions that support the [Business Justification](../../business-strategy/cloud-migration-business-case.md) for your cloud strategy.
-* Validate [learning metrics](../../business-strategy/learning-metrics.md) that you use to report on the successful allocation of funding.
-* Understand the desired [Cloud Accounting Model](../../business-strategy/cloud-accounting.md) that impact how cloud costs should be accounted for.
-* Become familiar with the [Digital Estate Plan](../../digital-estate/overview.md) and validate accurate costing expectations.
-* Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-commitment by purchasing an Enterprise Agreement.
-* Align business goals with planned budgets and adjust budgetary plans as necessary.
-* Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
+In the early stages of cloud adoption, work with the business to determine a risk tolerance baseline. In this baseline, determine the criteria that would trigger an investment in cost management. This may be different with every company. The following are a few examples of risk tolerances and investment criteria:
 
-## Build and pre-deployment
+* Commit driven (Most Common): Our company is committing to spend $X,000,000 this year with a cloud vendor. We need a cost management discipline to ensure we don't overspend by more than 20% and use at least 90% of that commitment.
+* Percentage Trigger: Cloud spend is stable for production systems. If that changes by more that X%, then a cost management discipline would be a wise investment.
+* Over Provision Trigger: We believe deployed solutions are over provisioned. Cost management is a priority investment until we can demonstrate proper alignment of provisioning and asset utilization.
+* Monthly spend trigger: Any monthly spend over $x,000 is considered a sizable cost. If spend exceeds that amount in a given month, we will need to invest in cost management.
+* Annual spend trigger: IT's R&D budget will allow for $X,000 per year in cloud experimentation. We may run production workloads in the cloud, but it will still be considered an experimental solution if the budget doesn't exceed that amount. Once it goes over, we will need to treat the budget like a production investment and manage spend closely.
+* OpEx adverse (uncommon): As a company, we are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+Work with the business and finance departments to understand the triggers that would make them uncomfortable with spending in the cloud. Once those triggers are established, it's easier to understand how much to investment in a Cost Management Discipline. Based on that tolerance, the following processes and policies could be used to govern spend.
 
-**Minimum suggested activities**
+## Suggested Processes
 
-* Implement your [Cost Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
-* Dertemine if your purchase requirements align with your budgets and goals. 
+The best cost management tools in the cloud, can only be as good as the processes and policies they support. The following is a set of manual processes that are suggested for any cost management discipline, once an investment in this discipline is warranted.
 
-**Potential activities**
+**Deployment Planning:** Prior to deployment of any asset, establish a forecasted budget based on expected cloud allocation.
 
-* Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
-* Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
-* Determine if there are any cost anomolies that impact your adoption and migration plans.
+**Annual Planning:** On an annual basis, perform a roll up analysis on all deployed and to be deployed assets. Align budgets by business units, teams, or other appropriate divisions to empower self-service adoption. Ensure the leader of each billing unit is aware of the budget and how to track spend.
 
-## Adopt and migrate
+This could be a good point in time to make a pre-commitment or pre-purchase to maximize discounting. It could be wise to align annual budgeting with the cloud vendor's fiscal year to further capitalize on year end discount options.
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+**Quarterly Planning:** On a quarterly basis, review budgets with each billing unit leader to align forecast and actual spend. If there are changes to the plan or unexpected spending patterns, align and reallocate the budget.
 
-**Minimum suggested activities**
+**Monthly Reporting:** On a monthly basis, report actual spend against forecast. Notify billing leaders of any unexpected deviations.
 
-* Migrate your [Cost Management Tool Chain](toolchain.md) from pre-deployment to production.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+These basic processes will help align spending and establish a foundation for the cost management discipline.
 
-**Potential activities**
+## Common Policy Statements to strengthen a Cost Management Discipline
 
-* Implement your Cloud Accounting Model.
-* Ensure that your budgets reflect your actual spending during each release and adjust as necessary.
-* Monitor changes in budgetary plans and validate with stakeholders if additional sign-offs are needed.
-* Update changes to the Architecture Guidelines document to reflect actual costs.
+In addition to the core processes for establishing and monitoring the baseline, there are a number of policy statements that can be implemented to mitigate business risks. This section will outline a few common policy statements:
 
-## Operate and post-implementation
 
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+|Policy Statement  |Risk  |Mitigation  |Governance Requirement  |
+|---------|---------|---------|
+|**Future Proof**     |Adoption decisions today could hinder governance tomorrow.         |Best practice foundation         |All deployments must adhere to the best practices in [Future Proof Design Guide](../design-guides/future-proof)         |
+|**Budget Control**     |         |         |         |
+|**Lost commitment**     |         |         |         |
+|**Over Allocation**     |         |         |         |
+|**Poor User Experience**     |         |         |         |
 
-**Minimum suggested activities**
 
-* Customize [Cost Management Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
-* Consider automating any notifications and reports to reflect actual spending.
-* Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure on-going adherence to the Architecture Guidelines.
 
-**Potential activities**
+**Future Proof:** Current criteria doesn't warrant an investment in a Cost Management Discipline from the governance team. However, such an investment is anticipated in the future. Current policy requires that all assets deployed to the cloud be associated with a billing unit, application/workload, and meet naming standards. This policy will ensure that future cost management efforts will be effective. For guidance on establishing a future proofed foundation, see the [design guide for Cloud Native deployments](../design-guides/future-proof.md).
 
-* Execute a Quarterly Cloud Business Review to communicate value delivered to the business and associated costs.
-* Adjust plans quarterly to reflect changes to actual spending.
-* Determine financial alignment to P&Ls for business unit subscriptions.
-* Analyze stakeholder value and cost reporting methods on a monthly basis.
-* Remediate underused assets and determine if they're worth continuing. 
-* Detect misalignments and anomalies between the plan and actual spending.
-* Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies.
+**Budget Overrun:** If overspending is a significant concern, implement tooling with the cloud provider to limit spending for each billing unit. This will align forecasts with a budgetary spending limit that can't be easily exceeded. One policy statement to mitigate this risk, is asserting that any assets deployed to the cloud must be aligned to a billing unit, with approved budget, and a mechanism for budgetary limits. In a Microsoft context, Azure Cost Management and/or Azure Policy could be used to enforce this policy automatically.
+
+**Under Utilization:** If waste is a concern, implement a monitoring solution to report on any underutilized assets. This will identify opportunities to reduce waste and tighten spending. The corporate policy could state that all deployed assets must be registered with a solution that can monitor usage and report on any under utilization. In a Microsoft context, Azure Advisor could be used to provide this type of feedback.
+
+**Poor user experience:** If user experience is more important than asset costs, the opposite type of policy may be important for some assets. For instance, the policy may state that any asset that hosts a customer facing web or mobile property must scale to meet performance SLAs. Requiring scale sets for any asset with port 80 open would enforce such a policy. Azure Policy and Azure Blueprints could help enforce the rule in an Azure environment.  
+
+Feel free to use these corporate policies or create new ones, the goal of each policy is to advance a Cost Management Discipline. Ultimately, the goal is to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create Cloud Goverance disciplines that are easy to enforce and safe for the business to operate.
+
+## Next steps
+
+After establishing risk, tolerance, processes, and corporate policy, it's time to implement a cost management discipline.
+
+Each of the policies above reference a cloud service that can be used to implement the policy. For additional tooling references, see the [Azure Specific Toolchain](toolchain.md).
+
+To accelerate adoption of this discipline, see the list of [Azure Design Guides](../design-guides/overview.md). Find one that most closely aligns. Then modify that design to incorporate specific corporate policy decisions.
+
+> [!div class="nextstepaction"]
+> [Implement an Azure Design Guide](../design-guides/overview.md)
