@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.
 keywords: design pattern
 author: dragon119
-ms.date: 06/23/2017
+ms.date: 01/02/2019
 ms.custom: seodec18
 ---
 
