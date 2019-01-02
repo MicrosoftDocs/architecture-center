@@ -24,7 +24,7 @@ The following six steps will help define governance policies to control costs in
 
 <ul  class="panelContent cardsM">
 <li style="display: flex; flex-direction: column;">
-    <a href="./business-risks.md">
+    <a href="./template.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
