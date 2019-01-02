@@ -680,10 +680,18 @@
             href: cloud-adoption/governance/design-guides/multi-cloud.md
       - name: Cost Management
         items:
-          - name: Cost Management Decisions
+          - name: Adopting a Cost Management Discipline
             href: cloud-adoption/governance/cost-management/overview.md
-          - name: Alternate Cost Management Approach for team consideration
-            href: cloud-adoption/governance/cost-management/alt-overview.md
+          - name: Download the Template
+            href: cloud-adoption/governance/cost-management/.md
+          - name: Understand business risks
+            href: cloud-adoption/governance/cost-management/.md
+          - name: Document metrics and tolerance indicators
+            href: cloud-adoption/governance/cost-management/.md
+          - name: Customize Sample Policy Statements
+            href: cloud-adoption/governance/cost-management/.md
+          - name: Monitor and enforce policy
+            href: cloud-adoption/governance/cost-management/.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
       - name: Security Management
