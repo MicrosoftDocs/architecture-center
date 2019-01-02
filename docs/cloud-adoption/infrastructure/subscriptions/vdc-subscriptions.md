@@ -8,9 +8,9 @@ ms.date: 12/31/2018
 
 Jump to: [Subscription requirements](#subscription-requirements) | [Geo-regional considerations](#geo-regional-considerations)
 
-The [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model is intended to support a wide variety of [subscription design](overview.md) approaches. The Azure Virtual Datacenter model supports deploying hub and spokes to a single subscription, and also enables you to centrally manage workloads in your VDC spread across multiple subscriptions.  
+The [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model is intended to support a wide variety of [subscription design](overview.md) approaches. Although the VDC model supports deploying hub and spokes to a single subscription, one of the primary benefits of a VDC is the ability to centrally manage workloads spread across multiple subscriptions.
 
-Your organization's accounting and ownership of VDC-hosted resources and workloads will depend on the departmental and account hierarchy of subscriptions in your Azure Enterprise Agreement. However, this hierarchy is independent from your VDC structure. A VDC can be deployed to strictly reflect your organization's hierarchy, and it can provide access to resources from across your digital estate.
+Your organization's accounting and ownership of VDC-hosted resources and workloads will depend on the departmental and account hierarchy of subscriptions in your Azure Enterprise Agreement. However, this hierarchy is independent from your VDC structure. A VDC can be deployed to strictly reflect your organization's hierarchy, or to provide access to resources from across your digital estate.
 
 ## Subscription requirements 
 
@@ -21,7 +21,7 @@ To support the secure deployment and management of resources across a VDC, all s
 
 ## Geo-regional considerations
 
-Although subscriptions can host resources in multiple Azure regions, many organizations structure their subscription designs with geographic or sovereignty requirements in mind. [Global VNet Peering](https://azure.microsoft.com/en-us/blog/global-vnet-peering-now-generally-available/) allows a VDC to connect between virtual networks based on different subscriptions and regions.
+Although subscriptions can host resources in multiple Azure regions, many organizations structure their subscription designs with geographic or sovereignty requirements in mind. [Global VNet Peering](https://azure.microsoft.com/en-us/blog/global-vnet-peering-now-generally-available/) allows a VDC to connect between virtual networks hosted on different subscriptions and regions.
 
 Deploying all VDC resources to the same region minimizes latency between hub and spoke environments for high-performance workloads and avoids cross-region policy issues. If your subscription design will result in a VDC that crosses regions, carefully consider any policy or performance impacts.
 
