@@ -60,6 +60,8 @@ To resolve this, you can use a queue to level the load between the application i
 
 ![Figure 3 - Using a queue and a function app to level the load](./_images/queue-based-load-leveling-function.png)
 
+
+
 ## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:
@@ -70,4 +72,6 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Throttling pattern](./throttling.md). A simple way to implement throttling with a service is to use queue-based load leveling and route all requests to a service through a message queue. The service can process requests at a rate that ensures that resources required by the service aren't exhausted, and to reduce the amount of contention that could occur.
 
-- [Queue Service Concepts](https://msdn.microsoft.com/library/azure/dd179353.aspx). Information about choosing a messaging and queuing mechanism in Azure applications.
+- [Choose between Azure messaging services](/azure/event-grid/compare-messaging-services). Information about choosing a messaging and queuing mechanism in Azure applications.
+
+- [Improve scalability in an Azure web application](../reference-architectures/app-service-web-app/scalable-web-app.md). This reference architecture includes queue-based load leveling as part of the architecture.
