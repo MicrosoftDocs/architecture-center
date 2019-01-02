@@ -683,15 +683,15 @@
           - name: Adopting a Cost Management Discipline
             href: cloud-adoption/governance/cost-management/overview.md
           - name: Download the Template
-            href: cloud-adoption/governance/cost-management/.md
+            href: cloud-adoption/governance/cost-management/template.md
           - name: Understand business risks
-            href: cloud-adoption/governance/cost-management/.md
+            href: cloud-adoption/governance/cost-management/business-risks.md
           - name: Document metrics and tolerance indicators
-            href: cloud-adoption/governance/cost-management/.md
+            href: cloud-adoption/governance/cost-management/metrics-tolerance.md
           - name: Customize Sample Policy Statements
-            href: cloud-adoption/governance/cost-management/.md
+            href: cloud-adoption/governance/cost-management/policy-statements.md
           - name: Monitor and enforce policy
-            href: cloud-adoption/governance/cost-management/.md
+            href: cloud-adoption/governance/cost-management/monitor-enforce.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
       - name: Security Management
