@@ -56,7 +56,7 @@ A web app writes data to an external data store. If a large number of instances 
 
 ![Figure 2 - A service being overwhelmed by a large number of concurrent requests from instances of a web app](./_images/queue-based-load-leveling-overwhelmed.png)
 
-To resolve this, you can use a queue to level the load between the application instances and the data store. An Azure Functions app reads the messages from the queue and performs the read/write requests to the data store. The application logic in the function app can control the rate at which it passes requests to the data store, to prevent the store from being overwhelmed. The following diagram shows this pattern.
+To resolve this, you can use a queue to level the load between the application instances and the data store. An Azure Functions app reads the messages from the queue and performs the read/write requests to the data store. The application logic in the function app can control the rate at which it passes requests to the data store, to prevent the store from being overwhelmed. (Otherwise the function app will just re-introduce the same problem at the back end.)
 
 ![Figure 3 - Using a queue and a function app to level the load](./_images/queue-based-load-leveling-worker-role.png)
 
