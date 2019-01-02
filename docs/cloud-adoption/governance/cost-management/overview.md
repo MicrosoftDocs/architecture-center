@@ -22,7 +22,7 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 The following six steps will help define governance policies to control costs in a given environment.
 
-<ul  class="panelContent cardsM">
+<ul  class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
     <a href="./template.md">
         <div class="cardSize">
@@ -30,7 +30,7 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-template.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
@@ -48,7 +48,7 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-risks.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
@@ -67,11 +67,11 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-metrics.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
-                        <h3>Tolerance Indicators and Metrics</h3>
+                        <h3>Indicators and Metrics</h3>
                         <p class="x-hidden-focus">Indicators to understand if it is the right time to invest in this discipline.</p>
                     </div>
                 </div>
@@ -86,12 +86,12 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-enforce.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
-                        <h3>Process</h3>
-                        <p class="x-hidden-focus">A suggested process for managing and communicating this governance discipline</p>
+                        <h3>Monitor and Enforce</h3>
+                        <p class="x-hidden-focus">A suggested process for managing and enforcing the cost management discipline</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-maturity.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
@@ -124,12 +124,12 @@ The following six steps will help define governance policies to control costs in
                 <div class="card" >
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/process-toolchain.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Toolchain</h3>
-                        <p class="x-hidden-focus">Azure specific tools to support the cost management discipline.</p>
+                        <p class="x-hidden-focus">Azure services that can be implemented to support the cost management discipline.</p>
                     </div>
                 </div>
             </div>
