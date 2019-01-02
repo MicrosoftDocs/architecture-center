@@ -7,9 +7,9 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Understanding the Cost Management Discipline within Cloud Governance
+# Fusion: Cost Management Discipline
 
-Cost Management is one of the core disciplines of cloud governance. This discipline focuses on mitigating risks related to the cost of the cloud. In particular, when multiple teams deploy assets to a cloud provider, it can be difficult to consistently track and manage spend across the various teams. The Cost Management Discipline identifies specific business risks commonly associated with controlling cost, along with processes and approaches to mitigate those risks.
+Cost Management is one of the five disciplines of [cloud governance](../overview.md). This discipline focuses on mitigating risks related to the cost of the cloud.
 
 ## Why is cost management relevant?
 
@@ -23,111 +23,122 @@ The cloud offers self-service capabilities that were unheard of in traditional o
 
 The cost management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-<ul  class="panelContent cardsZ">
+<ul  class="panelContent cardsM">
 <li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding" >
-            <div class="card" >
-                <div class="cardText" style="padding-left:0px;">
-                    <h3>Budget Control</h3>
-                    <p class="x-hidden-focus">Without proper process and tooling to control budget, there is a risk of cloud adoption teams generating unintended or unplanned spending.</p>
+    <a href="./risk.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Business Risks</h3>
+                        <p class="x-hidden-focus">Understand the risks commonly associated with the Cost Management Discipline.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding" >
-            <div class="card" >
-                <div class="cardText" style="padding-left:0px;">
-                    <h3>Commitment Waste</h3>
-                    <p class="x-hidden-focus">It is common to pre-purchase or commit to a specific amount of cloud services to receive a discount. This creates a risk of over or underspending that could be managed.</p>
+    <a href="./tolerance.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Risk Tolerance Indicators</h3>
+                        <p class="x-hidden-focus">Understanding the business's tolerance for cost management risks. Indicators that an investment in cost management could be appropriate</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding" >
-            <div class="card" >
-                <div class="cardText" style="padding-left:0px;">
-                    <h3>Over provisioned assets</h3>
-                    <p class="x-hidden-focus">It is common for IT assets to be over-provisioned to maximize performance. In th cloud, there is a risk of this practice producing overspending.</p>
+    <a href="./policy-statements.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Policy Statements</h3>
+                        <p class="x-hidden-focus">Policy Statements that could aid in mitigating or managing specific risks.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <div class="cardSize">
-        <div class="cardPadding" >
-            <div class="card" >
-                <div class="cardText" style="padding-left:0px;">
-                    <h3>Cost anomalies</h3>
-                    <p class="x-hidden-focus">Self-healing, self-service deployment, burstable workloads and other features of the cloud create a potential risk of spikes in spending. Detecting cost anomalies can mitigate this risk.</p>
+    <a href="./process.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Process</h3>
+                        <p class="x-hidden-focus">A suggested process for managing and communicating this governance discipline</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </li>
-
-## Risk Tolerance
-
-During early deployments, such as Dev/Test or first workloads, cost management is likely to be of relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as more cloud adoption teams are given the ability to configure or deploy assets to the cloud, the risk grows and tolerance decreases. Conversely, growing a cost management discipline will take people from the effort to adoption the cloud and deploy innovative new technologies.
-
-In the early stages of cloud adoption, work with the business to determine a risk tolerance baseline. In this baseline, determine the criteria that would trigger an investment in cost management. This may be different with every company. The following are a few examples of risk tolerances and investment criteria:
-
-* Commit driven (Most Common): Our company is committing to spend $X,000,000 this year with a cloud vendor. We need a cost management discipline to ensure we don't overspend by more than 20% and use at least 90% of that commitment.
-* Percentage Trigger: Cloud spend is stable for production systems. If that changes by more that X%, then a cost management discipline would be a wise investment.
-* Over Provision Trigger: We believe deployed solutions are over provisioned. Cost management is a priority investment until we can demonstrate proper alignment of provisioning and asset utilization.
-* Monthly spend trigger: Any monthly spend over $x,000 is considered a sizable cost. If spend exceeds that amount in a given month, we will need to invest in cost management.
-* Annual spend trigger: IT's R&D budget will allow for $X,000 per year in cloud experimentation. We may run production workloads in the cloud, but it will still be considered an experimental solution if the budget doesn't exceed that amount. Once it goes over, we will need to treat the budget like a production investment and manage spend closely.
-* OpEx adverse (uncommon): As a company, we are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
-
-Work with the business and finance departments to understand the triggers that would make them uncomfortable with spending in the cloud. Once those triggers are established, it's easier to understand how much to investment in a Cost Management Discipline. Based on that tolerance, the following processes and policies could be used to govern spend.
-
-## Suggested Processes
-
-The best cost management tools in the cloud, can only be as good as the processes and policies they support. The following is a set of manual processes that are suggested for any cost management discipline, once an investment in this discipline is warranted.
-
-**Deployment Planning:** Prior to deployment of any asset, establish a forecasted budget based on expected cloud allocation.
-
-**Annual Planning:** On an annual basis, perform a roll up analysis on all deployed and to be deployed assets. Align budgets by business units, teams, or other appropriate divisions to empower self-service adoption. Ensure the leader of each billing unit is aware of the budget and how to track spend.
-
-This could be a good point in time to make a pre-commitment or pre-purchase to maximize discounting. It could be wise to align annual budgeting with the cloud vendor's fiscal year to further capitalize on year end discount options.
-
-**Quarterly Planning:** On a quarterly basis, review budgets with each billing unit leader to align forecast and actual spend. If there are changes to the plan or unexpected spending patterns, align and reallocate the budget.
-
-**Monthly Reporting:** On a monthly basis, report actual spend against forecast. Notify billing leaders of any unexpected deviations.
-
-These basic processes will help align spending and establish a foundation for the cost management discipline.
-
-## Common Policy Statements to strengthen a Cost Management Discipline
-
-In addition to the core processes for establishing and monitoring the baseline, there are a number of policy statements that can be implemented to mitigate business risks. This section will outline a few common policy statements:
-
-
-|Policy Statement  |Risk  |Mitigation  |Governance Requirement  |
-|---------|---------|---------|
-|**Future Proof**     |Adoption decisions today could hinder governance tomorrow.         |Best practice foundation         |All deployments must adhere to the best practices in [Future Proof Design Guide](../design-guides/future-proof)         |
-|**Budget Control**     |         |         |         |
-|**Lost commitment**     |         |         |         |
-|**Over Allocation**     |         |         |         |
-|**Poor User Experience**     |         |         |         |
-
-
-
-**Future Proof:** Current criteria doesn't warrant an investment in a Cost Management Discipline from the governance team. However, such an investment is anticipated in the future. Current policy requires that all assets deployed to the cloud be associated with a billing unit, application/workload, and meet naming standards. This policy will ensure that future cost management efforts will be effective. For guidance on establishing a future proofed foundation, see the [design guide for Cloud Native deployments](../design-guides/future-proof.md).
-
-**Budget Overrun:** If overspending is a significant concern, implement tooling with the cloud provider to limit spending for each billing unit. This will align forecasts with a budgetary spending limit that can't be easily exceeded. One policy statement to mitigate this risk, is asserting that any assets deployed to the cloud must be aligned to a billing unit, with approved budget, and a mechanism for budgetary limits. In a Microsoft context, Azure Cost Management and/or Azure Policy could be used to enforce this policy automatically.
-
-**Under Utilization:** If waste is a concern, implement a monitoring solution to report on any underutilized assets. This will identify opportunities to reduce waste and tighten spending. The corporate policy could state that all deployed assets must be registered with a solution that can monitor usage and report on any under utilization. In a Microsoft context, Azure Advisor could be used to provide this type of feedback.
-
-**Poor user experience:** If user experience is more important than asset costs, the opposite type of policy may be important for some assets. For instance, the policy may state that any asset that hosts a customer facing web or mobile property must scale to meet performance SLAs. Requiring scale sets for any asset with port 80 open would enforce such a policy. Azure Policy and Azure Blueprints could help enforce the rule in an Azure environment.  
-
-Feel free to use these corporate policies or create new ones, the goal of each policy is to advance a Cost Management Discipline. Ultimately, the goal is to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create Cloud Goverance disciplines that are easy to enforce and safe for the business to operate.
+<li style="display: flex; flex-direction: column;">
+    <a href="./maturity-adoption-alignment.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Maturity</h3>
+                        <p class="x-hidden-focus">Aligning Cloud Management maturity with phases of Cloud Adoption</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./toolchain.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/cost-management.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Toolchain</h3>
+                        <p class="x-hidden-focus">Azure specific tools to support the cost management discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
 
 ## Next steps
 
