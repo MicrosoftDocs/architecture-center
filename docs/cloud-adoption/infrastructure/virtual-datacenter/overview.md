@@ -109,7 +109,7 @@ The Azure Virtual Datacenter model supports connecting hub and spoke networks ac
 
 ### Monitoring and compliance
 
-The Azure Virtual Datacenter model uses [Azure Monitor]((https://docs.microsoft.com/en-us/azure/azure-monitor/overview)) as its default monitoring and reporting service. Azure Monitor's log analytics feature allows you to capture log data related to virtual machines and your network environment. When deploying a VDC, Azure creates a log analytics instance for the central IT hub and each of the workload spokes. This allows you to configure reports and alerts for your deployed resources.
+The Azure Virtual Datacenter model uses [Azure Monitor]((https://docs.microsoft.com/en-us/azure/azure-monitor/overview)) as its default monitoring and reporting service. Azure Monitor's log analytics feature allows you to capture log data related to virtual machines and your network environment. When deploying a VDC, you should create a log analytics instance for the central IT hub and each of the workload spokes. These instances will capture operational log data from your deployed resources, and allow you to use this data for  reports and alerts.
 
 Core Azure platform features such as  [Azure Active Directory Reports](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-reports), [Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/), and [Azure Security Center (ASC)](https://docs.microsoft.com/en-us/azure/security-center/)are also important monitoring components of the model.
 
@@ -138,9 +138,6 @@ As with the hub subscription, each spoke subscription requires a standard set of
 | Networking       | <ul><li>Network diagnostic storage account: Encrypted storage account used to store log data related to networking activity on the spoke network</li><li>Spoke virtual network: Contains a default subnet and base network configuration used by the spoke network; Uses virtual network peering to connect with (and only with) the hub network </li><li>Spoke NSG: Network security group containing network access and security rules applied to the default subnet through which traffic will pass between hub and spoke networks</li><li>Spoke UDR: User-defined route table containing routing rules for in the default subnet which routes all traffic leaving the spoke network to the hub network's central firewall</li></ul> |
 | Workload         | After the core spoke components are in place and configured, workload teams can deploy resources they need to the spoke environment  |
 
-## Azure Virtual Datacenter Automation Toolkit
-
-The Azure Virtual Datacenter Automation Toolkit [e-book](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/) provides a set of templates and scripts you can use to create a fully functional, trusted network extension to your on-premises IT infrastructure.
 
 ## Next steps
 
