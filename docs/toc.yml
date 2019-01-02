@@ -652,16 +652,16 @@
       items:
       - name: Overview
         href: cloud-adoption/governance/overview.md
-      - name: Defining Corporate Policy
-        items:
-          - name: Understanding business risks
-            href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
-          - name: Evaluate Risk Tolerance
-            href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
-          - name: What is Regulatory Compliance?
-            href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-          - name: What is a Cloud Policy Review?
-            href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
+      - name: Understand business risks
+        href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
+      - name: Evaluate risk tolerance
+        href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
+      - name: Define corporate policy statements
+        href: cloud-adoption/governance/policy-compliance/define-policy.md
+      - name: Align architecture design guides
+        href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
+      - name: Monitor and enforce policy adherence
+        href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
       - name: Cost Management
         items:
           - name: Cost Management Decisions
@@ -710,6 +710,10 @@
             href: cloud-adoption/governance/monitoring-enforcement/overview.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/monitoring-enforcement/toolchain.md
+      - name: What is Regulatory Compliance?
+        href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+      - name: What is a Cloud Policy Review?
+        href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
       - name: How can a CISO prepare for the cloud?
         href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
       - name: What is Data Governance?
