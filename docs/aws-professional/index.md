@@ -248,7 +248,7 @@ similar way, there are differences in the RAM, CPU, and storage capabilities.
 -   [Sizes for virtual machines in Azure
     (Linux)](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/)
 
-Unlike AWS' per second billing, Azure on-demand VMs are billed by the minute.
+Similar to AWS' per second billing, Azure on-demand VMs are billed per second.
 
 #### EBS and Azure Storage for VM disks
 
