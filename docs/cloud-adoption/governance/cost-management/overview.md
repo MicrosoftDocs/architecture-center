@@ -61,7 +61,7 @@ The following six steps will help define governance policies to control costs in
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./tolerance.md">
+    <a href="./metrics-tolerance.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -80,7 +80,7 @@ The following six steps will help define governance policies to control costs in
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./process.md">
+    <a href="./monitor-enforce.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
