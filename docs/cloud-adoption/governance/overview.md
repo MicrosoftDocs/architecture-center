@@ -1,13 +1,13 @@
 ---
-title: "Fusion: Implementing a Cloud Governance Strategy"
+title: "Fusion: Implementing a cloud governance strategy"
 description: Overview of governance content within Fusion
 author: BrianBlanchard
-ms.date: 12/08/2018
+ms.date: 1/3/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Implementing a Cloud Governance Strategy
+# Fusion: Implementing a cloud governance strategy
 
 <ul  class="panelContent cardsI">
 <li style="display: flex; flex-direction: column;">
@@ -15,7 +15,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@ Any change to business processes or technology platforms introduce risk to the b
                     <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
 <br>
-<i>Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines</i>
+<i>Figure 1. Visual of corporate policy and five cloud governance disciplines</i>
                     </div>
                 </div>
             </div>
@@ -40,9 +40,9 @@ Any change to business processes or technology platforms introduce risk to the b
 
 Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Specific Design Guides](#actionable-design-guides)
 
-## Corporate Policy
+## Corporate policy
 
-Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy, the following three step process guides iterative development of such policies.
+Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy. The following three-step process guides iterative development of such policies.
 
 <ul  class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
@@ -56,7 +56,7 @@ Developing corporate policy focuses on identifying and mitigating business risks
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Business Risk</h3>
+                        <h3>Business risk</h3>
                         <p>Investigate current cloud adoption plans and data classification to identify risks to the business. Work with the business to balance risk tolerance and mitigation costs.</p>
                     </div>
                 </div>
@@ -75,8 +75,8 @@ Developing corporate policy focuses on identifying and mitigating business risks
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Policy & Compliance</h3>
-                        <p>Evaluate risk tolerance to inform minimally invasive policies which govern cloud adoption and mitigate risks. In some industries, 3rd party compliance impacts initial policy creation.</p>
+                        <h3>Policy and compliance</h3>
+                        <p>Evaluate risk tolerance to inform minimally invasive policies that govern cloud adoption and mitigate risks. In some industries, third party compliance impacts initial policy creation.</p>
                     </div>
                 </div>
             </div>
@@ -94,8 +94,8 @@ Developing corporate policy focuses on identifying and mitigating business risks
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Monitoring & Enforcement</h3>
-                        <p>The pace of adoption and innovation will naturally create policy violations. Ensure policies include the proper requirements to detect & resolve violations <u>before</u> they are released.</p>
+                        <h3>Monitoring and enforcement</h3>
+                        <p>The pace of adoption and innovation activities will naturally create policy violations. Ensure that your corporate policies include the proper requirements to detect and resolve violations <u>before</u> they are released.</p>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ Developing corporate policy focuses on identifying and mitigating business risks
 </li>
 </ul>
 
-## Disciplines of Cloud Governance
+## Disciplines of cloud governance
 
 Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align tool chains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
 
@@ -120,7 +120,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Cost Management</h3>
+                        <h3>Cost management</h3>
                         <p>Cost is a primary concern for cloud users. Develop policies for cost control for all cloud platforms.</p>
                     </div>
                 </div>
@@ -139,8 +139,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Security Management</h3>
-                        <p>Security is a complex & personal topic, unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data and asset configurations.</p>
+                        <h3>Security management</h3>
+                        <p>Security is a complex and personal topic that is unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data, and asset configurations.</p>
                     </div>
                 </div>
             </div>
@@ -158,8 +158,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Identity Management</h3>
-                        <p>Isolated identity providers introduce management overhead and increase the risk profile. Policies, which enforce hybrid identity and extend/improve on-prem identity management, mitigate several business risks.</p>
+                        <h3>Identity management</h3>
+                        <p>Isolated identity providers introduce management overhead and increase the company's risk profile. Policies, which enforce hybrid identity and extend/improve on-premises identity management, can mitigate several business risks.</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Resource Management</h3>
+                        <h3>Resource management</h3>
                         <p>Sound governance happens at the resource level. Policy and architecture guidance regarding hierarchy, grouping, tagging, and access to resources is the foundation for all cloud governance.</p>
                     </div>
                 </div>
@@ -196,8 +196,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Configuration Management</h3>
-                        <p>Changes to asset configuration is the most likely point of policy violation. As cloud adoption matures, so should the tools and approaches to inspect configuration during deployment, modification, and outage recovery.</p>
+                        <h3>Configuration management</h3>
+                        <p>Changes to asset configuration is the most common point of policy violation. As cloud adoption matures, so should the tools and approaches that you use to inspect configuration during deployment, modification, and outage recovery.</p>
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
 </li>
 </ul>
 
-## Actionable Design Guides
+## Actionable design guides
 
 To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following design guides align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure.
 
@@ -222,8 +222,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Future Proof</h3>
-                        <p>Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future proof adoption and ensure that proper governance can be added later.</p>
+                        <h3>Future proof</h3>
+                        <p>Early stage adoption may not warrant an investment in governance. However, this guide establishes a few best practices and policies for you to future proof adoption and ensure that you can add proper governance later.</p>
                     </div>
                 </div>
             </div>
@@ -241,8 +241,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Protected Data</h3>
-                        <p>Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
+                        <h3>Protected data</h3>
+                        <p>Some solutions are dependent upon protected data, such as customer information and business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
                     </div>
                 </div>
             </div>
@@ -261,7 +261,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                     </div>
                     <div class="cardText">
                         <h3>Enterprise MVP</h3>
-                        <p>Migrating the first few workloads in an enterprise comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, but grow into larger governance needs with cloud adoption.</p>
+                        <p>Migrating the first few workloads in an organization comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, enabling you to grow into larger governance needs with cloud adoption.</p>
                     </div>
                 </div>
             </div>
@@ -279,8 +279,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise @ Scale</h3>
-                        <p>As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs.</p>
+                        <h3>Enterprise and scale</h3>
+                        <p>As you deploy additional solutions to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance also requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs.</p>
                     </div>
                 </div>
             </div>
@@ -298,8 +298,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise Enforcement</h3>
-                        <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of VMs, automated policy enforcement is required.</p>
+                        <h3>Enterprise enforcement</h3>
+                        <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of virtual machines (VMs), automated policy enforcement is required.</p>
                     </div>
                 </div>
             </div>
@@ -317,8 +317,8 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Multi-Cloud Governance</h3>
-                        <p>Industry analysts are predicting that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
+                        <h3>Multi-cloud governance</h3>
+                        <p>Industry analysts predict that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
                     </div>
                 </div>
             </div>
@@ -327,7 +327,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
 </li>
 </ul>
 
-## Additional Guidance
+## Additional guidance
 
 Evaluating current policy through a [cloud policy review](policy-compliance/what-is-a-cloud-policy-review.md) can be a good place to begin the governance journey. [Policy and compliance](policy-compliance/overview.md) can be a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
 
