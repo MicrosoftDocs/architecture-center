@@ -47,15 +47,6 @@ A VDC implementation can help enterprises get workloads and applications into Az
 -   Implement shared or centralized security and access requirements across workloads.
 -   Mix Azure DevOps and centralized IT appropriately for a large enterprise.
 
-The key to unlock the advantages of the VDC is a centralized topology, hub and spokes, with a mix of Azure features: 
-
-- [Azure Virtual Network][VNet]. 
-- [Network security groups (NSGs)][NSG].
-- [Virtual network peering][VNetPeering]. 
-- [User-defined routes (UDRs)][UDR].
-- Azure identity services with [role-based access control (RBAC)][RBAC]. 
-- Optionally, [Azure Firewall][AzFW], [Azure DNS][DNS], [Azure Front Door][AFD], and [Azure Virtual WAN][vWAN].
-
 The key to unlock the advantages of VDC is a centralized hub and spoke network topology with a mix of Azure services and features:
 
 * [Azure Virtual Network][VNet],
@@ -75,9 +66,6 @@ Organizations that are looking to DevOps can also utilize the VDC concepts to pr
 ## Considerations for Implementing a Virtual datacenter
 
 When designing a VDC implementation, there are several pivotal issues to consider:
-
-### Identity and directory services
-Identity and directory services are a key aspect of all datacenters, both on-premises and in the cloud. Identity is related to all aspects of access and authorization to services within the VDC. To make sure that only authorized users and processes access your Azure account and resources, Azure uses several types of credentials for authentication. These include passwords to access the Azure account, cryptographic keys, digital signatures, and certificates. 
 
 ### Identity and Directory Service
 

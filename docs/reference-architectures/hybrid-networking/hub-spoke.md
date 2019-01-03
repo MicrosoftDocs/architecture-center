@@ -171,11 +171,9 @@ To deploy the hub VNet, perform the following steps.
 
 5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway.  It can take about 40 minutes to create the VPN gateway.
 
-### Test connectivity with the hub
+### Test connectivity to the hub VNet &mdash; Windows deployment
 
-Test conectivity from the simulated on-premises environment to the hub VNet.
-
-**Windows deployment**
+To test conectivity from the simulated on-premises environment to the hub VNet using Windows VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -201,11 +199,13 @@ TcpTestSucceeded : True
 > [!NOTE]
 > By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
 
-**Linux deployment**
+### Test connectivity to the hub VNet &mdash; Linux deployment
+
+To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
-2. Click `Connect` and copy the `ssh` command shown in the portal. 
+2. Click `Connect` and copy the `ssh` command shown in the portal.
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
@@ -248,11 +248,9 @@ To deploy the spoke VNets, perform the following steps.
    azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json --deploy
    ```
 
-### Test connectivity
+### Test connectivity to the spoke VNets &mdash; Windows deployment
 
-Test conectivity from the simulated on-premises environment to the spoke VNets.
-
-**Windows deployment**
+To test conectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -265,7 +263,7 @@ Test conectivity from the simulated on-premises environment to the spoke VNets.
    Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
    ```
 
-**Linux deployment**
+### Test connectivity to the spoke VNets &mdash; Linux deployment
 
 To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
 

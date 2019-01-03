@@ -1,13 +1,11 @@
 ---
-title: Gatekeeper
+title: Gatekeeper pattern
+titleSuffix: Cloud Design Patterns
 description: Protect applications and services by using a dedicated host instance that acts as a broker between clients and the application or service, validates and sanitizes requests, and passes requests and data between them.
 keywords: design pattern
 author: dragon119
-
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [security]
+ms.custom: seodec18
 ---
 
 # Gatekeeper pattern
@@ -28,12 +26,11 @@ To minimize the risk of clients gaining access to sensitive information and serv
 
 ![High-level overview of this pattern](./_images/gatekeeper-diagram.png)
 
-
 The gatekeeper pattern can be used to simply protect storage, or it can be used as a more comprehensive façade to protect all of the functions of the application. The important factors are:
 
-- **Controlled validation.** The gatekeeper validates all requests, and rejects those that don't meet validation requirements.
-- **Limited risk and exposure.** The gatekeeper doesn't have access to the credentials or keys used by the trusted host to access storage and services. If the gatekeeper is compromised, the attacker doesn't get access to these credentials or keys.
-- **Appropriate security.** The gatekeeper runs in a limited privilege mode, while the rest of the application runs in the full trust mode required to access storage and services. If the gatekeeper is compromised, it can't directly access the application services or data.
+- **Controlled validation**. The gatekeeper validates all requests, and rejects those that don't meet validation requirements.
+- **Limited risk and exposure**. The gatekeeper doesn't have access to the credentials or keys used by the trusted host to access storage and services. If the gatekeeper is compromised, the attacker doesn't get access to these credentials or keys.
+- **Appropriate security**. The gatekeeper runs in a limited privilege mode, while the rest of the application runs in the full trust mode required to access storage and services. If the gatekeeper is compromised, it can't directly access the application services or data.
 
 This pattern acts like a firewall in a typical network topography. It allows the gatekeeper to examine requests and make a decision about whether to pass the request on to the trusted host (sometimes called the keymaster) that performs the required tasks. This decision typically requires the gatekeeper to validate and sanitize the request content before passing it on to the trusted host.
 
@@ -61,7 +58,6 @@ In a cloud-hosted scenario, this pattern can be implemented by decoupling the ga
 
 ![An example of the pattern using Cloud Services web and worker roles](./_images/gatekeeper-endpoint.png)
 
-
 ## Related patterns
 
-The [Valet Key pattern](valet-key.md) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles it's good practice to enhance security by using keys or tokens that limit permissions for accessing resources. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service.
+The [Valet Key pattern](./valet-key.md) might also be relevant when implementing the Gatekeeper pattern. When communicating between the Gatekeeper and trusted roles it's good practice to enhance security by using keys or tokens that limit permissions for accessing resources. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service.

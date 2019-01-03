@@ -1,12 +1,11 @@
 ---
-title: Throttling
+title: Throttling pattern
+titleSuffix: Cloud Design Patterns
 description: Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [availability, performance-scalability]
+ms.custom: seodec18
 ---
 
 # Throttling pattern
@@ -31,14 +30,13 @@ The system could implement several throttling strategies, including:
 
 - Disabling or degrading the functionality of selected nonessential services so that essential services can run unimpeded with sufficient resources. For example, if the application is streaming video output, it could switch to a lower resolution.
 
-- Using load leveling to smooth the volume of activity (this approach is covered in more detail by the [Queue-based Load Leveling pattern](queue-based-load-leveling.md)). In a multi-tenant environment, this approach will reduce the performance for every tenant. If the system must support a mix of tenants with different SLAs, the work for high-value tenants might be performed immediately. Requests for other tenants can be held back, and handled when the backlog has eased. The [Priority Queue pattern][] could be used to help implement this approach.
+- Using load leveling to smooth the volume of activity (this approach is covered in more detail by the [Queue-based Load Leveling pattern](./queue-based-load-leveling.md)). In a multi-tenant environment, this approach will reduce the performance for every tenant. If the system must support a mix of tenants with different SLAs, the work for high-value tenants might be performed immediately. Requests for other tenants can be held back, and handled when the backlog has eased. The [Priority Queue pattern][] could be used to help implement this approach.
 
 - Deferring operations being performed on behalf of lower priority applications or tenants. These operations can be suspended or limited, with an exception generated to inform the tenant that the system is busy and that the operation should be retried later.
 
 The figure shows an area graph for resource use (a combination of memory, CPU, bandwidth, and other factors) against time for applications that are making use of three features. A feature is an area of functionality, such as a component that performs a specific set of tasks, a piece of code that performs a complex calculation, or an element that provides a service such as an in-memory cache. These features are labeled A, B, and C.
 
 ![Figure 1 - Graph showing resource use against time for applications running on behalf of three users](./_images/throttling-resource-utilization.png)
-
 
 > The area immediately below the line for a feature indicates the resources that are used by applications when they invoke this feature. For example, the area below the line for Feature A shows the resources used by applications that are making use of Feature A, and the area between the lines for Feature A and Feature B indicates the resources used by applications invoking Feature B. Aggregating the areas for each feature shows the total resource use of the system.
 
@@ -49,7 +47,6 @@ The autoscaling and throttling approaches can also be combined to help keep the 
 The next figure shows an area graph of the overall resource use by all applications running in a system against time, and illustrates how throttling can be combined with autoscaling.
 
 ![Figure 2 - Graph showing the effects of combining throttling with autoscaling](./_images/throttling-autoscaling.png)
-
 
 At time T1, the threshold specifying the soft limit of resource use is reached. At this point, the system can start to scale out. However, if the new resources don't become available quickly enough, then the existing resources might be exhausted and the system could fail. To prevent this from occurring, the system is temporarily throttled, as described earlier. When autoscaling has completed and the additional resources are available, throttling can be relaxed.
 
@@ -87,14 +84,12 @@ In order to prevent the users from one tenant affecting the responsiveness and a
 
 ![Figure 3 - Implementing throttling in a multi-tenant application](./_images/throttling-multi-tenant.png)
 
-
 ## Related patterns and guidance
 
 The following patterns and guidance may also be relevant when implementing this pattern:
+
 - [Instrumentation and Telemetry Guidance](https://msdn.microsoft.com/library/dn589775.aspx). Throttling depends on gathering information about how heavily a service is being used. Describes how to generate and capture custom monitoring information.
 - [Service Metering Guidance](https://msdn.microsoft.com/library/dn589796.aspx). Describes how to meter the use of services in order to gain an understanding of how they are used. This information can be useful in determining how to throttle a service.
 - [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx). Throttling can be used as an interim measure while a system autoscales, or to remove the need for a system to autoscale. Contains information on autoscaling strategies.
-- [Queue-based Load Leveling pattern](queue-based-load-leveling.md). Queue-based load leveling is a commonly used mechanism for implementing throttling. A queue can act as a buffer that helps to even out the rate at which requests sent by an application are delivered to a service.
-- [Priority Queue pattern][]. A system can use priority queuing as part of its throttling strategy to maintain performance for critical or higher value applications, while reducing the performance of less important applications.
-
-[Priority Queue pattern]: priority-queue.md
+- [Queue-based Load Leveling pattern](./queue-based-load-leveling.md). Queue-based load leveling is a commonly used mechanism for implementing throttling. A queue can act as a buffer that helps to even out the rate at which requests sent by an application are delivered to a service.
+- [Priority Queue pattern](./priority-queue.md). A system can use priority queuing as part of its throttling strategy to maintain performance for critical or higher value applications, while reducing the performance of less important applications.

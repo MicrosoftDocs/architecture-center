@@ -60,7 +60,7 @@ Design subnets with functionality and security requirements in mind. All VMs wit
 
 ### Load balancers
 
-Don't expose the VMs directly to the Internet, but instead give each VM a private IP address. Clients connect using the public IP address  associated with the Application Gateway.
+Don't expose the VMs directly to the Internet, but instead give each VM a private IP address. Clients connect using the public IP address associated with the Application Gateway.
 
 Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, map port 80 from the front-end configuration to port 80 on the back-end address pool. When a client sends an HTTP request to port 80, the load balancer selects a back-end IP address by using a [hashing algorithm][load-balancer-hashing] that includes the source IP address. Client requests are distributed across all the VMs in the back-end address pool.
 

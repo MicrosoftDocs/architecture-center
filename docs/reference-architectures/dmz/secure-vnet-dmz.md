@@ -5,11 +5,6 @@ description: How to implement a secure hybrid network architecture with Internet
 author: telmosampaio
 ms.date: 10/22/2018
 ms.custom: seodec18
-
-pnp.series.title: Network DMZ
-pnp.series.next: nva-ha
-pnp.series.prev: secure-vnet-hybrid
-cardTitle: DMZ between Azure and the Internet
 ---
 
 # Implement a DMZ between Azure and the Internet

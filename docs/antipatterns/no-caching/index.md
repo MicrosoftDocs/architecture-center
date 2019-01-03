@@ -1,13 +1,15 @@
 ---
 title: No Caching antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Repeatedly fetching the same data can reduce performance and scalability.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # No Caching antipattern
 
-In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability. 
+In a cloud application that handles many concurrent requests, repeatedly fetching the same data can reduce performance and scalability.
 
 ## Problem description
 
@@ -41,7 +43,7 @@ You can find the complete sample [here][sample-app].
 
 This antipattern typically occurs because:
 
-- Not using a cache is simpler to implement, and it works fine under low loads. Caching makes the code more complicated. 
+- Not using a cache is simpler to implement, and it works fine under low loads. Caching makes the code more complicated.
 - The benefits and drawbacks of using a cache are not clearly understood.
 - There is concern about the overhead of maintaining the accuracy and freshness of cached data.
 - An application was migrated from an on-premises system, where network latency was not an issue, and the system ran on expensive high-performance hardware, so caching wasn't considered in the original design.
@@ -54,7 +56,7 @@ The most popular caching strategy is the *on-demand* or *cache-aside* strategy.
 - On read, the application tries to read the data from the cache. If the data isn't in the cache, the application retrieves it from the data source and adds it to the cache.
 - On write, the application writes the change directly to the data source and removes the old value from the cache. It will be retrieved and added to the cache the next time it is required.
 
-This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside-pattern] pattern.  
+This approach is suitable for data that changes frequently. Here is the previous example updated to use the [Cache-Aside][cache-aside-pattern] pattern.
 
 ```csharp
 public class CachedPersonRepository : IPersonRepository
@@ -95,7 +97,7 @@ public class CacheService
 }
 ```
 
-Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Redis Cache. If the value isn't found in Redis Cache, the `CacheService` invokes a lambda function that was passed to it by the caller. The lambda function is responsible for fetching the data from the database. This implementation decouples the repository from the particular caching solution, and decouples the `CacheService` from the database. 
+Notice that the `GetAsync` method now calls the `CacheService` class, rather than calling the database directly. The `CacheService` class first tries to get the item from Azure Redis Cache. If the value isn't found in Redis Cache, the `CacheService` invokes a lambda function that was passed to it by the caller. The lambda function is responsible for fetching the data from the database. This implementation decouples the repository from the particular caching solution, and decouples the `CacheService` from the database.
 
 ## Considerations
 
@@ -107,11 +109,11 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 
 - You don't have to cache entire entities. If most of an entity is static but only a small piece changes frequently, cache the static elements and retrieve the dynamic elements from the data source. This approach can help to reduce the volume of I/O being performed against the data source.
 
-- In some cases, if volatile data is short-lived, it can be useful to cache it. For example, consider a device that continually sends status updates. It might make sense to cache this information as it arrives, and not write it to a persistent store at all.  
+- In some cases, if volatile data is short-lived, it can be useful to cache it. For example, consider a device that continually sends status updates. It might make sense to cache this information as it arrives, and not write it to a persistent store at all.
 
 - To prevent data from becoming stale, many caching solutions support configurable expiration periods, so that data is automatically removed from the cache after a specified interval. You may need to tune the expiration time for your scenario. Data that is highly static can stay in the cache for longer periods than volatile data that may become stale quickly.
 
-- If the caching solution doesn't provide built-in expiration, you may need to implement a background process that occasionally sweeps the cache, to prevent it from growing without limits. 
+- If the caching solution doesn't provide built-in expiration, you may need to implement a background process that occasionally sweeps the cache, to prevent it from growing without limits.
 
 - Besides caching data from an external data source, you can use caching to save the results of complex computations. Before you do that, however, instrument the application to determine whether the application is really CPU bound.
 
@@ -126,16 +128,15 @@ Notice that the `GetAsync` method now calls the `CacheService` class, rather tha
 You can perform the following steps to help identify whether lack of caching is
 causing performance problems:
 
-1. Review the application design. Take an inventory of all the data stores that the application uses. For each, determine whether the application is using a cache. If possible, determine how frequently the data changes. Good initial candidates for caching include data that changes slowly, and static reference data that is read frequently. 
+1. Review the application design. Take an inventory of all the data stores that the application uses. For each, determine whether the application is using a cache. If possible, determine how frequently the data changes. Good initial candidates for caching include data that changes slowly, and static reference data that is read frequently.
 
 2. Instrument the application and monitor the live system to find out how frequently the application retrieves data or calculates information.
 
 3. Profile the application in a test environment to capture low-level metrics about the overhead associated with data access operations or other frequently performed calculations.
 
-4. Perform load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads. 
+4. Perform load testing in a test environment to identify how the system responds under a normal workload and under heavy load. Load testing should simulate the pattern of data access observed in the production environment using realistic workloads.
 
-5. Examine the data access statistics for the underlying data stores and review how often the same data requests are repeated. 
-
+5. Examine the data access statistics for the underlying data stores and review how often the same data requests are repeated.
 
 ## Example diagnosis
 
@@ -143,17 +144,17 @@ The following sections apply these steps to the sample application described ear
 
 ### Instrument the application and monitor the live system
 
-Instrument the application and monitor it to get information about the specific requests that users make while the application is in production. 
+Instrument the application and monitor it to get information about the specific requests that users make while the application is in production.
 
 The following image shows monitoring data captured by [New Relic][NewRelic] during a load test. In this case, the only HTTP GET operation performed is `Person/GetAsync`. But in a live production environment, knowing the relative frequency that each request is performed can give you insight into which resources should be cached.
 
 ![New Relic showing server requests for the CachingDemo application][NewRelic-server-requests]
 
-If you need a deeper analysis, you can use a profiler to capture low-level performance data in a test environment (not the production system). Look at metrics such as I/O request rates, memory usage, and CPU utilization. These metrics may show a large number of requests to a data store or service, or repeated processing that performs the same calculation. 
+If you need a deeper analysis, you can use a profiler to capture low-level performance data in a test environment (not the production system). Look at metrics such as I/O request rates, memory usage, and CPU utilization. These metrics may show a large number of requests to a data store or service, or repeated processing that performs the same calculation.
 
 ### Load test the application
 
-The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations. 
+The following graph shows the results of load testing the sample application. The load test simulates a step load of up to 800 users performing a typical series of operations.
 
 ![Performance load test results for the uncached scenario][Performance-Load-Test-Results-Uncached]
 
@@ -174,7 +175,7 @@ The `UseCount` column in the results indicates how frequently each query is run.
 
 ![Results of querying the dynamic management views in SQL Server Management Server][Dynamic-Management-Views]
 
-Here is the SQL query that is causing so many database requests: 
+Here is the SQL query that is causing so many database requests:
 
 ```SQL
 (@p__linq__0 int)SELECT TOP (2)
@@ -193,12 +194,12 @@ After you incorporate a cache, repeat the load tests and compare the results to 
 
 ![Performance load test results for the cached scenario][Performance-Load-Test-Results-Cached]
 
-The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is significantly higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1ms earlier &mdash; a 20&times; improvement. 
+The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is significantly higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1ms earlier &mdash; a 20&times; improvement.
 
 ## Related resources
 
 - [API implementation best practices][api-implementation]
-- [Cache-Aside Pattern][cache-aside-pattern]
+- [Cache-Aside pattern][cache-aside-pattern]
 - [Caching best practices][caching-guidance]
 - [Circuit Breaker pattern][circuit-breaker]
 

@@ -67,7 +67,7 @@ The next sections describe these stages in more detail.
 
 The [bcp](/sql/tools/bcp-utility) (bulk copy program) utility is a fast way to create flat text files from SQL tables. In this step, you select the columns that you want to export, but don't transform the data. Any data transformations should happen in SQL Data Warehouse.
 
-**Recommendations**
+**Recommendations:**
 
 If possible, schedule data extraction during off-peak hours, to minimize resource contention in the production environment.
 
@@ -79,7 +79,7 @@ You can speed up the network transfer by saving the exported data in Gzip compre
 
 The [AzCopy](/azure/storage/common/storage-use-azcopy) utility is designed for high-performance copying of data into Azure blob storage.
 
-**Recommendations**
+**Recommendations:**
 
 Create the storage account in a region near the location of the source data. Deploy the storage account and the SQL Data Warehouse instance in the same region.
 
@@ -100,7 +100,7 @@ Loading the data is a two-step process:
 1. Create a set of external tables for the data. An external table is a table definition that points to data stored outside of the warehouse &mdash; in this case, the flat files in blob storage. This step does not move any data into the warehouse.
 2. Create staging tables, and load the data into the staging tables. This step copies the data into the warehouse.
 
-**Recommendations**
+**Recommendations:**
 
 Consider SQL Data Warehouse when you have large amounts of data (more than 1 TB) and are running an analytics workload that will benefit from parallelism. SQL Data Warehouse is not a good fit for OLTP workloads or smaller data sets (< 250GB). For data sets less than 250GB, consider Azure SQL Database or SQL Server. For more information, see [Data warehousing](../../data-guide/relational-data/data-warehousing.md).
 
@@ -150,7 +150,7 @@ Power BI supports two options for connecting to Azure Analysis Services:
 
 We recommend Live Connection because it doesn't require copying data into the Power BI model. Also, using DirectQuery ensures that results are always consistent with the latest source data. For more information, see [Connect with Power BI](/azure/analysis-services/analysis-services-connect-pbi).
 
-**Recommendations**
+**Recommendations:**
 
 Avoid running BI dashboard queries directly against the data warehouse. BI dashboards require very low response times, which direct queries against the warehouse may be unable to satisfy. Also, refreshing the dashboard will count against the number of concurrent queries, which could impact performance.
 

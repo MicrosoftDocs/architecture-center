@@ -1,12 +1,11 @@
 ---
-title: Priority Queue
+title: Priority Queue pattern
+titleSuffix: Cloud Design Patterns
 description: Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [messaging, performance-scalability]
+ms.custom: seodec18
 ---
 
 # Priority Queue pattern
@@ -25,12 +24,11 @@ A queue is usually a first-in, first-out (FIFO) structure, and consumers typical
 
 ![Figure 1 - Using a queuing mechanism that supports message prioritization](./_images/priority-queue-pattern.png)
 
-> Most message queue implementations support multiple consumers (following the [Competing Consumers pattern](https://msdn.microsoft.com/library/dn568101.aspx)), and the number of consumer processes can be scaled up or down depending on demand.
+> Most message queue implementations support multiple consumers (following the [Competing Consumers pattern](./competing-consumers.md)), and the number of consumer processes can be scaled up or down depending on demand.
 
 In systems that don't support priority-based message queues, an alternative solution is to maintain a separate queue for each priority. The application is responsible for posting messages to the appropriate queue. Each queue can have a separate pool of consumers. Higher priority queues can have a larger pool of consumers running on faster hardware than lower priority queues. The next figure illustrates using separate message queues for each priority.
 
 ![Figure 2 - Using separate message queues for each priority](./_images/priority-queue-separate.png)
-
 
 A variation on this strategy is to have a single pool of consumers that check for messages on high priority queues first, and only then start to fetch messages from lower priority queues. There are some semantic differences between a solution that uses a single pool of consumer processes (either with a single queue that supports messages with different priorities or with multiple queues that each handle messages of a single priority), and a solution that uses multiple queues with a separate pool for each queue.
 
@@ -82,7 +80,6 @@ An Azure solution can implement a Service Bus topic an application can post mess
 
 ![Figure 3 - Implementing a priority queue with Azure Service Bus topics and subscriptions](./_images/priority-queue-service-bus.png)
 
-
 In the figure above, the application creates several messages and assigns a custom property called `Priority` in each message with a value, either `High` or `Low`. The application posts these messages to a topic. The topic has two associated subscriptions that both filter messages by examining the `Priority` property. One subscription accepts messages where the `Priority` property is set to `High`, and the other accepts messages where the `Priority` property is set to `Low`. A pool of consumers reads messages from each subscription. The high priority subscription has a larger pool, and these consumers might be running on more powerful computers with more resources available than the consumers in the low priority pool.
 
 Note that there's nothing special about the designation of high and low priority messages in this example. They're simply labels specified as properties in each message, and are used to direct messages to a specific subscription. If additional priorities are required, it's relatively easy to create further subscriptions and pools of consumer processes to handle these priorities.
@@ -115,6 +112,7 @@ public class PriorityWorkerRole : RoleEntryPoint
   }
 }
 ```
+
 The `PriorityQueue.High` and `PriorityQueue.Low` worker roles both override the default functionality of the `ProcessMessage` method. The code below shows the `ProcessMessage` method for the `PriorityQueue.High` worker role.
 
 ```csharp
@@ -164,11 +162,10 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx). A consumer service that processes a request might need to send a reply to the instance of the application that posted the request. Provides information on the strategies that you can use to implement request/response messaging.
 
-- [Competing Consumers pattern](competing-consumers.md). To increase the throughput of the queues, it’s possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
+- [Competing Consumers pattern](./competing-consumers.md). To increase the throughput of the queues, it’s possible to have multiple consumers that listen on the same queue, and process the tasks in parallel. These consumers will compete for messages, but only one should be able to process each message. Provides more information on the benefits and tradeoffs of implementing this approach.
 
-- [Throttling pattern](throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
+- [Throttling pattern](./throttling.md). You can implement throttling by using queues. Priority messaging can be used to ensure that requests from critical applications, or applications being run by high-value customers, are given priority over requests from less important applications.
 
 - [Autoscaling Guidance](https://msdn.microsoft.com/library/dn589774.aspx). It might be possible to scale the size of the pool of consumer processes handling a queue depending on the length of the queue. This strategy can help to improve performance, especially for pools handling high priority messages.
 
 - [Enterprise Integration Patterns with Service Bus](https://abhishekrlal.com/2013/01/11/enterprise-integration-patterns-with-service-bus-part-2/) on Abhishek Lal’s blog.
-

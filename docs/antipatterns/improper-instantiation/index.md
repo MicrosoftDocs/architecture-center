@@ -1,20 +1,22 @@
 ---
 title: Improper Instantiation antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Avoid continually creating new instances of an object that is meant to be created once and then shared.
 author: dragon119
 ms.date: 06/05/2017
+ms.custom: seodec18
 ---
 
 # Improper Instantiation antipattern
 
-It can hurt performance to continually create new instances of an object that is meant to be created once and then shared. 
+It can hurt performance to continually create new instances of an object that is meant to be created once and then shared.
 
 ## Problem description
 
 Many libraries provide abstractions of external resources. Internally, these classes typically manage their own connections to the resource, acting as brokers that clients can use to access the resource. Here are some examples of broker classes that are relevant to Azure applications:
 
 - `System.Net.Http.HttpClient`. Communicates with a web service using HTTP.
-- `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue. 
+- `Microsoft.ServiceBus.Messaging.QueueClient`. Posts and receives messages to a Service Bus queue.
 - `Microsoft.Azure.Documents.Client.DocumentClient`. Connects to a Cosmos DB instance
 - `StackExchange.Redis.ConnectionMultiplexer`. Connects to Redis, including Azure Redis Cache.
 
@@ -92,20 +94,21 @@ public class SingleHttpClientInstanceController : ApiController
 
 - The key element of this antipattern is repeatedly creating and destroying instances of a *shareable* object. If a class is not shareable (not thread-safe), then this antipattern does not apply.
 
-- The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class
-is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
+- The type of shared resource might dictate whether you should use a singleton or create a pool. The `HttpClient` class is designed to be shared rather than pooled. Other objects might support pooling, enabling the system to spread the workload across multiple instances.
 
 - Objects that you share across multiple requests *must* be thread-safe. The `HttpClient` class is designed to be used in this manner, but other classes might not support concurrent requests, so check the available documentation.
 
+- Be careful about setting properties on shared objects, as this can lead to race conditions. For example, setting `DefaultRequestHeaders` on the `HttpClient` class before each request can create a race condition. Set such properties once (for example, during startup), and create separate instances if you need to configure different settings.
+
 - Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
 
-- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These factories  objects are intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
+- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
 ## How to detect the problem
 
-Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following: 
+Symptoms of this problem include a drop in throughput or an increased error rate, along with one or more of the following:
 
-- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on. 
+- An increase in exceptions that indicate exhaustion of resources such as sockets, database connections, file handles, and so on.
 - Increased memory use and garbage collection.
 - An increase in network, disk, or database activity.
 
@@ -116,7 +119,7 @@ You can perform the following steps to help identify this problem:
 3. Load test each suspected operation, in a controlled test environment rather than the production system.
 4. Review the source code and examine the how broker objects are managed.
 
-Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are utilizing resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted. 
+Look at stack traces for operations that are slow-running or that generate exceptions when the system is under load. This information can help to identify how these operations are utilizing resources. Exceptions can help to determine whether errors are caused by shared resources being exhausted.
 
 ## Example diagnosis
 
@@ -124,7 +127,7 @@ The following sections apply these steps to the sample application described ear
 
 ### Identify points of slow down or failure
 
-The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller is worth investigating further. Notice that the error rate also increases when these operations are running. 
+The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller is worth investigating further. Notice that the error rate also increases when these operations are running.
 
 ![The New Relic monitor dashboard showing the sample application creating a new instance of an HttpClient object for each request][dashboard-new-HTTPClient-instance]
 
@@ -141,7 +144,7 @@ from resource exhaustion under varying loads. Perform these tests in a controlle
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 
-At first, the volume of requests handled per second increases as the workload increases. At about 30 users, however, the volume of successful requests reaches a limit, and the system starts to generate exceptions. From then on, the volume of exceptions gradually increases with the user load. 
+At first, the volume of requests handled per second increases as the workload increases. At about 30 users, however, the volume of successful requests reaches a limit, and the system starts to generate exceptions. From then on, the volume of exceptions gradually increases with the user load.
 
 The load test reported these failures as HTTP 500 (Internal Server) errors. Reviewing the telemetry showed that these errors were caused by the system running out of socket resources, as more and more `HttpClient` objects were created.
 
@@ -161,11 +164,9 @@ For comparison, the following image shows the stack trace telemetry. This time, 
 
 ![The New Relic thread profiler showing the sample application creating single instance of an HttpClient object for all requests][thread-profiler-single-HTTPClient-instance]
 
-The next graph shows a similar load test using a shared instance of the `ExpensiveToCreateService` object. Again, the volume of handled requests increases in line with the user load, while the average response time remains low. 
+The next graph shows a similar load test using a shared instance of the `ExpensiveToCreateService` object. Again, the volume of handled requests increases in line with the user load, while the average response time remains low.
 
 ![Throughput of the sample application reusing the same instance of an HttpClient object for each request][throughput-single-ExpensiveToCreateService-instance]
-
-
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/ImproperInstantiation
 [service-bus-messaging]: /azure/service-bus-messaging/service-bus-performance-improvements
