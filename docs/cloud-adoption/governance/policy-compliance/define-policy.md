@@ -18,7 +18,7 @@ Once you've analyzed the known risks and related risk tolerances for your organi
 
 Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [monitoring and enforcement](monitor-enforce.md) mechanisms. 
 
-Individual policy statements are guidelines for addressing individual issues identified during your risk assessment process. Each statement should include three components:
+Individual policy statements are guidelines for addressing individual issues identified during your risk assessment process. Each statement should include these components:
 
 * Policy overview - What is the purpose of the policy? What risk or goal is it addressing?
 * Policy scope - What resources or systems are affected by this policy? What stakeholders are involved in defining the policy?  What teams will be responsible for complying with or enforcing the policy?
@@ -36,7 +36,7 @@ Performing a thorough [cloud policy review](what-is-a-cloud-policy-review.md) as
 
 As your cloud deployment matures and the amount of your IT estate moving to the cloud increases, your risks and associated policy needs will also change. Governance is an ongoing process, and policy statements should be regularly reviewed with IT staff and stakeholders to ensure resources hosted in the cloud continue to maintain compliance with overall corporate goals and requirements.
 
-Planned additions to your cloud environment should always be vetted for compliance with existing policy, and policy updated to account for any issues not already covered. You should also perform regular cloud policy reviews to keep cloud policy updated with the latest overall corporate policy. 
+Planned additions to your cloud environment should always be vetted for compliance with existing policy, and policy updated to account for any issues not already covered. You should also perform regular cloud policy reviews to keep cloud policy in-sync with the latest overall corporate policy. 
 
 ## Next steps
 
