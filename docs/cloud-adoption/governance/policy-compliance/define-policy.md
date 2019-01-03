@@ -14,17 +14,25 @@ Define the policy... [aspirational statement to move towards 2/1] If you need he
 
 Once you've analyzed the known risks and related risk tolerances for your organization's cloud transformation journey, your next step is to establish policy that will explicitly address those risks and define the steps needed to mitigate them where possible.
 
-## Policy statements
+## How can corporate IT policy become cloud-ready?
+
+Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental governance model. 
+
+What is different about our cloud adoption framework is the buying cycle and the impact of that how that cycle can enable authentic transformation. Since there is not a big Capital Expenditure (CapEx) acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the CapEx barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
+
+The shift to cloud adoption requires a shift in governance. In many organizations, corporate policy transformation allows for improved governance and higher rates of adherence through incremental policy changes and automated enforcement of those changes, powered by newly defined capabilities that you configure with your cloud service provider. 
+
+## Cloud policy definitions
 
 Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [monitoring and enforcement](monitor-enforce.md) mechanisms. 
+<!--- explain difference between policy documents and cloud policy definitions in this context--->
+Individual cloud policy definitions are guidelines for addressing individual issues identified during your risk assessment process. Each definition should include these pieces of information:
 
-Individual policy statements are guidelines for addressing individual issues identified during your risk assessment process. Each statement should include these components:
+* Business risk - A summary of the risk this policy will address.
+* Policy statement - A concise explanation of the policy requirements and goals.
+* Design guidance - Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
 
-* Policy overview - What is the purpose of the policy? What risk or goal is it addressing?
-* Policy scope - What resources or systems are affected by this policy? What stakeholders are involved in defining the policy?  What teams will be responsible for complying with or enforcing the policy?
-* Policy details - High level definition of the rules, processes, and enforcement requirements used to mitigate risk or otherwise achieve the policy's goal.
-
-If you need help getting started with defining policies, consult the [governance disciplines](../overview.md#disciplines-of-cloud-governance) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and the policies used to mitigate those risks.
+If you need help getting started with defining policies, consult the [governance disciplines](../overview.md#disciplines-of-cloud-governance) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and sample policies used to mitigate those risks.
 
 ## Integrating with existing policy
 
