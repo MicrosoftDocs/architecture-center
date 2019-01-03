@@ -700,6 +700,8 @@
             href: cloud-adoption/governance/cost-management/policy-statements.md
           - name: Monitor and enforce policy
             href: cloud-adoption/governance/cost-management/monitor-enforce.md
+          - name: Develop a Maturity Roadmap
+            href: cloud-adoption/governance/cost-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
       - name: Security Management
