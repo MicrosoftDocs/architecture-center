@@ -664,6 +664,14 @@
             href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
           - name: Monitor and enforce policy adherence
             href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
+          - name: What is Regulatory Compliance?
+            href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+          - name: What is a Cloud Policy Review?
+            href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
+          - name: How can a CISO prepare for the cloud?
+            href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+          - name: What is Data Governance?
+            href: cloud-adoption/governance/what-is-data-governance.md
       - name: Azure Design Guides
         items:
           - name: Future Proof
@@ -692,6 +700,8 @@
             href: cloud-adoption/governance/cost-management/policy-statements.md
           - name: Monitor and enforce policy
             href: cloud-adoption/governance/cost-management/monitor-enforce.md
+          - name: Develop a Maturity Roadmap
+            href: cloud-adoption/governance/cost-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/cost-management/toolchain.md
       - name: Security Management
@@ -734,14 +744,6 @@
             href: cloud-adoption/governance/monitoring-enforcement/overview.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/monitoring-enforcement/toolchain.md
-      - name: What is Regulatory Compliance?
-        href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-      - name: What is a Cloud Policy Review?
-        href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
-      - name: How can a CISO prepare for the cloud?
-        href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
-      - name: What is Data Governance?
-        href: cloud-adoption/governance/what-is-data-governance.md
     - name: Infrastructure
       items:
       - name: Overview
