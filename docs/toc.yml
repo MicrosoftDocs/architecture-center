@@ -652,6 +652,20 @@
       items:
       - name: Overview
         href: cloud-adoption/governance/overview.md
+      - name: Azure Design Guides
+        items:
+          - name: Future Proof
+            href: cloud-adoption/governance/design-guides/future-proof.md
+          - name: Protected Data
+            href: cloud-adoption/governance/design-guides/protected-data.md
+          - name: Enterprise MVP
+            href: cloud-adoption/governance/design-guides/enterprise-mvp.md
+          - name: Enterprise @ Scale
+            href: cloud-adoption/governance/design-guides/enterprise-scale.md
+          - name: Enterprise Enforcement
+            href: cloud-adoption/governance/design-guides/enterprise-enforcement.md
+          - name: Multi-Cloud Governance
+            href: cloud-adoption/governance/design-guides/multi-cloud.md
       - name: Developing Governance Policies
         items:
           - name: Understand business risks
@@ -672,20 +686,6 @@
             href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
           - name: What is Data Governance?
             href: cloud-adoption/governance/what-is-data-governance.md
-      - name: Azure Design Guides
-        items:
-          - name: Future Proof
-            href: cloud-adoption/governance/design-guides/future-proof.md
-          - name: Protected Data
-            href: cloud-adoption/governance/design-guides/protected-data.md
-          - name: Enterprise MVP
-            href: cloud-adoption/governance/design-guides/enterprise-mvp.md
-          - name: Enterprise @ Scale
-            href: cloud-adoption/governance/design-guides/enterprise-scale.md
-          - name: Enterprise Enforcement
-            href: cloud-adoption/governance/design-guides/enterprise-enforcement.md
-          - name: Multi-Cloud Governance
-            href: cloud-adoption/governance/design-guides/multi-cloud.md
       - name: Cost Management
         items:
           - name: Adopting a Cost Management Discipline
