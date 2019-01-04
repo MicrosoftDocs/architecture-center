@@ -57,7 +57,7 @@ Affixes can refer to different aspects that describe the particular resources. T
 | --- | --- | --- |
 | Environment |dev, prod, QA |Identifies the environment for the resource |
 | Location |uw (US West), ue (US East) |Identifies the region into which the resource is deployed |
-| Instance |01, 02 |For resources that have more than one named instance (web servers, etc.). |
+| Instance |1, 2, ... |For resources that have more than one named instance such as VMs or NICs. |
 | Product or Service |service |Identifies the product, application, or service that the resource supports |
 | Role |sql, web, messaging |Identifies the role of the associated resource |
 
