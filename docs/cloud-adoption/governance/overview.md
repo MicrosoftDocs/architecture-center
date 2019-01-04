@@ -331,7 +331,6 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
 
 Evaluating current policy through a [cloud policy review](policy-compliance/what-is-a-cloud-policy-review.md) can be a good place to begin the governance journey. [Policy and compliance](policy-compliance/overview.md) can be a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
 
-
 ## Next steps
 
 Sound cloud governance strategy starts with an [understanding of business risk](./policy-compliance/understanding-business-risk.md). Lets begin there.
