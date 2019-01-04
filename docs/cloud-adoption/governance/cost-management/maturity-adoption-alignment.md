@@ -7,7 +7,7 @@ ms.date: 1/3/2019
 
 # Fusion: Maturing the cost management discipline as cloud adoption progresses
 
-This article outlines a maturity model for the cost management discipline for use in parallel with your first major enterprise deployment. This guide can assist you in evaluating how well your governance team is maturing in relation to your cloud adoption efforts.
+This article outlines a maturity model for the cost management discipline to use in parallel with your first major enterprise deployment. This guide can assist you in evaluating how well your governance team is maturing in relation to your cloud adoption efforts.
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
