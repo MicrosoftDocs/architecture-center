@@ -37,11 +37,11 @@ As your cloud deployment matures and the amount of your IT estate moving to the 
 > [!TIP]
 > If your organization is governed by third-party compliance, one of the biggest business risks to consider may be a risk of adherence to [regulatory compliance](what-is-regulatory-compliance.md). Often times this risk cannot be mitigated, and instead may require a strict adherence. Be sure to understand your third-party compliance requirements before beginning a policy review.
 
-## Create cloud policy definitions
+## Create cloud policy statements
 
 Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [monitoring and enforcement](monitor-enforce.md) mechanisms. 
 
-Individual cloud policy definitions are guidelines for addressing specific risks identified during your risk assessment process.  While these policies can be integrated into your wider corporate policy documentation, cloud policy definitions discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
+Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process.  While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
 * Business risk - A summary of the risk this policy will address.
 * Policy statement - A concise explanation of the policy requirements and goals.
