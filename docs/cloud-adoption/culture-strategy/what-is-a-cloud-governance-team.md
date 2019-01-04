@@ -5,23 +5,36 @@ author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: What is a Cloud Governance Team?
+# Fusion: What is a cloud governance team?
 
-Transformation or change of any kind inherently generates new risks. The Cloud Governance Team is responsible for working with the business and the [Cloud Strategy Team](what-is-a-cloud-strategy-team.md) to evaluate risks vs risk tolerance. This team identifies risks that can not be tolerated by the business and converts those into governing corporate policies. Those policies are then executed through the disciplines of cloud governance. This article will discuss the structure and duties of a Cloud Governance Team.
+Any kind of change generates new risks. The cloud governance team works with the business team and [cloud strategy team](what-is-a-cloud-strategy-team.md) to evaluate risks vs risk tolerance. This team identifies risks that can not be tolerated by the business and converts those into governing corporate policies. Those policies are then executed through the disciplines of cloud governance. 
 
-## Structure of a Cloud Governance Team
+## Team structure
 
-Cloud governance is best viewed in two parts: The Corporate Policies (Risk, Policies, and Enforcement) and The Governance Disciplines that make corporate policies actionable. The Cloud Governance Team focuses on Corporate Policies as they related to governance of the cloud within an enterprise. However, the team's structure is generally comprised of team members from various teams, with varying roles. Some of those team members are also likely to be the employees who implement the policies in the form of technical disciplines.
+The cloud governance team covers: 
+- The corporate policies (risk, policies, and enforcement).  
+- The governance disciplines that make corporate policies actionable. 
 
-It is advised that the Cloud Governance Team be a natural extension of the [Cloud Strategy Team](what-is-a-cloud-strategy-team.md). Just as the CIO and Business Leaders are expected to participate in Cloud Strategy, their direct reports are expected to participate in Cloud Governance. As such, this team is generally comprised of leaders from the ranks of middle management, as well as direct contributors in key roles. Generally this team will be staffed by employees who have been appointed to represent the business. The business employees are empowered to make decisions regarding corporate and technical risk, as such they are generally members of the business unit who are very close to the leadership of the line of business. In parallel, this team is also staffed by members of Information Technology (IT) and Information Security (IS) who understand the technical aspects of the Cloud Transformation. Bringing together the business, IT, and IS in a regular cadence focused on transformation risk is the foundation of an incremental governance model.
+The cloud governance team focuses on Corporate Policies as they relate to governance of the cloud within an enterprise. However, the team structure consists of members from various teams with different roles. Some of those team members are also likely to be the employees who implement the policies in the form of technical disciplines.
 
-Together this team is empowered to identify risks related to current and future releases. The team has sufficient capabilities to evaluate the risk, understand the potential impacts, and make decisions regarding risk tolerance. In doing so, the team can respond quickly to the changing needs of the Cloud Adoption Team. While the team is empowered and capable of making such decisions for the sake of speed, it is equally common for this team to propose the decision to the [Cloud Strategy Team](what-is-a-cloud-strategy-team.md) for validation and final approval. Especially decisions that involve sensitive data or access to business critical systems.
+- Leaders from middle management and direct contributors in key roles, who have been appointed to represent the business. 
 
-## Duties of a Cloud Governance Team
+- The cloud governance team should be an extension of the [cloud strategy team](what-is-a-cloud-strategy-team.md). Just as the CIO and business leaders are expected to participate in cloud strategy team, their direct reports are expected to participate in cloud governance team. 
 
-The primary duty of a Cloud Governance Team is to balance competing forces of transformation and risk mitigation. Additionally, it is the responsibility of this team to ensure that the Cloud Adoption Team is aware of data & asset classification, as well as, architecture guidelines governing adoption approaches. The following represent a series of tasks usually executed by a [Cloud Strategy Team](what-is-a-cloud-strategy-team.md) on a monthly basis to help action that primary duty.
+- Business employees that are members of the business unit who work closely with the leadership of the line of business. Hence, they are are empowered to make decisions regarding corporate and technical risk. 
+- Information Technology (IT) and Information Security (IS) employees who understand the technical aspects of the cloud transformation. These members bring together the business, IT, and IS in a regular cadence. Being focused on transformation risk is the foundation of an incremental governance model.
 
-**Early Planning Tasks:**
+The cloud governance team identifies risks related to current and future releases. The team has sufficient capabilities to evaluate the risk, understand the potential impacts, and make decisions regarding risk tolerance. In doing so, the team can respond quickly to the changing needs of the [cloud adoption team](what-is-a-cloud-adoption-team.md). 
+
+The team also proposes the decision to the [cloud strategy team](what-is-a-cloud-strategy-team.md) for validation and final approval. Specifically, decisions that involve sensitive data or access to business critical systems.
+
+## Key responsibilities
+
+The primary duty of a cloud governance team is to balance competing forces of transformation and risk mitigation. Additionally, The team must also to ensure that the [cloud adoption team](what-is-a-cloud-adoption-team.md) is aware of data & asset classification and  architecture guidelines governing adoption approaches. 
+
+These tasks are usually executed by the cloud governance team on a monthly basis:
+
+**Early planning tasks:**
 
 * Understand [business risks](../business-strategy/risk-tolerance.md) introduced by the plan
 * Represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)
@@ -33,6 +46,9 @@ The primary duty of a Cloud Governance Team is to balance competing forces of tr
 * Represent the [business's tolerance for risk](../business-strategy/risk-tolerance.md)
 * Aid in the evolution of [Policy and Compliance requirements](../governance/policy-compliance/overview.md)
 
-## Cloud Governance Team cadence
+## Meeting cadence
 
-Generally, the tasks mentioned above can be time consuming in the early planning phases. It is advised that each member plan on spending an hour per week to meet with the team. Once the migration plan starts to solidify (usually within 4-6 weeks), the time requirements can often be reduced. Throughout the transformation journey, it is advised that Cloud Governance Team members plan on investing 4-6 hours per month.
+The tasks listed in preceding section can be time consuming in the early planning phases. Here are some recommendations for the cloud governance team members: 
+- Spend an hour each week to meet with team. After the migration plan starts to solidify (usually within 4-6 weeks), the time requirements can be reduced. 
+- Spend 1-2 hours each month throughout the transformation journey. 
+
