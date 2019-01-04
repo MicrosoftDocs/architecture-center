@@ -1,13 +1,13 @@
 ---
-title: "Fusion: How can a company add Cost Management discipline to their Cloud Governance execution?"
+title: "Fusion: How can a company add Cost Management discipline to their cloud governance execution?"
 description: Explanation of the concept cost management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/17/2018
+ms.date: 1/3/2019
 ---
 
-# Fusion: Maturing the cost management discipline, as cloud adoption progresses
+# Fusion: Maturing the cost management discipline as cloud adoption progresses
 
-The following outlines one model for maturing the cost management discipline in parallel to the first major deployment in an enterprise. This guide can aid in evaluating how well a governance team is maturing in relation to adoption efforts.
+This article outlines a maturity model for the cost management discipline to use in parallel with your first major enterprise deployment. This guide can assist you in evaluating how well your governance team is maturing in relation to your cloud adoption efforts.
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
