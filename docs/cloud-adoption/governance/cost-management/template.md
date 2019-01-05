@@ -1,22 +1,22 @@
 ---
-title: "Fusion: Cost Management Template"
+title: "Fusion: Cost Management template"
 description: Explanation of the concept cost management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/17/2018
+ms.date: 1/4/2019
 ---
 
-# Fusion: Cost Management Template
+# Fusion: Cost Management template
 
-The first step to implementing change, is communicating the desired change. The same is true when changing governance practices. The template below is designed to serve as a starting point for documenting and communicating Policy statements that will govern cost in the cloud. The template also outlines the business criteria that led to the documented policy statements.
+The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern cost management in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 
 > [!IMPORTANT]
-> The template is a limited sample. Before using this template, it is advised that the reader review the subsequent steps to defining an effective Cost Management discipline within a cloud governance strategy.
+> This template is a limited sample. Before using it, you should review the subsequent steps for defining an effective Cost Management discipline within your cloud governance strategy.
 
- <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Cost Management Template.docx">Download Cost Management Template</a>
+ <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Cost Management Template.docx">Download Cost Management template</a>
 
 ## Next steps
 
-Solid governance practices start with an [understanding of business risk](./business-risks.md). Review the article on business risks and begin document the business risks that align with the current cloud adoption plan.
+Solid governance practices start with an [understanding of business risk](./business-risks.md). Review the article on business risks and begin to document the business risks that align with your current cloud adoption plan.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)
