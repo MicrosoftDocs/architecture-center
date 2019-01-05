@@ -144,8 +144,8 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 
 ## Related patterns and guidance
 
-- A sample that demonstrates this pattern is available on [GitHub][sample-app].
-- [Valet Key pattern](./valet-key.md). If the target resources aren't supposed to be available to anonymous users it's necessary to implement security over the store that holds the static content. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service such as a cloud-hosted storage service.
-- [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx)
+- [Static Content Hosting sample][sample-app]. A sample application that demonstrates this pattern.
+- [Valet Key pattern](./valet-key.md). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.
+- [Serverless web application on Azure](../reference-architectures/serverless/web-app.md). A reference architecture that uses static website hosting with Azure Functions to implement a serverless web app.
 
 [sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting
