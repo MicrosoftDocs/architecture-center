@@ -23,9 +23,9 @@ While cloud design guides should take into account some of the technical details
 
 ## Sample cloud design guides
 
-If you're planning to use the Azure platform for your cloud migration, the Fusion guidance provides several [sample design guides](../design-guides/overview.md) covering a range of common migration scenarios. In addition to the design guide itself, each sample gives the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide.  
+If you're planning to use the Azure platform for your cloud adoption, the Fusion guidance provides several [sample design guides](../design-guides/overview.md) covering a range of common adoption scenarios. In addition to the design guide itself, each sample gives the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide. These examples represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
 
-While every migration has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
+While every cloud adoption has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
 
 | Design guide scenario                                                       | Description                                                                   |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------|
