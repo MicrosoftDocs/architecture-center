@@ -20,7 +20,7 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 ## Developing cost management governance policy statements
 
-The following six steps will help you define governance policies to control costs your environment.
+The following six steps will help you define governance policies to control costs in your environment.
 
 <ul  class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
