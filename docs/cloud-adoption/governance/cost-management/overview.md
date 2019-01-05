@@ -1,26 +1,26 @@
 ---
-title: "Fusion: Understanding the Cost Management Discipline within Cloud Governance"
+title: "Fusion: Understanding the Cost Management discipline within cloud governance"
 description: Explanation of the concept cost management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/17/2018
+ms.date: 1/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Cost Management Discipline
+# Fusion: Cost Management discipline
 
-Cost Management is one of the [Five Disciplines of Cloud Governance](../disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, pace of adoption, and cost of cloud services can be challenging. This is especially true during major business transformations that leverage cloud technologies. This series of articles outline the approach to developing a cost management discipline as part of a cloud governance strategy.  
+Cost Management is one of the [Five Disciplines of Cloud Governance](../disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that leverage cloud technologies. This section outlines the approach to developing a cost management discipline as part of a cloud governance strategy.  
 
-## Policy Statements
+## Policy statements
 
-Actionable policy statements and the resulting architecture requirements serve as the foundation of a cost management discipline. To see samples of policy statements, see the article on [Cost Management Policy Statements](./policy-statements). These samples can serve as a starting point for your own governance policies.
+Actionable policy statements and the resulting architecture requirements serve as the foundation of a cost management discipline. To see policy statement samples, see the article on [Cost Management Policy Statements](./policy-statements). These samples can serve as a starting point for your organization's governance policies.
 
 > [!CAUTION]
-> The sample policies are derived from common customer experiences. To better align those policies to specific governance needs, it is advised that the following 6 steps be executed to create policy statements that meet the unique needs of the reader.
+> The sample policies come from common customer experiences. To better align these policies to specific cloud governance needs, execute the following steps to create policy statements that meet your unique business needs.
 
-## Developing Cost Management Governance Policy Statements
+## Developing cost management governance policy statements
 
-The following six steps will help define governance policies to control costs in a given environment.
+The following six steps will help you define governance policies to control costs in your environment.
 
 <ul  class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
@@ -35,7 +35,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Cost Management Template</h3>
-                        <p class="x-hidden-focus">Download the template for documenting a Cost Management Discipline</p>
+                        <p class="x-hidden-focus">Download the template for documenting a Cost Management discipline</p>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Business Risks</h3>
-                        <p class="x-hidden-focus">Understand the motives and risks commonly associated with the Cost Management Discipline.</p>
+                        <p class="x-hidden-focus">Understand the motives and risks commonly associated with the Cost Management discipline.</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Indicators and Metrics</h3>
-                        <p class="x-hidden-focus">Indicators to understand if it is the right time to invest in this discipline.</p>
+                        <p class="x-hidden-focus">Indicators to understand if it is the right time to invest in the Cost Management discipline.</p>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Monitor and Enforce</h3>
-                        <p class="x-hidden-focus">A suggested process for managing and enforcing the cost management discipline</p>
+                        <p class="x-hidden-focus">A suggested process for managing and enforcing the Cost Management discipline.</p>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Maturity</h3>
-                        <p class="x-hidden-focus">Aligning Cloud Management maturity with phases of Cloud Adoption</p>
+                        <p class="x-hidden-focus">Aligning Cloud Management maturity with phases of cloud adoption.</p>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@ The following six steps will help define governance policies to control costs in
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Toolchain</h3>
-                        <p class="x-hidden-focus">Azure services that can be implemented to support the cost management discipline.</p>
+                        <p class="x-hidden-focus">Azure services that can be implemented to support the Cost Management discipline.</p>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@ The following six steps will help define governance policies to control costs in
 
 ## Next steps
 
-Getting started by evaluating [business risks](./business-risks.md) in a specific environment.
+Get started by evaluating [business risks](./business-risks.md) in a specific environment.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)
