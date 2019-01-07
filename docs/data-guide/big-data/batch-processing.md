@@ -11,7 +11,7 @@ A common big data scenario is batch processing of data at rest. In this scenario
 
 For example, the logs from a web server might be copied to a folder and then processed overnight to generate daily reports of web activity.
 
-![](./images/batch-pipeline.png)
+![Diagram of a batch processing pipeline](./images/batch-pipeline.png)
 
 ## When to use this solution
 
@@ -23,21 +23,21 @@ One example of batch processing is transforming a large set of flat, semi-struct
 
 - **Data format and encoding**. Some of the most difficult issues to debug happen when files use an unexpected format or encoding. For example, source files might use a mix of UTF-16 and UTF-8 encoding, or contain unexpected delimiters (space versus tab), or include unexpected characters. Another common example is text fields that contain tabs, spaces, or commas that are interpreted as delimiters. Data loading and parsing logic must be flexible enough to detect and handle these issues.
 
-- **Orchestrating time slices.** Often source data is placed in a folder hierarchy that reflects processing windows, organized by year, month, day, hour, and so on. In some cases, data may arrive late. For example, suppose that a web server fails, and the logs for March 7th don't end up in the folder for processing until March 9th. Are they just ignored because they're too late? Can the downstream processing logic handle out-of-order records?
+- **Orchestrating time slices**. Often source data is placed in a folder hierarchy that reflects processing windows, organized by year, month, day, hour, and so on. In some cases, data may arrive late. For example, suppose that a web server fails, and the logs for March 7th don't end up in the folder for processing until March 9th. Are they just ignored because they're too late? Can the downstream processing logic handle out-of-order records?
 
 ## Architecture
 
 A batch processing architecture has the following logical components, shown in the diagram above.
 
-- **Data storage.** Typically a distributed file store that can serve as a repository for high volumes of large files in various formats. Generically, this kind of store is often referred to as a data lake. 
+- **Data storage**. Typically a distributed file store that can serve as a repository for high volumes of large files in various formats. Generically, this kind of store is often referred to as a data lake.
 
-- **Batch processing.** The high-volume nature of big data often means that solutions must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files. 
+- **Batch processing**. The high-volume nature of big data often means that solutions must process data files using long-running batch jobs to filter, aggregate, and otherwise prepare the data for analysis. Usually these jobs involve reading source files, processing them, and writing the output to new files.
 
-- **Analytical data store.** Many big data solutions are designed to prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools. 
+- **Analytical data store**. Many big data solutions are designed to prepare data for analysis and then serve the processed data in a structured format that can be queried using analytical tools.
 
-- **Analysis and reporting.** The goal of most big data solutions is to provide insights into the data through analysis and reporting. 
+- **Analysis and reporting**. The goal of most big data solutions is to provide insights into the data through analysis and reporting.
 
-- **Orchestration.** With batch processing, typically some orchestration is required to migrate or copy the data into your data storage, batch processing, analytical data store, and reporting layers.
+- **Orchestration**. With batch processing, typically some orchestration is required to migrate or copy the data into your data storage, batch processing, analytical data store, and reporting layers.
 
 ## Technology choices
 
@@ -50,7 +50,11 @@ The following technologies are recommended choices for batch processing solution
 
 For more information, see [Data storage](../technology-choices/data-storage.md).
 
+<!-- markdownlint-disable MD024 -->
+
 ### Batch processing
+
+<!-- markdownlint-enable MD024 -->
 
 - **U-SQL**. U-SQL is the query processing language used by Azure Data Lake Analytics. It combines the declarative nature of SQL with the procedural extensibility of C#, and takes advantage of parallelism to enable efficient processing of data at massive scale.
 - **Hive**. Hive is a SQL-like language that is supported in most Hadoop distributions, including HDInsight. It can be used to process data from any HDFS-compatible store, including Azure blob storage and Azure Data Lake Store.

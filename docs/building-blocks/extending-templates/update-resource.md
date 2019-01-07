@@ -1,6 +1,6 @@
 ---
 title: Update a resource in an Azure Resource Manager template
-description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource
+description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: petertay
 ms.date: 10/31/2018
 
@@ -16,7 +16,7 @@ Second, you must either specify the name of the existing property to change or a
 
 ## Example template
 
-Let's look at an example template that demonstrates this. Our template deploys a virtual network  named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`. 
+Let's look at an example template that demonstrates this. Our template deploys a virtual network named `firstVNet` that has one subnet named `firstSubnet`. It then deploys a virtual network interface (NIC) named `nic1` and associates it with our subnet. Then, a deployment resource named `updateVNet` includes a nested template that updates our `firstVNet` resource by adding a second subnet named `secondSubnet`.
 
 ```json
 {
@@ -33,7 +33,7 @@ Let's look at an example template that demonstrates this. Our template deploys a
           "addressSpace":{"addressPrefixes": [
               "10.0.0.0/22"
           ]},
-          "subnets":[              
+          "subnets":[
               {
                   "name":"firstSubnet",
                   "properties":{
@@ -126,11 +126,11 @@ az group deployment create -g <resource-group-name> \
     --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example1-update/deploy.json
 ```
 
-Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource. 
+Once deployment has finished, open the resource group you specified in the portal. You see a virtual network named `firstVNet` and a NIC named `nic1`. Click `firstVNet`, then click `subnets`. You see the `firstSubnet` that was originally created, and you see the `secondSubnet` that was added in the `updateVNet` resource.
 
 ![Original subnet and updated subnet](../_images/firstVNet-subnets.png)
 
-Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`. 
+Then, go back to the resource group and click `nic1` then click `IP configurations`. In the `IP configurations` section, the `subnet` is set to `firstSubnet (10.0.0.0/24)`.
 
 ![nic1 IP configurations settings](../_images/nic1-ipconfigurations.png)
 

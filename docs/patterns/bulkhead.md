@@ -1,7 +1,7 @@
 ---
 title: Bulkhead pattern
 titleSuffix: Cloud Design Patterns
-description: Isolate elements of an application into pools so that if one fails, the others will continue to function
+description: Isolate elements of an application into pools so that if one fails, the others will continue to function.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017

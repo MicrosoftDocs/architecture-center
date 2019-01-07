@@ -3,7 +3,7 @@ title: E-commerce front end
 titleSuffix: Azure Example Scenarios
 description: Host an e-commerce site on Azure.
 author: masonch
-ms.date: 7/13/18
+ms.date: 07/13/2018
 ms.custom: fasttrack
 ---
 

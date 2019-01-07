@@ -7,9 +7,13 @@ ms.date: 02/12/2018
 
 # Choosing a data analytics technology in Azure
 
-The goal of most big data solutions is to provide insights into the data through analysis and reporting. This can include preconfigured reports and visualizations, or interactive data exploration. 
+The goal of most big data solutions is to provide insights into the data through analysis and reporting. This can include preconfigured reports and visualizations, or interactive data exploration.
+
+<!-- markdownlint-disable MD026 -->
 
 ## What are your options when choosing a data analytics technology?
+
+<!-- markdownlint-disable MD026 -->
 
 There are several options for analysis, visualizations, and reporting in Azure, depending on your needs:
 
@@ -24,7 +28,7 @@ There are several options for analysis, visualizations, and reporting in Azure, 
 
 Organizations can use Power BI to produce reports and publish them to the organization. Everyone can create personalized dashboards, with governance and [security built in](/power-bi/service-admin-power-bi-security). Power BI uses [Azure Active Directory](/azure/active-directory/) (Azure AD) to authenticate users who log in to the Power BI service, and uses the Power BI login credentials whenever a user attempts to access resources that require authentication.
 
-### Jupyter Notebooks 
+### Jupyter Notebooks
 
 [Jupyter Notebooks](https://jupyter.readthedocs.io/en/latest/index.html) provide a browser-based shell that lets data scientists create *notebook* files that contain Python, Scala, or R code and markdown text, making it an effective way to collaborate by sharing and documenting code and results in a single document.
 
@@ -44,15 +48,15 @@ Unlike Jupyter notebooks running on an HDInsight cluster, which are connected to
 
 Key benefits:
 
-* Free service&mdash;no Azure subscription required.
-* No need to install Jupyter and the supporting R or Python distributions locally&mdash;just use a browser.
-* Manage your own online libraries and access them from any device.
-* Share your notebooks with collaborators.
+- Free service&mdash;no Azure subscription required.
+- No need to install Jupyter and the supporting R or Python distributions locally&mdash;just use a browser.
+- Manage your own online libraries and access them from any device.
+- Share your notebooks with collaborators.
 
 Considerations:
 
-* You will be unable to access your notebooks when offline.
-* Limited processing capabilities of the free notebook service may not be enough to train large or complex models.
+- You will be unable to access your notebooks when offline.
+- Limited processing capabilities of the free notebook service may not be enough to train large or complex models.
 
 ## Key selection criteria
 
@@ -68,9 +72,11 @@ To narrow the choices, start by answering these questions:
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities. 
+The following tables summarize the key differences in capabilities.
 
 ### General capabilities
+
+<!-- markdownlint-disable MD033 -->
 
 | | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Microsoft Azure Notebooks |
 | --- | --- | --- | --- | --- |
@@ -85,6 +91,8 @@ The following tables summarize the key differences in capabilities.
 | Pricing | Free for Power BI Desktop (authoring), see [pricing](https://powerbi.microsoft.com/pricing/) for hosting options | Free | Free | Free |
 | Multiuser collaboration | [Yes](/power-bi/service-how-to-collaborate-distribute-dashboards-reports) | Yes (through sharing or with a multiuser server like [JupyterHub](https://github.com/jupyterhub/jupyterhub)) | Yes | Yes (through sharing) |
 
+<!-- markdownlint-enable MD033 -->
+
 [1] When used as part of a managed HDInsight cluster.
 
 [2] With the use of Power BI Desktop.
@@ -92,4 +100,3 @@ The following tables summarize the key differences in capabilities.
 [2] You can search the [Maven repository](https://search.maven.org/) for community-contributed packages.
 
 [3] Python packages can be installed using either pip or conda. R packages can be installed from CRAN or GitHub. Packages in F# can be installed via nuget.org using the [Paket dependency manager](https://fsprojects.github.io/Paket/).
-

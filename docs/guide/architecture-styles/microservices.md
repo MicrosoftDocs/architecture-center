@@ -1,16 +1,18 @@
 ---
 title: Microservices architecture style
-description: Describes benefits, challenges, and best practices for microservices architectures on Azure
+titleSuffix: Azure Application Architecture Guide
+description: Describes benefits, challenges, and best practices for microservices architectures on Azure.
 author: MikeWasson
 ms.date: 11/13/2018
+ms.custom: seojan19
 ---
 
 # Microservices architecture style
 
-A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. 
+A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability.
 
-![](./images/microservices-logical.svg)
- 
+![Logical diagram of microservices architecture style](./images/microservices-logical.svg)
+
 In some ways, microservices are the natural evolution of service oriented architectures (SOA), but there are differences between microservices and SOA. Here are some defining characteristics of a microservice:
 
 - In a microservices architecture, services are small, independent, and loosely coupled.
@@ -27,17 +29,17 @@ In some ways, microservices are the natural evolution of service oriented archit
 
 Besides for the services themselves, some other components appear in a typical microservices architecture:
 
-**Management**. The management component is responsible for placing services on nodes, identifying failures, rebalancing services across nodes, and so forth.  
+**Management**. The management component is responsible for placing services on nodes, identifying failures, rebalancing services across nodes, and so forth.
 
-**Service Discovery**.  Maintains a list of services and which nodes they are located on. Enables service lookup to find the endpoint for a service. 
+**Service Discovery**. Maintains a list of services and which nodes they are located on. Enables service lookup to find the endpoint for a service.
 
-**API Gateway**. The API gateway is the entry point for clients. Clients don't call services directly. Instead, they call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway might aggregate the responses from several services and return the aggregated response. 
+**API Gateway**. The API gateway is the entry point for clients. Clients don't call services directly. Instead, they call the API gateway, which forwards the call to the appropriate services on the back end. The API gateway might aggregate the responses from several services and return the aggregated response.
 
 The advantages of using an API gateway include:
 
 - It decouples clients from services. Services can be versioned or refactored without needing to update all of the clients.
 
--  Services can use messaging protocols that are not web friendly, such as AMQP.
+- Services can use messaging protocols that are not web friendly, such as AMQP.
 
 - The API Gateway can perform other cross-cutting functions such as authentication, logging, SSL termination, and load balancing.
 
@@ -53,18 +55,17 @@ Consider this architecture style for:
 
 - An organization that consists of small development teams.
 
-
-## Benefits 
+## Benefits
 
 - **Independent deployments**. You can update a service without redeploying the entire application, and roll back or roll forward an update if something goes wrong. Bug fixes and feature releases are more manageable and less risky.
 
-- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence. 
+- **Independent development**. A single development team can build, test, and deploy a service. The result is continuous innovation and a faster release cadence.
 
 - **Small, focused teams**. Teams can focus on one service. The smaller scope of each service makes the code base easier to understand, and it's easier for new team members to ramp up.
 
 - **Fault isolation**. If a service goes down, it won't take out the entire application. However, that doesn't mean you get resiliency for free. You still need to follow resiliency best practices and design patterns. See [Designing resilient applications for Azure][resiliency-overview].
 
-- **Mixed technology stacks**. Teams can pick the technology that best fits their service. 
+- **Mixed technology stacks**. Teams can pick the technology that best fits their service.
 
 - **Granular scaling**. Services can be scaled independently. At the same time, the higher density of services per VM means that VM resources are fully utilized. Using placement constraints, a services can be matched to a VM profile (high CPU, high memory, and so on).
 
@@ -88,11 +89,11 @@ Consider this architecture style for:
 
 ## Best practices
 
-- Model services around the business domain. 
+- Model services around the business domain.
 
-- Decentralize everything. Individual teams are responsible for designing and building services. Avoid sharing code or data schemas. 
+- Decentralize everything. Individual teams are responsible for designing and building services. Avoid sharing code or data schemas.
 
-- Data storage should be private to the service that owns the data. Use the best storage for each service and data type. 
+- Data storage should be private to the service that owns the data. Use the best storage for each service and data type.
 
 - Services communicate through well-designed APIs. Avoid leaking implementation details. APIs should model the domain, not the internal implementation of the service.
 
@@ -102,7 +103,7 @@ Consider this architecture style for:
 
 - Keep domain knowledge out of the gateway. The gateway should handle and route client requests without any knowledge of the business rules or domain logic. Otherwise, the gateway becomes a dependency and can cause coupling between services.
 
-- Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion. 
+- Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion.
 
 - Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns][resiliency-patterns] and [Designing resilient applications][resiliency-overview].
 
@@ -110,11 +111,7 @@ Consider this architecture style for:
 
 For detailed guidance about building a microservices architecture on Azure, see [Designing, building, and operating microservices on Azure](../../microservices/index.md).
 
-
 <!-- links -->
 
 [resiliency-overview]: ../../resiliency/index.md
 [resiliency-patterns]: ../../patterns/category/resiliency.md
-
-
-

@@ -1,17 +1,18 @@
 ---
 title: Decision tree for Azure compute services
-description: A flowchart for selecting a compute service
+titleSuffix: Azure Application Architecture Guide
+description: A flowchart for selecting a compute service.
 author: MikeWasson
 ms.date: 11/03/2018
-
+ms.custom: seojan19
 ---
 
 # Decision tree for Azure compute services
 
-Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation. 
+Azure offers a number of ways to host your application code. The term *compute* refers to the hosting model for the computing resources that your application runs on. The following flowchart will help you to choose a compute service for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
 
 **Treat this flowchart as a starting point.** Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation, looking at aspects such as:
- 
+
 - Feature set
 - [Service limits](/azure/azure-subscription-service-limits)
 - [Cost](https://azure.microsoft.com/pricing/)
@@ -22,11 +23,11 @@ Azure offers a number of ways to host your application code. The term *compute* 
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more compute services.
 
-For more information about your options for hosting containers in Azure, see https://azure.microsoft.com/overview/containers/.
+For more information about your options for hosting containers in Azure, see [Azure Containers](https://azure.microsoft.com/overview/containers/).
 
 ## Flowchart
 
-![](../images/compute-decision-tree.svg)
+![Decision tree for Azure compute services](../images/compute-decision-tree.svg)
 
 ## Definitions
 

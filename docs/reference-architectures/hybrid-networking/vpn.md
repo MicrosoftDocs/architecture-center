@@ -187,9 +187,9 @@ To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./tro
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
 [gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
 [rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
-[forced-tunneling]: https://azure.microsoft.com/documentation/articles/vpn-gateway-about-forced-tunneling/
+[forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
-[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
+[azure-cli]: /cli/azure/install-azure-cli
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

@@ -1,9 +1,7 @@
 ---
 title: Connect an on-premises network to Azure using ExpressRoute
 titleSuffix: Azure Reference Architectures
-description: Implement a secure site-to-site network architecture that spans an
-  Azure virtual network and an on-premises network connected using Azure
-  ExpressRoute.
+description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
 author: telmosampaio
 ms.date: 10/22/2017
 ms.custom: seodec18
@@ -282,8 +280,8 @@ To deploy the solution, perform the following steps.
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/hybrid-networking/expressroute/parameters/expressRouteCircuit.parameters.json
-[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
+[azure-powershell-download]: /powershell/azure/overview
+[azure-cli]: /cli/azure/install-azure-cli
 
 [0]: ./images/expressroute.png "Hybrid network architecture using Azure ExpressRoute"
 [1]: ../_images/guidance-hybrid-network-expressroute/figure2.png "Using redundant routers with ExpressRoute primary and secondary circuits"

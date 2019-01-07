@@ -98,6 +98,7 @@ Review a [pricing sample for a data warehousing scenario][calculator] via the Az
 - Find comprehensive architectural guidance on data pipelines, data warehousing, online analytical processing (OLAP), and big data in the [Azure Data Architecture Guide](/azure/architecture/data-guide).
 
 <!-- links -->
+
 [source-document]: https://customers.microsoft.com/story/maritz
 [calculator]: https://azure.com/e/b798fb70c53e4dd19fdeacea4db78276
 [architecture]: ./media/architecture-data-warehouse.png

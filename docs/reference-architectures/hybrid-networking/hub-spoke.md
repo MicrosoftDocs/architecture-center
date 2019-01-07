@@ -322,4 +322,3 @@ This step is optional. If you want to allow spokes to connect to each other, you
 [1]: ./images/hub-spoke-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing"
 [2]: ./images/hub-spoke-no-gateway-routing.svg "Hub-spoke topology in Azure with transitive routing using an NVA"
 [3]: ./images/hub-spokehub-spoke.svg "Hub-spoke-hub-spoke topology in Azure"
-[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/

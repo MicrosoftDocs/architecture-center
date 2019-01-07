@@ -1,6 +1,6 @@
 ---
 title: Authorization in multitenant applications
-description: How to perform authorization in a multitenant application
+description: How to perform authorization in a multitenant application.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -8,6 +8,7 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: app-roles
 pnp.series.next: web-api
 ---
+
 # Role-based and resource-based authorization
 
 [![GitHub](../_images/github.png) Sample code][sample application]
@@ -20,6 +21,7 @@ Our [reference implementation] is an ASP.NET Core application. In this article w
 A typical app will employ a mix of both. For example, to delete a resource, the user must be the resource owner *or* an admin.
 
 ## Role-Based Authorization
+
 The [Tailspin Surveys][Tailspin] application defines the following roles:
 
 * Administrator. Can perform all CRUD operations on any survey that belongs to that tenant.
@@ -33,6 +35,7 @@ For a discussion of how to define and manage roles, see [Application roles].
 Regardless of how you manage the roles, your authorization code will look similar. ASP.NET Core has an abstraction called [authorization policies][policies]. With this feature, you define authorization policies in code, and then apply those policies to controller actions. The policy is decoupled from the controller.
 
 ### Create policies
+
 To define a policy, first create a class that implements `IAuthorizationRequirement`. It's easiest to derive from `AuthorizationHandler`. In the `Handle` method, examine the relevant claim(s).
 
 Here is an example from the Tailspin Surveys application:
@@ -42,7 +45,7 @@ public class SurveyCreatorRequirement : AuthorizationHandler<SurveyCreatorRequir
 {
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, SurveyCreatorRequirement requirement)
     {
-        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin) || 
+        if (context.User.HasClaim(ClaimTypes.Role, Roles.SurveyAdmin) ||
             context.User.HasClaim(ClaimTypes.Role, Roles.SurveyCreator))
         {
             context.Succeed(requirement);
@@ -63,7 +66,7 @@ services.AddAuthorization(options =>
         policy =>
         {
             policy.AddRequirements(new SurveyCreatorRequirement());
-            policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement 
+            policy.RequireAuthenticatedUser(); // Adds DenyAnonymousAuthorizationRequirement
             // By adding the CookieAuthenticationDefaults.AuthenticationScheme, if an authenticated
             // user is not in the appropriate role, they will be redirected to a "forbidden" page.
             policy.AddAuthenticationSchemes(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -82,6 +85,7 @@ services.AddAuthorization(options =>
 This code also sets the authentication scheme, which tells ASP.NET which authentication middleware should run if authorization fails. In this case, we specify the cookie authentication middleware, because the cookie authentication middleware can redirect the user to a "Forbidden" page. The location of the Forbidden page is set in the `AccessDeniedPath` option for the cookie middleware; see [Configuring the authentication middleware].
 
 ### Authorize controller actions
+
 Finally, to authorize an action in an MVC controller, set the policy in the `Authorize` attribute:
 
 ```csharp
@@ -107,6 +111,7 @@ This is still supported in ASP.NET Core, but it has some drawbacks compared with
 * Policies enable more complex authorization decisions (e.g., age >= 21) that can't be expressed by simple role membership.
 
 ## Resource based authorization
+
 *Resource based authorization* occurs whenever the authorization depends on a specific resource that will be affected by an operation. In the Tailspin Surveys application, every survey has an owner and zero-to-many contributors.
 
 * The owner can read, update, delete, publish, and unpublish the survey.
@@ -242,7 +247,8 @@ static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPerm
 
 [**Next**][web-api]
 
-<!-- Links -->
+<!-- links -->
+
 [Tailspin]: tailspin.md
 
 [Application roles]: app-roles.md

@@ -1,6 +1,6 @@
 ---
 title: Sign-up and tenant onboarding in multitenant applications
-description: How to onboard tenants in a multitenant application
+description: How to onboard tenants in a multitenant application.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -20,6 +20,7 @@ There are several reasons to implement a sign-up process:
 * Perform any one-time per-tenant setup needed by your application.
 
 ## Admin consent and Azure AD permissions
+
 In order to authenticate with Azure AD, an application needs access to the user's directory. At a minimum, the application needs permission to read the user's profile. The first time that a user signs in, Azure AD shows a consent page that lists the permissions being requested. By clicking **Accept**, the user grants permission to the application.
 
 By default, consent is granted on a per-user basis. Every user who signs in sees the consent page. However, Azure AD also supports  *admin consent*, which allows an AD administrator to consent for an entire organization.
@@ -34,9 +35,10 @@ Only an AD administrator can give admin consent, because it grants permission on
 
 ![Consent error](./images/consent-error.png)
 
-If the application requires additional permissions at a later point, the customer will need to sign up again and consent to the updated permissions.  
+If the application requires additional permissions at a later point, the customer will need to sign up again and consent to the updated permissions.
 
 ## Implementing tenant sign-up
+
 For the [Tailspin Surveys][Tailspin] application,  we defined several requirements for the sign-up process:
 
 * A tenant must sign up before users can sign in.
@@ -53,7 +55,7 @@ When an anonymous user visits the Surveys application, the user is shown two but
 
 These buttons invoke actions in the `AccountController` class.
 
-The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.  
+The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
 
 ```csharp
 [AllowAnonymous]
@@ -96,11 +98,16 @@ The state information in `AuthenticationProperties` gets added to the OpenID Con
 After the user authenticates in Azure AD and gets redirected back to the application, the authentication ticket contains the state. We are using this fact to make sure the "signup" value persists across the entire authentication flow.
 
 ## Adding the admin consent prompt
+
 In Azure AD, the admin consent flow is triggered by adding a "prompt" parameter to the query string in the authentication request:
+
+<!-- markdownlint-disable MD040 -->
 
 ```
 /authorize?prompt=admin_consent&...
 ```
+
+<!-- markdownlint-enable MD040 -->
 
 The Surveys application adds the prompt during the `RedirectToAuthenticationEndpoint` event. This event is called right before the middleware redirects to the authentication endpoint.
 
@@ -117,7 +124,7 @@ public override Task RedirectToAuthenticationEndpoint(RedirectContext context)
 }
 ```
 
-Setting` ProtocolMessage.Prompt` tells the middleware to add the "prompt" parameter to the authentication request.
+Setting `ProtocolMessage.Prompt` tells the middleware to add the "prompt" parameter to the authentication request.
 
 Note that the prompt is only needed during sign-up. Regular sign-in should not include it. To distinguish between them, we check for the `signup` value in the authentication state. The following extension method checks for this condition:
 
@@ -138,7 +145,8 @@ internal static bool IsSigningUp(this BaseControlContext context)
     bool isSigningUp;
     if (!bool.TryParse(signupValue, out isSigningUp))
     {
-        // The value for signup is not a valid boolean, throw                
+        // The value for signup is not a valid boolean, throw
+
         throw new InvalidOperationException($"'{signupValue}' is an invalid boolean value");
     }
 
@@ -146,7 +154,8 @@ internal static bool IsSigningUp(this BaseControlContext context)
 }
 ```
 
-## Registering a Tenant
+## Registering a tenant
+
 The Surveys application stores some information about each tenant and user in the application database.
 
 ![Tenant table](./images/tenant-table.png)
@@ -250,7 +259,8 @@ Here is a summary of the entire sign-up flow in the Surveys application:
 
 [**Next**][app roles]
 
-<!-- Links -->
+<!-- links -->
+
 [app roles]: app-roles.md
 [Tailspin]: tailspin.md
 
