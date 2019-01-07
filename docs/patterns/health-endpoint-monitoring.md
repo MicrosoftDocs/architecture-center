@@ -206,4 +206,4 @@ The following guidance can be useful when implementing this pattern:
 - [Receiving alert notifications][portal-alerts].
 - This pattern includes a downloadable [sample application](https://github.com/mspnp/cloud-design-patterns/tree/master/health-endpoint-monitoring).
 
-[portal-alerts]: /azure/azure-monitor/platform/alerts-classic-portal
+[portal-alerts]: /azure/azure-monitor/platform/alerts-metric

@@ -68,7 +68,7 @@ In a multitenant app, you must consider users in the context of tenants.
 
 ### Authentication
 
-- Users sign into the app with their organization credentials. They don't have to -reate new user profiles for the app.
+- Users sign into the app with their organization credentials. They don't have to create new user profiles for the app.
 - Users within the same organization are part of the same tenant.
 - When a user signs in, the application knows which tenant the user belongs to.
 
