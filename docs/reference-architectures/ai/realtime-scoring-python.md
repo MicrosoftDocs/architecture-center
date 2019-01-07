@@ -2,7 +2,7 @@
 title: Real-time scoring of Python models
 titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to deploy Python models as web services on Azure to make real-time predictions.
-author: njray
+author: masalvar
 ms.date: 11/09/2018
 ms.custom: azcat-ai
 ---
