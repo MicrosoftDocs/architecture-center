@@ -86,7 +86,7 @@ Follow these steps to run the [ALS quick start notebook][notebook]:
 
 2.  Clone the repo in the Notebooks folder:
 
-    ```
+    ```shell
     cd notebooks
     git clone https://github.com/Microsoft/Recommenders
     ```
@@ -102,7 +102,7 @@ Follow these steps to run the [ALS quick start notebook][notebook]:
 For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch]. For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
 
 
-[architecture]: ./media/movie-recommender-using-DSVMs-ML.png
+[architecture]: ./media/architecture-movie-recommender.png
 [aci]: /azure/container-instances/container-instances-overview
 [aad]: /azure/active-directory-b2c/active-directory-b2c-overview
 [aks]: /azure/aks/intro-kubernetes
