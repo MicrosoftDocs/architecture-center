@@ -1,0 +1,1 @@
+Scale is in place. Now more teams are moving faster. Violations are more likely. how does that change the risk profile? How do we automate enforcement?

@@ -583,14 +583,193 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Governance design for a single team
-      href: cloud-adoption/governance/governance-single-team.md
-    - name: Governance design for multiple teams
-      href: cloud-adoption/governance/governance-multiple-teams.md
+    - name: Azure Design Guides
+      items:
+      - name: Future Proof
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/future-proof/overview.md
+      - name: Protected Data
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/protected-data/overview.md
+      - name: Enterprise MVP
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/overview.md
+        - name: Corporate Policy
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
+        - name: Use Case
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
+      - name: Enterprise @ Scale
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/enterprise-scale/overview.md
+      - name: Enterprise Enforcement
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/enterprise-enforcement/overview.md
+      - name: Multi-Cloud Governance
+        items:
+        - name: Governance Design Guide
+          href: cloud-adoption/governance/design-guides/multi-cloud/overview.md
+    - name: Developing Governance Policies
+      items:
+        - name: Understand business risks
+          href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
+        - name: Evaluate risk tolerance
+          href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
+        - name: Define corporate policy statements
+          href: cloud-adoption/governance/policy-compliance/define-policy.md
+        - name: Align architecture design guides
+          href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
+        - name: Monitor and enforce policy adherence
+          href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
+        - name: What is Regulatory Compliance?
+          href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+        - name: What is a Cloud Policy Review?
+          href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
+        - name: How can a CISO prepare for the cloud?
+          href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+        - name: What is Data Governance?
+          href: cloud-adoption/governance/what-is-data-governance.md
+    - name: Cost Management
+      items:
+        - name: Adopting a Cost Management Discipline
+          href: cloud-adoption/governance/cost-management/overview.md
+        - name: Download the Template
+          href: cloud-adoption/governance/cost-management/template.md
+        - name: Understand business risks
+          href: cloud-adoption/governance/cost-management/business-risks.md
+        - name: Document metrics and tolerance indicators
+          href: cloud-adoption/governance/cost-management/metrics-tolerance.md
+        - name: Customize Sample Policy Statements
+          href: cloud-adoption/governance/cost-management/policy-statements.md
+        - name: Monitor and enforce policy
+          href: cloud-adoption/governance/cost-management/monitor-enforce.md
+        - name: Develop a Maturity Roadmap
+          href: cloud-adoption/governance/cost-management/maturity-adoption-alignment.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/cost-management/toolchain.md
+    - name: Security Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/security-management/overview.md
+        - name: Sample Policy - Cloud Native Solution
+          href: cloud-adoption/governance/security-management/cloud-native-policy.md          
+        - name: Additional Security Guidance in Azure
+          href: cloud-adoption/governance/security-management/azure-security-guidance.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/security-management/toolchain.md        
+    - name: Identity Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/identity-management/overview.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/identity-management/toolchain.md
+    - name: Resource Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/resource-management/overview.md
+        - name: Resource access governance in Azure
+          href: cloud-adoption/governance/resource-management/azure-resource-access.md
+        - name: Resouce governance design for a single team
+          href: cloud-adoption/governance/resource-management/governance-single-team.md
+        - name: Resouce governance design for multiple teams
+          href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/resource-management/toolchain.md
+    - name: Configuration Management
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/configuration-management/overview.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/configuration-management/toolchain.md
+    - name: Monitoring & Enforcement
+      items:
+        - name: Overview
+          href: cloud-adoption/governance/monitoring-enforcement/overview.md
+        - name: Azure Specific Tool Chain
+          href: cloud-adoption/governance/monitoring-enforcement/toolchain.md
   - name: Infrastructure
     items:
-    - name: Deploy a basic workload
-      href: cloud-adoption/infrastructure/basic-workload.md
+    - name: Overview
+      href: cloud-adoption/infrastructure/overview.md
+      items:
+    - name: Subscriptions
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/subscriptions/overview.md
+      - name: VDC Subscriptions
+        href: cloud-adoption/infrastructure/subscriptions/vdc-subscriptions.md
+    - name: Identity
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/identity/overview.md
+      - name: VDC Identity & Roles
+        href: cloud-adoption/infrastructure/identity/vdc-identity.md
+    - name: Policy Enforcement
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/policy-enforcement/overview.md
+      - name: VDC Policy Enforcement
+        href: cloud-adoption/infrastructure/policy-enforcement/vdc-policy-enforcement.md
+    - name: Resource Grouping
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/resource-grouping/overview.md
+      - name: VDC Resource Grouping
+        href: cloud-adoption/infrastructure/resource-grouping/vdc-resource-grouping.md
+    - name: Resource Tagging
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/resource-tagging/overview.md
+      - name: VDC Naming and Tagging Standards
+        href: cloud-adoption/infrastructure/resource-tagging/vdc-naming.md
+    - name: Encryption
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/encryption/overview.md
+      - name: VDC Encryption
+        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
+    - name: Software Defined Networks
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/software-defined-networks/overview.md
+      - name: PaaS Only
+        href: cloud-adoption/infrastructure/software-defined-networks/paas-only.md
+      - name: Cloud Native
+        href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
+      - name: Hybrid
+        href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
+      - name: VDC Networking
+        href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
+    - name: Logs & Reporting
+      items:
+      - name: Overview
+        href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
+      - name: VDC Reporting and Monitoring
+        href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
+    - name: Virtual Machines
+      items:
+        - name: Deploy a basic workload
+          href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
+    - name: Mainframe Migration
+      items:
+        - name: Overview
+          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+        - name: Myths & facts
+          href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
+        - name: Migration strategies
+          href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
+        - name: Application strategies
+          href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
+    - name: Alternative Models
+      items:
+      - name: Azure Virtual Datacenter (VDC)
+        href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
+    - name: Create Hybrid Cloud Consistency
+      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
     items:
     - name: Overview
