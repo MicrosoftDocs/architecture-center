@@ -16,7 +16,7 @@ All organizations need mechanisms notifying IT teams of performance, uptime, and
 
 Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [Hybrid monitoring (on-premises)](#hybrid-monitoring-on-premises) | [Hybrid monitoring (cloud-based)](#hybrid-monitoring-cloud-based) | [Gateway](#gateway) | [Multi-cloud](#multi-cloud) | [Reporting and monitoring in Azure](#reporting-and-monitoring-in-azure)
 
-The inflection point when determining a cloud identity strategy is based primarily on existing investments your organization has made in operational processes, and to some degree any requirements you have to support a multi-cloud strategy.
+The inflection point when determining a cloud logging and reporting strategy is based primarily on existing investments your organization has made in operational processes, and to some degree any requirements you have to support a multi-cloud strategy.
 
 There are a number of ways to log and report on activities in the cloud. Cloud native and centralized logging are two common software as a service (SaaS) options that are driven by the subscription design and the number of subscriptions. (Article on [Service Provider or Central Logs](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-providers?toc=/azure/azure-monitor/toc.json) discusses a similar decision point, and assume that service provider and cloud native are the same for that article.)
 
