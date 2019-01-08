@@ -26,29 +26,31 @@ Consider this scenario for the following use cases:
 
 This scenario covers the training and evaluating of the machine learning model by using the Spark [alternating least squares][als] (ALS) algorithm on a dataset with ratings of movies. The steps for this scenario are as following:
 
-1. The front-end website or app service collects historical data of user-movie interactions, which are represented in a table of user, item, and numerical rating tuples.
+1.  The front-end website or app service collects historical data of user-movie interactions, which are usually represented in a table of user, item, and numerical rating tuples.
 
-2. The collected historical data is stored in a blob storage.
+2.  The collected historical data is stored in a blob storage.
 
-3. A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
+3.  A DSVM is often used to experiment with or productize a Spark ALS recommender model. The ALS model is trained using a training dataset, which is produced from the overall dataset by applying the appropriate data splitting strategy. For example, the dataset can be split into sets randomly, chronologically, or stratified, depending on the business requirement. Similar to other machine learning tasks, a recommender is validated by using evaluation metrics (for example, precision\@*k*, recall\@*k*, [MAP][map], [nDCG\@k][ndcg]).
 
-4. Azure Machine Learning service is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
+4.  Azure Machine Learning service is used for coordinating the experimentation, such as hyperparameter sweeping and model management.
 
-5. A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
+5.  A trained model is preserved on Azure Cosmos DB, which can then be applied for recommending the top *k* movies for a given user.
 
-6. The model is then deployed onto a web or app service by using Azure Container Instances or Azure Kubernetes Service.
+6.  The model is then deployed onto a web or app service by using Azure Container Instances or Azure Kubernetes Service.
+
+For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch].
 
 ### Components
 
-* [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
+-   [Data Science Virtual Machine][dsvm] (DSVM) is an Azure virtual machine with deep learning frameworks and tools for machine learning and data science. The DSVM has a standalone Spark environment that can be used to run ALS.
 
-* [Azure Blob storage][blob] stores the dataset for movie recommendations.
+-   [Azure Blob storage][blob] stores the dataset for movie recommendations.
 
-* [Azure Machine Learning service][mls] is used to accelerate the building, managing, and deploying of machine learning models.
+-   [Azure Machine Learning service][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
-* [Azure Cosmos DB][cosmosdb] enables globally distributed and multi-model database storage.
+-   [Azure Cosmos DB][cosmosdb] enables globally distributed and multi-model database storage.
 
-* [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
+-   [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
 
 ### Alternatives
 
@@ -66,9 +68,11 @@ For training, the DSVM is available in [multiple regions][regions] around the gl
 
 If you have a large data size, you can scale your DSVM to shorten training time. You can scale a VM up or down by changing the [VM size][vm-size]. Choose a memory size large enough to fit your dataset in-memory and a higher vCPU count to decrease the amount of time that training will take. 
 
+
 ### Security
 
 This scenario can use Azure Active Directory to authenticate users for [access to the DSVM][dsvm-id], which contains your code, models, and (in-memory) data. Data is stored in Azure Storage prior to being loaded on a DSVM, where it is automatically encrypted using [Storage Service Encryption][storage-security] and can be accessed via Azure Active Directory authentication or role-based access control.
+
 
 ## Deploy this scenario
 
@@ -76,28 +80,29 @@ This scenario can use Azure Active Directory to authenticate users for [access t
 
 All the code for this scenario is available in the [Microsoft Recommenders repository][github].
 
-Follow these steps to run the [ALS quickstart notebook][notebook]:
+Follow these steps to run the [ALS quick start notebook][notebook]:
 
-1. [Create a DSVM][dsvm-ubuntu] from the Azure portal.
+1.  [Create a DSVM][dsvm-ubuntu] from the Azure portal.
 
-2. Clone the repo in the Notebooks folder:
+2.  Clone the repo in the Notebooks folder:
 
-    ```shell
+    ```
     cd notebooks
     git clone https://github.com/Microsoft/Recommenders
     ```
 
-3. Install the conda dependencies following the steps described in the [SETUP.md][setup] file.
+3.  Install the conda dependencies following the steps described in the [SETUP.md][setup] file.
 
-4. In a browser, go to your jupyterlab VM and navigate to `notebooks/00_quick_start/als_pyspark_movielens.ipynb`.
+4.  In a browser, go to your jupyterlab VM and navigate to `notebooks/00_quick_start/als_pyspark_movielens.ipynb`.
 
-5. Execute the notebook.
+5.  Execute the notebook.
 
 ## Related resources
 
-For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
+For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure][ref-arch]. For tutorials and examples of recommendation systems, see [Microsoft Recommenders repository][github].
 
-[architecture]: ./media/architecture-movie-recommender.png
+
+[architecture]: ./media/movie-recommender-using-DSVMs-ML.png
 [aci]: /azure/container-instances/container-instances-overview
 [aad]: /azure/active-directory-b2c/active-directory-b2c-overview
 [aks]: /azure/aks/intro-kubernetes
@@ -118,6 +123,7 @@ For tutorials and examples of recommendation systems, see [Microsoft Recommender
 [n-tier]: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
+[ref-arch]: /azure/architecture/reference-architectures/ai/real-time-recommendation
 [regions]: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all
 [resiliency]: /azure/architecture/resiliency/
 [sec-docs]: /azure/security/
