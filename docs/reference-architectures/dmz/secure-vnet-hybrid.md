@@ -226,7 +226,7 @@ In this step, you will connect the two local network gateways.
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [azure-forced-tunneling]: https://azure.microsoft.com/en-gb/documentation/articles/vpn-gateway-forced-tunneling-rm/
 [azure-marketplace-nva]: https://azuremarketplace.microsoft.com/marketplace/apps/category/networking
-[cloud-services-network-security]: https://azure.microsoft.com/documentation/articles/best-practices-network-security/
+[cloud-services-network-security]: /azure/best-practices-network-security
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/dmz/secure-vnet-hybrid
 [guidance-expressroute]: ../hybrid-networking/expressroute.md

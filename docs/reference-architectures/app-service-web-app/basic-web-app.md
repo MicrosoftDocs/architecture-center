@@ -227,7 +227,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [aad-auth]: /azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication
 [app-insights]: /azure/application-insights/app-insights-overview
 [app-insights-data-rate]: /azure/application-insights/app-insights-pricing
-[app-service]: https://azure.microsoft.com/documentation/services/app-service/
+[app-service]: /azure/app-service/
 [app-service-auth]: /azure/app-service-api/app-service-api-authentication
 [app-service-plans]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
 [app-service-plans-tiers]: https://azure.microsoft.com/pricing/details/app-service/
@@ -251,7 +251,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sla]: https://azure.microsoft.com/support/legal/sla/
 [sql-audit]: /azure/sql-database/sql-database-auditing-get-started
 [sql-backup]: /azure/sql-database/sql-database-business-continuity
-[sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
+[sql-db]: /azure/sql-database/
 [sql-db-overview]: /azure/sql-database/sql-database-technical-overview
 [sql-db-scale]: /azure/sql-database/sql-database-service-tiers#scaling-up-or-scaling-down-a-single-database
 [sql-db-service-tiers]: /azure/sql-database/sql-database-service-tiers

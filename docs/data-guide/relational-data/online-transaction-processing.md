@@ -11,11 +11,11 @@ The management of transactional data using computer systems is referred to as On
 
 ## Transactional data
 
-Transactional data is information that tracks the interactions related to an organization's activities. These interactions are typically business transactions, such as payments received from customers, payments made to suppliers, products moving through inventory, orders taken, or services delivered. Transactional events, which represent the transactions themselves, typically contain a time dimension, some numerical values, and references to other data. 
+Transactional data is information that tracks the interactions related to an organization's activities. These interactions are typically business transactions, such as payments received from customers, payments made to suppliers, products moving through inventory, orders taken, or services delivered. Transactional events, which represent the transactions themselves, typically contain a time dimension, some numerical values, and references to other data.
 
 Transactions typically need to be *atomic* and *consistent*. Atomicity means that an entire transaction always succeeds or fails as one unit of work, and is never left in a half-completed state. If a transaction cannot be completed, the database system must roll back any steps that were already done as part of that transaction. In a traditional RDBMS, this rollback happens automatically if a transaction cannot be completed. Consistency means that transactions always leave the data in a valid state. (These are very informal descriptions of atomicity and consistency. There are more formal definitions of these properties, such as [ACID](https://en.wikipedia.org/wiki/ACID).)
 
-Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is strongly consistent within the context of the enterprise, for all users and processes. 
+Transactional databases can support strong consistency for transactions using various locking strategies, such as pessimistic locking, to ensure that all data is strongly consistent within the context of the enterprise, for all users and processes.
 
 The most common deployment architecture that uses transactional data is the data store tier in a 3-tier architecture. A 3-tier architecture typically consists of a presentation tier, business logic tier, and data store tier. A related deployment architecture is the [N-tier](/azure/architecture/guide/architecture-styles/n-tier) architecture, which may have multiple middle-tiers handling business logic.
 
@@ -39,7 +39,7 @@ Transactional data tends to have the following traits:
 | Model | Relational |
 | Data shape | Tabular |
 | Query flexibility | Highly flexible |
-| Scale | Small (MBs) to Large (a few TBs) | 
+| Scale | Small (MBs) to Large (a few TBs) |
 
 ## When to use this solution
 
@@ -48,6 +48,7 @@ Choose OLTP when you need to efficiently process and store business transactions
 OLTP systems are designed to efficiently process and store transactions, as well as query transactional data. The goal of efficiently processing and storing individual transactions by an OLTP system is partly accomplished by data normalization &mdash; that is, breaking the data up into smaller chunks that are less redundant. This supports efficiency because it enables the OLTP system to process large numbers of transactions independently, and avoids extra processing needed to maintain data integrity in the presence of redundant data.
 
 ## Challenges
+
 Implementing and using an OLTP system can create a few challenges:
 
 - OLTP systems are not always good for handling aggregates over large amounts of data, although there are exceptions, such as a well-planned SQL Server-based solution. Analytics against the data, that rely on aggregate calculations over millions of individual transactions, are very resource intensive for an OLTP system. They can be slow to execute and can cause a slow-down by blocking other transactions in the database.
@@ -75,7 +76,7 @@ To narrow the choices, start by answering these questions:
 
 - Does your solution have specific dependencies for Microsoft SQL Server, MySQL or PostgreSQL compatibility? Your application may limit the data stores you can choose based on the drivers it supports for communicating with the data store, or the assumptions it makes about which database is used.
 
-- Are your write throughput requirements particularly high? If yes, choose an option that provides in-memory tables. 
+- Are your write throughput requirements particularly high? If yes, choose an option that provides in-memory tables.
 
 - Is your solution multi-tenant? If so, consider options that support capacity pools, where multiple database instances draw from an elastic pool of resources, instead of fixed resources per database. This can help you better distribute capacity across all database instances, and can make your solution more cost effective.
 
@@ -89,13 +90,17 @@ To narrow the choices, start by answering these questions:
 
 The following tables summarize the key differences in capabilities.
 
-### General capabilities 
+### General capabilities
+
+<!-- markdownlint-disable MD033 -->
 
 |                              | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
 |------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
 |       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
 | Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |  T-SQL, .NET, R, Python  |              SQL              |
+
+<!-- markdownlint-enable MD033 -->
 
 [1] Not including client driver support, which allows many programming languages to connect to and use the OLTP data store.
 
@@ -111,7 +116,7 @@ The following tables summarize the key differences in capabilities.
 ### Analytic workload capabilities
 
 | | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- |
 | Temporal tables | Yes | Yes | No | No |
 | In-memory (memory-optimized) tables | Yes | Yes | No | No |
 | Columnstore support | Yes | Yes | No | No |
@@ -120,9 +125,9 @@ The following tables summarize the key differences in capabilities.
 ### Availability capabilities
 
 | | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
-| --- | --- | --- | --- | --- | --- | 
-| Readable secondaries | Yes | Yes | No | No | 
-| Geographic replication | Yes | Yes | No | No | 
+| --- | --- | --- | --- | --- | --- |
+| Readable secondaries | Yes | Yes | No | No |
+| Geographic replication | Yes | Yes | No | No |
 | Automatic failover to secondary | Yes | No | No | No|
 | Point-in-time restore | Yes | Yes | Yes | Yes |
 
@@ -140,4 +145,3 @@ The following tables summarize the key differences in capabilities.
 |                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
 | Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |           Yes            |              No               |
 |                                                 Private IP                                                  |         No         |                  Yes                   |           Yes            |              No               |
-

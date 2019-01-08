@@ -1,6 +1,6 @@
 ---
 title: Application roles
-description: How to perform authorization using application roles
+description: How to perform authorization using application roles.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -8,11 +8,12 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: signup
 pnp.series.next: authorize
 ---
+
 # Application roles
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][Tailspin] application defines the following roles:
+Application roles are used to assign permissions to users. For example, the [Tailspin Surveys][tailspin] application defines the following roles:
 
 * Administrator. Can perform all CRUD operations on any survey that belongs to that tenant.
 * Creator. Can create new surveys.
@@ -25,14 +26,13 @@ You can see that roles ultimately get translated into permissions, during [autho
 * [Application role manager](#roles-using-an-application-role-manager).
 
 ## Roles using Azure AD App Roles
+
 This is the approach that we used in the Tailspin Surveys app.
 
 In this approach, The SaaS provider defines the application roles by adding them to the application manifest. After a customer signs up, an admin for the customer's AD directory assigns users to the roles. When a user signs in, the user's assigned roles are sent as claims.
 
 > [!NOTE]
 > If the customer has Azure AD Premium, the admin can assign a security group to a role, and members of the group will inherit the app role. This is a convenient way to manage roles, because the group owner doesn't need to be an AD admin.
-> 
-> 
 
 Advantages of this approach:
 
@@ -47,6 +47,7 @@ Drawbacks:
 * If you have a backend web API, which is separate from the web app, then role assignments for the web app don't apply to the web API. For more discussion of this point, see [Securing a backend web API].
 
 ### Implementation
+
 **Define the roles.** The SaaS provider declares the app roles in the [application manifest]. For example, here is the manifest entry for the Surveys app:
 
 ```json
@@ -80,8 +81,6 @@ The `value`  property appears in the role claim. The `id` property is the unique
 
 > [!NOTE]
 > As noted earlier, customers with Azure AD Premium can also assign security groups to roles.
-> 
-> 
 
 The following screenshot from the Azure portal shows users and groups for the Survey application. Admin and Creator are groups, assigned to SurveyAdmin and SurveyCreator roles respectively. Alice is a user who was assigned directly to the SurveyAdmin role. Bob and Charles are users that have not been directly assigned to a role.
 
@@ -91,12 +90,10 @@ As shown in the following screenshot, Charles is part of the Admin group, so he 
 
 ![Admin group members](./images/running-the-app/admin-members.png)
 
-
 > [!NOTE]
 > An alternative approach is for the application to assign roles programmatically, using the Azure AD Graph API. However, this requires the application to obtain write permissions for the customer's AD directory. An application with those permissions could do a lot of mischief &mdash; the customer is trusting the app not to mess up their directory. Many customers might be unwilling to grant this level of access.
-> 
 
-**Get role claims**. When a user signs in, the application receives the user's assigned role(s) in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`.  
+**Get role claims**. When a user signs in, the application receives the user's assigned role(s) in a claim with type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role`.
 
 A user can have multiple roles, or no role. In your authorization code, don't assume the user has exactly one role claim. Instead, write code that checks whether a particular claim value is present:
 
@@ -105,6 +102,7 @@ if (context.User.HasClaim(ClaimTypes.Role, "Admin")) { ... }
 ```
 
 ## Roles using Azure AD security groups
+
 In this approach, roles are represented as AD security groups. The application assigns permissions to users based on their security group memberships.
 
 Advantages:
@@ -116,7 +114,12 @@ Disadvantages:
 * Complexity. Because every tenant sends different group claims, the app must keep track of which security groups correspond to which application roles, for each tenant.
 * If the customer removes the application from their AD tenant, the security groups are left in their AD directory.
 
+<!-- markdownlint-disable MD024 -->
+
 ### Implementation
+
+<!-- markdownlint-enable MD024 -->
+
 In the application manifest, set the `groupMembershipClaims` property to "SecurityGroup". This is needed to get group membership claims from AAD.
 
 ```json
@@ -130,8 +133,6 @@ When a new customer signs up, the application instructs the customer to create s
 
 > [!NOTE]
 > Alternatively, the application could create the groups programmatically, using the Azure AD Graph API.  This would be less error prone. However, it requires the application to obtain "read and write all groups" permissions for the customer's AD directory. Many customers might be unwilling to grant this level of access.
-> 
-> 
 
 When a user signs in:
 
@@ -143,6 +144,7 @@ When a user signs in:
 Authorization policies should use the custom role claim, not the group claim.
 
 ## Roles using an application role manager
+
 With this approach, application roles are not stored in Azure AD at all. Instead, the application stores the role assignments for each user in its own DB &mdash; for example, using the **RoleManager** class in ASP.NET Identity.
 
 Advantages:
@@ -153,14 +155,13 @@ Drawbacks:
 
 * More complex, harder to maintain.
 * Cannot use AD security groups to manage role assignments.
-* Stores user information in the application database, where it can get out of sync with the tenant's AD directory, as users are added or removed.   
-
+* Stores user information in the application database, where it can get out of sync with the tenant's AD directory, as users are added or removed.
 
 [**Next**][authorization]
 
-<!-- Links -->
-[Tailspin]: tailspin.md
+<!-- links -->
 
+[tailspin]: tailspin.md
 [authorization]: authorize.md
 [Securing a backend web API]: web-api.md
 [application manifest]: /azure/active-directory/active-directory-application-manifest/

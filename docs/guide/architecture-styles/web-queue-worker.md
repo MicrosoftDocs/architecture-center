@@ -1,31 +1,33 @@
 ---
 title: Web-Queue-Worker architecture style
-description: Describes benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure
+titleSuffix: Azure Application Architecture Guide
+description: Describes benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.custom: seojan19
 ---
 
 # Web-Queue-Worker architecture style
 
-The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.  
+The core components of this architecture are a **web front end** that serves client requests, and a **worker** that performs resource-intensive tasks, long-running workflows, or batch jobs.  The web front end communicates with the worker through a **message queue**.
 
-![](./images/web-queue-worker-logical.svg)
+![Logical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-logical.svg)
 
 Other components that are commonly incorporated into this architecture include:
 
-- One or more databases. 
+- One or more databases.
 - A cache to store values from the database for quick reads.
 - CDN to serve static content
 - Remote services, such as email or SMS service. Often these are provided by third parties.
 - Identity provider for authentication.
 
-The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. The worker is an optional component. If there are no long-running operations, the worker can be omitted.  
+The web and worker are both stateless. Session state can be stored in a distributed cache. Any long-running work is done asynchronously by the worker. The worker can be triggered by messages on the queue, or run on a schedule for batch processing. The worker is an optional component. If there are no long-running operations, the worker can be omitted.
 
 The front end might consist of a web API. On the client side, the web API can be consumed by a single-page application that makes AJAX calls, or by a native client application.
 
 ## When to use this architecture
 
-The Web-Queue-Worker architecture is typically implemented using managed compute services, either Azure App Service or Azure Cloud Services. 
+The Web-Queue-Worker architecture is typically implemented using managed compute services, either Azure App Service or Azure Cloud Services.
 
 Consider this architecture style for:
 
@@ -44,7 +46,7 @@ Consider this architecture style for:
 ## Challenges
 
 - Without careful design, the front end and the worker can become large, monolithic components that are difficult to maintain and update.
-- There may be hidden dependencies, if the front end and worker share data schemas or code modules. 
+- There may be hidden dependencies, if the front end and worker share data schemas or code modules.
 
 ## Best practices
 
@@ -55,14 +57,13 @@ Consider this architecture style for:
 - Use polyglot persistence when appropriate. See [Use the best data store for the job][polyglot].
 - Partition data to improve scalability, reduce contention, and optimize performance. See [Data partitioning best practices][data-partition].
 
-
 ## Web-Queue-Worker on Azure App Service
 
-This section describes a recommended Web-Queue-Worker architecture that uses Azure App Service. 
+This section describes a recommended Web-Queue-Worker architecture that uses Azure App Service.
 
-![](./images/web-queue-worker-physical.png)
+![Physical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-physical.png)
 
-The front end is implemented as an Azure App Service web app, and the worker is implemented as a WebJob. The web app and the WebJob are both associated with an App Service plan that provides the VM instances. 
+The front end is implemented as an Azure App Service web app, and the worker is implemented as a WebJob. The web app and the WebJob are both associated with an App Service plan that provides the VM instances.
 
 You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
 
@@ -70,7 +71,7 @@ Azure Redis Cache stores session state and other data that needs low latency acc
 
 Azure CDN is used to cache static content such as images, CSS, or HTML.
 
-For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.  
+For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
 
 For more details, see [App Service web application reference architecture][scalable-web-app].
 
@@ -78,9 +79,9 @@ For more details, see [App Service web application reference architecture][scala
 
 - Not every transaction has to go through the queue and worker to storage. The web front end can perform simple read/write operations directly. Workers are designed for resource-intensive tasks or long-running workflows. In some cases, you might not need a worker at all.
 
-- Use the built-in autoscale feature of App Service to scale out the number of VM instances. If the load on the application follows predictable patterns, use schedule-based autoscale. If the load is unpredictable, use metrics-based autoscaling rules.      
+- Use the built-in autoscale feature of App Service to scale out the number of VM instances. If the load on the application follows predictable patterns, use schedule-based autoscale. If the load is unpredictable, use metrics-based autoscaling rules.
 
-- Consider putting the web app and the WebJob into separate App Service plans. That way, they are hosted on separate VM instances and can be scaled independently. 
+- Consider putting the web app and the WebJob into separate App Service plans. That way, they are hosted on separate VM instances and can be scaled independently.
 
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 

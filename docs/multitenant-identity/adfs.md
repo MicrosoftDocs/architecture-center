@@ -1,6 +1,6 @@
 ---
 title: Federate with a customer's AD FS
-description: How to federate with a customer's AD FS in a multitenant application
+description: How to federate with a customer's AD FS in a multitenant application.
 author: MikeWasson
 ms.date: 07/21/2017
 
@@ -8,11 +8,13 @@ pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: token-cache
 pnp.series.next: client-assertion
 ---
+
 # Federate with a customer's AD FS
 
 This article describes how a multi-tenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.
 
 ## Overview
+
 Azure Active Directory (Azure AD) makes it easy to sign in users from Azure AD tenants, including Office365 and Dynamics CRM Online customers. But what about customers who use on-premise Active Directory on a corporate intranet?
 
 One option is for these customers to sync their on-premise AD with Azure AD, using [Azure AD Connect]. However, some customers may be unable to use this approach, due to corporate IT policy or other reasons. In that case, another option is to federate through Active Directory Federation Services (AD FS).
@@ -33,22 +35,24 @@ There are three main roles in the trust relation:
 
 > [!NOTE]
 > In this article, we assume the application uses OpenID connect as the authentication protocol. Another option is to use WS-Federation.
-> 
+>
 > For OpenID Connect, the SaaS provider must use AD FS 2016, running in Windows Server 2016. AD FS 3.0 does not support OpenID Connect.
-> 
+>
 > ASP.NET Core does not include out-of-the-box support for WS-Federation.
-> 
-> 
+>
+>
 
 For an example of using WS-Federation with ASP.NET 4, see the [active-directory-dotnet-webapp-wsfederation sample][active-directory-dotnet-webapp-wsfederation].
 
 ## Authentication flow
+
 1. When the user clicks "sign in", the application redirects to an OpenID Connect endpoint on the SaaS provider's AD FS.
 2. The user enters his or her organizational user name ("`alice@corp.contoso.com`"). AD FS uses home realm discovery to redirect to the customer's AD FS, where the user enters their credentials.
 3. The customer's AD FS sends user claims to the SaaS provider's AD FS, using WF-Federation (or SAML).
 4. Claims flow from AD FS to the app, using OpenID Connect. This requires a protocol transition from WS-Federation.
 
 ## Limitations
+
 By default, the relying party application receives only a fixed set of claims available in the id_token, shown in the following table. With AD FS 2016, you can customize the id_token in OpenID Connect scenarios. For more information, see [Custom ID Tokens in AD FS](/windows-server/identity/ad-fs/development/customize-id-token-ad-fs-2016).
 
 | Claim | Description |
@@ -67,12 +71,11 @@ By default, the relying party application receives only a fixed set of claims av
 
 > [!NOTE]
 > The "iss" claim contains the AD FS of the partner (typically, this claim will identify the SaaS provider as the issuer). It does not identify the customer's AD FS. You can find the customer's domain as part of the UPN.
-> 
-> 
 
 The rest of this article describes how to set up the trust relationship between the RP (the app) and the account partner (the customer).
 
 ## AD FS deployment
+
 The SaaS provider can deploy AD FS either on-premise or on Azure VMs. For security and availability, the following guidelines are important:
 
 * Deploy at least two AD FS servers and two AD FS proxy servers to achieve the best availability of the AD FS service.
@@ -82,13 +85,15 @@ The SaaS provider can deploy AD FS either on-premise or on Azure VMs. For securi
 To set up a similar topology in Azure requires the use of Virtual networks, NSG’s, azure VM’s and availability sets. For more details, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][active-directory-on-azure].
 
 ## Configure OpenID Connect authentication with AD FS
-The SaaS provider must enable OpenID Connect between the application and AD FS. To do so, add an application group in AD FS.  You can find detailed instructions in this [blog post], under " Setting up a Web App for OpenId Connect sign in AD FS." 
+
+The SaaS provider must enable OpenID Connect between the application and AD FS. To do so, add an application group in AD FS.  You can find detailed instructions in this [blog post], under " Setting up a Web App for OpenId Connect sign in AD FS."
 
 Next, configure the OpenID Connect middleware. The metadata endpoint is `https://domain/adfs/.well-known/openid-configuration`, where domain is the SaaS provider's AD FS domain.
 
 Typically you might combine this with other OpenID Connect endpoints (such as AAD). You'll need two different sign-in buttons or some other way to distinguish them, so that the user is sent to the correct authentication endpoint.
 
 ## Configure the AD FS Resource Partner
+
 The SaaS provider must do the following for each customer that wants to connect via ADFS:
 
 1. Add a claims provider trust.
@@ -98,6 +103,7 @@ The SaaS provider must do the following for each customer that wants to connect 
 Here are the steps in more detail.
 
 ### Add the claims provider trust
+
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
 2. In the console tree, under **AD FS**, right click **Claims Provider Trusts**. Select **Add Claims Provider Trust**.
 3. Click **Start** to start the wizard.
@@ -105,6 +111,7 @@ Here are the steps in more detail.
 5. Complete the wizard using the default options.
 
 ### Edit claims rules
+
 1. Right-click the newly added claims provider trust, and select **Edit Claims Rules**.
 2. Click **Add Rule**.
 3. Select "Pass Through or Filter an Incoming Claim" and click **Next**.
@@ -118,9 +125,10 @@ Here are the steps in more detail.
 9. Click **OK** to complete the wizard.
 
 ### Enable home-realm discovery
+
 Run the following PowerShell script:
 
-```
+```powershell
 Set-ADFSClaimsProviderTrust -TargetName "name" -OrganizationalAccountSuffix @("suffix")
 ```
 
@@ -129,12 +137,14 @@ where "name" is the friendly name of the claims provider trust, and "suffix" is 
 With this configuration, end users can type in their organizational account, and AD FS automatically selects the corresponding claims provider. See [Customizing the AD FS Sign-in Pages], under the section "Configure Identity Provider to use certain email suffixes".
 
 ## Configure the AD FS Account Partner
+
 The customer must do the following:
 
 1. Add a relying party (RP) trust.
 2. Adds claims rules.
 
 ### Add the RP trust
+
 1. In Server Manager, click **Tools**, and then select **AD FS Management**.
 2. In the console tree, under **AD FS**, right click **Relying Party Trusts**. Select **Add Relying Party Trust**.
 3. Select **Claims Aware** and click **Start**.
@@ -147,6 +157,7 @@ The customer must do the following:
 8. Click **Next** to complete the wizard.
 
 ### Add claims rules
+
 1. Right-click the newly added relying party trust, and select **Edit Claim Issuance Policy**.
 2. Click **Add Rule**.
 3. Select "Send LDAP Attributes as Claims" and click **Next**.
@@ -162,19 +173,19 @@ The customer must do the following:
 9. Select "Send Claims Using a Custom Rule" and click **Next**.
 10. Enter a name for the rule, such as "Anchor Claim Type".
 11. Under **Custom rule**, enter the following:
-    
-    ```
+
+    ```console
     EXISTS([Type == "http://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype"])=>
     issue (Type = "http://schemas.microsoft.com/ws/2014/01/identity/claims/anchorclaimtype",
           Value = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn");
     ```
-    
+
     This rule issues a claim of type `anchorclaimtype`. The claim tells the relying party to use UPN as the user's immutable ID.
 12. Click **Finish**.
 13. Click **OK** to complete the wizard.
 
+<!-- links -->
 
-<!-- Links -->
 [Azure AD Connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [federation trust]: https://technet.microsoft.com/library/cc770993(v=ws.11).aspx
 [account partner]: https://technet.microsoft.com/library/cc731141(v=ws.11).aspx

@@ -119,7 +119,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 **Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
 
-**Back up the database**. If you are already using [Azure Backup](https://azure.microsoft.com/documentation/services/backup/) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql/). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
+**Back up the database**. If you are already using [Azure Backup](/azure/backup/) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql/). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
 
 ## Traffic Manager
 

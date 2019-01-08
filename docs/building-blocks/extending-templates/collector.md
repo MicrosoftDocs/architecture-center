@@ -1,6 +1,6 @@
 ---
 title: Implement a property transformer and collector in an Azure Resource Manager template
-description: Describes how to implement a property transformer and collector in an Azure Resource Manager template
+description: Describes how to implement a property transformer and collector in an Azure Resource Manager template.
 author: petertay
 ms.date: 10/30/2018
 
@@ -20,12 +20,14 @@ Let's take a look at how we can implement a property collector and transformer w
 ![property collector and transformer architecture](../_images/collector-transformer.png)
 
 Our **calling template** includes two resources:
-* a template link that invokes our **collector template**.
-* the NSG resource to deploy.
+
+- A template link that invokes our **collector template**.
+- The NSG resource to deploy.
 
 Our **collector template** includes two resources:
-* an **anchor** resource.
-* a template link that invokes the transform template in a copy loop.
+
+- An **anchor** resource.
+- A template link that invokes the transform template in a copy loop.
 
 Our **transform template** includes a single resource: an empty template with a variable that transforms our `source` JSON to the JSON schema expected by our NSG resource in the **main template**.
 
@@ -37,7 +39,7 @@ We'll be using our `securityRules` parameter object from [objects as parameters]
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters":{ 
+    "parameters": {
       "networkSecurityGroupsSettings": {
       "value": {
           "securityRules": [
@@ -76,9 +78,10 @@ Let's look at our **transform template** first.
 
 ## Transform template
 
-Our **transform template** includes two parameters that are passed from the **collector template**: 
-* `source` is an object that receives one of the property value objects from the property array. In our example, each object from the `"securityRules"` array will be passed in one at a time.
-* `state` is an array that receives the concatenated results of all the previous transforms. This is the collection of transformed JSON.
+Our **transform template** includes two parameters that are passed from the **collector template**:
+
+- `source` is an object that receives one of the property value objects from the property array. In our example, each object from the `"securityRules"` array will be passed in one at a time.
+- `state` is an array that receives the concatenated results of all the previous transforms. This is the collection of transformed JSON.
 
 Our parameters look like this:
 
@@ -111,7 +114,7 @@ Our template also defines a variable named `instance`. It performs the actual tr
             "destinationAddressPrefix": "[parameters('source').destinationAddressPrefix]",
             "access": "[parameters('source').access]",
             "priority": "[parameters('source').priority]",
-            "direction": "[parameters('source').direction]"            
+            "direction": "[parameters('source').direction]"
         }
       }
     ]
@@ -135,9 +138,10 @@ Next, let's take a look at our **collector template** to see how it passes in ou
 ## Collector template
 
 Our **collector template** includes three parameters:
-* `source` is our complete parameter object array. It's passed in by the **calling template**. This has the same name as the `source` parameter in our **transform template** but there is one key difference that you may have already noticed: this is the complete array, but we only pass one element of this array to the **transform template** at a time.
-* `transformTemplateUri` is the URI of our **transform template**. We're defining it as a parameter here for template reusability.
-* `state` is an initially empty array that we pass to our **transform template**. It stores the collection of transformed parameter objects when the copy loop is complete.
+
+- `source` is our complete parameter object array. It's passed in by the **calling template**. This has the same name as the `source` parameter in our **transform template** but there is one key difference that you may have already noticed: this is the complete array, but we only pass one element of this array to the **transform template** at a time.
+- `transformTemplateUri` is the URI of our **transform template**. We're defining it as a parameter here for template reusability.
+- `state` is an initially empty array that we pass to our **transform template**. It stores the collection of transformed parameter objects when the copy loop is complete.
 
 Our parameters look like this:
 
@@ -149,7 +153,7 @@ Our parameters look like this:
       "type": "array",
       "defaultValue": [ ]
     }
-``` 
+```
 
 Next, we define a variable named `count`. Its value is the length of the `source` parameter object array:
 
@@ -162,8 +166,9 @@ Next, we define a variable named `count`. Its value is the length of the `source
 As you might suspect, we use it for the number of iterations in our copy loop.
 
 Now let's take a look at our resources. We define two resources:
-* `loop-0` is the zero-based resource for our copy loop.
-* `loop-` is concatenated with the result of the `copyIndex(1)` function to generate a unique iteration-based name for our resource, starting with `1`.
+
+- `loop-0` is the zero-based resource for our copy loop.
+- `loop-` is concatenated with the result of the `copyIndex(1)` function to generate a unique iteration-based name for our resource, starting with `1`.
 
 Our resources look like this:
 
@@ -227,6 +232,7 @@ Finally, the `output` of our template returns the `output` of the last iteration
     }
   }
 ```
+
 It may seem counterintuitive to return the `output` of the last iteration of our **transform template** to our **calling template** because it appeared we were storing it in our `source` parameter. However, remember that it's the last iteration of our **transform template** that holds the complete array of transformed property objects, and that's what we want to return.
 
 Finally, let's take a look at how to call the **collector template** from our **calling template**.
@@ -273,8 +279,9 @@ As you would expect, this is the URI for the **collector template** that will be
 ```
 
 We pass two parameters to the **collector template**:
-* `source` is our property object array. In our example, it's our `networkSecurityGroupsSettings` parameter.
-* `transformTemplateUri` is the variable we just defined with the URI of our **collector template**.
+
+- `source` is our property object array. In our example, it's our `networkSecurityGroupsSettings` parameter.
+- `transformTemplateUri` is the variable we just defined with the URI of our **collector template**.
 
 Finally, our `Microsoft.Network/networkSecurityGroups` resource directly assigns the `output` of the `collector` linked template resource to its `securityRules` property:
 

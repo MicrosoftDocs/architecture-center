@@ -127,7 +127,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [azure-cdn]: https://azure.microsoft.com/services/cdn/
 [azure-dns]: /azure/dns/dns-overview
 [azure-redis]: https://azure.microsoft.com/services/cache/
-[azure-search]: https://azure.microsoft.com/documentation/services/search/
+[azure-search]: /azure/search
 [azure-search-scaling]: /azure/search/search-capacity-planning
 [basic-web-app]: basic-web-app.md
 [basic-web-app-scalability]: basic-web-app.md#scalability-considerations
@@ -144,7 +144,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [resource-group]: /azure/azure-resource-manager/resource-group-overview#resource-groups
-[sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
+[sql-db]: /azure/sql-database/
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: https://msdn.microsoft.com/library/dn948096.aspx
 [tm]: https://azure.microsoft.com/services/traffic-manager/

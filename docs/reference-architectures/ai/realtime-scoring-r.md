@@ -2,7 +2,7 @@
 title: Real-time scoring of R machine learning models
 description:  Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 author: njray
-ms.date: 12/12/18
+ms.date: 12/12/2018
 ms.custom: azcat-ai
 ---
 
@@ -46,7 +46,7 @@ Machine Learning Server [Model Operationalization][operationalization] requires 
 
 For Model Operationalization to work correctly with Machine Learning Server on containers, you must install a JSON Web Token (JWT) certificate. This deployment uses a certificate supplied by Microsoft. In a production setting, supply your own.
 
-For traffic between Container Registry and AKS, consider enabling [role-based access control][rbac] (RBAC) to limit access privileges to only those needed. 
+For traffic between Container Registry and AKS, consider enabling [role-based access control][rbac] (RBAC) to limit access privileges to only those needed.
 
 ### Separate storage
 

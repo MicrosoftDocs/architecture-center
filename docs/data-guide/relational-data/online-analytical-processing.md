@@ -9,13 +9,13 @@ ms.date: 02/12/2018
 
 Online analytical processing (OLAP) is a technology that organizes large business databases and supports complex analysis. It can be used to perform complex analytical queries without negatively affecting transactional systems.
 
-The databases that a business uses to store all its transactions and records are called [online transaction processing (OLTP)](online-transaction-processing.md) databases. These databases usually have records that are entered one at a time. Often they contain a great deal of information that is valuable to the organization. The databases that are used for OLTP, however, were not designed for analysis. Therefore, retrieving answers from these databases is costly in terms of time and effort. OLAP systems were designed to help extract this business intelligence information from the data in a highly performant way. This is because OLAP databases are optimized for heavy read, low write workloads.
+The databases that a business uses to store all its transactions and records are called [online transaction processing (OLTP)](./online-transaction-processing.md) databases. These databases usually have records that are entered one at a time. Often they contain a great deal of information that is valuable to the organization. The databases that are used for OLTP, however, were not designed for analysis. Therefore, retrieving answers from these databases is costly in terms of time and effort. OLAP systems were designed to help extract this business intelligence information from the data in a highly performant way. This is because OLAP databases are optimized for heavy read, low write workloads.
 
-![OLAP in Azure](../images/olap-data-pipeline.png) 
+![OLAP in Azure](../images/olap-data-pipeline.png)
 
 ## Semantic modeling
 
-A semantic data model is a conceptual model that describes the meaning of the data elements it contains. Organizations often have their own terms for things, sometimes with synonyms, or even different meanings for the same term. For example, an inventory database might track a piece of equipment with an asset ID and a serial number, but a sales database might refer to the serial number as the asset ID. There is no simple way to relate these values without a model that describes the relationship. 
+A semantic data model is a conceptual model that describes the meaning of the data elements it contains. Organizations often have their own terms for things, sometimes with synonyms, or even different meanings for the same term. For example, an inventory database might track a piece of equipment with an asset ID and a serial number, but a sales database might refer to the serial number as the asset ID. There is no simple way to relate these values without a model that describes the relationship.
 
 Semantic modeling provides a level of abstraction over the database schema, so that users don't need to know the underlying data structures. This makes it easier for end users to query data without performing aggregates and joins over the underlying schema. Also, usually columns are renamed to more user-friendly names, so that the context and meaning of the data are more obvious.
 
@@ -24,7 +24,7 @@ Semantic modeling is predominately used for read-heavy scenarios, such as analyt
 - Aggregation behaviors are set so that reporting tools display them properly.
 - Business logic and calculations are defined.
 - Time-oriented calculations are included.
-- Data is often integrated from multiple sources. 
+- Data is often integrated from multiple sources.
 
 Traditionally, the semantic layer is placed over a data warehouse for these reasons.
 
@@ -32,10 +32,11 @@ Traditionally, the semantic layer is placed over a data warehouse for these reas
 
 There are two primary types of semantic models:
 
-* **Tabular**. Uses relational modeling constructs (model, tables, columns). Internally, metadata is inherited from OLAP modeling constructs (cubes, dimensions, measures). Code and script use OLAP metadata.
-* **Multidimensional**. Uses traditional OLAP modeling constructs (cubes, dimensions, measures).
+- **Tabular**. Uses relational modeling constructs (model, tables, columns). Internally, metadata is inherited from OLAP modeling constructs (cubes, dimensions, measures). Code and script use OLAP metadata.
+- **Multidimensional**. Uses traditional OLAP modeling constructs (cubes, dimensions, measures).
 
 Relevant Azure service:
+
 - [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/)
 
 ## Example use case
@@ -67,9 +68,9 @@ Semantic modeling and analytical processing tends to have the following traits:
 
 Consider OLAP in the following scenarios:
 
-- You need to execute complex analytical and ad hoc queries rapidly, without negatively affecting your OLTP systems. 
+- You need to execute complex analytical and ad hoc queries rapidly, without negatively affecting your OLTP systems.
 - You want to provide business users with a simple way to generate reports from your data
-- You want to provide a number of aggregations that will allow users to get fast, consistent results. 
+- You want to provide a number of aggregations that will allow users to get fast, consistent results.
 
 OLAP is especially useful for applying aggregate calculations over large amounts of data. OLAP systems are optimized for read-heavy scenarios, such as analytics and business intelligence. OLAP allows users to segment multi-dimensional data into slices that can be viewed in two dimensions (such as a pivot table) or filter the data by specific values. This process is sometimes called "slicing and dicing" the data, and can be done regardless of whether the data is partitioned across several data sources. This helps users to find trends, spot patterns, and explore the data without having to know the details of traditional data analysis.
 
@@ -104,11 +105,11 @@ To narrow the choices, start by answering these questions:
 
 - Do you require secure authentication using Azure Active Directory (Azure AD)?
 
-- Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics. 
+- Do you want to conduct real-time analytics? If so, narrow your options to those that support real-time analytics.
 
     *Real-time analytics* in this context applies to a single data source, such as an enterprise resource planning (ERP) application, that will run both an operational and an analytics workload. If you need to integrate data from multiple sources, or require extreme analytics performance by using pre-aggregated data such as cubes, you might still require a separate data warehouse.
 
-- Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models. 
+- Do you need to use pre-aggregated data, for example to provide semantic models that make analytics more business user friendly? If yes, choose an option that supports multidimensional cubes or tabular semantic models.
 
     Providing aggregates can help users consistently calculate data aggregates. Pre-aggregated data can also provide a large performance boost when dealing with several columns across many rows. Data can be pre-aggregated in multidimensional cubes or tabular semantic models.
 
@@ -120,6 +121,8 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
+<!-- markdownlint-disable MD033 -->
+
 | | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | No | Yes |
@@ -129,6 +132,8 @@ The following tables summarize the key differences in capabilities.
 | Supports real-time analytics | No | No | Yes | Yes |
 | Requires process to copy data from source(s) | Yes | Yes | No | No |
 | Azure AD integration | Yes | No | No <sup>2</sup> | Yes |
+
+<!-- markdownlint-enable MD033 -->
 
 [1] Although SQL Server and Azure SQL Database cannot be used to query from and integrate multiple external data sources, you can still build a pipeline that does this for you using [SSIS](/sql/integration-services/sql-server-integration-services) or [Azure Data Factory](/azure/data-factory/). SQL Server hosted in an Azure VM has additional options, such as linked servers and [PolyBase](/sql/relational-databases/polybase/polybase-guide). For more information, see [Pipeline orchestration, control flow, and data movement](../technology-choices/pipeline-orchestration-data-movement.md).
 
@@ -141,4 +146,3 @@ The following tables summarize the key differences in capabilities.
 | Redundant regional servers for high availability |           Yes           |              No              |                 Yes                 |                     Yes                     |
 |             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     No                      |
 |          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     No                      |
-

@@ -9,16 +9,20 @@ ms.date: 02/12/2018
 
 This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
+<!-- markdownlint-disable MD026 -->
+
 ## What are your options when choosing data storage in Azure?
 
-There are several options for ingesting data into Azure, depending on your needs:
+<!-- markdownlint-enable MD026 -->
 
-**File storage**
+There are several options for ingesting data into Azure, depending on your needs.
+
+**File storage:**
 
 - [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Lake Store](/azure/data-lake-store/)
 
-**NoSQL databases**
+**NoSQL databases:**
 
 - [Azure Cosmos DB](/azure/cosmos-db/)
 - [HBase on HDInsight](https://hbase.apache.org/)
@@ -54,7 +58,7 @@ Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed
 
 [Azure Cosmos DB](/azure/cosmos-db/) is Microsoft’s globally distributed multi-model database. Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
-Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It’s also multi-model, natively supporting document, key-value, graph, and column-family data models. 
+Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It’s also multi-model, natively supporting document, key-value, graph, and column-family data models.
 
 Azure Cosmos DB features:
 
@@ -114,4 +118,3 @@ The following tables summarize the key differences in capabilities.
 | Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
 |   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
 |           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |
-

@@ -7,7 +7,7 @@ ms.date: 02/12/2018
 
 # Working with CSV and JSON files for data solutions
 
-CSV and JSON are likely the most common formats used for ingesting, exchanging, and storing unstructured or semi-structured data. 
+CSV and JSON are likely the most common formats used for ingesting, exchanging, and storing unstructured or semi-structured data.
 
 ## About CSV format
 
@@ -17,14 +17,14 @@ Despite their limitations, CSV files are a popular choice for data exchange, bec
 
 ## About JSON format
 
-JSON (JavaScript Object Notation) data is represented as key-value pairs in a semi-structured format. JSON is often compared to XML, as both are capable of storing data in hierarchical format, with child data represented inline with its parent. Both are self-describing and human readable, but JSON documents tend to be much smaller, leading to their popular use in online data exchange, especially with the advent of REST-based web services. 
+JSON (JavaScript Object Notation) data is represented as key-value pairs in a semi-structured format. JSON is often compared to XML, as both are capable of storing data in hierarchical format, with child data represented inline with its parent. Both are self-describing and human readable, but JSON documents tend to be much smaller, leading to their popular use in online data exchange, especially with the advent of REST-based web services.
 
 JSON-formatted files have several benefits over CSV:
 
-* JSON maintains hierarchical structures, making it easier to hold related data in a single document and represent complex relationships.
-* Most programming languages provide native support for deserializing JSON into objects, or provide lightweight JSON serialization libraries.
-* JSON supports lists of objects, helping to avoid messy translations of lists into a relational data model.
-* JSON is a commonly used file format for NoSQL databases, such as MongoDB, Couchbase, and Azure Cosmos DB.
+- JSON maintains hierarchical structures, making it easier to hold related data in a single document and represent complex relationships.
+- Most programming languages provide native support for deserializing JSON into objects, or provide lightweight JSON serialization libraries.
+- JSON supports lists of objects, helping to avoid messy translations of lists into a relational data model.
+- JSON is a commonly used file format for NoSQL databases, such as MongoDB, Couchbase, and Azure Cosmos DB.
 
 Since a lot of data coming across the wire is already in JSON format, most web-based programming languages support working with JSON natively, or through the use of external libraries to serialize and deserialize JSON data. This universal support for JSON has led to its use in logical formats through data structure representation, exchange formats for hot data, and data storage for cold data.
 
@@ -32,9 +32,9 @@ Many batch and stream data processing engines natively support JSON serializatio
 
 ## When to use CSV or JSON formats
 
-CSVs are more commonly used for exporting and importing data, or processing it for analytics and machine learning. JSON-formatted files have the same benefits, but are more common in hot data exchange solutions. JSON documents are often sent by web and mobile devices performing online transactions, by IoT (internet of things) devices for one-way or bidirectional communication, or by client applications communicating with SaaS and PaaS services or serverless architectures. 
+CSVs are more commonly used for exporting and importing data, or processing it for analytics and machine learning. JSON-formatted files have the same benefits, but are more common in hot data exchange solutions. JSON documents are often sent by web and mobile devices performing online transactions, by IoT (internet of things) devices for one-way or bidirectional communication, or by client applications communicating with SaaS and PaaS services or serverless architectures.
 
-CSV and JSON file formats both make it easy to exchange data between dissimilar systems or devices. Their semi-structured formats allow flexibility in transferring almost any type of data, and universal support for these formats make them simple to work with. Both can be used as the raw source of truth in cases where the processed data is stored in binary formats for more efficient querying. 
+CSV and JSON file formats both make it easy to exchange data between dissimilar systems or devices. Their semi-structured formats allow flexibility in transferring almost any type of data, and universal support for these formats make them simple to work with. Both can be used as the raw source of truth in cases where the processed data is stored in binary formats for more efficient querying.
 
 ## Working with CSV and JSON data in Azure
 
@@ -48,9 +48,8 @@ Depending on the scenario, you may perform [batch processing](../big-data/batch-
 
 There are some challenges to consider when working with these formats:
 
-* Without any restraints on the data model, CSV and JSON files are prone to data corruption ("garbage in, garbage out"). For instance, there's no notion of a date/time object in either file, so the file format does not prevent you from inserting "ABC123" in a date field, for example.
+- Without any restraints on the data model, CSV and JSON files are prone to data corruption ("garbage in, garbage out"). For instance, there's no notion of a date/time object in either file, so the file format does not prevent you from inserting "ABC123" in a date field, for example.
 
-* Using CSV and JSON files as your cold storage solution does not scale well when working with big data. In most cases, they cannot be split into partitions for parallel processing, and cannot be compressed as well as binary formats. This often leads to processing and storing this data into read-optimized formats such as Parquet and ORC (optimized row columnar), which also provide indexes and inline statistics about the data contained.
+- Using CSV and JSON files as your cold storage solution does not scale well when working with big data. In most cases, they cannot be split into partitions for parallel processing, and cannot be compressed as well as binary formats. This often leads to processing and storing this data into read-optimized formats such as Parquet and ORC (optimized row columnar), which also provide indexes and inline statistics about the data contained.
 
-* You may need to apply a schema on the semi-structured data to make it easier to query and analyze. Typically, this requires storing the data in another form that complies with your environment's data storage needs, such as within a database.
-
+- You may need to apply a schema on the semi-structured data to make it easier to query and analyze. Typically, this requires storing the data in another form that complies with your environment's data storage needs, such as within a database.

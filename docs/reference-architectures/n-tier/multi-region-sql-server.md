@@ -167,7 +167,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [hybrid-vpn]: ../hybrid-networking/vpn.md
 [azure-dns]: /azure/dns/dns-overview
 [azure-sla]: https://azure.microsoft.com/support/legal/sla/
-[azure-sql-db]: https://azure.microsoft.com/documentation/services/sql-database/
+[azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [azure-cli]: /cli/azure/
 [regional-pairs]: /azure/best-practices-availability-paired-regions

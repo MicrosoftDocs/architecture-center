@@ -2,7 +2,7 @@
 title: Batch scoring of Python models on Azure
 description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Batch AI.
 author: njray
-ms.date: 12/13/18
+ms.date: 12/13/2018
 ms.custom: azcat-ai
 ---
 
@@ -38,7 +38,7 @@ For standard Python models, it's generally accepted that CPUs are sufficient to 
 
 ### Parallelizing across VMs vs cores
 
-When running scoring processes of many models in batch mode, the jobs need to be parallelized across VMs. Two approaches are possible: 
+When running scoring processes of many models in batch mode, the jobs need to be parallelized across VMs. Two approaches are possible:
 
 * Create a larger cluster using low-cost VMs.
 
