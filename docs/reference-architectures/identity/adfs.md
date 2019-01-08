@@ -374,7 +374,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [create_service_account_for_adfs_farm]: https://technet.microsoft.com/library/dd807078.aspx
 [adfs-configuration-database]: https://technet.microsoft.com/library/ee913581(v=ws.11).aspx
-[active-directory-federation-services]: https://technet.microsoft.com/windowsserver/dd448613.aspx
+[active-directory-federation-services]: /windows-server/identity/active-directory-federation-services
 [security-considerations]: #security-considerations
 [recommendations]: #recommendations
 [active-directory-federation-services-overview]: https://technet.microsoft.com/library/hh831502(v=ws.11).aspx
