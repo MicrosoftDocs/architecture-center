@@ -1,9 +1,9 @@
 ---
 title: Movie recommendations on Azure
-description: Use  machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.
+description: Use machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.
 author: njray
-ms.date: 12/7/2018
-ms.custom: product-team
+ms.date: 1/9/2019
+ms.custom: azcat-ai
 ---
 
 # Movie recommendations on Azure
