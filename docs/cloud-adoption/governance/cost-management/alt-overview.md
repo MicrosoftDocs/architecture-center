@@ -17,10 +17,10 @@ The cloud offers self-service capabilities that were previously unheard of in tr
 
 The cost management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-* Budget Control: Not controlling budget can lead to excessive spending with a cloud vendor
-* Utilization Loss: Pre-purchases or pre-commits that are not used can result in wasted investments
-* Spend Anomalies: Unexpected spikes in either direction can be indicators of improper usage
-* Over-provisioned Assets: When assets are deployed in a configuration that exceed the needs of an application or virtual maching (VM), this can increase costs and create waste
+- Budget control: Not controlling budget can lead to excessive spending with a cloud vendor
+- Utilization loss: Pre-purchases or pre-commits that are not used can result in wasted investments
+- Spending anomalies: Unexpected spikes in either direction can be indicators of improper usage
+- Overprovisioned assets: When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), this can increase costs and create waste
 
 ## Risk tolerance
 
