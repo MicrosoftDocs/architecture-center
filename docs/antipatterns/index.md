@@ -4,9 +4,6 @@ titleSuffix: Azure Architecture Center
 description: Common practices that are likely to cause scalability problems.
 author: dragon119
 ms.date: 06/05/2017
-ms.topic: article
-ms.service: architecture-center
-ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

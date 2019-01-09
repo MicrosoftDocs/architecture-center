@@ -20,7 +20,7 @@ Here is a summary of the steps:
 
 ## Prerequisites
 
-- [Visual Studio 2017][VS2017]
+- [Visual Studio 2017][VS2017] with the [ASP.NET and web development workload](https://visualstudio.microsoft.com/vs/support/selecting-workloads-visual-studio-2017) installed
 - [Microsoft Azure](https://azure.microsoft.com) account
 
 ## Create the Tailspin tenant

@@ -4,6 +4,7 @@ description: The Azure Architecture Center is the official center for guidance, 
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 09/28/2018
+google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 ---
 
 # Azure Architecture Center
