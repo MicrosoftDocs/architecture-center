@@ -583,19 +583,23 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Azure Design Guides
+    - name: Azure Design Templates
       items:
       - name: Future Proof
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/future-proof/overview.md
+        - name: Corporate Policy
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
+        - name: Use Case
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
       - name: Protected Data
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/protected-data/overview.md
       - name: Enterprise MVP
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/enterprise-mvp/overview.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
@@ -603,15 +607,15 @@
           href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
       - name: Enterprise @ Scale
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/enterprise-scale/overview.md
       - name: Enterprise Enforcement
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/enterprise-enforcement/overview.md
       - name: Multi-Cloud Governance
         items:
-        - name: Governance Design Guide
+        - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/multi-cloud/overview.md
     - name: Developing Governance Policies
       items:
