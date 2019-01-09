@@ -209,7 +209,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 <ul class="panelContent cardsF">
 <!-- IoT reference architecture -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./serverless/web-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./iot/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
