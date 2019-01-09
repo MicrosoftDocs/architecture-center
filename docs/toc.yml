@@ -414,6 +414,9 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
+    - name: Internet of Things
+      href: reference-architectures/iot/index.md
+
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises

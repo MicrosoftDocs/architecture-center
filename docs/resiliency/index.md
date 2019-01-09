@@ -143,7 +143,7 @@ But there are tradeoffs to this approach. The application logic is more complex,
 
 **SLA for multi-region deployments**. Another HA technique is to deploy the application in more than one region, and use Azure Traffic Manager to fail over if the application fails in one region. For a multi-region deployment, the composite SLA is calculated as follows.
 
-Let *N* be the composite SLA for the application deployed in one region, and *R* be the number of regions where the application is deployed. The expected chance that the application will fail in all regions at the same time is ((1 &minus N) ^ R).
+Let *N* be the composite SLA for the application deployed in one region, and *R* be the number of regions where the application is deployed. The expected chance that the application will fail in all regions at the same time is ((1 &minus; N) ^ R).
 
 For example, if the single-region SLA is 99.95%,
 
