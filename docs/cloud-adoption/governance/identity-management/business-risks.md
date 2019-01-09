@@ -11,7 +11,7 @@ This article discusses the reasons that customers typically adopt an identity ma
 
 ## Is identity management relevant?
 
-Identity services provide the core access control mechanism of all IT environments, and the identity management discipline complements the[security management discipline](../security-management/overview.md) by securing user access to cloud-based resources. 
+Identity services provide the core access control mechanism of all IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by securing user access to cloud-based resources.
 
 Traditional on-premises directories are designed to allow businesses to strictly control permissions and policies for users, groups, and roles within their internal networks and datacenters. This is usually intended to support single tenant implementations, with services applicable only within the on-premises environment. 
 
