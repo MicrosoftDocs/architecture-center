@@ -7,7 +7,7 @@ ms.date: 1/3/2019
 
 # Fusion: Metrics, indicators, and risk tolerance
 
-This article is intneded to help you quantify business risk tolerance as it relates to cost management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Cost Management discipline.
+This article is intended to help you quantify business risk tolerance as it relates to cost management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Cost Management discipline.
 
 ## Metrics
 
