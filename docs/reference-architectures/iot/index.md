@@ -10,6 +10,8 @@ ms.date: 01/09/2019
 
 This reference architecture shows a recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.
 
+![Diagram of the architecture](./_images/iot.png)
+
 IoT applications can be described as Things (or devices), sending data or events that are used to generate Insights, which are used to generate Actions to help improve a business or process. An example is an engine (a thing), sending pressure and temperature data that is used to evaluate whether the engine is performing as expected (an insight), which is used to proactively prioritize the maintenance schedule for the engine (an action).
 
 This reference architecture uses Azure PaaS (platform-as-a-service) components. Other options for building IoT solutions on Azure include:
