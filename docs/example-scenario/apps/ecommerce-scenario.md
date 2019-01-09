@@ -62,7 +62,7 @@ Other options for the web tier and functions include:
 - [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
 - [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
 - [Azure Container Instances][docs-container-instances] - A way of quickly deploying and running containers with a short lifecycle. Containers here are deployed to run a quick processing job such as processing a message or performing a calculation and then deprovisioned as soon as they are complete.
-- [Service Bus][service-bus] could be used in place of Storage Queue's.
+- [Service Bus][service-bus] could be used in place of a Storage Queue.
 
 Other options for the data tier include:
 
@@ -151,5 +151,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [resiliency]: /azure/architecture/checklist/resiliency
 [scalability]: /azure/architecture/checklist/scalability
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
+[service-bus]: /azure/service-bus-messaging/
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
