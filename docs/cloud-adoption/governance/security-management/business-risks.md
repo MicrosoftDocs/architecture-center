@@ -26,7 +26,7 @@ The security management discipline attempts to address the following business ri
 * Data security: Failure to properly classify, secure, and control cloud-hosted data can lead to exposure of confidential data or important corporate intellectual property. This can lead to violations of regulatory requirements.
 * Network vulnerability: Not properly securing cloud-based virtual networks can lead to unauthorized access to cloud hosted resources such as virtual machines (VMs) or data sources.
 * External attacks: Coordinated attempts to disrupt your cloud-hosted services, such as Distributed Denial of Service (DDoS) attacks, can disrupt or disable workloads hosted in the cloud.
-* Rogue users: A user with inappropriate access to resources in your cloud environment, whether through accident or malicious intent, can cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
+* Malware: Virtual machines connected to your cloud networks that are running unpatched or out-of-date software can be vulnerable  to malware that could compromise these systems and grant malicious external access to your systems and data. 
 
 ## Next steps
 
