@@ -9,9 +9,18 @@ ms.topic: landing-page
 
 # Fusion: Cloud Governance Design Guides for Azure
 
-The Fusion model guides cloud governance decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>.
+The Fusion model guides cloud governance decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. This series of articles attempts to demonstrate the cloud agnostic principles of cloud governance, based on the governance services in Azure. The following design guides can be expanded and/or customized to integrate additional cloud providers and/or custom policy statements.
 
-This series of articles attempts to demonstrate the cloud agnostic principles of cloud governance, based on the governance services in Azure. The following design guides can be expanded and/or customized to integrate additional cloud providers and/or custom policy statements.
+## Use Case and Corporate Policy Dependency
+
+Each design guide is based on an accompanying Use Case and Corporate Policy. Within each design guide, is a summary of each and links for further reading. If those two artifacts align with the readers current scenario, the assets are then intended to be modified to meet the specific needs of the Cloud Governance Team.
+
+![This design guide is a specific solution based on a specific use case and corporate policy.](../../_images/governance/design-guide.png)
+
+*This design guide is a specific solution based on a specific use case and corporate policy. This design guide is dependent upon the criteria set in each of those articles.*
+
+> [!CAUTION]
+> These articles contain highly opinionated design guides. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand each design guide's Use Case and Corporate Policy which influenced the guidance.
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">

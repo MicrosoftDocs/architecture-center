@@ -9,14 +9,20 @@ ms.date: 12/17/2018
 
 Fusion provides a cloud agnostic approach to the creation of a cloud governance strategy. To learn more about the model that this design guide is based on, checkout the [overview section of Governance](../../overview.md). This article demonstrates implementation of a cloud governance strategy that aligns to the specific use case below: Enterprise MVP for Governance. The concept of MVP or Minimally Viable Product, focuses on delivering just enough governance to safely allow for a limited amount of cloud adoption. As cloud adoption plans evolve and grow, so would governance requirements. In this type of model, a plan for scaling governance is crucial to avoid future blockers.
 
-## Required reading prior to implementation
+## Use Case and Corporate Policy Summary
 
-The following guide is highly opinionated. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance.
+This design guide is based on a specific [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) summarized as follows:
 
-At minimum, the reader should review and validate the following pre-requisites prior to implementation of this design guide.
+* [Use Case](./use-case.md) Summary: The company in this use case is not ready to invest in cloud governance. Current IT policy prevents any protected data or mission critical solutions from being deployed to the cloud. However, the future state defined by business and IT leadership calls for the retirement of 2 datacenters in the next 36 months.
+* [Corporate Policy](./corporate-policy.md): Given the low tolerance for cloud governance investment, the risks, policy statements, and processes in this corporate policy are very limited. The focus of this company's cloud governance corporate policy is future looking. In this grass roots effort, the team will attempt to avoid vendor lock-in and ensure deployments can be folded into a rich cloud governance program in the future.
 
-* [Use Case](./use-case.md): The current state, future state, business characteristics and objectives for the synthesized customer scenario that informed the opinions of this design guide.
-* [Corporate Policy](./corporate-policy.md): The policy statements that this design guide attempts to enforce. Included in those statements are the business risks and risk tolerance indicators that justify the investment in this level of governance maturity. Additionally, the article outlines the human driven processes required to integrate this design guide into governance execution.
+![This design guide is a specific solution based on a specific use case and corporate policy.](../../../_images/governance/design-guide.png)
+
+*This design guide is a specific solution based on a specific use case and corporate policy. This design guide is dependent upon the criteria set in each of those articles.*
+
+
+> [!CAUTION]
+> This article contains a highly opinionated design guide. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand the [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) which influenced the guidance in this document.
 
 ## Design Guide for Governance of the Enterprise MVP scenario
 

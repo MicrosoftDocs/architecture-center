@@ -588,7 +588,7 @@
       - name: Future Proof
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/future-proof/overview.md
+          href: cloud-adoption/governance/design-guides/future-proof/design-guide.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
         - name: Use Case
@@ -596,11 +596,11 @@
       - name: Protected Data
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/protected-data/overview.md
+          href: cloud-adoption/governance/design-guides/protected-data/design-guide.md
       - name: Enterprise MVP
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/overview.md
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/design-guide.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
         - name: Use Case
@@ -608,15 +608,15 @@
       - name: Enterprise @ Scale
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-scale/overview.md
+          href: cloud-adoption/governance/design-guides/enterprise-scale/design-guide.md
       - name: Enterprise Enforcement
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-enforcement/overview.md
+          href: cloud-adoption/governance/design-guides/enterprise-enforcement/design-guide.md
       - name: Multi-Cloud Governance
         items:
         - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/multi-cloud/overview.md
+          href: cloud-adoption/governance/design-guides/multi-cloud/design-guide.md
     - name: Developing Governance Policies
       items:
         - name: Understand business risks
