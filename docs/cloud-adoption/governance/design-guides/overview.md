@@ -30,7 +30,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/cloud-native.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -49,7 +49,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/protected-data.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/protected-data.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -68,7 +68,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-mvp.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/enterprise-mvp.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -87,7 +87,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-scale.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/enterprise-scale.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -106,7 +106,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-enforcement.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/enterprise-enforcement.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -125,7 +125,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/multi-cloud.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/multi-cloud.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">

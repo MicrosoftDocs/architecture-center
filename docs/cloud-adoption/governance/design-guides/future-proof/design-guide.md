@@ -7,110 +7,112 @@ ms.date: 12/17/2018
 
 # Fusion: A Governance Design Guide to future proof deployments
 
-Fusion provides a cloud agnostic approach to the creation of a cloud governance strategy. To learn more about that model, checkout the [overview section of Governance](../../overview.md). This article demonstrates implementation of a cloud governance strategy that aligns to the specific use case below: Future Proof for Governance.
+Fusion provides a cloud agnostic approach to the creation of a cloud governance strategy. To learn more about the model that this design guide is based on, checkout the [overview section of Governance](../../overview.md). This article demonstrates implementation of a cloud governance strategy that aligns to the specific use case below: Governance Future Proof. The concept of future proofing in this design guide focuses on embracing early stage ambiguity, while maintaining a future vision for a governance when it becomes necessary. This design guide attempts to deliver just enough governance preparation safely enable experimentation during cloud adoption. As cloud adoption plans evolve and grow, so would governance requirements.
 
-## Use Case: Future Proof
+In this type of model, a plan for scaling governance is crucial to avoid future blockers. If a future proof design for cloud governance is chosen by the reader, it should be done with a longer term vision. The [protected data design guide](../protected-data/design-guide.md) is one example of a future vision, allowing for production hosting of protected data in the cloud. For larger enterprises with extensive existing IT governance requirements on-prem, the series of design guides starting with the [Enterprise MVP design guide](../enterprise-mvp/design-guide.md) might be a more appropriate next step, or even a better starting point.
 
-The need for governance is personal and unique. Defining and implementing a governance strategy requires an understanding of the business risks and the business's tolerance for those risks. Both evolve over time, especially as new technical features are adopted. When risk is high and tolerance is low, the business may be willing to invest in the disciplines required to govern the cloud. Conversely, if risk is low and tolerance is high, it may be difficult to fund an enterprise scale cloud governance program.
+## Use Case and Corporate Policy Summary
 
-This design guide focuses on the later of the two scenarios above; low risk cloud deployments for a company that has a relatively high risk tolerance. The following are characteristics that were factored into the design of the cloud governance strategy and this design guide.
+This design guide is based on a specific [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) summarized as follows:
 
-### Relevant Business Characteristics
+* [Use Case](./use-case.md) Summary: The company in this use case could be classified as a medium sized business or a small enterprise. It could also be a business unit within a larger enterprise, that doesn't yet have the support of the centralized IT team. In this use case there is little to no budget to invest in cloud governance. IT policy is loosely defined but between policy and leadership sentiment, any protected data or mission critical solutions are blocked from being deployed to the cloud. However, fulfilling the future state in this use case will prompt the sentiment and policies to change overtime.
+* [Corporate Policy](./corporate-policy.md) Summary: Given the low tolerance for cloud governance investment, the risks, policy statements, and processes in this corporate policy are very limited. The focus of this cloud governance corporate policy is future looking. In this grass roots effort, the team will attempt to avoid vendor lock-in and ensure deployments can be folded into a rich cloud governance program in the future.
 
-* All sales and operations reside in a single country with a small percentage of global customers
-* The business operates as a single business unit, with budget aligned to functions (Sales, Marketing, Operations, IT, etc...)
-* The business views most of IT as a capital drain or a cost center.
+![This design guide is a specific solution based on a specific use case and corporate policy.](../../../_images/governance/design-guide.png)
 
-### Cloud Adoption: Current State
+*This design guide is a specific solution based on a specific use case and corporate policy. This design guide is dependent upon the criteria set in each of those articles.*
 
-* IT operates two hosted infrastructure environments (Production and Disaster Recovery) across two different providers. IT refers to these environment as their two datacenters.
-* IT entered the cloud by migrating all end user email to Office 365, which has been complete for over 6 months.
-* A few IT assets have been deployed to the cloud.
-* The application development teams is working in a dev/test capacity to learn about cloud native capabilities.
-* The BI team is experimenting with big data in the cloud.
-* The company has a loosely defined policy stating that customer's PII (Personally Identifiable Information) and financial data can not be hosted in the cloud, which limits mission critical applications in the current deployments.
-
-### Current State: Future State
-
-* This year, the IT team will complete a project to retire the Disaster Recovery "Data Center", increasing cloud adoption.
-* Both App Dev and BI will likely release production solutions to the cloud in the next 24 months.
-* The CIO is reviewing the policy on PII and financial data to allow for the future state goals.
-
-### Objective
-
-For the future state to be realized, protected data will go to the cloud someday. For that to happen, the cloud will need a robust governance strategy.
-The business is not willing to invest in Cloud Governance today. However, Cloud Governance is likely to be a wise investment in the near future.
-The objective of this design guide is to establish a common foundation for all deployments. That foundation will need to scale as new policies and governance disciplines are added.
-
-## Corporate Policy
-
-Based on the [Future Proof Use Case](#use-case:-future-proof), the following is a sample of a corporate policy synthesized from similar customer experiences. This corporate policy can serve as a foundation for personalizing and defining a more targeted governance policies. The landing page on the [five disciplines of cloud governance](../governance-disciplines.md) can aid in customizing this policy.
 
 > [!CAUTION]
-> The following corporate policy section contains extremely specific guidance based on the Use Case established for this synthesized customer scenario. Each section contains one or more links to personalize the corporate policy to align to a specific use case.
+> This article contains a highly opinionated design guide. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand the [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) which influenced the guidance in this document.
 
-## Business Risks
-
-At this stage of cloud adoption, future compatibility represents the greatest risk from a governance perspective. A basic foundation for cloud adoption would help avoid costly rework and future adoption blockers. This business risk can be broken down tactically into a few technical risks:
-
-* There is a risk that the application of governance to deployed assets could be difficult and costly.
-* There is a risk that governance may not be properly applied across an application or workload, creating gaps in security.
-* There is a risk of inconsistency with so many teams working in the cloud.
-* There is a risk of costs not properly aligning to business units, teams, or other budgetary management units.
-* There is a risk associated with multiple identities being used to manage various deployments, which could lead to security issues.
-* In spite of current policies, there is a risk that protected data could be mistakenly deployed to the cloud.
-
-In a real-world scenario, there are likely to be a few additional [business risks](../../policy-compliance/understanding-business-risk.md) worth noting at this stage of adoption. The article on [understanding business risks](../../policy-compliance/understanding-business-risk.md) can help capture relevant business risks.
-
-## Tolerance Indictors
-
-The current tolerance for risk is high and appetite for investing in cloud governance is low. As such, the tolerance indicators for the Future Proof policy act like a reminder. When/if the following indicators are observed, it would be wise to revisit the business's tolerance for risk.
-
-* Inclusion of protected data in defined cloud adoption plans
-* Deployment of more than 100 assets to the cloud
-* Monthly spend exceeding $1,000/month
-
-The above indicators are based on the synthesized use case. Adjust accordingly to align with actual tolerance indicators. See the article on [metrics and tolerance indicators](../../policy-compliance/risk-tolerance.md) for additional guidance.
-
-## Policy Statements
-
-The following policy statements would establish requirements to mitigate the defined risks. To understand options and better align the 5 disciplines of cloud governance, click on any of the policy statement headers to learn more about the specific governance discipline.
-
-* [Configuration Management](../../configuration-management/overview.md): Multiple
-    * All assets must be grouped and tagged, in alignment with the Grouping and Tagging strategies defined in the design guide.
-    * All assets must use an approved deployment model defined in the design guide.
-* [Identity Management](../../identity-management/overview.md): All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
-* [Security Management](../../security-management/overview.md): All assets deployed to the cloud should be tagged with the appropriate data classification. Later when protected forms of data will be included, this classification will help refine governance, security, and operations investments.
-* [Cost Management](../../cost-management/overview.md): For tracking purposes, all assets must be assigned to a billing unit.
-* [Resource Management](../../resource-management/overview.md): Since no mission critical workloads are deployed at this stage, there are no SLA, performance, or BCDR requirements to be governed
-
-## Monitoring and Enforcement
-
-A budget has not been allocated to the on-going monitoring and enforcement of these governance policies. Initial education and limited involvement in deployment planning are the two primary opportunities to monitor adherence to policy statements.
-
-The cloud governance team currently consists of two systems admins, who have foreseen the need for governance in the future.
-
-**Initial Eduction:** The "cloud governance team" is investing time to educate the cloud adoption teams on the design guides that support these policies.
-
-**Deployment Planning:** Prior to deployment of any asset, the "cloud governance team" will review the design guide with the cloud adoption teams to discuss alignment.
-
-## Design Guide
+## Design Guide for Governance of the Future Proof scenario
 
 Many of the risks above can be mitigated through the adoption of basic standards and a few simple policy statements.
 Mitigating these risks early in the process will future proof deployments, easing governance adoption down the road.
 > [!CAUTION]
 > The following design guide contains extremely specific guidance based on the Use Case and Corporate Policies established for this synthesized customer scenario. Each section contains one or more links to personalize the Design Guidance to align to a specific use case.
 
-1) [Subscription Model](../../../infrastructure/subscriptions/overview): The **Archetype** pattern has been chosen for Azure subscriptions. This means that a subscription should be established for each type of application being deployed to the cloud.
-2) [Resource Grouping](../../../infrastructure/resource-grouping/overview.md): **Deployment Grouping** has been chosen for cloud deployments. This means that assets being deployed should be a member of a resource group. As part of the deployment process, an Azure Resource Management (ARM) template(s) for the resource group should be stored in source control. Since an Archetype pattern has been chosen for the subscription model, the resource groups should align to a workload or application.
-3) [Resource Tagging](../../../infrastructure/resource-tagging/overview.md): An **Accounting** pattern to tagging has been chosen for all cloud deployments. This means that every asset being deployed to the cloud should be tagged with value for the following: Department/Billing Unit, Data Classification, Criticality, SLA, and Environment. These five values along with the resource group and subscription associated with a deployed asset will drive governance, operations, and security decisions.
-4) [Identity Solution](../../../infrastructure/identity/overview.md): The team has chosen a **Federation** pattern for hybrid identity. As such, all RBAC and local authentication will be provided by Azure AD, leveraging the federation or "Same Sign-On" that was implemented during the Office 365 implementation. Later in the app dev cycles, it is assumed that this pattern may evolve into a B2B-B2C pattern to move B2C users into an Azure AD tenant.
-5) [Software Defined Network](../../../infrastructure/software-defined-networks/overview.md): At this point, a **Cloud Native** pattern to networking is suggested but not required. No governance requirements have been set beyond the general pattern suggestion. Decisions regarding subnet, firewall, and routing is currently being deferred to each application/workload lead. Additional analysis will be required prior to the release of any protected data.
-6) [Encryption](../../../infrastructure/encryption/overview.md): At this point, a **Cloud Native** pattern to encryption is suggested but not required. No governance requirements have been set regarding the use of encryption, because mission critical and protected data are not permitted based on the use case. Additional analysis will be required prior to the release of any protected data.
-7) [Log & Reporting](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Cloud Native** pattern to log and reporting is suggested but not required. No governance requirements have been set regarding the data to be collected. Additional analysis will be required prior to the release of any protected data or mission critical workloads.
-8) [Enforcement Automation](../../monitoring-enforcement/overview.md): At this point, there is **no enforcement automation** being implemented. Upon release of protected data and mission critical workloads, it is assumed that an On-going Enforcement pattern will be required. At that stage, Azure Policy, Azure Management Groups, and Azure BluePrints will be used to enforce policy adherence. Cloud Adoption Teams are encourage to begin investigating these technologies in dev/test cycles.
+### Subscription Model
 
-The 8 best practices above will reduce risk and promote readiness for the future integration of a robust governance strategy.
+[Subscription Model Decision](../../../infrastructure/subscriptions/overview): The **Archetype** pattern has been chosen for Azure subscriptions. Learn more about this pattern and alternatives considered in the [Decision Guide for Subscription Models](../../../infrastructure/subscriptions/overview.md)
+
+* Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's very likely that this level of adoption is being managed by a single "Pay as you go" Azure subscription.
+* Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
+* In the **Archetype** patter, "Subscriptions" should be created for each application archetype.
+* An application archetype is a means of grouping applications with similar needs. Common examples would include: Applications with protected data, Governed Apps (HIPAA, FedRamp, etc...), Low risk applications, Applications with on-prem dependencies, SAP or other Mainframes in Azure, Applications that extend on-prem SAP or mainframes, etc... These are unique per organization based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
+* A common naming convention should be agreed upon as part of the subscription design, based on the above two bullets.
+
+### Resource Grouping
+
+[Resource Grouping Decision](../../../infrastructure/resource-grouping/overview.md): **Deployment grouping** has been chosen for cloud deployments. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/resource-grouping/overview.md)
+
+* Deployed assets should be a member of a Resource Group and Azure Management Group. Azure Policy should be applied to all resources.
+* As part of the deployment process, an Azure Resource Management (ARM) template(s) for the resource group should be stored in source control.
+* Each resource groups should align to a specific workload or application.
+* Azure Management Group is likely to be extremely flat and may only require a single management group. This will serve as a future mechanism for updating governance designs, as corporate policy matures. If the use case is expected to include additional business units or billing units in the future, a management group hierarchy should be considered further to account for billing unit and/or application level hierarchies.
+* Similarly, extensive Azure Policy implementation could exceed the teams time commitments and may not provide a great deal of value at this time. However, a simple default policy should be created and applied to each management group to enforce the small number of current cloud governance policy statements. This will serve as a mechanism for defining the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
+
+### Resource Tagging
+
+[Resource Tagging Decision](../../../infrastructure/resource-tagging/overview.md): An **Classification** pattern to tagging has been chosen for all cloud deployments. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Tagging](../../../infrastructure/resource-tagging/overview.md)
+
+* Deployed assets should be tagged with the following values: Data Classification, Criticality, SLA, and Environment.
+* These four values will drive governance, operations, and security decisions.
+* If this design guide is being implemented for a business unit or team within a larger corporation, tagging should also include metadata for the billing unit.
+
+### Identity Solution
+
+[Identity Solution Decision](../../../infrastructure/identity/overview.md): The team has chosen a **Replication** pattern for hybrid identity. Learn more about this pattern and alternatives considered in the [Decision Guide for Identity Solutions](../../../infrastructure/identity/overview.md)
+
+* RBAC will be provided by Azure AD, leveraging the directory synchronization or "Same Sign-On" that was implemented during the Office 365 implementation
+    * See [Reference Architecture for Azure AD Integration](/azure/architecture/reference-architectures/identity/adfs) for implementation guidance.
+* The Azure AD tenant will also govern authentication and access for assets deployed to Azure.
+
+### Software Defined Network
+
+[Software Defined Network Decision](../../../infrastructure/software-defined-networks/overview.md): At this point, a **Cloud Native** pattern to networking has been chosen. Learn more about this pattern and alternatives considered in the [Decision Guide for Software Defined Networks](../../../infrastructure/software-defined-networks/overview.md)
+
+* Azure subscriptions may connect to an existing data center via VPN, but must follow all existing on-prem IT governance policies regarding connection of a demilitarized zone to protected resources.
+    * See [VPN Reference Architecture](/azure/architecture/reference-architectures/hybrid-networking/vpn) for implementation guidance regarding VPN connectivity
+    * Decisions regarding subnet, firewall, and routing are currently being deferred to each application/workload lead.
+* Additional analysis will be required prior to the release of any protected data or mission critical workloads.
+
+### Encryption
+
+[Encryption Decision](../../../infrastructure/encryption/overview.md): At this point, a **Cloud Native** pattern to encryption is suggested but not required of any development team. Learn more about this pattern and alternatives considered in the [Decision Guide for Encryption](../../../infrastructure/encryption/overview.md)
+
+* No governance requirements have been set regarding the use of encryption, because mission critical and protected data are not permitted based in the use case.
+* Additional analysis will be required prior to the release of any protected data or mission critical workloads.
+
+### Log & Reporting
+
+[Log & Reporting Decision](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Cloud Native** pattern to log and reporting is suggested but not required of any development team. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/log-and-reporting/overview.md)
+
+* No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
+* Additional analysis will be required prior to the release of any protected data or mission critical workloads.
+
+### Enforcement Automation
+
+[Enforcement Automation Decision](../../monitoring-enforcement/overview.md): At this point, the **Simple Enforcement** pattern to enforcement is required. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../monitoring-enforcement/overview.md)
+
+* Azure security center will be used to monitor security risks when available.
+* RBAC is required in all subscriptions to govern authentication enforcement.
+* Azure Policy is to be applied to all Management Groups. However, the level of policies being enforced will be very limited.
+* While Management Groups are being leveraged, the level of hierarchy, policy, and on-going management processes are expected to be much simpler than those seen with a Consistent Enforcement pattern. The protections provided at this stage are also much less reliable, as there are no processes in place to validate that all deployments adhere to this requirement.
+* Prior to the deployment of protected data or missions critical workloads, an **On-going Enforcement** pattern will be implemented to ensure consistent application of Azure Policies with more robust implementation requirements.
+
+## Assumptions and Additional Considerations
+
+There are a number of assumptions and considerations embedded in this opinionated guidance. Each should be considered before. The following list outlines data points and tasks that generally don't fall into the domain of the Cloud Governance Team. While members of this team may have those skills, it is unlikely the team will be empowered to execute the following without additional team member support.
+
+* Use Case Assumption: The use case in this design guide is built on the assumption that this implementation serves a single business unit (or billing unit). The use case also assumes that the business unit serves customers in a single geo-political region. It is also assumed that there are no known future state plans to integrate other business units or geographies. These are not data points that the Cloud Governance Team is likely to be able to determine in isolation. There is likely a dependency on IT and business leadership. If these assumptions prove false, the team should consider the [Enterprise MVP Governance Design Guide](../enterprise-mvp/design-guide.mvp) as a potential starting point for governance implementation. While the implementation differences between the two are subtle, they can have a big impact later in the process.
+* Identity Assumption: It is assumed that the identity team has already configured an Identity integration with Azure AD that meets current IT governance policies. If that assumption is false, there is a dependency on system administrators with identity experience to configure that integration.
+* Network Assumption: It is assumed that the networking team has implemented an Azure compatible VPN solution that confirms to existing IT governance policies. If that assumption is false, there is a dependency on system administrators and potential the Cloud Adoption Team(s).
+
+## Conclusion
+
+The 8 best practices above are one example of ways to design the base system, in order to reduce risk and promote readiness for the future integration of a robust governance strategy. This design guide is derived from a synthesized customer scenario for demonstration purposes. To learn more about the decisions that informed this design guide, see the articles that outline this scenarios [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md).
 
 ## Next steps
 
