@@ -15,7 +15,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.<BR/><BR/><h2>Start Small: Incremental Cloud Governance Model</h2>The Fusion approach to cloud governance is built on an incremental model that starts small and grows with cloud adoption. To learn more about this model, see the article on [Incremental Cloud Governance](./incremental-cloud-governance.md).
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.<BR/><BR/>
                 </div>
             </div>
         </div>
@@ -37,6 +37,10 @@ Any change to business processes or technology platforms introduces risk to the 
     </a>
 </li>
 </ul>
+
+## Incremental Cloud Governance Model
+
+The Fusion approach to cloud governance is built on an incremental model that starts small and grows with cloud adoption. This model helps illustrate the differences between "What can be done with governance" and "What must be done through governance". To learn more about this model, see the article on [Incremental Cloud Governance](./incremental-cloud-governance.md).
 
 Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Specific Design Guides](#actionable-design-guides)
 
