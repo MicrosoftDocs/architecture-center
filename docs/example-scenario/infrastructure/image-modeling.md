@@ -9,7 +9,7 @@ ms.custom: cat-team
 
 # Accelerate digital image-based modeling on Azure
 
-This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure as a service (IaaS). The scenario is specifically designed for running photogrammetry software on Azure Virtual Machines (VMs) using high performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
+This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure as a service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
 ## Relevant use cases
 
@@ -21,28 +21,32 @@ Relevant use cases include:
 
 ## Architecture
 
-This scenario describes the installation of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry. However, this model also applies to any high performance computing (HPC) based on a scheduler and worker nodes managed as an IaaS-based workload. Avere vFXT was selected for its superior performance during benchmark tests, but the scenario decouples the storage from the processing by design so that other storage solutions can be used (see Alternatives later in this document).
+This example describes the use of Agisoft PhotoScan photogrammetry software backed by Avere vFXT storage. PhotoScan was chosen for its popularity in geographic information system (GIS) applications, cultural heritage documentation, game development, and visual effects production. It is suitable for both close-range photogrammetry and aerial photogrammetry.
 
-This architecture also includes Active Directory domain controllers to control access to Azure resources and internal name resolution through the Domain Name System (DNS). Jumpboxes provide administrator access to the Windows and Linux VMs that run the solution. This is the data flow:
+The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
+
+This architecture also includes Active Directory domain controllers to control access to Azure resources and internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
+
+**----Architecture Diagram Placeholder----**
 
 1. User submits a number of images to PhotoScan.
-2. The PhotoScan Scheduler runs on a Windows VM that serves as the head node and directs processing of the user&#39;s images.
+2. The PhotoScan Scheduler runs on a Windows VM that serves as the head node and directs processing of the user's images.
 3. PhotoScan searches for common points on the photographs and constructs the geometry (mesh) using the PhotoScan processing nodes running on VMs with graphics processing units (GPUs).
 4. Avere vFXT provides a high-performance storage solution on Azure based on Network File System version 3 (NFSv3) and comprised of at least four VMs.
 5. PhotoScan renders the model.
 
 ### Components
 
-- [**PhotoScanAgisoft.**](http://www.agisoft.com/) The PhotoScan Scheduler runs on a Windows 2016 Server VM, and the processing nodes use five VMs with GPUs that run CentOS Linux 7.5.
-- [**Avere vFXT**](/azure/avere-vfxt/avere-vfxt-overview) is a file caching solution that uses object storage and traditional network-attached storage (NAS) to optimize storage of large datasets. It includes:
-  - **Avere Controller.** This VM executes the script that installs the Avere vFXT cluster and runs Ubuntu 18.04 LTS. The VM can be used later to add or remove cluster nodes and to destroy the cluster as well.
-  - **vFXT cluster.** At least three VMs are used, one for each of the Avere vFXT nodes based on Avere OS 5.0.2.1. These VMs form the vFXT cluster, which is attached to Azure Blob storage.
-- [**Active Directory domain controllers**](/azure/active-directory-domain-services/active-directory-ds-overview) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds _x_ number of A records—for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
-- [**Other VMs**](/azure/virtual-machines/) serve as jumpboxes used by the administrator to access the scheduler and processing nodes. The Windows jumpbox is mandatory to allow the administrator to access the head node via remote desktop protocol. The second jumpbox is optional and runs Linux for administration of the worker nodes.
-- [**Network security groups**](/azure/virtual-network/manage-network-security-group) (NSGs) on the Jumpbox subnet allow ports 3389 and 22 access to the VMs attached to the Jumpbox subnet.
-- [**Virtual network peering**](/azure/virtual-network/virtual-network-peering-overview) connects a PhotoScan virtual network to an Avere virtual network.
-- [**Azure Blob storage**](/azure/storage/blobs/storage-blobs-introduction) works with Avere vFXT as the core filer to store the committed data being processed. Avere vFXT identifies the active data stored in Azure Blob and tiers it into solid-state drives (SSD) used for caching in its compute nodes while a PhotoScan job is running. The data is asynchronously committed back to the core filer if changes are made.
-- [**Azure Key Vault**](/azure/key-vault/key-vault-overview) is used to store the administrator passwords and PhotoScan activation code.
+- [Agisoft PhotoScan](http://www.agisoft.com/): The PhotoScan Scheduler runs on a Windows 2016 Server VM, and the processing nodes use five VMs with GPUs that run CentOS Linux 7.5.
+- [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) is a file caching solution that uses object storage and traditional network-attached storage (NAS) to optimize storage of large datasets. It includes:
+  - Avere Controller. This VM executes the script that installs the Avere vFXT cluster and runs Ubuntu 18.04 LTS. The VM can be used later to add or remove cluster nodes and to destroy the cluster as well.
+  - vFXT cluster. At least three VMs are used, one for each of the Avere vFXT nodes based on Avere OS 5.0.2.1. These VMs form the vFXT cluster, which is attached to Azure Blob storage.
+- [Active Directory domain controllers](/azure/active-directory-domain-services/active-directory-ds-overview) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds _x_ number of A records—for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
+- [Other VMs](/azure/virtual-machines/) serve as jump boxes used by the administrator to access the scheduler and processing nodes. The Windows jumpbox is mandatory to allow the administrator to access the head node via remote desktop protocol. The second jumpbox is optional and runs Linux for administration of the worker nodes.
+- [Network security groups](/azure/virtual-network/manage-network-security-group) (NSGs) on the Jumpbox subnet allow ports 3389 and 22 access to the VMs attached to the Jumpbox subnet.
+- [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) connects a PhotoScan virtual network to an Avere virtual network.
+- [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) works with Avere vFXT as the core filer to store the committed data being processed. Avere vFXT identifies the active data stored in Azure Blob and tiers it into solid-state drives (SSD) used for caching in its compute nodes while a PhotoScan job is running. If changes are made, the data is asynchronously committed back to the core filer.
+- [Azure Key Vault](/azure/key-vault/key-vault-overview) is used to store the administrator passwords and PhotoScan activation code.
 
 ### Alternatives
 
@@ -53,11 +57,11 @@ This architecture also includes Active Directory domain controllers to control a
 
 ## Considerations
 
-This scenario is designed specifically to provide high performance storage for an HPC workload, whether it is deployed on Windows or Linux. In general, the storage configuration of the HPC workload should match the appropriate best practices used for on-premises deployments.
+This scenario is designed specifically to provide high-performance storage for an HPC workload, whether it is deployed on Windows or Linux. In general, the storage configuration of the HPC workload should match the appropriate best practices used for on-premises deployments.
 
 Deployment considerations depend on the applications and services used, but a few notes apply:
 
-- When building high performance applications, use Azure Premium Storage and [optimize the application layer](/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](/azure/storage/blobs/storage-blob-storage-tiers).
+- When building high-performance applications, use Azure Premium Storage and [optimize the application layer](/azure/virtual-machines/windows/premium-storage-performance). Optimize storage for frequent access using Azure Blob [hot tier access](/azure/storage/blobs/storage-blob-storage-tiers).
 - Use a storage [replication option](/azure/storage/common/storage-redundancy) that that meets your availability and performance requirements. In this example, Avere vFXT is configured for high availability by default, with locally redundant storage (LRS). For load balancing, all VMs in this setup use the round-robin pattern to access vFXT exports.
 - If the backend storage will be consumed by both Windows clients and Linux clients, use Samba servers to support the Windows nodes. A [version](https://github.com/paulomarquesc/beegfs-template) of this example scenario based on BeeGFS uses Samba to support the scheduler node of the HPC workload (PhotoScan) running on Windows. A load balancer is deployed to act like a smart replacement for DNS round robin.
 - Run HPC applications using the VM type best suited for your [Windows](/azure/virtual-machines/windows/sizes-hpc) or [Linux](/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) workload.
@@ -65,20 +69,22 @@ Deployment considerations depend on the applications and services used, but a fe
 
 ### Security
 
-This example focuses on deploying a high-performance storage solution for an HPC workload and is not a security solution. Please make sure to involve your security team to make any changes necessary.
+This example focuses on deploying a high-performance storage solution for an HPC workload and is not a security solution. Make sure to involve your security team for any changes.
 
 For added security, this example infrastructure enables all the Windows VMs to be domain-joined and uses Active Directory for central authentication. It also provides custom DNS services for all VMs. To help protect the environment, this template relies on [network security groups (NSGs)](/azure/virtual-network/security-overview). NSGs offer basic traffic filters and security rules.
 
-For further protection, perform a detailed analyses of your security requirements. For example, the following items can increase the level of security:
+Consider the following options to further improve security in this scenario:
 
 - Use network virtual appliances such as Fortinet, Checkpoint, and Juniper.
 - Apply [role-based access control](/azure/role-based-access-control/overview) to the resource groups.
-- Enable VM [JIT](/azure/security-center/security-center-just-in-time) access if jumpboxes are accessed via the Internet.
+- Enable VM [JIT](/azure/security-center/security-center-just-in-time) access if jump boxes are accessed via the Internet.
 - Use [Azure Key Vault](/azure/key-vault/quick-create-portal) to store the passwords used by administrator accounts.
 
 ## Pricing
 
-The cost of running this scenario can vary greatly depending on whether your HPC workload requires [GPU-optimized](/azure/virtual-machines/linux/sizes-gpu) VMs like this example and how much storage is required. The following sample cost profile in the [Azure pricing calculator](https://azure.com/e/42362ddfd2e245a28a8e78bc609c80f3) is based on a typical configuration for Avere vFXT and PhotoScan:
+The cost of running this scenario can vary greatly depending on on multiple factors.  Choices such as using [GPU-optimized](/azure/virtual-machines/linux/sizes-gpu) VMs (like this example), how much storage is required, and the amount of time to complete a job will determine your cost.
+
+The following sample cost profile in the [Azure pricing calculator](https://azure.com/e/42362ddfd2e245a28a8e78bc609c80f3) is based on a typical configuration for Avere vFXT and PhotoScan:
 
 - 1 A1\_v2 Ubuntu VM to run the Avere controller.
 - 3 D16s\_v3 Avere OS VMs, one for each of the Avere vFXT nodes that form the vFXT cluster.
@@ -90,24 +96,20 @@ The cost of running this scenario can vary greatly depending on whether your HPC
 - General purpose v2 (GPv2) Blob storage with LRS and hot tier access (only GPv2 storage accounts expose the Access Tier attribute).
 - Virtual network with support for 10 TB data transfer.
 
-For details about this architecture, see the [ebook](https://microsoft.sharepoint.com/teams/AzureCATGuidance/Shared%20Documents/General/:%20https:/azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
+For details about this architecture, see the [ebook](https://azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
 
 ## Deployment
 
-For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the ebook: [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://microsoft.sharepoint.com/teams/AzureCATGuidance/Shared%20Documents/General/:%20https:/azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/).
+For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the ebook: [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/).
 
 ## Related resources
 
-[Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
+The following resources will provide more information on the components utilized in this scenario, along with alternative approaches for batch computing on Azure.
 
-[Agisoft PhotoScan](https://www.agisoft.com/)
-
-[Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
-
-[Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
-
-[A computer-aided engineering service on Azure](/azure/architecture/example-scenario/apps/hpc-saas) (example scenario)
-
-[HPC on Azure](https://azure.microsoft.com/en-us/solutions/high-performance-computing/)
-
-[Big Compute: HPC &amp; Batch](https://azure.microsoft.com/en-us/solutions/big-compute/)
+- Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
+- [Agisoft PhotoScan](https://www.agisoft.com/) home Page
+- [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
+- [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
+- An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
+- [HPC on Azure](https://azure.microsoft.com/en-us/solutions/high-performance-computing/) home page
+- Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/en-us/solutions/big-compute/)
