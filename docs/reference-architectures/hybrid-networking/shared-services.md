@@ -95,7 +95,7 @@ A deployment for this architecture is available on [GitHub][ref-arch-repo]. The 
 - hub-vnet-rg
 - onprem-vnet-rg
 - spoke1-vnet-rg
-- spoke2-vent-rg
+- spoke2-vnet-rg
 
 The template parameter files refer to these names, so if you change them, update the parameter files to match.
 
