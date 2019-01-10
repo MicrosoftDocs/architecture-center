@@ -27,7 +27,7 @@ The concepts in this article apply to any high-performance computing (HPC) workl
 
 This architecture also includes Active Directory domain controllers to control access to Azure resources and internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
 
-**----Architecture Diagram Placeholder----**
+![architecture diagram](./media/architecture-image-modeling.png)
 
 1. User submits a number of images to PhotoScan.
 2. The PhotoScan Scheduler runs on a Windows VM that serves as the head node and directs processing of the user's images.
