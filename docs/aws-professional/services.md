@@ -8,7 +8,6 @@ ms.date: 11/09/2018
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.custom: networking, data-analytics, IoT, identity
 ---
 
 # AWS to Azure services comparison
