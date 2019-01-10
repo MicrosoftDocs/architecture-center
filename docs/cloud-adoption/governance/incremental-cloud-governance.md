@@ -35,7 +35,7 @@ For example: For a business that deploys 5 VMs that don't contain any High Busin
 
 Policy MVP is an attempt to define a required foundation for policies required to deploy the first "x" VMs or the first x number of applications. Where x is a small yet impactful quantity of the units being adopted. This policy set requires few constraints, but would contain the foundational aspects needed to quickly grow from one increment of work to the next. Through incremental policy development, this governance strategy would grow over time. Through slow subtle shifts, the policy MVP would grow into feature parity with the outputs of the policy review exercise.
 
-## Evolving Governance - Process
+### Evolving Governance - Process
 
 Incremental policy growth is the key mechanism to growing policy and cloud governance in partnership with cloud adoption. It is also the key requirement to adopting an incremental model to governance. For this model to work well, the governance team must be committed to an ongoing allocation of time at each sprint, in order to evaluate and implement changing governance disciplines.
 
