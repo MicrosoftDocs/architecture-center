@@ -592,13 +592,17 @@
         - name: Governance Design Templates
           href: cloud-adoption/governance/design-guides/future-proof/design-guide.md
         - name: Corporate Policy
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/future-proof/corporate-policy.md
         - name: Use Case
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
+          href: cloud-adoption/governance/design-guides/future-proof/use-case.md
       - name: Protected Data
         items:
-        - name: Governance Design Templates
+        - name: XXXX - Governance Design Templates
           href: cloud-adoption/governance/design-guides/protected-data/design-guide.md
+        - name: XXXX - Corporate Policy
+          href: cloud-adoption/governance/design-guides/protected-data/corporate-policy.md
+        - name: XXXX - Use Case
+          href: cloud-adoption/governance/design-guides/protected-data/use-case.md
       - name: Enterprise MVP
         items:
         - name: Governance Design Templates
@@ -609,12 +613,20 @@
           href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
       - name: Enterprise @ Scale
         items:
-        - name: Governance Design Templates
+        - name: XXXX - Governance Design Templates
           href: cloud-adoption/governance/design-guides/enterprise-scale/design-guide.md
+        - name: XXXX - Corporate Policy
+          href: cloud-adoption/governance/design-guides/enterprise-scale/corporate-policy.md
+        - name: XXXX - Use Case
+          href: cloud-adoption/governance/design-guides/enterprise-scale/use-case.md
       - name: Enterprise Enforcement
         items:
-        - name: Governance Design Templates
+        - name: XXXX - Governance Design Templates
           href: cloud-adoption/governance/design-guides/enterprise-enforcement/design-guide.md
+        - name: XXXX - Corporate Policy
+          href: cloud-adoption/governance/design-guides/enterprise-enforcement/corporate-policy.md
+        - name: XXXX - Use Case
+          href: cloud-adoption/governance/design-guides/enterprise-enforcement/use-case.md
       - name: Multi-Cloud Governance
         items:
         - name: Governance Design Templates
