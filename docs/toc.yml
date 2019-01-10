@@ -641,8 +641,8 @@
           href: cloud-adoption/governance/policy-compliance/define-policy.md
         - name: Align architecture design guides
           href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
-        - name: Monitor and enforce policy adherence
-          href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
+        - name: Establish policy adherence processes
+          href: cloud-adoption/governance/policy-compliance/processes.md
         - name: What is Regulatory Compliance?
           href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
         - name: What is a Cloud Policy Review?

@@ -69,7 +69,7 @@ The cloud governance team currently consists of two systems admins, who have for
 
 **Deployment Planning:** Prior to deployment of any asset, the "cloud governance team" will review the design guide with the cloud adoption teams to discuss alignment.
 
-The suggested processes are very minimal due to the state of maturity outlined in the synthesized use case. See the article on [establishing monitoring and enforcement processes](../../policy-compliance/monitor-enforce.md) for additional guidance on developing monitoring and enforcement processes.
+The suggested processes are very minimal due to the state of maturity outlined in the synthesized use case. See the article on [establishing policy adherence processes](../../policy-compliance/processes.md) for additional guidance on developing monitoring and enforcement processes.
 
 ## Next steps
 

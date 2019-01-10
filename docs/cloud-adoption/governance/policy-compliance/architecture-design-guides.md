@@ -38,7 +38,7 @@ While every cloud adoption has unique goals, priorities, and challenges, these s
 
 ## Next steps
 
-With design guidance in place, [establish your monitoring and policy enforcement](monitor-enforce.md) plans to ensure policy compliance. 
+With design guidance in place, establish [policy adherence processes](processes.md) to ensure policy compliance. 
 
 > [!div class="nextstepaction"]
-> [Monitoring and policy enforcement](monitor-enforce.md)
+> [Policy adherence processes](processes.md)
