@@ -19,6 +19,9 @@ The amount you invest into security policy and processes will depend a great dea
 
 The security management discipline discussed in this section of the Fusion guidance covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
 
+> [!NOTE]
+>While it is important to understand [Identity Management](../identity-management/overview.md) in the context of Security Management and how that relates to Access Control, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Management](../identity-management/overview.md) as its own discipline, separate from security management.
+
 ## Business risk
 
 The security management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
