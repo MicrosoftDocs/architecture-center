@@ -13,7 +13,7 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
 
-- Data classification: List of cloud-stored data that is unclassified based on your organization's privacy, compliance, or business importance standards.
+- Data classification: List of cloud-stored data that is unclassified according to on your organization's privacy, compliance, or business impact standards.
 - Attack surface: inventory of all IP addresses, ports, and services on your virtual network that are externally accessible.
 - Network activity: Expected vs actual traffic levels and activities.
 - Virtual machine (VM) protection: Percentage of deployed virtual machines that have all required anti-malware, firewall, or other security software installed.
@@ -21,9 +21,9 @@ Security management generally focuses on identifying potential vulnerabilities i
 
 ## Risk tolerance indicators
 
-Cloud platforms provide a baseline set of features that enable small deployment teams to configure basic security settings without extensive additional planning. As a result, small Dev/Test or experimental first workloads that do not include sensitive data represent a relatively low level of risk, and will likely not need much in the way of formal security management policy. However, as soon as important data or mission-critical functionality is moved to the cloud, security risks increase, while tolerance for those risks diminishes rapidly. As more of your data and functionality is deployed to the more likely you are to need increased investment in the Security Management discipline.
+Cloud platforms provide a baseline set of features that enable small deployment teams to configure basic security settings without extensive additional planning. As a result, small Dev/Test or experimental first workloads that do not include sensitive data represent a relatively low level of risk, and will likely not need much in the way of formal security management policy. However, as soon as important data or mission-critical functionality is moved to the cloud, security risks increase, while tolerance for those risks diminishes rapidly. As more of your data and functionality is deployed to the cloud, the more likely you need an increased investment in the Security Management discipline.
 
-In the early stages of cloud adoption, work with your business to determine a baseline for security risk tolerance. Once you have a baseline, you will need to determine the criteria that would trigger an investment in security management. This may be different with every company and deployment.
+In the early stages of cloud adoption, work with your business to determine a baseline for security risk tolerance. Once you have a baseline, you will need to determine the criteria that would trigger an increased investment in security management. This may be different with every company or deployment.
 
 The following are a few examples of how security metrics and identified vulnerabilities, such as those discussed above, can justify an increased investment in security management. Once you have identified [business risks](business-risks.md), you will work with your business to identify benchmarks that you can use to define triggers that could potentially increase those risks.
 
