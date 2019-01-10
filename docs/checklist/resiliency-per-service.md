@@ -4,6 +4,9 @@ titleSuffix: Azure Design Review Framework
 description: Checklist that provides resiliency guidance for various Azure services.
 author: petertaylor9999
 ms.date: 11/26/2018
+ms.topic: checklist
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
 ms.custom: resiliency, checklist
 ---
 
