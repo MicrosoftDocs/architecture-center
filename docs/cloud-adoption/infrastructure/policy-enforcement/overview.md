@@ -13,7 +13,7 @@ Defining organizational policy is not effective unless there is a way to enforce
 
 ![Plotting policy enforcement options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-policy-enforcement.png)
 
-Jump to: [Cloud native](#cloud-native) | [Trust but verify](#trust-but-verify) | [Subscription level enforcement](#subscription-level-enforcement) | [Consistent enforcement across subscriptions](#consistent-enforcement-across-subscriptions) | [Third party log monitoring](#third-party-log-monitoring)
+Jump to: [Cloud native](#cloud-native) | [Trust but verify](#trust-but-verify) | [Simple Enforcement](#simple-enforcement) | [Consistent enforcement across subscriptions](#consistent-enforcement-across-subscriptions) | [Third party log monitoring](#third-party-log-monitoring)
 
 As your cloud estate grows, you will be faced with a corresponding need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to ensure consistent adherence and fast violation detection. Platform provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments, while lager deployments may need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with you logging and reporting systems. 
 
@@ -33,9 +33,9 @@ Another key factor, even for relatively small cloud deployments, is the ability 
 
 As your cloud estate grows, additional tools such as [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/) can provide integrated security and threat detection, and help apply centralized policy management and alerting for both your on-premises and cloud assets. 
 
-### Subscription level enforcement
+### Simple enforcement
 
-You can also apply configuration settings and resource creation rules at the subscription level to help ensure policy alignment. 
+You can also apply configuration settings and resource creation rules at the subscription level to help ensure policy alignment.
 
 [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) is a service that allows you to apply governance rules directly to subscriptions and resource groups. These rules help you control what types of resources you can deploy within a subscription or resource group, and how those resources can be used. For instance, you can create a rule to allow resources to only be deployed to a certain geo-region, or to require that all VMs must be connected to a specific subnet of a virtual network.
 

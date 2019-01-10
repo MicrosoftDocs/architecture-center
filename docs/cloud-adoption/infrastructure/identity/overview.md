@@ -16,11 +16,11 @@ Identity and access management (IAM) services enable you to manage access contro
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 
-Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Federation (VDC)](#federation-vdc) | [Directory Migration With Federation](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
+Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Replication (VDC)](#replication-vdc) | [Directory Replication With Domain Services](#directory-migration-with-federation) | [Azure Active Directory](#azure-active-directory)
 
-There are a number of ways you can deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design provides clarity on the three SaaS enabled solutions. 
+There are a number of ways you can deliver hybrid identity within a cloud environment, with varying degrees of cost and complexity. The future state design provides clarity on the three SaaS enabled solutions.
 
-The inflection point (between a SaaS enabled solution and a solution that requires both IaaS and SaaS components) is less about future state design and more driven by current state constraints. When migrating legacy applications that are not compatible with claims-based authentication, a replication of the current identity directory may be required. Also, complex forest or customized organizational units (OUs) could require replication of Azure Directory (AD) as well. (See AD DS omparison for details). If directory replication is required for a global solution, complexities rise significantly.
+The inflection point (between a SaaS enabled solution and a solution that requires both IaaS and SaaS components) is less about future state design and more driven by current state constraints. When migrating legacy applications that are not compatible with claims-based authentication, a replication of the current identity directory may be required. Also, complex forest or customized organizational units (OUs) could require replication of Azure Directory (AD) as well. (See AD DS comparison for details). If directory replication is required for a global solution, complexities rise significantly.
 
 
 ## Determine identity integration requirements
@@ -29,7 +29,7 @@ The inflection point (between a SaaS enabled solution and a solution that requir
 the right architecture for their migration. Eventually this is intended to be
 more of a decision list diagram or something similar.\*
 
-| Question                                                                      | Cloud Native | Federation | Directory Migration |
+| Question                                                                      | Cloud Native | Replication | Directory Migration |
 |-------------------------------------------------------------------------------|--------------|------------|---------------------|
 | Do you currently lack an on-premises directory service?                       | Yes          | No         | No                  |
 | Do your workloads need to authenticate against on-premises identity services? | No           | Yes        | No                  |
@@ -56,35 +56,35 @@ If your organization currently lacks a significant on-premises identity solution
 >
 > Completely migrating your identity services to a cloud-based provider removes the need to maintain your own identity infrastructure, significantly simplifying your IT management load.
 
-### Federation (VDC)
+### Replication (VDC)
 
-For organizations with an existing identity infrastructure, Federation is often the best solution for preserving existing user and access management while providing the required IAM capabilities for managing cloud resources. Federation syncs directory information between the cloud and on-premises environments, allowing single sign-on (SSO) for users and a consistent role and permission system across your entire organization.
+For organizations with an existing identity infrastructure, Replication is often the best solution for preserving existing user and access management while providing the required IAM capabilities for managing cloud resources. Replication syncs directory information between the cloud and on-premises environments, allowing single sign-on (SSO) for users and a consistent role and permission system across your entire organization.
 
-In addition to allowing shared identity services between cloud and on-premises, Federation supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains, both inside and outside of your organization.
+In addition to allowing shared identity services between cloud and on-premises, Replication supports more complicated scenarios, potentially combining authentication and access control capabilities across multiple groups and domains, both inside and outside of your organization.
 
-Federation using [Azure Active Directory](#identity-and-the-azure-management-plane) is one of the primary building blocks that allows the [Azure Virtual Datacenter model to apply](vdc-identity.md) centrally managed access control policies across multiple Azure subscriptions.  
+Replication using [Azure Active Directory](#identity-and-the-azure-management-plane) is one of the primary building blocks that allows the [Azure Virtual Datacenter model to apply](vdc-identity.md) centrally managed access control policies across multiple Azure subscriptions.  
 
-**Federation identity assumptions:** Using a federation identity solution assumes the following:
+**Replication identity assumptions:** Using a Replication identity solution assumes the following:
 
 - You need to maintain a common set of user accounts and group across your cloud and on-premises IT infrastructure.
-- Your on-premises identity services supports Federation with your cloud identity provider.
+- Your on-premises identity services supports Replication with your cloud identity provider.
 - You require SSO mechanisms for users accessing cloud and on-premises identity providers.
 
 > [!TIP]
 > Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
 
-### Directory migration with Federation
+### Directory Replication with Domain Services
 
 If you have workloads that depend on claims-based authentication using protocols such as Kerberos or NTLM that cannot be refactored to accept cloud-compatible token based authentication mechanisms, you may need to perform a directory migration as part of your cloud deployment. 
 
 This type of migration involves deploying VMs running Active Directory or another identity provider with your cloud-based virtual networks. With directory services running in the cloud network, any existing applications and services migrating to your cloud network should be able to make use of these directory servers with a minimum of modification.
 
-Federation is also recommended in this scenario. You likely want a federated identity solution to provide a common set of users and roles in both the virtual directory servers. This is so workloads will depend on it, as well as the cloud identity service responsible for access control in the cloud management plane. Federation also allows you to keep your on-premises directories in sync with cloud hosted directories.  
+Replication is also recommended in this scenario. You likely want a federated identity solution to provide a common set of users and roles in both the virtual directory servers. This is so workloads will depend on it, as well as the cloud identity service responsible for access control in the cloud management plane. Replication also allows you to keep your on-premises directories in sync with cloud hosted directories.  
 
-**Directory migration assumptions:** Performing a directory migration assumes the following:
+**Domain Services assumptions:** Performing a directory migration assumes the following:
 
 - Your workloads depend on claims-based authentication using protocols like Kerberos or NT LAN Manager (NTLM).
-- The identity services your workloads depend on support Federation with your cloud identity provider.
+- The identity services your workloads depend on support Replication with your cloud identity provider.
 
 > [!TIP]
 > While a directory migration coupled with federated identity provides great flexibility when migrating existing workloads, hosting VMs within your cloud virtual network to provide these services does increase the complexity of you IT management tasks. As your cloud migration experience matures, examine the long-term maintenance requirements of hosting these servers, and consider if refactoring existing workloads for compatibility with cloud identity providers can reduce the need for cloud hosted directory server VMs.  
