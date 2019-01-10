@@ -583,6 +583,8 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
+    - name: Incremental Cloud Governance Model
+      href: cloud-adoption/governance/incremental-cloud-governance.md
     - name: Azure Design Templates
       items:
       - name: Future Proof

@@ -40,73 +40,9 @@ Any change to business processes or technology platforms introduces risk to the 
 
 Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Specific Design Guides](#actionable-design-guides)
 
-## Corporate policy
-
-Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy. The following three-step process guides iterative development of such policies.
-
-<ul  class="panelContent cardsF">
-<li style="display: flex; flex-direction: column;">
-    <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/business-risk.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Business risk</h3>
-                        <p>Investigate current cloud adoption plans and data classification to identify risks to the business. Work with the business to balance risk tolerance and mitigation costs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./policy-compliance/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/corporate-policy.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Policy and compliance</h3>
-                        <p>Evaluate risk tolerance to inform minimally invasive policies that govern cloud adoption and mitigate risks. In some industries, third party compliance impacts initial policy creation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./monitoring-enforcement/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/governance/enforcement.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Monitoring and enforcement</h3>
-                        <p>The pace of adoption and innovation activities will naturally create policy violations. Ensure that your corporate policies include the proper requirements to detect and resolve violations <u>before</u> they are released.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-</ul>
-
 ## Actionable design guides
 
-To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following design guides align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure.
+To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following design guides align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure. For cloud agnostic guidance, the sections on [Corporate Policy](#corporate-policy) and [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) may be a better starting point.
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
@@ -217,6 +153,70 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
                     <div class="cardText">
                         <h3>Multi-cloud governance</h3>
                         <p>Industry analysts predict that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+## Corporate policy
+
+Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy. The following three-step process guides iterative development of such policies.
+
+<ul  class="panelContent cardsF">
+<li style="display: flex; flex-direction: column;">
+    <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/business-risk.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Business risk</h3>
+                        <p>Investigate current cloud adoption plans and data classification to identify risks to the business. Work with the business to balance risk tolerance and mitigation costs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./policy-compliance/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/corporate-policy.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Policy and compliance</h3>
+                        <p>Evaluate risk tolerance to inform minimally invasive policies that govern cloud adoption and mitigate risks. In some industries, third party compliance impacts initial policy creation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./monitoring-enforcement/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/governance/enforcement.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Monitoring and enforcement</h3>
+                        <p>The pace of adoption and innovation activities will naturally create policy violations. Ensure that your corporate policies include the proper requirements to detect and resolve violations <u>before</u> they are released.</p>
                     </div>
                 </div>
             </div>
