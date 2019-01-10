@@ -23,8 +23,8 @@ The importance of the identity management discipline to your cloud deployment wi
 
 The identity management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-* Over-provisioned access: users and groups with control over resources beyond their area of responsibility can easily make changes that cause outages or security vulnerabilities.
-* Credential security: User accounts lacking a strong authentication method can be potentially compromised, allowing malicious access to secure resources.
+* Over-provisioned access: users and groups with control over resources beyond their area of responsibility can, through accident or malicious intent, cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
+* Account security: Account credentials lacking a strong authentication method can lead to compromised user accounts, allowing unauthorized access to secure resources.
 * Organization: Large teams can be difficult to manage if organizational policies are not applied to access control. This can  result in oversight or errors in securing resources.
 * Authentication protocols: Cloud identity solutions generally do not natively support legacy authentication protocols such as Kerberos or NTLM, which can require extensive refactoring of applications migrating to the cloud.
 
