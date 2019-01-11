@@ -729,7 +729,7 @@
             href: cloud-adoption/governance/configuration-management/overview.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/configuration-management/toolchain.md
-  - name: Infrastructure
+  - name: Decision Guides
     items:
     - name: Overview
       href: cloud-adoption/infrastructure/overview.md
