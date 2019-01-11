@@ -30,7 +30,7 @@ Many of the [business risk, policy statements](./corporate-policy.md) and [objec
 
 ### Subscription Model
 
-[Subscription Model Decision](../../../infrastructure/subscriptions/overview): The **Complex** pattern has been chosen for Azure subscriptions. Learn more about this pattern and alternatives considered in the [Decision Guide for Subscription Models](../../../infrastructure/subscriptions/overview.md)
+[Subscription Model Decision](../../../infrastructure/subscriptions/overview.md): The **Complex** pattern has been chosen for Azure subscriptions. Learn more about this pattern and alternatives considered in the [Decision Guide for Subscription Models](../../../infrastructure/subscriptions/overview.md)
 
 * As new requests for azure resources are surfaced, a "Department" should be established for each major business unit in each operating geography. Within each of the Departments, "Subscriptions" should be created for each application archetype.
 * An application archetype is a means of grouping applications with similar needs. Common examples would include: Applications with protected data, Governed Apps (HIPAA, FedRamp, etc...), Low risk applications, Applications with on-prem dependencies, SAP or other Mainframes in Azure, Applications that extend on-prem SAP or mainframes, etc... These are unique per organization based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
@@ -85,7 +85,7 @@ Many of the [business risk, policy statements](./corporate-policy.md) and [objec
 
 ### Log & Reporting
 
-[Log & Reporting Decision](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Centralized** pattern to log and reporting has been selected, but implementation has been delayed. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/log-and-reporting/overview.md)
+[Log & Reporting Decision](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Centralized** pattern to log and reporting has been selected, but implementation has been delayed. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/logs-and-reporting/overview.md)
 
 * No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
 * Additional analysis will be required prior to the release of any protected data or mission critical workloads. 
@@ -105,7 +105,7 @@ Many of the [business risk, policy statements](./corporate-policy.md) and [objec
 
 There are a number of assumptions and considerations embedded in this opinionated guidance. Each should be considered before. The following list outlines data points and tasks that generally don't fall into the domain of the Cloud Governance Team. While members of this team may have those skills, it is unlikely the team will be empowered to execute the following without additional team member support.
 
-* Use Case Assumption: The use case in this design guide is built on the assumption that this implementation will eventually serve multiple business units (or billing units). The use case also assumes that the business unit serves customers in multiple geo-political region. These are not data points that the Cloud Governance Team is likely to be able to determine in isolation. There is likely a dependency on IT and business leadership. If these assumptions prove false, the team should consider the [Future Proof Governance Design Guide](../future-proof/design-guide.mvp) as a potential starting point for governance implementation. While the implementation differences between the two are subtle, they can have a big impact later in the process.
+* Use Case Assumption: The use case in this design guide is built on the assumption that this implementation will eventually serve multiple business units (or billing units). The use case also assumes that the business unit serves customers in multiple geo-political region. These are not data points that the Cloud Governance Team is likely to be able to determine in isolation. There is likely a dependency on IT and business leadership. If these assumptions prove false, the team should consider the [Future Proof Governance Design Guide](../future-proof/design-guide.md) as a potential starting point for governance implementation. While the implementation differences between the two are subtle, they can have a big impact later in the process.
 * Identity Assumption: It is assumed that the identity team has already configured an Identity integration with Azure AD that meets current IT governance policies. If that assumption is false, there is a dependency on system administrators with identity experience to configure that integration.
 * Network Assumption: It is assumed that the networking team has implemented an Azure compatible VPN solution that confirms to existing IT governance policies. If that assumption is false, there is a dependency on system administrators and potential the Cloud Adoption Team(s).
 

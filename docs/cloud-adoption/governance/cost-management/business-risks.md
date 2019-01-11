@@ -33,4 +33,4 @@ Using the [Cloud Management Template](./template.md), document business risks th
 Once an understanding of realistic business risks is established, the next step is to document the business's [tolerance for risk](./metrics-tolerance.md) and the indicators / key metrics to monitor that tolerance.
 
 > [!div class="nextstepaction"]
-> [Understand indicators, metrics, and risk tolerance](./tolerance.md)
+> [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)

@@ -9,7 +9,7 @@ ms.topic: landing-page
 
 # Fusion: Identity Management discipline
 
-Identity Management is one of the [Five Disciplines of Cloud Governance](../disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). 
+Identity Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). 
 
 [content coming]
 
@@ -17,7 +17,7 @@ This section of the Fusion guidance outlines the approach to developing an ident
 
 ## Policy statements
 
-Actionable policy statements and the resulting architecture requirements serve as the foundation of an identity management discipline. To see policy statement samples, see the article on [Identity Management Policy Statements](./policy-statements). These samples can serve as a starting point for your organization's governance policies.
+Actionable policy statements and the resulting architecture requirements serve as the foundation of an identity management discipline. To see policy statement samples, see the article on [Identity Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
 
 > [!CAUTION]
 > The sample policies come from common customer experiences. To better align these policies to specific cloud governance needs, execute the following steps to create policy statements that meet your unique business needs.

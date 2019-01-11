@@ -7,7 +7,7 @@ ms.date: 1/4/2019
 
 # Fusion: Cost management sample policy statements
 
-The following policy statements provide examples of how to mitigate specific business risks through design guidance, as well as the implementation of specific tools you can usue for cost governance montoring and enforcement.
+The following policy statements provide examples of how to mitigate specific business risks through design guidance, as well as the implementation of specific tools you can use for cost governance monitoring and enforcement.
 
 ## Future proof
 
@@ -34,7 +34,7 @@ The following policy statements provide examples of how to mitigate specific bus
 **Design guidance:**
 
 * In Azure, planned vs actual spend can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis). 
-* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping.md) should be chosen in conjunction with the governance team and applied to all assets.
+* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Over provisioned assets
 
@@ -45,7 +45,7 @@ The following policy statements provide examples of how to mitigate specific bus
 **Design guidance:**
 
 * In Azure, [Azure Advisor](/azure/advisor/advisor-cost-recommendations) can provide optimization recommendations.
-* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping.md) should be chosen in conjunction with the governance team and applied to all assets.
+* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Over optimization
 
@@ -56,7 +56,7 @@ The following policy statements provide examples of how to mitigate specific bus
 **Design guidance:**
 
 * In Azure, [Azure Monitor's insights features](/azure/azure-monitor/insights/vminsights-performance) can help with analysis of system utilization.
-* There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../infrastructure/resource-grouping.md) in conjunction with the governance team and apply this to all assets.
+* There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../infrastructure/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
 
 ## Next steps
 
