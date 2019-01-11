@@ -1,17 +1,17 @@
 ---
-title: "Fusion: Monitor and enforce security management"
-description: Explanation of the concept security management in relation to cloud governance
+title: "Fusion: Monitor and enforce identity management"
+description: Explanation of the concept identity management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Security management policy adherence processes
+# Fusion: Identity management policy adherence processes
 
-This article discusses an approach to monitoring and enforcing policies that govern [security management](./overview.md). Effective governance of cloud costs starts with recurring processes. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
+This article discusses an approach to monitoring and enforcing policies that govern [identity management](./overview.md). Effective governance of cloud costs starts with recurring processes. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
 ## Planning and reporting processes
 
-The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes for any security management discipline.
+The best identity management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes for any identity management discipline.
 
 [content coming]
 

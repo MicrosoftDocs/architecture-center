@@ -705,10 +705,20 @@
             href: cloud-adoption/governance/security-management/toolchain.md        
       - name: Identity Management
         items:
-          - name: Overview
+          - name: Adopting an Identity Management Discipline
             href: cloud-adoption/governance/identity-management/overview.md
+          - name: Download the Template
+            href: cloud-adoption/governance/identity-management/template.md
           - name: Understand business risks
             href: cloud-adoption/governance/identity-management/business-risks.md
+          - name: Document metrics and tolerance indicators
+            href: cloud-adoption/governance/identity-management/metrics-tolerance.md
+          - name: Customize Sample Policy Statements
+            href: cloud-adoption/governance/identity-management/policy-statements.md
+          - name: Monitor and enforce policy
+            href: cloud-adoption/governance/identity-management/monitor-enforce.md
+          - name: Develop a Maturity Roadmap
+            href: cloud-adoption/governance/identity-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/identity-management/toolchain.md
       - name: Resource Management
