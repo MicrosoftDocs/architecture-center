@@ -1,17 +1,17 @@
 ---
-title: "Fusion: Monitor and enforce identity management"
-description: Explanation of the concept identity management in relation to cloud governance
+title: "Fusion: Policy adherence processes for identity management"
+description: Explanation of the concept identity management in relation to cloud governance processes
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Identity management policy processes
+# Fusion: Identity management policy compliance processes
 
 This article discusses an approach to policy adherence processes that govern [identity management](./overview.md). Effective governance of identity starts with recurring manual processes that guide identity policy adoption and revisions. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
-## Planning and reporting processes
+## Planning, review, and reporting processes
 
-The best identity management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes for any identity management discipline.
+The best identity management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes commonly used as part of an identity management discipline.
 
 [content coming]
 

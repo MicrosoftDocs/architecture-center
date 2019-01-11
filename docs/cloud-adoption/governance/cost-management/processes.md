@@ -5,11 +5,11 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Monitor and enforce cost management
+# Fusion: Cost management policy compliance processes
 
-This article discusses an approach to monitoring and enforcing policies that govern [cost management](./overview.md). Effective governance of cloud costs starts with recurring processes. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
+This article discusses an approach to creating processes that support a [cost management](./overview.md) governance discipline. Effective governance of cloud costs starts with recurring processes designed to support policy compliance. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
-## Cost management processes
+## Planning, review, and reporting processes
 
 The best cost management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes for any cost management discipline.
 
@@ -25,7 +25,7 @@ This is the time to make a pre-commitment or pre-purchase to maximize discountin
 
 These basic processes will help align spending and establish a foundation for the cost management discipline.
 
-## Violation triggers and enforcement actions
+## Compliance violation triggers and enforcement actions
 
 When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](./toolchain.md).
 

@@ -1,17 +1,17 @@
 ---
-title: "Fusion: Monitor and enforce security management"
-description: Explanation of the concept security management in relation to cloud governance
+title: "Fusion: Policy adherence processes for security management"
+description: Explanation of the concept security management in relation to cloud governance processes
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Security management policy processes
+# Fusion: Security management policy compliance processes
 
 This article discusses an approach to policy adherence processes that govern [security management](./overview.md). Effective governance of cloud security starts with recurring manually processes designed to detect vulnerabilities and impose policies to mitigate those security risks. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
-## Planning and reporting processes
+## Planning, review, and reporting processes
 
-The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes for any security management discipline.
+The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes commonly used as part of a security management discipline.
 
 [content coming]
 

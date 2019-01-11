@@ -26,7 +26,7 @@ Identity management focuses identifying, authenticating, and authorizing individ
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](monitor-enforce.md).
+Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./monitor-enforce.md)
+> [Monitor and Enforce Policy Statements](./processes.md)
