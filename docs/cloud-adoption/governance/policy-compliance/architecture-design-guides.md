@@ -13,7 +13,7 @@ Draft an architecture design guide.
 
 # How do you align design guides with policy?
 
-After you've [defined cloud policies](define-policies.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud architecture design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the five governance disciplines.
+After you've [defined cloud policies](define-policy.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud architecture design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the five governance disciplines.
 
 A cloud governance design guide should establish the architecture choices and design patterns for each of the [core infrastructure components of cloud deployments](../../infrastructure/overview.md) that best meet your policy requirements. Alongside these you should provide a high-level explanation of the technology, tools, and processes that will support each of these design decisions.
 
