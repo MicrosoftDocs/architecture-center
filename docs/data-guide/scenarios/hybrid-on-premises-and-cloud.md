@@ -3,6 +3,9 @@ title: Extending on-premises data solutions to the cloud
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Extending on-premises data solutions to the cloud

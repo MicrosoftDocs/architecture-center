@@ -3,6 +3,9 @@ title: Non-relational data and NoSQL
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Non-relational data and NoSQL

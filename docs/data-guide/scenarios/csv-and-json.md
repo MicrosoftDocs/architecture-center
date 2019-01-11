@@ -3,6 +3,9 @@ title: Processing CSV and JSON files
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Working with CSV and JSON files for data solutions

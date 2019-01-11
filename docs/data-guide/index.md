@@ -4,7 +4,9 @@ description:
 author: zoinerTejada
 ms.date: 02/12/2018
 layout: LandingPage
-ms.topic: landing-page
+ms.topic: landing-page, guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Azure Data Architecture Guide

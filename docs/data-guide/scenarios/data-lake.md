@@ -1,3 +1,13 @@
+---
+title: Data lakes
+description: 
+author: zoinerTejada
+ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+---
+
 # Data lakes
 
 A data lake is a storage repository that holds a large amount of data in its native, raw format. Data lake stores are optimized for scaling to terabytes and petabytes of data. The data typically comes from multiple heterogeneous sources, and may be structured, semi-structured, or unstructured. The idea with a data lake is to store everything in its original, untransformed state. This approach differs from a traditional [data warehouse](../relational-data/data-warehousing.md), which transforms and processes the data at the time of ingestion.

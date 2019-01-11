@@ -3,6 +3,9 @@ title: Processing free-form text for search
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Processing free-form text for search

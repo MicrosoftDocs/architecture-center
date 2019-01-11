@@ -3,6 +3,9 @@ title: Time series data
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Time series solutions
