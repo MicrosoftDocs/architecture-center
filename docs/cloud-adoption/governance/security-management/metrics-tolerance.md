@@ -9,7 +9,7 @@ ms.date: 1/3/2019
 
 This article is intended to help you quantify business risk tolerance as it relates to security management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Security Management discipline.
 
-## Metrics and vulnerability information
+## Metrics and security information
 
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
 
@@ -39,7 +39,7 @@ The following are a few examples of how security metrics and identified vulnerab
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](monitor-enforce.md).
+Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./monitor-enforce.md)
+> [Monitor and Enforce Policy Statements](./processes.md)

@@ -50,7 +50,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/future-proof.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/future-proof/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -69,7 +69,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/protected-data.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/protected-data/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -88,7 +88,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-mvp.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/enterprise-mvp/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -107,7 +107,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-scale.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/enterprise-scale/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -126,7 +126,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-enforcement.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/enterprise-enforcement/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -145,7 +145,7 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/multi-cloud.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/multi-cloud/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

@@ -13,7 +13,7 @@ Draft an architecture design guide.
 
 # How do you align design guides with policy?
 
-After you've [defined cloud policies](define-policies.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud architecture design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the five governance disciplines.
+After you've [defined cloud policies](define-policy.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud architecture design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the five governance disciplines.
 
 A cloud governance design guide should establish the architecture choices and design patterns for each of the [core infrastructure components of cloud deployments](../../infrastructure/overview.md) that best meet your policy requirements. Alongside these you should provide a high-level explanation of the technology, tools, and processes that will support each of these design decisions.
 
@@ -29,12 +29,12 @@ While every cloud adoption has unique goals, priorities, and challenges, these s
 
 | Design guide scenario                                                       | Description                                                                   |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| [Future Proof](../design-guides/future-proof.md) | Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future proof adoption and ensure that proper governance can be added later. |
-| [Protected Data](../design-guides/protected-data.md) | Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines. |
-| [Enterprise MVP](../design-guides/enterprise-mvp.md) | Migrating the first few workloads in an enterprise comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, but grow into larger governance needs with cloud adoption. |
-| [Enterprise @ Scale](../design-guides/enterprise-scale.md) | As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs. |
-| [Enterprise Enforcement](../design-guides/enterprise-enforcement.md) | Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of VMs, automated policy enforcement is required. |
-| [Multi-Cloud Governance](../design-guides/multi-cloud.md) | Industry analysts are predicting that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape. |
+| [Future Proof](../design-guides/future-proof/design-guide.md) | Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future proof adoption and ensure that proper governance can be added later. |
+| [Protected Data](../design-guides/protected-data/design-guide.md) | Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines. |
+| [Enterprise MVP](../design-guides/enterprise-mvp/design-guide.md) | Migrating the first few workloads in an enterprise comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, but grow into larger governance needs with cloud adoption. |
+| [Enterprise @ Scale](../design-guides/enterprise-scale/design-guide.md) | As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs. |
+| [Enterprise Enforcement](../design-guides/enterprise-enforcement/design-guide.md) | Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of VMs, automated policy enforcement is required. |
+| [Multi-Cloud Governance](../design-guides/multi-cloud/design-guide.md) | Industry analysts are predicting that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape. |
 
 ## Next steps
 

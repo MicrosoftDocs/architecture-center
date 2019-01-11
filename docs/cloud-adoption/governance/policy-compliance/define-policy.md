@@ -47,7 +47,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 * Policy statement - A concise explanation of the policy requirements and goals.
 * Design guidance - Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
 
-If you need help getting started with defining policies, consult the [governance disciplines](../overview.md#disciplines-of-cloud-governance) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and sample policies used to mitigate those risks (for example, see the cost management discipline's [sample policy definitions](../cost-management/policy-statements.md)).
+If you need help getting started with defining policies, consult the [governance disciplines](../understand-the-five-disciplines-of-cloud-governance.md) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and sample policies used to mitigate those risks (for example, see the cost management discipline's [sample policy definitions](../cost-management/policy-statements.md)).
 
 ## Incremental governance and integrating with existing policy
 

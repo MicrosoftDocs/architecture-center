@@ -37,7 +37,7 @@ The following are a few examples of how metrics, such as those mentioned above, 
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating cost policy adherence](monitor-enforce.md).
+Building on risks and tolerance, establish a [process for governing and communicating cost policy adherence](processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./monitor-enforce.md)
+> [Monitor and Enforce Policy Statements](./processes.md)

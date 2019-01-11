@@ -7,7 +7,7 @@ ms.date: 12/17/2018
 
 # Fusion: Use Case for Enterprise MVP Governance Design Guide
 
-The [Enterprise MVP Governance Design Guide](../enterpise-mvp.md) presents a highly opinionated view of adopting governance for Azure. That design guide serves as a starting point to develop a custom governance position for enterprises that are moving to Azure but are not ready to invest heavily in governance disciplines. This article outlines the use case, which influence the synthesized [corporate policies](corporate-policy.md) aligned to this use case. Before adopting the opinionated design guide, this article can help the reader understand if that opinion is relevant and aligned to their specific environment.
+The [Enterprise MVP Governance Design Guide](./design-guide.md) presents a highly opinionated view of adopting governance for Azure. That design guide serves as a starting point to develop a custom governance position for enterprises that are moving to Azure but are not ready to invest heavily in governance disciplines. This article outlines the use case, which influence the synthesized [corporate policies](corporate-policy.md) aligned to this use case. Before adopting the opinionated design guide, this article can help the reader understand if that opinion is relevant and aligned to their specific environment.
 
 > [!TIP]
 > It is unlikely that the use case below will align 100% with the corporate environment of any reader of this design guide. It is simply a starting point to be customized and refined, as needed. For additional guidance on establishing corporate policies that better align, see the series of articles on [defining corporate policy](../../policy-compliance/overview.md). If a specific governance discipline isn't aligned with the reader's required implementation, see the series of articles on the [disciplines of cloud governance](../../governance-disciplines.md).
@@ -19,7 +19,7 @@ The need for governance is personal and unique. Defining and implementing a gove
 This design guide focuses on a scenario that is closer to the latter case; The company has a relatively low risk tolerance. However, the budgeted efforts to adoption the cloud are also relatively low risk. The following are characteristics that were factored into the design of the cloud governance strategy and this design guide.
 
 > [!NOTE]
-> For readers that are familiar with the [Governance Design Guide for Future Proof](../future-proof.md), this design guide is based on some subtle changes to the use case. The company in this use case is larger, more geographically dispersed, more complex, and has many more assets in the digital estate. See the details below for more information.
+> For readers that are familiar with the [Governance Design Guide for Future Proof](../future-proof/design-guide.md), this design guide is based on some subtle changes to the use case. The company in this use case is larger, more geographically dispersed, more complex, and has many more assets in the digital estate. See the details below for more information.
 
 ### Relevant Business Characteristics
 

@@ -24,7 +24,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/future-proof.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./future-proof/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -43,7 +43,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/protected-data.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./protected-data/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -62,7 +62,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-mvp.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./enterprise-mvp/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -81,7 +81,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-scale.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./enterprise-scale/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -100,7 +100,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-enforcement.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./enterprise-enforcement/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -119,7 +119,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/multi-cloud.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./multi-cloud/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -141,7 +141,7 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
 
 ## Next steps
 
-[Future Proofing](./future-proof.md) is a suggested pre-cursor to cloud governance. Ensuring deployments have a consistent set of deployment standards will reduce friction when implementing more advance governance.
+[Future Proofing](./future-proof/design-guide.md) is a suggested pre-cursor to cloud governance. Ensuring deployments have a consistent set of deployment standards will reduce friction when implementing more advance governance.
 
 > [!div class="nextstepaction"]
-> [Align deployments to a stable foundation](./future-proof.md)
+> [Align deployments to a stable foundation](./future-proof/design-guide.md)

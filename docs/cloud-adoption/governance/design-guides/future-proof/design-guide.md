@@ -35,7 +35,7 @@ Mitigating these risks early in the process will future proof deployments, easin
 
 ### Subscription Model
 
-[Subscription Model Decision](../../../infrastructure/subscriptions/overview): The **Archetype** pattern has been chosen for Azure subscriptions. Learn more about this pattern and alternatives considered in the [Decision Guide for Subscription Models](../../../infrastructure/subscriptions/overview.md)
+[Subscription Model Decision](../../../infrastructure/subscriptions/overview.md): The **Archetype** pattern has been chosen for Azure subscriptions. Learn more about this pattern and alternatives considered in the [Decision Guide for Subscription Models](../../../infrastructure/subscriptions/overview.md)
 
 * Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's very likely that this level of adoption is being managed by a single "Pay as you go" Azure subscription.
 * Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
@@ -87,7 +87,7 @@ Mitigating these risks early in the process will future proof deployments, easin
 
 ### Log & Reporting
 
-[Log & Reporting Decision](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Cloud Native** pattern to log and reporting is suggested but not required of any development team. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/log-and-reporting/overview.md)
+[Log & Reporting Decision](../../../infrastructure/logs-and-reporting/overview.md): At this point, a **Cloud Native** pattern to log and reporting is suggested but not required of any development team. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/logs-and-reporting/overview.md)
 
 * No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
 * Additional analysis will be required prior to the release of any protected data or mission critical workloads.
@@ -106,7 +106,7 @@ Mitigating these risks early in the process will future proof deployments, easin
 
 There are a number of assumptions and considerations embedded in this opinionated guidance. Each should be considered before. The following list outlines data points and tasks that generally don't fall into the domain of the Cloud Governance Team. While members of this team may have those skills, it is unlikely the team will be empowered to execute the following without additional team member support.
 
-* Use Case Assumption: The use case in this design guide is built on the assumption that this implementation serves a single business unit (or billing unit). The use case also assumes that the business unit serves customers in a single geo-political region. It is also assumed that there are no known future state plans to integrate other business units or geographies. These are not data points that the Cloud Governance Team is likely to be able to determine in isolation. There is likely a dependency on IT and business leadership. If these assumptions prove false, the team should consider the [Enterprise MVP Governance Design Guide](../enterprise-mvp/design-guide.mvp) as a potential starting point for governance implementation. While the implementation differences between the two are subtle, they can have a big impact later in the process.
+* Use Case Assumption: The use case in this design guide is built on the assumption that this implementation serves a single business unit (or billing unit). The use case also assumes that the business unit serves customers in a single geo-political region. It is also assumed that there are no known future state plans to integrate other business units or geographies. These are not data points that the Cloud Governance Team is likely to be able to determine in isolation. There is likely a dependency on IT and business leadership. If these assumptions prove false, the team should consider the [Enterprise MVP Governance Design Guide](../enterprise-mvp/design-guide.md) as a potential starting point for governance implementation. While the implementation differences between the two are subtle, they can have a big impact later in the process.
 * Identity Assumption: It is assumed that the identity team has already configured an Identity integration with Azure AD that meets current IT governance policies. If that assumption is false, there is a dependency on system administrators with identity experience to configure that integration.
 * Network Assumption: It is assumed that the networking team has implemented an Azure compatible VPN solution that confirms to existing IT governance policies. If that assumption is false, there is a dependency on system administrators and potential the Cloud Adoption Team(s).
 

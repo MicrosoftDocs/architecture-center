@@ -9,13 +9,13 @@ ms.topic: landing-page
 
 # Fusion: Security Management discipline
 
-Security Management is one of the [Five Disciplines of Cloud Governance](../disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for your cloud governance team.
+Security Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for your cloud governance team.
 
 This section of the Fusion guidance outlines the approach to developing a security management discipline as part of your cloud governance strategy.  
 
 ## Policy statements
 
-Actionable policy statements and the resulting architecture requirements serve as the foundation of a security management discipline. To see policy statement samples, see the article on [Security Management Policy Statements](./policy-statements). These samples can serve as a starting point for your organization's governance policies.
+Actionable policy statements and the resulting architecture requirements serve as the foundation of a security management discipline. To see policy statement samples, see the article on [Security Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
 
 > [!CAUTION]
 > The sample policies come from common customer experiences. To better align these policies to specific cloud governance needs, execute the following steps to create policy statements that meet your unique business needs.
@@ -82,7 +82,7 @@ The following six steps will help you define governance policies to control cost
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./monitor-enforce.md">
+    <a href="./processes.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -92,8 +92,8 @@ The following six steps will help you define governance policies to control cost
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
-                        <h3>Monitor and Enforce</h3>
-                        <p class="x-hidden-focus">A suggested process for managing and enforcing the Security Management discipline.</p>
+                        <h3>Policy adherence processes</h3>
+                        <p class="x-hidden-focus">Suggested processes for supporting policy compliance in the Security Management discipline.</p>
                     </div>
                 </div>
             </div>

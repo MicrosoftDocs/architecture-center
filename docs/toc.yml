@@ -653,8 +653,8 @@
             href: cloud-adoption/governance/policy-compliance/define-policy.md
           - name: Align architecture design guides
             href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
-          - name: Monitor and enforce policy adherence
-            href: cloud-adoption/governance/policy-compliance/monitor-enforce.md
+          - name: Develop policy adherence processes
+            href: cloud-adoption/governance/policy-compliance/processes.md
           - name: What is Regulatory Compliance?
             href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
           - name: What is a Cloud Policy Review?
@@ -675,8 +675,8 @@
             href: cloud-adoption/governance/cost-management/metrics-tolerance.md
           - name: Customize Sample Policy Statements
             href: cloud-adoption/governance/cost-management/policy-statements.md
-          - name: Monitor and enforce policy
-            href: cloud-adoption/governance/cost-management/monitor-enforce.md
+          - name: Develop policy compliance processes
+            href: cloud-adoption/governance/cost-management/processes.md
           - name: Develop a Maturity Roadmap
             href: cloud-adoption/governance/cost-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
@@ -693,8 +693,8 @@
             href: cloud-adoption/governance/security-management/metrics-tolerance.md
           - name: Customize Sample Policy Statements
             href: cloud-adoption/governance/security-management/policy-statements.md
-          - name: Monitor and enforce policy
-            href: cloud-adoption/governance/security-management/monitor-enforce.md
+          - name: Develop policy compliance processes
+            href: cloud-adoption/governance/security-management/processes.md
           - name: Develop a Maturity Roadmap
             href: cloud-adoption/governance/security-management/maturity-adoption-alignment.md
           - name: Sample Policy - Cloud Native Solution
@@ -705,10 +705,20 @@
             href: cloud-adoption/governance/security-management/toolchain.md        
       - name: Identity Management
         items:
-          - name: Overview
+          - name: Adopting an Identity Management Discipline
             href: cloud-adoption/governance/identity-management/overview.md
+          - name: Download the Template
+            href: cloud-adoption/governance/identity-management/template.md
           - name: Understand business risks
             href: cloud-adoption/governance/identity-management/business-risks.md
+          - name: Document metrics and tolerance indicators
+            href: cloud-adoption/governance/identity-management/metrics-tolerance.md
+          - name: Customize Sample Policy Statements
+            href: cloud-adoption/governance/identity-management/policy-statements.md
+          - name: Develop policy compliance processes
+            href: cloud-adoption/governance/identity-management/processes.md
+          - name: Develop a Maturity Roadmap
+            href: cloud-adoption/governance/identity-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/identity-management/toolchain.md
       - name: Resource Management
