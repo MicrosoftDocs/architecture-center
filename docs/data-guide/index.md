@@ -4,7 +4,7 @@ description:
 author: zoinerTejada
 ms.date: 02/12/2018
 layout: LandingPage
-ms.topic: landing-page, guide
+ms.topic: landing-page
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
