@@ -15,7 +15,7 @@ The following policy statements provide examples of how to mitigate specific bus
 
 **Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future cost management efforts will be effective.
 
-**Design guidance:** For guidance on establishing a future proofed foundation, see the [design guide for Cloud Native deployments](../design-guides/future-proof.md).
+**Design guidance:** For guidance on establishing a future proofed foundation, see the [design guide for Cloud Native deployments](../design-guides/future-proof/design-guide.md).
 
 ## Budget overruns
 
