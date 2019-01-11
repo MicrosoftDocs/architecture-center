@@ -24,11 +24,11 @@ The importance of the identity management discipline to your cloud deployment wi
 
 The identity management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-* Identity management: Large teams can be difficult to manage if organizational policies are not applied to access control. This can result in oversight or errors in securing resources.
-* Access control: Users and groups with control over resources beyond their area of responsibility can, through accident or malicious intent, cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
-* User authentication: Account credentials lacking a strong authentication method can lead to compromised user accounts, allowing unauthorized access to secure resources.
-* User activity and auditing: Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
-* Isolated providers: Traditional on-premises identity services are single-tenant and introduce management overhead.
+- **Identity management**. Large teams can be difficult to manage if organizational policies are not applied to access control. This can result in oversight or errors in securing resources.
+- **Access control**. Users and groups with control over resources beyond their area of responsibility can, through accident or malicious intent, cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
+- **User authentication**: Account credentials lacking a strong authentication method can lead to compromised user accounts, allowing unauthorized access to secure resources.
+- **User activity and auditing**. Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
+- **Isolated providers**. Traditional on-premises identity services are single-tenant and introduce management overhead.
 
 ## Next steps
 

@@ -26,10 +26,10 @@ The security management discipline discussed in this section of the Fusion guida
 
 The security management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-* Data classification: Failure to properly classify cloud-hosted data as sensitive can lead to inadvertent exposure of confidential data or important corporate intellectual property. This can also lead to violations of regulatory requirements.
-* Network isolation: Not properly securing cloud-based virtual networks can lead to unauthorized access to cloud hosted resources such as virtual machines (VMs) or data sources.
-* External attacks: Coordinated attempts to disrupt your cloud-hosted services, such as Distributed Denial of Service (DDoS) attacks, can disrupt or disable workloads hosted in the cloud.
-* Malware: Virtual machines connected to your cloud networks that are running unpatched or out-of-date software can be vulnerable  to malware that could compromise these systems and grant malicious external access to your systems and data. 
+- **Data classification**. Failure to properly classify cloud-hosted data as sensitive can lead to inadvertent exposure of confidential data or important corporate intellectual property. This can also lead to violations of regulatory requirements.
+- **Network isolation**. Not properly securing cloud-based virtual networks can lead to unauthorized access to cloud hosted resources such as virtual machines (VMs) or data sources.
+- **External attacks** Coordinated attempts to disrupt your cloud-hosted services, such as Distributed Denial of Service (DDoS) attacks, can disrupt or disable workloads hosted in the cloud.
+- **Malware**. Virtual machines connected to your cloud networks that are running unpatched or out-of-date software can be vulnerable  to malware that could compromise these systems and grant malicious external access to your systems and data. 
 
 ## Next steps
 
