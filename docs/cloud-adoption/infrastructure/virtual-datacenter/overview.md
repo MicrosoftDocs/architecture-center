@@ -33,7 +33,7 @@ Assumptions about the Virtual Datacenter model include:
 - Your cloud estate will contain large number of assets and may exceed the [single subscription resource limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits), or your subscription design segments workloads into separate subscriptions based on security or accounting requirements. If your deployments can exist within a single subscription a VDC structure, this is likely unnecessary.
 - You need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
 - The data stored on your cloud deployment is sensitive and needs to be secured using [encryption](../encryption/overview.md), in transit and at rest. Public data does not benefit from encryption.
-- Your on-premises identity services can be [federated with Azure Active Directory](../identity/overview.md#federation-vdc).
+- Your on-premises identity services can be [federated with Azure Active Directory](../identity/overview.md#federation-vdc ).
 - Your workloads will be compatible with cloud-based authentication methods such as security assertion markup language (SAML) and oAuth 2.0/OpenID connect. Legacy authentication methods like Kerberos or NT Lan Manager (NTLM) are not incorporated in this model by default,  and therefore need to be provisioned separately. 
 
 ## Fusion framework infrastructure
