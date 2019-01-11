@@ -5,9 +5,9 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Security management policy adherence processes
+# Fusion: Security management policy processes
 
-This article discusses an approach to monitoring and enforcing policies that govern [security management](./overview.md). Effective governance of cloud costs starts with recurring processes. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
+This article discusses an approach to policy adherence processes that govern [security management](./overview.md). Effective governance of cloud security starts with recurring manually processes designed to detect vulnerabilities and impose policies to mitigate those security risks. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
 ## Planning and reporting processes
 

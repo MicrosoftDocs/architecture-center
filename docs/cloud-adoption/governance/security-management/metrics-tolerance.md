@@ -9,7 +9,7 @@ ms.date: 1/3/2019
 
 This article is intended to help you quantify business risk tolerance as it relates to security management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Security Management discipline.
 
-## Metrics and vulnerability information
+## Metrics and environment information
 
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
 

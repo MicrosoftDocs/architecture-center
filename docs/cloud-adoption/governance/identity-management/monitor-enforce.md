@@ -5,9 +5,9 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Identity management policy adherence processes
+# Fusion: Identity management policy processes
 
-This article discusses an approach to monitoring and enforcing policies that govern [identity management](./overview.md). Effective governance of cloud costs starts with recurring processes. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
+This article discusses an approach to policy adherence processes that govern [identity management](./overview.md). Effective governance of identity starts with recurring manual processes that guide identity policy adoption and revisions. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
 
 ## Planning and reporting processes
 

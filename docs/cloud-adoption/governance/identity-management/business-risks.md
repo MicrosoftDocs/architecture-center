@@ -11,7 +11,7 @@ This article discusses the reasons that customers typically adopt an identity ma
 
 ## Is identity management relevant?
 
-Identity can be considered the primary perimeter for security in the cloud. This is a shift from the traditional
+Identity is increasingly considered the primary perimeter for security in the cloud. This is a shift from the traditional
 focus on network security. Identity services provide the core access control mechanism of all IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing user authentication and securing user access to cloud-based resources.
 
 Traditional on-premises directories are designed to allow businesses to strictly control permissions and policies for users, groups, and roles within their internal networks and datacenters. This is usually intended to support single tenant implementations, with services applicable only within the on-premises environment.
@@ -28,7 +28,7 @@ The identity management discipline attempts to address the following business ri
 * Access control: Users and groups with control over resources beyond their area of responsibility can, through accident or malicious intent, cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
 * User authentication: Account credentials lacking a strong authentication method can lead to compromised user accounts, allowing unauthorized access to secure resources.
 * User activity and auditing: Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
-
+* Isolated providers: Traditional on-premises identity services are single-tenant and introduce management overhead.
 
 ## Next steps
 
