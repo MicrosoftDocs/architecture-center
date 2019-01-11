@@ -80,7 +80,7 @@ The following six steps will help you define governance policies to control cost
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./monitor-enforce.md">
+    <a href="./processes.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -90,8 +90,8 @@ The following six steps will help you define governance policies to control cost
                         </div>
                     </div>
                     <div class="cardText" style="padding-left:0px;">
-                        <h3>Monitor and Enforce</h3>
-                        <p class="x-hidden-focus">A suggested process for managing and enforcing the Cost Management discipline.</p>
+                        <h3>Policy adherence processes</h3>
+                        <p class="x-hidden-focus">Suggested processes for supporting policy compliance in the Cost Management discipline.</p>
                     </div>
                 </div>
             </div>
