@@ -1,28 +1,32 @@
 # Building an enterprise grade conversational bot
 
-This reference architecture describes how to build an enterprise grade conversational bot using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies of which you should have a good understanding before you dive in. Especially for a bot to serve enterprise grade workloads, there are many design considerations beyond just the core functionality. This article attempts to cover the most essential bot design aspects, introducing you to the tools needed to build a robust, secure and actively learning bot.
+This reference architecture describes how to build an enterprise grade conversational bot using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of before you dive in. Especially for a bot to serve enterprise-grade workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
 ![Diagram of the architecture](./_images/conversational-bot.png)
 
 ## Architecture
 
-At a high level, a conversational bot can be divided into the bot functionality (the "brain") and a set of surrounding requirements (the "body"). The brain includes the domain-aware components, including the bot logic and ML capabilities. The other components are domain agnostic and address non-functional requirements such as CI/CD, quality assurance, and security.
+At a high level, a conversational bot can be divided into the bot functionality (the "brain") and a set of surrounding requirements (the "body"). The brain includes the domain-aware components, including the bot logic and ML capabilities. Other components are domain agnostic and address non-functional requirements such as CI/CD, quality assurance, and security.
 
 ![Logical diagram of bot functionality](./_images/conversational-bot-logical.png)
 
 Let's start by looking at a reference architecture for a production-ready enterprise bot by exploring user and system data flow and services used in each subcomponent of the design. The services shown below are indicative of those used by most bots, but you may end up using more or needing services to suit the needs of each of the solution sub-components shown in the diagram below. In a following section we will have a more extensive list of the data and AI services that can be brought to bear.
 
-## User Message Flow
+Before getting into the specifics of this architecture, let's start with the data flow through each subcomponent of the design. The data flow includes user-initiated and system-initiated data flows.
 
-The users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app using [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) as your channel or interface to the end user. The user's identity will later be used to provide role-based access control, as well as to serve personalized content to the user. The KeyVault is used by the bot to store and look up secrets such as needed to access other Azure services.
+### User message flow
 
-Once authenticated, the user sends a message to the bot. The bot reads the user's message and routes it to a natural language understanding service such as [LUIS](/services/cognitive-services/language-understanding-intelligent-service/) to get an understanding of the intents (what does the user want to do) and entities (what are the things the user is interested in) from the message. It then passes these intents and entities to another service that serves information, such as AzureSearch for document retrieval or [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base to find the best match for a response.
+**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communciation channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel.
 
-At this point, the bot has determined the best response and sends it to the user. Note that if the confidence score of the best matched answer is very low, the bot response might be a disambiguation question or even an acknowledgement that it could not reply adequately.
+**Authorization**. The user's identity is used to provide role-based access control, as well as to serve personalized content to the user.
 
-At the time the user request is received and the time the response is sent, all conversation actions (as well as performance metrics and general errors from externally called services) should be logged to a logging store, such as AppInsights, CosmosDB, or Azure Storage. These logs will be useful later when diagnosing issues and improving the system. The bot developers can take advantage of the convenience [log utilities](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code to standardize and jump start this effort.
+**User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in) from the message. The bot passes these intents and entities to another service that serves information, such as AzureSearch for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base to find the best match for a response.
 
-Another good practice, at least in the early rollout stages of the bot, is to enable the bot to collect user feedback and satisfaction scores. The feedback proves useful in eliminating the cold start problem of natural language understanding of the bot and continually improving the system (bot) accuracy. Therefore, a follow up of a final response from the bot, the bot should ask the user to rate his or her satisfaction with the reply. This can be easily implemented using a [feedback collection utility](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code.
+**Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or even acknowledgement that the bot could not reply adequately.
+
+**Logging**. When a user request is received or a response is sent, all conversation actions should be logged to a logging store, along with performance metrics and general errors from externally called services. These logs will be useful later when diagnosing issues and improving the system. The bot developers can take advantage of the convenience [log utilities](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code to standardize and jump start this effort.
+
+**Feedback**. Another good practice, at least in the early rollout stages of the bot, is to enable the bot to collect user feedback and satisfaction scores. The feedback proves useful in eliminating the cold start problem of natural language understanding of the bot and continually improving the system (bot) accuracy. As a follow up to the bot's final response, the bot should ask the user to rate his or her satisfaction with the reply. This can be easily implemented using a [feedback collection utility](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code.
 
 ### System Data Flow
 
@@ -34,20 +38,35 @@ The conversation logs captured by the bot as part of user interactions (anonymiz
 
 Bot functionality is tested using a suite of tests collected from the bot using a convenience utility called the [Bot Middleware Testing Package](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) available as open source code. This package records all responses from external HTTP services, such as Azure Search, QnA Maker, etc. so that they can be played back during unit testing without needing to make real network calls to external services.
 
-### Services Used
+## Services used
+
+### Bot cognition and intelligence
 
 - Language Understanding (LUIS) - Enables your bot to understand natural language by identifying user intents and entities.
 - Azure Search – Provides a quick searchable document index.
 - QnA Maker - Add a knowledge base to answer questions users ask using natural language. Typically loaded with semi-structured content such as FAQs.
+
+### Logging
+
 - Azure Blob Storage – Optimized for storing massive amounts of unstructured data.
 - Cosmos DB – Scalable "schema on demand" document store.
+- AppInsights – Used to log web application metrics for monitoring, diagnostic, and analytical purposes.
+
+### Data ETL
+
 - Azure Data Factory (ADF) – Scheduled orchestration service for managing ETL pipelines.
 - Azure Functions - Serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure.
 - Logic Apps – Provides data connectors across numerous apps, including Office 365.
-- AppInsights – Used to log web application metrics for monitoring, diagnostic, and analytical purposes.
+
+### Monitoring and reporting
+
 - PowerBI (PBI) – Used to create visually appealing dashboards for data exploration and analysis.
+
+## Security and governance
+
 - Azure Active Directory (AAD) – User identity platform used across a wide array of services.
 - KeyVault - Secure key management service for storing and managing keys and secrets.
+
 - Azure DevOps - Project development service supporting source control, continuous build/test integration and deployment (CICD), and project planning and management.
 - Azure WebApp - Web application hosting service supporting auto scaling, load balancing, high availability, and continuous deployment from GitHub and Azure DevOps. Used in this architecture to host the Bot application and logic.
 
