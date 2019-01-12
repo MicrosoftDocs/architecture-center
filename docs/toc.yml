@@ -798,6 +798,8 @@
         href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
       - name: VDC Reporting and Monitoring
         href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
+  - name: Infrastructure
+    items:
     - name: Virtual Machines
       items:
         - name: Deploy a basic workload
@@ -812,10 +814,8 @@
           href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
         - name: Application strategies
           href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-    - name: Alternative Models
-      items:
-      - name: Azure Virtual Datacenter (VDC)
-        href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
+    - name: Azure Virtual Datacenter (VDC)
+      href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
