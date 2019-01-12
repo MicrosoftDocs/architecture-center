@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Build a dev/test environment for SAP workloads.
 author: AndrewDibbins
 ms.date: 07/11/2018
-ms.custom: fasttrack
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: fasttrack, SAP
 ---
 
 # Dev/test environments for SAP workloads on Azure

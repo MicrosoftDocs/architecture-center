@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Use Azure API Management to modernize a legacy web application.
 author: begim
 ms.date: 09/13/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom: fasttrack
 ---
 
