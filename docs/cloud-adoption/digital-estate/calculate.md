@@ -4,7 +4,7 @@ titleSuffix: Enterprise Cloud Adoption
 description: Align cost models with the digital estate to forecast cloud costs
 author: BrianBlanchard
 ms.date: 12/10/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---

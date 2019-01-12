@@ -4,7 +4,7 @@ description: Provides examples of how to implement Azure subscription governance
 author: rdendtler
 ms.date: 01/03/2017
 ms.author: rodend
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---

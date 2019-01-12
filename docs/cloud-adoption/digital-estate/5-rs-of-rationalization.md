@@ -4,7 +4,7 @@ titleSuffix: Enterprise Cloud Adoption
 description: Describes the options that are available when rationalizing a digital estate
 author: BrianBlanchard
 ms.date: 12/10/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---

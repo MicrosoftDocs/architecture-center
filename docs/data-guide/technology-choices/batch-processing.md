@@ -3,7 +3,7 @@ title: Choosing a batch processing technology
 description: 
 author: zoinerTejada
 ms.date: 11/03/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---

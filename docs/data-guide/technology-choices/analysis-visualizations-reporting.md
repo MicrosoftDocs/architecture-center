@@ -3,7 +3,7 @@ title: Choosing a data analytics and reporting technology
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ms.custom: data-analytics

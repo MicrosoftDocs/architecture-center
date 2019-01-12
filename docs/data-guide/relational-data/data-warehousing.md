@@ -3,7 +3,7 @@ title: Data warehousing and data marts
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---

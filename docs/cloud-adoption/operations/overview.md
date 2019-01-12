@@ -3,7 +3,7 @@ title: "Enterprise Cloud Adoption: Operations overview"
 description: Overview of operations content for Azure enterprise cloud adoption
 author: petertaylor9999
 ms.date: 09/20/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---

@@ -3,7 +3,7 @@ title: "Enterprise cloud adoption: deploy a basic workload"
 description: Describes how to deploy a basic workload to Azure
 author: petertaylor9999
 ms.date: 09/10/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: Windows, Linux

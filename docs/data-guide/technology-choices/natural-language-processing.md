@@ -3,7 +3,7 @@ title: Choosing a natural language processing technology
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
-ms.topic: article
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
 ---
