@@ -15,5 +15,7 @@ OS security configurations https://docs.microsoft.com/en-us/azure/security-cente
 Management Group level configuration https://docs.microsoft.com/en-us/azure/security-center/security-center-management-groups
 ****** Multi-Cloud Monitor security across on-premises and cloud workloads
 
+Backup policy https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy
+
 Azure dashboards
 Azure Monitor Enable two or more Azure VMs by using Azure Policy. Through this method, the required dependencies of existing and new VMs are installed and properly configured. Non-compliant VMs are reported, so you can decide whether to enable them and how you want to remediate them.
