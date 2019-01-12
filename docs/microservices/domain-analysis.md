@@ -3,6 +3,10 @@ title: Domain analysis for microservices
 description: Domain analysis for microservices.
 author: MikeWasson
 ms.date: 10/23/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
 ---
 
 # Designing microservices: Domain analysis

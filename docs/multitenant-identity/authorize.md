@@ -3,7 +3,9 @@ title: Authorization in multitenant applications
 description: How to perform authorization in a multitenant application.
 author: MikeWasson
 ms.date: 07/21/2017
-
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: app-roles
 pnp.series.next: web-api

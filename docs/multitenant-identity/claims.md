@@ -3,7 +3,9 @@ title: Work with claim-based identities in multitenant applications
 description: How a use claims for issuer validation and authorization.
 author: MikeWasson
 ms.date: 07/21/2017
-
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authenticate
 pnp.series.next: signup
