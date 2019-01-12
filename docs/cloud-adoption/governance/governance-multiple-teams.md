@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: Governance design in Azure for multiple teams
 description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments
 author: petertaylor9999
 ms.date: 09/10/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Governance design for multiple teams

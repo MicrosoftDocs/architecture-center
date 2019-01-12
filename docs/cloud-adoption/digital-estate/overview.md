@@ -4,6 +4,9 @@ titleSuffix: Enterprise Cloud Adoption
 description: Explanation of the concept a digital estate
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: What is a digital estate?

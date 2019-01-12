@@ -4,6 +4,9 @@ titleSuffix: Enterprise Cloud Adoption
 description: Things to consider when building a business justification for cloud migration
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Building a cloud migration business case

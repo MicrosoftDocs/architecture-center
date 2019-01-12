@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: Operational Fundamentals"
 description: Guidance on operational fundamentals
 author: petertaylor9999
 ms.date: 09/20/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Establishing an operational fitness review

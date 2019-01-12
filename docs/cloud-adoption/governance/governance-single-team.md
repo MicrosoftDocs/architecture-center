@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: Governance design for a simple workload"
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertaylor9999
 ms.date: 09/10/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Governance design for a simple workload

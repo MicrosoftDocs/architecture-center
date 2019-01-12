@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: Resource access management in Azure"
 description: "Explanation of resource access management constructs in Azure: Azure resource manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
 ms.date: 09/10/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Resource access management in Azure
