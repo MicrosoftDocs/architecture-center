@@ -43,17 +43,17 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./protected-data/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./production-workload/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/protected-data.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/production-workload.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Protected Data</h3>
+                        <h3>Production Workload</h3>
                         <p>Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
                     </div>
                 </div>

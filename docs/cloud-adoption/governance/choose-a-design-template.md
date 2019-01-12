@@ -20,7 +20,7 @@ Before implementation of any of the following, you may want to come back & read 
 |Template  |Audience  |Adoption Indicators  |Investment Indicators  |
 |---------|---------|---------|---------|
 |Future Proof     |Medium size business or business units in a large enterprise         |Early stage         |Not ready to invest         |
-|Protected Data     |Medium size business or business units in a large enterprise         |Production with protected data or mission critical apps         |Need to protect customers and business processes         |
+|Production Workload     |Medium size business or business units in a large enterprise         |Production with protected data or mission critical apps         |Need to protect customers and business processes         |
 |Enterprise MVP     |Enterprise         |Early stage         |Not ready to invest         |
 |Enterprise @ Scale     |Enterprise         |Higher volume of deployments         |         |
 |Enterprise Guard Rails     |Enterprise         |High volume, protected data, & mission critical apps         |Need to protect customers and business processes         |

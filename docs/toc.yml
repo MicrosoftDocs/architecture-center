@@ -605,14 +605,14 @@
           href: cloud-adoption/governance/design-guides/future-proof/corporate-policy.md
         - name: Use Case
           href: cloud-adoption/governance/design-guides/future-proof/use-case.md
-      - name: Protected Data
+      - name: Production Workloads
         items:
         - name: XXXX - Governance Design Templates
-          href: cloud-adoption/governance/design-guides/protected-data/design-guide.md
+          href: cloud-adoption/governance/design-guides/production-workload/design-guide.md
         - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/protected-data/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/production-workload/corporate-policy.md
         - name: XXXX - Use Case
-          href: cloud-adoption/governance/design-guides/protected-data/use-case.md
+          href: cloud-adoption/governance/design-guides/production-workload/use-case.md
       - name: Enterprise MVP
         items:
         - name: Governance Design Templates
