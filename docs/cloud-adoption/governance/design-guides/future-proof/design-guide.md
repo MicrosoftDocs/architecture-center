@@ -34,24 +34,24 @@ The following outlines the implementation choices included in this design guide.
 
 This short checklist provides a quick reference of the steps required to implement this design guide. Additional implementation details are provided in the following sections. At the end of this document, a section with alternative patterns is available to help refine these decisions.
 
--[X] Validate alignment with the [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) that determined the following decisions
--[] Subscription model: The **Archetype** pattern for subscription modeling has been suggested for this use case
--[] Resource Grouping: The **Deployment Grouping** pattern has been chosen for grouping resources
--[] Resource Tagging: The **Classification** pattern best aligns with defined corporate policy statements
--[] Identity: The **Replication** pattern is suggested for the proper level of hybrid identity
--[] Software Defined Network: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to networking
--[] Encryption: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to encryption
--[] Log & Reporting: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to logging
--[] Enforcement Automation: **Simple Enforcement** is the most appropriate pattern for policy enforcement at this time
+1) Validate alignment with the [Use Case](./use-case.md) and [Corporate Policy](./corporate-policy.md) that determined the following decisions
+2) Subscription model: The **Archetype** pattern for subscription modeling has been suggested for this use case
+3) Resource Grouping: The **Deployment Grouping** pattern has been chosen for grouping resources
+4) Resource Tagging: The **Classification** pattern best aligns with defined corporate policy statements
+5) Identity: The **Replication** pattern is suggested for the proper level of hybrid identity
+6) Software Defined Network: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to networking
+7) Encryption: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to encryption
+8) Log & Reporting: Limited governance investment and loose technical requirements would suggest a **Cloud Native** pattern to logging
+9) Enforcement Automation: **Simple Enforcement** is the most appropriate pattern for policy enforcement at this time
 
 ### Assumptions to validate
 
 The above checklist assumes the following. Should these assumptions prove false, see the section on [Assumptions and Additional Considerations](#assumptions-and-additional-considerations) at the end of this article for more details on each.
 
--[] Business Characteristics: This business operates in one country. No plans or requirements to distribute billing across multiple business units have been identified.
--[] Data Classification and Criticality: This environment is not expected to host protected data or missions critical applications
--[] Identity Assumption: Active Directory is already synchronized with Azure Active Directory. If not, this effort is supported by a parallel identity team.
--[] Network Assumption: An Azure compatible VPN will be available for use if needed. If not, this effort is supported by a parallel networking team.
+* Business Characteristics: This business operates in one country. No plans or requirements to distribute billing across multiple business units have been identified.
+* Data Classification and Criticality: This environment is not expected to host protected data or missions critical applications
+* Identity Assumption: Active Directory is already synchronized with Azure Active Directory. If not, this effort is supported by a parallel identity team.
+* Network Assumption: An Azure compatible VPN will be available for use if needed. If not, this effort is supported by a parallel networking team.
 
 The assumptions above can not generally be addressed by a Cloud Governance Team in isolation. Before implementing the design guide, review and prepare for each of these assumptions.
 
@@ -135,14 +135,14 @@ At this point, the **Simple Enforcement** pattern to enforcement is required.
 
 If any of the patterns selected in this design guide don't align to the reader's requirements, alternatives to each pattern is available in the list of links below.
 
--[] Subscription model: Alternatives to the **Archetype** pattern are available [here](../../../infrastructure/subscriptions/overview.md)
--[] Resource Grouping: Alternatives to the **Deployment Grouping** pattern are available [here](../../../infrastructure/resource-grouping/overview.md)
--[] Resource Tagging: Alternatives to the **Classification** pattern are available [here](../../../infrastructure/resource-tagging/overview.md)
--[] Identity: Alternatives to the **Replication** pattern are available [here](../../../infrastructure/identity/overview.md)
--[] Software Defined Network: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/software-defined-networks/overview.md)
--[] Encryption: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/encryption/overview.md)
--[] Log & Reporting: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/logs-and-reporting/overview.md)
--[] Enforcement Automation: Alternatives to the **Simple Enforcement** pattern are available [here](../../../infrastructure/policy-enforcement/overview.md)
+* Subscription model: Alternatives to the **Archetype** pattern are available [here](../../../infrastructure/subscriptions/overview.md)
+* Resource Grouping: Alternatives to the **Deployment Grouping** pattern are available [here](../../../infrastructure/resource-grouping/overview.md)
+* Resource Tagging: Alternatives to the **Classification** pattern are available [here](../../../infrastructure/resource-tagging/overview.md)
+* Identity: Alternatives to the **Replication** pattern are available [here](../../../infrastructure/identity/overview.md)
+* Software Defined Network: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/software-defined-networks/overview.md)
+* Encryption: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/encryption/overview.md)
+* Log & Reporting: Alternatives to the **Cloud Native** pattern are available [here](../../../infrastructure/logs-and-reporting/overview.md)
+* Enforcement Automation: Alternatives to the **Simple Enforcement** pattern are available [here](../../../infrastructure/policy-enforcement/overview.md)
 
 ## Assumptions and Additional Considerations
 

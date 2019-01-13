@@ -597,6 +597,8 @@
       href: cloud-adoption/governance/take-action.md
     - name: Azure Design Templates
       items:
+      - name: Overview
+        href: cloud-adoption/governance/design-guides/overview.md
       - name: Future Proof
         items:
         - name: Governance Design Templates
