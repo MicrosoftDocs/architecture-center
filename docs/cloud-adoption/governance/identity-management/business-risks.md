@@ -11,24 +11,23 @@ This article discusses the reasons that customers typically adopt an identity ma
 
 ## Is identity management relevant?
 
-Identity is increasingly considered the primary perimeter for security in the cloud. This is a shift from the traditional
-focus on network security. Identity services provide the core access control mechanism of all IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing user authentication and securing user access to cloud-based resources.
+Identity is increasingly considered the primary security perimeter in the cloud. This is a shift from the traditional
+focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing user authentication and securing user access to cloud-based resources.
 
 Traditional on-premises directories are designed to allow businesses to strictly control permissions and policies for users, groups, and roles within their internal networks and datacenters. This is usually intended to support single tenant implementations, with services applicable only within the on-premises environment.
 
-Cloud identity services are intended to expand an organization's authentication and access control capabilities to the internet. They support multi-tenancy and can be used to manage users and access policy across cloud applications and deployments. Public cloud platforms have some form of cloud-native identity services supporting management and deployment tasks and are capable of [varying levels of integration](../../infrastructure/identity/overview.md) with your existing on-premises identity solutions. All of these features can result in cloud identity policy being more complicated than your traditional on-premises solutions required. 
+Cloud identity services are intended to expand an organization's authentication and access control capabilities to the internet. They support multi-tenancy and can be used to manage users and access policy across cloud applications and deployments. Public cloud platforms have some form of cloud-native identity services supporting management and deployment tasks and are capable of [varying levels of integration](../../infrastructure/identity/overview.md) with your existing on-premises identity solutions. All of these features can result in cloud identity policy being more complicated than your traditional on-premises solutions require. 
 
-The importance of the identity management discipline to your cloud deployment will depend on the size of your team and your need to integrate your cloud-based identity solution with an existing on-premises directory. Initial test deployments may not require much in the way of user organization or management, but as your cloud estate matures, you will likely need to support more complicated organization support. 
+The importance of the identity management discipline to your cloud deployment will depend on the size of your team and need to integrate your cloud-based identity solution with an existing on-premises identity service. Initial test deployments may not require much in the way of user organization or management, but as your cloud estate matures, you will likely need to support more complicated organizational integration and centralized management.
 
 ## Business risk
 
 The identity management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-- **Identity management**. Large teams can be difficult to manage if organizational policies are not applied to access control. This can result in oversight or errors in securing resources.
-- **Access control**. Users and groups with control over resources beyond their area of responsibility can, through accident or malicious intent, cause major disruptions to your cloud hosted resources and potentially lead to data security breaches.
-- **User authentication**: Account credentials lacking a strong authentication method can lead to compromised user accounts, allowing unauthorized access to secure resources.
-- **User activity and auditing**. Organizations that don’t actively monitor their identity systems are at risk of having user credentials compromised. Without knowledge that suspicious activities are taking place through these credentials, organizations can’t mitigate this type of threat.
-- **Isolated providers**. Traditional on-premises identity services are single-tenant and introduce management overhead.
+- **Unauthorized access**. Sensitive data and resources that can be accessed by unauthorized users can lead to data leaks or service disruptions, violating your organization's security perimeter and risking business or legal liabilities.
+- **Multiple identity solutions**. Organizations with multiple identity services tenants can lead to multiple accounts for users. This can lead to inefficiency for users who need to remember multiple sets of credentials and for IT in managing accounts across multiple systems.
+- **Inability to share resources with external partners**. Difficulty adding external business partners to your existing identity solutions can prevent efficient resource sharing and business communication.
+- **Difficulty reflecting business change**. If user access assignments are not updated as staff, teams, and business goals change, your cloud resources may be vulnerable to unauthorized access or users unable to access required resources. 
 
 ## Next steps
 
