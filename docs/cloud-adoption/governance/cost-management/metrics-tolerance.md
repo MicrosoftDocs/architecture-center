@@ -17,6 +17,8 @@ Cost management generally focuses on metrics related to costs. The following are
 - Monthly spend: The total monthly cost for services provided by a cloud provider
 - Forecast vs actual ratio: The ratio comparing forecasted and actual spend (monthly or annual)
 - Pace of adoption (MOM) ratio: The percentage of the delta in cloud costs from month to month
+- Accumulated cost: Total accrued daily spending, starting from the beginning of the month
+- Spending trends: Spending trend against the budget
 
 ## Risk tolerance indicators
 

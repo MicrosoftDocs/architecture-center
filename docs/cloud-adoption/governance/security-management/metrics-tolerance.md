@@ -19,6 +19,17 @@ Security management generally focuses on identifying potential vulnerabilities i
 - **Malware protection**. Percentage of deployed virtual machines(VMs) that have all required anti-malware, firewall, or other security software installed.
 - **Patch latency**. How long has it been since VMs have had OS and software patches applied.
 
+Metrics to think about from Security Center:
+
+* Covered Standards - Number of security standards defined by the Security team
+* Overall Compliance - Ratio of compliance adherence to security standards
+* Covered Resources - Deployed assets that are covered by the standards
+* Recommendations by Severity - Number of recommendations to resolve health standards for deployed assets by severity
+* Attacks by Severity - Number of attacks on deployed assets by severity of attack alert
+* Number of Protected Data Stores - Number of storage end points or databases that should be encrypted
+* Number of Un-encrypted Data Stores - Number of Protected Data Stores not encrypted
+
+
 ## Risk tolerance indicators
 
 Cloud platforms provide a baseline set of features that enable small deployment teams to configure basic security settings without extensive additional planning. As a result, small Dev/Test or experimental first workloads that do not include sensitive data represent a relatively low level of risk, and will likely not need much in the way of formal security management policy. However, as soon as important data or mission-critical functionality is moved to the cloud, security risks increase, while tolerance for those risks diminishes rapidly. As more of your data and functionality is deployed to the cloud, the more likely you need an increased investment in the Security Management discipline.

@@ -69,17 +69,17 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/protected-data/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/production-workload/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/protected-data.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/production-workload.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Protected data</h3>
+                        <h3>Production Workload</h3>
                         <p>Some solutions are dependent upon protected data, such as customer information and business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
                     </div>
                 </div>
