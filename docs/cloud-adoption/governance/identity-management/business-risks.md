@@ -11,7 +11,7 @@ This article discusses the reasons that customers typically adopt an identity ma
 
 ## Is identity management relevant?
 
-Identity is increasingly considered the primary security perimeter in the cloud. This is a shift from the traditional
+Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional
 focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing user authentication and securing user access to cloud-based resources.
 
 Traditional on-premises directories are designed to allow businesses to strictly control permissions and policies for users, groups, and roles within their internal networks and datacenters. This is usually intended to support single tenant implementations, with services applicable only within the on-premises environment.
@@ -27,7 +27,7 @@ The identity management discipline attempts to address the following business ri
 - **Unauthorized access**. Sensitive data and resources that can be accessed by unauthorized users can lead to data leaks or service disruptions, violating your organization's security perimeter and risking business or legal liabilities.
 - **Multiple identity solutions**. Organizations with multiple identity services tenants can lead to multiple accounts for users. This can lead to inefficiency for users who need to remember multiple sets of credentials and for IT in managing accounts across multiple systems.
 - **Inability to share resources with external partners**. Difficulty adding external business partners to your existing identity solutions can prevent efficient resource sharing and business communication.
-- **Difficulty reflecting business change**. If user access assignments are not updated as staff, teams, and business goals change, your cloud resources may be vulnerable to unauthorized access or users unable to access required resources. 
+- **Difficulty reflecting business change**. If user access assignments are not updated as staff, teams, and business goals change, your cloud resources may be vulnerable to unauthorized access or users unable to access required resources.
 
 ## Next steps
 
