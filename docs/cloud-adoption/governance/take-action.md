@@ -126,17 +126,17 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-enforcement/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/enterprise-guardrails/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-enforcement.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/enterprise-guardrails.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise enforcement</h3>
+                        <h3>Enterprise Guardrails</h3>
                         <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of virtual machines (VMs), automated policy enforcement is required.</p>
                     </div>
                 </div>

@@ -100,17 +100,17 @@ Each design guide is based on an accompanying Use Case and Corporate Policy. Wit
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./enterprise-enforcement/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./enterprise-guardrails/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/enterprise-enforcement.png" class="x-hidden-focus"/>
+                            <img src="../../_images/governance/enterprise-guardrails.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise Enforcement</h3>
+                        <h3>Enterprise Guardrails</h3>
                         <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of VMs, automated policy enforcement is required.</p>
                     </div>
                 </div>

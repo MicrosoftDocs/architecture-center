@@ -634,11 +634,11 @@
       - name: Enterprise Enforcement
         items:
         - name: XXXX - Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-enforcement/design-guide.md
+          href: cloud-adoption/governance/design-guides/enterprise-guardrails/design-guide.md
         - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/enterprise-enforcement/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/enterprise-guardrails/corporate-policy.md
         - name: XXXX - Use Case
-          href: cloud-adoption/governance/design-guides/enterprise-enforcement/use-case.md
+          href: cloud-adoption/governance/design-guides/enterprise-guardrails/use-case.md
       - name: Multi-Cloud Governance
         items:
         - name: Governance Design Templates
