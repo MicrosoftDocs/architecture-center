@@ -7,7 +7,7 @@ ms.date: 12/17/2018
 
 # Fusion: Corporate Policies behind the Production Workload Governance Design Guide
 
-This article outlines the corporate policies which drive the [Production Workload - Governance Design Guide](./design-guide.md). The design guide establishes a governance position for enterprises that have already built a strong foundation in Azure. The company has begun deploying production workloads onto that foundation. Those workloads support mission critical business processes and host protected data. As such, the business can now justify investing time and energy in cloud governance. That investment is defined by the corporate policies outlined in this article. These policies are dependent upon the business scenario described in the [Production Workload - Use Case](./use-case.md).
+This article outlines the corporate policies which drive the [Production Workload - Governance Design Guide](./design-guide.md). The design guide establishes a governance position for enterprises that have already built a strong foundation in Azure. The company in this use is preparing to deploy production workloads onto that foundation. Those workloads support mission critical business processes and host protected data. As such, the business can now justify investing time and energy in cloud governance. That investment is defined by the corporate policies outlined in this article. These policies are dependent upon the business scenario described in the [Production Workload - Use Case](./use-case.md).
 
 ## Required understanding
 
@@ -54,6 +54,7 @@ While the changes in the use case from Future Proof to Production Workloads are 
 * There is a risk of external intrusion or denial of service attacks causing a business interruption
 * There is a risk of organization or employment changes allowing for unauthorized access to protected data
 * There is a risk of new exploits producing intrusion or access opportunities
+* The cyber security team insists there is a risk of vendor lock-in generating encryption keys on a single cloud provider's platform. *While this claim is unsubstantiated, it was accepted by the team for the time being.*
 
 **Resource Management**:
 
@@ -101,7 +102,8 @@ The following policy statements establish requirements to mitigate the defined r
 **Security Management**:
 
 * All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance Team and the application owner prior to deployment to the cloud
-* All protected data must be stored on encrypted disks when at rest
+* All protected data must be encrypted when at rest
+* Encryption keys are to be generated on-prem
 * Elevated permissions in those subscriptions are an exception. Any such exceptions will be recorded with the Cloud Governance Team. Such exceptions will be audited regularly
 * Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets is to be audited regularly
 * No subnet containing protected data can be directly accessed over public internet or across data centers. Access to those subnets must be routed through intermediate subnet works. All access into those subnets must come through a firewall solution capable of performing packet scanning and blocking functions
