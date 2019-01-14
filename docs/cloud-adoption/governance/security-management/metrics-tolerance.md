@@ -14,20 +14,16 @@ This article is intended to help you quantify business risk tolerance as it rela
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
 
 - **Data classification**. Number of cloud-stored data and services that are unclassified according to on your organization's privacy, compliance, or business impact standards.
+* **Number of sensitive data stores** - Number of storage end points or databases that contain sensitive data and should be protected.
+* **Number of un-encrypted data stores** - Number of sensitive data stores that are not encrypted.
 - **Attack surface**. How many total data sources, services, and applications will be cloud-hosted. What percentage of these data sources are classified as sensitive? What percentage of these applications and services are mission critical?
+- **Covered Standards**. Number of security standards defined by the Security team.
+- **Covered Resources**. Deployed assets that are covered by security standards.
+- **Overall Compliance**. Ratio of compliance adherence to security standards.
 - **Attacks by Severity**. How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of these attacks?
 - **Malware protection**. Percentage of deployed virtual machines(VMs) that have all required anti-malware, firewall, or other security software installed.
 - **Patch latency**. How long has it been since VMs have had OS and software patches applied.
-
-Metrics to think about from Security Center:
-
-* Covered Standards - Number of security standards defined by the Security team
-* Overall Compliance - Ratio of compliance adherence to security standards
-* Covered Resources - Deployed assets that are covered by the standards
-* Recommendations by Severity - Number of recommendations to resolve health standards for deployed assets by severity
-* Number of Protected Data Stores - Number of storage end points or databases that should be encrypted
-* Number of Un-encrypted Data Stores - Number of Protected Data Stores not encrypted
-
+- **Security health recommendations by severity**. Number of security software recommendations for resolving health standards for deployed resources, organized by severity.
 
 ## Risk tolerance indicators
 
@@ -37,13 +33,14 @@ In the early stages of cloud adoption, work with your business to identify [busi
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how security metrics, such as those discussed above, can justify an increased investment in the security management discipline.
 
-- **Sensitive data**. A company hosting data on the cloud that can be classified as confidential, private, or otherwise subject to regulatory concerns. They need a security management discipline to ensure that this data is not subject to loss, exposure, or theft.
-- **Cloud estate size**. A company hosting more than X number of applications, services, or data sources. Large cloud deployments require the security management discipline to ensure that their overall attack surface is properly protected against unauthorized access or other external threats.
-- **Mission critical workloads**. A company deploying mission critical workloads to the cloud should invest in the security management discipline to prevent potential disruption of service or sensitive data exposure.
-- **External attacks**. A company that experiences serious attacks against their network infrastructure X times per month could benefit from the security management discipline.  
-- **Security software compliance**. A company that has required security software installed on less than X% of deployed virtual machines. A security management discipline can be used to ensure software is installed consistently on all software.
-- **Patching**. A company where deployed virtual machines or services where OS or software patches have not been applied in the last X number of days. A security management discipline can be used to ensure patching is kept up-to-date within a required schedule.
-- **Security focused**. Some companies will have strong security and data confidentiality requirements even for test and experimental workloads. These companies will need to invest in the security management discipline before any deployments can begin.
+- **Sensitive data trigger**. A company hosting data on the cloud that can be classified as confidential, private, or otherwise subject to regulatory concerns. They need a Security Management discipline to ensure that this data is not subject to loss, exposure, or theft.
+- **Standards compliance trigger**. A company with more than X% of resource out of security standards compliance should invest in the Security Management discipline to ensure standards are applied consistently across your IT infrastructure.
+- **Cloud estate size trigger**. A company hosting more than X number of applications, services, or data sources. Large cloud deployments can benefit from investment in the Security Management discipline to ensure that their overall attack surface is properly protected against unauthorized access or other external threats.
+- **Mission critical workloads trigger**. A company deploying mission critical workloads to the cloud should invest in the Security Management discipline to prevent potential disruption of service or sensitive data exposure.
+- **External attacks trigger**. A company that experiences serious attacks against their network infrastructure X times per month could benefit from the Security Management discipline.  
+- **Security software compliance trigger**. A company where less than X% of deployed virtual machines have all required security software installed. A Security Management discipline can be used to ensure software is installed consistently on all software.
+- **Patching trigger**. A company where deployed virtual machines or services where OS or software patches have not been applied in the last X number of days. A Security Management discipline can be used to ensure patching is kept up-to-date within a required schedule.
+- **Security focused**. Some companies will have strong security and data confidentiality requirements even for test and experimental workloads. These companies will need to invest in the Security Management discipline before any deployments can begin.
 
 
 ## Next steps
