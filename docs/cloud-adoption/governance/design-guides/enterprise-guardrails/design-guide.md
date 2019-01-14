@@ -26,7 +26,7 @@ This design guide is an opinionated approach to implement the needs outlined in 
 > [!CAUTION]
 > This article contains a highly opinionated design guide. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand the Use Case and Corporate Policy which influenced the guidance in this document.
 
-## Checklist for the Enterprise Guardrails Design Guide
+## Checklist for the Enterprise Guardrail Design Guide
 
 The following outlines the implementation choices included in this design guide.
 
