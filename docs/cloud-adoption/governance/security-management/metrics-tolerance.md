@@ -54,4 +54,4 @@ Using the [Cloud Management template](./template.md), document metrics and toler
 Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./processes.md)
+> [Establish Policy Adherence Processes](./processes.md)
