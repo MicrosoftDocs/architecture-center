@@ -10,13 +10,14 @@ At a high level, a conversational bot can be divided into the bot functionality 
 
 ![Logical diagram of bot functionality](./_images/conversational-bot-logical.png)
 
-Let's start by looking at a reference architecture for a production-ready enterprise bot by exploring user and system data flow and services used in each subcomponent of the design. The services shown below are indicative of those used by most bots, but you may end up using more or needing services to suit the needs of each of the solution sub-components shown in the diagram below. In a following section we will have a more extensive list of the data and AI services that can be brought to bear.
-
 Before getting into the specifics of this architecture, let's start with the data flow through each subcomponent of the design. The data flow includes user-initiated and system-initiated data flows.
 
 ### User message flow
 
 **Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communciation channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel.
+
+- Azure Active Directory (AAD) – User identity platform used across a wide array of services.
+- KeyVault - Secure key management service for storing and managing keys and secrets.
 
 **Authorization**. The user's identity is used to provide role-based access control, as well as to serve personalized content to the user.
 
@@ -39,6 +40,14 @@ The conversation logs captured by the bot as part of user interactions (anonymiz
 Bot functionality is tested using a suite of tests collected from the bot using a convenience utility called the [Bot Middleware Testing Package](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) available as open source code. This package records all responses from external HTTP services, such as Azure Search, QnA Maker, etc. so that they can be played back during unit testing without needing to make real network calls to external services.
 
 ## Services used
+
+The services shown below are indicative of those used by most bots, but you may end up using more or needing services to suit the needs of each of the solution sub-components shown in the diagram below.
+
+### Bot logic and user experience
+
+- Channel. A channel is a connection between the bot and communication apps such as Cortana, Facebook Messenger, or Slack.
+- Bot Framework Service - connects your bot to these channels and facilitates communication between your bot and the user
+- Azure WebApp - Web application hosting service supporting auto scaling, load balancing, high availability, and continuous deployment from GitHub and Azure DevOps. Used in this architecture to host the Bot application and logic.
 
 ### Bot cognition and intelligence
 
@@ -68,7 +77,7 @@ Bot functionality is tested using a suite of tests collected from the bot using 
 - KeyVault - Secure key management service for storing and managing keys and secrets.
 
 - Azure DevOps - Project development service supporting source control, continuous build/test integration and deployment (CICD), and project planning and management.
-- Azure WebApp - Web application hosting service supporting auto scaling, load balancing, high availability, and continuous deployment from GitHub and Azure DevOps. Used in this architecture to host the Bot application and logic.
+
 
 ## Building Your Bot
 
