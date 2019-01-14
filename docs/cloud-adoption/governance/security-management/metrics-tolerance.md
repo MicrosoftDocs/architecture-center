@@ -15,7 +15,7 @@ Security management generally focuses on identifying potential vulnerabilities i
 
 - **Data classification**. Number of cloud-stored data and services that are unclassified according to on your organization's privacy, compliance, or business impact standards.
 - **Attack surface**. How many total data sources, services, and applications will be cloud-hosted. What percentage of these data sources are classified as sensitive? What percentage of these applications and services are mission critical?
-- **Network attacks**. How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of the attacks?
+- **Attacks by Severity**. How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of these attacks?
 - **Malware protection**. Percentage of deployed virtual machines(VMs) that have all required anti-malware, firewall, or other security software installed.
 - **Patch latency**. How long has it been since VMs have had OS and software patches applied.
 
@@ -25,7 +25,6 @@ Metrics to think about from Security Center:
 * Overall Compliance - Ratio of compliance adherence to security standards
 * Covered Resources - Deployed assets that are covered by the standards
 * Recommendations by Severity - Number of recommendations to resolve health standards for deployed assets by severity
-* Attacks by Severity - Number of attacks on deployed assets by severity of attack alert
 * Number of Protected Data Stores - Number of storage end points or databases that should be encrypted
 * Number of Un-encrypted Data Stores - Number of Protected Data Stores not encrypted
 
