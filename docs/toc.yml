@@ -725,41 +725,17 @@
       href: cloud-adoption/infrastructure/overview.md
       items:
     - name: Subscriptions
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/subscriptions/overview.md
-      - name: VDC Subscriptions
-        href: cloud-adoption/infrastructure/subscriptions/vdc-subscriptions.md
+      href: cloud-adoption/infrastructure/subscriptions/overview.md
     - name: Identity
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/identity/overview.md
-      - name: VDC Identity & Roles
-        href: cloud-adoption/infrastructure/identity/vdc-identity.md
+      href: cloud-adoption/infrastructure/identity/overview.md
     - name: Policy Enforcement
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/policy-enforcement/overview.md
-      - name: VDC Policy Enforcement
-        href: cloud-adoption/infrastructure/policy-enforcement/vdc-policy-enforcement.md
+      href: cloud-adoption/infrastructure/policy-enforcement/overview.md
     - name: Resource Grouping
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/resource-grouping/overview.md
-      - name: VDC Resource Grouping
-        href: cloud-adoption/infrastructure/resource-grouping/vdc-resource-grouping.md
+      href: cloud-adoption/infrastructure/resource-grouping/overview.md
     - name: Resource Tagging
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/resource-tagging/overview.md
-      - name: VDC Naming and Tagging Standards
-        href: cloud-adoption/infrastructure/resource-tagging/vdc-naming.md
+      href: cloud-adoption/infrastructure/resource-tagging/overview.md
     - name: Encryption
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/encryption/overview.md
-      - name: VDC Encryption
-        href: cloud-adoption/infrastructure/encryption/vdc-encryption.md
+      href: cloud-adoption/infrastructure/encryption/overview.md
     - name: Software Defined Networks
       items:
       - name: Overview
@@ -770,14 +746,10 @@
         href: cloud-adoption/infrastructure/software-defined-networks/cloud-native.md
       - name: Hybrid
         href: cloud-adoption/infrastructure/software-defined-networks/hybrid.md
-      - name: VDC Networking
+      - name: Hub Spoke Model
         href: cloud-adoption/infrastructure/software-defined-networks/vdc-networking.md
     - name: Logs & Reporting
-      items:
-      - name: Overview
-        href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
-      - name: VDC Reporting and Monitoring
-        href: cloud-adoption/infrastructure/logs-and-reporting/vdc-monitoring.md
+      href: cloud-adoption/infrastructure/logs-and-reporting/overview.md
   - name: Infrastructure
     items:
     - name: Virtual Machines
