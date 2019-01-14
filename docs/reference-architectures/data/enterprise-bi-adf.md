@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Automate an extract, load, and transform (ELT) workflow in Azure using Azure Data Factory with SQL Data Warehouse.
 author: MikeWasson
 ms.date: 11/06/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

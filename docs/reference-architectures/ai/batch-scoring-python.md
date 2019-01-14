@@ -3,7 +3,10 @@ title: Batch scoring of Python models on Azure
 description:  Build a scalable solution for batch scoring models on a schedule in parallel using Azure Batch AI.
 author: njray
 ms.date: 12/13/2018
-ms.custom: azcat-ai
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: azcat-ai, AI
 ---
 
 # Batch scoring of Python models on Azure

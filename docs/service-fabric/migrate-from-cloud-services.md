@@ -3,6 +3,9 @@ title: Migrate an Azure Cloud Services application to Azure Service Fabric
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
 author: MikeWasson
 ms.date: 04/11/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 # Migrate an Azure Cloud Services application to Azure Service Fabric 
 

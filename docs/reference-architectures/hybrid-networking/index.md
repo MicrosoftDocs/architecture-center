@@ -4,6 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Compare reference architectures for connecting an on-premises network to Azure.
 author: telmosampaio
 ms.date: 07/02/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: networking
 ---
 
 # Choose a solution for connecting an on-premises network to Azure

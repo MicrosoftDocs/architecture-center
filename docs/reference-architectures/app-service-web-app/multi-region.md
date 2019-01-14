@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a highly available web application running in multiple regions in Azure.
 author: MikeWasson
 ms.date: 10/25/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

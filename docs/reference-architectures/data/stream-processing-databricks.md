@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Create an end-to-end stream processing pipeline in Azure using Azure Databricks.
 author: petertaylor9999
 ms.date: 11/30/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

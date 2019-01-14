@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Best practices for running a Windows virtual machine on Azure.
 author: telmosampaio
 ms.date: 12/13/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Run a Windows virtual machine on Azure
