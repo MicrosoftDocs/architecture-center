@@ -583,88 +583,66 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Incremental Cloud Governance Model
-      href: cloud-adoption/governance/incremental-cloud-governance.md
-    - name: XXXX - How to Develop Corporate Policy & Compliance
-      href: cloud-adoption/governance/develop-corporate-policy-and-compliance.md
-    - name: XXXX - Understanding the Five Disciplines
-      href: cloud-adoption/governance/understand-the-five-disciplines-of-cloud-governance.md
-    - name: XXXX - Choosing A Design Template
-      href: cloud-adoption/governance/choose-a-design-template.md
-    - name: XXXX - Modifying A Design Template
-      href: cloud-adoption/governance/modify-a-design-template.md
-    - name: XXXX - Take Action
-      href: cloud-adoption/governance/take-action.md
-    - name: Azure Design Templates
+    - name: Actionable Governance Journeys
       items:
       - name: Overview
         href: cloud-adoption/governance/design-guides/overview.md
-      - name: Future Proof
+      - name: Choosing the best design template
+        href: cloud-adoption/governance/design-guides/overview.md
+      - name: Small to Medium Enterprise
         items:
-        - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/future-proof/design-guide.md
+        - name: Narrative
+          href: cloud-adoption/governance/design-guides/future-proof/use-case.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/future-proof/corporate-policy.md
-        - name: Use Case
-          href: cloud-adoption/governance/design-guides/future-proof/use-case.md
-      - name: Production Workloads
+        - name: Governance MVP (Adoption Foundation)
+          href: cloud-adoption/governance/design-guides/future-proof/governance-mvp.md
+        - name: Governance Evolution (Cost Controls)
+          href: cloud-adoption/governance/design-guides/future-proof/cost-control.md
+        - name: Governance Evolution (Protected Data)
+          href: cloud-adoption/governance/design-guides/future-proof/protected-data.md
+        - name: Governance Evolution (Mision Critical Apps)
+          href: cloud-adoption/governance/design-guides/future-proof/mission-critical.md
+        - name: Governance Evolution (Multi-cloud)
+          href: cloud-adoption/governance/design-guides/future-proof/multi-cloud.md
+      - name: Large Enterprise
         items:
-        - name: XXXX - Governance Design Templates
-          href: cloud-adoption/governance/design-guides/production-workload/design-guide.md
-        - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/production-workload/corporate-policy.md
-        - name: XXXX - Use Case
-          href: cloud-adoption/governance/design-guides/production-workload/use-case.md
-      - name: Enterprise MVP
-        items:
-        - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/design-guide.md
+        - name: Narrative
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
-        - name: Use Case
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
-      - name: Enterprise @ Scale
-        items:
-        - name: XXXX - Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-scale/design-guide.md
-        - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/enterprise-scale/corporate-policy.md
-        - name: XXXX - Use Case
-          href: cloud-adoption/governance/design-guides/enterprise-scale/use-case.md
-      - name: Enterprise Enforcement
-        items:
-        - name: XXXX - Governance Design Templates
-          href: cloud-adoption/governance/design-guides/enterprise-guardrails/design-guide.md
-        - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/enterprise-guardrails/corporate-policy.md
-        - name: XXXX - Use Case
-          href: cloud-adoption/governance/design-guides/enterprise-guardrails/use-case.md
-      - name: Multi-Cloud Governance
-        items:
-        - name: Governance Design Templates
-          href: cloud-adoption/governance/design-guides/multi-cloud/design-guide.md
-    - name: Modifying Azure Design Templates
+        - name: Governance MVP (Adoption Foundation)
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/governance-mvp.md
+        - name: Governance Evolution (Cost Controls)
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/cost-control.md
+        - name: Governance Evolution (Protected Data)
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/protected-data.md
+        - name: Governance Evolution (Mision Critical Apps)
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/mission-critical.md
+        - name: Governance Evolution (Multi-cloud)
+          href: cloud-adoption/governance/design-guides/enterprise-mvp/multi-cloud.md
+    - name: Evolving Corporate Policy & Compliance
       items:
-      - name: Developing Governance Policies
-        items:
-          - name: Understand business risks
-            href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
-          - name: Evaluate risk tolerance
-            href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
-          - name: Define corporate policy statements
-            href: cloud-adoption/governance/policy-compliance/define-policy.md
-          - name: Align architecture design guides
-            href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
-          - name: Develop policy adherence processes
-            href: cloud-adoption/governance/policy-compliance/processes.md
-          - name: What is Regulatory Compliance?
-            href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-          - name: What is a Cloud Policy Review?
-            href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
-          - name: How can a CISO prepare for the cloud?
-            href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
-          - name: What is Data Governance?
-            href: cloud-adoption/governance/what-is-data-governance.md
+        - name: Understand business risks
+          href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
+        - name: Evaluate risk tolerance
+          href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
+        - name: Define corporate policy statements
+          href: cloud-adoption/governance/policy-compliance/define-policy.md
+        - name: Align architecture design guides
+          href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
+        - name: Develop policy adherence processes
+          href: cloud-adoption/governance/policy-compliance/processes.md
+        - name: What is Regulatory Compliance?
+          href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
+        - name: What is a Cloud Policy Review?
+          href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
+        - name: How can a CISO prepare for the cloud?
+          href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+        - name: What is Data Governance?
+          href: cloud-adoption/governance/what-is-data-governance.md
+    - name: Implementing the Five Disciplines of Cloud Governance
+      items:
       - name: Cost Management
         items:
           - name: Adopting a Cost Management Discipline
