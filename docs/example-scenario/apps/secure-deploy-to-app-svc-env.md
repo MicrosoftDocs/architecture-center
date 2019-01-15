@@ -64,9 +64,10 @@ While provisioning the ASE consider the following limitations when choosing a do
 * net
 * azurewebsites.net
 * p.azurewebsites.net
-* nameofyourase.pazurewebsites.net
- Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
-*  <span></span>www.contoso.com
+* nameofthease.p.azurewebsites.net
+
+Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
+* w<span>ww.</span>contoso.com
 * abcd.def.contoso.com
 * abcd.contoso.com
 
