@@ -110,7 +110,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase/
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
 
-[architecture]: ./media/ilb-ase-architecture.png
+[architecture]: ./media/ilb-ase-with-architecture.png
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
@@ -136,7 +136,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-networking]: /azure/networking/networking-overview
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
-
 
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
