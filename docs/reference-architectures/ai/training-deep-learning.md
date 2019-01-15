@@ -46,7 +46,7 @@ The steps for training are:
 
 This architecture consists of the following components.
 
-[Azure Batch AI][batch-ai] plays the central role in this architecture by scaling resources up and down according to need. Batch AI is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources, handle failures, and create appropriate storage. It supports GPU-enabled VMs for deep learning workloads. A Python SDK and a command-line interface (CLI) are available for Batch AI.
+**[Azure Batch AI][batch-ai]** plays the central role in this architecture by scaling resources up and down according to need. Batch AI is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources, handle failures, and create appropriate storage. It supports GPU-enabled VMs for deep learning workloads. A Python SDK and a command-line interface (CLI) are available for Batch AI.
 
 > [!NOTE]
 > The Azure Batch AI service is retiring March 2019, and its at-scale training and scoring capabilities are now available in [Azure Machine Learning Service][amls]. This reference architecture will be updated soon to use Machine Learning, which offers a managed compute target called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
