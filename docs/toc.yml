@@ -416,7 +416,7 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
-    - name: Internet of Things
+    - name: Internet of Things (IoT)
       href: reference-architectures/iot/index.md
 
     - name: Network DMZ
