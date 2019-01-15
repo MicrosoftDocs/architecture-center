@@ -14,16 +14,16 @@ This article is intended to help you quantify business risk tolerance as it rela
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
 
 - **Data classification**. Number of cloud-stored data and services that are unclassified according to on your organization's privacy, compliance, or business impact standards.
-* **Number of sensitive data stores** - Number of storage end points or databases that contain sensitive data and should be protected.
-* **Number of un-encrypted data stores** - Number of sensitive data stores that are not encrypted.
+- **Number of sensitive data stores** - Number of storage end points or databases that contain sensitive data and should be protected.
+- **Number of un-encrypted data stores** - Number of sensitive data stores that are not encrypted.
 - **Attack surface**. How many total data sources, services, and applications will be cloud-hosted. What percentage of these data sources are classified as sensitive? What percentage of these applications and services are mission critical?
 - **Covered Standards**. Number of security standards defined by the Security team.
 - **Covered Resources**. Deployed assets that are covered by security standards.
-- **Overall Compliance**. Ratio of compliance adherence to security standards.
+- **Overall Standards Compliance**. Ratio of compliance adherence to security standards.
 - **Attacks by Severity**. How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of these attacks?
 - **Malware protection**. Percentage of deployed virtual machines(VMs) that have all required anti-malware, firewall, or other security software installed.
 - **Patch latency**. How long has it been since VMs have had OS and software patches applied.
-- **Security health recommendations by severity**. Number of security software recommendations for resolving health standards for deployed resources, organized by severity.
+- **Security health recommendations**. Number of security software recommendations for resolving health standards for deployed resources, organized by severity.
 
 ## Risk tolerance indicators
 
