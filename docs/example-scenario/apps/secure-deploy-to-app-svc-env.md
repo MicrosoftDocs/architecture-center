@@ -8,7 +8,8 @@ Consider this scenario for the following use cases:
 
 * Building an Azure Web App where customer has additional security requirements to have additional layer of deployment protection behind 
 an Azure VNET
-* Customers desire a deployment to a dedicated tier, rather than be in a shared tier App Service Plans
+* Customers desire a deployment to a dedicated tenant, rather than be in shared tenant App Service Plans
+* Utilize Azure DevOps capabilities with the ILB ASE deployed inside a VNET
 
 ## Architecture
 
@@ -58,6 +59,18 @@ Based on that, it issues a certificate that is signed up to a trusted root, whic
 Make self-signed or internally issued SSL cert work if we want to make secure calls between services running in ILB ASE
 Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
 
+While provisioning the ASE consider the following limitations when choosing a domain name for the ASE. Domain Names cannot be:
+* net
+* azurewebsites.net
+* p.azurewebsites.net
+* <asename>.pazurewebsites.net
+ Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
+* www.contoso.com
+* abcd.def.contoso.com
+* abcd.contoso.com
+
+Choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
+
 ### Availability
 
 * Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
@@ -66,6 +79,8 @@ Another [solution to consider][ase-and-internally-issued-cert] on how to make IL
 
 ### Scalability
 
+* Understand how [scale works][docs-azure-scale-ase] in ASE
+* Best Practices for [cloud apps auto scale][design-best-practice-cloud-apps-autoscale]
 * When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
 * Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
 * For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
@@ -122,6 +137,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [design-patterns-scalability]: /azure/architecture/patterns/category/performance-scalability
 [design-patterns-security]: /azure/architecture/patterns/category/security
 [design-geo-distributed-ase]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
+[design-best-practice-cloud-apps-autoscale]: /azure/architecture/best-practices/auto-scaling
 
 [docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
 
@@ -136,6 +152,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-networking]: /azure/networking/networking-overview
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
+[docs-azure-scale-ase]: /azure/app-service/environment/intro
 
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
